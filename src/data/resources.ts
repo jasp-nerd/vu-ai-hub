@@ -372,5 +372,67 @@ export const resources: Resource[] = [
         type: 'tool',
         tags: ['timetable', 'calendar', 'first-week'],
     },
+
+    // ========== Introduction to AI ==========
+    {
+        id: 'res-iai-1',
+        courseId: 'intro-ai',
+        title: 'Google Drive — Shared Textbooks & Course PDFs',
+        description:
+            'Community-shared Google Drive with textbook PDFs for multiple Year 1 courses including Intro to AI, Intro to Psychology, and Computational Thinking. Shared repeatedly in the class WhatsApp group.',
+        url: 'https://drive.google.com/drive/u/0/folders/1o9-Had36ZXAC1tgpb6piJ9K6bFQXNi0o',
+        type: 'article',
+        tags: ['textbooks', 'pdfs', 'shared'],
+    },
+    {
+        id: 'res-iai-2',
+        courseId: 'intro-ai',
+        title: 'VU Brunet — Old Exam Database',
+        description:
+            'The go-to resource for past exams at VU Amsterdam. Search by course code or name to find previous years\' exams. Essential for exam preparation — many students consider this the single most useful study resource.',
+        url: 'https://vu.brunet.app',
+        type: 'tool',
+        tags: ['exams', 'past-papers', 'study'],
+    },
+    {
+        id: 'res-iai-3',
+        courseId: 'intro-ai',
+        title: 'CS Hub Notion — Community Study Notes',
+        description:
+            'Community-maintained Notion page with study notes, summaries, and resources for courses shared between AI and Computer Science programmes at VU Amsterdam.',
+        url: 'https://cs-hub.notion.site/?p=d4a13661d0314b3fb7fcf38005579331&pm=c',
+        type: 'article',
+        tags: ['notes', 'summaries', 'community'],
+    },
+    {
+        id: 'res-iai-4',
+        courseId: 'intro-ai',
+        title: 'VU Mentor Program GitHub — Free Study Materials',
+        description:
+            'Official VU Mentor Program repository with free summaries, study notes, and exam prep materials from previous years. They also organize free in-person exam prep sessions with snacks.',
+        url: 'https://github.com/VU-Mentor-Program',
+        type: 'tool',
+        tags: ['summaries', 'exam-prep', 'free'],
+    },
+    {
+        id: 'res-iai-5',
+        courseId: 'intro-ai',
+        title: 'Studley.ai — AI-Powered Flashcard Generator',
+        description:
+            'Free tool to generate flashcards, mock quizzes, and practice tests from your lecture summaries. Import your Intro to AI lecture notes and let it create study materials automatically.',
+        url: 'https://studley.ai',
+        type: 'tool',
+        tags: ['flashcards', 'study-tool', 'ai'],
+    },
+    {
+        id: 'res-iai-6',
+        courseId: 'intro-ai',
+        title: 'VU Taalcentrum — English Language Test Info',
+        description:
+            'Official information about the VU English Language Test, including test format, preparation tips, and what to do if you miss your timeslot. Essential for first-year students.',
+        url: 'https://www.taalloket.nl/en/taaltoets-vu/over-de-taaltoets',
+        type: 'article',
+        tags: ['english-test', 'first-year', 'official'],
+    },
 ];
 

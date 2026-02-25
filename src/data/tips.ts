@@ -603,4 +603,78 @@ export const tips: CourseTip[] = [
       'Public transport strikes and weather disruptions happen often in the Netherlands. Download the 9292 app (Dutch transit planner) and check it before heading to campus, especially during exam periods. If trains are cancelled, metros and trams within Amsterdam usually still run. Always screenshot cancellations as evidence if you miss an exam.',
     author: 'AI @ VU Class of 2028',
   },
+
+  // --- Introduction to AI (from chat + course materials) ---
+  {
+    id: 'tip-iai-6',
+    courseId: 'intro-ai',
+    content:
+      'The Intro to AI project is HYPOTHETICAL — you do NOT build a real AI system. You propose a research question, explain how you would solve it using AI concepts from the lectures, and present it in a poster and final report (~12 pages). Think of it as a theoretical research proposal, not a coding assignment.',
+    author: 'AI @ VU Class of 2028',
+  },
+  {
+    id: 'tip-iai-7',
+    courseId: 'intro-ai',
+    content:
+      'For the weekly group assignments in Intro to AI: only ONE person from your group needs to submit on Canvas. Make sure you agree in advance who submits to avoid last-minute confusion. All weekly assignments build toward your final group report, so keep them organized.',
+    author: 'AI @ VU Class of 2028',
+  },
+  {
+    id: 'tip-iai-8',
+    courseId: 'intro-ai',
+    content:
+      'The literature assignment for Intro to AI is 1–3 pages (EXCLUDING the reference page). The final report is ~12 pages including everything. Don\'t confuse the two — many students panic thinking the first assignment is 12 pages long. Reference pages never count toward the page limit.',
+    author: 'AI @ VU Class of 2028',
+  },
+  {
+    id: 'tip-iai-9',
+    courseId: 'intro-ai',
+    content:
+      'Intro to AI lecture slides can be found on Canvas → Files (organized by week) or Canvas → Modules. Workgroup slides are published on Thursdays each week, or ask your TA on Slack. Not all lectures are recorded — if it\'s not mentioned on Canvas or in the lecture, assume it isn\'t recorded.',
+    author: 'AI @ VU Class of 2028',
+  },
+  {
+    id: 'tip-iai-10',
+    courseId: 'intro-ai',
+    content:
+      'The Intro to AI course covers a broad range of AI subfields through guest lectures: machine learning, knowledge representation, hybrid intelligence, ethics & philosophy of mind, embodied/evolving intelligence, verification & validation, and data wrangling. Focus on understanding the big picture from each guest lecture — the exam tests breadth, not depth.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-iai-11',
+    courseId: 'intro-ai',
+    content:
+      'A mock exam for Intro to AI exists and covers the key topics from the lectures. Practice with it before the real exam — the style of multiple-choice questions is very similar. Ask your TA or check Canvas/Files for the mock exam PDF.',
+    author: 'AI @ VU Student',
+  },
+
+  // --- General VU Tips (from chat) ---
+  {
+    id: 'tip-gen-9',
+    courseId: 'intro-ai',
+    content:
+      'Your VU email is critical: it follows the format initials.surname@student.vu.nl (e.g. j.apples@student.vu.nl). Use the SAME password as your Canvas/VU Dashboard. Download the Outlook app immediately — TAs and professors will only respond to emails from your VU address. Emails from Gmail/Hotmail often end up in spam.',
+    author: 'AI @ VU Class of 2028',
+  },
+  {
+    id: 'tip-gen-10',
+    courseId: 'intro-ai',
+    content:
+      'Three must-bookmark study resources: (1) vu.brunet.app — the old exam database with past exams for most courses; (2) the CS Hub Notion page — community-maintained notes and summaries; (3) the VU Mentor Program GitHub (github.com/VU-Mentor-Program) — free summaries and exam prep materials. Between these three, you\'ll find study materials for nearly every course.',
+    author: 'AI @ VU Class of 2028',
+  },
+  {
+    id: 'tip-gen-11',
+    courseId: 'intro-ai',
+    content:
+      'When Canvas and Rooster (the timetable) show different times, ALWAYS trust Rooster — it updates in real-time. Canvas sometimes shows schedule info copied from the previous year. Sync Rooster with your Google Calendar/Outlook using the sync icon at the top-right of your timetable page.',
+    author: 'AI @ VU Class of 2028',
+  },
+  {
+    id: 'tip-gen-12',
+    courseId: 'intro-ai',
+    content:
+      'For the English Language Test: you\'re assigned to exam rooms based on surname ranges (e.g. A–K in one set of rooms, L–Z in another). Check Canvas announcements for your specific room. If you miss the morning slot, there are multiple time blocks throughout the day — call the VU Taalcentrum immediately to see if you can attend a later block.',
+    author: 'AI @ VU Class of 2028',
+  },
 ];
