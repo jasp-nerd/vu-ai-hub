@@ -1,0 +1,471 @@
+<html><head><title>Syllabus - XB_0031</title></head><body><h1>Syllabus</h1><p>Welcome to the course Intelligent Systems. The objective of the course is to make you acquainted with methods and technologies for building Intelligent Systems, in other words, the technological side of Artificial Intelligence.</p>
+<p>In the follow-up of this course, the Project IS in period 3, you will have to build and evaluate the performance of your own intelligent agent, one that can perform "rationally" in a computerized game (the Austrian card game "Schnapsen"). The intelligence of the agents will come from (some of) three concepts, <strong>problem-solving </strong>through a systematic exploration of state-spaces of all options of possible actions and behavior, representation of the <strong>knowledge</strong> of a problem, and <strong>automated learning, </strong>e.g. of winning strategies.</p>
+<p>In this course, we introduce the basic formalisms that are necessary to achieve rationality: uninformed and informed search (concepts such as A*), adversarial search (MinMax with alpha/beta pruning), logical agents and automated reasoning, representation of uncertain and vague information as well as learning (simple Naive Bayes as well as the basic concepts of Neural Networks and Deep Learning).</p>
+<h2>Course Coordinators</h2>
+<p>The course coordinators are going to be Stefan Schlobach, Marin Beijerbacht and Francesca Urgese. For individual, non-content related questions, you can reach us via: <a class="c-link" style="color: rgba(var(--sk_highlight,18,100,163),1); text-decoration: none; font-family: Slack-Lato, Slack-Fractions, appleLogo, sans-serif; font-size: 15px; font-style: normal; text-align: left; text-indent: 0px; white-space: normal; background-color: #ffffff;" href="mailto:intelligentsystems.beta@vu.nl" target="_blank" data-stringify-link="mailto:intelligentsystems.beta@vu.nl" data-sk="tooltip_parent" aria-haspopup="menu">intelligentsystems.beta@vu.nl</a>. Make sure the question has not been answered before.</p>
+<h2>Communication</h2>
+<p>There is a Slack channel to communicate with the TAs, the teachers and among yourselves. It is the same channel we used for Introduction to AI, so most of you should be registered.</p>
+<p>Feel free to use it for every kind of discussions about the course material. Please use the channel only for professional communication and, needless to say, following the VU's code of conduct.&nbsp;</p>
+<p>You can register here:<a class="inline_disabled" title="Link" href="https://join.slack.com/t/introtoai2024/shared_invite/zt-2ssyqvvg4-wQA2iZP~iolS0mVin2K67Q" target="_blank">(link valid for 28 days).</a></p>
+<p>You can ask course related question via <a href="https://introtoai-intsystalk.slack.com/archives/C0635EQ024W">C0635EQ024W</a> on slack. One of the coordinators will respond as soon as possible.</p>
+<p>You can reach us for specific, individual matters via the following email. We will not react/answer questions about the content of the course.</p>
+<h2>Course Overview</h2>
+<p>For those who just want a short management summary, here are the essentials:</p>
+<ul>
+<li>There will be 2 lectures in Week 1 to 7 of the courses (not calendar weeks), no lectures in Week 8 (exam week)</li>
+<li>There will be working groups in weeks 1-7. All of the groups are on Campus.</li>
+<li>There will be 11 practical assignment in week 2-7, for which you get programming support in small groups of students with a TA (online and on-campus). The link for practical sessions can be found here : <a class="inline_disabled" href="https://docs.google.com/spreadsheets/d/12QuOVfesBaIZnBiqbdqhpsOwiocntdIjybEG-KV-i9k/edit#gid=122380888" target="_blank">https://docs.google.com/spreadsheets/d/12QuOVfesBaIZnBiqbdqhpsOwiocntdIjybEG-KV-i9k/edit#gid=122380888</a></li>
+<li>There will be two partial exams on November 22 and December 20.</li>
+</ul>
+<h2>Working groups (for the theoretical material)</h2>
+<p>Please register for working groups via Canvas &gt; <a title="People" href="https://canvas.vu.nl/courses/79293/users" data-course-type="navigation">People &gt; Working Groups</a>. There was an original group registration via the VU systems, but because of technical problems, we cannot use these registrations. We would encourage you to book one of the Wednesday sessions, otherwise, try to stick as much as possible to your original registrations.</p>
+<p>In these work sessions (werkcolleges), the material for the exam is practiced with typical example questions.&nbsp; The exams assume familiarity with these exercises as well.</p>
+<p>It is not compulsory, but highly recommended to join the working groups. As an incentive, you will get a bonus when you have actively participated in at least 6 out of the 7 sessions. More details can be found under Grading.</p>
+<h2>Practicals and Programming support</h2>
+<p>There will be 11 programming exercises in weeks 2-7 of the course. You will have to hand in some documents individually, usually an excerpt from a JuPyter Notebook. See below in the table for details about these assignments.</p>
+<p>You can book time-slots with TAs to help you with the programming. There are 30 minutes slots distributed over the week (some even in the evenings and on the weekends for your convenience). 2 students can register for one 30 minutes slot so that you can discuss problems in small groups and learn from each other's questions. There will be online as well as on-campus sessions for this.</p>
+<p>At the bottom of this page, you will find the assignments, as well as a link to google-sheets where you can book slots with TAs to get individual support.&nbsp;</p>
+<p><strong>Grading of Assignments<br></strong></p>
+<p><span>Make sure to fill in your thought process and explanations for every task, even if you did not manage to solve it correctly. </span><i><span>It is better to submit a partially incorrect assignment on time than to submit a completely correct assignment late.&nbsp;</span></i></p>
+<p><span>If a task asks you to report or explain please make sure to include all relevant details.&nbsp; As a rule of thumb try to write at least more than one sentence for these types of tasks.&nbsp;</span></p>
+<p><strong>Steps for getting help for assignments<br></strong></p>
+<ul>
+<li><strong><i>First: </i></strong><i><span>search in the Slack if the problem has been previously solved</span></i></li>
+<li><strong><i>Second: </i></strong><i><span>Google the error&nbsp;</span></i></li>
+<li><strong><i>Third: </i></strong><i><span>Book a practical slot with a TA in </span></i><a class="external" href="https://docs.google.com/spreadsheets/d/12QuOVfesBaIZnBiqbdqhpsOwiocntdIjybEG-KV-i9k/edit#gid=1236974988" target="_blank"><span><i>this sheet</i></span><span class="external_link_icon" style="display: inline-block; text-indent: initial;" role="presentation"> </span></a></li>
+</ul>
+<p><i><span>Only if you have tried all these options and you still haven't solved your issue</span></i><span>, start a thread in the <strong>#assignment_questions</strong> channel. Be sure to mention all the relevant information - your OS, version of Python, which IDE you are using, what you've tried before, and the </span><strong>full error</strong><span>. If you see an error in the Slack channel that you know how to solve please help out your classmates.</span></p>
+<p><span>Messaging TAs directly is a </span><strong>last resort.</strong><strong> </strong><span>Only do this if you've exhausted all other options or your issue is personal in nature and you do not wish to discuss it publicly. Prioritize email over slack DMs. Keep in mind that most probably you are not getting any response past 18:00 or on weekends.</span></p>
+<p><strong>Practical TAs vs. Working Group TAs</strong></p>
+<p><span>Working group TAs have nothing to do with the practical assignments, please only ask Practical TAs for help with the assignments (the ones in this Slack channel).&nbsp;</span></p>
+<p><span>There has been some confusion about how to use Slack, as many questions get posted here while not many students show up to the practicals. The practical slots should be your main way of asking for help.&nbsp;</span></p>
+<p><strong>If you have not booked a practical slot first, the TA’s will not answer a private email/message</strong><span>.&nbsp;</span></p>
+<p><span>If you have system-specific issues such as installation errors, here are the systems each TA uses:</span></p>
+<ul>
+<li><strong>Windows:</strong><span> Janek, Sena</span></li>
+<li><strong>Mac:</strong><span> Corinna, Janek, Pawel</span></li>
+<li><strong>Linux</strong><span>: Janek, Mihaly</span><strong></strong></li>
+</ul>
+<p><strong>Late Submissions of Assignments and Extensions<br></strong></p>
+<p><span>No extensions will be granted for the assignments, except for specific personal emergencies (see below).</span><strong> Late submissions will result in an immediate fail for the assignment.&nbsp;</strong></p>
+<p><span><strong><span style="text-decoration: underline;">In serious cases such as illness, injury or personal emergencies please reach out to the study advisor.</span> </strong>When they inform us that there are valid reasons, we will consider giving an appropriate extension. <br></span></p>
+<div id="_2646695_1" class="item clearfix">
+<h2 id="anonymous_element_26">Assessment / Grading</h2>
+</div>
+<div class="details">
+<div class="vtbegenerated">
+<p>Your final grade for this course will be based on two factors:&nbsp;</p>
+<ol>
+<li><strong>Individual Exams</strong>
+<ol>
+<li>Partial exam A 22 November 35%&nbsp;</li>
+<li>Partial exam B 20 December 35%</li>
+</ol>
+</li>
+<li><strong>Practical 30% (11 parts in week 2-7, 5% each, pass/fail) <br></strong></li>
+</ol>
+<p>To pass the course, you will need to pass both of the two parts (Exams and Practical).</p>
+<p>You will need to pass at least 7 of the 11 practical assignments. The grade for the practical will be the number of passed assignments. The grade for the practical is determined as follows:</p>
+<ul>
+<li>7 passed gets 6.5 grade</li>
+<li>8 passed gets 7.5 grade</li>
+<li>9 passed gets 8 grade</li>
+<li>10 passed gets 9 grade</li>
+<li>11 passed gets 10 grade</li>
+</ul>
+<p>For each of the partial exams you need at least a grade of 5, and when <strong>averaged</strong> the grade for the two exams has to be a pass-grade (&gt;= 5.5). Failing to satisfy those rules will mean that you <strong>fail</strong> the course.</p>
+<p>If you passed the course, and participated in at least 6 out of 7 Working Groups, an additional 0.3 points will be added to the weighted average of exam results and practical result.</p>
+<p>The final result is then rounded: with the expection of between 5.0 and 6.0, we round to the nearest .5, so 7.2 <strong>points </strong>will be <strong>grade </strong>7, 8.3 <strong>will be grade </strong>8.5, 6.7 a <strong>grade</strong> 6.5 and 9.8 a <strong>grade</strong> 10. Between 50 and 60 <strong>points </strong>we will be round to the clostest natural number. So 5.4 <strong> </strong>is <strong>grade</strong> a 5 (and thus <strong>a </strong>fail), an 5.5 will be <strong>grade </strong>6 (and thus <strong>a </strong>pass). This is in line with the TER of the study program.</p>
+<p>&nbsp;Partial results are valid for 1 year.&nbsp;</p>
+<h3><strong>Literature/Reader</strong></h3>
+<p>The recommended book for the course is Russell/Norwig's "A Modern Introduction to AI". We provide parts of this book for your convenience.</p>
+<p><a class="instructure_file_link instructure_scribd_file" title="reader.pdf" href="https://canvas.vu.nl/courses/79293/files/7952409/download?wrap=1" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/7952409" data-api-returntype="File">Download the reader</a>, a chapter about DPLL and a <a class="instructure_file_link instructure_scribd_file" title="Machine Learning.pdf" href="https://canvas.vu.nl/courses/79293/files/7952394/download?wrap=1" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/7952394" data-api-returntype="File">chapter about Machine Learning</a></p>
+<p>Note that the reader is for personal use only, you may not distribute it to anyone else.</p>
+<p>There is a new textbook: Artificial Intelligence, A Textbook, which seems to be written well, and covers lots of the topics of the course. It should be available on Campus, or when logged in with a VU account at: <a class="inline_disabled" href="https://rd.springer.com/book/10.1007/978-3-030-72357-6" target="_blank">https://rd.springer.com/book/10.1007/978-3-030-72357-6</a></p>
+<p>There is a set of very nice <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/index.htm">lectures from Patrick H. Winston</a> on MIT open courseware about more or less the same material. Check them out, they are beautifully crafted.</p>
+<h2>Preparation</h2>
+<p>You might ask whether there is anything you can do to prepare for the course in the next few days. The answer is yes, there is one thing I really recommend you to do:</p>
+<p style="padding-left: 60px;"><strong>Learn Schnapsen (see next bullet)</strong></p>
+<p>If otherwise, you wanna get ahead of things:</p>
+<ul>
+<li><a class="instructure_file_link instructure_scribd_file" title="reader.pdf" href="https://canvas.vu.nl/courses/79293/files/7952409/download?wrap=1" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/7952409" data-api-returntype="File">read the <span class="instructure_file_holder link_holder">reader</span></a> with some interesting material.</li>
+<li>watch video lectures. There is a lot of nice stuff out there introducing Artificial Intelligence. Watch it. But there is plenty more available, e.g. videos over alphaGO, etc. Nock yourself out.</li>
+<li><a href="https://www.youtube.com/playlist?list=PLTXOchHCGQ1TMY59qT8ZQs164kpby9s-t">There are also videos from a previous (more advanced) version of the course</a>. The content is a bit denser, and parts will be different, but watching the lectures can be good preparation.&nbsp;</li>
+</ul>
+<h2>Schnapsen</h2>
+<p>The only thing that would really be beneficial as a preparation for the course is to learn Schnapsen. <a class="external" href="https://en.wikipedia.org/wiki/Sixty-six_(card_game)" target="_blank">Schnapsen </a>is the Austrian version of the game 66, and if things go well you will write an intelligent agent that plays Schnapsen. Schnapsen is a two-player card game, and we will play the variant for 2 players.</p>
+<p><a class="external" href="http://psellos.com/schnapsen/rules.html" target="_blank">Here</a> is a good explanation of the rules, and <a class="external" href="http://psellos.com/schnapsen/strategy.html" target="_blank">this website</a> gives you some hints on what a good strategy can be (which is important as we want to formalize these kinds of strategies in order to make our agents more intelligent).</p>
+<p>So, get a standard deck of cards, and have fun!</p>
+<p>Towards the end of the course, and during Project IS in Period 3 you will actually work with a <a title="The Schnapsen Platform " href="https://canvas.vu.nl/courses/79293/pages/the-schnapsen-platform" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/the-schnapsen-platform" data-api-returntype="Page">Schnapsen game engine</a>. Feel free to already play around with it.</p>
+<h2 class="page-title">Lectures and Lecture Material</h2>
+<p>Via this table, the slides will be published. Slides might be updated shortly before the lectures. There is a <a href="https://www.youtube.com/playlist?list=PLTXOchHCGQ1Q0CqH_FZi0mNcDmO-xASIx">playlist</a> with video recordings from last year's lectures. But they are of mixed quality, and might be outdates. Physical presence is highly recommended, though.Practical Assignments with Programming Support</p>
+<p>&nbsp;</p>
+<table style="border-collapse: collapse; width: 98.1604%; height: 723px;" border="1">
+<tbody>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 24px; text-align: center;">What?</td>
+<td style="width: 12.7401%; height: 24px; text-align: center;">When?</td>
+<td style="width: 12.2787%; height: 24px; text-align: center;">Prep/Reader</td>
+<td style="width: 9.20002%; height: 24px; text-align: center;">Material</td>
+</tr>
+<tr style="height: 76px;">
+<td style="width: 15.8482%; height: 76px;">
+<p>Lecture 1: Introduction.</p>
+<p>Preliminaries: Discrete Mathematics</p>
+</td>
+<td style="width: 12.7401%; height: 76px;">
+<p>Monday, 28 October</p>
+</td>
+<td style="width: 12.2787%; height: 76px;"></td>
+<td style="width: 9.20002%; height: 76px;">
+<p><a class="inline_disabled" href="https://youtu.be/wtc4IgMolFU" target="_blank">Video Discrete Mathematics 2020</a></p>
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Lecture 1 2024 Intro Intelligent Systems Discrete Mathematics-1.pdf" href="https://canvas.vu.nl/courses/84838/files/9411335?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411335" data-api-returntype="File">Slides with Notes</a></p>
+</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 10px;">
+<p>Lecture&nbsp; 2:&nbsp; Rational Agents. State-Space. Uninformed Search</p>
+</td>
+<td style="width: 12.7401%; height: 10px;">
+<p>Tuesday, 29 October</p>
+</td>
+<td style="width: 12.2787%; height: 10px;">Reader p. 10-18</td>
+<td style="width: 9.20002%; height: 10px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Lecture 2 2024 uninformed search.pdf" href="https://canvas.vu.nl/courses/84838/files/9411333?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411333" data-api-returntype="File">Slides with Notes</a></p>
+</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 24px;">
+<p>Lecture 3: Informed Search</p>
+</td>
+<td style="width: 12.7401%; height: 24px;">Monday, 4 Nov</td>
+<td style="width: 12.2787%; height: 24px;">Reader p. 19-34</td>
+<td style="width: 9.20002%; height: 24px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Lecture 3 informed search-1.pdf" href="https://canvas.vu.nl/courses/84838/files/9411310?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411310" data-api-returntype="File">Slides with Notes</a></p>
+</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 24px;">Lecture 4: Adversarial Search</td>
+<td style="width: 12.7401%; height: 24px;">
+<p>Tuesday 5 Nov</p>
+</td>
+<td style="width: 12.2787%; height: 24px;">Reader p. 35-40</td>
+<td style="width: 9.20002%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Lecture 4 adversarial search-3.pdf" href="https://canvas.vu.nl/courses/84838/files/9411344?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411344" data-api-returntype="File">Slides with Notes</a></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 17px;">Lecture 5: Logical Agents</td>
+<td style="width: 12.7401%; height: 17px;">
+<p>Monday, 11 Nov</p>
+</td>
+<td style="width: 12.2787%; height: 17px;">Reader p.41-49</td>
+<td style="width: 9.20002%; height: 17px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Lecture 5 Logical Reasoning.pdf" href="https://canvas.vu.nl/courses/84838/files/9411650?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411650" data-api-returntype="File">Slides with Notes</a></p>
+</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 24px;">Lecture 6: Logical Agents 2</td>
+<td style="width: 12.7401%; height: 24px;">
+<p>Tuesday, 12 Nov</p>
+</td>
+<td style="width: 12.2787%; height: 24px;"></td>
+<td style="width: 9.20002%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Lecture 6Propositional Logic 2-1.pdf" href="https://canvas.vu.nl/courses/84838/files/9411328?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411328" data-api-returntype="File">Slides with Notes </a></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 24px;">
+<p>No Lecture</p>
+</td>
+<td style="width: 12.7401%; height: 24px;">
+<p>Monday, 18 Nov</p>
+</td>
+<td style="width: 12.2787%; height: 24px;"></td>
+<td style="width: 9.20002%; height: 24px;">
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr style="height: 77px;">
+<td style="width: 15.8482%; height: 77px;">
+<p>Lecture 7. Logics Agents 3</p>
+</td>
+<td style="width: 12.7401%; height: 77px;">
+<p>Tuesday, 19 Nov</p>
+</td>
+<td style="width: 12.2787%; height: 77px;"></td>
+<td style="width: 9.20002%; height: 77px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="7 Logics for Schnapsen and Knowledge Graphs 2022-2.pdf" href="https://canvas.vu.nl/courses/84838/files/9411678?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411678" data-api-returntype="File">Slides with Notes</a></p>
+</td>
+</tr>
+<tr style="height: 113px;">
+<td style="width: 15.8482%; height: 113px;">Partial Exam 1 (Problem-solving, Logic - Lectures 1-7)</td>
+<td style="width: 12.7401%; height: 113px;">
+<p>Friday, 22 Nov</p>
+<p>15.30-17.15 (17.45 for extra time)</p>
+</td>
+<td style="width: 12.2787%; height: 113px;"></td>
+<td style="width: 9.20002%; height: 113px;"></td>
+</tr>
+<tr style="height: 48px;">
+<td style="width: 15.8482%; height: 48px;">Lecture 8. Vagueness and Uncertainty</td>
+<td style="width: 12.7401%; height: 48px;">
+<p>Monday, 25 Nov</p>
+</td>
+<td style="width: 12.2787%; height: 48px;">
+<p><a class="instructure_file_link instructure_scribd_file" title="Machine Learning.pdf" href="https://canvas.vu.nl/courses/84838/files/9411419/download?wrap=1" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411419" data-api-returntype="File"></a><a class="instructure_file_link instructure_scribd_file" title="Probability.pdf" href="https://canvas.vu.nl/courses/84838/files/9411417/download?wrap=1" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411417" data-api-returntype="File">Reader (uncertainty)</a></p>
+<p>&nbsp;</p>
+</td>
+<td style="width: 9.20002%; height: 48px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="8 vagueness.pdf" href="https://canvas.vu.nl/courses/84838/files/9411687?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411687" data-api-returntype="File">Slides with Notes</a></p>
+<p>Video recording (sorry no slides in P2)<iframe style="width: 391px; height: 176px; display: inline-block;" title="Video player for GMT20241125-162842_Recording_1600x720.mp4" data-media-type="video" src="https://canvas.vu.nl/media_attachments_iframe/9411689" loading="lazy" allowfullscreen="allowfullscreen" allow="fullscreen" data-media-id="m-3M8WkeHmpkztphVq5v2x17NECiHrMWKo" data-mce-fragment="1"></iframe>Video of 2020 (Covid): <a class="inline_disabled" href="https://youtu.be/s5cw8Rtifs8?si=ywvgZszMGbdpGZF6" target="_blank">Vagueness from 1:09</a></p>
+</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 24px;">Lecture 9. Uncertainty and Bayesian Networks</td>
+<td style="width: 12.7401%; height: 24px;">
+<p>Tuesday, 26 Nov</p>
+</td>
+<td style="width: 12.2787%; height: 24px;">
+<p><a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/lecture-videos/lecture-21-probabilistic-inference-i/">Extra video: (excellent MIT lectures, 21 and 22)</a></p>
+</td>
+<td style="width: 9.20002%; height: 24px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="9 uncertainty.pdf" href="https://canvas.vu.nl/courses/84838/files/9411652?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411652" data-api-returntype="File">Slides with Notes</a></p>
+</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 24px;">Lecture 10. Machine Learning 1</td>
+<td style="width: 12.7401%; height: 24px;">
+<p>Monday, 2 Dec</p>
+</td>
+<td style="width: 12.2787%; height: 24px;">
+<p><a class="instructure_file_link instructure_scribd_file" title="Machine Learning.pdf" href="https://canvas.vu.nl/courses/84838/files/9411419/download?wrap=1" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411419" data-api-returntype="File">AIMA on ML</a></p>
+<p>relevance of parts of AIMA reader</p>
+</td>
+<td style="width: 9.20002%; height: 24px;">
+<p><a id="7056210" class="instructure_file_link instructure_scribd_file inline_disabled" href="https://canvas.vu.nl/courses/84838/files/9411625?wrap=1" target="_blank" data-canvas-previewable="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411625" data-api-returntype="File">Slides</a></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 24px;">
+<p>Lecture 11. Machine Learning 2</p>
+</td>
+<td style="width: 12.7401%; height: 24px;">
+<p>Tuesday, 3 Dec</p>
+</td>
+<td style="width: 12.2787%; height: 24px;"></td>
+<td style="width: 9.20002%; height: 24px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Lecture 11 2023 Machine Learning 2.pdf" href="https://canvas.vu.nl/courses/84838/files/9411627?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411627" data-api-returntype="File">Slides with notes</a>&nbsp;</p>
+</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 15.8482%; height: 24px;">
+<p>Lecture 12. Machine Learning 3</p>
+</td>
+<td style="width: 12.7401%; height: 24px;">
+<p>Monday, 9 Dec&nbsp;</p>
+</td>
+<td style="width: 12.2787%; height: 24px;"></td>
+<td style="width: 9.20002%; height: 24px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Lecture 12 2023_ Machine Learning 3(1).pptx" href="https://canvas.vu.nl/courses/84838/files/9411667?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411667" data-api-returntype="File">Slides with notes</a></p>
+</td>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 15.8482%; height: 53px;">
+<p>Lecture 13. Machine Learning 4</p>
+</td>
+<td style="width: 12.7401%; height: 53px;">
+<p>Tuesday, 10 Dec</p>
+</td>
+<td style="width: 12.2787%; height: 53px;"></td>
+<td style="width: 9.20002%; height: 53px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Lecture 13 2023_ Machine Learning 4.pptx" href="https://canvas.vu.nl/courses/84838/files/9411668?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/84838/files/9411668" data-api-returntype="File">Slides with notes</a></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+<tr style="height: 113px;">
+<td style="width: 15.8482%; height: 113px;">Partial Exam 2 (Lectures 7-13)</td>
+<td style="width: 12.7401%; height: 113px;">
+<p>Friday, 20 Dec</p>
+<p>8:30-10.15 (extra time 10:45)</p>
+</td>
+<td style="width: 12.2787%; height: 113px;"></td>
+<td style="width: 9.20002%; height: 113px;"></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p><a class="inline_disabled" href="https://docs.google.com/spreadsheets/d/12QuOVfesBaIZnBiqbdqhpsOwiocntdIjybEG-KV-i9k/edit?usp=sharing" target="_blank">You can book a slot for Programming Support via this Google Sheet</a></p>
+<table style="border-collapse: collapse; width: 99.4038%; height: 291px;" border="1">
+<tbody>
+<tr style="height: 29px;">
+<td style="width: 32.6873%; height: 29px;"></td>
+<td style="width: 15.6086%; height: 29px;">Material</td>
+<td style="width: 32.8061%; height: 29px;">Deadline for Assignment (hard)</td>
+</tr>
+<tr style="height: 29px; background-color: #bfedd2;">
+<td style="width: 32.6873%; height: 10px;">1. Graphs, Trees, and Search</td>
+<td style="width: 15.6086%; height: 10px;"><a class="inline_disabled" href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-1-information" target="_blank" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-1-information" data-api-returntype="Page">Assignment 1</a></td>
+<td style="width: 32.8061%; height: 10px;">
+<p>Tuesday, Nov 5, 23:59</p>
+</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 32.6873%; height: 10px;">2. Uninformed Search&nbsp;</td>
+<td style="width: 15.6086%; height: 10px;"><a title="Practical Assignment 2 Information " href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-2-information" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-2-information" data-api-returntype="Page">Assignment 2</a></td>
+<td style="width: 32.8061%; height: 10px;">
+<p>Friday, Nov 8,&nbsp; 23:59</p>
+</td>
+</tr>
+<tr style="height: 29px; background-color: #bfedd2;">
+<td style="width: 32.6873%; height: 10px;">3. Informed Search</td>
+<td style="width: 15.6086%; height: 10px;"><a title="Practical Assignment 3 Information  " href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-3-information" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-3-information" data-api-returntype="Page">Assignment 3</a></td>
+<td style="width: 32.8061%; height: 10px;">
+<p>Tuesday, Nov 12, 23:59</p>
+</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 32.6873%; height: 29px;">4. Intro to Schnapsen Engine</td>
+<td style="width: 15.6086%; height: 29px;"><a title="Practical Assignment 4 Information" href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-4-information" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-4-information" data-api-returntype="Page">Assignment 4</a></td>
+<td style="width: 32.8061%; height: 29px;">Friday, Nov 15, 23:59</td>
+</tr>
+<tr style="height: 29px; background-color: #bfedd2;">
+<td style="width: 32.6873%; height: 29px;">5. Adversarial search&nbsp;</td>
+<td style="width: 15.6086%; height: 29px;"><a title="Practical Assignment 5 Information" href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-5-information" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-5-information" data-api-returntype="Page">Assignment 5</a></td>
+<td style="width: 32.8061%; height: 29px;">Tuesday, Nov 19, 23:59</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 32.6873%; height: 29px;">6. Knowledge Representation</td>
+<td style="width: 15.6086%; height: 29px;"><a title="Practical Assignment 6 Information" href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-6-information" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-6-information" data-api-returntype="Page">Assignment 6</a></td>
+<td style="width: 32.8061%; height: 29px;">Tuesday, Nov 26, 23:59</td>
+</tr>
+<tr style="height: 29px; background-color: #bfedd2;">
+<td style="width: 32.6873%; height: 29px;">7. Knowledge Representation</td>
+<td style="width: 15.6086%; height: 29px;"><a title="Practical Assignment 7 Information " href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-7-information" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-7-information" data-api-returntype="Page">Assignment 7</a></td>
+<td style="width: 32.8061%; height: 29px;">Friday, Nov 29, 23:59</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 32.6873%; height: 29px;">8. Uncertainty and Probabilities</td>
+<td style="width: 15.6086%; height: 29px;"><a title="Practical Assignment 8 Information " href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-8-information" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-8-information" data-api-returntype="Page">Assignment 8</a></td>
+<td style="width: 32.8061%; height: 29px;">Tuesday, Dec 3, 23:59</td>
+</tr>
+<tr style="height: 29px; background-color: #bfedd2;">
+<td style="width: 32.6873%; height: 29px;">9. Uncertainty and Probabilities</td>
+<td style="width: 15.6086%; height: 29px;"><a title="Practical Assignment 9 Information" href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-9-information" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-9-information" data-api-returntype="Page">Assignment 9</a></td>
+<td style="width: 32.8061%; height: 29px;">Friday, Dec 6, 23:59</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 32.6873%; height: 29px;">10. Machine Learning</td>
+<td style="width: 15.6086%; height: 29px;"><a title="Practical Assignment 10 Information" href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-10-information" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-10-information" data-api-returntype="Page">Assignment 10</a></td>
+<td style="width: 32.8061%; height: 29px;">Tuesday, Dec 10, 23:59</td>
+</tr>
+<tr style="height: 29px; background-color: #bfedd2;">
+<td style="width: 32.6873%; height: 29px;">11. Machine Learning</td>
+<td style="width: 15.6086%; height: 29px;"><a title="Practical Assignment 11 Information" href="https://canvas.vu.nl/courses/79293/pages/practical-assignment-11-information" data-course-type="wikiPages" data-published="true" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/pages/practical-assignment-11-information" data-api-returntype="Page">Assignment 11</a></td>
+<td style="width: 32.8061%; height: 29px;">Tuesday, Dec 17, 23:59</td>
+</tr>
+</tbody>
+</table>
+<h2>Working Group Material (Theory)</h2>
+<table style="border-collapse: collapse; width: 103.78%; height: 573px;" border="1">
+<tbody>
+<tr style="height: 24px;">
+<td style="width: 35.1631%; height: 24px; text-align: center;"><strong>What?</strong></td>
+<td style="width: 16.9054%; height: 24px; text-align: center;"><strong>When?</strong></td>
+<td style="width: 43.2849%; height: 24px; text-align: center;"><strong>Exercise Sheet</strong></td>
+<td style="width: 4.02541%; height: 24px; text-align: center;"><strong>Solutions to the exercises</strong></td>
+<td style="width: 4.02541%; text-align: center; height: 24px;"><strong>Slides</strong></td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 35.1631%; height: 29px;">1. Sets, Graphs and Trees</td>
+<td style="width: 16.9054%; height: 29px;">Oct 29 - 30 - 31 - Nov 1</td>
+<td style="width: 43.2849%; height: 29px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="IS_WC1_SetsGraphsTreesStateSpacesUninformedSearch.docx" href="https://canvas.vu.nl/courses/79293/files/7952586?wrap=1" target="_blank" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/7952586" data-api-returntype="File">1 SetsGraphsTreesStateSpacesAndSearch</a></td>
+<td style="width: 4.02541%; height: 29px;"><a class="instructure_file_link instructure_scribd_file inline_disabled no_preview" title="IS_WC1_SetsGraphsTreesStateSpacesUninformedSearch_Solution-1.docx" href="https://canvas.vu.nl/courses/79293/files/8293178?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8293178" data-api-returntype="File">Solution-WG1</a></td>
+<td style="width: 4.02541%; height: 29px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="WG 1 - 2023.pptx.pdf" href="https://canvas.vu.nl/courses/79293/files/8362611?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8362611" data-api-returntype="File">slidesWG1</a></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 35.1631%; height: 24px;">2. Informed and Adversarial Search</td>
+<td style="width: 16.9054%; height: 24px;">Nov 5 - 6 -7 - 8</td>
+<td style="width: 43.2849%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="IS_WC2_informedandadversarialSearch-1.pdf.pdf" href="https://canvas.vu.nl/courses/79293/files/8308425?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8308425" data-api-returntype="File">2 informed and adversarial search</a></td>
+<td style="width: 4.02541%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Solution - WG 2.pdf" href="https://canvas.vu.nl/courses/79293/files/8365184?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8365184" data-api-returntype="File">Solution - WG 2</a></td>
+<td style="width: 4.02541%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="WG 2 - Francesca.pdf" href="https://canvas.vu.nl/courses/79293/files/8330829?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8330829" data-api-returntype="File">slidesWG2</a></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 35.1631%; height: 24px;">3. Logical agents</td>
+<td style="width: 16.9054%; height: 24px;">Nov 12 - 13 - 14 - 15</td>
+<td style="width: 43.2849%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="IS_WC3 LogicalAgents.doc.pdf" href="https://canvas.vu.nl/courses/79293/files/8330840?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8330840" data-api-returntype="File">3 logical agents</a></td>
+<td style="width: 4.02541%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="IS_WC3 LogicalAgents_solutiuons.docx (1).pdf" href="https://canvas.vu.nl/courses/79293/files/8362607?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8362607" data-api-returntype="File">Solution</a></td>
+<td style="width: 4.02541%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="WG 3 - Francesca.pdf" href="https://canvas.vu.nl/courses/79293/files/8362612?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8362612" data-api-returntype="File">slidesWG3</a></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 35.1631%; height: 24px;">&nbsp;extra Working Group: recap</td>
+<td style="width: 16.9054%; height: 24px;">
+<p>Nov 19 - 20 - 21 - 22</p>
+</td>
+<td style="width: 43.2849%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="IS_WC4_KGs_and_Recap Midterm.doc.pdf" href="https://canvas.vu.nl/courses/79293/files/8362608?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8362608" data-api-returntype="File">4 KGs and recap midterm exam</a></td>
+<td style="width: 4.02541%; height: 24px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="IS_WC4_Ans_KGs_and_Recap Midterm.docx.pdf" href="https://canvas.vu.nl/courses/79293/files/8380653?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8380653" data-api-returntype="File">Solution</a></p>
+</td>
+<td style="width: 4.02541%; height: 24px;">
+<p><a class="instructure_file_link instructure_scribd_file inline_disabled" title="WG 4 - Francesca.pdf" href="https://canvas.vu.nl/courses/79293/files/8380661?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8380661" data-api-returntype="File">slidesWG4</a></p>
+</td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 35.1631%; height: 24px;">5. Uncertainty and Vagueness</td>
+<td style="width: 16.9054%; height: 24px;">Nov 26 - 27 - 28&nbsp; - 29</td>
+<td style="width: 43.2849%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="IS_WC5_Vagueness_and_Uncertainty.pdf" href="https://canvas.vu.nl/courses/79293/files/8410023?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8410023" data-api-returntype="File">5 Probabilities and BNs</a></td>
+<td style="width: 4.02541%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="IS_WC5_Vagueness_and_Uncertainty_answered-2.docx.pdf" href="https://canvas.vu.nl/courses/79293/files/8443380?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8443380" data-api-returntype="File">Solution</a></td>
+<td style="width: 4.02541%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="WG 5 - Francesca-2.pdf" href="https://canvas.vu.nl/courses/79293/files/8443383?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8443383" data-api-returntype="File">slidesWG5</a></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 35.1631%; height: 24px;">6. Machine Learning</td>
+<td style="width: 16.9054%; height: 24px;">Dec 3 - 4 - 5 - 6</td>
+<td style="width: 43.2849%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="WG6_Exercises_ML_1.docx" href="https://canvas.vu.nl/courses/79293/files/8443123?wrap=1" target="_blank" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8443123" data-api-returntype="File">6 Machine_Learning 1</a></td>
+<td style="width: 4.02541%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="WG6_Exercises_ML_1_answers.docx.pdf" href="https://canvas.vu.nl/courses/79293/files/8462523?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8462523" data-api-returntype="File">Solution</a></td>
+<td style="width: 4.02541%; height: 24px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="WG 6 - Francesca (1).pdf" href="https://canvas.vu.nl/courses/79293/files/8462527?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8462527" data-api-returntype="File">slidesWG6</a><a class="instructure_file_link instructure_scribd_file inline_disabled" title="WG 6 - Francesca (1).pdf" href="https://canvas.vu.nl/courses/79293/files/8462525?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8462525" data-api-returntype="File"></a></td>
+</tr>
+<tr style="height: 24px;">
+<td style="width: 35.1631%; height: 23px;">7. ML 2 &amp; Recap</td>
+<td style="width: 16.9054%; height: 23px;">Dec 10 - 11 - 12&nbsp; - 13</td>
+<td style="width: 43.2849%; height: 23px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="IS_WC7_ML2_AND_PreparationExam-3.pdf" href="https://canvas.vu.nl/courses/79293/files/8472073?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8472073" data-api-returntype="File">7 Machine Learning 2</a></td>
+<td style="width: 4.02541%; height: 23px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="IS_WC7_ML2_AND_PreparationExam_withSolutions.docx.pdf" href="https://canvas.vu.nl/courses/79293/files/8494633?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8494633" data-api-returntype="File">Solution</a></td>
+<td style="width: 4.02541%; height: 23px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="WG 7 - Francesca.pdf" href="https://canvas.vu.nl/courses/79293/files/8494634?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8494634" data-api-returntype="File">slidesWG7</a></td>
+</tr>
+<tr style="height: 148px;">
+<td style="width: 35.1631%; height: 148px;">
+<p>First partial exam 2023</p>
+</td>
+<td style="width: 16.9054%; height: 148px;">no deadline</td>
+<td style="width: 43.2849%; height: 148px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="First partial exam from 2023.pdf" href="https://canvas.vu.nl/courses/79293/files/8364948?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8364948" data-api-returntype="File">First partial from 2023</a></td>
+<td style="width: 4.02541%; height: 148px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Intelligent Systems First Partial Exam Prep.pdf" href="https://canvas.vu.nl/courses/79293/files/8394635?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8394635" data-api-returntype="File">Exam prep solutions First Partial 2023</a></td>
+<td style="width: 4.02541%; height: 148px;"></td>
+</tr>
+<tr style="height: 100px;">
+<td style="width: 35.1631%; height: 100px;">
+<p>Second partial exam 2020</p>
+</td>
+<td style="width: 16.9054%; height: 100px;">no deadline</td>
+<td style="width: 43.2849%; height: 100px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="2020 second partial.pdf" href="https://canvas.vu.nl/courses/79293/files/8508176?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8508176" data-api-returntype="File">Second partial from 2020</a></td>
+<td style="width: 4.02541%; height: 100px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="2020 second partial solutions.pdf" href="https://canvas.vu.nl/courses/79293/files/8508282?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8508282" data-api-returntype="File">2020 second partial solutions</a></td>
+<td style="width: 4.02541%; height: 100px;"></td>
+</tr>
+<tr>
+<td style="width: 35.1631%;">
+<p>Second partial exam 2021</p>
+</td>
+<td style="width: 16.9054%;">no deadline</td>
+<td style="width: 43.2849%;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="2021 second partial.pdf" href="https://canvas.vu.nl/courses/79293/files/8508256?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8508256" data-api-returntype="File">Second partial from 2021</a></td>
+<td style="width: 4.02541%;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="2021 second partial solutions.pdf" href="https://canvas.vu.nl/courses/79293/files/8508281?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8508281" data-api-returntype="File">2021 second partial solutions</a></td>
+<td style="width: 4.02541%;"></td>
+</tr>
+<tr style="height: 100px;">
+<td style="width: 35.1631%; height: 100px;">
+<p>Second partial exam 2023</p>
+</td>
+<td style="width: 16.9054%; height: 100px;">no deadline</td>
+<td style="width: 43.2849%; height: 100px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Second partial 2023.pdf" href="https://canvas.vu.nl/courses/79293/files/8485308?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8485308" data-api-returntype="File">Second partial from 2023</a></td>
+<td style="width: 4.02541%; height: 100px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="2023 second partial exam solutions.pdf" href="https://canvas.vu.nl/courses/79293/files/8504582?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8504582" data-api-returntype="File">2023 second partial solutions</a></td>
+<td style="width: 4.02541%; height: 100px;"><a class="instructure_file_link instructure_scribd_file inline_disabled" title="Intelligent Systems second partial exam prep (1).pdf" href="https://canvas.vu.nl/courses/79293/files/8511410?wrap=1" target="_blank" data-canvas-previewable="false" data-api-endpoint="https://canvas.vu.nl/api/v1/courses/79293/files/8511410" data-api-returntype="File">Second partial exam prep</a></td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+</div>
+</div></body></html>

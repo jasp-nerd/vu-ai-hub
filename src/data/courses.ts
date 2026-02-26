@@ -98,11 +98,11 @@ The test is designed at a level expected of a high school graduate starting an a
     credits: '6EC',
     description:
       'Foundations of psychology and research methods: cognition, perception, and empirical approaches relevant to human-centred AI.',
-    overview: `Het vak bestaat uit twee delen. In het eerste deel krijgt de student een overzicht van de psychologie met een nadruk op de biologische cognitieve kanten van het vak. Wat is de genetische en biologische basis van gedrag? Wat is bewustzijn? Hoe zien we, leren we, onthouden we en denken we? Het begrip intelligentie zal ook aan bod komen. In het tweede deel worden onderzoeksmethoden besproken met de bedoeling de student in staat te stellen onderzoek in methodologisch opzicht te evalueren. Aan de orde komen: wetenschapstheorie, logische redeneringen, beschrijvend, correlationeel en experimenteel onderzoek, empirische cyclus, meetschalen, betrouwbaarheid, validiteit, steekproef en populatie, onafhankelijke, afhankelijke en controle variabelen, contaminerende variabelen, random error, binnen-proefpersonen en tussen-proefpersonen designs, factoriële, kleine-N en quasi-experimentele designs.`,
+    overview: `This course consists of two parts. In the first part (weeks 1–4, 8 lectures), you get an overview of psychology with an emphasis on its biological and cognitive dimensions: What is the genetic and biological basis of behavior? What is consciousness? How do we see, learn, remember, and think? The concept of intelligence is also covered. In the second part (weeks 5–7, 6 lectures), research methods are discussed so you can evaluate research from a methodological perspective. Topics include: scientific reasoning, validity, measurement scales, reliability, descriptive, correlational, and experimental research, within-subjects and between-subjects designs, factorial designs, small-N designs, and quasi-experimental designs. The course is taught by Dr. Duru G. Özkan from the Department of Behavioural and Movement Sciences (Cognitive Psychology). There are no prerequisites — this is a true introductory course open to all first-year AI students.`,
     objectives:
-      'Kennis en begrip hebben van het vakgebied psychologie en haar methoden van onderzoek Het kunnen toepassen van deze kennis zoals blijkt uit de vaardigheid basisvragen te kunnen beantwoorden op het gebied van de psychologie en haar methoden van onderzoek',
-    assessment: 'Multiple choice tentamen Optie voor hertentamen',
-    teachingMethods: '8 hoorcolleges over psychologie 6 hoorcolleges over methodologie',
+      'Understand main theories and concepts in psychology, including perception, cognition, behavior, and learning. Identify and describe various research methods used in psychology, such as experiments, correlational studies, surveys, and observational studies. Understand basic principles of psychological measurement and assessment, including reliability, validity, and different types of scales (nominal, ordinal, interval, ratio). Understand how empirical research allows us to deduce things about the mind. Understand the differences between common misconceptions and psychological research.',
+    assessment: 'Multiple-choice exam with 56 questions. Grades are chance-corrected (cut-off of 35/56 = passing grade of 5.5). There is one resit opportunity.',
+    teachingMethods: '14 lectures across 7 weeks (2 per week): 8 lectures on psychology topics, 6 lectures on research methodology. Canvas provides guided self-study questions for each topic. Estimated workload: 24.5 hours lectures, 2.5 hours exam, 141 hours independent study.',
     literature:
       'Phelps, E.A., Berkman, E.T., & Gazzaniga, M.S. (2022). Psychological Science (7th edition). Norton. Morling, B. (2020). Research Methods in Psychology: Evaluating a World of Information (4th edition). Norton.',
     prerequisites: '',
@@ -123,7 +123,10 @@ The test is designed at a level expected of a high school graduate starting an a
     credits: '6EC',
     description:
       'Core concepts of intelligent systems: knowledge representation, reasoning, search algorithms, and agent architectures.',
-    overview: `The course will provide an introduction to some of the basic concepts of Artificial Intelligence, such as search, adversarial search, knowledge representation and machine learning.`,
+    overview: `The Intelligents Systems course focuses on the development and scientific analysis of methods for rational agents. The course is assessed through two individual partial exams (70% total) and 11 practical assignments (30%).
+The first partial exam covers lectures 1-7 (Introduction, Rational Agents, State-Space Representations, Uninformed & Informed Search, Adversarial Search, and Logical Agents). The second partial exam covers lectures 8-13 (Vagueness, Uncertainty & Bayesian Networks, and Machine Learning). Both exams must be passed with a minimum grade of 5, and the average of the two must be at least 5.5.
+For the practical assignments, you must pass at least 7 out of the 11 assignments given in weeks 2-7. The grade scales linearly from 6.5 (7 passed) to 10 (11 passed). You must pass both the exams component and the practical component to pass the course.
+Additionally, you can earn a 0.3 bonus point on your final grade if you participate in at least 6 out of the 7 working groups. Grades between 5.0 and 6.0 are rounded to the nearest whole number (meaning a 5.4 is a fail, and 5.5 is a 6), while all other grades are rounded to the nearest 0.5.`,
     objectives:
       'Knowledge and understanding: at the end of the course, the students will be familiar with basic knowledge of some of the core aspects of AI: state-space representations, search, adversarial search, logic, automated reasoning, reasoning with uncertainty and vagueness and machine learning. Applying knowledge and understanding: students will be able to implement basic (adversarial) search algorithms, as well as knowledge based and adaptive methods to build Intelligent Agents. Making judgements: the students will have a basic understanding of the ethical and societal implications of the developments in AI. Communication skills: students will be able to write a scientific reports about an original research question in a group of students. Learning skills: students will be trained in acquiring a set of complex AI related topics in a restricted period of time, come up with an original research question and perform the necessary (empirical) research.',
     assessment:
@@ -137,7 +140,7 @@ The test is designed at a level expected of a high school graduate starting an a
     workgroupInfo: {
       mandatory: false,
       maxAbsences: 1,
-      detail: 'Workgroups/seminars are not mandatory, but attending 6 out of 7 sessions earns a bonus point on your final grade (if you pass the course). Practical sessions for assignment help are optional and require sign-up on Canvas.',
+      detail: 'Workgroups/seminars are not mandatory, but attending 6 out of 7 sessions earns a 0.3 bonus point on your final grade (if you pass the course). Practical sessions for assignment help are optional and require sign-up on Canvas.',
     },
   },
   {
@@ -176,18 +179,43 @@ The test is designed at a level expected of a high school graduate starting an a
     period: 3,
     credits: '6EC',
     description:
-      'Hands-on project applying intelligent systems concepts: building and evaluating an AI-based system.',
-    overview: `In the course Project AI, a broad variety of techniques from the area of Artificial Intelligence are applied, in particular those from the course Intelligent Systems like adversarial search, knowledge representation and machine learning. The course focuses on the development and scientific analysis of methods for rational agents that perform effectively in a game (in the past we used the Austrian trick game Schnapsen, this year we might use a different game). The outcome is a number of intelligent game-bots, and a thorough evaluation of the impact of parameters on their performance. The results of the experiments are written in a scientific report. This experience provides students with seminal skills that will be applied throughout the AI Bachelor study, and through subsequent studies and career activities. This course provides insights into how proper documentation of an experiment can ensure that: results are formulated objectively; developed scientific reports are well-specified and contain complete experiment metrics.`,
+      'Hands-on group project where you build, evaluate, and write a scientific report about intelligent game-playing bots for the card game Schnapsen.',
+    overview: `Project Intelligent Systems is the practical follow-up to the Intelligent Systems course from Period 2. You work in pairs to build AI bots that play the Austrian trick-taking card game **Schnapsen**, then run controlled experiments and write a proper academic research paper about your findings.
+
+The project revolves around defining a research question (e.g. "Does an aggressive strategy outperform a passive one against advanced opponents?"), implementing your bot strategies in Python using the Schnapsen game engine, running thousands of simulated games, analysing the results statistically, and writing everything up in a paper following the Springer Lecture Notes in Computer Science (LNCS) format (~12 pages).
+
+**About Schnapsen:** It is a two-player trick-taking card game with 20 cards (Aces, 10s, Kings, Queens, Jacks in four suits). The goal is to reach 66 points by winning tricks and declaring marriages (King-Queen pairs of the same suit). The game has two phases: Phase 1 with imperfect information (a face-down talon remains) and Phase 2 with perfect information (all remaining cards are known). This makes it an interesting testbed for AI techniques — you can apply minimax and alpha-beta pruning in Phase 2, and Monte Carlo sampling or machine learning approaches in Phase 1.
+
+**Bot techniques you might use:** Rule-based strategies (aggressive, passive, bully-style), RDeep (Monte Carlo sampling of future game states), minimax/alpha-beta pruning for perfect-information play, and ML-based bots using scikit-learn (e.g. MLPClassifier or LogisticRegression trained on game replay data). The Schnapsen engine provides baseline bots like RandBot and RDeepBot to test against.
+
+The course starts with a few introductory lectures refreshing relevant AI concepts and introducing the academic research process. After that, you work self-directed in your pair, consulting TAs during practical sessions.
+
+**What to expect from the individual test:** The test takes place in the final week and is worth 30% of your grade. It focuses heavily on your own project — you will need to summarise your paper in your own words (research question, methodology, results, significance, and discussion of findings), explain how your work connects to the AI methods from the Intelligent Systems course, and name techniques you used as well as additional ones you could have applied. You will also be asked hypothetical "what would happen if the game rules changed?" questions (e.g. what if players alternate who starts each trick, or what if Phase 2 rules applied from the start). For these, you need to reason about whether your bot would still work, what you would change in your implementation and experiments, and what outcomes you would expect. Finally, there are questions about how work was divided in your group and your individual contributions. Make sure you deeply understand every part of your project — not just the code you personally wrote.`,
     objectives:
-      'The course teaches students: 1. how to develop an intelligent agent (bot) based on standard Intelligent Systems technology, and extensions thereof (Knowledge and understanding) (Apply knowledge and understanding); 2. basic research and experimental analysis skills through the analysis of how effectively the developed software performs in a controlled scientific experiment. (Making judgments) (Communication) 3. how to report on their research findings. (Communication)',
+      'The course teaches students: 1. How to develop an intelligent agent (bot) based on standard Intelligent Systems technology and extensions thereof — including adversarial search, knowledge representation, and machine learning. 2. Basic research and experimental analysis skills through the analysis of how effectively the developed software performs in a controlled scientific experiment. 3. How to report on research findings in a scientific paper following academic conventions (Springer LNCS format). 4. How to peer-review another group\'s research paper and provide constructive feedback.',
+    gradingStructure: `**Group Part (60%):**
+- Research paper in Springer LNCS format (~12 pages) — covers your research question, bot implementations, experimental setup, results, and discussion
+
+**Individual Part (40%):**
+- Individual coding assignment: 10% — implement an AssignmentBot with specific conditions and actions, verified against a server
+- Individual test in the final week: 30% — covers understanding of your project and the AI techniques used
+- Must score at least 22/40 (equivalent to 5.5) on the individual part
+
+**Peer Review:** Pass/fail — you must submit a quality peer review of another group's paper
+
+**Important:** There is no resit for this course. You must pass all three parts (group, individual, peer review) with at least a 5.5. Not all aspects will be graded — random checks are used.`,
     assessment:
-      'The course is assessed based on 3 part 1) Group your project idea - submitted and discussed (pass) / not submitted (fail) report 60% - Standard grading, no rounding 2) Individual Individual test 30% - Standard grading, no rounding Individual coding assignment 10% - Standard grading, no rounding 3) Quality of your peer review Pass (5.5+)/fail To pass the course, you will need to pass each of the three parts, i.e. a grade of 5.5 or higher. You must have submitted your project idea, discussed it during your slot, and pass for the peer review. Then, your grade is computed as a weighted sum of the group and individual parts. Not all aspects of every task will be graded (random check). For example, there are multiple peer reviews, but we might only grade some of them at random to determine your grade. There is no resit option for this course.',
+      'Group report 60%, individual test 30%, individual coding assignment 10%, plus a pass/fail peer review. All three parts (group, individual, peer review) must be passed with at least 5.5. No resit available.',
     teachingMethods:
-      'There will be a few introductory lectures (refreshing relevant knowledge and introducing the practical), followed by sessions during which we discuss research methods and the academic process. The practical work will be conducted in groups, but there is also a personal evaluation component. The groups will be self-directed, and will require to consult the course assistants during practical sessions.',
-    literature: 'The literature required for this course will be distributed via Canvas.',
-    prerequisites: '',
+      'A few introductory lectures refreshing IS concepts and introducing the research process, followed by self-directed group work in pairs. TAs are available during practical sessions for guidance. The course includes lectures on research methods and the academic writing process.',
+    literature: 'The Schnapsen game engine (Python package from GitHub: intelligent-systems-course/schnapsen) and course materials distributed via Canvas. The Russell & Norvig textbook from Intelligent Systems may be useful as reference.',
+    prerequisites: 'Intelligent Systems (XB_0031) — the Period 2 theory course. You will directly apply techniques learned there (search, logic, probability, ML).',
     difficulty: 3,
-    tags: ['project', 'ai', 'required'],
+    tags: ['project', 'ai', 'required', 'schnapsen', 'research'],
+    workgroupInfo: {
+      mandatory: false,
+      detail: 'Practical sessions are not mandatory but highly recommended — TAs are your primary support channel for debugging bots and getting feedback on your research direction.',
+    },
   },
   {
     id: 'logic-sets-ai',
@@ -219,26 +247,31 @@ The test is designed at a level expected of a high school graduate starting an a
     id: 'modelling-human-behaviour',
     slug: 'modelling-human-behaviour',
     name: 'Modelling Human Behaviour',
-    code: 'XB_0146',
+    code: 'XB_0036',
     year: 1,
     period: 4,
     credits: '6EC',
     description:
-      'Computational models of human cognition and behaviour: decision-making, learning, and cognitive architectures.',
-    overview: `This course investigates how to develop and apply models of human cognition and behaviour to the design of human-centred systems. Students will explore various understandings and abstractions of human behaviour and consider how these can be appropriately and responsibly applied in computational contexts. The course covers multiple perspectives on modelling human behaviour, ranging from agent-based cognitive and behavioural approaches to ones that capture collective behaviours and emergent phenomena. These frameworks provide different lenses through which to understand, simulate, predict, and/or influence human behaviour. Students will develop methodological skills for applying behavioural models to human-centred systems design, including information gathering, model selection, implementation, and critical assessment of outcomes and implications. Through examples drawn from relevant domains, they will investigate how these models can enhance understanding of human actions and inform the ethical design of technologies that support human behaviour and decision-making. The coursework balances theoretical understanding with practical application, engaging students with appropriate modelling tools and interdisciplinary research skills. By the conclusion of the course, students will possess both the technical capabilities and critical faculties needed for effective and responsible behavioural modelling in a variety of applied settings.`,
+      'Dynamic modelling of human behaviour: build, simulate, and evaluate computational models of processes in psychology, bio-medicine, and social science using Excel and L2-Python.',
+    overview: `Dynamic Modelling for Human-Centred Systems (officially "Modelling Human Behaviour") teaches you how to create computational dynamic models of real-world processes — from medication levels in the blood, to bacterial decision-making, to how emotions spread through a group. The course follows a clear modelling-and-simulation cycle with four steps that you'll repeat throughout: (1) Conceptualisation — identify the key concepts and their relationships, (2) Formalisation — translate them into precise numerical or logical rules, (3) Simulation — run the model to generate traces, and (4) Evaluation — check whether the traces match your expected patterns.
+
+In the first half (weeks 1–3), you build models in Microsoft Excel. You'll start with growth models (linear, exponential, logistic), then move to biological models like E. coli food-intake decision-making and Aplysia sea-hare learning (classical conditioning at the neural level). You'll also model social processes: honeybee colony self-organisation, SIR epidemic spread (individual-based vs. population-based), and emotion contagion in groups. The second half (weeks 4–7) switches to L2-Python (a Jupyter Notebook framework) and covers more advanced topics: different types of behaviour (reactive, delayed response, motivation-based, adaptive), agent-based modelling with the BDI model (Beliefs-Desires-Intentions), domain models, analysis models (forward and backward reasoning), and support models. The final assignment asks you to design a complete stress prevention system with domain, analysis, and support models.
+
+The exam is 20 multiple-choice questions and accounts for 40% of your grade. Weekly assignments (5 total, excluding the programming tutorial) make up another 40%, and the final assignment is worth 20%. All partial grades must be above 5.5. The course uses a reader (15 chapters) and lecture slides — both are essential for the exam. The reader chapters are split into "to know" (exam material) and "to understand" (deeper context). Weekly Canvas quizzes help you check your understanding. The programming tutorial (Assignment 3) is pass/fail and must be completed in person with your TA — failing it results in a 0.5 point deduction from your final grade.`,
     objectives:
-      'At the end of the course, the student has knowledge and understanding of: the role and purpose of models in designing systems aiming to understand and support human behaviour; different approaches and abstraction levels for modelling human behaviour; the process of applying models of human cognition and behaviour to the design of human-centred systems; the importance of evaluating the ethics and contextual appropriateness of model choice The student is able to apply this knowledge and understanding to: select appropriate modeling abstractions apply models of human cognition and behaviour to the design of human-centred systems use models as a lens through which to critically analyse user interface design features apply models to predict how agent or system behaviour will evolve over time The student is able to make judgments about: model appropriateness for different human behaviours and contexts ethical implications of computational behavioural interventions limitations and biases inherent in different modeling approaches responsible application of behavioural models in real-world systems The student has acquired communication skills to: report in a scientific and critical manner about model design, evaluation and application The student has acquired research skills to: read and interpret scientific texts from other domains (e.g. psychology, cognitive science). evaluating the validity of modeling results critically assessing the impact of different modelling approaches',
+      'Understand the modelling-and-simulation cycle (conceptualisation, formalisation, simulation, evaluation). Build dynamic models using both numerical (Excel) and logical (L2-Python) representations. Formulate and validate hypotheses about model behaviour. Model growth processes (linear, exponential, logistic). Model biological processes (E. coli decision-making, Aplysia learning). Model social processes (honeybee colony, epidemic spread, emotion contagion). Distinguish between individual-based and population-based modelling approaches. Understand and model different types of behaviour (reactive, delayed response, motivation-based, adaptive). Apply the BDI (Beliefs-Desires-Intentions) agent model. Design domain models, analysis models (forward/backward reasoning), and support models. Implement models in L2-Python using predicates, sorts, scenarios, and rules. Report scientifically about model design, simulation experiments, and evaluation.',
+    gradingStructure: 'Final grade = 0.4 × avg(Assignments) + 0.2 × Final Assignment + 0.4 × Exam. All partial grades must be ≥ 5.5. Late submissions lose 1 point per day.',
     assessment:
-      'Assignments (in total 50% of the grade) and an individual final exam (50% of the grade). Both elements should be graded with at least a 5.5. There is a resit for the exam. At most one assignment can be redone if the average of the assignments is below 5.5.',
-    teachingMethods: 'Lectures and practical sessions.',
-    literature: 'A reader is available via Canvas.',
+      'Five weekly assignments (40% combined), one final assignment building a complete stress model system (20%), and a 20-question multiple-choice exam (40%). The programming tutorial (Assignment 3) is pass/fail and must be checked in person. There is a resit for the exam.',
+    teachingMethods: 'Two lectures per week plus weekly practical/working group sessions. Assignments alternate between Excel-based modelling (weeks 1-2) and L2-Python implementation (weeks 3-7).',
+    literature: 'Course reader with 15 chapters (available on Canvas) covering topics from growth models to driving behaviour. Lecture slides for all 13 lectures.',
     prerequisites: '',
     difficulty: 3,
-    tags: ['psychology', 'modelling', 'ai', 'required'],
+    tags: ['modelling', 'simulation', 'psychology', 'agent-based', 'excel', 'python', 'required'],
     workgroupInfo: {
       mandatory: true,
       maxAbsences: 1,
-      detail: 'Practical sessions are mandatory — you can skip at most 1. Each practical has an in-class assignment that must be submitted by 23:59 the same day, even if you were absent.',
+      detail: 'Practical/working group sessions are mandatory. Assignment 3 (L2-Python tutorial) MUST be checked in person by your TA during the session — failing to do so results in a 0.5 point deduction from your final grade.',
     },
   },
   {

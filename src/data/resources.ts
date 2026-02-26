@@ -1,4 +1,10 @@
 import type { Resource } from '../types';
+import { computationalThinkingSummary } from './summaries/computational-thinking-summary';
+import { introAiSummary } from './summaries/intro-ai-summary';
+import { psychologySummary } from './summaries/psychology-summary';
+import { intelligentSystemsSummary } from './summaries/intelligent-systems-summary';
+import { logicSetsSummary } from './summaries/logic-sets-summary';
+import { dynamicModellingSummary } from './summaries/dynamic-modelling-summary';
 
 export const resources: Resource[] = [
     // ========== DSA ==========
@@ -193,6 +199,26 @@ export const resources: Resource[] = [
         url: 'https://pythontutor.com/',
         type: 'tool',
         tags: ['debugging', 'visualization'],
+    },
+    {
+        id: 'res-py-3',
+        courseId: 'intro-python-ai',
+        title: 'Python Full Course for Beginners — Programming with Mosh',
+        description:
+            'Comprehensive Python tutorial covering everything from the basics to more advanced topics. Great for beginners who want a solid foundation.',
+        url: 'https://www.youtube.com/watch?v=K5KVEU3aaeQ',
+        type: 'video',
+        tags: ['python', 'beginner', 'tutorial'],
+    },
+    {
+        id: 'res-py-4',
+        courseId: 'intro-python-ai',
+        title: 'Python Full Course for Free — Bro Code',
+        description:
+            'A free, beginner-friendly Python course that covers the language from scratch with clear explanations and examples.',
+        url: 'https://www.youtube.com/watch?v=XKHEtdqhLK8',
+        type: 'video',
+        tags: ['python', 'beginner', 'tutorial'],
     },
 
     // ========== General Tools ==========
@@ -389,6 +415,18 @@ export const resources: Resource[] = [
 
     // --- Intro to AI ---
     {
+        id: 'res-summary-iai',
+        courseId: 'intro-ai',
+        title: 'Comprehensive Intro to AI Summary',
+        description:
+            'Complete summary covering all 11 lectures: AI fundamentals, literature review, diversity & inclusion, knowledge representation, computer basics, machine learning, AI solutions, data wrangling, verification & validation, evolving intelligence, and AI ethics & philosophy of mind.',
+        url: '#',
+        type: 'summary',
+        tags: ['summary', 'all-lectures', 'site-exclusive'],
+        markdownContent: introAiSummary,
+        author: 'VU AI Student Hub',
+    },
+    {
         id: 'res-pdf-iai-1',
         courseId: 'intro-ai',
         title: 'Course Overview Lecture Slides',
@@ -453,6 +491,18 @@ export const resources: Resource[] = [
     },
 
     // --- Intro Psychology ---
+    {
+        id: 'res-summary-ipsy',
+        courseId: 'intro-psychology',
+        title: 'Comprehensive Psychology Summary',
+        description:
+            'Complete summary covering all 8 chapters: psychological science, the nervous system, genetics, consciousness, sensation & perception, learning, memory, and thinking. Includes key tables, neurotransmitter functions, and research methods.',
+        url: '#',
+        type: 'summary',
+        tags: ['summary', 'all-chapters', 'site-exclusive'],
+        markdownContent: psychologySummary,
+        author: 'VU AI Student Hub',
+    },
     {
         id: 'res-pdf-ipsy-1',
         courseId: 'intro-psychology',
@@ -564,6 +614,18 @@ export const resources: Resource[] = [
 
     // --- Intelligent Systems ---
     {
+        id: 'res-summary-is',
+        courseId: 'intelligent-systems',
+        title: 'Comprehensive Intelligent Systems Summary',
+        description:
+            'Complete summary covering search algorithms, adversarial search, propositional logic, Bayes Theorem, Bayesian Networks, Machine learning classification, Neural Networks, and GPT architectures.',
+        url: '#',
+        type: 'summary',
+        tags: ['summary', 'all-lectures', 'site-exclusive'],
+        markdownContent: intelligentSystemsSummary,
+        author: 'VU AI Student Hub',
+    },
+    {
         id: 'res-pdf-is-1',
         courseId: 'intelligent-systems',
         title: 'Lecture Notes',
@@ -627,7 +689,29 @@ export const resources: Resource[] = [
         tags: ['exam', 'solutions'],
     },
 
+    {
+        id: 'res-vid-is-1',
+        courseId: 'intelligent-systems',
+        title: 'How to Play Schnapsen',
+        description:
+            'Video tutorial explaining the rules and strategies of Schnapsen — the card game used throughout the Intelligent Systems course and project.',
+        url: 'https://www.youtube.com/watch?v=J6Uuu3-QNMA&t=278s',
+        type: 'video',
+        tags: ['schnapsen', 'tutorial', 'game-rules'],
+    },
+
     // --- Logic & Sets for AI ---
+    {
+        id: 'res-summary-ls',
+        courseId: 'logic-sets-ai',
+        title: 'Logic & Sets — Comprehensive Summary',
+        description:
+            'Covers Logic Circuits, OBDDs, Predicate Logic, Models, Equivalence Relations & Classes, Functions, and Mathematical Induction (weeks 5–7).',
+        url: '',
+        type: 'summary',
+        tags: ['summary', 'logic', 'sets', 'crash-course'],
+        markdownContent: logicSetsSummary,
+    },
     {
         id: 'res-pdf-ls-1',
         courseId: 'logic-sets-ai',
@@ -735,6 +819,17 @@ export const resources: Resource[] = [
         url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/logic-sets-ai/exercises/ta-2025-logic-exercises.pdf',
         type: 'pdf',
         tags: ['exercises', 'logic'],
+    },
+    // Video playlist — Dr. Trefor Bazett's Discrete Math (85 videos)
+    {
+        id: 'res-vid-ls-1',
+        courseId: 'logic-sets-ai',
+        title: 'Video Playlist: Discrete Math Full Course — Dr. Trefor Bazett',
+        description:
+            'Excellent 85-video playlist covering sets, logic, proofs, and more. Most relevant videos: #2–#5 (Sets basics), #6 (Relations), #7–#9 (Functions), #10–#21 (Logic & connectives), #25–#28 (Predicates & quantifiers), #45–#48 (Induction & sequences), #58–#60 (Equivalence relations).',
+        url: 'https://www.youtube.com/watch?v=rdXw7Ps9vxc&list=PLHXZ9OQGMqxersk8fUxiUMSIx0DBqsKZS',
+        type: 'video',
+        tags: ['playlist', 'logic', 'sets', 'induction', 'functions', 'equivalence-relations'],
     },
 
     // --- Intro Python for AI ---
@@ -972,7 +1067,33 @@ export const resources: Resource[] = [
         tags: ['exam', 'resit'],
     },
 
+    // --- Modelling Human Behaviour (inline summary) ---
+    {
+        id: 'res-summary-mhb',
+        courseId: 'modelling-human-behaviour',
+        title: 'Comprehensive Dynamic Modelling Summary',
+        description:
+            'Complete summary covering all 15 chapters: modelling cycle, growth models, E. coli decision-making, Aplysia learning, honeybee self-organisation, epidemics (SIR), emotion contagion, behaviour types, BDI agents, analysis & support models, and L2-Python implementation.',
+        url: '#',
+        type: 'summary',
+        tags: ['summary', 'all-chapters', 'site-exclusive'],
+        markdownContent: dynamicModellingSummary,
+        author: 'VU AI Student Hub',
+    },
+
     // --- Computational Thinking ---
+    {
+        id: 'res-summary-ct',
+        courseId: 'computational-thinking',
+        title: 'Comprehensive Computational Thinking Summary',
+        description:
+            'Complete summary covering all 6 chapters: what is CT, solution strategies, examples of strategies, algorithms, Big O notation, and search algorithms. Includes complexity tables and comparison charts.',
+        url: '#',
+        type: 'summary',
+        tags: ['summary', 'all-chapters', 'site-exclusive'],
+        markdownContent: computationalThinkingSummary,
+        author: 'VU AI Student Hub',
+    },
     {
         id: 'res-pdf-ct-1',
         courseId: 'computational-thinking',
@@ -984,6 +1105,16 @@ export const resources: Resource[] = [
     },
 
     // --- Project Intelligent Systems ---
+    {
+        id: 'res-vid-pis-1',
+        courseId: 'project-intelligent-systems',
+        title: 'How to Play Schnapsen',
+        description:
+            'Video tutorial explaining the rules and strategies of Schnapsen — essential viewing before starting the project.',
+        url: 'https://www.youtube.com/watch?v=J6Uuu3-QNMA&t=278s',
+        type: 'video',
+        tags: ['schnapsen', 'tutorial', 'game-rules'],
+    },
     {
         id: 'res-pdf-pis-1',
         courseId: 'project-intelligent-systems',

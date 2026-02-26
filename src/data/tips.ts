@@ -229,6 +229,13 @@ export const tips: CourseTip[] = [
 
   // ========== Logic and Sets ==========
   {
+    id: 'tip-ls-0',
+    courseId: 'logic-sets-ai',
+    content:
+      'The quiz on this page only scratches the surface — it\'s meant to give you an idea of the topics, not to fully prepare you. To really get ready for the exam, practice as much as you can with the old practice exams. That\'s how you\'ll know exactly what\'s waiting for you on the final. And don\'t just watch videos — grab a pen and paper and actually work through the problems yourself. That is how you truly learn. Otherwise it won\'t stick in your head and you will come nowhere.',
+    author: 'AI @ VU Class of 2028',
+  },
+  {
     id: 'tip-ls-1',
     courseId: 'logic-sets-ai',
     content:
@@ -379,6 +386,13 @@ export const tips: CourseTip[] = [
       'The Logic and Sets midterm typically covers the first three chapters of BOTH the Logic part and the Sets part. Don\'t make the mistake of studying only one half. Also, students confirmed with TAs that the Canvas lecture recordings for the Sets portion are up-to-date and match the physical lectures — so they\'re safe to use for studying.',
     author: 'AI @ VU Class of 2028',
   },
+  {
+    id: 'tip-ls-4',
+    courseId: 'logic-sets-ai',
+    content:
+      'Attending the working groups (tutorials) is highly recommended — that\'s where you actually practice the material and can ask TAs for help. Lectures are recorded, so missing one isn\'t the end of the world. One big advantage of this course: the Canvas page is very well organized with all the information you need neatly laid out. Use that to your advantage when studying and keeping track of what\'s been covered.',
+    author: 'AI @ VU Class of 2028',
+  },
 
   // --- Introduction to Psychology ---
   {
@@ -390,6 +404,13 @@ export const tips: CourseTip[] = [
   },
 
   // --- Intro Python Programming ---
+  {
+    id: 'tip-py-0',
+    courseId: 'intro-python-ai',
+    content:
+      'If you\'ve done Python before, this course will feel easy. But if you\'re new to programming and have never coded before, be prepared — this course can be very challenging. Do NOT skip the lectures, make your assignments on time, and don\'t slack off. Also, appreciate Mauricio — he\'s a great teacher who genuinely wants the best for you.',
+    author: 'AI @ VU Class of 2028',
+  },
   {
     id: 'tip-py-1',
     courseId: 'intro-python-ai',
@@ -528,14 +549,14 @@ export const tips: CourseTip[] = [
     id: 'tip-is-3',
     courseId: 'intelligent-systems',
     content:
-      'The IS final exam covers lectures 8 through 13 (the midterm covered 1–7). If you scored a 5 or above on the midterm, you can take the final. For studying: go back over the practical booklets/docs you filled in during the weeks — the exam questions are similar in style.',
+      'The IS final exam covers lectures 8 through 13 (the midterm covered 1–7). If you scored a 5 or above on the midterm, you can take the final. For studying: go back over the practical booklets/docs you filled in during the weeks — the exam questions are similar in style. Also, PRACTICE EXAMS are your absolute best resource for this course. They give you a perfect idea of what to expect, and often the question formats are almost identical.',
     author: 'AI @ VU Class of 2028',
   },
   {
     id: 'tip-is-4',
     courseId: 'intelligent-systems',
     content:
-      'In IS assignments, always check Discord for clarifications — TAs post important corrections there that may not appear on Canvas. For example, in one assignment a code snippet\'s P(...) placeholder needed to be commented out rather than filled in, which was only announced on Discord.',
+      'In IS assignments, always check Discord for clarifications — TAs post important corrections there that may not appear on Canvas. For example, in one assignment a code snippet\'s P(...) placeholder needed to be commented out rather than filled in, which was only announced on Discord. Additionally, GO TO THE WORKING GROUPS. You really need them to master the material, and as a bonus, attending 6 out of 7 gives you a +0.3 boost to your final grade.',
     author: 'AI @ VU Class of 2028',
   },
   {
@@ -655,6 +676,150 @@ export const tips: CourseTip[] = [
     content:
       'For the English Language Test: you\'re assigned to exam rooms based on surname ranges (e.g. A–K in one set of rooms, L–Z in another). Check Canvas announcements for your specific room. If you miss the morning slot, there are multiple time blocks throughout the day — call the VU Taalcentrum immediately to see if you can attend a later block.',
     author: 'AI @ VU Class of 2028',
+  },
+
+  // ========== Modelling Human Behaviour (Dynamic Modelling) ==========
+  {
+    id: 'tip-mhb-1',
+    courseId: 'modelling-human-behaviour',
+    content:
+      'The exam is 20 multiple-choice questions worth 40% of your final grade. The questions are very similar in style across years — practice with the 2022 and 2023 resit exams (available on Canvas and this site) and you\'ll know exactly what to expect. Many questions test whether you understand the DIFFERENCES between concepts (e.g. conceptualisation vs formalisation, analysis vs support models).',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-mhb-2',
+    courseId: 'modelling-human-behaviour',
+    content:
+      'Master the modelling cycle early: Conceptualisation → Formalisation → Simulation → Evaluation. Almost every assignment and exam question relates back to this cycle. Know which activities belong to which phase — a common exam question asks what is NOT part of conceptualisation (answer: choosing numerical vs logical representation, that\'s formalisation).',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-mhb-3',
+    courseId: 'modelling-human-behaviour',
+    content:
+      'The reader chapters are split into "to know" (directly tested on the exam) and "to understand" (provides context). Focus your study time on the "to know" chapters first, but don\'t skip the "to understand" chapters entirely — they help you grasp the bigger picture for the assignments.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-mhb-4',
+    courseId: 'modelling-human-behaviour',
+    content:
+      'Assignment 3 (L2-Python tutorial) is pass/fail and MUST be checked in person by your TA during the working group. If you don\'t pass it by the deadline, you lose 0.5 points from your FINAL grade — not just the assignment grade. Don\'t skip this session!',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-mhb-5',
+    courseId: 'modelling-human-behaviour',
+    content:
+      'For the Excel assignments (weeks 1-2): always include graphs/figures when asked to describe simulation results. Write precise observations using specific time points and values (e.g. "after time point 30, the medication level stays above 120 mg/l"), not vague statements like "it goes up". The rubric explicitly awards points for precise, complete descriptions.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-mhb-6',
+    courseId: 'modelling-human-behaviour',
+    content:
+      'Know your behaviour types cold for the exam: Type A = stimulus-response (immediate, no memory), Type B = delayed response (uses sensory memory), Type C = motivation-based (driven by desires/intentions via BDI), Type D = adaptive (learns through sensitivity changes). A classic exam question asks you to classify a scenario into one of these types.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-mhb-7',
+    courseId: 'modelling-human-behaviour',
+    content:
+      'The final assignment (stress prevention system, worth 20%) requires you to build a domain model, analysis model, AND support model. Start by carefully reading the provided text and highlighting the italic terms — these become your concepts. Submit your conceptual model (tasks 1-2) on time for TA feedback before completing the full assignment.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-mhb-8',
+    courseId: 'modelling-human-behaviour',
+    content:
+      'For Boolean logic in numerical (0/1) models: AND = A*B, NOT = 1-A, OR = MAX(A,B). This comes up on every exam. Also know: NOT(A OR B) = 1-MAX(A,B). Write these formulas on a cheat sheet and drill them until they\'re automatic.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-mhb-9',
+    courseId: 'modelling-human-behaviour',
+    content:
+      'Understand the difference between analysis models and support models: Analysis models derive conclusions from observations (key concepts: desire, assessment, belief). Support models determine actions to achieve goals (key concepts: proposed, assumed, desire). For analysis models, the reasoning direction follows from the model structure. For support models, you choose the easiest direction to implement.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-mhb-10',
+    courseId: 'modelling-human-behaviour',
+    content:
+      'Late assignment submissions lose 1 point per day. All partial grades (assignments average, final assignment, exam) must each be ≥ 5.5 to pass. If your assignment average is below 5.5, you can redo at most one assignment. Plan ahead — don\'t let one bad week sink your entire grade.',
+    author: 'AI @ VU Student',
+  },
+
+  // ========== Project Intelligent Systems ==========
+  {
+    id: 'tip-pis-1',
+    courseId: 'project-intelligent-systems',
+    content:
+      'Learn how to play Schnapsen before the project starts — understanding the game intuitively will make designing bot strategies much easier. Watch a few YouTube tutorials and play some practice rounds online. It turns out to be simpler than most people expect!',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pis-2',
+    courseId: 'project-intelligent-systems',
+    content:
+      'Find your project partner early. You work in pairs for the entire project and need to write a ~12-page research paper together. Pick someone you communicate well with and who has complementary strengths (e.g. one person stronger at coding, another at writing).',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pis-3',
+    courseId: 'project-intelligent-systems',
+    content:
+      'Start your bot implementation early — the Schnapsen game engine has a learning curve. Get familiar with the codebase, run the example bots (RandBot, RDeepBot), and understand how moves, tricks, and game states work before designing your own strategy.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pis-4',
+    courseId: 'project-intelligent-systems',
+    content:
+      'Run large numbers of simulated games (at least 1,000, ideally 10,000+) to get statistically meaningful results. Use fixed random seeds for reproducibility. Always test your bots against baselines (RandBot, RDeepBot) — not just against each other.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pis-5',
+    courseId: 'project-intelligent-systems',
+    content:
+      'Think carefully about your research question before diving into code. Good questions compare specific strategies (e.g. "Does an aggressive trick-taking approach outperform a conservative one against Monte Carlo-based opponents?"). Avoid vague questions like "Which bot is best?".',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pis-6',
+    courseId: 'project-intelligent-systems',
+    content:
+      'For the research paper, follow the Springer LNCS format strictly. Include clear sections: Introduction, Background, Research Question, Experimental Setup, Results, Discussion, and Conclusion. Add flowcharts or diagrams of your bot\'s decision logic — they make the paper much more readable.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pis-7',
+    courseId: 'project-intelligent-systems',
+    content:
+      'Consider both win rates AND point margins when analysing results. A bot that wins 60% of games but only by 1 game point each time may be less effective than one that wins 55% but frequently scores 3 game points (opponent has no tricks). Use statistical tests like chi-square to validate your findings.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pis-8',
+    courseId: 'project-intelligent-systems',
+    content:
+      'There is NO resit for this course — take it seriously from day one. The individual test in the final week covers your understanding of your own project and the AI techniques you used, so make sure you understand every part of your bot\'s implementation even if your partner wrote some of the code.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pis-9',
+    courseId: 'project-intelligent-systems',
+    content:
+      'For the individual coding assignment, the AssignmentBot has specific conditions and actions that form a decision tree. Use the check_implementation.py script to validate your bot\'s behavior against the server — it will tell you exactly which conditions or actions are wrong.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pis-10',
+    courseId: 'project-intelligent-systems',
+    content:
+      'Interesting bot ideas to explore: combine rule-based logic with ML (e.g. use a neural net to decide when to switch from aggressive to passive play), use Monte Carlo tree search with different sampling depths, or build a bot that adapts its strategy based on the opponent\'s observed behavior during the game.',
+    author: 'AI @ VU Student',
   },
 ];
 

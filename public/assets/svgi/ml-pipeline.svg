@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="200" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Arrows -->
+    <line x1="100" y1="100" x2="140" y2="100" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+    <line x1="220" y1="100" x2="260" y2="100" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+    <line x1="340" y1="100" x2="380" y2="100" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+
+    <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8" />
+        </marker>
+    </defs>
+
+    <!-- Step 1 Data -->
+    <rect x="20" y="60" width="80" height="80" rx="12" fill="#e0f2fe" stroke="#0ea5e9" stroke-width="3"/>
+    <circle cx="60" cy="90" r="16" fill="#0ea5e9"/>
+    <line x1="40" y1="120" x2="80" y2="120" stroke="#0ea5e9" stroke-width="4"/>
+    <line x1="40" y1="110" x2="60" y2="110" stroke="#0ea5e9" stroke-width="4"/>
+    <text x="60" y="155" text-anchor="middle" font-weight="bold" fill="#334155" font-family="sans-serif" font-size="14">Data</text>
+
+    <!-- Step 2 Train -->
+    <rect x="140" y="60" width="80" height="80" rx="12" fill="#fef08a" stroke="#ca8a04" stroke-width="3"/>
+    <circle cx="180" cy="100" r="20" fill="none" stroke="#ca8a04" stroke-width="4" stroke-dasharray="6,4"/>
+    <circle cx="180" cy="100" r="10" fill="#ca8a04"/>
+    <text x="180" y="155" text-anchor="middle" font-weight="bold" fill="#334155" font-family="sans-serif" font-size="14">Train</text>
+
+    <!-- Step 3 Model -->
+    <rect x="260" y="60" width="80" height="80" rx="12" fill="#fce7f3" stroke="#db2777" stroke-width="3"/>
+    <polygon points="300,75 315,100 300,125 285,100" fill="#db2777"/>
+    <text x="300" y="155" text-anchor="middle" font-weight="bold" fill="#334155" font-family="sans-serif" font-size="14">Model</text>
+
+    <!-- Step 4 Predict -->
+    <rect x="380" y="60" width="80" height="80" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+    <path d="M 410 100 L 415 110 L 430 90" fill="none" stroke="#059669" stroke-width="4"/>
+    <text x="420" y="155" text-anchor="middle" font-weight="bold" fill="#334155" font-family="sans-serif" font-size="14">Predict</text>
+</svg>

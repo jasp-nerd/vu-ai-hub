@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .box { fill: white; stroke: #94a3b8; stroke-width: 2; }
+        .txt { fill: #334155; font-family: sans-serif; font-weight: bold; font-size: 16px; text-anchor: middle; dominant-baseline: middle; }
+    </style>
+    <!-- Initial Array -->
+    <g transform="translate(100, 20)">
+        <rect x="0" y="0" width="40" height="40" class="box" fill="#f8fafc"/>
+        <rect x="40" y="0" width="40" height="40" class="box" fill="#f8fafc"/>
+        <rect x="80" y="0" width="40" height="40" class="box" fill="#f8fafc"/>
+        <rect x="120" y="0" width="40" height="40" class="box" fill="#f8fafc"/>
+        <text x="20" y="22" class="txt">3</text>
+        <text x="60" y="22" class="txt">1</text>
+        <text x="100" y="22" class="txt">4</text>
+        <text x="140" y="22" class="txt">2</text>
+    </g>
+    <path d="M 180 70 L 140 100 M 180 70 L 220 100" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+    
+    <!-- Split 1 -->
+    <g transform="translate(60, 110)">
+        <rect x="0" y="0" width="40" height="40" class="box" fill="#e0f2fe"/>
+        <rect x="40" y="0" width="40" height="40" class="box" fill="#e0f2fe"/>
+        <text x="20" y="22" class="txt">3</text>
+        <text x="60" y="22" class="txt">1</text>
+    </g>
+    <g transform="translate(220, 110)">
+        <rect x="0" y="0" width="40" height="40" class="box" fill="#fce7f3"/>
+        <rect x="40" y="0" width="40" height="40" class="box" fill="#fce7f3"/>
+        <text x="20" y="22" class="txt">4</text>
+        <text x="60" y="22" class="txt">2</text>
+    </g>
+    <path d="M 100 160 L 80 190 M 100 160 L 120 190" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+    <path d="M 260 160 L 240 190 M 260 160 L 280 190" stroke="#cbd5e1" stroke-width="2" fill="none"/>
+    
+    <!-- Split 2 (Single Elements) -->
+    <g transform="translate(40, 200)">
+        <rect x="0" y="0" width="40" height="40" class="box" fill="#d1fae5"/>
+        <text x="20" y="22" class="txt">3</text>
+    </g>
+    <g transform="translate(100, 200)">
+        <rect x="0" y="0" width="40" height="40" class="box" fill="#d1fae5"/>
+        <text x="20" y="22" class="txt">1</text>
+    </g>
+    <g transform="translate(220, 200)">
+        <rect x="0" y="0" width="40" height="40" class="box" fill="#dcfce3"/>
+        <text x="20" y="22" class="txt">4</text>
+    </g>
+    <g transform="translate(280, 200)">
+        <rect x="0" y="0" width="40" height="40" class="box" fill="#dcfce3"/>
+        <text x="20" y="22" class="txt">2</text>
+    </g>
+    
+    <!-- Merge line concept text -->
+    <text x="200" y="270" text-anchor="middle" font-family="sans-serif" font-weight="bold" fill="#64748b" font-style="italic">...then merge back in sorted order</text>
+</svg>
