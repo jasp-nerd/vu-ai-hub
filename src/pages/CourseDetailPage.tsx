@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 import {
   getCourseBySlug,
   getTipsForCourse,
@@ -20,11 +24,13 @@ const resourceTypeIcon: Record<string, string> = {
   tool: '⚙',
   pdf: '↓',
   'external-quiz': '?',
+  summary: '★',
 };
 
 export default function CourseDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [activeTab, setActiveTab] = useState<Tab>('Overview');
+  const [expandedSummary, setExpandedSummary] = useState<string | null>(null);
 
   const course = getCourseBySlug(slug || '');
 
@@ -97,8 +103,8 @@ export default function CourseDetailPage() {
       {course.workgroupInfo && (
         <div
           className={`mb-8 rounded-2xl border p-5 flex items-start gap-3 ${course.workgroupInfo.mandatory
-              ? 'border-amber-300/60 dark:border-amber-700/40 bg-amber-50/70 dark:bg-amber-950/30'
-              : 'border-sky-200/60 dark:border-sky-800/40 bg-sky-50/50 dark:bg-sky-950/20'
+            ? 'border-amber-300/60 dark:border-amber-700/40 bg-amber-50/70 dark:bg-amber-950/30'
+            : 'border-sky-200/60 dark:border-sky-800/40 bg-sky-50/50 dark:bg-sky-950/20'
             }`}
         >
           <span className="text-lg mt-0.5 shrink-0">
@@ -108,8 +114,8 @@ export default function CourseDetailPage() {
             <div className="flex items-center gap-2 mb-1">
               <span
                 className={`text-xs font-semibold uppercase tracking-wider ${course.workgroupInfo.mandatory
-                    ? 'text-amber-700 dark:text-amber-400'
-                    : 'text-sky-700 dark:text-sky-400'
+                  ? 'text-amber-700 dark:text-amber-400'
+                  : 'text-sky-700 dark:text-sky-400'
                   }`}
               >
                 {course.workgroupInfo.mandatory
@@ -126,8 +132,8 @@ export default function CourseDetailPage() {
             </div>
             <p
               className={`text-sm leading-relaxed ${course.workgroupInfo.mandatory
-                  ? 'text-amber-800 dark:text-amber-300/80'
-                  : 'text-sky-800 dark:text-sky-300/80'
+                ? 'text-amber-800 dark:text-amber-300/80'
+                : 'text-sky-800 dark:text-sky-300/80'
                 }`}
             >
               {course.workgroupInfo.detail}
@@ -179,7 +185,7 @@ export default function CourseDetailPage() {
               </div>
             )}
             <div className="prose-custom">
-              <ReactMarkdown>{course.overview}</ReactMarkdown>
+              <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>{course.overview}</ReactMarkdown>
             </div>
             {(course.assessment || course.gradingStructure) && (
               <div className="mt-8 rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-stone-50/50 dark:bg-stone-900/50 p-6">
@@ -278,84 +284,155 @@ export default function CourseDetailPage() {
               </p>
             ) : (
               <div className="space-y-3">
-                {resources.map((resource) => {
-                  // Extract YouTube video ID for thumbnail preview
-                  const ytMatch = resource.url.match(
-                    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/
-                  );
-                  const ytThumbnail = ytMatch
-                    ? `https://img.youtube.com/vi/${ytMatch[1]}/mqdefault.jpg`
-                    : null;
-
-                  return (
-                    <a
-                      key={resource.id}
-                      href={resource.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group block rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-5 transition-all hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-sm"
-                    >
-                      <div className="flex items-start gap-4">
-                        {ytThumbnail ? (
-                          <div className="relative shrink-0 w-32 h-[72px] rounded-lg overflow-hidden bg-stone-100 dark:bg-stone-800">
-                            <img
-                              src={ytThumbnail}
-                              alt=""
-                              className="w-full h-full object-cover"
-                              loading="lazy"
+                {/* Featured summaries (inline markdown) */}
+                {resources
+                  .filter((r) => r.type === 'summary' && r.markdownContent)
+                  .map((resource) => {
+                    const isExpanded = expandedSummary === resource.id;
+                    return (
+                      <div
+                        key={resource.id}
+                        className="rounded-2xl border-2 border-vu-blue/20 dark:border-vu-blue-light/20 bg-gradient-to-b from-vu-blue/[0.03] to-transparent dark:from-vu-blue-light/[0.03] overflow-hidden"
+                      >
+                        {/* Header — always visible */}
+                        <button
+                          onClick={() =>
+                            setExpandedSummary(isExpanded ? null : resource.id)
+                          }
+                          className="w-full text-left p-5 flex items-start gap-4 group"
+                        >
+                          <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-vu-blue/10 dark:bg-vu-blue-light/10 text-vu-blue dark:text-vu-blue-light text-lg shrink-0">
+                            ★
+                          </span>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="text-[10px] font-semibold uppercase tracking-wider text-vu-blue dark:text-vu-blue-light">
+                                Site exclusive
+                              </span>
+                              {resource.author && (
+                                <span className="text-[10px] text-stone-400 dark:text-stone-500">
+                                  by {resource.author}
+                                </span>
+                              )}
+                            </div>
+                            <h4 className="font-display font-semibold text-stone-900 dark:text-stone-100 text-base">
+                              {resource.title}
+                            </h4>
+                            <p className="text-xs text-stone-500 dark:text-stone-400 mt-1 leading-relaxed">
+                              {resource.description}
+                            </p>
+                          </div>
+                          <svg
+                            className={`w-5 h-5 text-stone-400 dark:text-stone-500 shrink-0 mt-2 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''
+                              }`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M19 9l-7 7-7-7"
                             />
-                            {/* Play button overlay */}
-                            <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors">
-                              <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center shadow-md opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all">
-                                <svg className="w-3.5 h-3.5 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor">
-                                  <path d="M8 5v14l11-7z" />
-                                </svg>
-                              </div>
+                          </svg>
+                        </button>
+
+                        {/* Expandable content */}
+                        {isExpanded && (
+                          <div className="border-t border-vu-blue/10 dark:border-vu-blue-light/10 px-5 py-6">
+                            <div className="prose-custom max-w-none">
+                              <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
+                                {resource.markdownContent!}
+                              </ReactMarkdown>
                             </div>
                           </div>
-                        ) : (
-                          <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-stone-50 dark:bg-stone-800 text-stone-400 dark:text-stone-500 text-sm shrink-0">
-                            {resourceTypeIcon[resource.type] || '·'}
-                          </span>
                         )}
-                        <div className="flex-1 min-w-0">
-                          <h4 className="font-medium text-stone-900 dark:text-stone-100 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors text-sm">
-                            {resource.title}
-                          </h4>
-                          <p className="text-xs text-stone-500 dark:text-stone-400 mt-1 leading-relaxed">
-                            {resource.description}
-                          </p>
-                          <div className="flex items-center gap-2 mt-2">
-                            <span className="text-xs text-stone-400 dark:text-stone-500 bg-stone-50 dark:bg-stone-800 px-2 py-0.5 rounded">
-                              {resource.type}
-                            </span>
-                            {resource.tags.slice(0, 2).map((tag) => (
-                              <span
-                                key={tag}
-                                className="text-xs text-stone-400 dark:text-stone-500"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        <svg
-                          className="w-4 h-4 text-stone-300 dark:text-stone-600 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors shrink-0 mt-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
                       </div>
-                    </a>
-                  );
-                })}
+                    );
+                  })}
+
+                {/* Regular resources */}
+                {resources
+                  .filter((r) => r.type !== 'summary')
+                  .map((resource) => {
+                    // Extract YouTube video ID for thumbnail preview
+                    const ytMatch = resource.url.match(
+                      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/
+                    );
+                    const ytThumbnail = ytMatch
+                      ? `https://img.youtube.com/vi/${ytMatch[1]}/mqdefault.jpg`
+                      : null;
+
+                    return (
+                      <a
+                        key={resource.id}
+                        href={resource.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-5 transition-all hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-sm"
+                      >
+                        <div className="flex items-start gap-4">
+                          {ytThumbnail ? (
+                            <div className="relative shrink-0 w-32 h-[72px] rounded-lg overflow-hidden bg-stone-100 dark:bg-stone-800">
+                              <img
+                                src={ytThumbnail}
+                                alt=""
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                              />
+                              {/* Play button overlay */}
+                              <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors">
+                                <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center shadow-md opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all">
+                                  <svg className="w-3.5 h-3.5 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z" />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          ) : (
+                            <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-stone-50 dark:bg-stone-800 text-stone-400 dark:text-stone-500 text-sm shrink-0">
+                              {resourceTypeIcon[resource.type] || '·'}
+                            </span>
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-medium text-stone-900 dark:text-stone-100 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors text-sm">
+                              {resource.title}
+                            </h4>
+                            <p className="text-xs text-stone-500 dark:text-stone-400 mt-1 leading-relaxed">
+                              {resource.description}
+                            </p>
+                            <div className="flex items-center gap-2 mt-2">
+                              <span className="text-xs text-stone-400 dark:text-stone-500 bg-stone-50 dark:bg-stone-800 px-2 py-0.5 rounded">
+                                {resource.type}
+                              </span>
+                              {resource.tags.slice(0, 2).map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="text-xs text-stone-400 dark:text-stone-500"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                          <svg
+                            className="w-4 h-4 text-stone-300 dark:text-stone-600 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors shrink-0 mt-1"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </div>
+                      </a>
+                    );
+                  })}
               </div>
             )}
           </div>

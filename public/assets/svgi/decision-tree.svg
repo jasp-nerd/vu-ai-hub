@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Lines -->
+    <line x1="200" y1="50" x2="100" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+    <line x1="200" y1="50" x2="300" y2="150" stroke="#cbd5e1" stroke-width="3"/>
+    <line x1="300" y1="150" x2="250" y2="250" stroke="#cbd5e1" stroke-width="3"/>
+    <line x1="300" y1="150" x2="350" y2="250" stroke="#cbd5e1" stroke-width="3"/>
+    
+    <!-- Root Node -->
+    <rect x="150" y="30" width="100" height="40" rx="8" fill="#3b82f6" stroke="#2563eb" stroke-width="2"/>
+    <text x="200" y="55" text-anchor="middle" fill="white" font-weight="bold" font-family="sans-serif">Weather?</text>
+    
+    <!-- Branch Labels -->
+    <text x="130" y="90" text-anchor="middle" fill="#64748b" font-weight="bold" font-family="sans-serif">Rain</text>
+    <text x="270" y="90" text-anchor="middle" fill="#64748b" font-weight="bold" font-family="sans-serif">Sunny</text>
+    <text x="250" y="190" text-anchor="middle" fill="#64748b" font-weight="bold" font-family="sans-serif">High</text>
+    <text x="350" y="190" text-anchor="middle" fill="#64748b" font-weight="bold" font-family="sans-serif">Normal</text>
+
+    <!-- Leaf Node (Rain) -->
+    <rect x="50" y="130" width="100" height="40" rx="8" fill="#ef4444" stroke="#dc2626" stroke-width="2"/>
+    <text x="100" y="155" text-anchor="middle" fill="white" font-weight="bold" font-family="sans-serif">Don't Play</text>
+    
+    <!-- Internal Node (Sunny) -->
+    <rect x="250" y="130" width="100" height="40" rx="8" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+    <text x="300" y="155" text-anchor="middle" fill="white" font-weight="bold" font-family="sans-serif">Humidity?</text>
+    
+    <!-- Leaf Node (High Humidity) -->
+    <rect x="200" y="230" width="100" height="40" rx="8" fill="#ef4444" stroke="#dc2626" stroke-width="2"/>
+    <text x="250" y="255" text-anchor="middle" fill="white" font-weight="bold" font-family="sans-serif">Don't Play</text>
+    
+    <!-- Leaf Node (Normal Humidity) -->
+    <rect x="300" y="230" width="100" height="40" rx="8" fill="#10b981" stroke="#059669" stroke-width="2"/>
+    <text x="350" y="255" text-anchor="middle" fill="white" font-weight="bold" font-family="sans-serif">Play</text>
+</svg>

@@ -1,5 +1,9 @@
 import type { QuizQuestion } from '../types';
 import { useQuiz } from '../hooks/useQuiz';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 
 export default function Quiz({ questions }: { questions: QuizQuestion[] }) {
   const quiz = useQuiz(questions);
@@ -65,10 +69,10 @@ export default function Quiz({ questions }: { questions: QuizQuestion[] }) {
           </span>
           <span
             className={`text-xs font-medium px-2 py-1 rounded-md ${q.difficulty === 'easy'
-                ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400'
-                : q.difficulty === 'medium'
-                  ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400'
-                  : 'bg-red-50 dark:bg-red-950/50 text-red-600 dark:text-red-400'
+              ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400'
+              : q.difficulty === 'medium'
+                ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400'
+                : 'bg-red-50 dark:bg-red-950/50 text-red-600 dark:text-red-400'
               }`}
           >
             {q.difficulty}
@@ -77,7 +81,7 @@ export default function Quiz({ questions }: { questions: QuizQuestion[] }) {
 
         {/* Question */}
         <h3 className="font-display text-lg font-semibold text-stone-900 dark:text-stone-100 mb-6">
-          {q.question}
+          <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{q.question}</ReactMarkdown>
         </h3>
 
         {/* Options */}
@@ -112,7 +116,11 @@ export default function Quiz({ questions }: { questions: QuizQuestion[] }) {
                   <span className="inline-flex items-center justify-center w-6 h-6 rounded-md bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 text-xs font-medium shrink-0">
                     {String.fromCharCode(65 + i)}
                   </span>
-                  <span className="text-stone-700 dark:text-stone-300">{option}</span>
+                  <span className="text-stone-700 dark:text-stone-300">
+                    <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]} components={{ p: ({ node, ...props }) => <span {...props} /> }}>
+                      {option}
+                    </ReactMarkdown>
+                  </span>
                 </span>
               </button>
             );
@@ -124,7 +132,9 @@ export default function Quiz({ questions }: { questions: QuizQuestion[] }) {
           <div className="rounded-xl bg-stone-50 dark:bg-stone-800 border border-stone-200/60 dark:border-stone-700/60 p-4 mb-6">
             <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
               <span className="font-medium text-stone-900 dark:text-stone-100">Explanation: </span>
-              {q.explanation}
+              <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]} components={{ p: ({ node, ...props }) => <span {...props} /> }}>
+                {q.explanation}
+              </ReactMarkdown>
             </p>
           </div>
         )}

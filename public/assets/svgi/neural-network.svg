@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Connections Input to Hidden -->
+    <line x1="100" y1="100" x2="200" y2="50" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="100" y1="100" x2="200" y2="150" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="100" y1="100" x2="200" y2="250" stroke="#cbd5e1" stroke-width="2"/>
+    
+    <line x1="100" y1="200" x2="200" y2="50" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="100" y1="200" x2="200" y2="150" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="100" y1="200" x2="200" y2="250" stroke="#cbd5e1" stroke-width="2"/>
+    
+    <!-- Connections Hidden to Output -->
+    <line x1="200" y1="50" x2="300" y2="150" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="200" y1="150" x2="300" y2="150" stroke="#cbd5e1" stroke-width="2"/>
+    <line x1="200" y1="250" x2="300" y2="150" stroke="#cbd5e1" stroke-width="2"/>
+    
+    <!-- Input Layer -->
+    <circle cx="100" cy="100" r="24" fill="#64748b"/>
+    <circle cx="100" cy="200" r="24" fill="#64748b"/>
+    
+    <!-- Hidden Layer -->
+    <circle cx="200" cy="50" r="24" fill="#3b82f6"/>
+    <circle cx="200" cy="150" r="24" fill="#3b82f6"/>
+    <circle cx="200" cy="250" r="24" fill="#3b82f6"/>
+    
+    <!-- Output Layer -->
+    <circle cx="300" cy="150" r="24" fill="#10b981"/>
+    
+    <!-- Labels -->
+    <text x="100" y="20" text-anchor="middle" font-family="sans-serif" font-weight="bold" fill="#475569">Input Layer</text>
+    <text x="200" y="20" text-anchor="middle" font-family="sans-serif" font-weight="bold" fill="#2563eb">Hidden Layer</text>
+    <text x="300" y="20" text-anchor="middle" font-family="sans-serif" font-weight="bold" fill="#059669">Output Layer</text>
+</svg>

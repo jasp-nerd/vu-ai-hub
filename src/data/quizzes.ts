@@ -2227,6 +2227,2750 @@ export const quizQuestions: QuizQuestion[] = [
             'The summary explains Dennett\'s view: "we often attribute human qualities like intentions or emotions to machines because it is useful, even though machines may not have these qualities in reality." Intelligence and consciousness are \'attributed\' and \'gradual.\'',
         difficulty: 'hard',
     },
-];
 
+    // ========== Introduction to Psychology ==========
+    {
+        id: 'quiz-psy-1',
+        courseId: 'intro-psychology',
+        question: 'Psychological science is primarily the study of which three things?',
+        options: [
+            'Mind, brain, and behavior',
+            'Brain, behavior, and culture',
+            'Emotions, cognition, and behavior',
+            'Mind, body, and emotions',
+        ],
+        correctIndex: 0,
+        explanation:
+            'Psychological science is defined as the study of mind, brain, and behavior. Mind refers to mental activity from biological brain processes, and behavior describes the totality of observable actions.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-2',
+        courseId: 'intro-psychology',
+        question: 'What is the key feature of "amiable skepticism" in critical thinking?',
+        options: [
+            'Accepting all evidence equally without judgment',
+            'Quickly accepting conclusions that feel intuitive',
+            'Careful examination of how well evidence supports a conclusion',
+            'Dismissing research that contradicts personal experience',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Amiable skepticism requires a careful examination of how well evidence supports a conclusion. It is a core component of critical thinking in psychological science.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-3',
+        courseId: 'intro-psychology',
+        question: 'Which cognitive bias involves ignoring evidence that contradicts pre-existing beliefs?',
+        options: [
+            'Availability heuristic',
+            'Confirmation bias',
+            'Anchoring bias',
+            'Illusory correlation',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Confirmation bias is the tendency to ignore evidence that contradicts one\'s pre-existing beliefs. It is one of the most common biases in thinking identified by psychological science.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-4',
+        courseId: 'intro-psychology',
+        question: 'What is functionalism in psychology?',
+        options: [
+            'The idea that the mind is too complex to understand as individual parts',
+            'The idea that the mind evolved to solve specific problems in the environment',
+            'The theory that behavior is independent of biological evolution',
+            'The approach of studying only observable behavior without considering mental processes',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Functionalism is the idea that the mind evolved to solve specific environmental problems. Human mental activity, behavior, and culture are guided by evolution and environmental challenges.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-5',
+        courseId: 'intro-psychology',
+        question: 'The nature/nurture debate in psychology concerns whether psychological characteristics are:',
+        options: [
+            'Conscious or unconscious processes',
+            'Biologically innate or acquired through experience',
+            'Studied best through qualitative or quantitative methods',
+            'Functions of the mind or functions of the body',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The nature/nurture debate questions whether psychological characteristics are biologically innate or acquired through education, experience, and culture. Today we know nature and nurture interact and cannot be separated.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-6',
+        courseId: 'intro-psychology',
+        question: 'What is the basic unit of the nervous system?',
+        options: [
+            'The synapse',
+            'The neuron',
+            'The brain stem',
+            'The myelin sheath',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Neurons (nerve cells) are the basic units of the nervous system. They receive and send electrical and chemical messages, and are linked together in neural networks.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-7',
+        courseId: 'intro-psychology',
+        question: 'What is the resting membrane potential of a neuron approximately equal to?',
+        options: [
+            '+70 millivolts',
+            '0 millivolts',
+            '-70 millivolts',
+            '-140 millivolts',
+        ],
+        correctIndex: 2,
+        explanation:
+            'A neuron at rest is polarized with a resting membrane potential of approximately -70 millivolts, meaning the inside is more negatively charged than the outside.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-8',
+        courseId: 'intro-psychology',
+        question: 'Which neurotransmitter is primarily associated with reward and motivation?',
+        options: [
+            'Acetylcholine',
+            'Serotonin',
+            'Dopamine',
+            'GABA',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Dopamine is primarily associated with reward, motivation, and motor control over voluntary movement. The brain\'s reward system relies heavily on dopamine signaling.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-9',
+        courseId: 'intro-psychology',
+        question: 'What is the function of GABA in the nervous system?',
+        options: [
+            'Enhancement of action potentials and learning',
+            'Motor control over muscles',
+            'Inhibition of action potentials and anxiety reduction',
+            'Pain reduction and reward',
+        ],
+        correctIndex: 2,
+        explanation:
+            'GABA (gamma-aminobutyric acid) is the primary inhibitory neurotransmitter. It inhibits action potentials and plays a role in anxiety reduction.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-10',
+        courseId: 'intro-psychology',
+        question: 'How do agonist drugs affect neurotransmission?',
+        options: [
+            'They decrease the amount of neurotransmitter or block its receptors',
+            'They enhance neurotransmitter activity by mimicking it or increasing its availability',
+            'They destroy the synapse between neurons',
+            'They permanently alter the structure of receptors',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Agonist drugs enhance neurotransmitter activity. They can increase how much neurotransmitter is produced, block its reuptake, or mimic the neurotransmitter by binding to its receptors.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-11',
+        courseId: 'intro-psychology',
+        question: 'Which brain imaging technique measures the brain\'s electrical activity?',
+        options: [
+            'PET (Positron Emission Tomography)',
+            'fMRI (Functional Magnetic Resonance Imaging)',
+            'EEG (Electroencephalography)',
+            'TMS (Transcranial Magnetic Stimulation)',
+        ],
+        correctIndex: 2,
+        explanation:
+            'EEG (electroencephalography) measures the brain\'s electrical activity. PET uses radioactive tracers, fMRI measures blood flow changes, and TMS disrupts normal brain activity to infer function.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-12',
+        courseId: 'intro-psychology',
+        question: 'Which lobe of the cerebral cortex is primarily responsible for vision?',
+        options: [
+            'Frontal lobe',
+            'Parietal lobe',
+            'Temporal lobe',
+            'Occipital lobe',
+        ],
+        correctIndex: 3,
+        explanation:
+            'The occipital lobe is primarily responsible for vision. The frontal lobe handles thought, planning, and personality; the parietal lobe handles touch and spatial relations; the temporal lobe handles hearing and memory.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-13',
+        courseId: 'intro-psychology',
+        question: 'What is the role of the corpus callosum?',
+        options: [
+            'Controlling balance and coordination',
+            'Connecting the brain\'s two hemispheres',
+            'Relaying sensory information to the cortex',
+            'Regulating hormones throughout the body',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The corpus callosum is a thick band of nerve fibers that connects the brain\'s two hemispheres, allowing them to communicate. Cutting it results in split-brain patients.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-14',
+        courseId: 'intro-psychology',
+        question: 'In split-brain patients, the left hemisphere\'s tendency to construct explanations for behavior is called:',
+        options: [
+            'The narrator',
+            'The interpreter',
+            'The analyzer',
+            'The rationalizer',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The left hemisphere\'s propensity to construct a world that makes sense, creating explanations for behavior even without complete information, is called the interpreter.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-15',
+        courseId: 'intro-psychology',
+        question: 'Which subcortical structure is primarily associated with memory?',
+        options: [
+            'Amygdala',
+            'Hypothalamus',
+            'Hippocampus',
+            'Thalamus',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The hippocampus is the subcortical structure primarily associated with memory formation and storage. The amygdala processes threat and fear, the hypothalamus regulates vital functions, and the thalamus relays sensory information.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-16',
+        courseId: 'intro-psychology',
+        question: 'Which division of the autonomic nervous system prepares the body for action ("fight or flight")?',
+        options: [
+            'Somatic nervous system',
+            'Parasympathetic division',
+            'Sympathetic division',
+            'Central nervous system',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The sympathetic division of the autonomic nervous system prepares the body for action (fight or flight), while the parasympathetic division returns the body to its resting state.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-17',
+        courseId: 'intro-psychology',
+        question: 'What is epigenetics?',
+        options: [
+            'The study of how mutations change DNA sequences',
+            'The study of how genetic expression can be changed by experience and environment',
+            'The study of dominant and recessive gene inheritance',
+            'The study of chromosomal disorders and their effects',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Epigenetics is the study of how genetic expression may change due to experience and environmental contexts, without altering the DNA sequence itself.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-18',
+        courseId: 'intro-psychology',
+        question: 'What is brain plasticity?',
+        options: [
+            'The brain\'s inability to change after critical periods',
+            'The brain\'s capacity to continually change in response to a person\'s environment',
+            'The process of myelination in developing brains',
+            'The physical rigidity of the brain\'s protective skull',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Plasticity is the brain\'s capacity to continually change in response to a person\'s environment. Although brain plasticity decreases with age, the brain retains the ability to rewire itself throughout life.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-19',
+        courseId: 'intro-psychology',
+        question: 'Which phenomenon illustrates how selective attention can be?',
+        options: [
+            'Sensory adaptation',
+            'Change blindness',
+            'Subliminal perception',
+            'Signal detection',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Change blindness illustrates how selective an individual\'s attention can be — we often do not notice large changes in an environment because we fail to pay attention.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-20',
+        courseId: 'intro-psychology',
+        question: 'What is the difference between controlled and automatic processing?',
+        options: [
+            'Controlled processing is unconscious; automatic processing requires concentration',
+            'Controlled processing requires concentration; automatic processing occurs with little conscious effort',
+            'Both require equal amounts of conscious effort',
+            'Automatic processing only occurs during sleep',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Controlled processing requires a great deal of concentration, while automatic processing happens with little conscious effort for highly practiced tasks. This frees up consciousness for other tasks.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-21',
+        courseId: 'intro-psychology',
+        question: 'What is "flow" in psychology?',
+        options: [
+            'The continuous stream of sensory information processed by the brain',
+            'A state of altered consciousness where a person is completely absorbed in an engaging activity',
+            'The movement of neurotransmitters across the synaptic cleft',
+            'The pattern of brain waves during deep sleep',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Flow is a state of altered consciousness where people become completely absorbed in what they are doing. It is experienced as a positive state and occurs during engaging activities.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-22',
+        courseId: 'intro-psychology',
+        question: 'Which brain waves are associated with deep, slow-wave sleep (stages 3-4)?',
+        options: [
+            'Beta waves',
+            'Alpha waves',
+            'Theta waves',
+            'Delta waves',
+        ],
+        correctIndex: 3,
+        explanation:
+            'Delta waves are large, slow brain waves associated with deep, slow-wave sleep (stages 3-4). Beta waves are for alert wakefulness, alpha waves for relaxation before sleep, and theta waves for stage 1 sleep.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-23',
+        courseId: 'intro-psychology',
+        question: 'What characterizes REM sleep?',
+        options: [
+            'Large, slow delta brain waves and deep relaxation',
+            'Rapid eye movements, body paralysis, and dreaming',
+            'Sleep spindles and K-complexes in brain activity',
+            'Complete unconsciousness with no brain activity',
+        ],
+        correctIndex: 1,
+        explanation:
+            'REM sleep is marked by a return to short, fast brain waves (similar to wakefulness), rapid eye movements, body paralysis, and dreaming.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-24',
+        courseId: 'intro-psychology',
+        question: 'According to the activation-synthesis hypothesis, why do we dream?',
+        options: [
+            'Dreams reveal repressed unconscious wishes and desires',
+            'Dreams are the mind\'s attempt to make sense of random brain activity during sleep',
+            'Dreams serve to consolidate memories from the previous day',
+            'Dreams are caused by external stimuli reaching the sleeping brain',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The activation-synthesis hypothesis posits that dreams are the product of the mind\'s efforts to make sense of random brain activity during sleep, rather than revealing unconscious conflicts as Freud believed.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-25',
+        courseId: 'intro-psychology',
+        question: 'Which category of psychoactive drugs activates GABA receptors and decreases behavioral and mental activity?',
+        options: [
+            'Stimulants',
+            'Depressants',
+            'Opioids',
+            'Hallucinogens',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Depressants (including alcohol, barbiturates, and benzodiazepines) decrease behavioral and mental activity by activating GABA receptors. Stimulants increase activity, opioids reduce pain, and hallucinogens alter perceptions.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-26',
+        courseId: 'intro-psychology',
+        question: 'What is the absolute threshold in sensation?',
+        options: [
+            'The maximum stimulus intensity a person can tolerate',
+            'The minimum amount of stimulus intensity needed to detect a stimulus 50% of the time',
+            'The difference between two stimuli that can just barely be noticed',
+            'The point at which sensory receptors stop responding to a stimulus',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The absolute threshold is the minimum amount of stimulus intensity needed to activate a sensory receptor and detect the stimulus on 50% of trials.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-27',
+        courseId: 'intro-psychology',
+        question: 'What is the difference between sensation and perception?',
+        options: [
+            'Sensation is conscious experience; perception is the detection of physical stimuli',
+            'Sensation is the detection of physical stimuli; perception is the conscious experience of those stimuli',
+            'They are the same process with different names',
+            'Sensation requires attention; perception does not',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Sensation is the detection of physical stimuli in the environment, while perception is our conscious experience of those stimuli. Sensation is the raw input; perception is how the brain interprets it.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-28',
+        courseId: 'intro-psychology',
+        question: 'In signal detection theory, what is a "false alarm"?',
+        options: [
+            'Correctly identifying that a signal is present',
+            'Failing to detect a signal that is present',
+            'Reporting a signal when none is present',
+            'Correctly identifying that no signal is present',
+        ],
+        correctIndex: 2,
+        explanation:
+            'In signal detection theory, a false alarm occurs when someone reports detecting a signal when none is actually present. A hit is correctly detecting a signal, a miss is failing to detect one, and a correct rejection is correctly reporting no signal.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-29',
+        courseId: 'intro-psychology',
+        question: 'The visual processing stream that processes "what" information about objects is called:',
+        options: [
+            'The dorsal stream',
+            'The ventral stream',
+            'The optic chiasm',
+            'The retinal pathway',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The ventral stream processes "what" information about objects (identification), while the dorsal stream processes "where" information about locations.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-psy-30',
+        courseId: 'intro-psychology',
+        question: 'Gestalt principles of perception (proximity, similarity, closure, continuity) explain how we:',
+        options: [
+            'Detect the absolute threshold of stimuli',
+            'Organize perceptual information into meaningful wholes',
+            'Adapt to unchanging sensory stimuli',
+            'Distinguish between different wavelengths of light',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Gestalt principles explain how the brain organizes perceptual information into meaningful wholes and objects. They include proximity, similarity, continuity, closure, and common fate.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-31',
+        courseId: 'intro-psychology',
+        question: 'What are the three types of learning?',
+        options: [
+            'Classical, operant, and cognitive',
+            'Non-associative, associative, and social (watching others)',
+            'Habituation, sensitization, and reinforcement',
+            'Visual, auditory, and kinesthetic',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The three major types of learning are non-associative (habituation and sensitization), associative (classical and operant conditioning), and social learning (learning by watching others).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-32',
+        courseId: 'intro-psychology',
+        question: 'In classical conditioning, what happens during extinction?',
+        options: [
+            'The unconditioned stimulus is permanently forgotten',
+            'The conditioned stimulus is presented without the unconditioned stimulus until the conditioned response stops',
+            'A new conditioned stimulus replaces the original one',
+            'The organism becomes habituated to the unconditioned stimulus',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Extinction occurs when the conditioned stimulus (CS) is repeatedly presented without the unconditioned stimulus (US), and the conditioned response gradually diminishes and stops.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-33',
+        courseId: 'intro-psychology',
+        question: 'What does the Rescorla-Wagner model emphasize about learning?',
+        options: [
+            'Learning depends on the total number of CS-US pairings',
+            'Learning depends on how unexpected or surprising the unconditioned stimulus is (prediction error)',
+            'Learning occurs at the same rate regardless of expectations',
+            'Learning only occurs through direct experience, not observation',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The Rescorla-Wagner model emphasizes prediction error: the strength of association between stimuli depends on how unexpected the unconditioned stimulus is. Positive prediction error strengthens the association, negative prediction error weakens it.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-psy-34',
+        courseId: 'intro-psychology',
+        question: 'What is the difference between positive and negative reinforcement?',
+        options: [
+            'Positive reinforcement is good; negative reinforcement is punishment',
+            'Positive reinforcement adds a pleasurable stimulus; negative reinforcement removes an aversive stimulus — both increase behavior',
+            'Positive reinforcement increases behavior; negative reinforcement decreases behavior',
+            'They are the same concept described from different perspectives',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Both positive and negative reinforcement INCREASE the likelihood of a behavior. Positive reinforcement adds a pleasurable stimulus (e.g., a treat), while negative reinforcement removes an aversive stimulus (e.g., turning off an alarm).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-35',
+        courseId: 'intro-psychology',
+        question: 'Which schedule of reinforcement is most resistant to extinction?',
+        options: [
+            'Fixed ratio',
+            'Fixed interval',
+            'Variable ratio',
+            'Continuous reinforcement',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Variable ratio schedules (reinforcement after an unpredictable number of responses) are most resistant to extinction. This is why gambling is so addictive — the reward comes at unpredictable intervals.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-36',
+        courseId: 'intro-psychology',
+        question: 'In operant conditioning, what is "shaping"?',
+        options: [
+            'Punishing incorrect behaviors until only the correct behavior remains',
+            'Reinforcing successive approximations of a desired behavior',
+            'Conditioning an animal to respond to a specific stimulus',
+            'Eliminating unwanted behaviors through extinction',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Shaping is the process of reinforcing successive approximations of the desired behavior. It is used when the target behavior is not performed spontaneously and needs to be built up gradually.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-37',
+        courseId: 'intro-psychology',
+        question: 'How does dopamine relate to learning from rewards?',
+        options: [
+            'Dopamine only fires when rewards are consumed',
+            'Dopamine release increases after positive prediction error and decreases after negative prediction error',
+            'Dopamine is only involved in punishment, not reward',
+            'Dopamine levels remain constant regardless of reward expectations',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Dopamine provides a neurobiological basis for learning from prediction errors. Dopamine release increases after positive prediction error (unexpected reward) and decreases after negative prediction error (expected reward missing).',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-psy-38',
+        courseId: 'intro-psychology',
+        question: 'What is the difference between explicit and implicit memory?',
+        options: [
+            'Explicit memory is short-term; implicit memory is long-term',
+            'Explicit memory requires conscious effort to declare; implicit memory is expressed without conscious awareness',
+            'Explicit memory stores facts; implicit memory stores emotions',
+            'There is no meaningful difference between them',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Explicit (declarative) memories require conscious effort to recall (episodic events and semantic facts). Implicit memories are expressed without conscious awareness (procedural skills, priming, classical conditioning).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-39',
+        courseId: 'intro-psychology',
+        question: 'What is the difference between retrograde and anterograde amnesia?',
+        options: [
+            'Retrograde is inability to form new memories; anterograde is inability to access old memories',
+            'Retrograde is inability to access memories before brain damage; anterograde is inability to form new memories after brain damage',
+            'Both refer to the same type of memory loss',
+            'Retrograde affects implicit memory; anterograde affects explicit memory',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Retrograde amnesia is the inability to access memories created before brain damage. Anterograde amnesia is the inability to create new memories after brain damage. Patient H.M. famously had severe anterograde amnesia.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-40',
+        courseId: 'intro-psychology',
+        question: 'According to the levels of processing model, which type of encoding leads to the best memory recall?',
+        options: [
+            'Visual encoding (how the word looks)',
+            'Acoustic encoding (how the word sounds)',
+            'Semantic encoding (what the word means)',
+            'All types of encoding produce equal recall',
+        ],
+        correctIndex: 2,
+        explanation:
+            'According to the levels of processing model, deeper processing leads to better memory. Semantic encoding (processing meaning) produces the best recall, followed by acoustic (sound), then visual (appearance).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-41',
+        courseId: 'intro-psychology',
+        question: 'What is long-term potentiation (LTP)?',
+        options: [
+            'The strengthening of synaptic connections through repeated stimulation',
+            'The gradual weakening of neural pathways over time',
+            'The formation of new neurons in the hippocampus',
+            'The transfer of memories from short-term to long-term storage',
+        ],
+        correctIndex: 0,
+        explanation:
+            'Long-term potentiation (LTP) is the strengthening of synaptic connections that may occur during memory consolidation. Intense and frequent stimulation of a presynaptic neuron increases the probability that the postsynaptic neuron will fire.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-psy-42',
+        courseId: 'intro-psychology',
+        question: 'What are flashbulb memories?',
+        options: [
+            'Memories that are extremely accurate and never change',
+            'Vivid, persistent memories of shocking and consequential events',
+            'Memories formed only during childhood that persist into adulthood',
+            'Memories that are recalled through sensory cues like smells or sounds',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Flashbulb memories are vivid, persistent memories of shocking and consequential events. Emotion and stress hormones enhance consolidation via the amygdala influencing the hippocampus. However, they are not necessarily more accurate than other memories.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-43',
+        courseId: 'intro-psychology',
+        question: 'What is proactive interference?',
+        options: [
+            'When new information interferes with the ability to remember old information',
+            'When old information interferes with the ability to learn new information',
+            'When two memories are combined into a single false memory',
+            'When retrieval of one memory blocks retrieval of all related memories',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Proactive interference occurs when previously learned (old) information interferes with the ability to remember new information. Retroactive interference is the opposite — new information interferes with old memories.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-44',
+        courseId: 'intro-psychology',
+        question: 'What is source misattribution?',
+        options: [
+            'Forgetting information due to lack of attention during encoding',
+            'Misremembering the time, place, person, or circumstances associated with a memory',
+            'Confusing the meaning of two similar concepts',
+            'The inability to recall a memory that is on the tip of your tongue',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Source misattribution is a memory distortion that occurs when people misremember the source of a memory — the time, place, person, or circumstances involved. The false fame effect and cryptomnesia are examples.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-45',
+        courseId: 'intro-psychology',
+        question: 'What is the difference between analogical and symbolic representations in thinking?',
+        options: [
+            'Analogical representations are abstract; symbolic ones are visual',
+            'Analogical representations are images with physical qualities; symbolic representations are abstract with no physical relationship',
+            'They are identical types of mental representations',
+            'Analogical representations are used for language; symbolic ones are used for spatial reasoning',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Analogical representations are mental images that contain characteristics of actual objects (like a mental map). Symbolic representations are abstract with no relationship to physical qualities (like the word "dog" representing a dog).',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-psy-46',
+        courseId: 'intro-psychology',
+        question: 'According to the prototype model, how do we categorize objects?',
+        options: [
+            'By comparing them to every example we\'ve ever seen',
+            'By comparing them to the most typical example (prototype) of the category',
+            'By checking if they meet a strict set of defining features',
+            'By randomly assigning them to the most recent category encountered',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The prototype model states that we form a concept around a category and choose a prototype — the most typical example — that best represents the concept. We then categorize new items by comparing them to this prototype.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-47',
+        courseId: 'intro-psychology',
+        question: 'What is loss aversion?',
+        options: [
+            'The tendency to avoid any kind of decision when options are complex',
+            'The tendency for potential losses to have a greater psychological impact than equivalent gains',
+            'The fear of losing one\'s memory over time',
+            'A bias toward choosing familiar options over new ones',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Loss aversion is the finding that potential losses affect decision making more than potential gains of the same size. A loss of $1,000 feels psychologically worse than a gain of $1,000 feels good.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-48',
+        courseId: 'intro-psychology',
+        question: 'What is functional fixedness in problem solving?',
+        options: [
+            'The inability to solve problems without explicit instructions',
+            'The tendency to think of objects only in terms of their typical functions',
+            'A cognitive deficit caused by damage to the prefrontal cortex',
+            'The inability to switch between different problem-solving strategies',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Functional fixedness is a cognitive bias where people think of objects only in terms of their typical functions, preventing creative problem solving. Overcoming it often leads to insight — the sudden realization of a solution.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-49',
+        courseId: 'intro-psychology',
+        question: 'What is the difference between "maximizers" and "satisficers" in decision making?',
+        options: [
+            'Maximizers make faster decisions; satisficers deliberate longer',
+            'Maximizers seek the perfect choice; satisficers seek a "good enough" choice — and satisficers tend to be happier',
+            'Maximizers are more creative; satisficers are more analytical',
+            'There is no meaningful difference in their outcomes',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Maximizers seek the perfect choice among all options, while satisficers seek a choice that meets their minimum requirements. Research shows maximizers tend to make objectively better choices but are less happy with them.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-psy-50',
+        courseId: 'intro-psychology',
+        question: 'Spontaneous recovery in classical conditioning refers to:',
+        options: [
+            'The initial learning of a conditioned response through CS-US pairings',
+            'The reappearance of a previously extinguished conditioned response after a rest period',
+            'The generalization of a conditioned response to similar stimuli',
+            'The strengthening of a conditioned response through additional training',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Spontaneous recovery occurs when, after a period of time following extinction, the conditioned stimulus is presented alone and produces a weak conditioned response. This shows that extinction does not erase the original learning.',
+        difficulty: 'medium',
+    },
+    // ========== Intelligent Systems ==========
+    {
+        id: 'quiz-is-1',
+        courseId: 'intelligent-systems',
+        question: 'Which of the following is a key characteristic of a Goal-Based Agent?',
+        options: [
+            'It relies solely on condition-action rules without internal state.',
+            'It optimizes actions to achieve specific future goals.',
+            'It cannot operate in partially observable environments.',
+            'It randomly selects actions from the state space.'
+        ],
+        correctIndex: 1,
+        explanation: 'Unlike simple reflex agents, goal-based agents consider future states and optimize their actions to achieve a specific goal.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-2',
+        courseId: 'intelligent-systems',
+        question: 'In the PEAS framework used to define agent environments, what do the letters stand for?',
+        options: [
+            'Performance, Environment, Actuators, Sensors',
+            'Program, Evaluation, Actions, States',
+            'Percepts, Environment, Algorithms, Sensors',
+            'Performance, Evaluation, Actuators, Systems'
+        ],
+        correctIndex: 0,
+        explanation: 'PEAS stands for Performance (measure of success), Environment (where the agent operates), Actuators (how it affects the environment), and Sensors (how it perceives the environment).',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-3',
+        courseId: 'intelligent-systems',
+        question: 'What is a primary disadvantage of Depth-First Search (DFS) in state-space graphs?',
+        options: [
+            'It has high space complexity compared to BFS.',
+            'It requires a heuristic function to operate.',
+            'It is vulnerable to getting stuck in infinite loops.',
+            'It expands all nodes at a given depth before moving deeper.'
+        ],
+        correctIndex: 2,
+        explanation: 'DFS explores as far as possible down one branch. If the state space is infinite or contains cycles, DFS can get stuck exploring an infinite path without ever finding the goal.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-4',
+        courseId: 'intelligent-systems',
+        question: 'Iterative Deepening Search (IDS) combines the benefits of which two search algorithms?',
+        options: [
+            'A* Search and Breadth-First Search',
+            'Depth-First Search and Breadth-First Search',
+            'Depth-Limited Search and Greedy Best-First Search',
+            'Uniform Cost Search and Depth-First Search'
+        ],
+        correctIndex: 1,
+        explanation: 'IDS iteratively increases the depth limit of a depth-first search, combining the low space complexity of DFS with the completeness and optimality (for uniform costs) of BFS.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-5',
+        courseId: 'intelligent-systems',
+        question: 'In informed search, what defines an "admissible" heuristic?',
+        options: [
+            'It always overestimates the cost to reach the goal.',
+            'It never overestimates the true cost to reach the goal.',
+            'It limits the number of expanded nodes to a constant k.',
+            'It is guaranteed to run in polynomial time.'
+        ],
+        correctIndex: 1,
+        explanation: 'An admissible heuristic is optimistic; it never overestimates the actual cost to reach the goal. This property ensures that A* search using this heuristic will find an optimal solution.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-6',
+        courseId: 'intelligent-systems',
+        question: 'Which of the following describes the evaluation function used in A* search?',
+        options: [
+            'f(n) = h(n)',
+            'f(n) = g(n) * h(n)',
+            'f(n) = g(n) + h(n)',
+            'f(n) = g(n)'
+        ],
+        correctIndex: 2,
+        explanation: 'In A* search, f(n) evaluates a node by summing g(n), the exact cost to reach the node so far, and h(n), the estimated cost from the node to the goal.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-7',
+        courseId: 'intelligent-systems',
+        question: 'Which adversarial search optimization can reduce the number of nodes evaluated from O(b^d) to O(b^(d/2)) in the best case?',
+        options: [
+            'Beam Search',
+            'Iterative Deepening',
+            'Alpha-Beta Pruning',
+            'Monte Carlo Sampling'
+        ],
+        correctIndex: 2,
+        explanation: 'Alpha-beta pruning eliminates branches in the game tree that cannot possibly affect the final decision, effectively doubling the search depth achievable in the same time under optimal ordering.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-8',
+        courseId: 'intelligent-systems',
+        question: 'In the context of Minimax, what does the "beta" parameter track during Alpha-Beta pruning?',
+        options: [
+            'The best (minimum) score currently guaranteed for the MIN player.',
+            'The best (maximum) score currently guaranteed for the MAX player.',
+            'The heuristic value of the current terminal node.',
+            'The depth of the search tree.'
+        ],
+        correctIndex: 0,
+        explanation: 'During pruning, alpha tracks the highest value found so far for the MAX player, while beta tracks the lowest value found so far for the MIN player. If alpha >= beta, pruning occurs.',
+        difficulty: 'hard'
+    },
+    {
+        id: 'quiz-is-9',
+        courseId: 'intelligent-systems',
+        question: 'Why are heuristics often used in adversarial search for complex games instead of exploring to terminal nodes?',
+        options: [
+            'Because the Minimax algorithm requires heuristics to function correctly.',
+            'Because exhaustive evaluation to terminal nodes is frequently computationally infeasible due to game complexity.',
+            'Because heuristics always provide the exact utility of a state, unlike terminal nodes.',
+            'Because Alpha-Beta pruning only works with heuristic evaluation functions.'
+        ],
+        correctIndex: 1,
+        explanation: 'For games with large branching factors and depths (like chess or Go), searching the entire tree to terminal nodes is practically impossible. Heuristics approximate the utility of non-terminal states to allow decision-making.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-10',
+        courseId: 'intelligent-systems',
+        question: 'What challenge does "imperfect information" introduce in adversarial games like Schnapsen?',
+        options: [
+            'The game state is completely visible, leading to an infinite search tree.',
+            'Players must reason under uncertainty because hidden elements are present.',
+            'The utility function cannot be calculated at terminal nodes.',
+            'The game rules change stochastically during playtime.'
+        ],
+        correctIndex: 1,
+        explanation: 'Imperfect information means players do not have full visibility of the game state (e.g., opponents\' hidden cards), requiring them to reason probabilistically or use sampling techniques over possible states.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-11',
+        courseId: 'intelligent-systems',
+        question: 'In propositional logic, when is an implication statement (A → B) evaluated as false?',
+        options: [
+            'Only when A is true and B is false.',
+            'When both A and B are false.',
+            'When A is false and B is true.',
+            'When both A and B are true.'
+        ],
+        correctIndex: 0,
+        explanation: 'An implication (A → B) is false ONLY if the antecedent (A) is true but the consequent (B) is false. In all other cases, the implication evaluates to true.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-12',
+        courseId: 'intelligent-systems',
+        question: 'What does it mean if a logical knowledge base (KB) "entails" a sentence α?',
+        options: [
+            'The sentence α is logically equivalent to the KB.',
+            'The sentence α is false in all models where the KB is true.',
+            'The sentence α is true in all models where the KB is true.',
+            'The sentence α can be derived from the KB only if it is in CNF.'
+        ],
+        correctIndex: 2,
+        explanation: 'Entailment (KB ⊨ α) means that every model (truth assignment) that makes the knowledge base true also makes the sentence α true. α logically follows from the KB.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-13',
+        courseId: 'intelligent-systems',
+        question: 'What is Clause Normal Form (CNF) in propositional logic?',
+        options: [
+            'A sentence expressed as a disjunction of conjunctions (ORs of ANDs).',
+            'A sentence expressed as a conjunction of disjunctions (ANDs of ORs).',
+            'A sentence that uses only implication and negation operators.',
+            'A sentence where all variables are existentially quantified.'
+        ],
+        correctIndex: 1,
+        explanation: 'CNF standardizes logical sentences into a specific format: a conjunction (AND) of clauses, where each clause is a disjunction (OR) of literals. This format is required by many SAT-solving algorithms like DPLL.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-14',
+        courseId: 'intelligent-systems',
+        question: 'Which algorithm is commonly used for determining the satisfiability of propositional logic formulas in CNF through partial assignments and backtracking?',
+        options: [
+            'A* Search',
+            'Minimax',
+            'DPLL (Davis-Putnam-Logemann-Loveland)',
+            'k-Means'
+        ],
+        correctIndex: 2,
+        explanation: 'The DPLL algorithm determines the satisfiability of CNF formulas by systematically making partial Truth assignments, utilizing unit clauses, and backtracking when a conflict is found.',
+        difficulty: 'hard'
+    },
+    {
+        id: 'quiz-is-15',
+        courseId: 'intelligent-systems',
+        question: 'In the context of modeling, what is an Ontology?',
+        options: [
+            'A hardware architecture for logical agents.',
+            'An explicit specification of shared conceptualizations within a domain.',
+            'A probabilistic model for continuous random variables.',
+            'The algorithm used to convert sentences to Clause Normal Form.'
+        ],
+        correctIndex: 1,
+        explanation: 'An ontology is a formal representation of a domain\'s knowledge, defining the concepts, instances, classes, attributes, and the relationships connecting them.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-16',
+        courseId: 'intelligent-systems',
+        question: 'What structure does the Resource Description Framework (RDF) use to model knowledge?',
+        options: [
+            'Binary search trees',
+            'Subject-predicate-object triples',
+            'If-then-else rules',
+            'Multi-dimensional tensors'
+        ],
+        correctIndex: 1,
+        explanation: 'RDF models knowledge graphs using statements formed as "triples": a subject (the entity), a predicate (the relationship or attribute), and an object (another entity or a literal value).',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-17',
+        courseId: 'intelligent-systems',
+        question: 'How does fuzzy logic differ from traditional propositional logic?',
+        options: [
+            'Fuzzy logic cannot be implemented in software.',
+            'Fuzzy logic allows propositions to have degrees of truth (membership) between 0 and 1.',
+            'Fuzzy logic only deals with uncertainty caused by missing data, not vagueness.',
+            'Fuzzy logic uses Bayes\' theorem to update beliefs.'
+        ],
+        correctIndex: 1,
+        explanation: 'Unlike propositional logic which restricts truth values to strictly True (1) or False (0), fuzzy logic models vagueness by allowing continuous degrees of membership between 0 and 1.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-18',
+        courseId: 'intelligent-systems',
+        question: 'Which paradigm interprets probabilities as a reflection of subjective belief or uncertainty about a single event rather than long-run frequencies?',
+        options: [
+            'Frequentism',
+            'Bayesianism',
+            'Determinism',
+            'Ontologism'
+        ],
+        correctIndex: 1,
+        explanation: 'The Bayesian paradigm treats probability as a measure of subjective belief or uncertainty given current knowledge, which can be updated as new evidence is observed, unlike frequentism which relies on observed frequencies over many trials.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-19',
+        courseId: 'intelligent-systems',
+        question: 'What is the sum of the probabilities of all atomic events in a sample space?',
+        options: [
+            'It depends on the number of events.',
+            '0',
+            '1',
+            'Infinity'
+        ],
+        correctIndex: 2,
+        explanation: 'By definition of a probability space, the probabilities of all mutually exclusive and exhaustive atomic events must sum to exactly 1.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-20',
+        courseId: 'intelligent-systems',
+        question: 'According to Bayes\' Theorem, P(A|B) can be calculated if you know which of the following?',
+        options: [
+            'P(B|A), P(A), and P(B)',
+            'Only P(A) and P(B)',
+            'Only P(B|A) and P(A)',
+            'P(A|B) must be observed empirically and cannot be calculated.'
+        ],
+        correctIndex: 0,
+        explanation: 'Bayes\' Theorem states that P(A|B) = (P(B|A) * P(A)) / P(B). It requires the likelihood P(B|A), the prior P(A), and the evidence probability P(B).',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-21',
+        courseId: 'intelligent-systems',
+        question: 'What is the primary advantage of modeling a domain using a Bayesian Network?',
+        options: [
+            'It allows for perfect predictions without any initial prior probabilities.',
+            'It reduces data requirements and simplifies joint probability calculations by exploiting conditional independence.',
+            'It eliminates vagueness by converting fuzzy sets into discrete probabilities.',
+            'It guarantees finding the global minimum error in classification tasks.'
+        ],
+        correctIndex: 1,
+        explanation: 'Bayesian Networks graphically represent conditional dependencies. By identifying pairs of variables that are conditionally independent, the network drastically reduces the number of parameters needed to define the full joint probability distribution.',
+        difficulty: 'hard'
+    },
+    {
+        id: 'quiz-is-22',
+        courseId: 'intelligent-systems',
+        question: 'What mathematical rule is used in Bayesian Networks to compute the joint probability of all variables as the product of conditional probabilities?',
+        options: [
+            'The Union Rule',
+            'The Subsumption Rule',
+            'The Chain Rule',
+            'The Resolution Rule'
+        ],
+        correctIndex: 2,
+        explanation: 'The Chain Rule of probability allows a joint probability distribution to be factored into a product of conditional probabilities: P(A,B,C) = P(A|B,C)P(B|C)P(C). Bayesian Networks simplify this further using independence assumptions.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-23',
+        courseId: 'intelligent-systems',
+        question: 'What defines a classification problem in machine learning?',
+        options: [
+            'Predicting a continuous numerical value for a data point.',
+            'Grouping data points based on their similarity without prior labels.',
+            'Sorting data items based on specific ranking criteria.',
+            'Assigning a discrete class label to a data point based on its input features.'
+        ],
+        correctIndex: 3,
+        explanation: 'Classification is a supervised learning task where an algorithm learns from labeled training data to predict discrete categorical labels for new, unseen data points.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-24',
+        courseId: 'intelligent-systems',
+        question: 'Why is the Naive Bayes Classifier considered "naive"?',
+        options: [
+            'Because it can only perform binary classification.',
+            'Because it assumes that all features are conditionally independent given the class, which rarely holds perfectly in reality.',
+            'Because it does not utilize training data, making naive guesses.',
+            'Because it ignores prior probabilities and only uses likelihoods.'
+        ],
+        correctIndex: 1,
+        explanation: 'The "naive" assumption of Naive Bayes is that the presence of one feature does not affect the likelihood of another feature given the class label. While often false, the classifier still performs surprisingly well in practice.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-25',
+        courseId: 'intelligent-systems',
+        question: 'What is the purpose of Laplace Smoothing in a Naive Bayes classifier?',
+        options: [
+            'To reduce the dimensionality of the feature space limit overfitting.',
+            'To average adjacent features and reduce noise in continuous data.',
+            'To assign small non-zero probabilities to unseen features, preventing zero probabilities from nullifying the entire calculation.',
+            'To transform non-linear boundaries into linear hyperplanes.'
+        ],
+        correctIndex: 2,
+        explanation: 'If a feature was not observed in the training data for a specific class, its probability estimate would be zero. Because Naive Bayes implies multiplying probabilities, a single zero cancels the entire formula. Laplace smoothing adds a small constant to avoid this.',
+        difficulty: 'hard'
+    },
+    {
+        id: 'quiz-is-26',
+        courseId: 'intelligent-systems',
+        question: 'How does the k-Nearest Neighbor (k-NN) algorithm classify a new, unseen data point?',
+        options: [
+            'By solving a linear regression equation based on the training points.',
+            'By finding its majority class among the k closest training examples in the feature space.',
+            'By calculating the conditional probability using Bayes\' theorem.',
+            'By building a decision tree based on information gain.'
+        ],
+        correctIndex: 1,
+        explanation: 'k-NN is a non-parametric instance-based learning algorithm. It measures the distance from the new point to all training points, selects the k closest neighbors, and assigns the class label most frequent among those neighbors.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-27',
+        courseId: 'intelligent-systems',
+        question: 'Which of the following is an example of Unsupervised Learning?',
+        options: [
+            'Predicting stock market prices using historical data.',
+            'Identifying spam emails using tagged examples.',
+            'Grouping customers into distinct segments based on purchasing behavior.',
+            'Training an agent to play chess via rewards for winning.'
+        ],
+        correctIndex: 2,
+        explanation: 'Customer segmentation is a clustering task. Since the input data does not have predefined labels (the segments are discovered by the algorithm based on data patterns), it is unsupervised learning.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-28',
+        courseId: 'intelligent-systems',
+        question: 'When extracting features from text, what does TF-IDF conceptually measure?',
+        options: [
+            'The similarity angle between two text documents.',
+            'The importance of a word, weighting it higher if it appears frequently in a document but rarely across the entire corpus.',
+            'The chronological order of words in a sentence.',
+            'The grammatical correctness of a phrase relative to training labels.'
+        ],
+        correctIndex: 1,
+        explanation: 'Term Frequency-Inverse Document Frequency (TF-IDF) scores words based on frequency. It increases with high occurrence in the specific document (TF) but decreases if the word is common across all documents (IDF), filtering out common stopwords.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-29',
+        courseId: 'intelligent-systems',
+        question: 'In a classification evaluation confusion matrix, what does a False Positive (FP) represent?',
+        options: [
+            'A true negative correctly identified by the model.',
+            'A true positive incorrectly missed by the model.',
+            'An instance incorrectly predicted as positive when it is actually negative.',
+            'An instance correctly predicted as positive.'
+        ],
+        correctIndex: 2,
+        explanation: 'A false positive (also known as a Type I error) occurs when the model predicts the positive class, but the ground truth label is actually negative.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-30',
+        courseId: 'intelligent-systems',
+        question: 'If a model fits the training data perfectly (fitting the noise) but performs poorly on the unseen test set, the model is likely:',
+        options: [
+            'Underfitting',
+            'Overfitting',
+            'Converging correctly',
+            'Undergoing early stopping'
+        ],
+        correctIndex: 1,
+        explanation: 'Overfitting happens when a model is too complex and learns the random noise or specific quirks of the training data rather than the underlying generalized pattern, resulting in poor performance on new data.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-31',
+        courseId: 'intelligent-systems',
+        question: 'What does Occam’s Razor recommend in the context of model class selection?',
+        options: [
+            'Always use the neural network with the most layers.',
+            'Use the simplest hypothesis that adequately explains the data.',
+            'Increase the number of features until error is zero.',
+            'Only use linear classifiers.'
+        ],
+        correctIndex: 1,
+        explanation: 'Occam\'s Razor is a philosophical principle applied to machine learning indicating preference for simpler models. Simple models are less prone to overfitting and generalize better than unnecessarily complex ones when describing the same data.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-32',
+        courseId: 'intelligent-systems',
+        question: 'What is the goal of the Gradient Descent optimization algorithm?',
+        options: [
+            'To maximize the sum of squared errors.',
+            'To discover the exact probabilistic structure of a Bayesian network.',
+            'To iteratively find the parameters that minimize an error or loss function by taking steps in the opposite direction of the gradient.',
+            'To randomly sample hyperplanes until a maximum margin is found.'
+        ],
+        correctIndex: 2,
+        explanation: 'Gradient descent computes the gradient (derivative) of the loss function with respect to the model parameters, then updates the parameters by moving in the direction of steepest descent to minimize the error.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-33',
+        courseId: 'intelligent-systems',
+        question: 'What is a key difference between Batch Gradient Descent and Stochastic Gradient Descent (SGD)?',
+        options: [
+            'SGD is guaranteed to find the global minimum, whereas Batch is not.',
+            'Batch Gradient Descent uses a random subset of data, whereas SGD uses the entire dataset for each update.',
+            'SGD updates parameters using a single example or a small mini-batch per iteration, making it faster but noisier than using the full dataset.',
+            'SGD is only used for unsupervised learning.'
+        ],
+        correctIndex: 2,
+        explanation: 'Batch training computes gradients using the entire dataset before making one parameter update. SGD updates the parameters much more frequently using randomly selected subsets (or individuals), leading to faster, although erratic, convergence.',
+        difficulty: 'hard'
+    },
+    {
+        id: 'quiz-is-34',
+        courseId: 'intelligent-systems',
+        question: 'In the k-Means clustering algorithm, how are cluster centers updated during each iteration?',
+        options: [
+            'They are moved to the boundaries of the dataset.',
+            'They are recomputed as the mean (average) position of all newly assigned points in the cluster.',
+            'They are assigned randomly at every step.',
+            'They are calculated using TF-IDF.'
+        ],
+        correctIndex: 1,
+        explanation: 'After all data points are assigned to the nearest current cluster center, k-Means recalculates the new center (centroid) by computing the mean vector of all data points currently belonging to that cluster.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-35',
+        courseId: 'intelligent-systems',
+        question: 'What does a high Silhouette Coefficient (close to 1) indicate in evaluating clustering?',
+        options: [
+            'Data points are poorly grouped and overlapping.',
+            'Data points have high intra-cluster similarity and low inter-cluster similarity, indicating well-defined clusters.',
+            'The algorithm failed to converge.',
+            'There are too many clusters.'
+        ],
+        correctIndex: 1,
+        explanation: 'The Silhouette score measures how similar an object is to its own cluster (cohesion) compared to other clusters (separation). A score near 1 means the clusters are dense and well-separated from each other.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-36',
+        courseId: 'intelligent-systems',
+        question: 'Why must activation functions, such as the Sigmoid function, be added to neurons in an Artificial Neural Network?',
+        options: [
+            'To prevent the network from overfitting.',
+            'To map the output into a probability space.',
+            'To introduce non-linearity, allowing the network to model complex relationships that are not linearly separable.',
+            'To speed up the backpropagation algorithm.'
+        ],
+        correctIndex: 2,
+        explanation: 'Without non-linear activation functions, a neural network, regardless of how many layers it has, fundamentally behaves as a single layer linear regression model. Activation functions allow networks to approximate any complex function.',
+        difficulty: 'hard'
+    },
+    {
+        id: 'quiz-is-37',
+        courseId: 'intelligent-systems',
+        question: 'In a neural network used for multiclass classification, which activation function is typically applied to the final output layer to produce a probability distribution across all classes?',
+        options: [
+            'ReLU',
+            'Softmax',
+            'Sigmoid',
+            'Tanh'
+        ],
+        correctIndex: 1,
+        explanation: 'The Softmax function normalizes a vector of raw scores (logits) into a probability distribution consisting of probabilities proportional to the exponentials of the input numbers, ensuring they all sum to 1.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-38',
+        courseId: 'intelligent-systems',
+        question: 'What is the primary role of the Backpropagation algorithm in training Artificial Neural Networks?',
+        options: [
+            'To compute the forward pass output of the network.',
+            'To calculate the gradients of the loss function with respect to the network weights using the chain rule.',
+            'To select the optimal number of hidden layers.',
+            'To initialize the weights to small random numbers.'
+        ],
+        correctIndex: 1,
+        explanation: 'Backpropagation efficiently computes the gradient (derivative) of the error for every weight in the network, working backward from the output layer to the input. The optimizer then uses these gradients to update the weights.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-39',
+        courseId: 'intelligent-systems',
+        question: 'What key innovation defines the Transformer architecture used in modern NLP models like GPT?',
+        options: [
+            'It utilizes recurrent loops to remember past states.',
+            'It relies solely on convolutional layers to process text.',
+            'It employs a self-attention mechanism that allows the model to weigh the relevance of different parts of the input sequence simultaneously.',
+            'It replaces gradients with genetic algorithms for optimization.'
+        ],
+        correctIndex: 2,
+        explanation: 'Transformers discarded recurrence (like RNNs) in favor of the self-attention mechanism, which evaluates the contextual relationship of every word to every other word in a sequence entirely in parallel, greatly improving capability and training efficiency.',
+        difficulty: 'hard'
+    },
+    {
+        id: 'quiz-is-40',
+        courseId: 'intelligent-systems',
+        question: 'During text generation, what is Beam Search used for?',
+        options: [
+            'To replace missing words with exact database lookups.',
+            'To explore and keep track of the top-k most probable sequence of words rather than just greedily choosing the single best word at each step.',
+            'To search for keywords within a training corpus.',
+            'To prune decision trees during regression.'
+        ],
+        correctIndex: 1,
+        explanation: 'Beam Search is a heuristic search algorithm used in seq2seq models. Instead of picking the one most likely next word (greedy search), it maintains a "beam" of k possible sequences, improving overall sequence quality.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-41',
+        courseId: 'intelligent-systems',
+        question: 'In propositional logic, if sentence A is "True" and sentence B is "False", what is the truth value of the disjunction (A ∨ B)?',
+        options: [
+            'False',
+            'Unknown',
+            'True',
+            'Satisfiable'
+        ],
+        correctIndex: 2,
+        explanation: 'The disjunction operator (OR, denoted by ∨) evaluates to True if at least one of the connected propositions is True.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-42',
+        courseId: 'intelligent-systems',
+        question: 'When an agent evaluates its environments based on the PEAS criteria, what does the "S" typically represent?',
+        options: [
+            'Sensors – how the agent perceives its environment.',
+            'State – the internal memory loop of the agent.',
+            'Search – the algorithm used to find solutions.',
+            'Semantics – the meaning of logical operators.'
+        ],
+        correctIndex: 0,
+        explanation: 'In the PEAS framework, S stands for Sensors, which are the mechanisms the agent uses to gather data or "percepts" from the environment.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-43',
+        courseId: 'intelligent-systems',
+        question: 'In graph theory applied to state-space representations, what defines a "Tree"?',
+        options: [
+            'A graph with weights on its edges.',
+            'A completely disconnected set of nodes.',
+            'A connected graph that contains no cycles or loops.',
+            'A graph where every node is connected to every other node.'
+        ],
+        correctIndex: 2,
+        explanation: 'In graph terminology, a tree is a special type of undirected graph that is both connected (a path exists between any two nodes) and acyclic (contains no loops).',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-44',
+        courseId: 'intelligent-systems',
+        question: 'What is the "fringe" (or frontier) in the context of search algorithms?',
+        options: [
+            'The set of nodes representing the shortest path.',
+            'The data structure that stores the unexpanded nodes waiting to be explored.',
+            'The nodes that have already been evaluated and discarded.',
+            'The heuristic estimation of remaining distance.'
+        ],
+        correctIndex: 1,
+        explanation: 'The fringe (often implemented as a queue, stack, or priority queue) holds the "leaf" nodes of the search tree that have been discovered but not yet expanded by the search algorithm.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-is-45',
+        courseId: 'intelligent-systems',
+        question: 'Why might Breadth-First Search (BFS) be unsuitable for problems with a high branching factor and deep goal states?',
+        options: [
+            'It is guaranteed to be incomplete.',
+            'It prioritizes heuristic evaluation over depth.',
+            'It requires massive amounts of memory because space complexity scales exponentially with depth.',
+            'It cannot find the shortest path in uniform cost scenarios.'
+        ],
+        correctIndex: 2,
+        explanation: 'BFS keeps every node in memory at the current depth level. In trees with a high branching factor b at depth d, it stores O(b^d) nodes, often exhausting available memory before finding a deep goal.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-46',
+        courseId: 'intelligent-systems',
+        question: 'Given the A* evaluation function $f(n) = g(n) + h(n)$, what is the strict mathematical condition for a heuristic $h(n)$ to be considered admissible if the optimal cost is $h^*(n)$?',
+        options: [
+            '$h(n) \\ge h^*(n)$',
+            '$0 \\le h(n) \\le h^*(n)$',
+            '$h(n) = g(n) + h^*(n)$',
+            '$h(n) \\le 0$'
+        ],
+        correctIndex: 1,
+        explanation: 'An admissible heuristic never overestimates the true cost to reach the goal. Therefore, its returned value must be between 0 and the actual optimal path cost $h^*(n)$.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-47',
+        courseId: 'intelligent-systems',
+        question: 'According to Bayes Theorem, which equation correctly represents the posterior probability $P(A|B)$?',
+        options: [
+            '$P(A|B) = \\frac{P(B|A)P(A)}{P(B)}$',
+            '$P(A|B) = P(A) \\times P(B)$',
+            '$P(A|B) = \\frac{P(A \\cap B)}{P(A)}$',
+            '$P(A|B) = \\sum_{i} P(B|A_i)P(A_i)$'
+        ],
+        correctIndex: 0,
+        explanation: 'Bayes Theorem states that the posterior probability $P(A|B)$ is equal to the likelihood $P(B|A)$ multiplied by the prior $P(A)$, divided by the marginal probability $P(B)$.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-48',
+        courseId: 'intelligent-systems',
+        question: 'In a Naive Bayes Classifier, how is the prediction equation formulated due to the "naive" conditional independence assumption?',
+        options: [
+            '$\\hat{y} = \\arg\\max_{y} P(y) \\times P(x_1, x_2, \\dots, x_n)$',
+            '$\\hat{y} = \\arg\\max_{y} P(y) \\prod_{i=1}^{n} P(x_i | y)$',
+            '$\\hat{y} = \\sum_{i=1}^{n} w_i x_i + b$',
+            '$\\hat{y} = \\frac{P(A|y)P(y)}{P(A)}$'
+        ],
+        correctIndex: 1,
+        explanation: 'Because the features are assumed conditionally independent given the class, the joint probability $P(x_1, \dots, x_n | y)$ simplifies to the product of individual probabilities $\prod P(x_i | y)$.',
+        difficulty: 'hard'
+    },
+    {
+        id: 'quiz-is-49',
+        courseId: 'intelligent-systems',
+        question: 'In a standard Artificial Neural Network dense layer, if $W$ is the weight matrix, $X$ is the input vector, and $b$ is the bias vector, what is the formula for the pre-activation outputs $Z$?',
+        options: [
+            '$Z = \\max(0, W \\cdot X)$',
+            '$Z = W^T X + b$',
+            '$Z = W \\cdot X + b$',
+            '$Z = \\frac{1}{1 + e^{-(W \\cdot X)}}$'
+        ],
+        correctIndex: 2,
+        explanation: 'The standard forward pass computation before applying the non-linear activation function is the linear combination of inputs with their respective weights, added to the bias: $Z = W \\cdot X + b$.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-is-50',
+        courseId: 'intelligent-systems',
+        question: 'What is the core mathematical calculation performed in the Self-Attention mechanism of a Transformer model?',
+        options: [
+            '$\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right) V$',
+            '$\\text{Attention}(Q, K, V) = Q \\cdot K \\cdot V + b$',
+            '$\\text{Attention}(Q, K, V) = \\max(0, QK^T) V$',
+            '$\\frac{\\partial \\mathcal{L}}{\\partial W} = \\frac{\\partial \\mathcal{L}}{\\partial y} \\frac{\\partial y}{\\partial z} \\frac{\\partial z}{\\partial W}$'
+        ],
+        correctIndex: 0,
+        explanation: 'The self-attention calculation measures the similarity between the Queries ($Q$) and Keys ($K$) using dot-product, scales it down by $\\sqrt{d_k}$, applies softmax, and multiplies by the Values ($V$).',
+        difficulty: 'hard'
+    },
+
+    // ========== Project Intelligent Systems ==========
+    {
+        id: 'quiz-pis-1',
+        courseId: 'project-intelligent-systems',
+        question: 'In Schnapsen, how many cards are in the deck?',
+        options: ['32', '20', '52', '24'],
+        correctIndex: 1,
+        explanation: 'Schnapsen uses a reduced deck of 20 cards: Aces, 10s, Kings, Queens, and Jacks in four suits (Hearts, Diamonds, Spades, Clubs).',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-pis-2',
+        courseId: 'project-intelligent-systems',
+        question: 'What is the point target a player must reach to win a hand of Schnapsen?',
+        options: ['21 points', '100 points', '66 points', '50 points'],
+        correctIndex: 2,
+        explanation: 'A player wins a hand of Schnapsen by being the first to reach 66 points through winning tricks and/or declaring marriages.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-pis-3',
+        courseId: 'project-intelligent-systems',
+        question: 'What is a "marriage" in Schnapsen?',
+        options: [
+            'Playing two cards of the same rank',
+            'Declaring a King-Queen pair of the same suit',
+            'Winning two consecutive tricks',
+            'Exchanging the trump Jack for the face-up trump card'
+        ],
+        correctIndex: 1,
+        explanation: 'A marriage in Schnapsen is declaring a King-Queen pair of the same suit. A trump marriage is worth 40 points, and a non-trump marriage is worth 20 points.',
+        difficulty: 'easy'
+    },
+    {
+        id: 'quiz-pis-4',
+        courseId: 'project-intelligent-systems',
+        question: 'In Schnapsen, what distinguishes Phase 1 from Phase 2 of the game?',
+        options: [
+            'Phase 1 uses all 20 cards, Phase 2 uses only 10',
+            'Phase 1 has imperfect information (talon remains), Phase 2 has perfect information (talon exhausted)',
+            'Phase 1 is played with trumps, Phase 2 is played without',
+            'Phase 1 has no marriages, Phase 2 allows marriages'
+        ],
+        correctIndex: 1,
+        explanation: 'In Phase 1 the talon (stock) still has cards face down, creating imperfect information. Once the talon is exhausted, Phase 2 begins with perfect information — all remaining cards are known.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-pis-5',
+        courseId: 'project-intelligent-systems',
+        question: 'Which AI technique is most suitable for Phase 2 of Schnapsen (perfect information)?',
+        options: [
+            'Monte Carlo sampling',
+            'Naive Bayes classification',
+            'Minimax with alpha-beta pruning',
+            'K-means clustering'
+        ],
+        correctIndex: 2,
+        explanation: 'Phase 2 has perfect information (all cards are known), making it ideal for adversarial search algorithms like minimax with alpha-beta pruning that can compute optimal moves by exploring the full game tree.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-pis-6',
+        courseId: 'project-intelligent-systems',
+        question: 'What does the RDeep bot strategy do in the Schnapsen engine?',
+        options: [
+            'Uses deep reinforcement learning to learn optimal play',
+            'Samples random possible game states and uses minimax to evaluate moves',
+            'Uses a recurrent neural network to predict opponent cards',
+            'Applies depth-first search on the full game tree'
+        ],
+        correctIndex: 1,
+        explanation: 'RDeep uses Monte Carlo sampling: it randomly assigns unknown cards to create possible game states, then applies minimax to evaluate each possible move. By averaging over many samples, it estimates which move is best despite imperfect information.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-pis-7',
+        courseId: 'project-intelligent-systems',
+        question: 'How many game points does a player earn if their opponent has won no tricks at all?',
+        options: [
+            '1 game point',
+            '2 game points',
+            '3 game points',
+            '4 game points'
+        ],
+        correctIndex: 2,
+        explanation: 'If the opponent has won no tricks at all, you earn 3 game points. If the opponent scored less than 33 points you earn 2 game points. Otherwise you earn 1 game point.',
+        difficulty: 'medium'
+    },
+    {
+        id: 'quiz-pis-8',
+        courseId: 'project-intelligent-systems',
+        question: 'What format should the research paper for the IS project follow?',
+        options: [
+            'IEEE conference format',
+            'APA 7th edition',
+            'Springer Lecture Notes in Computer Science (LNCS)',
+            'ACM SIGCHI format'
+        ],
+        correctIndex: 2,
+        explanation: 'The research paper must follow the Springer Lecture Notes in Computer Science (LNCS) format, which is a standard academic format for computer science publications.',
+        difficulty: 'easy'
+    },
+
+    // ========== Logic and Sets for AI ==========
+    // --- Logic Circuits ---
+    {
+        id: 'quiz-ls-1',
+        courseId: 'logic-sets-ai',
+        question: 'What does a logic circuit represent?',
+        options: [
+            'A truth table for predicate logic',
+            'A graphical representation of a Boolean function',
+            'A directed acyclic graph for set operations',
+            'A proof tree for mathematical induction',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A logic circuit is a graphical representation of a Boolean function, with inputs (propositional variables), logic gates (AND, OR, NOT), and a single output.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-2',
+        courseId: 'logic-sets-ai',
+        question:
+            'When drawing a logic circuit from a formula, which connective becomes the gate closest to the output?',
+        options: [
+            'The connective with the highest priority (innermost)',
+            'The connective with the lowest priority (outermost)',
+            'Always the NOT gate',
+            'The first connective reading left to right',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The outermost connective (lowest priority) is the main connective of the formula and corresponds to the gate closest to the output in the circuit. You build the circuit from output back to inputs.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ls-3',
+        courseId: 'logic-sets-ai',
+        question:
+            'Which formula is equivalent to the biconditional φ ↔ ψ using only ∧, ∨, and ¬?',
+        options: [
+            '(φ ∧ ψ) ∨ (¬φ ∧ ¬ψ)',
+            '(φ ∨ ψ) ∧ (¬φ ∨ ¬ψ)',
+            '¬φ ∨ ψ',
+            '(φ ∧ ¬ψ) ∨ (¬φ ∧ ψ)',
+        ],
+        correctIndex: 0,
+        explanation:
+            'φ ↔ ψ means both have the same truth value: either both true (φ ∧ ψ) or both false (¬φ ∧ ¬ψ). Option D is actually XOR (exclusive or), the opposite of biconditional.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ls-4',
+        courseId: 'logic-sets-ai',
+        question:
+            'What is the first step when converting a formula with → and ↔ into a logic circuit?',
+        options: [
+            'Draw the output gate first',
+            'Identify all propositional variables',
+            'Rewrite the formula so it only uses ∧, ∨, and ¬',
+            'Build a truth table for the formula',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Logic circuits only have AND, OR, and NOT gates, so you must first rewrite the formula to eliminate → and ↔ using equivalences like φ → ψ ≡ ¬φ ∨ ψ.',
+        difficulty: 'easy',
+    },
+    // --- OBDDs ---
+    {
+        id: 'quiz-ls-5',
+        courseId: 'logic-sets-ai',
+        question: 'What are the two terminal nodes in an OBDD?',
+        options: [
+            'True and False variables',
+            '0 (false) and 1 (true)',
+            'The first and last variables in the ordering',
+            'The root node and the output node',
+        ],
+        correctIndex: 1,
+        explanation:
+            'An OBDD has exactly two terminal (leaf) nodes: 0 representing false and 1 representing true. All paths through the diagram end at one of these two nodes.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-6',
+        courseId: 'logic-sets-ai',
+        question:
+            'OBDD reduction rule C3 says: if a node\'s low and high edges both point to the same child, you should...',
+        options: [
+            'Merge it with another node that has the same variable',
+            'Remove the node and connect its parent directly to that child',
+            'Collapse it into a terminal node',
+            'Swap its low and high edges',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Rule C3 removes redundant nodes. If both branches (x=0 and x=1) lead to the same result, the variable x has no influence and the node can be bypassed entirely.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ls-7',
+        courseId: 'logic-sets-ai',
+        question:
+            'What does the existential quantifier ∃x do to an OBDD?',
+        options: [
+            'Replaces variable x with the AND of both cofactors: F[x:=0] ∧ F[x:=1]',
+            'Removes variable x without any operation',
+            'Replaces variable x with the OR of both cofactors: F[x:=0] ∨ F[x:=1]',
+            'Negates variable x in the diagram',
+        ],
+        correctIndex: 2,
+        explanation:
+            '∃x F means "there exists a value for x that makes F true." This is computed by taking the disjunction (OR) of the two cofactors: F with x=0 and F with x=1.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ls-8',
+        courseId: 'logic-sets-ai',
+        question:
+            'What does the universal quantifier ∀x do to an OBDD?',
+        options: [
+            'Replaces variable x with the OR of both cofactors',
+            'Removes variable x and keeps only the high edge',
+            'Replaces variable x with the AND of both cofactors: F[x:=0] ∧ F[x:=1]',
+            'Duplicates the OBDD for each value of x',
+        ],
+        correctIndex: 2,
+        explanation:
+            '∀x F means "for all values of x, F is true." This requires F to be true in both cases, so we take the conjunction (AND) of F[x:=0] and F[x:=1].',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ls-9',
+        courseId: 'logic-sets-ai',
+        question:
+            'Which OBDD reduction rule merges two nodes that have the same variable and identical low and high children?',
+        options: [
+            'C1 — Merge leaves',
+            'C2 — Merge isomorphic nodes',
+            'C3 — Remove redundant nodes',
+            'C4 — Eliminate duplicate paths',
+        ],
+        correctIndex: 1,
+        explanation:
+            'C2 merges isomorphic nodes: if two internal nodes test the same variable and their low edges point to the same node and their high edges point to the same node, they are identical and can be merged into one.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ls-10',
+        courseId: 'logic-sets-ai',
+        question: 'After applying a quantifier (∃ or ∀) to an OBDD, what must you do next?',
+        options: [
+            'Nothing — the result is already reduced',
+            'Rebuild the OBDD from scratch using a truth table',
+            'Reduce the resulting OBDD again using rules C1–C3',
+            'Reverse the variable ordering',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Applying a quantifier may introduce redundant or isomorphic nodes, so you must apply the reduction rules C1–C3 again to obtain a reduced OBDD.',
+        difficulty: 'easy',
+    },
+    // --- Predicate Logic ---
+    {
+        id: 'quiz-ls-11',
+        courseId: 'logic-sets-ai',
+        question:
+            'Which of the following is NOT a component of predicate (first-order) logic that goes beyond propositional logic?',
+        options: [
+            'Quantifiers (∀ and ∃)',
+            'Truth tables',
+            'Predicates like P(x)',
+            'Variables ranging over a domain',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Truth tables are a tool for propositional logic. Predicate logic extends propositional logic by adding quantifiers, predicates, variables, functions, and constants — but truth tables don\'t scale to predicate logic.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-12',
+        courseId: 'logic-sets-ai',
+        question: 'What is the negation of ∀x P(x)?',
+        options: [
+            '∀x ¬P(x)',
+            '∃x ¬P(x)',
+            '¬∃x P(x)',
+            '∃x P(x)',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The negation of "for all x, P(x)" is "there exists an x for which P(x) does not hold": ¬∀x P(x) ≡ ∃x ¬P(x). The negation flips the quantifier and negates the body.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-13',
+        courseId: 'logic-sets-ai',
+        question: 'What is the negation of ∃x P(x)?',
+        options: [
+            '∃x ¬P(x)',
+            '∀x P(x)',
+            '∀x ¬P(x)',
+            '¬∀x ¬P(x)',
+        ],
+        correctIndex: 2,
+        explanation:
+            '"There exists an x with P(x)" is negated as "for all x, P(x) does not hold": ¬∃x P(x) ≡ ∀x ¬P(x).',
+        difficulty: 'easy',
+    },
+    // --- Models ---
+    {
+        id: 'quiz-ls-14',
+        courseId: 'logic-sets-ai',
+        question: 'In predicate logic, what does a model (interpretation) specify?',
+        options: [
+            'Only the truth values of all propositions',
+            'A domain D, plus an interpretation of every constant, function, and predicate symbol',
+            'The syntax rules for well-formed formulas',
+            'A proof tree for a given formula',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A model M provides a non-empty domain D and assigns meaning to each constant (an element of D), function symbol (a function on D), and predicate symbol (a relation on D).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ls-15',
+        courseId: 'logic-sets-ai',
+        question: 'A formula is called "valid" (a tautology) when it is...',
+        options: [
+            'True in at least one model',
+            'True in no model',
+            'True in every model',
+            'True only in finite models',
+        ],
+        correctIndex: 2,
+        explanation:
+            'A valid formula (tautology) is true in every possible model. This is stronger than satisfiability, which only requires truth in at least one model.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-16',
+        courseId: 'logic-sets-ai',
+        question:
+            'Which semantic equivalence is correct?',
+        options: [
+            '∀x (P(x) ∨ Q(x)) ≡ ∀x P(x) ∨ ∀x Q(x)',
+            '∃x (P(x) ∧ Q(x)) ≡ ∃x P(x) ∧ ∃x Q(x)',
+            '∀x (P(x) ∧ Q(x)) ≡ ∀x P(x) ∧ ∀x Q(x)',
+            '∃x (P(x) → Q(x)) ≡ ∃x P(x) → ∃x Q(x)',
+        ],
+        correctIndex: 2,
+        explanation:
+            '∀ distributes over ∧: if P and Q hold for all x, then both hold for all x individually, and vice versa. The other options are common mistakes — ∀ does NOT distribute over ∨, and ∃ does NOT distribute over ∧.',
+        difficulty: 'hard',
+    },
+    // --- Equivalence Relations & Classes ---
+    {
+        id: 'quiz-ls-17',
+        courseId: 'logic-sets-ai',
+        question:
+            'A relation R on a set A is an equivalence relation if and only if it is...',
+        options: [
+            'Reflexive, antisymmetric, and transitive',
+            'Reflexive, symmetric, and transitive',
+            'Symmetric, transitive, and total',
+            'Reflexive, symmetric, and antisymmetric',
+        ],
+        correctIndex: 1,
+        explanation:
+            'An equivalence relation must be reflexive (aRa), symmetric (aRb ⇒ bRa), and transitive (aRb ∧ bRc ⇒ aRc). Antisymmetric is for partial orders, not equivalence relations.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-18',
+        courseId: 'logic-sets-ai',
+        question: 'The equivalence classes of an equivalence relation on a set A always form a...',
+        options: [
+            'Subset of A',
+            'Total ordering of A',
+            'Partition of A',
+            'Power set of A',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The equivalence classes divide A into non-overlapping, non-empty subsets that together cover all of A — this is exactly what a partition is.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-19',
+        courseId: 'logic-sets-ai',
+        question: 'What is a system of representatives for a set of equivalence classes?',
+        options: [
+            'The union of all equivalence classes',
+            'A set containing all elements of the largest equivalence class',
+            'A set containing exactly one element from each equivalence class',
+            'The intersection of all equivalence classes',
+        ],
+        correctIndex: 2,
+        explanation:
+            'A system of representatives picks exactly one element from each equivalence class. Any element from a class can serve as its representative.',
+        difficulty: 'easy',
+    },
+    // --- Functions ---
+    {
+        id: 'quiz-ls-20',
+        courseId: 'logic-sets-ai',
+        question: 'A function f: A → B is injective (one-to-one) when...',
+        options: [
+            'Every element in B is mapped to by some element in A',
+            'f(a₁) = f(a₂) implies a₁ = a₂ for all a₁, a₂ ∈ A',
+            'The range of f equals the codomain B',
+            'f maps every element of A to the same element in B',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Injective means no two different inputs produce the same output. If f(a₁) = f(a₂), then the inputs must have been the same: a₁ = a₂.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-21',
+        courseId: 'logic-sets-ai',
+        question: 'A function f: A → B is surjective (onto) when...',
+        options: [
+            'Different inputs always give different outputs',
+            'f is both injective and has an inverse',
+            'For every b ∈ B, there exists an a ∈ A such that f(a) = b',
+            'The domain A is a subset of the codomain B',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Surjective means every element in the codomain B is actually hit — the range equals the codomain. Every b ∈ B has at least one preimage.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-22',
+        courseId: 'logic-sets-ai',
+        question: 'What does the composition (g ∘ f)(x) mean?',
+        options: [
+            'Apply g first, then apply f to the result',
+            'Apply f first, then apply g to the result',
+            'Apply f and g simultaneously',
+            'Take the intersection of f and g',
+        ],
+        correctIndex: 1,
+        explanation:
+            '(g ∘ f)(x) = g(f(x)) — you apply f first, then g. Read right-to-left: "g after f."',
+        difficulty: 'easy',
+    },
+    // --- Induction ---
+    {
+        id: 'quiz-ls-23',
+        courseId: 'logic-sets-ai',
+        question: 'In a proof by mathematical induction, what are the two required steps?',
+        options: [
+            'State the hypothesis and derive a contradiction',
+            'Prove the base case and prove the induction step (S(m) → S(m+1))',
+            'Prove S(0) and prove S(n) for an arbitrary even n',
+            'Prove S(m+1) and then derive S(m) from it',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Induction requires: (1) prove the base case S(a), and (2) prove that if S(m) holds for an arbitrary m ≥ a, then S(m+1) also holds. Together these establish S(n) for all n ≥ a.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-24',
+        courseId: 'logic-sets-ai',
+        question:
+            'In the induction step, the "induction hypothesis" (IH) is...',
+        options: [
+            'The statement S(a) for the base case',
+            'The assumption that S(m) is true for some arbitrary m ≥ a',
+            'The conclusion that S(n) holds for all n',
+            'A counterexample showing S(m) fails',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The IH is the assumption that S(m) is true for an arbitrary m ≥ a. You then use this assumption to prove S(m+1). The IH is what makes the "domino effect" work.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ls-25',
+        courseId: 'logic-sets-ai',
+        question:
+            'When proving by induction that ∑(k=0 to n) 2^k = 2^(n+1) − 1, what is the base case?',
+        options: [
+            'n = 1: check that 2^0 + 2^1 = 3 and 2^2 − 1 = 3',
+            'n = 0: check that 2^0 = 1 and 2^1 − 1 = 1',
+            'n = 0: check that 2^0 = 0 and 2^1 − 1 = 0',
+            'n = 2: check that 2^0 + 2^1 + 2^2 = 7 and 2^3 − 1 = 7',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The claim is "for all n ∈ ℕ" so the base case is n = 0. We verify: ∑(k=0 to 0) 2^k = 2^0 = 1, and 2^(0+1) − 1 = 2 − 1 = 1. Both sides equal 1, so the base case holds.',
+        difficulty: 'medium',
+    },
+
+    // ========== Dynamic Modelling (Modelling Human Behaviour) ==========
+    {
+        id: 'quiz-dm-1',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which task is NOT relevant in the conceptualisation phase of creating a model?',
+        options: [
+            'Defining the scope of the model',
+            'Deciding on the representation of the model concepts',
+            'Determining relations between concepts',
+            'Formulating expectations about the model behaviour',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Conceptualisation involves defining the scope, identifying concepts, determining relations, and formulating expected patterns. Deciding on the representation (numerical vs. logical) is part of the formalisation phase, not conceptualisation.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-2',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'A limited growth function can be formalised as Amount(t+dt) = Amount(t) + a * ((C - Amount(t)) / C). What is the maximum value that the concept Amount could reach?',
+        options: ['1', '10', 'C', 'Amount(t)'],
+        correctIndex: 2,
+        explanation:
+            'In logistic (limited) growth, the gain factor (C - Amount(t)) / C approaches 0 as Amount(t) approaches C. Therefore, the amount asymptotically approaches the capacity C and can never exceed it.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-3',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Choose the right word to fill in the blank: "The model of an E. coli bacterium is a model at the _______ level."',
+        options: ['individual', 'collective', 'cognitive', 'physiological'],
+        correctIndex: 3,
+        explanation:
+            'The E. coli model describes internal chemical pathways (glucose indicator, enzymes, CRPcAMP) — these are physiological-level processes, not cognitive or collective.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-4',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which statement about "characteristic patterns" is NOT correct?',
+        options: [
+            'They are meant to help developers of intelligent systems understand the meaning of the model',
+            'They are meant to evaluate whether the model behaves as expected',
+            'They are formulated during the design phase of a model',
+            'They preferably specify effects between concepts that are not directly connected',
+        ],
+        correctIndex: 0,
+        explanation:
+            'Characteristic patterns (expected patterns / model properties) are formulated during the design phase and used during evaluation to check if the model produces the expected behaviour. They are NOT primarily meant to help developers of intelligent systems understand the model — that is a side effect, not their purpose.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-5',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'How could you extend the model of the Aplysia sea hare to include a realistic process of "forgetting" the learned behaviour?',
+        options: [
+            'By setting the value of "synapse strength" to 0 after 5 touches on the siphon',
+            'By removing the connection between the "intermediate neuron" and the "moto-neuron"',
+            'By introducing a decay factor that reduces the value of the concept "synapse strength" every time step with a few percent',
+            'By introducing a concept "forget" that grows over time',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Forgetting is a gradual process where learned associations weaken over time. A decay factor that reduces synapse strength by a small percentage each time step models this realistically — the behaviour fades gradually rather than disappearing abruptly.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-6',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which of the following statements does NOT hold for the model of honeybees?',
+        options: [
+            'Over time, bees are less willing to do tasks that they did not do often',
+            'Concepts at the behavioural level influence concepts at the collective level',
+            'Every bee is in principle able to do every task',
+            'Bees always choose the task that is most urgent',
+        ],
+        correctIndex: 3,
+        explanation:
+            'Bees choose the task with the highest RELATIVE urgency (urgency divided by the norm), not simply the most urgent task in absolute terms. The norms are personal and change over time, so the same absolute urgency can lead different bees to different roles.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-7',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'There are two approaches for modelling social processes (e.g. the spread of a disease). Which sentence is correct?',
+        options: [
+            'The two approaches are population-based and individual-based; an advantage of population-based is that it allows modelling larger societies',
+            'The two approaches are population-based and individual-based; a disadvantage of population-based is that it is computationally more intensive',
+            'The two approaches are collective-level and behavioural-level; an advantage of collective-level is that it is computationally more efficient',
+            'The two approaches are collective-level and behavioural-level; an advantage of behavioural-level is that it can be used for different types of behaviour',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The two approaches are population-based (collective) and individual-based. Population-based models represent groups as aggregate numbers (Susceptibles, Infectives, Recovered), making them computationally efficient and scalable to large populations. Individual-based models track each person separately — more precise but harder to scale.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-8',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'A schematic illustration shows: concept1 and concept2 both point to concept3, concept3 and concept4 point to concept5. In the BDI model, which assignment of names is correct?',
+        options: [
+            'concept1 = belief; concept3 = intention; concept5 = action',
+            'concept1 = intention; concept3 = preparation; concept5 = action',
+            'concept1 = desire; concept2 = belief; concept4 = intention',
+            'concept1 = desire; concept3 = intention; concept4 = belief',
+        ],
+        correctIndex: 3,
+        explanation:
+            'In the BDI model: desire and belief feed into intention, and intention together with belief lead to action. So concept1 = desire, concept2 = belief (both feed into concept3 = intention), concept4 = belief, concept5 = action.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-dm-9',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'What is the key characteristic of intelligent behaviour?',
+        options: [
+            'Intelligent behaviour can only be performed by animals that have (some) cognitions',
+            'Intelligent behaviour should be modelled with a logical formalism',
+            'Intelligent behaviour requires knowledge about the world',
+            'Intelligent behaviour requires a complex environment',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Intelligent behaviour fundamentally requires knowledge about the world — whether through beliefs, observations, or learned representations. This knowledge enables an agent to make informed decisions. It does not strictly require cognition (systems can be intelligent), a specific formalism, or a complex environment.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-10',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which concept is essential to model "adaptive" behaviour, but is NOT required for modelling "reactive" behaviour?',
+        options: [
+            'Sensory representation',
+            'Intention',
+            'Sensitivity',
+            'Desire',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Adaptive behaviour changes through experience, which requires a "sensitivity" parameter that adjusts based on past experiences. Reactive behaviour (stimulus-response and delayed response) does not need sensitivity — it responds based on current or remembered stimuli without learning.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-dm-11',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'A model that describes how the facial expression of a person is determined by a specific picture that is presented to this person is an example of:',
+        options: [
+            'Stimulus-response behaviour',
+            'Delayed response behaviour',
+            'Adaptive behaviour',
+            'Motivation-based behaviour',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The person sees a picture (stimulus) and immediately shows a facial expression (response). There is no memory of past stimuli, no learning involved, and no goal-driven reasoning — it is a direct stimulus-response pattern.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-12',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'What is a correct statement about the "mind extended in the world" model (i.e. the example with Little Thumb)?',
+        options: [
+            'Complex mental states are required to model the process of dropping pebbles and finding the way back',
+            'The model does not include internal mental states because the process is very simple',
+            'The model does not include internal mental states because the pebbles act as a replacement for beliefs',
+            'Complex mental states are needed because the external world is very complex',
+        ],
+        correctIndex: 2,
+        explanation:
+            'In the "extended mind" approach, the environment acts as external memory. Little Thumb does not need an internal map or complex beliefs because the pebbles in the world serve as a replacement for those internal states — the world itself stores the information needed to navigate.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-13',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'What is NOT an essential characteristic of an intelligent agent?',
+        options: [
+            'It is situated in an environment',
+            'It receives incoming communication from humans',
+            'It is able to perform autonomous actions',
+            'It has goals',
+        ],
+        correctIndex: 1,
+        explanation:
+            'An intelligent agent must be situated in an environment, have goals, and be able to act autonomously. Receiving communication from humans is NOT essential — agents can interact with other agents or operate independently in an environment without human communication.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-14',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which predicate does NOT belong to the set of standard predicates for agent models?',
+        options: [
+            'observed(A:AGENT, I:INFO_ELEMENT)',
+            'prepare(A:AGENT, Ac:ACTION)',
+            'to_be_communicated(A:AGENT, I:INFO_ELEMENT)',
+            'desire(A:AGENT, I:INFO_ELEMENT)',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The standard agent predicates include: sr (sensory representation), ps (preparation state), belief, desire, observed, to_be_observed, performed, communicated_from_to, and to_be_communicated. "prepare" is not a standard predicate — the correct one is "ps" (preparation state).',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-dm-15',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'What is NOT a valid way of embedding a domain model within an intelligent system?',
+        options: [
+            'As an analysis model',
+            'As a conceptual model',
+            'As an adaptation model',
+            'As a support model',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A domain model can be embedded in an intelligent system as an analysis model (derive assessments from observations), a support model (determine actions to achieve goals), or an adaptation model (adjust based on new info). A "conceptual model" is a design artifact — it is not a way to embed a model within an operational system.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-16',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'When we use a numerical representation in which the values can only be 0 or 1, how can you represent the Boolean statement: NOT (A OR B)?',
+        options: [
+            '0 - (A * B)',
+            '1 - MAX(A, B)',
+            '(A * B) - 1',
+            '1 - MIN(A, B)',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In binary numerical representation: OR is MAX(A, B), and NOT is (1 - X). So NOT (A OR B) = 1 - MAX(A, B). For example, if A=1 and B=0: OR = MAX(1,0) = 1, NOT(1) = 0. If A=0 and B=0: OR = MAX(0,0) = 0, NOT(0) = 1.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-17',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Choose the answer that correctly fills in the blanks: "When you implement a model in the L2-Python environment, you define the __1__ in the __2__ and the __3__ in the __4__."',
+        options: [
+            '1: start values; 2: scenario file; 3: parameter values; 4: rules file',
+            '1: scenarios; 2: main file; 3: parameter values; 4: main file',
+            '1: start values; 2: main file; 3: predicates; 4: rules file',
+            '1: start values; 2: scenario file; 3: predicates; 4: rules file',
+        ],
+        correctIndex: 3,
+        explanation:
+            'In the L2-Python framework: start values and parameter values are defined in the scenario file, and the predicates (rules that define the dynamic relationships) are defined in the rules file.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-18',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which concepts are all relevant in an analysis model?',
+        options: [
+            'Desire, assessment, belief',
+            'Propose, assessment, desire',
+            'Belief, assume, desire',
+            'Action, belief, assessment',
+        ],
+        correctIndex: 0,
+        explanation:
+            'An analysis model derives conclusions from observations. Its key concepts are: desire (what you want to assess), belief (derived knowledge from observations), and assessment (the conclusion reached). "Propose" and "assume" belong to support models, not analysis models.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-19',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'How do you decide whether to use forward or backward reasoning in an analysis model?',
+        options: [
+            'You determine whether there are more causes (choose backward) or more effects (choose forward)',
+            'You choose the direction that is the easiest to implement in your system',
+            'It follows automatically from the position of the observations and the desire in your model',
+            'You always have to do both: first backward reasoning to causes, then forward to effects',
+        ],
+        correctIndex: 2,
+        explanation:
+            'In an analysis model, the reasoning direction is determined by the structure of the model itself — specifically where the observations and the desire (assessment goal) are positioned. If observations are at the "cause" end and the desire at the "effect" end, you reason forward, and vice versa. In contrast, for support models, you choose the direction that is easiest to implement.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-dm-20',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which concepts are all relevant in a support model?',
+        options: [
+            'Desire, assessment, belief',
+            'Belief, action, observed',
+            'Proposed, assumed, desire',
+            'Action, belief, assessment',
+        ],
+        correctIndex: 2,
+        explanation:
+            'A support model determines what actions to take to achieve a desired state. Its key concepts are: proposed (suggested actions), assumed (expected effects of those actions), and desire (the goal state). "Assessment" belongs to analysis models, not support models.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-21',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which of the following is NOT one of the four activities in the modelling and simulation cycle?',
+        options: [
+            'Conceptualisation',
+            'Optimisation',
+            'Simulation',
+            'Evaluation',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The four activities are: Conceptualisation, Formalisation, Simulation, and Evaluation. "Optimisation" is not part of this cycle. Conceptualisation and Formalisation belong to the design phase; Simulation and Evaluation belong to the analysis phase.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-22',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'In the E. coli model, what happens when both glucose AND lactose are externally present?',
+        options: [
+            'Both glucose and lactose are imported simultaneously',
+            'Only lactose is imported because it requires less energy',
+            'Only glucose is imported because CRPcAMP is absent, blocking lactose import',
+            'Neither is imported because they inhibit each other',
+        ],
+        correctIndex: 2,
+        explanation:
+            'When glucose is externally present, CRPcAMP is absent inside the cell. Since the lactose import enzyme requires CRPcAMP to be produced, lactose import is blocked. Glucose always takes priority — this is a hierarchical decision mechanism.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-23',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'What does exponential growth look like when formalised?',
+        options: [
+            'Amount(t+dt) = Amount(t) + c',
+            'Amount(t+dt) = Amount(t) * alpha',
+            'Amount(t+dt) = Amount(t) + alpha * ((C - Amount(t)) / C)',
+            'Amount(t+dt) = C - Amount(t)',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Exponential growth multiplies the current amount by a constant factor alpha each time step. Linear growth adds a constant c. Logistic growth includes a capacity-limiting term (C - Amount(t)) / C.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-24',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'In the Aplysia learning model, what is the initial strength of synapse S2 (between sensory neuron SN2 and the motor neuron MN)?',
+        options: [
+            '4 (maximum strength)',
+            '2 (half strength)',
+            '0 (no connection)',
+            '1 (minimal connection)',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Initially, synapse S2 has strength 0 — there is no functional connection between SN2 (siphon touch sensor) and MN. This is why siphon touch alone does not cause a contraction before training. Through repeated paired training (siphon touch + tail shock), S2 gradually increases to a maximum of 4.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-25',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which statement correctly describes the difference between "numerical" and "logical" representations in dynamic modelling?',
+        options: [
+            'Numerical uses variables with values; logical uses true/false propositions with IF-THEN rules',
+            'Numerical is used for simple models; logical is used for complex models',
+            'Numerical is used in L2-Python; logical is used in Excel',
+            'Numerical representation cannot handle binary (0/1) values',
+        ],
+        correctIndex: 0,
+        explanation:
+            'In numerical representation, concepts are variables with numerical values (integer, real, 0/1) and relations are calculation rules. In logical representation, concepts are propositions (true/false) and relations are IF-THEN rules specifying truth-value dependencies. Both can handle simple and complex models, and Excel can use both approaches.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-26',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'In the honeybee colony model, what determines which role an individual bee takes on?',
+        options: [
+            'A central controller assigns roles based on colony needs',
+            'Bees are born into fixed roles and never change',
+            'The bee selects the role with the highest relative urgency based on its personal norms',
+            'Bees randomly select a role each time step',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Each bee maintains personal norms for each environmental aspect. It calculates urgency (deviation from norm) and relative urgency (urgency / norm) for each aspect. The bee takes on the role corresponding to the highest relative urgency. This decentralised mechanism produces emergent self-organisation without any central controller.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-27',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'In the SIR epidemic model at the population level, what does the concept "RelevantContacts" represent?',
+        options: [
+            'The total number of people in the population',
+            'The number of contacts per day between any two people',
+            'The number of contacts per day between an infective person and a susceptible person',
+            'The recovery rate of infected individuals',
+        ],
+        correctIndex: 2,
+        explanation:
+            'RelevantContacts represents the number of contacts per day that are between infective and susceptible individuals — these are the only contacts that can lead to new infections. It is calculated as ContactFrequency * (Infectives / TotalPopulation).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-28',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'What is the formula for the contagion strength from a sender B to a receiver A in the emotion contagion model?',
+        options: [
+            'gamma_BA = epsilon_B + alpha_BA + delta_A',
+            'gamma_BA = epsilon_B * alpha_BA * delta_A',
+            'gamma_BA = (epsilon_B + delta_A) / alpha_BA',
+            'gamma_BA = epsilon_B * delta_A - alpha_BA',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The contagion strength is the product of three factors: the expressiveness of the sender (epsilon_B), the channel strength from B to A (alpha_BA), and the openness of the receiver (delta_A). If any of these is zero, there is no contagion.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-29',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'How is the emotion level of person A updated in the emotion contagion model?',
+        options: [
+            'It is replaced by the group average emotion level',
+            'It becomes a weighted average of its old value and the average emotion impact from others',
+            'It increases by a fixed amount each time step',
+            'It is set to the maximum emotion level observed in the group',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The new emotion level is: q_A(t+dt) = (1-gamma) * q_A + gamma * q_A*, which is a weighted average of the old emotion level and the average impact from others. The parameter gamma controls how much influence others have — if gamma is small, the person is resistant to contagion.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-30',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'A mouse remembers that food was placed behind a cup at position p2, even though a screen now blocks the view. When the screen is removed, it goes directly to p2. This is an example of:',
+        options: [
+            'Stimulus-response behaviour',
+            'Delayed response behaviour',
+            'Motivation-based behaviour',
+            'Adaptive behaviour',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The mouse responds based on a remembered stimulus (food at p2) rather than a currently visible one — the screen blocks its view but it still goes to p2 because it stored the sensory representation. This is delayed response behaviour (Type B), which requires memory/sensory representation.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-31',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'A hungry mouse actively searches for food even when no food stimulus is visible. This is an example of:',
+        options: [
+            'Stimulus-response behaviour',
+            'Delayed response behaviour',
+            'Motivation-based behaviour',
+            'Extended mind behaviour',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The mouse acts proactively based on an internal motivation (hunger/desire for food), not in response to an external stimulus. This is motivation-based behaviour (Type C), driven by desires and intentions rather than direct sensory input.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-32',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'In the Aplysia model, under what condition does the motor neuron (MN) become activated?',
+        options: [
+            'Only when SN1 (tail shock sensor) is active',
+            'Only when SN2 (siphon touch sensor) is active with maximum synapse strength',
+            'When SN1 is active, OR when SN2 is active AND synapse S2 has reached strength 4',
+            'When both SN1 and SN2 are active simultaneously',
+        ],
+        correctIndex: 2,
+        explanation:
+            'AMN(t+dt) = 1 if ASN1(t) = 1 (tail shock pathway always works) OR if S2(t) = 4 AND ASN2(t) = 1 (siphon touch pathway only works after full training). The two pathways provide alternative routes to activate the motor neuron.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-33',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'What is the key difference between a "model property" and a "model parameter"?',
+        options: [
+            'A property is a constant; a parameter changes over time',
+            'A property is a hypothesis about expected model behaviour; a parameter is an adjustable input value',
+            'A property is defined during simulation; a parameter is defined during conceptualisation',
+            'A property describes a single concept; a parameter describes a relation',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A model property (characteristic pattern) is a hypothesis or expectation about how the model should behave — used during evaluation to check correctness. A parameter is an adjustable input value (like blood volume or pill size) that can be changed to explore different scenarios.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-34',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which statement about stochastic variables in dynamic models is correct?',
+        options: [
+            'Stochastic variables always produce the same simulation trace',
+            'Stochastic variables are determined by probability, so multiple simulation runs may produce different traces',
+            'Stochastic variables can only be used in population-based models',
+            'Stochastic variables eliminate the need for evaluation',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Stochastic variables introduce randomness — their values are determined by probability distributions. This means running the same model multiple times can produce different traces, all reflecting valid scenarios. Multiple runs are needed to draw reliable conclusions.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-35',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'In a numerical (0/1) representation, how do you formalise the AND operation between two concepts A and B?',
+        options: [
+            'C(t+dt) = MAX(A(t), B(t))',
+            'C(t+dt) = A(t) * B(t)',
+            'C(t+dt) = A(t) + B(t)',
+            'C(t+dt) = MIN(A(t), B(t))',
+        ],
+        correctIndex: 1,
+        explanation:
+            'With binary values (0/1): AND = multiplication (A*B), because 1*1=1, 1*0=0, 0*1=0, 0*0=0. OR = MAX(A,B). Note that MIN(A,B) also gives the same result as A*B for binary values, but the standard formulation in this course uses multiplication.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-36',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which of the following is an advantage of the individual-based approach over the population-based approach for modelling epidemics?',
+        options: [
+            'It is computationally more efficient',
+            'It can model larger populations more easily',
+            'It more faithfully represents reality by tracking each individual separately',
+            'It does not require stochastic variables',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The individual-based approach models each person separately with their own infection state, location, and contacts. This is more faithful to reality but computationally expensive. Population-based models are more efficient but abstract away individual differences. Individual-based models typically DO require stochastic variables.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-37',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'What does the "environmental complexity thesis" state?',
+        options: [
+            'Simple environments always produce simple behaviour',
+            'The more complex the environment, the more sophisticated the behaviour and mental representations needed',
+            'Complex environments can only be modelled using logical representations',
+            'Environmental complexity has no impact on the type of behaviour model needed',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The environmental complexity thesis states: more complex environment -> more sophisticated behaviour required to cope -> more complex mental representations and capabilities needed. This helps explain why some organisms need only reactive behaviour while others require motivation-based or adaptive behaviour.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-38',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which of the following is NOT a valid purpose of using dynamic models?',
+        options: [
+            'Studying processes that are too expensive to study in reality',
+            'Performing "what if" simulations to explore scenarios',
+            'Proving mathematically that a real-world process is correct',
+            'Building intelligent systems that can mimic human behaviour',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Models are simplifications of reality and cannot "prove" that a real-world process is correct. They can help study phenomena that are expensive, time-consuming, hard to measure, or unethical to study directly. They can also be used for "what if" simulations and as a basis for intelligent systems.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-39',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'In the honeybee model, what happens to a bee\'s norm for an aspect when the bee is performing the role that addresses that aspect?',
+        options: [
+            'The norm increases over time',
+            'The norm stays constant',
+            'The norm slowly decreases over time',
+            'The norm is reset to zero',
+        ],
+        correctIndex: 2,
+        explanation:
+            'When a bee performs a role addressing a certain aspect (e.g., foraging for food), the norm for that aspect slowly decreases. This means the bee becomes more "used to" that role and more likely to keep performing it — leading to specialisation over time.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-dm-40',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'What is the difference between "validation" and "evaluation" in the context of dynamic modelling?',
+        options: [
+            'They are the same thing — both terms refer to checking the model against reality',
+            'Validation checks if the model was built correctly; evaluation compares simulation results with expectations',
+            'Validation is done during design; evaluation is done during analysis',
+            'Validation uses hypotheses; evaluation uses mathematical proofs',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Validation checks whether the model correctly represents reality (is the model built right?). Evaluation compares simulation results with expected patterns/hypotheses (does the model behave as expected?). Both are part of the analysis phase, but they serve different purposes.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-dm-41',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'In the semi-formal notation used for behaviour modelling, what is the general structure of a rule?',
+        options: [
+            'WHILE condition DO action',
+            'FOR all TIMEPOINTS: IF condition THEN effect (at next time step)',
+            'REPEAT action UNTIL condition',
+            'IF condition THEN action ELSE alternative',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The semi-formal notation used in this course follows the pattern: "FOR all TIMEPOINTS: IF <condition> THEN <effect> (at next time step)". This captures the dynamic nature of the model — conditions at the current time point determine effects at the next time point.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-42',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which of the following correctly describes "formalization of concepts" in the E. coli model?',
+        options: [
+            'All concepts are represented as real-valued variables between 0 and 100',
+            'Most concepts are binary (0/1) except mass which is real-valued',
+            'All concepts are represented as Boolean true/false propositions',
+            'Concepts use a mix of integer values from 0 to 10',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In the E. coli model, most concepts (external glucose, lactose indicator, enzyme presence, etc.) are binary — either present (1) or absent (0). The exception is mass (M), which is a real-valued variable that grows continuously based on food intake.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-43',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'What is the role of CRPcAMP in the E. coli food intake model?',
+        options: [
+            'It directly imports glucose into the cell',
+            'It acts as an indicator that glucose is absent, enabling lactose import',
+            'It breaks down lactose inside the cell',
+            'It measures the total mass of the bacterium',
+        ],
+        correctIndex: 1,
+        explanation:
+            'CRPcAMP is a chemical substance that is only present inside the cell when external glucose is absent (below 0.1 mmol/l). It serves as an "absence of glucose" indicator. The lactose import enzyme can only be produced when CRPcAMP is present — this ensures glucose always takes priority over lactose.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-44',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'In the Aplysia model, synapse strength S1 (between SN1 and MN) is:',
+        options: [
+            'Initially 0 and increases through training',
+            'Constant at strength 4 — it never changes',
+            'Variable, depending on how often the tail is shocked',
+            'Initially 4 and decreases through habituation',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Synapse S1 (tail shock to motor neuron pathway) has a constant strength of 4. This means a tail shock ALWAYS causes contraction — this pathway does not need learning. Only S2 (siphon touch pathway) changes through training, starting at 0 and increasing to a maximum of 4.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-45',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which of the following describes "negative growth" in a dynamic model?',
+        options: [
+            'The amount increases at a decreasing rate',
+            'The loss is larger than the gain, so the amount decreases over time',
+            'The gain factor becomes negative, which is impossible',
+            'The amount oscillates between positive and negative values',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Negative growth occurs when the loss exceeds the gain in each time step, causing the amount to decrease. This can happen in linear, exponential, or other patterns. It does not mean the gain factor itself is negative — rather, the net change (gain - loss) is negative.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-46',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'An intelligent agent uses a domain model to predict what will happen if it recommends a stress-reduction therapy to a person. This is an example of using the domain model as:',
+        options: [
+            'An analysis model',
+            'A support model',
+            'An adaptation model',
+            'A validation model',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A support model uses a domain model to determine the effects of proposed actions. Here, the agent proposes a therapy (action) and uses the domain model to predict its effects on the person\'s stress level. This is forward reasoning in a support model: proposed action -> predicted effects.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-47',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'An intelligent agent observes that a person has high alcohol consumption and cardiovascular disease, and concludes that the person is likely lonely. This is an example of:',
+        options: [
+            'Forward reasoning in a support model',
+            'Backward reasoning in an analysis model',
+            'Forward reasoning in an analysis model',
+            'Backward reasoning in a support model',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The agent starts from observations (high alcohol, cardiovascular disease) and reasons backward through the domain model to reach an assessment (loneliness). This is backward reasoning in an analysis model — going from observable effects back to their underlying cause.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-dm-48',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which statement about the "trace" of a simulation is correct?',
+        options: [
+            'A trace is a single value showing the final state of the model',
+            'A trace is a sequence of states of the model at subsequent time points',
+            'A trace is a graphical representation that must always be a line chart',
+            'A trace can only be generated from numerical models, not logical ones',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A simulation trace (also called a simulation run) is a sequence of states of the model at subsequent time points. It shows how all concept values evolve over time. Traces can be visualised as graphs or as truth-value tables (state traces), and can be generated from both numerical and logical models.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-49',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'In the context of behaviour modelling, what distinguishes the "external (observer) viewpoint" from the "internal (cognitive) viewpoint"?',
+        options: [
+            'The external view uses numerical models; the internal view uses logical models',
+            'The external view describes input/output behaviour; the internal view describes cognitive states that generate the behaviour',
+            'The external view is more accurate; the internal view is always an approximation',
+            'The external view is used for animals; the internal view is used for humans only',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The external (observer) viewpoint describes behaviour in terms of observable inputs (stimuli) and outputs (actions) without claiming anything about internal functioning. The internal (cognitive) viewpoint models the actual cognitive states (beliefs, desires, intentions, sensory representations) that the subject uses to generate its behaviour.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-50',
+        courseId: 'modelling-human-behaviour',
+        question:
+            'Which statement about the relationship between an intelligent agent and a domain model is INCORRECT?',
+        options: [
+            'The agent can use a domain model to predict what the effect of its actions will be',
+            'Both humans and intelligent agents use a model inside to reason about their actions',
+            'The intelligent agent always applies forward reasoning to interpret observations',
+            'The agent can use a domain model to assess the current state of the human it is supporting',
+        ],
+        correctIndex: 2,
+        explanation:
+            'An intelligent agent does NOT always use forward reasoning. It can use backward reasoning (from desired conclusion to needed observations) in analysis models, and forward reasoning (from actions to effects) in support models. The choice depends on the task and model structure. Agents can and do use both directions.',
+        difficulty: 'hard',
+    },
+];
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Connections -->
+    <line x1="100" y1="150" x2="200" y2="50" stroke="#94a3b8" stroke-width="4"/>
+    <line x1="100" y1="150" x2="200" y2="250" stroke="#94a3b8" stroke-width="4"/>
+    <line x1="200" y1="50" x2="300" y2="150" stroke="#94a3b8" stroke-width="4"/>
+    <line x1="200" y1="250" x2="300" y2="150" stroke="#94a3b8" stroke-width="4"/>
+    <line x1="200" y1="50" x2="200" y2="250" stroke="#94a3b8" stroke-width="4"/>
+    
+    <!-- Edge Labels -->
+    <rect x="135" y="85" width="24" height="24" rx="12" fill="white" stroke="#cbd5e1"/>
+    <text x="147" y="102" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#334155" font-weight="bold">4</text>
+    
+    <rect x="135" y="195" width="24" height="24" rx="12" fill="white" stroke="#cbd5e1"/>
+    <text x="147" y="212" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#334155" font-weight="bold">2</text>
+    
+    <rect x="245" y="85" width="24" height="24" rx="12" fill="white" stroke="#cbd5e1"/>
+    <text x="257" y="102" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#334155" font-weight="bold">5</text>
+    
+    <rect x="245" y="195" width="24" height="24" rx="12" fill="white" stroke="#cbd5e1"/>
+    <text x="257" y="212" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#334155" font-weight="bold">1</text>
+    
+    <rect x="188" y="140" width="24" height="24" rx="12" fill="white" stroke="#cbd5e1"/>
+    <text x="200" y="157" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#334155" font-weight="bold">3</text>
+
+    <!-- Nodes -->
+    <circle cx="100" cy="150" r="28" fill="#ef4444" stroke="#b91c1c" stroke-width="3"/>
+    <circle cx="200" cy="50" r="28" fill="#f59e0b" stroke="#d97706" stroke-width="3"/>
+    <circle cx="200" cy="250" r="28" fill="#8b5cf6" stroke="#6d28d9" stroke-width="3"/>
+    <circle cx="300" cy="150" r="28" fill="#10b981" stroke="#047857" stroke-width="3"/>
+    
+    <!-- Text -->
+    <text x="100" y="156" text-anchor="middle" fill="white" font-family="sans-serif" font-size="18" font-weight="bold">A</text>
+    <text x="200" y="56" text-anchor="middle" fill="white" font-family="sans-serif" font-size="18" font-weight="bold">B</text>
+    <text x="200" y="256" text-anchor="middle" fill="white" font-family="sans-serif" font-size="18" font-weight="bold">C</text>
+    <text x="300" y="156" text-anchor="middle" fill="white" font-family="sans-serif" font-size="18" font-weight="bold">D</text>
+</svg>

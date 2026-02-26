@@ -47,8 +47,12 @@ export interface Resource {
   title: string;
   description: string;
   url: string;
-  type: 'video' | 'article' | 'tool' | 'pdf' | 'external-quiz';
+  type: 'video' | 'article' | 'tool' | 'pdf' | 'external-quiz' | 'summary';
   tags: string[];
+  /** Inline markdown content for summary-type resources (rendered on page) */
+  markdownContent?: string;
+  /** Author/attribution shown on featured resources */
+  author?: string;
 }
 
 export interface BlogPost {

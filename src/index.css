@@ -172,6 +172,43 @@ body {
   border-top-color: #44403c;
 }
 
+.prose-custom table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25em;
+  font-size: 0.875rem;
+}
+
+.prose-custom thead th {
+  text-align: left;
+  font-weight: 600;
+  color: #1c1917;
+  padding: 0.5em 0.75em;
+  border-bottom: 2px solid #e7e5e4;
+  background: #fafaf9;
+}
+
+.dark .prose-custom thead th {
+  color: #e7e5e4;
+  border-bottom-color: #44403c;
+  background: #1c1917;
+}
+
+.prose-custom tbody td {
+  padding: 0.5em 0.75em;
+  border-bottom: 1px solid #f5f5f4;
+  color: #57534e;
+}
+
+.dark .prose-custom tbody td {
+  border-bottom-color: #292524;
+  color: #a8a29e;
+}
+
+.prose-custom tbody tr:last-child td {
+  border-bottom: none;
+}
+
 /* Line clamp utility */
 .line-clamp-2 {
   display: -webkit-box;

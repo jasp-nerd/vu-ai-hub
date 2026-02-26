@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+    <!-- Axon -->
+    <line x1="150" y1="150" x2="300" y2="150" stroke="#f59e0b" stroke-width="12"/>
+    
+    <!-- Myelin Sheaths -->
+    <rect x="170" y="136" width="35" height="28" rx="8" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+    <rect x="215" y="136" width="35" height="28" rx="8" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+    <rect x="260" y="136" width="35" height="28" rx="8" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+    
+    <!-- Terminal Buttons -->
+    <circle cx="330" cy="125" r="8" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+    <circle cx="340" cy="150" r="8" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+    <circle cx="330" cy="175" r="8" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+    <line x1="300" y1="150" x2="330" y2="125" stroke="#f59e0b" stroke-width="4"/>
+    <line x1="300" y1="150" x2="340" y2="150" stroke="#f59e0b" stroke-width="4"/>
+    <line x1="300" y1="150" x2="330" y2="175" stroke="#f59e0b" stroke-width="4"/>
+    
+    <!-- Dendrites -->
+    <path d="M 100 150 Q 80 100 50 80" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 100 150 Q 60 150 40 160" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 100 150 Q 80 200 60 220" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 100 150 Q 120 100 140 80" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+    <path d="M 100 150 Q 120 200 130 220" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Soma / Cell Body -->
+    <circle cx="100" cy="150" r="36" fill="#fbbf24" stroke="#d97706" stroke-width="3"/>
+    <!-- Nucleus -->
+    <circle cx="100" cy="150" r="14" fill="#b45309"/>
+    
+    <!-- Labels -->
+    <text x="60" y="250" text-anchor="middle" font-family="sans-serif" font-weight="bold" fill="#64748b">Dendrites</text>
+    <text x="120" y="210" text-anchor="middle" font-family="sans-serif" font-weight="bold" fill="#64748b">Soma</text>
+    <text x="230" y="200" text-anchor="middle" font-family="sans-serif" font-weight="bold" fill="#0284c7">Myelin Sheath</text>
+    <text x="340" y="200" text-anchor="middle" font-family="sans-serif" font-weight="bold" fill="#64748b">Terminals</text>
+</svg>
