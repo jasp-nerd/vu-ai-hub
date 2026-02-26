@@ -821,5 +821,56 @@ export const tips: CourseTip[] = [
       'Interesting bot ideas to explore: combine rule-based logic with ML (e.g. use a neural net to decide when to switch from aggressive to passive play), use Monte Carlo tree search with different sampling depths, or build a bot that adapts its strategy based on the opponent\'s observed behavior during the game.',
     author: 'AI @ VU Student',
   },
+  // ========== Academic Writing (BETA) ==========
+  {
+    id: 'tip-aw-1',
+    courseId: 'academic-writing',
+    content:
+      'Start each assignment early and treat it as a draft of your final essay. Assignment 1 becomes your introduction, Assignment 2 expands it, Assignment 3 is your conclusion — by the time the final paper is due, you already have most of it written and just need to add body paragraphs and polish.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-aw-2',
+    courseId: 'academic-writing',
+    content:
+      'Use the Academic Phrasebank (phrasebank.manchester.ac.uk) when you are stuck on how to phrase something formally. It has ready-made sentence starters for introducing topics, comparing sources, hedging claims, and concluding — all organized by function.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-aw-3',
+    courseId: 'academic-writing',
+    content:
+      'After writing a draft, read only your title, thesis statement, topic sentences, and conclusion in sequence. If this "axis" tells a coherent story on its own, your structure is solid. If something feels disconnected, that is the paragraph you need to rework.',
+    author: 'AI @ VU Student',
+  },
+  // ========== History of AI ==========
+  {
+    id: 'tip-hoai-1',
+    courseId: 'history-of-ai',
+    content:
+      'The exam requires essay-style answers, not bullet points. Practice writing short, structured essays that tell a story — state your argument, provide historical examples from both the lectures and the book, and tie it together with a conclusion. The exam explicitly penalizes "just a few buzzwords."',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hoai-2',
+    courseId: 'history-of-ai',
+    content:
+      'The lectures and the book tell different but complementary stories — lectures emphasize the European perspective while Campbell-Kelly focuses on the American narrative. For C-questions on the exam, you need to combine both. Keep a side-by-side comparison as you study.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hoai-3',
+    courseId: 'history-of-ai',
+    content:
+      'Take the assignments seriously even though they are group work — if your best 4 assignments average a 6 or higher, you earn a bonus point on the exam (you skip the NO BONUS question and start with 2 points instead of 1). That one point can make a real difference.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hoai-4',
+    courseId: 'history-of-ai',
+    content:
+      'Attend the seminars even though they are optional. The book has a lot of reading (~40 hours) and the recap sessions help you focus on what matters. The book recap sessions in particular help you distill the key arguments from each pair of chapters before the assignment deadline.',
+    author: 'AI @ VU Student',
+  },
 ];
 

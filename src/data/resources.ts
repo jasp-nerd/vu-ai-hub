@@ -5,6 +5,8 @@ import { psychologySummary } from './summaries/psychology-summary';
 import { intelligentSystemsSummary } from './summaries/intelligent-systems-summary';
 import { logicSetsSummary } from './summaries/logic-sets-summary';
 import { dynamicModellingSummary } from './summaries/dynamic-modelling-summary';
+import { academicWritingSummary } from './summaries/academic-writing-summary';
+import { historyOfAiSummary } from './summaries/history-of-ai-summary';
 
 export const resources: Resource[] = [
     // ========== DSA ==========
@@ -872,6 +874,17 @@ export const resources: Resource[] = [
 
     // --- History of AI ---
     {
+        id: 'res-hos-summary',
+        courseId: 'history-of-ai',
+        title: 'History of AI — Full Course Summary',
+        description:
+            'Comprehensive summary covering all 7 lectures: prehistory of AI, creating computers, the sound of software, computing crisis, dream machines, neat networks, and the digital divide. Includes exam structure and key themes.',
+        url: '#',
+        type: 'summary',
+        tags: ['summary', 'all-lectures', 'site-exclusive'],
+        markdownContent: historyOfAiSummary,
+    },
+    {
         id: 'res-pdf-hos-1',
         courseId: 'history-of-ai',
         title: 'History of Science — Chapters 1-12 Summary',
@@ -1123,6 +1136,49 @@ export const resources: Resource[] = [
         url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/project-intelligent-systems/resources/schnapsen-project-files.zip',
         type: 'pdf',
         tags: ['project', 'schnapsen'],
+    },
+    // ========== Academic Writing (BETA) ==========
+    {
+        id: 'res-aw-1',
+        courseId: 'academic-writing',
+        title: 'Academic Phrasebank — University of Manchester',
+        description:
+            'A huge collection of ready-made academic phrases organized by function (introducing, comparing, concluding, hedging). Invaluable for finding the right words when writing your essays.',
+        url: 'https://www.phrasebank.manchester.ac.uk/',
+        type: 'tool',
+        tags: ['writing', 'phrases', 'style'],
+    },
+    {
+        id: 'res-aw-2',
+        courseId: 'academic-writing',
+        title: 'Purdue OWL — Academic Writing',
+        description:
+            'Comprehensive guide to academic writing, including essay structure, paragraph development, citation styles, and grammar tips. One of the most trusted writing resources online.',
+        url: 'https://owl.purdue.edu/owl/general_writing/academic_writing/index.html',
+        type: 'article',
+        tags: ['writing', 'guide', 'structure'],
+    },
+    {
+        id: 'res-aw-3',
+        courseId: 'academic-writing',
+        title: 'Purdue OWL — APA Formatting and Style Guide',
+        description:
+            'Detailed guide to APA citation style, including in-text citations and reference lists. Useful for getting your referencing right in assignments.',
+        url: 'https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/index.html',
+        type: 'article',
+        tags: ['referencing', 'APA', 'citations'],
+    },
+    {
+        id: 'res-aw-4',
+        courseId: 'academic-writing',
+        title: 'Academic Writing (BETA) — Course Summary',
+        description:
+            'Week-by-week summary covering introductions, quoting and referring, paragraph structure, conclusions, punctuation, and academic style.',
+        url: '#',
+        type: 'summary',
+        tags: ['summary', 'writing', 'all-weeks'],
+        markdownContent: academicWritingSummary,
+        author: 'VU AI Student Hub',
     },
 ];
 
