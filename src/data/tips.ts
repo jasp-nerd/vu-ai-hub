@@ -648,33 +648,13 @@ export const tips: CourseTip[] = [
     author: 'AI @ VU Student',
   },
 
-  // --- General VU Tips (from chat) ---
+  // --- English Language Test (from chat) ---
   {
-    id: 'tip-gen-9',
-    courseId: 'intro-ai',
-    content:
-      'Your VU email is critical: it follows the format initials.surname@student.vu.nl (e.g. j.apples@student.vu.nl). Use the SAME password as your Canvas/VU Dashboard. Download the Outlook app immediately — TAs and professors will only respond to emails from your VU address. Emails from Gmail/Hotmail often end up in spam.',
-    author: 'AI @ VU Class of 2028',
-  },
-  {
-    id: 'tip-gen-10',
-    courseId: 'intro-ai',
-    content:
-      'Three must-bookmark study resources: (1) vu.brunet.app — the old exam database with past exams for most courses; (2) the CS Hub Notion page — community-maintained notes and summaries; (3) the VU Mentor Program GitHub (github.com/VU-Mentor-Program) — free summaries and exam prep materials. Between these three, you\'ll find study materials for nearly every course.',
-    author: 'AI @ VU Class of 2028',
-  },
-  {
-    id: 'tip-gen-11',
-    courseId: 'intro-ai',
-    content:
-      'When Canvas and Rooster (the timetable) show different times, ALWAYS trust Rooster — it updates in real-time. Canvas sometimes shows schedule info copied from the previous year. Sync Rooster with your Google Calendar/Outlook using the sync icon at the top-right of your timetable page.',
-    author: 'AI @ VU Class of 2028',
-  },
-  {
-    id: 'tip-gen-12',
-    courseId: 'intro-ai',
+    id: 'tip-elt-1',
+    courseId: 'english-language-test',
     content:
       'For the English Language Test: you\'re assigned to exam rooms based on surname ranges (e.g. A–K in one set of rooms, L–Z in another). Check Canvas announcements for your specific room. If you miss the morning slot, there are multiple time blocks throughout the day — call the VU Taalcentrum immediately to see if you can attend a later block.',
     author: 'AI @ VU Class of 2028',
   },
 ];
+

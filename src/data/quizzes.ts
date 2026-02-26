@@ -1424,4 +1424,809 @@ export const quizQuestions: QuizQuestion[] = [
             '"Fewer" is used for countable nouns (students, books, items). "Less" is used for uncountable nouns (water, time, money). Since "students" can be counted, "fewer" is correct. This is one of the most common English usage errors.',
         difficulty: 'medium',
     },
+
+    // ========== Introduction to Artificial Intelligence ==========
+    // Based on the official course summary covering all 11 lectures
+    {
+        id: 'quiz-iai-1',
+        courseId: 'intro-ai',
+        question:
+            'Which technique is commonly used to handle missing data during data wrangling?',
+        options: [
+            'Filtering out all rows with any missing values',
+            'Imputation (filling in estimated values)',
+            'Aggregating columns together',
+            'Normalising numeric ranges',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Imputation replaces missing values with reasonable estimates (e.g., mean, median, or predicted values). The course summary lists "Trim, Impute, Ignore, Cap/Limit, and Transform" as strategies for dealing with missing data.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-2',
+        courseId: 'intro-ai',
+        question:
+            'What is the "problem of induction" and how does it relate to machine learning?',
+        options: [
+            'It asks how we reason from stated rules; ML solved this problem completely',
+            'It asks how we reason correctly from past experiences; the question of why ML works is an instance of this problem',
+            'It asks why computers can process data faster than humans; ML is unrelated',
+            'It asks how we reason from stated rules; the question of why ML works is an instance of this problem',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The problem of induction (Hume) asks how we can justify reasoning from observed examples to general conclusions. Machine learning generalises from training data, so the question of why ML works is a modern instance of this philosophical problem.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-3',
+        courseId: 'intro-ai',
+        question:
+            'Which of the following terms is NOT related to Knowledge Representation?',
+        options: [
+            'Ontology',
+            'Description Logics',
+            'Neural networks',
+            'Semantics',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The summary explains that Knowledge Representation uses formal structures like ontologies, description logics, and semantics. Neural networks belong to the statistical/machine learning approach, not KR.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-4',
+        courseId: 'intro-ai',
+        question:
+            'According to the course, what are the four functionalities of Hybrid Intelligence (CARE)?',
+        options: [
+            'Computing, Analysing, Reasoning, Engineering',
+            'Collaborative, Adaptive, Responsible, Explainable',
+            'Classifying, Abstracting, Regressing, Evaluating',
+            'Creative, Autonomous, Reactive, Efficient',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The Hybrid Intelligence lecture introduces the CARE framework: Collaborative (using Theory of Mind), Adaptive (using Reinforcement Learning), Responsible (explicit norms & values), and Explainable (using knowledge graphs for explanations).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-5',
+        courseId: 'intro-ai',
+        question:
+            'What is a systematic literature review?',
+        options: [
+            'A quantitative review using only statistical analyses',
+            'A summary of existing systematic methods in a field',
+            'A rigorous method to identify, critically evaluate, and synthesise existing studies',
+            'A method to organise existing work based on a coherent narrative',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The summary defines a systematic review as involving "explicit and rigorous methods to identify, critically evaluate, and synthesise relevant studies." Option D describes a narrative review, and option A describes a meta-analysis.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-6',
+        courseId: 'intro-ai',
+        question:
+            'What can you NOT do using the command line (terminal)?',
+        options: [
+            'Manipulate files and directories',
+            'Create sequences of commands to execute automatically',
+            'Communicate with remote servers',
+            'Perform Graphical User Interface (GUI) tasks like drag-and-drop',
+        ],
+        correctIndex: 3,
+        explanation:
+            'The command line is text-based and excels at file manipulation, scripting, and server communication (SSH). However, it cannot perform GUI tasks like drag-and-drop or visual layout editing.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-7',
+        courseId: 'intro-ai',
+        question:
+            'In the context of data wrangling, what does "MNAR" (Missing Not at Random) mean?',
+        options: [
+            'The missing data is entirely random and unrelated to any variable',
+            'The missingness depends on other observed variables but not on the missing value itself',
+            'The missing data is directly related to the value of the missing data itself',
+            'The data was never collected in the first place',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The summary gives the example: "Older individuals might not report their age because they fear disqualification from aid." The missingness is tied to the value itself (their age), making it MNAR. MCAR = completely random; MAR = depends on other observed variables.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-8',
+        courseId: 'intro-ai',
+        question:
+            'Verification in software engineering is the process of checking whether:',
+        options: [
+            'The system meets the actual needs of the users (effectiveness)',
+            'The system meets the specified requirements (correctness)',
+            'The system can be tested or not',
+            'The system runs faster than alternatives',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary states: "Verification is about ensuring that a system behaves according to its specified requirements." Validation checks whether the system meets actual user needs. The mnemonic: Verification = "Did we build the system right?", Validation = "Did we build the right system?"',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-9',
+        courseId: 'intro-ai',
+        question:
+            'What is the difference between "ethics in design" and "ethics by design" as discussed in the AI Ethics lecture?',
+        options: [
+            'Ethics in design = hard-coded ethical rules; ethics by design = AI that reasons about ethics dynamically',
+            'They are two names for the same approach',
+            'Ethics in design applies only to hardware; ethics by design applies only to software',
+            'Ethics in design = following regulations; ethics by design = ignoring regulations',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The summary explains: "Ethics in Design refers to constructing ethical rules within the AI system (e.g., Asimov\'s Laws). Ethics by Design involves building AI systems that can reason about ethical decisions dynamically, rather than following hard-coded rules."',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-10',
+        courseId: 'intro-ai',
+        question:
+            'Which statement best describes "Hybrid Intelligence"?',
+        options: [
+            'AI systems that combine multiple machine learning algorithms',
+            'AI that collaborates with people, enhancing human capabilities instead of replacing them',
+            'Hardware that combines CPUs and GPUs for faster computation',
+            'AI that can switch between supervised and unsupervised learning',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The Hybrid Intelligence lecture defines it as "AI that collaborates with people, instead of replacing them." The course summary adds it is where "human intelligence is amplified by AI, rather than AI replacing human decision-making."',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-11',
+        courseId: 'intro-ai',
+        question:
+            'What is "Narrow AI" (Weak AI)?',
+        options: [
+            'AI that has been deliberately limited to prevent harm',
+            'AI designed to perform a specific task but does not possess general intelligence',
+            'AI systems that only work with small datasets',
+            'AI that can only perform computational tasks slowly',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The course summary defines Narrow AI as "AI systems designed to perform a specific task" like speech recognition (Siri/Alexa) or recommendation engines. It contrasts with General AI (can perform any intellectual task) and Superintelligence (surpasses all human intelligence).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-12',
+        courseId: 'intro-ai',
+        question:
+            'What is the "Chinese Room" argument in the philosophy of AI?',
+        options: [
+            'It proves that AI systems can truly understand language',
+            'It argues that a system can follow rules to produce correct outputs without genuinely understanding meaning',
+            'It demonstrates that only Chinese-speaking individuals can build AI',
+            'It is a benchmark test for evaluating machine translation',
+        ],
+        correctIndex: 1,
+        explanation:
+            'John Searle\'s Chinese Room argument: even if someone inside a room uses a rulebook to produce perfect Chinese responses, they don\'t understand Chinese. The summary notes this "challenges the idea that AI can ever truly be intelligent or conscious."',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-iai-13',
+        courseId: 'intro-ai',
+        question:
+            'What are the five key properties used to guide the data wrangling process?',
+        options: [
+            'Speed, accuracy, precision, recall, F1-score',
+            'Structure, granularity, faithfulness, temporality, scope',
+            'Input, processing, output, storage, networking',
+            'Cleaning, transforming, loading, analysing, visualising',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The data wrangling lecture identifies five key properties: Structure (shape of data), Granularity (level of detail), Faithfulness (accuracy vs reality), Temporality (time-related issues), and Scope (completeness). These guide every wrangling decision.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-14',
+        courseId: 'intro-ai',
+        question:
+            'Which of the following is an example of supervised learning?',
+        options: [
+            'An agent exploring a maze through trial and error',
+            'A system trained on labelled images to classify new images as cats or dogs',
+            'A system grouping customers based on purchase behaviour without predefined categories',
+            'A robot learning to walk by receiving rewards for forward movement',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Supervised learning uses labelled training data. The summary describes it as learning where "the algorithm learns from labeled data — both input data and the corresponding correct output." Options A/D describe reinforcement learning; C describes unsupervised clustering.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-15',
+        courseId: 'intro-ai',
+        question:
+            'What is the key difference between overfitting and underfitting in machine learning?',
+        options: [
+            'Overfitting uses too much data; underfitting uses too little',
+            'Overfitting means the model is too simple; underfitting means it is too complex',
+            'Overfitting: the model learns noise in training data and fails on new data; underfitting: the model is too simple to capture underlying patterns',
+            'There is no meaningful difference between them',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The summary states: "Overfitting occurs when a model learns the training data too well, including noise and details that do not generalize to new data. Underfitting happens when the model is too simple and fails to capture the underlying patterns."',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-16',
+        courseId: 'intro-ai',
+        question:
+            'What does the Turing Test evaluate?',
+        options: [
+            'Whether an AI can perform mathematical calculations faster than humans',
+            'Whether a machine can exhibit intelligent behaviour indistinguishable from a human in conversation',
+            'Whether an AI system is energy-efficient',
+            'Whether an AI can pass a university exam',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary defines the Turing Test as: "a human judge, a machine VS a human conversing in natural language, all separated. If the judge cannot tell the machine from the human, the machine passes the test." It does NOT define intelligence, only how to recognise it.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-17',
+        courseId: 'intro-ai',
+        question:
+            'In the context of embodied AI, intelligence emerges from the interaction of:',
+        options: [
+            'Only software algorithms',
+            'Environment, body (hardware), and brain (software)',
+            'Only the amount of training data available',
+            'The number of sensors on the robot',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary states: "intelligence is not merely a function of the brain (software) but also depends on the body (hardware) interacting with its environment." The formula given is: Environment + Body + Brain → Behaviour.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-18',
+        courseId: 'intro-ai',
+        question:
+            'What is the "Symbol Grounding Problem" in AI?',
+        options: [
+            'The difficulty of storing large symbol tables efficiently',
+            'How a computer can understand the meaning of symbols without real-world sensory experience',
+            'The challenge of writing code without syntax errors',
+            'How to convert machine code into human-readable language',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary explains: "How can a computer ever know anything about the \'real\' world? Symbols can only refer to other symbols. How can a computer ever know what is \'red\', or \'heavy\' or \'sad\'?" This is why some argue that simulated intelligence ≠ real intelligence.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-iai-19',
+        courseId: 'intro-ai',
+        question:
+            'What is the difference between deductive and inductive reasoning in AI?',
+        options: [
+            'Deductive goes from general rules to specific conclusions; inductive goes from specific examples to general rules',
+            'Deductive uses data; inductive uses logic',
+            'They are two names for the same type of reasoning',
+            'Deductive reasoning cannot be implemented in computers',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The summary states: "Deductive reasoning: AI produces new statements based on existing facts" (general → specific). "Inductive reasoning: AI generalizes from specific examples to produce broad rules" (specific → general). Machine learning is fundamentally inductive.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-20',
+        courseId: 'intro-ai',
+        question:
+            'What is "intersectionality" as discussed in the Diversity & Inclusion lecture?',
+        options: [
+            'The intersection of two computer networks',
+            'The concept that multiple aspects of identity (race, gender, class) combine to create unique experiences of advantage or disadvantage',
+            'Where two or more AI algorithms are combined',
+            'The point where a decision tree branches',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Coined by Kimberlé Crenshaw (1989), intersectionality recognises that combinations of identity aspects determine the degree of inclusion and exclusion. The summary emphasises that "focusing only on one aspect of identity overlooks the full complexity."',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-21',
+        courseId: 'intro-ai',
+        question:
+            'What is a major ethical concern with AI systems making decisions in healthcare?',
+        options: [
+            'AI systems are too slow for medical applications',
+            'Bias in training data could lead to unfair or harmful decisions for certain patient groups',
+            'Healthcare professionals do not understand technology',
+            'AI always makes better decisions than human doctors',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary discusses AI bias under "The Ugly Side of AI": AI can perpetuate social biases because "the training data used contains inherent biases." The Prosecutor\'s Fallacy example shows how conditional probabilities can lead to racial profiling.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-22',
+        courseId: 'intro-ai',
+        question:
+            'Which of the following best describes a "knowledge graph"?',
+        options: [
+            'A bar chart displaying knowledge metrics',
+            'A network where nodes represent entities and edges represent relationships between them',
+            'A table storing knowledge in rows and columns',
+            'A hierarchical tree of file directories',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary defines a knowledge graph as "a network where nodes represent entities (people, places, objects) and edges represent the relationships between them." Google uses one to power its search engine.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-23',
+        courseId: 'intro-ai',
+        question:
+            'What is reinforcement learning?',
+        options: [
+            'Learning from labelled datasets with input-output pairs',
+            'Finding patterns in data without any labels',
+            'Learning by interacting with an environment and receiving rewards or penalties',
+            'Copying the weights of another neural network',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The summary defines reinforcement learning as when "the model learns by interacting with its environment and receiving feedback, often used in game-playing AI (e.g., AlphaGo)." It is distinct from supervised learning (labelled data) and unsupervised learning (no labels).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-24',
+        courseId: 'intro-ai',
+        question:
+            'In evolutionary algorithms, what are the "two pillars of evolution"?',
+        options: [
+            'Training and testing',
+            'Variation (mutation/recombination) and selection',
+            'Input and output',
+            'Hardware and software',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The Embodied Intelligence lecture identifies variation (increasing diversity through mutation and recombination) and selection (decreasing diversity by keeping the fittest). Together they drive evolution: variation creates novelty, selection pushes towards quality.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-25',
+        courseId: 'intro-ai',
+        question:
+            'What is "Neuro-Symbolic AI"?',
+        options: [
+            'AI that studies the human nervous system',
+            'An approach combining neural networks (learning from data) with symbolic reasoning (logic and knowledge)',
+            'A type of brain-computer interface',
+            'Neural networks designed only for processing symbols like text',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary describes Neuro-Symbolic AI as combining "symbolic reasoning (using knowledge and logic) with neural networks to create hybrid AI systems that can both learn from data and reason with it." It aims for systems that "think fast and slow" like humans.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-26',
+        courseId: 'intro-ai',
+        question:
+            'According to the course, how is the final grade for Introduction to AI composed?',
+        options: [
+            'MC Exam 50%, Group Project 50%',
+            'MC Exam 30%, Group Project 40%, Poster 5%, Video 5%, Diversity & Team Assignment 10%, Attendance 10%',
+            'MC Exam 30%, Group Project 40%, Poster 5%, Video 5%, Diversity & Team Assignment 10%',
+            'MC Exam 40%, Group Project 30%, Individual Report 30%',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The summary lists: MC Exam (30%), Group Project (40%), Poster (5%), Video (5%), and Diversity & Team Assignment (10%), summing to 90% with the remaining percentage implied by participation components.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-27',
+        courseId: 'intro-ai',
+        question:
+            'What are the four steps to solving problems with AI as outlined in the course?',
+        options: [
+            'Code, Test, Deploy, Monitor',
+            'Identify the Problem, Understand the Context, Model Your Solution, Realise the Solution',
+            'Collect Data, Train Model, Test Model, Deploy Model',
+            'Research, Design, Implement, Publish',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The course follows a problem-driven approach with four steps: (1) Identify the Problem, (2) Understand the Context (research theory), (3) Model Your Solution (build a computational model), and (4) Realise the Solution (apply and evaluate in the real world).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-28',
+        courseId: 'intro-ai',
+        question:
+            'What are Asimov\'s Three Laws of Robotics?',
+        options: [
+            '1: A robot must obey humans. 2: A robot must protect itself. 3: A robot must be efficient.',
+            '1: Don\'t harm humans (or allow harm through inaction). 2: Obey humans (unless it conflicts with Law 1). 3: Protect own existence (unless it conflicts with Laws 1 or 2).',
+            '1: A robot must be intelligent. 2: A robot must be autonomous. 3: A robot must pass the Turing Test.',
+            '1: A robot must learn from data. 2: A robot must adapt. 3: A robot must explain its decisions.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Asimov\'s Laws are a classic example of "ethics in design" (hard-coded rules). The key principle is the strict priority ordering: human safety > human commands > self-preservation.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-29',
+        courseId: 'intro-ai',
+        question:
+            'What ethical dilemma does the "Trolley Problem" illustrate in the context of AI?',
+        options: [
+            'Whether AI should be open-source or proprietary',
+            'How an autonomous system should choose between two harmful outcomes',
+            'Whether robots should pay taxes',
+            'How to distribute computing resources fairly',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary uses the Trolley Problem to discuss how self-driving cars must decide between harmful options (e.g., "swerving to hit one person versus staying on course and hitting five"). It raises questions about who is responsible — developers, manufacturers, or users.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-30',
+        courseId: 'intro-ai',
+        question:
+            'What does "human-in-the-loop" mean in the context of autonomous AI systems?',
+        options: [
+            'Humans must physically be inside the AI system',
+            'Human decision-makers are involved at critical points of the AI\'s decision-making process',
+            'AI systems must be designed to look like humans',
+            'Humans must approve every single computation an AI makes',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary explains human-in-the-loop in the context of autonomous weapons: "human decision-makers are involved in critical points of the AI\'s decision-making process." It ensures human oversight without requiring approval for every action.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-31',
+        courseId: 'intro-ai',
+        question:
+            'What is the "Prosecutor\'s Fallacy" as discussed in the AI Ethics lecture?',
+        options: [
+            'Assuming AI systems are always correct',
+            'Confusing the probability of evidence given guilt with the probability of guilt given evidence',
+            'Thinking that more data always leads to better AI',
+            'Believing that AI cannot be biased',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary explains: "If the accused were guilty, the probability of evidence is high" does NOT mean "given the evidence, the accused is probably guilty." This abuse of conditional probability (p(black|criminal) vs p(criminal|black)) underlies racial profiling.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-iai-32',
+        courseId: 'intro-ai',
+        question:
+            'What is the CPU (Central Processing Unit) composed of?',
+        options: [
+            'RAM and ROM',
+            'ALU (Arithmetic Logic Unit) and CU (Control Unit)',
+            'HDD and SSD',
+            'Input and Output devices',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary states the CPU "consists of two major units: ALU (Arithmetic Logic Unit) which handles mathematical calculations and logical decisions, and CU (Control Unit) which manages the execution of instructions."',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-33',
+        courseId: 'intro-ai',
+        question:
+            'What is the key difference between RAM and storage (HDD/SSD)?',
+        options: [
+            'RAM is slower but permanent; storage is fast but temporary',
+            'RAM is temporary (volatile) and fast; storage is permanent (non-volatile) and slower',
+            'They serve the same purpose but have different names',
+            'RAM stores programs; storage stores only media files',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary explains: "RAM is volatile, meaning data is lost when the computer is turned off" while "Hard drives and solid-state drives provide long-term storage — data stored here is retained even after power loss." RAM is faster for active processing.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-34',
+        courseId: 'intro-ai',
+        question:
+            'What is the difference between a CLI (Command Line Interface) and a GUI (Graphical User Interface)?',
+        options: [
+            'CLI uses text commands; GUI uses graphical elements like icons and windows',
+            'CLI is only for Mac; GUI is only for Windows',
+            'CLI is newer technology than GUI',
+            'There is no practical difference; they do the same things',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The summary defines CLI as requiring "users to type commands (e.g., Linux Bash)" and GUI as allowing "users to interact with the system through graphical elements like icons and windows (e.g., macOS, Windows)." CLI is preferred for automation and remote access.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-35',
+        courseId: 'intro-ai',
+        question:
+            'In the Diversity & Inclusion lecture, what does Leary\'s Rose (Interpersonal Circumplex) model describe?',
+        options: [
+            'Stages of software development',
+            'Interpersonal behaviours along axes of Dominance/Submission and Cooperation/Opposition',
+            'Different types of machine learning algorithms',
+            'Phases of project management',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Leary\'s Rose divides behaviours into quadrants: "Dominance vs. Submission" (taking charge vs following) and "Cooperation vs. Opposition" (working toward common goals vs prioritising own interests). It helps educators manage group dynamics.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-36',
+        courseId: 'intro-ai',
+        question:
+            'What are Tuckman\'s stages of group development?',
+        options: [
+            'Planning, Coding, Testing, Deploying',
+            'Forming, Storming, Norming, Performing',
+            'Collecting, Cleaning, Analysing, Reporting',
+            'Observing, Hypothesising, Testing, Concluding',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The Diversity & Inclusion lecture uses Tuckman\'s stages — Forming (coming together), Storming (conflict), Norming (establishing rules), and Performing (productive work) — to guide students through group work dynamics.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-37',
+        courseId: 'intro-ai',
+        question:
+            'What is "abductive reasoning" in AI?',
+        options: [
+            'Reasoning from general rules to specific conclusions',
+            'Reasoning from specific examples to general rules',
+            'Creating the most likely explanation for a given observation',
+            'Following predefined logical rules step by step',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The summary defines abductive reasoning as when "AI creates the most likely explanation for an observation." Example: if a patient has symptoms A and B, AI concludes they likely have disease X. It differs from deductive (general → specific) and inductive (specific → general).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-38',
+        courseId: 'intro-ai',
+        question:
+            'What are "heuristics" in AI problem-solving?',
+        options: [
+            'Guaranteed optimal solutions to any problem',
+            'Practical methods that find "good enough" solutions when exact methods are too complex',
+            'Mathematical proofs of algorithm correctness',
+            'Random guesses at a solution',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary explains: "When exact methods for finding the best solution are too complex, AI can use heuristics. These are practical methods that may not find the optimal solution but provide a solution that is \'good enough.\'"',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-39',
+        courseId: 'intro-ai',
+        question:
+            'What is a Randomized Controlled Trial (RCT) used for in the context of AI validation?',
+        options: [
+            'Testing if an AI algorithm runs faster on random data',
+            'Comparing outcomes between a group using the intervention and a control group that does not',
+            'Randomly selecting which AI model to deploy',
+            'Testing AI systems with random inputs to find bugs',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary states: "External validation is best achieved by means of a Randomized Controlled Trial." The experimental group uses the intervention (e.g., an app) while the control group does not, allowing comparison of outcomes.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-40',
+        courseId: 'intro-ai',
+        question:
+            'What does the p-value indicate in statistical analysis of an AI intervention?',
+        options: [
+            'The percentage of users who liked the system',
+            'The probability of observing the results if no real difference exists (i.e., by chance)',
+            'The processing power needed to run the test',
+            'The proportion of data that was missing',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary explains: "The primary output of statistical tests is the p-value. It indicates the probability of observing the difference if no difference exists." A low p-value suggests the intervention has a significant effect, not due to random chance.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-41',
+        courseId: 'intro-ai',
+        question:
+            'What is a Likert scale used for in user experience evaluation?',
+        options: [
+            'Measuring the speed of an AI system',
+            'Rating user satisfaction on a scale (e.g., 1-5 or "strongly disagree" to "strongly agree")',
+            'Sorting users into experimental and control groups',
+            'Calculating the statistical significance of results',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary states that "Questionnaires are often employed to measure these aspects, usually using a Likert scale, where users rate their satisfaction with the app\'s ease of use, design, and overall effectiveness."',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-42',
+        courseId: 'intro-ai',
+        question:
+            'What is the difference between acceptability, usability, and feasibility in user experience evaluation?',
+        options: [
+            'They are three names for the same concept',
+            'Acceptability = willingness to use; Usability = ease of use; Feasibility = whether the intervention can actually be carried out',
+            'Acceptability = cost; Usability = speed; Feasibility = accuracy',
+            'They only apply to hardware, not software',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary defines: "Acceptability: factors that affect willingness to use. Usability: design factors affecting the user experience of operating the application. Feasibility: whether the intervention can actually be carried out or not."',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-43',
+        courseId: 'intro-ai',
+        question:
+            'How does the k-Nearest Neighbours (k-NN) algorithm work?',
+        options: [
+            'It builds a decision tree from the training data',
+            'It finds the k closest data points to a new instance and assigns the most common class among them',
+            'It trains a neural network with k layers',
+            'It randomly selects k data points and averages their values',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary explains k-NN as a "lazy learner" that "doesn\'t build an explicit model during training. For each new instance, k-NN checks the k closest points in the training dataset and assigns the most common class." A smaller k is more sensitive; a larger k is more robust.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-44',
+        courseId: 'intro-ai',
+        question:
+            'How does a decision tree classify data?',
+        options: [
+            'By randomly assigning data to categories',
+            'By splitting data into subsets based on feature values at each node until leaf nodes are pure',
+            'By calculating the distance between all data points',
+            'By using a neural network hidden inside the tree',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary describes: "A decision tree splits the data into subsets based on feature values. Each node represents a feature, and each branch represents a decision. The tree grows by splitting recursively until each leaf node is \'pure\' (all data points belong to the same class)."',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-45',
+        courseId: 'intro-ai',
+        question:
+            'What is the "bias-variance tradeoff" in machine learning?',
+        options: [
+            'Balancing speed and accuracy of an algorithm',
+            'Balancing model simplicity (high bias, underfitting) against model sensitivity to data (high variance, overfitting)',
+            'Choosing between biased and unbiased datasets',
+            'Trading off training time against inference time',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary states: "Bias refers to errors due to overly simplistic models (leading to underfitting). Variance refers to the model\'s sensitivity to small fluctuations in training data (leading to overfitting). Achieving the right balance is key to building robust ML models."',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-iai-46',
+        courseId: 'intro-ai',
+        question:
+            'Which of the following is NOT a practical use case of knowledge graphs mentioned in the course?',
+        options: [
+            'Powering search engines (e.g., Google)',
+            'Recommendation systems (e.g., Netflix, Amazon)',
+            'Scientific research in bioinformatics and healthcare',
+            'Generating images from text descriptions',
+        ],
+        correctIndex: 3,
+        explanation:
+            'The summary lists three practical uses: search engines (Google\'s Knowledge Graph), recommendation systems (Netflix, Amazon), and scientific research (bioinformatics, healthcare). Image generation from text (like DALL-E) uses deep learning, not knowledge graphs.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-47',
+        courseId: 'intro-ai',
+        question:
+            'What is the motherboard in a computer?',
+        options: [
+            'The main software program that runs the computer',
+            'The main circuit board that connects all internal components (CPU, memory, storage)',
+            'An external device for connecting peripherals',
+            'The operating system kernel',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary defines the motherboard as "the main circuit board that connects all the internal components (CPU, memory, storage)." It serves as the central hub through which all hardware components communicate.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-48',
+        courseId: 'intro-ai',
+        question:
+            'What is "morphological intelligence" in the context of evolving robots?',
+        options: [
+            'Intelligence that comes only from software improvements',
+            'The evolution of a robot\'s body structure to facilitate learning and performance',
+            'A type of machine learning algorithm',
+            'The ability to change shape at will',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary describes morphological intelligence as when "the structure and form of the robot\'s body evolve to facilitate learning and performance, highlighting the importance of the physical form in developing intelligence." Bodies evolve to become better at learning.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-iai-49',
+        courseId: 'intro-ai',
+        question:
+            'What is Lamarckism in the context of robot evolution, and how does it differ from Darwinism?',
+        options: [
+            'Lamarckism: traits acquired during lifetime can be passed to offspring; Darwinism: only inherited traits are passed on',
+            'They are two names for the same concept',
+            'Lamarckism uses neural networks; Darwinism uses decision trees',
+            'Darwinism is faster than Lamarckism',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The summary explains that in robot evolution, Lamarckism means "traits acquired during the lifetime (through learning) can be passed on to offspring." Research showed "Lamarck beats Darwin" — Lamarckian evolution produces better-performing robots.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-iai-50',
+        courseId: 'intro-ai',
+        question:
+            'What is the "Intentional Stance" (Daniel Dennett) in the Philosophy of Mind?',
+        options: [
+            'The belief that AI should always have clear intentions programmed in',
+            'The idea that we attribute human qualities like intentions and consciousness to systems because it is useful, even if they may not truly have them',
+            'A programming paradigm for building intentional AI systems',
+            'The legal requirement for AI systems to declare their intentions',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The summary explains Dennett\'s view: "we often attribute human qualities like intentions or emotions to machines because it is useful, even though machines may not have these qualities in reality." Intelligence and consciousness are \'attributed\' and \'gradual.\'',
+        difficulty: 'hard',
+    },
 ];
+
+
