@@ -12,9 +12,10 @@ import {
   getResourcesForCourse,
 } from '../services/courseService';
 import Quiz from '../components/Quiz';
+import CourseChat from '../components/CourseChat';
 import { DIFFICULTY_LABELS } from '../constants';
 
-const tabs = ['Overview', 'Tips & Advice', 'Quizzes', 'Resources'] as const;
+const tabs = ['Overview', 'Tips & Advice', 'Quizzes', 'Resources', 'AI Chat'] as const;
 type Tab = (typeof tabs)[number];
 
 const resourceTypeIcon: Record<string, string> = {
@@ -172,6 +173,11 @@ export default function CourseDetailPage() {
               {tab === 'Resources' && resources.length > 0 && (
                 <span className="ml-1.5 inline-flex items-center justify-center px-1.5 py-0.5 text-xs rounded-md bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400">
                   {resources.length}
+                </span>
+              )}
+              {tab === 'AI Chat' && (
+                <span className="ml-1.5 inline-flex items-center justify-center px-1.5 py-0.5 text-xs rounded-md bg-vu-blue/10 dark:bg-vu-blue-light/10 text-vu-blue dark:text-vu-blue-light">
+                  beta
                 </span>
               )}
             </button>
@@ -448,6 +454,15 @@ export default function CourseDetailPage() {
                   })}
               </div>
             )}
+          </div>
+        )}
+
+        {activeTab === 'AI Chat' && (
+          <div role="tabpanel" id="tabpanel-AI Chat" aria-labelledby="tab-AI Chat">
+            <p className="text-sm text-stone-500 dark:text-stone-400 mb-6">
+              Ask questions about {course.name} — the AI has access to the course overview, quiz questions, study tips, and summaries.
+            </p>
+            <CourseChat courseSlug={course.slug} courseName={course.name} />
           </div>
         )}
       </div>
