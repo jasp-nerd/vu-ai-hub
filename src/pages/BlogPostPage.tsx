@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -6,6 +7,12 @@ import { getBlogPostBySlug } from '../services/contentService';
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = getBlogPostBySlug(slug || '');
+
+  useEffect(() => {
+    document.title = post
+      ? `${post.title} — AI @ VU`
+      : 'Post not found — AI @ VU';
+  }, [post]);
 
   if (!post) {
     return (

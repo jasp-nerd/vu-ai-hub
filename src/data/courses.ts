@@ -1,5 +1,25 @@
 import type { Course } from '../types';
 
+const lawOfAiBase = {
+  name: 'The Law of Artificial Intelligence',
+  code: 'XB_0084',
+  year: 2 as const,
+  period: 6,
+  credits: '6EC',
+  description:
+    'Legal, ethical, and societal implications of AI developments; EU AI Act; designing AI systems compliant with the law.',
+  overview: `For a long time, lawyers were often seen by software developers as a nuisance, a sentiment perhaps best illustrated by an incident at a Github board meeting around 2010. During the discussion, a lawyer pointed out some legal issues and cautiously began, "I know you don't want to hear this from a lawyer, but…" Before he could continue, another board member cut him off aggressively: "…then shut the f*** up." This attitude was common among computer scientists as well. While developers and designers focused on what was possible, lawyers concentrated on what was permissible, often without attempting to understand the potential of the technology. Today, the situation is no longer black and white, but rather gray. Lawyers understand technology and development processes better, and AI specialists understand the need to comply with the law. Technology and the law are no longer systematically seen as adversaries. Against this backdrop, many governments around the world are launching initiatives to regulate AI. Their goal is often to contain high-risk AI while supporting other AI applications. One such example is the European Union's Artificial Intelligence Act. This course explores how AI is governed by legal rules and standards. By the end of the course, students will have a solid grasp of the EU AI Act, including the constraints it imposes on AI development and its key limitations. This will put them in a unique position to contribute to the development of legally compliant AI systems. Most importantly, students will learn how to design AI systems that not only comply with legal requirements but are also protected by them. In short, they will learn how the law works, and how to work with it.`,
+  objectives:
+    'At the end of the course, the students will: understand the legal, ethical, and societal implications of AI developments. be able to write informed opinions about AI legislation. be trained in acquiring a set of complex legal AI-related topics in a restricted period of time. be able to work together as a team to identify not only the technical but also the legal issues with the design of AI systems. be familiar with basic knowledge about the law that applies to AI systems, including the law specifically focusing on AI systems such as the EU AI Act. be able to identify legal risks when designing AI systems. be in a position to design AI systems compliant with the law. be able to use legal rules to protect their AI systems. be able to reflect critically on the impact of legal rules on technology. be able to express their own motivated opinions and contribute to the writing of better legal rules.',
+  assessment:
+    'One final on-campus exam will account for 100% of the students\' grade. Further details about the exam format will be provided during the first class. A mock exam will also be made available halfway through the course.',
+  teachingMethods:
+    'Students will be given five lectures mainly focusing on the European Union\'s Artificial Intelligence Act. Teachers will use a Socratic method to create discussions in the classroom. Students will also take part in two seminars to explore the European AI Act from a practical perspective. They will comment on the AI Act and discuss their inputs with other classmates and professors. Students will work in small teams their professor will assign.',
+  literature: '',
+  prerequisites: '',
+  difficulty: 2 as const,
+} satisfies Omit<Course, 'id' | 'slug' | 'tags' | 'specialisation'>;
+
 export const courses: Course[] = [
   // ========== YEAR 1 — Mandatory ==========
   {
@@ -14,13 +34,13 @@ export const courses: Course[] = [
       'Foundations of computational thinking: solution strategies, algorithms (search, sorting, graph), and problem-solving for AI. One of the most accessible and beginner-friendly courses in the programme.',
     overview: `Computational Thinking is one of the friendliest introductions to the AI bachelor programme. Over just five weeks, you'll learn different solution strategies (modeling, formulas, guess and check), fundamental algorithms (linear search, binary search, bubble sort, merge sort, quicksort), and graph algorithms (Dijkstra's, Prim's, Kruskal's). The course uses a flipped-classroom format: you watch short video lectures at home and then work through real-world cases and exercises during the live sessions. No prior programming experience is needed — Python basics are introduced gently alongside the algorithmic concepts. Weekly practicum assignments let you apply what you've learned immediately, and the course concludes with a fun group project where you design, implement, and present an algorithm for a real-world scenario. The supervised quizzes are short multiple-choice and true/false tests that closely follow the syllabus, so if you keep up with the weekly material you'll do great.`,
     objectives:
-      'Knowledge and understanding: at the end of the course, students will be familiar with basic knowledge of some solution strategies (e.g., guest and check, modeling, formulas,) and algorithms (search algorithms, sorting algorithms, and graph algorithms) to solve problems. Students will also have knowledge of creating algorithms. Applying knowledge and understanding: students will be able to implement basic solutions strategies, search algorithms, sorting algorithms, and graph algorithms. Making judgements: students will be able to choose the right solution strategy and apply that to solve problems. Communication skills: students will be able to write a project report and give an oral presentation of their project to peers. Learning skills: students will be trained in analyzing problems, translating algorithms to flowchart, and writing pseudocodes to implement algorithms.',
+      'Knowledge and understanding: at the end of the course, students will be familiar with basic knowledge of some solution strategies (e.g., guess and check, modeling, formulas,) and algorithms (search algorithms, sorting algorithms, and graph algorithms) to solve problems. Students will also have knowledge of creating algorithms. Applying knowledge and understanding: students will be able to implement basic solutions strategies, search algorithms, sorting algorithms, and graph algorithms. Making judgements: students will be able to choose the right solution strategy and apply that to solve problems. Communication skills: students will be able to write a project report and give an oral presentation of their project to peers. Learning skills: students will be trained in analyzing problems, translating algorithms to flowchart, and writing pseudocodes to implement algorithms.',
     assessment:
       'The final grade is based on the individual practicum assignments (45%), group project assignment (40%), and two supervised quizzes (15% together) on campus (15%). For all three parts separately, the average grade should be at least a 5.5 to pass the course. During the project presentations, questions are asked that are considered during the project\'s grading. This means that grades within a group may vary from person to person. You CANNOT redo the practical assignments or the project if you have not passed them or if you have not completed them. If the average grade of the practical assignments or the project is less than 5.5, you will fail the course and must retake the course next year.',
     teachingMethods: '(video) lectures, practical sessions, project, presentations, self-study',
     literature: 'Syllabus and video lectures/clips',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 1,
     tags: ['foundations', 'programming', 'required'],
     workgroupInfo: {
       mandatory: false,
@@ -106,7 +126,7 @@ The test is designed at a level expected of a high school graduate starting an a
     literature:
       'Phelps, E.A., Berkman, E.T., & Gazzaniga, M.S. (2022). Psychological Science (7th edition). Norton. Morling, B. (2020). Research Methods in Psychology: Evaluating a World of Information (4th edition). Norton.',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 3,
     tags: ['psychology', 'foundations', 'required'],
     workgroupInfo: {
       mandatory: false,
@@ -163,7 +183,7 @@ Additionally, you can earn a 0.3 bonus point on your final grade if you particip
     literature:
       'The book used in this course is Think Python: How to Think Like a Computer Scientist, Allen B. Downey, Green Tea Press. The book is available online at: https://greenteapress.com/wp/think-python-2e/.',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 4,
     tags: ['programming', 'python', 'foundations', 'required'],
     workgroupInfo: {
       mandatory: true,
@@ -210,7 +230,7 @@ The course starts with a few introductory lectures refreshing relevant AI concep
       'A few introductory lectures refreshing IS concepts and introducing the research process, followed by self-directed group work in pairs. TAs are available during practical sessions for guidance. The course includes lectures on research methods and the academic writing process.',
     literature: 'The Schnapsen game engine (Python package from GitHub: intelligent-systems-course/schnapsen) and course materials distributed via Canvas. The Russell & Norvig textbook from Intelligent Systems may be useful as reference.',
     prerequisites: 'Intelligent Systems (XB_0031) — the Period 2 theory course. You will directly apply techniques learned there (search, logic, probability, ML).',
-    difficulty: 3,
+    difficulty: 2,
     tags: ['project', 'ai', 'required', 'schnapsen', 'research'],
     workgroupInfo: {
       mandatory: false,
@@ -266,7 +286,7 @@ The exam is 20 multiple-choice questions and accounts for 40% of your grade. Wee
     teachingMethods: 'Two lectures per week plus weekly practical/working group sessions. Assignments alternate between Excel-based modelling (weeks 1-2) and L2-Python implementation (weeks 3-7).',
     literature: 'Course reader with 15 chapters (available on Canvas) covering topics from growth models to driving behaviour. Lecture slides for all 13 lectures.',
     prerequisites: '',
-    difficulty: 3,
+    difficulty: 1,
     tags: ['modelling', 'simulation', 'psychology', 'agent-based', 'excel', 'python', 'required'],
     workgroupInfo: {
       mandatory: true,
@@ -369,7 +389,7 @@ The course is explicitly reflective rather than prescriptive — the goal is not
     credits: '6EC',
     description:
       'Advanced programming for AI: web technologies, HTML/CSS/JavaScript, Git, RESTful APIs, and building data-driven web applications.',
-    overview: `In this course, students will implement a complete web application including data acquisition, parsing, cleaning, representation, and interaction. The course builds upon the course Introduction to Python Programming and Computational Thinking. Students will learn how to choose and use different data structures (e.g., lists, dictionaries, tuples, matrices). They also will learn how to choose the right way of presenting information depending on the target audience and type of data.`,
+    overview: `This is a project-based course where you build a full-stack web application from scratch in teams of four over 4 intensive weeks. You will develop a Python backend with a RESTful API (using Flask or Django) that interacts with external APIs, handles data persistence, and supports CRUD operations and querying with filters. The frontend is built individually using HTML, CSS, JavaScript, and optionally Bootstrap — and this is the one part where you are allowed (and encouraged) to use generative AI coding tools like Copilot or Cursor. The backend and frontend must be separate applications that communicate via REST. Development follows a Test-Driven Development (TDD) approach: you write tests first, commit them, then implement features until tests pass. The course covers the internet and HTTP basics, Git version control and branching, virtual environments, user stories and prototyping, CRUD and REST APIs, Flask/Django, HTML/CSS/JavaScript, and prompting with GenAI tools. Deliverables include a project proposal, backend + tests, an individual frontend, a GenAI report, a final demo presentation, a peer review, and a pass/fail coding interview. Attendance at practicals is mandatory — missing more than one session costs 2 grade points each, and missing four or more means an automatic fail on the coding interview (which has no resit).`,
     objectives:
       'The course prepares students for future projects that involve programming within the bachelor programme. Students learn to apply programming concepts in a medium sized project. The course introduces students to web technologies such as HTML, CSS and JavaScript, and commonly used tooling in software development, e.g. Git. (Knowledge and understanding), as well as using and understanding RESTful API services. After completing the course, students will be able to plan, develop, and implement a web application that involves data manipulation and visualization requirements. (Applying knowledge and understanding) (Making Judgements) Students will interact with generative AI tools for coding to explore how to work with them in a collaborative setting. Also, to understand their advantages and limitations.',
     assessment:
@@ -579,7 +599,7 @@ The course is explicitly reflective rather than prescriptive — the goal is not
     specialisation: 'intelligent_systems',
     description:
       'Develop a conversational agent for the cooking domain using DialogFlow, ontology, and natural conversation framework.',
-    overview: `Students learn how to develop a cognitive dialogue agent that uses Google's DialogFlow and builds on the natural conversation framework of Robert Moore. Groups will collaborate todevelop a conversational agent for the cooking domain, with a focus on the recipe selection task in this domain. They will design and implement domain knowledge, conversational patterns, natural language understanding and visuals. The agent will be a recipe recommendation assistant with visual support that supports the user to find a suitable cooking recipe.`,
+    overview: `Students learn how to develop a cognitive dialogue agent that uses Google's DialogFlow and builds on the natural conversation framework of Robert Moore. Groups will collaborate to develop a conversational agent for the cooking domain, with a focus on the recipe selection task in this domain. They will design and implement domain knowledge, conversational patterns, natural language understanding and visuals. The agent will be a recipe recommendation assistant with visual support that supports the user to find a suitable cooking recipe.`,
     objectives:
       '1. Develop a conversational agent by developing a simple ontology for a knowledge base for the cooking domain which enables the agent to reason about recipes (Applying knowledge and understanding) 2. Apply and understand conversation design patterns (Applying knowledge and understanding) 3. Design and implement visual support for different stages in the conversation (Applying knowledge and understanding) 4. Evaluate a prototype conversational agent for the cooking domain (Making judgments) 5. Plan and organize work together in a project group using appropriate tools (Applying knowledge and understanding)',
     assessment:
@@ -643,26 +663,10 @@ The course is explicitly reflective rather than prescriptive — the goal is not
     tags: ['project', 'simulation', 'elective'],
   },
   {
+    ...lawOfAiBase,
     id: 'law-of-ai',
     slug: 'the-law-of-artificial-intelligence',
-    name: 'The Law of Artificial Intelligence',
-    code: 'XB_0084',
-    year: 2,
-    period: 6,
-    credits: '6EC',
     specialisation: 'intelligent_systems',
-    description:
-      'Legal, ethical, and societal implications of AI developments; EU AI Act; designing AI systems compliant with the law.',
-    overview: `For a long time, lawyers were often seen by software developers as a nuisance, a sentiment perhaps best illustrated by an incident at a Github board meeting around 2010. During the discussion, a lawyer pointed out some legal issues and cautiously began, "I know you don't want to hear this from a lawyer, but…" Before he could continue, another board member cut him off aggressively: "…then shut the f*** up." This attitude was common among computer scientists as well. While developers and designers focused on what was possible, lawyers concentrated on what was permissible, often without attempting to understand the potential of the technology. Today, the situation is no longer black and white, but rather gray. Lawyers understand technology and development processes better, and AI specialists understand the need to comply with the law. Technology and the law are no longer systematically seen as adversaries. Against this backdrop, many governments around the world are launching initiatives to regulate AI. Their goal is often to contain high-risk AI while supporting other AI applications. One such example is the European Union's Artificial Intelligence Act. This course explores how AI is governed by legal rules and standards. By the end of the course, students will have a solid grasp of the EU AI Act, including the constraints it imposes on AI development and its key limitations. This will put them in a unique position to contribute to the development of legally compliant AI systems. Most importantly, students will learn how to design AI systems that not only comply with legal requirements but are also protected by them. In short, they will learn how the law works, and how to work with it.`,
-    objectives:
-      'At the end of the course, the students will: understand the legal, ethical, and societal implications of AI developments. be able to write informed opinions about AI legislation. be trained in acquiring a set of complex legal AI-related topics in a restricted period of time. be able to work together as a team to identify not only the technical but also the legal issues with the design of AI systems. be familiar with basic knowledge about the law that applies to AI systems, including the law specifically focusing on AI systems such as the EU AI Act. be able to identify legal risks when designing AI systems. be in a position to design AI systems compliant with the law. be able to use legal rules to protect their AI systems. be able to reflect critically on the impact of legal rules on technology. be able to express their own motivated opinions and contribute to the writing of better legal rules.',
-    assessment:
-      'One final on-campus exam will account for 100% of the students\' grade. Further details about the exam format will be provided during the first class. A mock exam will also be made available halfway through the course.',
-    teachingMethods:
-      'Students will be given five lectures mainly focusing on the European Union\'s Artificial Intelligence Act. Teachers will use a Socratic method to create discussions in the classroom. Students will also take part in two seminars to explore the European AI Act from a practical perspective. They will comment on the AI Act and discuss their inputs with other classmates and professors. Students will work in small teams their professor will assign.',
-    literature: '',
-    prerequisites: '',
-    difficulty: 2,
     tags: ['law', 'ethics', 'elective'],
   },
   // ========== YEAR 2 — Socially Aware Computing specialisation ==========
@@ -714,26 +718,10 @@ The course is explicitly reflective rather than prescriptive — the goal is not
     tags: ['project', 'simulation', 'socially-aware-computing'],
   },
   {
+    ...lawOfAiBase,
     id: 'law-of-ai-sac',
     slug: 'the-law-of-artificial-intelligence-sac',
-    name: 'The Law of Artificial Intelligence',
-    code: 'XB_0084',
-    year: 2,
-    period: 6,
-    credits: '6EC',
     specialisation: 'socially_aware_computing',
-    description:
-      'Legal, ethical, and societal implications of AI developments; EU AI Act; designing AI systems compliant with the law.',
-    overview: `For a long time, lawyers were often seen by software developers as a nuisance, a sentiment perhaps best illustrated by an incident at a Github board meeting around 2010. During the discussion, a lawyer pointed out some legal issues and cautiously began, "I know you don't want to hear this from a lawyer, but…" Before he could continue, another board member cut him off aggressively: "…then shut the f*** up." This attitude was common among computer scientists as well. While developers and designers focused on what was possible, lawyers concentrated on what was permissible, often without attempting to understand the potential of the technology. Today, the situation is no longer black and white, but rather gray. Lawyers understand technology and development processes better, and AI specialists understand the need to comply with the law. Technology and the law are no longer systematically seen as adversaries. Against this backdrop, many governments around the world are launching initiatives to regulate AI. Their goal is often to contain high-risk AI while supporting other AI applications. One such example is the European Union's Artificial Intelligence Act. This course explores how AI is governed by legal rules and standards. By the end of the course, students will have a solid grasp of the EU AI Act, including the constraints it imposes on AI development and its key limitations. This will put them in a unique position to contribute to the development of legally compliant AI systems. Most importantly, students will learn how to design AI systems that not only comply with legal requirements but are also protected by them. In short, they will learn how the law works, and how to work with it.`,
-    objectives:
-      'At the end of the course, the students will: understand the legal, ethical, and societal implications of AI developments. be able to write informed opinions about AI legislation. be trained in acquiring a set of complex legal AI-related topics in a restricted period of time. be able to work together as a team to identify not only the technical but also the legal issues with the design of AI systems. be familiar with basic knowledge about the law that applies to AI systems, including the law specifically focusing on AI systems such as the EU AI Act. be able to identify legal risks when designing AI systems. be in a position to design AI systems compliant with the law. be able to use legal rules to protect their AI systems. be able to reflect critically on the impact of legal rules on technology. be able to express their own motivated opinions and contribute to the writing of better legal rules.',
-    assessment:
-      'One final on-campus exam will account for 100% of the students\' grade. Further details about the exam format will be provided during the first class. A mock exam will also be made available halfway through the course.',
-    teachingMethods:
-      'Students will be given five lectures mainly focusing on the European Union\'s Artificial Intelligence Act. Teachers will use a Socratic method to create discussions in the classroom. Students will also take part in two seminars to explore the European AI Act from a practical perspective. They will comment on the AI Act and discuss their inputs with other classmates and professors. Students will work in small teams their professor will assign.',
-    literature: '',
-    prerequisites: '',
-    difficulty: 2,
     tags: ['law', 'ethics', 'socially-aware-computing'],
   },
   {

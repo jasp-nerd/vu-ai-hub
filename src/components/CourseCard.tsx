@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import type { Course } from '../types';
+import { DIFFICULTY_LABELS } from '../constants';
 
-const difficultyLabel = ['', 'Easy', 'Moderate', 'Challenging', 'Hard', 'Very Hard'];
+const difficultyLabel = DIFFICULTY_LABELS;
 
 export default function CourseCard({ course }: { course: Course }) {
   return (

@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getCoursesByYear } from '../services/courseService';
 import CourseCard from '../components/CourseCard';
 
 export default function HomePage() {
+  useEffect(() => {
+    document.title = 'AI @ VU — Student Resource Hub';
+  }, []);
+
   const year1 = getCoursesByYear(1);
   const year2 = getCoursesByYear(2);
   const year3 = getCoursesByYear(3);

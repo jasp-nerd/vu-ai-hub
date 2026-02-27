@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -12,19 +12,18 @@ import {
   getResourcesForCourse,
 } from '../services/courseService';
 import Quiz from '../components/Quiz';
+import { DIFFICULTY_LABELS } from '../constants';
 
 const tabs = ['Overview', 'Tips & Advice', 'Quizzes', 'Resources'] as const;
 type Tab = (typeof tabs)[number];
 
-const difficultyLabel = ['', 'Easy', 'Moderate', 'Challenging', 'Hard', 'Very Hard'];
-
 const resourceTypeIcon: Record<string, string> = {
-  video: '▶',
-  article: '◉',
-  tool: '⚙',
-  pdf: '↓',
+  video: '\u25B6',
+  article: '\u25C9',
+  tool: '\u2699',
+  pdf: '\u2193',
   'external-quiz': '?',
-  summary: '★',
+  summary: '\u2605',
 };
 
 export default function CourseDetailPage() {
@@ -33,6 +32,12 @@ export default function CourseDetailPage() {
   const [expandedSummary, setExpandedSummary] = useState<string | null>(null);
 
   const course = getCourseBySlug(slug || '');
+
+  useEffect(() => {
+    document.title = course
+      ? `${course.name} — AI @ VU`
+      : 'Course not found — AI @ VU';
+  }, [course]);
 
   if (!course) {
     return (
@@ -64,7 +69,7 @@ export default function CourseDetailPage() {
         <Link to="/courses" className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
           Courses
         </Link>
-        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
         <span className="text-stone-600 dark:text-stone-300">{course.name}</span>
@@ -83,7 +88,7 @@ export default function CourseDetailPage() {
             <span className="text-xs text-stone-400 dark:text-stone-500">{course.credits}</span>
           )}
           <span className="text-xs text-stone-400 dark:text-stone-500">
-            {difficultyLabel[course.difficulty]}
+            {DIFFICULTY_LABELS[course.difficulty]}
           </span>
           {course.specialisation && (
             <span className="text-xs text-stone-400 dark:text-stone-500 capitalize">
@@ -107,8 +112,8 @@ export default function CourseDetailPage() {
             : 'border-sky-200/60 dark:border-sky-800/40 bg-sky-50/50 dark:bg-sky-950/20'
             }`}
         >
-          <span className="text-lg mt-0.5 shrink-0">
-            {course.workgroupInfo.mandatory ? '⚠️' : 'ℹ️'}
+          <span className="text-lg mt-0.5 shrink-0" aria-hidden="true">
+            {course.workgroupInfo.mandatory ? '\u26A0\uFE0F' : '\u2139\uFE0F'}
           </span>
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -144,10 +149,14 @@ export default function CourseDetailPage() {
 
       {/* Tabs */}
       <div className="border-b border-stone-200/60 dark:border-stone-700/60 mb-8">
-        <div className="flex gap-1 -mb-px overflow-x-auto">
+        <div className="flex gap-1 -mb-px overflow-x-auto" role="tablist" aria-label="Course sections">
           {tabs.map((tab) => (
             <button
               key={tab}
+              role="tab"
+              aria-selected={activeTab === tab}
+              aria-controls={`tabpanel-${tab}`}
+              id={`tab-${tab}`}
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${activeTab === tab
                 ? 'border-vu-blue text-vu-blue dark:text-vu-blue-light dark:border-vu-blue-light'
@@ -173,7 +182,7 @@ export default function CourseDetailPage() {
       {/* Tab content */}
       <div className="max-w-3xl">
         {activeTab === 'Overview' && (
-          <div>
+          <div role="tabpanel" id="tabpanel-Overview" aria-labelledby="tab-Overview">
             {course.objectives && (
               <div className="mb-8 rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-stone-50/50 dark:bg-stone-900/50 p-6">
                 <h3 className="font-display font-semibold text-stone-900 dark:text-stone-100 mb-3">
@@ -241,7 +250,7 @@ export default function CourseDetailPage() {
         )}
 
         {activeTab === 'Tips & Advice' && (
-          <div>
+          <div role="tabpanel" id="tabpanel-Tips & Advice" aria-labelledby="tab-Tips & Advice">
             {tips.length === 0 ? (
               <p className="text-stone-400 dark:text-stone-500 text-sm">
                 No tips available yet. Check back later!
@@ -267,7 +276,7 @@ export default function CourseDetailPage() {
         )}
 
         {activeTab === 'Quizzes' && (
-          <div>
+          <div role="tabpanel" id="tabpanel-Quizzes" aria-labelledby="tab-Quizzes">
             <p className="text-sm text-stone-500 dark:text-stone-400 mb-6">
               Test your knowledge with these practice questions. Your score is
               tracked within this session.
@@ -277,7 +286,7 @@ export default function CourseDetailPage() {
         )}
 
         {activeTab === 'Resources' && (
-          <div>
+          <div role="tabpanel" id="tabpanel-Resources" aria-labelledby="tab-Resources">
             {resources.length === 0 ? (
               <p className="text-stone-400 dark:text-stone-500 text-sm">
                 No resources available yet. Check back later!
@@ -299,10 +308,12 @@ export default function CourseDetailPage() {
                           onClick={() =>
                             setExpandedSummary(isExpanded ? null : resource.id)
                           }
+                          aria-expanded={isExpanded}
+                          aria-controls={`summary-${resource.id}`}
                           className="w-full text-left p-5 flex items-start gap-4 group"
                         >
-                          <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-vu-blue/10 dark:bg-vu-blue-light/10 text-vu-blue dark:text-vu-blue-light text-lg shrink-0">
-                            ★
+                          <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-vu-blue/10 dark:bg-vu-blue-light/10 text-vu-blue dark:text-vu-blue-light text-lg shrink-0" aria-hidden="true">
+                            \u2605
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
@@ -329,6 +340,7 @@ export default function CourseDetailPage() {
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                             strokeWidth={2}
+                            aria-hidden="true"
                           >
                             <path
                               strokeLinecap="round"
@@ -340,7 +352,7 @@ export default function CourseDetailPage() {
 
                         {/* Expandable content */}
                         {isExpanded && (
-                          <div className="border-t border-vu-blue/10 dark:border-vu-blue-light/10 px-5 py-6">
+                          <div id={`summary-${resource.id}`} className="border-t border-vu-blue/10 dark:border-vu-blue-light/10 px-5 py-6">
                             <div className="prose-custom max-w-none">
                               <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
                                 {resource.markdownContent!}
@@ -384,15 +396,15 @@ export default function CourseDetailPage() {
                               {/* Play button overlay */}
                               <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors">
                                 <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center shadow-md opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all">
-                                  <svg className="w-3.5 h-3.5 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor">
+                                  <svg className="w-3.5 h-3.5 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path d="M8 5v14l11-7z" />
                                   </svg>
                                 </div>
                               </div>
                             </div>
                           ) : (
-                            <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-stone-50 dark:bg-stone-800 text-stone-400 dark:text-stone-500 text-sm shrink-0">
-                              {resourceTypeIcon[resource.type] || '·'}
+                            <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-stone-50 dark:bg-stone-800 text-stone-400 dark:text-stone-500 text-sm shrink-0" aria-hidden="true">
+                              {resourceTypeIcon[resource.type] || '\u00B7'}
                             </span>
                           )}
                           <div className="flex-1 min-w-0">
@@ -422,6 +434,7 @@ export default function CourseDetailPage() {
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                             strokeWidth={2}
+                            aria-hidden="true"
                           >
                             <path
                               strokeLinecap="round"

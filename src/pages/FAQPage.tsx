@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getFAQCategories, getFAQByCategory } from '../services/contentService';
 
 export default function FAQPage() {
   const categories = getFAQCategories();
   const [openId, setOpenId] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.title = 'FAQ — AI @ VU';
+  }, []);
 
   const toggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -37,6 +41,9 @@ export default function FAQPage() {
                   >
                     <button
                       onClick={() => toggle(entry.id)}
+                      aria-expanded={openId === entry.id}
+                      aria-controls={`faq-panel-${entry.id}`}
+                      id={`faq-btn-${entry.id}`}
                       className="w-full flex items-center justify-between px-5 py-4 text-left"
                     >
                       <span className="text-sm font-medium text-stone-900 dark:text-stone-100 pr-4">
@@ -50,6 +57,7 @@ export default function FAQPage() {
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                         strokeWidth={2}
+                        aria-hidden="true"
                       >
                         <path
                           strokeLinecap="round"
@@ -59,7 +67,12 @@ export default function FAQPage() {
                       </svg>
                     </button>
                     {openId === entry.id && (
-                      <div className="px-5 pb-4">
+                      <div
+                        id={`faq-panel-${entry.id}`}
+                        role="region"
+                        aria-labelledby={`faq-btn-${entry.id}`}
+                        className="px-5 pb-4"
+                      >
                         <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed">
                           {entry.answer}
                         </p>
