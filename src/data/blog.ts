@@ -369,13 +369,13 @@ Computational Thinking is designed to ease you into algorithmic thinking. It's n
       'The things that tripped up the most students in their first week — from Canvas group sign-ups to timetable syncing. Don\'t learn these the hard way.',
     content: `Your first week in the AI bachelor is less about algorithms and more about logistics. Based on real experiences from the Class of 2028, here are the things that catch new students off guard — and how to handle them like a pro.
 
-## 🗓️ Sync your timetable IMMEDIATELY
+## Sync your timetable IMMEDIATELY
 
 Before anything else, go to [rooster.vu.nl](https://rooster.vu.nl), find your schedule, and click the sync button in the top right corner. This lets you subscribe your Google Calendar, Outlook, or Apple Calendar to your VU schedule. It auto-updates when rooms or times change — which happens more often than you'd think.
 
 Don't rely on checking the website manually. You *will* miss a room change or a cancelled session eventually.
 
-## 📋 Canvas group sign-ups close FAST
+## Canvas group sign-ups close FAST
 
 This is the #1 thing that catches new students off guard. Several courses require you to sign up for tutor groups, practicum groups, or project groups through Canvas → People → Groups. Here's the problem: **deadlines can close on the very first day of teaching, or even the day before.**
 
@@ -383,7 +383,7 @@ For **Introduction to AI**, tutor groups are mandatory — if you miss sign-up, 
 
 **Action item:** The moment a course appears on Canvas, check the Groups section and sign up. Set a calendar reminder for the day courses go live.
 
-## 🤝 Join the Mentor Program
+## Join the Mentor Program
 
 The VU Mentor Program is a free, university-funded initiative specifically for first-year students. They organize:
 
@@ -393,13 +393,13 @@ The VU Mentor Program is a free, university-funded initiative specifically for f
 
 This is one of the best-kept secrets of the program. It costs nothing and instantly connects you with people who know the ropes. Combine this with the **Librae Community** (which organizes social events like café meetups) and **STORM** (the AI study association), and you'll have a solid social network before October.
 
-## 📺 Don't skip Week 1 videos
+## Don't skip Week 1 videos
 
 This applies especially to Computational Thinking. The course uses a flipped classroom format: you watch videos at home, then work through cases in class. The Week 1 videos might not be uploaded on Day 1 — they sometimes appear a day or two into the period.
 
 Students who waited for "everything to be ready" before starting found themselves behind by the end of Week 1. Turn on Canvas notifications so you get pinged the moment new content drops, and watch videos as soon as they're available.
 
-## ⚠️ Course-specific gotchas
+## Course-specific gotchas
 
 A few things that surprised students in Period 1:
 
@@ -407,7 +407,7 @@ A few things that surprised students in Period 1:
 - **Introduction to AI** tutor groups are mandatory for passing — this isn't the case for every course, so it catches people off guard.
 - **Computational Thinking** Quiz 2 is harder than Quiz 1 for most students. Make sure you know Kruskal's algorithm — it's in the syllabus and it's tested.
 
-## 🛠️ Set up your tools early
+## Set up your tools early
 
 - **VS Code** — While Jupyter is used in some courses, VS Code is more stable for managing project folders. Install it alongside Jupyter.
 - **Python** — Get Anaconda installed before courses start. You'll need it for multiple courses.

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getCourses } from '../services/courseService';
 import CourseCard from '../components/CourseCard';
 
@@ -11,6 +11,15 @@ export default function CourseListPage() {
   const allCourses = getCourses();
   const [yearFilter, setYearFilter] = useState<number | null>(null);
   const [specialisationFilter, setSpecialisationFilter] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.title = 'Courses — AI @ VU';
+  }, []);
+
+  const handleYearFilter = (year: number | null) => {
+    setYearFilter(year);
+    setSpecialisationFilter(null);
+  };
 
   const years = [...new Set(allCourses.map((c) => c.year))].sort();
   let filtered = yearFilter
@@ -65,7 +74,7 @@ export default function CourseListPage() {
       {/* Year filters */}
       <div className="flex flex-wrap gap-2 mb-4">
         <button
-          onClick={() => setYearFilter(null)}
+          onClick={() => handleYearFilter(null)}
           className={filterClass(yearFilter === null)}
         >
           All years
@@ -73,7 +82,7 @@ export default function CourseListPage() {
         {years.map((y) => (
           <button
             key={y}
-            onClick={() => setYearFilter(y)}
+            onClick={() => handleYearFilter(y)}
             className={filterClass(yearFilter === y)}
           >
             Year {y}

@@ -191,9 +191,9 @@ export const quizQuestions: QuizQuestion[] = [
         question:
             'What does `?- X+2 is 5.` return in Prolog?',
         options: ['X = 3', 'true', 'false', 'error'],
-        correctIndex: 2,
+        correctIndex: 3,
         explanation:
-            'The left side of `is` must be a variable or number, not a compound term like X+2. Since X+2 is a term (not evaluated), it cannot be unified with the number 5, so this returns false.',
+            'The `is/2` predicate requires the right-hand side to be fully instantiated for evaluation. Here the right side is `5` (fine), but the left side `X+2` is a compound term, not a simple variable. SWI-Prolog throws an `instantiation_error` because it cannot evaluate the arithmetic expression on the left.',
         difficulty: 'hard',
     },
     {

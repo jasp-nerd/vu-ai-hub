@@ -671,7 +671,7 @@ export const tips: CourseTip[] = [
 
   // --- English Language Test (from chat) ---
   {
-    id: 'tip-elt-1',
+    id: 'tip-elt-6',
     courseId: 'english-language-test',
     content:
       'For the English Language Test: you\'re assigned to exam rooms based on surname ranges (e.g. A–K in one set of rooms, L–Z in another). Check Canvas announcements for your specific room. If you miss the morning slot, there are multiple time blocks throughout the day — call the VU Taalcentrum immediately to see if you can attend a later block.',
@@ -870,6 +870,77 @@ export const tips: CourseTip[] = [
     courseId: 'history-of-ai',
     content:
       'Attend the seminars even though they are optional. The book has a lot of reading (~40 hours) and the recap sessions help you focus on what matters. The book recap sessions in particular help you distill the key arguments from each pair of chapters before the assignment deadline.',
+    author: 'AI @ VU Student',
+  },
+  // ========== Applied Programming for AI ==========
+  {
+    id: 'tip-ap-1',
+    courseId: 'applied-programming-ai',
+    content:
+      'Start the project proposal in week 1 immediately — it sets the direction for everything else. Write clear user stories with acceptance criteria, because your TAs will hold you to them during weekly check-ins and the final demo.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-ap-2',
+    courseId: 'applied-programming-ai',
+    content:
+      'Actually follow TDD: write your pytest tests first, commit them, then implement the feature. The graders check your Git history for this exact workflow. If you implement first and write tests after, it will show in your commits and cost you points.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-ap-3',
+    courseId: 'applied-programming-ai',
+    content:
+      'Set up your Flask/Django project structure and virtual environment on day one of week 2. Make sure everyone on your team can run the backend locally before you start splitting up features. A shared requirements.txt and a proper .gitignore save hours of debugging later.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-ap-4',
+    courseId: 'applied-programming-ai',
+    content:
+      'Use feature branches religiously — each team member works on their own branch per feature and merges into a dev branch. The coding interview will ask you about your specific contributions, and your Git activity (commits, branches, PRs) is part of your individual grade.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-ap-5',
+    courseId: 'applied-programming-ai',
+    content:
+      'For the frontend week, you build it individually and can use free-tier GenAI tools (Copilot, Cursor student, Claude Code free). Do NOT use paid tiers — that is explicitly forbidden. Write a solid GenAI report documenting exactly which prompts you used and what you changed manually, since that report is 10% of your grade.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-ap-6',
+    courseId: 'applied-programming-ai',
+    content:
+      'Test your REST API endpoints with Postman or RapidAPI before connecting the frontend. Make sure all your CRUD operations, query filters (you need at least 3), and data cleaning logic work independently. This makes week 3 frontend integration much smoother.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-ap-7',
+    courseId: 'applied-programming-ai',
+    content:
+      'Do not underestimate the coding interview — it is pass/fail with no resit, and failing it means failing the entire course regardless of your other grades. You must be able to explain every line of code you contributed. Push your work on time every week, because late pushes automatically result in a fail.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-ap-8',
+    courseId: 'applied-programming-ai',
+    content:
+      'Communication is on Discord only — emails and Canvas messages will not be answered. Join the server early and change your username to your real email. When you are stuck, check Discord first before asking your TA.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-ap-9',
+    courseId: 'applied-programming-ai',
+    content:
+      'Add docstrings to all your functions and classes, and use type hints for all parameters and return values. These are explicit requirements in the project description and easy points to lose if you skip them.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-ap-10',
+    courseId: 'applied-programming-ai',
+    content:
+      'For the final demo, practice presenting your app as if it were a real product going to production. The grading rubric evaluates content coverage, motivation, live demo usage, oral communication, and your ability to answer questions. Make sure every team member can speak to the full project, not just their own part.',
     author: 'AI @ VU Student',
   },
 ];

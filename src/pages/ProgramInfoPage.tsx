@@ -1,9 +1,14 @@
+import { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getProgramInfo } from '../services/contentService';
 
 export default function ProgramInfoPage() {
   const info = getProgramInfo();
+
+  useEffect(() => {
+    document.title = 'Program Info — AI @ VU';
+  }, []);
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">

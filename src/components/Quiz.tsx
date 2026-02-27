@@ -108,7 +108,7 @@ export default function Quiz({ questions }: { questions: QuizQuestion[] }) {
             return (
               <button
                 key={i}
-                onClick={() => selectAnswer(i)}
+                onClick={() => quiz.selectAnswer(i)}
                 disabled={quiz.revealed}
                 className={`w-full text-left px-4 py-3.5 rounded-xl border text-sm transition-all ${optionStyle}`}
               >
@@ -163,8 +163,4 @@ export default function Quiz({ questions }: { questions: QuizQuestion[] }) {
       </div>
     </div>
   );
-
-  function selectAnswer(index: number) {
-    quiz.selectAnswer(index);
-  }
 }

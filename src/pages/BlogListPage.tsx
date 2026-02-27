@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getBlogPosts } from '../services/contentService';
 
 export default function BlogListPage() {
   const posts = getBlogPosts();
+
+  useEffect(() => {
+    document.title = 'Blog & Advice — AI @ VU';
+  }, []);
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">

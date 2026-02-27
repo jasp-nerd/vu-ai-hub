@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vu-ai.vercel.app/sitemap.xml
