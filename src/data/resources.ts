@@ -5,7 +5,6 @@ import { psychologySummary } from './summaries/psychology-summary';
 import { intelligentSystemsSummary } from './summaries/intelligent-systems-summary';
 import { logicSetsSummary } from './summaries/logic-sets-summary';
 import { dynamicModellingSummary } from './summaries/dynamic-modelling-summary';
-import { academicWritingSummary } from './summaries/academic-writing-summary';
 import { historyOfAiSummary } from './summaries/history-of-ai-summary';
 import { hciSummary } from './summaries/hci-summary';
 
@@ -235,16 +234,6 @@ export const resources: Resource[] = [
   type: 'article',
   tags: ['textbook', 'ai'],
   },
-  {
-  id: 'res-gen-2',
-  courseId: 'project-conversational-agents',
-  title: 'Conversational UX Design — NCF Book',
-  description:
-    'The course textbook by Robert J. Moore. Covers the Natural Conversation Framework for designing effective conversational agents.',
-  url: 'https://dl.acm.org/doi/book/10.1145/3304087',
-  type: 'article',
-  tags: ['textbook', 'conversational-ai'],
-  },
 
   // ========== Computational Thinking ==========
   {
@@ -448,15 +437,6 @@ export const resources: Resource[] = [
   tags: ['summary', 'lectures'],
   },
   {
-  id: 'res-pdf-iai-3',
-  courseId: 'intro-ai',
-  title: 'Machine Learning Intro — Lecture 10',
-  description: 'Lecture slides introducing machine learning concepts from the Intro to AI course.',
-  url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-ai/lectures/lecture-10-machine-learning-intro.pdf',
-  type: 'pdf',
-  tags: ['lectures', 'machine-learning'],
-  },
-  {
   id: 'res-pdf-iai-4',
   courseId: 'intro-ai',
   title: 'Intro to AI — Full Summary',
@@ -464,15 +444,6 @@ export const resources: Resource[] = [
   url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-ai/summaries/intro-to-ai-full-summary.pdf',
   type: 'pdf',
   tags: ['summary'],
-  },
-  {
-  id: 'res-pdf-iai-5',
-  courseId: 'intro-ai',
-  title: 'Intro to AI — Summary Notes',
-  description: 'Concise summary notes for the Intro to AI course.',
-  url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-ai/summaries/intro-to-ai-summary-notes.pdf',
-  type: 'pdf',
-  tags: ['summary', 'notes'],
   },
   {
   id: 'res-pdf-iai-6',
@@ -1130,69 +1101,6 @@ export const resources: Resource[] = [
   tags: ['summary'],
   },
 
-  // --- Project Intelligent Systems ---
-  {
-  id: 'res-vid-pis-1',
-  courseId: 'project-intelligent-systems',
-  title: 'How to Play Schnapsen',
-  description:
-    'Video tutorial explaining the rules and strategies of Schnapsen — essential viewing before starting the project.',
-  url: 'https://www.youtube.com/watch?v=J6Uuu3-QNMA&t=278s',
-  type: 'video',
-  tags: ['schnapsen', 'tutorial', 'game-rules'],
-  },
-  {
-  id: 'res-pdf-pis-1',
-  courseId: 'project-intelligent-systems',
-  title: 'Schnapsen Project Files',
-  description: 'Project files for the Schnapsen card game assignment.',
-  url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/project-intelligent-systems/resources/schnapsen-project-files.zip',
-  type: 'tool',
-  tags: ['project', 'schnapsen'],
-  },
-  // ========== Academic Writing (BETA) ==========
-  {
-  id: 'res-aw-1',
-  courseId: 'academic-writing',
-  title: 'Academic Phrasebank — University of Manchester',
-  description:
-    'A huge collection of ready-made academic phrases organized by function (introducing, comparing, concluding, hedging). Invaluable for finding the right words when writing your essays.',
-  url: 'https://www.phrasebank.manchester.ac.uk/',
-  type: 'tool',
-  tags: ['writing', 'phrases', 'style'],
-  },
-  {
-  id: 'res-aw-2',
-  courseId: 'academic-writing',
-  title: 'Purdue OWL — Academic Writing',
-  description:
-    'Comprehensive guide to academic writing, including essay structure, paragraph development, citation styles, and grammar tips. One of the most trusted writing resources online.',
-  url: 'https://owl.purdue.edu/owl/general_writing/academic_writing/index.html',
-  type: 'article',
-  tags: ['writing', 'guide', 'structure'],
-  },
-  {
-  id: 'res-aw-3',
-  courseId: 'academic-writing',
-  title: 'Purdue OWL — APA Formatting and Style Guide',
-  description:
-    'Detailed guide to APA citation style, including in-text citations and reference lists. Useful for getting your referencing right in assignments.',
-  url: 'https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/index.html',
-  type: 'article',
-  tags: ['referencing', 'APA', 'citations'],
-  },
-  {
-  id: 'res-aw-4',
-  courseId: 'academic-writing',
-  title: 'Academic Writing (BETA) — Course Summary',
-  description:
-    'Week-by-week summary covering introductions, quoting and referring, paragraph structure, conclusions, punctuation, and academic style.',
-  url: '#',
-  type: 'summary',
-  tags: ['summary', 'writing', 'all-weeks'],
-  markdownContent: academicWritingSummary,
-  author: 'VU AI Student Hub',
-  },
   // ========== Applied Programming for AI ==========
   {
   id: 'res-ap-1',
@@ -1293,6 +1201,386 @@ export const resources: Resource[] = [
   url: 'https://color.adobe.com/create/color-wheel',
   type: 'tool',
   tags: ['design', 'frontend', 'colors'],
+  },
+
+  // ========== NEW RESOURCES (2026 batch) ==========
+
+  // --- Data Structures & Algorithms for AI ---
+  {
+    id: 'res-pdf-dsa-2',
+    courseId: 'data-structures-algorithms-ai',
+    title: 'Mock Theory Quiz',
+    description: 'Mock theory quiz from the course evaluation session.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/data-structures-algorithms-ai/exam-prep/DSA-mock-theory-quiz.pdf',
+    type: 'pdf',
+    tags: ['exam-prep', 'quiz'],
+  },
+  {
+    id: 'res-pdf-dsa-13',
+    courseId: 'data-structures-algorithms-ai',
+    title: 'Comprehensive DSA Study Plan',
+    description: 'Comprehensive study plan covering all DSA topics.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/data-structures-algorithms-ai/summaries/DSA-study-plan-summary.pdf',
+    type: 'pdf',
+    tags: ['summary', 'study-plan'],
+  },
+
+  // --- Knowledge & Data ---
+  {
+    id: 'res-pdf-kd-1',
+    courseId: 'knowledge-and-data',
+    title: 'Exam Preparation Material',
+    description: 'Exam preparation material for Knowledge and Data.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/knowledge-and-data/exam-prep/KD-exam-prep.pdf',
+    type: 'pdf',
+    tags: ['exam-prep'],
+  },
+  {
+    id: 'res-pdf-kd-2',
+    courseId: 'knowledge-and-data',
+    title: 'Exam Training — Part 1',
+    description: 'Exam training exercises, Part 1.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/knowledge-and-data/exam-prep/KD-exam-training-part1.pdf',
+    type: 'pdf',
+    tags: ['exam-prep', 'training'],
+  },
+  {
+    id: 'res-pdf-kd-3',
+    courseId: 'knowledge-and-data',
+    title: 'Exam Training — Part 2',
+    description: 'Exam training exercises, Part 2.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/knowledge-and-data/exam-prep/KD-exam-training-part2.pdf',
+    type: 'pdf',
+    tags: ['exam-prep', 'training'],
+  },
+  {
+    id: 'res-pdf-kd-4',
+    courseId: 'knowledge-and-data',
+    title: 'Final Exam Practice Questions',
+    description: 'Final exam practice questions with answers.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/knowledge-and-data/exam-prep/KD-final-exam-practice-questions.pdf',
+    type: 'pdf',
+    tags: ['exam-prep', 'practice', 'answers'],
+  },
+  {
+    id: 'res-pdf-kd-5',
+    courseId: 'knowledge-and-data',
+    title: 'Comprehensive Lecture Summary',
+    description: 'Comprehensive summary of all Knowledge and Data lectures.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/knowledge-and-data/summaries/KD-comprehensive-summary.pdf',
+    type: 'pdf',
+    tags: ['summary'],
+  },
+
+  // --- Probability & Statistics ---
+  {
+    id: 'res-pdf-ps-1',
+    courseId: 'probability-statistics',
+    title: 'Formula Sheet — Distributions & Hypothesis Testing',
+    description: 'Formula sheet covering probability distributions and hypothesis testing.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/probability-statistics/formula-sheets/probability-statistics-formula-sheet.pdf',
+    type: 'pdf',
+    tags: ['formula-sheet', 'distributions', 'hypothesis-testing'],
+  },
+  {
+    id: 'res-pdf-ps-2',
+    courseId: 'probability-statistics',
+    title: 'Fall 2024 Exam',
+    description: 'Probability & Statistics exam from Fall 2024.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/probability-statistics/exams/probability-statistics-exam-fall2024.pdf',
+    type: 'pdf',
+    tags: ['exam', '2024'],
+  },
+  {
+    id: 'res-pdf-ps-3',
+    courseId: 'probability-statistics',
+    title: 'January 2025 Resit Exam',
+    description: 'Probability & Statistics resit exam from January 2025.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/probability-statistics/exams/probability-statistics-exam-jan2025.pdf',
+    type: 'pdf',
+    tags: ['exam', 'resit', '2025'],
+  },
+  {
+    id: 'res-pdf-ps-4',
+    courseId: 'probability-statistics',
+    title: 'March 2025 Exam',
+    description: 'Probability & Statistics exam from March 2025.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/probability-statistics/exams/probability-statistics-exam-march2025.pdf',
+    type: 'pdf',
+    tags: ['exam', '2025'],
+  },
+  {
+    id: 'res-pdf-ps-5',
+    courseId: 'probability-statistics',
+    title: 'Chapter 1 Summary',
+    description: 'Summary of Chapter 1: introduction to probability concepts.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/probability-statistics/summaries/probability-statistics-chapter-1-summary.pdf',
+    type: 'pdf',
+    tags: ['summary'],
+  },
+  {
+    id: 'res-pdf-ps-6',
+    courseId: 'probability-statistics',
+    title: 'Chapter 3 Summary',
+    description: 'Summary of Chapter 3: discrete random variables.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/probability-statistics/summaries/probability-statistics-chapter-3-summary.pdf',
+    type: 'pdf',
+    tags: ['summary'],
+  },
+
+  // --- Robot Interaction ---
+  {
+    id: 'res-pdf-ri-1',
+    courseId: 'robot-interaction',
+    title: 'Paper Summary',
+    description: 'Summary of research papers for Robot Interaction.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/robot-interaction/summaries/robot-interaction-paper-summary.docx',
+    type: 'article',
+    tags: ['summary', 'papers'],
+  },
+  {
+    id: 'res-pdf-ri-2',
+    courseId: 'robot-interaction',
+    title: 'Paper Summaries with Mock Questions',
+    description: 'Paper summaries with mock questions for exam preparation.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/robot-interaction/summaries/robot-interaction-paper-summaries-mock-questions.pdf',
+    type: 'pdf',
+    tags: ['summary', 'mock-exam', 'papers'],
+  },
+
+  // --- Linear Algebra & Calculus ---
+  {
+    id: 'res-pdf-lac-1',
+    courseId: 'linear-algebra-calculus',
+    title: 'AthenaStudies Calculus Midterm Prep — Functions & Limits',
+    description: 'AthenaStudies calculus midterm preparation material covering functions and limits.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/linear-algebra-calculus/exam-prep/LAC-calculus-functions-limits.pdf',
+    type: 'pdf',
+    tags: ['exam-prep', 'calculus', 'limits'],
+  },
+  {
+    id: 'res-pdf-lac-2',
+    courseId: 'linear-algebra-calculus',
+    title: 'Limits Exam Study Guide',
+    description: 'Study guide focused on limits for exam preparation.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/linear-algebra-calculus/exam-prep/limits_exam_study_guide.md',
+    type: 'article',
+    tags: ['exam-prep', 'limits', 'study-guide'],
+  },
+
+  // --- Multi-Agent Systems ---
+  {
+    id: 'res-pdf-mas-1',
+    courseId: 'multi-agent-systems',
+    title: 'Comprehensive MAS Study Guide',
+    description: 'Comprehensive study guide covering all Multi-Agent Systems topics.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/multi-agent-systems/summaries/MAS_Study_Guide.md',
+    type: 'article',
+    tags: ['summary', 'study-guide'],
+  },
+
+
+  // --- Intelligent Systems (additions) ---
+  {
+    id: 'res-pdf-is-8',
+    courseId: 'intelligent-systems',
+    title: 'First Partial Exam 2023',
+    description: '2023 first partial exam for Intelligent Systems.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intelligent-systems/exams/intelligent-systems-first-partial-2023.pdf',
+    type: 'pdf',
+    tags: ['exam', '2023'],
+  },
+  {
+    id: 'res-pdf-is-9',
+    courseId: 'intelligent-systems',
+    title: 'First Partial Exam 2024',
+    description: '2024 first partial exam for Intelligent Systems.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intelligent-systems/exams/intelligent-systems-first-partial-2024.pdf',
+    type: 'pdf',
+    tags: ['exam', '2024'],
+  },
+  {
+    id: 'res-pdf-is-10',
+    courseId: 'intelligent-systems',
+    title: 'First Partial Exam 2024 — Variant 2',
+    description: '2024 first partial exam variant 2 for Intelligent Systems.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intelligent-systems/exams/intelligent-systems-first-partial-2024-v2.pdf',
+    type: 'pdf',
+    tags: ['exam', '2024'],
+  },
+  {
+    id: 'res-pdf-is-11',
+    courseId: 'intelligent-systems',
+    title: 'Formula Sheet — 2nd Partial 2024',
+    description: '2024 formula sheet for the second partial exam.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intelligent-systems/formula-sheets/formula-sheet-2nd-partial-2024.pdf',
+    type: 'pdf',
+    tags: ['formula-sheet', 'exam', '2024'],
+  },
+  {
+    id: 'res-pdf-is-12',
+    courseId: 'intelligent-systems',
+    title: 'First Partial Exam Prep — Mentor Program',
+    description: 'First partial exam preparation from the mentor program.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intelligent-systems/exam-prep/intelligent-systems-first-partial-exam-prep.pdf',
+    type: 'pdf',
+    tags: ['exam-prep', 'mentor-program'],
+  },
+  {
+    id: 'res-pdf-is-13',
+    courseId: 'intelligent-systems',
+    title: '2024 Lecture Notes',
+    description: '2024 lecture notes for Intelligent Systems.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intelligent-systems/summaries/intelligent-systems-lecture-notes-2024.pdf',
+    type: 'pdf',
+    tags: ['summary', 'lecture-notes', '2024'],
+  },
+
+  // --- Intro to AI (additions) ---
+  {
+    id: 'res-pdf-iai-8',
+    courseId: 'intro-ai',
+    title: 'Neuro-Symbolic AI Quiz',
+    description: 'Quiz on Neuro-Symbolic AI topics.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-ai/practice-questions/intro-ai-neurosymbolic-quiz.pdf',
+    type: 'pdf',
+    tags: ['quiz', 'neuro-symbolic'],
+  },
+  {
+    id: 'res-pdf-iai-9',
+    courseId: 'intro-ai',
+    title: 'Conversational AI & LLM Quiz',
+    description: 'Quiz on Conversational AI and Large Language Models.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-ai/practice-questions/intro-ai-conversational-ai-quiz.pdf',
+    type: 'pdf',
+    tags: ['quiz', 'conversational-ai', 'llm'],
+  },
+  {
+    id: 'res-pdf-iai-11',
+    courseId: 'intro-ai',
+    title: 'Comprehensive Study Guide',
+    description: 'Comprehensive study guide for Intro to AI.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-ai/summaries/intro-ai-comprehensive-study-guide.docx',
+    type: 'article',
+    tags: ['summary', 'study-guide'],
+  },
+
+  // --- Intro to Psychology (additions) ---
+  {
+    id: 'res-pdf-ipsy-13',
+    courseId: 'intro-psychology',
+    title: 'Official Sample Exam — 63 MCQs',
+    description: 'Official sample exam with 63 multiple-choice questions.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-psychology/practice-questions/intro-psychology-sample-exam.pdf',
+    type: 'pdf',
+    tags: ['practice', 'sample-exam', 'mcq'],
+  },
+  {
+    id: 'res-pdf-ipsy-14',
+    courseId: 'intro-psychology',
+    title: 'Sample Exam — Answer Key',
+    description: 'Answer key for the official sample exam.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-psychology/practice-questions/intro-psychology-sample-exam-answers.pdf',
+    type: 'pdf',
+    tags: ['practice', 'answers'],
+  },
+  {
+    id: 'res-pdf-ipsy-15',
+    courseId: 'intro-psychology',
+    title: 'Lecture Summary',
+    description: 'Lecture summary for Intro to Psychology.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-psychology/summaries/intro-psychology-lecture-summary-2.pdf',
+    type: 'pdf',
+    tags: ['summary', 'lectures'],
+  },
+  {
+    id: 'res-pdf-ipsy-16',
+    courseId: 'intro-psychology',
+    title: 'Book Notes by Noor (2023)',
+    description: 'Handwritten book notes by Noor from 2023.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-psychology/summaries/intro-psychology-book-notes-noor-2023.pdf',
+    type: 'pdf',
+    tags: ['notes', 'handwritten', '2023'],
+  },
+  {
+    id: 'res-pdf-ipsy-17',
+    courseId: 'intro-psychology',
+    title: 'Lecture Notes by Hannah (2023)',
+    description: 'Typed lecture notes by Hannah from 2023.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-psychology/summaries/intro-psychology-lecture-notes-hannah-2023.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', '2023'],
+  },
+  {
+    id: 'res-pdf-ipsy-18',
+    courseId: 'intro-psychology',
+    title: 'Exam Preparation Slides',
+    description: 'Exam preparation slides for Intro to Psychology.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-psychology/exam-prep/intro-psychology-exam-prep.pptx',
+    type: 'article',
+    tags: ['exam-prep', 'slides'],
+  },
+
+  // --- Intro to AI (exam prep additions) ---
+  {
+    id: 'res-pdf-iai-12',
+    courseId: 'intro-ai',
+    title: 'Exam Prep — All Lectures (Extended)',
+    description: 'Exam preparation covering all lectures, extended version.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-ai/exam-prep/intro-ai-exam-prep-extended.pdf',
+    type: 'pdf',
+    tags: ['exam-prep', 'all-lectures'],
+  },
+  {
+    id: 'res-pdf-iai-13',
+    courseId: 'intro-ai',
+    title: 'Exam Prep — All Lectures (Print)',
+    description: 'Exam preparation material in a print-optimized format.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-ai/exam-prep/intro-ai-exam-prep-print.pdf',
+    type: 'pdf',
+    tags: ['exam-prep', 'all-lectures'],
+  },
+
+  // --- Logic & Sets for AI (additions) ---
+  {
+    id: 'res-pdf-ls-13',
+    courseId: 'logic-sets-ai',
+    title: 'Logic & Sets Training Material',
+    description: 'Logic and Sets training material for exam preparation.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/logic-sets-ai/exam-prep/logic-sets-training.pptx',
+    type: 'article',
+    tags: ['exam-prep', 'training'],
+  },
+  {
+    id: 'res-pdf-ls-14',
+    courseId: 'logic-sets-ai',
+    title: '2026 Midterm Exam Prep — Mentor Program',
+    description: '2026 midterm exam preparation from the mentor program.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/logic-sets-ai/exam-prep/logic-sets-midterm-exam-prep-2026.pdf',
+    type: 'pdf',
+    tags: ['exam-prep', 'midterm', 'mentor-program', '2026'],
+  },
+
+  // --- Modelling Human Behaviour (additions) ---
+  {
+    id: 'res-pdf-mhb-6',
+    courseId: 'modelling-human-behaviour',
+    title: 'AI and Human Behaviour Quiz',
+    description: 'Quiz covering AI and human behaviour modelling topics.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/modelling-human-behaviour/practice-questions/modelling-human-behaviour-quiz.pdf',
+    type: 'pdf',
+    tags: ['quiz', 'practice'],
+  },
+
+  // --- General (additions) ---
+  {
+    id: 'res-pdf-gen-1',
+    courseId: 'intro-ai',
+    title: 'VU AI Survival Guide — AthenaStudies',
+    description: 'VU AI survival guide by AthenaStudies with tips and strategies for succeeding in the programme.',
+    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/general/study-guides/vu-ai-survival-guide-athenastudies.pdf',
+    type: 'pdf',
+    tags: ['survival-guide', 'programme', 'tips'],
   },
 ];
 

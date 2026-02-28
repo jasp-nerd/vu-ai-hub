@@ -10,13 +10,16 @@ import {
   getTipsForCourse,
   getQuizQuestionsForCourse,
   getResourcesForCourse,
+  getPracticeQuestionsForCourse,
+  getEssayPromptsForCourse,
 } from '../services/courseService';
 import Quiz from '../components/Quiz';
+import PracticeProblems from '../components/PracticeProblems';
+import EssayPractice from '../components/EssayPractice';
 import CourseChat from '../components/CourseChat';
 import { DIFFICULTY_LABELS } from '../constants';
 
-const tabs = ['Overview', 'Tips & Advice', 'Quizzes', 'Resources', 'AI Chat'] as const;
-type Tab = (typeof tabs)[number];
+type Tab = 'Overview' | 'Tips & Advice' | 'Quizzes' | 'Practice Problems' | 'Exam Practice' | 'Resources' | 'AI Chat';
 
 const resourceTypeIcon: Record<string, string> = {
   video: '\u25B6',
@@ -62,6 +65,17 @@ export default function CourseDetailPage() {
   const tips = getTipsForCourse(course.id);
   const quizQuestions = getQuizQuestionsForCourse(course.id);
   const resources = getResourcesForCourse(course.id);
+  const practiceQuestions = getPracticeQuestionsForCourse(course.id);
+  const essayPromptsList = getEssayPromptsForCourse(course.id);
+
+  // Determine which exam-prep tab to show
+  const examPrepTab: Tab = essayPromptsList.length > 0
+    ? 'Exam Practice'
+    : practiceQuestions.length > 0
+      ? 'Practice Problems'
+      : 'Quizzes';
+  const examPrepCount = essayPromptsList.length || practiceQuestions.length || quizQuestions.length;
+  const tabs: Tab[] = ['Overview', 'Tips & Advice', examPrepTab, 'Resources', 'AI Chat'];
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
@@ -165,9 +179,9 @@ export default function CourseDetailPage() {
                 }`}
             >
               {tab}
-              {tab === 'Quizzes' && quizQuestions.length > 0 && (
+              {tab === examPrepTab && examPrepCount > 0 && (
                 <span className="ml-1.5 inline-flex items-center justify-center px-1.5 py-0.5 text-xs rounded-md bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400">
-                  {quizQuestions.length}
+                  {examPrepCount}
                 </span>
               )}
               {tab === 'Resources' && resources.length > 0 && (
@@ -281,13 +295,30 @@ export default function CourseDetailPage() {
           </div>
         )}
 
-        {activeTab === 'Quizzes' && (
-          <div role="tabpanel" id="tabpanel-Quizzes" aria-labelledby="tab-Quizzes">
-            <p className="text-sm text-stone-500 dark:text-stone-400 mb-6">
-              Test your knowledge with these practice questions. Your score is
-              tracked within this session.
-            </p>
-            <Quiz questions={quizQuestions} />
+        {activeTab === examPrepTab && (
+          <div role="tabpanel" id={`tabpanel-${examPrepTab}`} aria-labelledby={`tab-${examPrepTab}`}>
+            {essayPromptsList.length > 0 ? (
+              <>
+                <p className="text-sm text-stone-500 dark:text-stone-400 mb-6">
+                  Practice writing essay answers to exam-style questions. Get AI feedback on your responses.
+                </p>
+                <EssayPractice prompts={essayPromptsList} courseSlug={course.slug} courseName={course.name} />
+              </>
+            ) : practiceQuestions.length > 0 ? (
+              <>
+                <p className="text-sm text-stone-500 dark:text-stone-400 mb-6">
+                  Work through these practice problems to prepare for the exam. Click &quot;Show Answer&quot; to check your work.
+                </p>
+                <PracticeProblems questions={practiceQuestions} showAICheck={course.id === 'intro-python-ai'} />
+              </>
+            ) : (
+              <>
+                <p className="text-sm text-stone-500 dark:text-stone-400 mb-6">
+                  Test your knowledge with these practice questions. Your score is tracked within this session.
+                </p>
+                <Quiz questions={quizQuestions} />
+              </>
+            )}
           </div>
         )}
 
