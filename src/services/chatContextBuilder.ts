@@ -3,8 +3,10 @@ import {
   getTipsForCourse,
   getQuizQuestionsForCourse,
   getResourcesForCourse,
+  getPracticeQuestionsForCourse,
+  getEssayPromptsForCourse,
 } from './courseService';
-import type { Course, CourseTip, QuizQuestion, Resource } from '../types';
+import type { Course, CourseTip, QuizQuestion, Resource, PracticeQuestion, EssayPrompt } from '../types';
 
 function formatCourseMetadata(course: Course): string {
   const lines = [
@@ -48,6 +50,20 @@ function formatResources(resources: Resource[]): string {
   return `## Recommended Resources\n${resourceLines.join('\n')}`;
 }
 
+function formatPracticeQuestions(questions: PracticeQuestion[]): string {
+  const lines = questions.map((q, i) =>
+    `### Q${i + 1} (${q.difficulty}, ${q.topic}): ${q.question}\nAnswer: ${q.answer}`
+  );
+  return `## Practice Problems\n${lines.join('\n\n')}`;
+}
+
+function formatEssayPrompts(prompts: EssayPrompt[]): string {
+  const lines = prompts.map((p, i) =>
+    `### Prompt ${i + 1} (Category ${p.category}, ${p.topic}): ${p.prompt}\nKey points: ${p.guidance}`
+  );
+  return `## Essay Practice Prompts\n${lines.join('\n\n')}`;
+}
+
 export function buildCourseContext(slug: string): string | null {
   const course = getCourseBySlug(slug);
   if (!course) return null;
@@ -55,6 +71,8 @@ export function buildCourseContext(slug: string): string | null {
   const tips = getTipsForCourse(course.id);
   const quizzes = getQuizQuestionsForCourse(course.id);
   const resources = getResourcesForCourse(course.id);
+  const practiceQs = getPracticeQuestionsForCourse(course.id);
+  const essayPs = getEssayPromptsForCourse(course.id);
 
   const summaryResources = resources.filter(
     (r) => r.type === 'summary' && r.markdownContent
@@ -92,6 +110,12 @@ export function buildCourseContext(slug: string): string | null {
   }
   if (quizzes.length > 0) {
     sections.push(formatQuizzes(quizzes));
+  }
+  if (practiceQs.length > 0) {
+    sections.push(formatPracticeQuestions(practiceQs));
+  }
+  if (essayPs.length > 0) {
+    sections.push(formatEssayPrompts(essayPs));
   }
   if (nonSummaryResources.length > 0) {
     sections.push(formatResources(nonSummaryResources));

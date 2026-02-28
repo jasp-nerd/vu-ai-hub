@@ -2,7 +2,9 @@ import { courses } from '../data/courses';
 import { tips } from '../data/tips';
 import { quizQuestions } from '../data/quizzes';
 import { resources } from '../data/resources';
-import type { Course, CourseTip, QuizQuestion, Resource } from '../types';
+import { practiceQuestions } from '../data/practiceQuestions';
+import { essayPrompts } from '../data/essayPrompts';
+import type { Course, CourseTip, QuizQuestion, Resource, PracticeQuestion, EssayPrompt } from '../types';
 
 export function getCourses(): Course[] {
   return courses;
@@ -26,4 +28,12 @@ export function getQuizQuestionsForCourse(courseId: string): QuizQuestion[] {
 
 export function getResourcesForCourse(courseId: string): Resource[] {
   return resources.filter((r) => r.courseId === courseId);
+}
+
+export function getPracticeQuestionsForCourse(courseId: string): PracticeQuestion[] {
+  return practiceQuestions.filter((q) => q.courseId === courseId);
+}
+
+export function getEssayPromptsForCourse(courseId: string): EssayPrompt[] {
+  return essayPrompts.filter((p) => p.courseId === courseId);
 }

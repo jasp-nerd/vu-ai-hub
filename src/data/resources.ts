@@ -7,6 +7,7 @@ import { logicSetsSummary } from './summaries/logic-sets-summary';
 import { dynamicModellingSummary } from './summaries/dynamic-modelling-summary';
 import { academicWritingSummary } from './summaries/academic-writing-summary';
 import { historyOfAiSummary } from './summaries/history-of-ai-summary';
+import { hciSummary } from './summaries/hci-summary';
 
 export const resources: Resource[] = [
   // ========== DSA ==========
@@ -967,6 +968,18 @@ export const resources: Resource[] = [
   },
 
   // --- Human-Computer Interaction ---
+  {
+  id: 'res-summary-hci',
+  courseId: 'human-computer-interaction',
+  title: 'HCI — Complete Course Summary',
+  description:
+    'Comprehensive summary covering all 8 chapters: historical context, the human factor, interaction elements, scientific foundations, designing experiments, hypothesis testing, modeling interaction (Fitts\' Law, KLM, Hick-Hyman), and writing & publishing. Includes data analysis & visualization supplementary material.',
+  url: '#',
+  type: 'summary',
+  tags: ['summary', 'all-chapters', 'site-exclusive'],
+  markdownContent: hciSummary,
+  author: 'VU AI Student Hub',
+  },
   {
   id: 'res-pdf-hci-1',
   courseId: 'human-computer-interaction',
