@@ -3785,401 +3785,7 @@ export const quizQuestions: QuizQuestion[] = [
         difficulty: 'easy'
     },
 
-    // ========== Logic and Sets for AI ==========
-    // --- Logic Circuits ---
-    {
-        id: 'quiz-ls-1',
-        courseId: 'logic-sets-ai',
-        question: 'What does a logic circuit represent?',
-        options: [
-            'A truth table for predicate logic',
-            'A graphical representation of a Boolean function',
-            'A directed acyclic graph for set operations',
-            'A proof tree for mathematical induction',
-        ],
-        correctIndex: 1,
-        explanation:
-            'A logic circuit is a graphical representation of a Boolean function, with inputs (propositional variables), logic gates (AND, OR, NOT), and a single output.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-2',
-        courseId: 'logic-sets-ai',
-        question:
-            'When drawing a logic circuit from a formula, which connective becomes the gate closest to the output?',
-        options: [
-            'The connective with the highest priority (innermost)',
-            'The connective with the lowest priority (outermost)',
-            'Always the NOT gate',
-            'The first connective reading left to right',
-        ],
-        correctIndex: 1,
-        explanation:
-            'The outermost connective (lowest priority) is the main connective of the formula and corresponds to the gate closest to the output in the circuit. You build the circuit from output back to inputs.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-ls-3',
-        courseId: 'logic-sets-ai',
-        question:
-            'Which formula is equivalent to the biconditional φ ↔ ψ using only ∧, ∨, and ¬?',
-        options: [
-            '(φ ∧ ψ) ∨ (¬φ ∧ ¬ψ)',
-            '(φ ∨ ψ) ∧ (¬φ ∨ ¬ψ)',
-            '¬φ ∨ ψ',
-            '(φ ∧ ¬ψ) ∨ (¬φ ∧ ψ)',
-        ],
-        correctIndex: 0,
-        explanation:
-            'φ ↔ ψ means both have the same truth value: either both true (φ ∧ ψ) or both false (¬φ ∧ ¬ψ). Option D is actually XOR (exclusive or), the opposite of biconditional.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-ls-4',
-        courseId: 'logic-sets-ai',
-        question:
-            'What is the first step when converting a formula with → and ↔ into a logic circuit?',
-        options: [
-            'Draw the output gate first',
-            'Identify all propositional variables',
-            'Rewrite the formula so it only uses ∧, ∨, and ¬',
-            'Build a truth table for the formula',
-        ],
-        correctIndex: 2,
-        explanation:
-            'Logic circuits only have AND, OR, and NOT gates, so you must first rewrite the formula to eliminate → and ↔ using equivalences like φ → ψ ≡ ¬φ ∨ ψ.',
-        difficulty: 'easy',
-    },
-    // --- OBDDs ---
-    {
-        id: 'quiz-ls-5',
-        courseId: 'logic-sets-ai',
-        question: 'What are the two terminal nodes in an OBDD?',
-        options: [
-            'True and False variables',
-            '0 (false) and 1 (true)',
-            'The first and last variables in the ordering',
-            'The root node and the output node',
-        ],
-        correctIndex: 1,
-        explanation:
-            'An OBDD has exactly two terminal (leaf) nodes: 0 representing false and 1 representing true. All paths through the diagram end at one of these two nodes.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-6',
-        courseId: 'logic-sets-ai',
-        question:
-            'OBDD reduction rule C3 says: if a node\'s low and high edges both point to the same child, you should...',
-        options: [
-            'Merge it with another node that has the same variable',
-            'Remove the node and connect its parent directly to that child',
-            'Collapse it into a terminal node',
-            'Swap its low and high edges',
-        ],
-        correctIndex: 1,
-        explanation:
-            'Rule C3 removes redundant nodes. If both branches (x=0 and x=1) lead to the same result, the variable x has no influence and the node can be bypassed entirely.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-ls-7',
-        courseId: 'logic-sets-ai',
-        question:
-            'What does the existential quantifier ∃x do to an OBDD?',
-        options: [
-            'Replaces variable x with the AND of both cofactors: F[x:=0] ∧ F[x:=1]',
-            'Removes variable x without any operation',
-            'Replaces variable x with the OR of both cofactors: F[x:=0] ∨ F[x:=1]',
-            'Negates variable x in the diagram',
-        ],
-        correctIndex: 2,
-        explanation:
-            '∃x F means "there exists a value for x that makes F true." This is computed by taking the disjunction (OR) of the two cofactors: F with x=0 and F with x=1.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-ls-8',
-        courseId: 'logic-sets-ai',
-        question:
-            'What does the universal quantifier ∀x do to an OBDD?',
-        options: [
-            'Replaces variable x with the OR of both cofactors',
-            'Removes variable x and keeps only the high edge',
-            'Replaces variable x with the AND of both cofactors: F[x:=0] ∧ F[x:=1]',
-            'Duplicates the OBDD for each value of x',
-        ],
-        correctIndex: 2,
-        explanation:
-            '∀x F means "for all values of x, F is true." This requires F to be true in both cases, so we take the conjunction (AND) of F[x:=0] and F[x:=1].',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-ls-9',
-        courseId: 'logic-sets-ai',
-        question:
-            'Which OBDD reduction rule merges two nodes that have the same variable and identical low and high children?',
-        options: [
-            'C1 — Merge leaves',
-            'C2 — Merge isomorphic nodes',
-            'C3 — Remove redundant nodes',
-            'C4 — Eliminate duplicate paths',
-        ],
-        correctIndex: 1,
-        explanation:
-            'C2 merges isomorphic nodes: if two internal nodes test the same variable and their low edges point to the same node and their high edges point to the same node, they are identical and can be merged into one.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-ls-10',
-        courseId: 'logic-sets-ai',
-        question: 'After applying a quantifier (∃ or ∀) to an OBDD, what must you do next?',
-        options: [
-            'Nothing — the result is already reduced',
-            'Rebuild the OBDD from scratch using a truth table',
-            'Reduce the resulting OBDD again using rules C1–C3',
-            'Reverse the variable ordering',
-        ],
-        correctIndex: 2,
-        explanation:
-            'Applying a quantifier may introduce redundant or isomorphic nodes, so you must apply the reduction rules C1–C3 again to obtain a reduced OBDD.',
-        difficulty: 'easy',
-    },
-    // --- Predicate Logic ---
-    {
-        id: 'quiz-ls-11',
-        courseId: 'logic-sets-ai',
-        question:
-            'Which of the following is NOT a component of predicate (first-order) logic that goes beyond propositional logic?',
-        options: [
-            'Quantifiers (∀ and ∃)',
-            'Truth tables',
-            'Predicates like P(x)',
-            'Variables ranging over a domain',
-        ],
-        correctIndex: 1,
-        explanation:
-            'Truth tables are a tool for propositional logic. Predicate logic extends propositional logic by adding quantifiers, predicates, variables, functions, and constants — but truth tables don\'t scale to predicate logic.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-12',
-        courseId: 'logic-sets-ai',
-        question: 'What is the negation of ∀x P(x)?',
-        options: [
-            '∀x ¬P(x)',
-            '∃x ¬P(x)',
-            '¬∃x P(x)',
-            '∃x P(x)',
-        ],
-        correctIndex: 1,
-        explanation:
-            'The negation of "for all x, P(x)" is "there exists an x for which P(x) does not hold": ¬∀x P(x) ≡ ∃x ¬P(x). The negation flips the quantifier and negates the body.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-13',
-        courseId: 'logic-sets-ai',
-        question: 'What is the negation of ∃x P(x)?',
-        options: [
-            '∃x ¬P(x)',
-            '∀x P(x)',
-            '∀x ¬P(x)',
-            '¬∀x ¬P(x)',
-        ],
-        correctIndex: 2,
-        explanation:
-            '"There exists an x with P(x)" is negated as "for all x, P(x) does not hold": ¬∃x P(x) ≡ ∀x ¬P(x).',
-        difficulty: 'easy',
-    },
-    // --- Models ---
-    {
-        id: 'quiz-ls-14',
-        courseId: 'logic-sets-ai',
-        question: 'In predicate logic, what does a model (interpretation) specify?',
-        options: [
-            'Only the truth values of all propositions',
-            'A domain D, plus an interpretation of every constant, function, and predicate symbol',
-            'The syntax rules for well-formed formulas',
-            'A proof tree for a given formula',
-        ],
-        correctIndex: 1,
-        explanation:
-            'A model M provides a non-empty domain D and assigns meaning to each constant (an element of D), function symbol (a function on D), and predicate symbol (a relation on D).',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-ls-15',
-        courseId: 'logic-sets-ai',
-        question: 'A formula is called "valid" (a tautology) when it is...',
-        options: [
-            'True in at least one model',
-            'True in no model',
-            'True in every model',
-            'True only in finite models',
-        ],
-        correctIndex: 2,
-        explanation:
-            'A valid formula (tautology) is true in every possible model. This is stronger than satisfiability, which only requires truth in at least one model.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-16',
-        courseId: 'logic-sets-ai',
-        question:
-            'Which semantic equivalence is correct?',
-        options: [
-            '∀x (P(x) ∨ Q(x)) ≡ ∀x P(x) ∨ ∀x Q(x)',
-            '∃x (P(x) ∧ Q(x)) ≡ ∃x P(x) ∧ ∃x Q(x)',
-            '∀x (P(x) ∧ Q(x)) ≡ ∀x P(x) ∧ ∀x Q(x)',
-            '∃x (P(x) → Q(x)) ≡ ∃x P(x) → ∃x Q(x)',
-        ],
-        correctIndex: 2,
-        explanation:
-            '∀ distributes over ∧: if P and Q hold for all x, then both hold for all x individually, and vice versa. The other options are common mistakes — ∀ does NOT distribute over ∨, and ∃ does NOT distribute over ∧.',
-        difficulty: 'hard',
-    },
-    // --- Equivalence Relations & Classes ---
-    {
-        id: 'quiz-ls-17',
-        courseId: 'logic-sets-ai',
-        question:
-            'A relation R on a set A is an equivalence relation if and only if it is...',
-        options: [
-            'Reflexive, antisymmetric, and transitive',
-            'Reflexive, symmetric, and transitive',
-            'Symmetric, transitive, and total',
-            'Reflexive, symmetric, and antisymmetric',
-        ],
-        correctIndex: 1,
-        explanation:
-            'An equivalence relation must be reflexive (aRa), symmetric (aRb ⇒ bRa), and transitive (aRb ∧ bRc ⇒ aRc). Antisymmetric is for partial orders, not equivalence relations.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-18',
-        courseId: 'logic-sets-ai',
-        question: 'The equivalence classes of an equivalence relation on a set A always form a...',
-        options: [
-            'Subset of A',
-            'Total ordering of A',
-            'Partition of A',
-            'Power set of A',
-        ],
-        correctIndex: 2,
-        explanation:
-            'The equivalence classes divide A into non-overlapping, non-empty subsets that together cover all of A — this is exactly what a partition is.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-19',
-        courseId: 'logic-sets-ai',
-        question: 'What is a system of representatives for a set of equivalence classes?',
-        options: [
-            'The union of all equivalence classes',
-            'A set containing all elements of the largest equivalence class',
-            'A set containing exactly one element from each equivalence class',
-            'The intersection of all equivalence classes',
-        ],
-        correctIndex: 2,
-        explanation:
-            'A system of representatives picks exactly one element from each equivalence class. Any element from a class can serve as its representative.',
-        difficulty: 'easy',
-    },
-    // --- Functions ---
-    {
-        id: 'quiz-ls-20',
-        courseId: 'logic-sets-ai',
-        question: 'A function f: A → B is injective (one-to-one) when...',
-        options: [
-            'Every element in B is mapped to by some element in A',
-            'f(a₁) = f(a₂) implies a₁ = a₂ for all a₁, a₂ ∈ A',
-            'The range of f equals the codomain B',
-            'f maps every element of A to the same element in B',
-        ],
-        correctIndex: 1,
-        explanation:
-            'Injective means no two different inputs produce the same output. If f(a₁) = f(a₂), then the inputs must have been the same: a₁ = a₂.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-21',
-        courseId: 'logic-sets-ai',
-        question: 'A function f: A → B is surjective (onto) when...',
-        options: [
-            'Different inputs always give different outputs',
-            'f is both injective and has an inverse',
-            'For every b ∈ B, there exists an a ∈ A such that f(a) = b',
-            'The domain A is a subset of the codomain B',
-        ],
-        correctIndex: 2,
-        explanation:
-            'Surjective means every element in the codomain B is actually hit — the range equals the codomain. Every b ∈ B has at least one preimage.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-22',
-        courseId: 'logic-sets-ai',
-        question: 'What does the composition (g ∘ f)(x) mean?',
-        options: [
-            'Apply g first, then apply f to the result',
-            'Apply f first, then apply g to the result',
-            'Apply f and g simultaneously',
-            'Take the intersection of f and g',
-        ],
-        correctIndex: 1,
-        explanation:
-            '(g ∘ f)(x) = g(f(x)) — you apply f first, then g. Read right-to-left: "g after f."',
-        difficulty: 'easy',
-    },
-    // --- Induction ---
-    {
-        id: 'quiz-ls-23',
-        courseId: 'logic-sets-ai',
-        question: 'In a proof by mathematical induction, what are the two required steps?',
-        options: [
-            'State the hypothesis and derive a contradiction',
-            'Prove the base case and prove the induction step (S(m) → S(m+1))',
-            'Prove S(0) and prove S(n) for an arbitrary even n',
-            'Prove S(m+1) and then derive S(m) from it',
-        ],
-        correctIndex: 1,
-        explanation:
-            'Induction requires: (1) prove the base case S(a), and (2) prove that if S(m) holds for an arbitrary m ≥ a, then S(m+1) also holds. Together these establish S(n) for all n ≥ a.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-24',
-        courseId: 'logic-sets-ai',
-        question:
-            'In the induction step, the "induction hypothesis" (IH) is...',
-        options: [
-            'The statement S(a) for the base case',
-            'The assumption that S(m) is true for some arbitrary m ≥ a',
-            'The conclusion that S(n) holds for all n',
-            'A counterexample showing S(m) fails',
-        ],
-        correctIndex: 1,
-        explanation:
-            'The IH is the assumption that S(m) is true for an arbitrary m ≥ a. You then use this assumption to prove S(m+1). The IH is what makes the "domino effect" work.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-ls-25',
-        courseId: 'logic-sets-ai',
-        question:
-            'When proving by induction that ∑(k=0 to n) 2^k = 2^(n+1) − 1, what is the base case?',
-        options: [
-            'n = 1: check that 2^0 + 2^1 = 3 and 2^2 − 1 = 3',
-            'n = 0: check that 2^0 = 1 and 2^1 − 1 = 1',
-            'n = 0: check that 2^0 = 0 and 2^1 − 1 = 0',
-            'n = 2: check that 2^0 + 2^1 + 2^2 = 7 and 2^3 − 1 = 7',
-        ],
-        correctIndex: 1,
-        explanation:
-            'The claim is "for all n ∈ ℕ" so the base case is n = 0. We verify: ∑(k=0 to 0) 2^k = 2^0 = 1, and 2^(0+1) − 1 = 2 − 1 = 1. Both sides equal 1, so the base case holds.',
-        difficulty: 'medium',
-    },
+    // Logic and Sets questions removed — replaced by PracticeQuestion format in practiceQuestions.ts
 
     // ========== Dynamic Modelling (Modelling Human Behaviour) ==========
     {
@@ -4971,6 +4577,758 @@ export const quizQuestions: QuizQuestion[] = [
         explanation:
             'An intelligent agent does NOT always use forward reasoning. It can use backward reasoning (from desired conclusion to needed observations) in analysis models, and forward reasoning (from actions to effects) in support models. The choice depends on the task and model structure. Agents can and do use both directions.',
         difficulty: 'hard',
+    },
+
+    // ========== HCI — Human-Computer Interaction for AI ==========
+    {
+        id: 'quiz-hci-1',
+        courseId: 'human-computer-interaction',
+        question: 'When did the mouse first become available outside the research lab as part of a commercial product?',
+        options: [
+            '1968, with Engelbart\'s NLS system',
+            '1973, with the Xerox Alto',
+            '1981, with the Xerox Star',
+            '1984, with the Apple Macintosh',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The Xerox Star (1981) was the first commercially available computer with a GUI and a mouse. Engelbart demonstrated the mouse in 1968 but that was a research demo, and the Alto (1973) was never commercially sold.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-2',
+        courseId: 'human-computer-interaction',
+        question: 'What did Vannevar Bush propose in his 1945 article "As We May Think"?',
+        options: [
+            'The first programming language',
+            'The memex — a device for storing and linking documents',
+            'The graphical user interface',
+            'The first computer mouse',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Vannevar Bush proposed the memex (memory extender) in 1945 — a conceptual device that would allow users to store, link, and retrieve documents. It foreshadowed hypertext and the World Wide Web.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-3',
+        courseId: 'human-computer-interaction',
+        question: 'According to Miller\'s Law, what is the capacity of short-term (working) memory?',
+        options: [
+            '3 +/- 1 items',
+            '5 +/- 1 items',
+            '7 +/- 2 items',
+            '12 +/- 3 items',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Miller\'s Law (1956) states that short-term memory can hold approximately 7 +/- 2 items (i.e., between 5 and 9 chunks of information). This capacity can be increased through chunking — grouping items into meaningful units.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-4',
+        courseId: 'human-computer-interaction',
+        question: 'In HCI, what is the difference between "slips" and "mistakes"?',
+        options: [
+            'Slips are caused by the system; mistakes are caused by the user',
+            'Slips involve the correct intention but wrong action; mistakes involve the wrong intention',
+            'Slips occur with novices; mistakes occur with experts',
+            'Slips are recoverable; mistakes are not',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A slip occurs when the user has the correct intention but performs the wrong action (e.g., pressing the wrong key). A mistake occurs when the user forms the wrong intention (e.g., choosing an incorrect strategy). Both can occur with any user.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-5',
+        courseId: 'human-computer-interaction',
+        question: 'What does WIMP stand for in the context of graphical user interfaces?',
+        options: [
+            'Windows, Icons, Menus, Pointer',
+            'Widgets, Input, Mapping, Protocols',
+            'Windows, Interaction, Modelling, Processing',
+            'Web, Interface, Markup, Presentation',
+        ],
+        correctIndex: 0,
+        explanation:
+            'WIMP stands for Windows, Icons, Menus, Pointer. It describes the standard GUI paradigm that emerged in the 1980s with systems like the Xerox Star and Apple Macintosh.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-6',
+        courseId: 'human-computer-interaction',
+        question: 'What is the typical simple reaction time for a human?',
+        options: [
+            '~100 ms',
+            '~276 ms',
+            '~565 ms',
+            '~1000 ms',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Simple reaction time (one stimulus, one response) is approximately 276 ms. This is faster than physical matching (~482 ms) and class matching (~565 ms), which require additional cognitive processing.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-7',
+        courseId: 'human-computer-interaction',
+        question: 'What is the formula for visual search reaction time?',
+        options: [
+            'RT = 276 + 20N ms',
+            'RT = 498 + 41N ms',
+            'RT = 200 + 150 log2(N + 1) ms',
+            'RT = 1000 / N ms',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Visual search reaction time follows RT = 498 + 41N ms, where N is the number of items in the display. This linear relationship means each additional item adds approximately 41 ms to the search time.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-8',
+        courseId: 'human-computer-interaction',
+        question: 'What is the difference between space multiplexing and time multiplexing?',
+        options: [
+            'Space multiplexing uses one control for multiple functions; time multiplexing uses dedicated controls',
+            'Space multiplexing gives each function its own control; time multiplexing uses one control for multiple functions at different times',
+            'Space multiplexing is for touch input; time multiplexing is for keyboard input',
+            'Space multiplexing operates synchronously; time multiplexing operates asynchronously',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Space multiplexing assigns a dedicated physical control to each function (e.g., a cockpit with many switches). Time multiplexing uses one control for multiple functions at different times (e.g., a smartphone touchscreen that shows different virtual buttons).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-9',
+        courseId: 'human-computer-interaction',
+        question: 'What is Control-Display (CD) gain?',
+        options: [
+            'The speed at which a display refreshes',
+            'The ratio of display movement to control movement',
+            'The resolution of the input device',
+            'The latency between input and display response',
+        ],
+        correctIndex: 1,
+        explanation:
+            'CD gain is the ratio of display movement to control movement. High CD gain means a small control movement produces a large display movement (fast but imprecise). Low CD gain means a large control movement produces a small display change (slow but precise).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-10',
+        courseId: 'human-computer-interaction',
+        question: 'What type of sensing does the IBM/Lenovo ThinkPad TrackPoint use?',
+        options: [
+            'Position sensing (absolute)',
+            'Displacement sensing (relative)',
+            'Force sensing (isometric)',
+            'Capacitive sensing',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The TrackPoint is an isometric (force-sensing) device. It does not physically move; instead, it senses the direction and magnitude of force applied. The cursor velocity is proportional to the force, making it a first-order (rate) control device.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-11',
+        courseId: 'human-computer-interaction',
+        question: 'What is zero-order (position) control?',
+        options: [
+            'The input controls the acceleration of the output',
+            'The input controls the velocity of the output',
+            'The input position directly corresponds to the output position',
+            'The input has no effect on the output position',
+        ],
+        correctIndex: 2,
+        explanation:
+            'In zero-order (position) control, the position of the input device directly maps to the position of the output (e.g., a touchscreen where your finger position is the cursor position). In first-order (velocity) control, the input controls the rate of movement instead.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-12',
+        courseId: 'human-computer-interaction',
+        question: 'What is Warrick\'s principle?',
+        options: [
+            'Users prefer larger targets on touchscreens',
+            'The display should move in the same direction as the side of the control nearest to the display',
+            'Reaction time increases logarithmically with the number of choices',
+            'Error rate decreases with practice following a power function',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Warrick\'s principle states that the display should move in the same direction as the side of the control closest to the display. This is a specific population stereotype that helps predict user expectations for control-display mappings.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-13',
+        courseId: 'human-computer-interaction',
+        question: 'What type of research method establishes cause and effect?',
+        options: [
+            'Observational',
+            'Correlational',
+            'Experimental',
+            'Survey-based',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Only experimental research establishes cause and effect, because the researcher manipulates independent variables while controlling other factors. Observational and correlational methods can identify associations but cannot prove causation.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-14',
+        courseId: 'human-computer-interaction',
+        question: 'A temperature rating scale where users mark "cold", "warm", or "hot" is an example of which measurement scale?',
+        options: [
+            'Nominal',
+            'Ordinal',
+            'Interval',
+            'Ratio',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A rating of cold/warm/hot has a natural order (cold < warm < hot) but the intervals between categories are not necessarily equal. This makes it an ordinal scale. It would only be interval if the differences between categories were known to be equal.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-15',
+        courseId: 'human-computer-interaction',
+        question: 'In an experiment comparing three input devices, the input device type is:',
+        options: [
+            'A dependent variable',
+            'An independent variable',
+            'A control variable',
+            'A confounding variable',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The input device type is the independent variable (IV) — it is the factor manipulated by the researcher. The dependent variable (DV) would be the measured outcome (e.g., task completion time). A control variable would be something held constant (e.g., screen size).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-16',
+        courseId: 'human-computer-interaction',
+        question: 'What is "informed consent" in the context of HCI research?',
+        options: [
+            'Getting permission from the university to use their equipment',
+            'Informing participants about the purpose, procedures, risks, and their right to withdraw',
+            'Asking participants to sign a non-disclosure agreement',
+            'Publishing the research results in a peer-reviewed journal',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Informed consent requires that participants are told the purpose, procedures, and risks of the study, and that they understand they can withdraw at any time without penalty. It is a fundamental ethical requirement for research with human participants.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-17',
+        courseId: 'human-computer-interaction',
+        question: 'What is the main advantage of a within-subjects experimental design?',
+        options: [
+            'No risk of order effects',
+            'Individual differences are controlled because each participant serves as their own baseline',
+            'It requires more participants for statistical power',
+            'It eliminates the need for counterbalancing',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In a within-subjects design, each participant experiences all conditions, so individual differences (age, skill, etc.) are controlled. The main disadvantage is order effects (learning, fatigue), which must be mitigated through counterbalancing.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-18',
+        courseId: 'human-computer-interaction',
+        question: 'What is the purpose of a Latin square in experimental design?',
+        options: [
+            'To randomly assign participants to groups',
+            'To ensure each condition appears in each ordinal position exactly once across participants',
+            'To calculate the sample size needed for an experiment',
+            'To balance the number of male and female participants',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A Latin square is a counterbalancing technique that ensures each condition appears in each position (first, second, third, etc.) exactly once. A balanced Latin square goes further, ensuring each condition also appears after every other condition exactly once.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-19',
+        courseId: 'human-computer-interaction',
+        question: 'What is the difference between internal validity and external validity?',
+        options: [
+            'Internal validity = reliability; external validity = accuracy',
+            'Internal validity = results are caused by the IV; external validity = results generalize to other settings',
+            'Internal validity = consistent results; external validity = peer-reviewed results',
+            'Internal validity = lab setting; external validity = field setting',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Internal validity is the degree to which the observed effect is truly caused by the independent variable (not confounds). External validity is the degree to which results can be generalized to other populations, settings, and times. There is often a trade-off between the two.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-20',
+        courseId: 'human-computer-interaction',
+        question: 'In a study where Android users and iPhone users rate their satisfaction on a 1-5 Likert scale, which statistical test is most appropriate?',
+        options: [
+            'Independent t-test',
+            'Paired t-test',
+            'Mann-Whitney U test',
+            'Wilcoxon Signed-Rank test',
+        ],
+        correctIndex: 2,
+        explanation:
+            'This is a between-subjects design (two separate groups: Android vs. iPhone) with 2 conditions and ordinal data (Likert scale). Since Likert data is ordinal (non-parametric), the appropriate test is the Mann-Whitney U test (the non-parametric equivalent of the independent t-test).',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-21',
+        courseId: 'human-computer-interaction',
+        question: 'What does the null hypothesis (H0) typically state?',
+        options: [
+            'There is a significant difference between conditions',
+            'The independent variable has a large effect',
+            'There is no difference between conditions',
+            'The experiment was poorly designed',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The null hypothesis (H0) states that there is no effect or no difference between conditions. When p < 0.05, we reject H0 in favor of the alternative hypothesis (H1). When p > 0.05, we fail to reject H0 (but we do NOT "accept" H0).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-22',
+        courseId: 'human-computer-interaction',
+        question: 'When p > 0.05, the correct interpretation is:',
+        options: [
+            'We accept the null hypothesis',
+            'The independent variable has no effect',
+            'We fail to reject the null hypothesis — there is insufficient evidence for H1',
+            'The experiment must be repeated',
+        ],
+        correctIndex: 2,
+        explanation:
+            'When p > 0.05, we "fail to reject H0" — this means there is insufficient evidence to support the alternative hypothesis. It does NOT mean we accept H0, because absence of evidence is not evidence of absence. The effect might exist but our study lacked the power to detect it.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-23',
+        courseId: 'human-computer-interaction',
+        question: 'What is a Type I error?',
+        options: [
+            'Failing to detect a real effect (false negative)',
+            'Finding an effect that does not exist (false positive)',
+            'Using the wrong statistical test',
+            'Having too few participants in the study',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A Type I error (false positive) occurs when we reject H0 even though it is true — finding a non-existing effect. Its probability equals alpha (typically 0.05). A Type II error (false negative) is failing to detect a real effect, with probability beta.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-24',
+        courseId: 'human-computer-interaction',
+        question: 'What is statistical power?',
+        options: [
+            'The probability of making a Type I error',
+            'The probability of correctly rejecting a false null hypothesis (1 - beta)',
+            'The number of participants in a study',
+            'The effect size of the independent variable',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Statistical power = 1 - beta, where beta is the probability of a Type II error. Higher power means a greater chance of detecting a real effect. Power can be increased by using larger sample sizes, larger effect sizes, or a higher alpha level.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-25',
+        courseId: 'human-computer-interaction',
+        question: 'What does the F-statistic in ANOVA represent?',
+        options: [
+            'The ratio of within-group variance to between-group variance',
+            'The ratio of between-group variance to within-group variance',
+            'The total variance in the dataset',
+            'The probability of a Type II error',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The F-statistic = variance between groups / variance within groups. A large F means the differences between group means are large relative to random variation within groups, suggesting the independent variable has an effect.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-26',
+        courseId: 'human-computer-interaction',
+        question: 'Which non-parametric test is used for a within-subjects design with 3 or more conditions?',
+        options: [
+            'Kruskal-Wallis test',
+            'Mann-Whitney U test',
+            'Friedman test',
+            'Chi-Square test',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The Friedman test is the non-parametric alternative to repeated-measures ANOVA (within-subjects, 3+ conditions). Kruskal-Wallis is for between-subjects with 3+ groups. Mann-Whitney U is for between-subjects with 2 groups. Chi-Square is for frequency data.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-27',
+        courseId: 'human-computer-interaction',
+        question: 'What are the degrees of freedom for a chi-square test on a 3x4 contingency table?',
+        options: [
+            '12',
+            '6',
+            '7',
+            '11',
+        ],
+        correctIndex: 1,
+        explanation:
+            'For a chi-square test on a contingency table, df = (r - 1)(c - 1) = (3 - 1)(4 - 1) = 2 x 3 = 6. The degrees of freedom depend on the number of rows (r) and columns (c) in the table.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-28',
+        courseId: 'human-computer-interaction',
+        question: 'What is an interaction effect in a two-way ANOVA?',
+        options: [
+            'When both independent variables have a significant main effect',
+            'When the effect of one independent variable depends on the level of another',
+            'When participants interact with the experimental apparatus',
+            'When two dependent variables are correlated',
+        ],
+        correctIndex: 1,
+        explanation:
+            'An interaction effect occurs when the effect of one independent variable differs depending on the level of another IV. For example, device type might affect speed differently for novice vs. expert users. Interaction effects are distinct from main effects.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-29',
+        courseId: 'human-computer-interaction',
+        question: 'According to Cohen\'s d, which of the following represents a large effect size?',
+        options: [
+            'd >= 0.10',
+            'd >= 0.20',
+            'd >= 0.50',
+            'd >= 0.80',
+        ],
+        correctIndex: 3,
+        explanation:
+            'Cohen\'s d effect size benchmarks: d >= 0.20 is small, d >= 0.50 is medium, d >= 0.80 is large. Effect size tells you how practically important a finding is, beyond just statistical significance.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-30',
+        courseId: 'human-computer-interaction',
+        question: 'What is the Shannon formulation of Fitts\' Law (Index of Difficulty)?',
+        options: [
+            'ID = log2(2A / W)',
+            'ID = log2(A / W + 1)',
+            'ID = A / W',
+            'ID = log2(A * W)',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The Shannon formulation (MacKenzie, 1992) is ID = log2(A/W + 1), where A = amplitude (distance) and W = width of the target. This is preferred over Fitts\' original formula ID = log2(2A/W) because it better matches Shannon\'s information theorem and always gives non-negative values.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-31',
+        courseId: 'human-computer-interaction',
+        question: 'In Fitts\' Law, what does "throughput" (TP) measure?',
+        options: [
+            'The number of targets hit per second',
+            'The speed-accuracy trade-off as a single measure (IDe / MT)',
+            'The total time to complete all trials',
+            'The error rate for a given target width',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Throughput (TP = IDe / MT) combines speed and accuracy into a single measure, expressed in bits per second (bps). It uses the effective index of difficulty (IDe), which accounts for actual endpoint variability, divided by movement time. Higher throughput = better performance.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-32',
+        courseId: 'human-computer-interaction',
+        question: 'What is the effective target width (We) in Fitts\' Law?',
+        options: [
+            'The physical width of the target',
+            'We = 4.133 x SDx, based on actual endpoint variability',
+            'The target width multiplied by the number of errors',
+            'The distance from the target center to its edge',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The effective target width We = 4.133 x SDx, where SDx is the standard deviation of selection coordinates along the axis of movement. This adjusts the nominal target width to reflect actual user performance, capturing the speed-accuracy trade-off.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-33',
+        courseId: 'human-computer-interaction',
+        question: 'According to the Hick-Hyman Law, what happens to reaction time as the number of equally probable choices increases?',
+        options: [
+            'Reaction time increases linearly with the number of choices',
+            'Reaction time increases logarithmically with the number of choices',
+            'Reaction time decreases as more choices are provided',
+            'Reaction time remains constant regardless of the number of choices',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The Hick-Hyman Law states that RT = a + b * log2(n + 1), where n = number of choices. Reaction time increases logarithmically, not linearly, meaning each doubling of choices adds a constant amount of time (~150 ms per bit).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-34',
+        courseId: 'human-computer-interaction',
+        question: 'In the Hick-Hyman Law RT = a + b * log2(n + 1), what are the approximate values of a and b?',
+        options: [
+            'a = 50 ms, b = 50 ms/bit',
+            'a = 200 ms, b = 150 ms/bit',
+            'a = 500 ms, b = 300 ms/bit',
+            'a = 1000 ms, b = 500 ms/bit',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In the Hick-Hyman Law, a (base reaction time) is approximately 200 ms, and b (time per bit of information) is approximately 150 ms per bit. The "+1" in log2(n+1) accounts for temporal uncertainty (the option of not responding).',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-35',
+        courseId: 'human-computer-interaction',
+        question: 'In the KLM (Keystroke-Level Model), what is the average time for the Mental operator (M)?',
+        options: [
+            '0.40 seconds',
+            '0.80 seconds',
+            '1.10 seconds',
+            '1.35 seconds',
+        ],
+        correctIndex: 3,
+        explanation:
+            'The Mental operator (M) in KLM represents the time for mental preparation before an action and is estimated at 1.35 seconds. Other operator times: K (keystroke) = 0.08-1.20s, P (pointing) = 1.10s, H (homing) = 0.40s, B (button press) = 0.10s.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-36',
+        courseId: 'human-computer-interaction',
+        question: 'What is the KLM Homing operator (H) and how long does it take?',
+        options: [
+            'Moving the cursor to home position; 0.10s',
+            'Moving the hand from keyboard to mouse (or vice versa); 0.40s',
+            'Pressing the Home key on the keyboard; 0.08s',
+            'Returning to the start screen; 1.10s',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The Homing operator (H) in KLM represents the time to move the hand between the keyboard and the mouse (or any other device). It takes approximately 0.40 seconds.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-37',
+        courseId: 'human-computer-interaction',
+        question: 'Using the KLM, calculate the time to delete a desktop icon: (1) mentally prepare, (2) point to icon, (3) click to select, (4) point to delete, (5) click delete, (6) mentally confirm, (7) point to OK, (8) click OK. Use M=1.35s, P=1.10s, B=0.10s.',
+        options: [
+            '4.60 seconds',
+            '5.30 seconds',
+            '6.00 seconds',
+            '6.30 seconds',
+        ],
+        correctIndex: 3,
+        explanation:
+            'T = 2M + 3P + 3B = 2(1.35) + 3(1.10) + 3(0.10) = 2.70 + 3.30 + 0.30 = 6.30 seconds. This is a standard KLM calculation: 2 mental operators, 3 pointing operations, and 3 button clicks.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-38',
+        courseId: 'human-computer-interaction',
+        question: 'What does Fitts\' Law predict?',
+        options: [
+            'The error rate for a given interface design',
+            'The time to acquire a target based on its distance and size',
+            'The number of keystrokes needed to complete a task',
+            'The cognitive load of a given task',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Fitts\' Law predicts movement time (MT) to acquire a target based on the distance (amplitude A) and size (width W) of the target. MT = a + b * log2(A/W + 1). Larger, closer targets are faster to acquire.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-39',
+        courseId: 'human-computer-interaction',
+        question: 'In Buxton\'s three-state model, a standard mouse is classified as which type of device?',
+        options: [
+            'A 1-state device (State 1 only)',
+            'A 2-state device (State 1 and State 2)',
+            'A 3-state device (State 0, State 1, and State 2)',
+            'A 2-state device (State 0 and State 2)',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A mouse is a 2-state device: State 1 (tracking — cursor follows mouse movement) and State 2 (dragging — button held down while moving). A mouse cannot detect State 0 (out of range) because it is always in contact with the surface.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-40',
+        courseId: 'human-computer-interaction',
+        question: 'In Buxton\'s three-state model, which device can distinguish all three states (out of range, tracking, and dragging)?',
+        options: [
+            'A standard mouse',
+            'A touchscreen',
+            'A stylus/pen tablet',
+            'An isometric joystick',
+        ],
+        correctIndex: 2,
+        explanation:
+            'A stylus/pen tablet is a 3-state device: State 0 (pen above tablet, out of tracking range), State 1 (pen near surface, tracking without contact), State 2 (pen pressed on surface, dragging/selecting). A mouse lacks State 0; a touchscreen lacks State 1.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-41',
+        courseId: 'human-computer-interaction',
+        question: 'According to Guiard\'s model of bimanual control, what role does the non-preferred hand play?',
+        options: [
+            'Fine, precise movements following the preferred hand',
+            'Leading, coarse movements that set the frame of reference',
+            'No role — it remains idle during interaction',
+            'Providing force feedback to the user',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In Guiard\'s bimanual model, the non-preferred hand (e.g., left for right-handers) leads the action and provides coarse positioning that sets the reference frame. The preferred hand follows with fine, precise movements within that frame. Example: holding paper (left) while writing (right).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-42',
+        courseId: 'human-computer-interaction',
+        question: 'In the Key-Action Model (KAM), which category do the Shift, Ctrl, and Alt keys belong to?',
+        options: [
+            'Symbol keys',
+            'Executive keys',
+            'Modifier keys',
+            'Function keys',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The KAM classifies keyboard keys into three categories: Symbol keys (produce visible characters), Executive keys (trigger actions like Enter, Backspace, Delete), and Modifier keys (change the meaning of other keys, like Shift, Ctrl, Alt).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-43',
+        courseId: 'human-computer-interaction',
+        question: 'What does KSPC (Keystrokes Per Character) measure?',
+        options: [
+            'The total number of keys on a keyboard',
+            'The efficiency of a text entry method',
+            'The speed of typing in words per minute',
+            'The error rate per keystroke',
+        ],
+        correctIndex: 1,
+        explanation:
+            'KSPC measures the average number of keystrokes needed to produce one character. An optimal KSPC is 1.0 (one keystroke per character). Higher KSPC indicates less efficient text entry, such as multi-tap on a phone keypad where KSPC > 1.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-44',
+        courseId: 'human-computer-interaction',
+        question: 'What does the Power Law of Learning predict?',
+        options: [
+            'Performance degrades exponentially over time',
+            'Learning is linear — equal improvement with each practice trial',
+            'Improvement is rapid at first, then gradually slows following Tn = T1 * n^a',
+            'Performance plateaus immediately after the first trial',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The Power Law of Learning states that performance improves with practice following a power function: Tn = T1 * n^a. This means improvement is fastest early on and gradually decelerates, though it never completely stops.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-45',
+        courseId: 'human-computer-interaction',
+        question: 'What is the purpose of the abstract in an HCI research paper?',
+        options: [
+            'To explain why an effect was observed',
+            'To describe what was done and what was found',
+            'To list all references used in the paper',
+            'To propose future research directions',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The abstract (~150 words) should describe what was done and what was found. It should NOT explain why an effect was observed — that analysis belongs in the Discussion section. The abstract gives readers a quick summary to decide if the paper is relevant.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-46',
+        courseId: 'human-computer-interaction',
+        question: 'Which of the following is NOT a standard subsection of the Method section in an HCI paper?',
+        options: [
+            'Participants',
+            'Apparatus',
+            'Hypotheses',
+            'Procedure',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The standard Method subsections are: Participants, Apparatus, Procedure, and Design. Hypotheses are typically stated in the Introduction, not in the Method section. The Method describes HOW the study was conducted in enough detail to replicate it.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-47',
+        courseId: 'human-computer-interaction',
+        question: 'What is ecological validity?',
+        options: [
+            'Whether the study is about ecological/environmental topics',
+            'Whether the experimental setting resembles real-world conditions',
+            'Whether the study can be replicated by other researchers',
+            'Whether the statistical tests used are appropriate',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Ecological validity is the degree to which an experimental setting resembles the real-world conditions the study aims to generalize to. High ecological validity means the lab setup closely mirrors actual usage scenarios, making results more applicable to real life.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-48',
+        courseId: 'human-computer-interaction',
+        question: 'A touchscreen is best described as which type of input device in Buxton\'s three-state model?',
+        options: [
+            'A 3-state device (State 0, 1, and 2)',
+            'A 2-state device (State 0 and State 2)',
+            'A 2-state device (State 1 and State 2)',
+            'A 1-state device (State 2 only)',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A touchscreen is a 2-state device with State 0 (not touching — out of range) and State 2 (touching/dragging). It skips State 1 (tracking without contact) because the finger cannot hover and track without touching the screen.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-49',
+        courseId: 'human-computer-interaction',
+        question: 'Which effect size measure is most appropriate for reporting ANOVA results?',
+        options: [
+            'Cohen\'s d',
+            'Pearson\'s r',
+            'Omega squared (omega^2)',
+            'Odds ratio (OR)',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Omega squared (omega^2) is the appropriate effect size measure for ANOVA. Cohen\'s d is used for independent t-tests, Pearson\'s r for correlation analysis, R^2 for multiple regression, and odds ratio for logistic regression.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-50',
+        courseId: 'human-computer-interaction',
+        question: 'In a Wizard of Oz setup, what happens?',
+        options: [
+            'The system is fully autonomous and tested without human intervention',
+            'A human operator secretly controls the system while the participant believes it is autonomous',
+            'Participants are asked to imagine interacting with a non-existent system',
+            'The researcher observes participants from behind a one-way mirror',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In a Wizard of Oz setup, a human operator (the "wizard") secretly controls the system\'s responses while the participant believes they are interacting with a fully functional system. This allows researchers to test interaction designs before building the actual system.',
+        difficulty: 'medium',
     },
 ];
 

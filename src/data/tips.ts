@@ -943,5 +943,91 @@ export const tips: CourseTip[] = [
       'For the final demo, practice presenting your app as if it were a real product going to production. The grading rubric evaluates content coverage, motivation, live demo usage, oral communication, and your ability to answer questions. Make sure every team member can speak to the full project, not just their own part.',
     author: 'AI @ VU Student',
   },
+
+  // --- Human-Computer Interaction ---
+  {
+    id: 'tip-hci-1',
+    courseId: 'human-computer-interaction',
+    content:
+      'The HCI exam is a digital TestVision exam with close-ended questions (multiple choice, true/false, fill-in-the-blank). It uses chance correction, so random guessing won\'t help — only answer if you\'re reasonably confident. The exam covers chapters 1–8 of the textbook. Focus especially on measurement scales (NOIR), statistical test selection, Fitts\' Law, KLM calculations, and the Wizard of Oz paradigm — these come up every year.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-2',
+    courseId: 'human-computer-interaction',
+    content:
+      'You MUST complete Assignments 1 & 2 (graded Complete/Incomplete) to be eligible for the exam, and Assignments 3 & 4 to be eligible for the group project report grade. Late submissions get a -0.5 point penalty, and after 24 hours you can\'t submit at all. Don\'t risk losing exam eligibility over a formative assignment.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-3',
+    courseId: 'human-computer-interaction',
+    content:
+      'For the group project, you design a human-agent interaction using the Furhat social robot (or the Virtual Furhat tool if hardware isn\'t available). Choose your theme early (Education, Healthcare, or Customer Service) and start your literature review immediately — finding 3-4 relevant papers takes longer than you think. Define a clear, testable research question before building anything.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-4',
+    courseId: 'human-computer-interaction',
+    content:
+      'The lo-fi prototype phase is more important than it seems. Film a short video (max 5 minutes) demonstrating your concept and run a pilot study with at least 3 peers. The feedback you get here saves you from major design flaws in the hi-fi version. Don\'t skip this step — it\'s also required for Assignment 4.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-5',
+    courseId: 'human-computer-interaction',
+    content:
+      'For the final report (max 5 pages), follow the scientific paper structure exactly: Title, Abstract, Introduction, Method (Participants, Apparatus, Procedure, Design), Results & Discussion, Conclusion, References. Include all supporting materials (raw data, code, consent forms, videos) as supplementary files — these are worth 20 of the 100 points.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-6',
+    courseId: 'human-computer-interaction',
+    content:
+      'Memorize the statistical test selection table: between-subjects with 2 conditions → independent t-test (parametric) or Mann-Whitney U (non-parametric); within-subjects with 2 conditions → paired t-test or Wilcoxon; 3+ conditions → ANOVA or Kruskal-Wallis/Friedman. Likert scale data is ordinal, so use non-parametric tests. This single table covers a large chunk of exam questions.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-7',
+    courseId: 'human-computer-interaction',
+    content:
+      'Practice KLM calculations by hand before the exam. Know the operator times: K=0.28s (average), B=0.10s, P=1.10s, H=0.40s, M=1.35s. A typical exam question gives you a task sequence and asks you to compute the total time. Write out each step, identify the operator, and sum up. The exam prep materials have worked examples — study those.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-8',
+    courseId: 'human-computer-interaction',
+    content:
+      'Practical sessions are mandatory — you can miss at most 1 out of 5. Missing more means you fail the course entirely, regardless of your exam or project grade. These sessions are in weeks 6–8 and involve working on your Furhat robot project with your group.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-9',
+    courseId: 'human-computer-interaction',
+    content:
+      'For the group project, recruit your 8+ user study participants early. You need signed consent forms from each participant before testing. Design your consent form using the template from the practicals. Also, include a statement of contribution from each group member in the report — this is how they detect free-riding.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-10',
+    courseId: 'human-computer-interaction',
+    content:
+      'The textbook (MacKenzie, "Human-Computer Interaction: An Empirical Research Perspective") is available for free online through the VU library using your VUnetID via ProQuest Ebook Central. You don\'t need to buy a physical copy. The lecture slides are excellent but not recorded, so attend lectures and take good notes.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-11',
+    courseId: 'human-computer-interaction',
+    content:
+      'If you use AI tools (ChatGPT, Copilot, etc.) for your project report, you must include a "Statement of Technology Use" disclosing exactly how you used them. The report is checked with Turnitin for plagiarism. All suspected cases are reported to the exam committee — don\'t risk it.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-hci-12',
+    courseId: 'human-computer-interaction',
+    content:
+      'For the group project, divide roles clearly from the start: someone for literature review, someone for prototype development (Kotlin/Furhat SDK), someone for study design and data collection, and someone for statistical analysis and writing. Meet regularly and use a shared document. Groups of 4 work best when everyone has a defined responsibility.',
+    author: 'AI @ VU Student',
+  },
 ];
 

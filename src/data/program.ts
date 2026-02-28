@@ -7,13 +7,13 @@ export const programInfo: ProgramInfo = {
   sections: [
     {
       heading: 'Program Structure',
-      content: `The program is divided into 3 years, each with 2 semesters of 2 periods each (4 periods per year). Each period is approximately 8 weeks of teaching followed by an exam week.
+      content: `The program is divided into 3 years, each with 2 semesters of 3 periods each (6 periods per year). Each period is approximately 8 weeks of teaching followed by an exam week.
 
-**Year 1** focuses on foundations: computational thinking, programming (Python), logic and sets, psychology, and introductory AI courses (Intelligent Systems, Introduction to AI, Human-Computer Interaction for AI).
+**Year 1** builds your foundations across four periods. You start with Computational Thinking, Introduction to AI, Introduction to Psychology and its Methods, and the English Language Test in period 1. Period 2 covers Intelligent Systems, Introduction to Python Programming for AI, and the Project Intelligent Systems. In period 3 you take Logic and Sets for AI alongside a track-specific course (Modelling Human Behaviour for Socially Aware Computing). Periods 4–6 round out the year with Academic Writing (BETA), History of AI, Human-Computer Interaction for AI, Applied Programming for AI, and Information Management.
 
-**Year 2** — During the second year, students make a selection between the more technical specialisation **Intelligent Systems** (focusing on methods of building intelligent agents) and **Socially Aware Computing** (focusing on human-computer interaction and application areas of AI in health and law). Mandatory courses for all include Knowledge and Data, Linear Algebra and Calculus, Multi-Agent Systems, Machine Learning, Probability and Statistics, and Text Mining for AI.
+**Year 2** — Students choose between two specialisations: **Intelligent Systems** (focused on building intelligent agents — includes Databases, Data Structures and Algorithms, Project Conversational Agents, and Project Collective Intelligence) and **Socially Aware Computing** (focused on human-centred AI in health and law — includes Robot Interaction, Project Socially Aware Computing, AI and Law, and AI in Health). Mandatory courses for both tracks include Knowledge and Data, Linear Algebra and Calculus, Multi-Agent Systems, Machine Learning, Probability and Statistics, Text Mining for AI, and The Law of Artificial Intelligence.
 
-**Year 3** offers specialization through electives, a minor, and concludes with a bachelor thesis project where you conduct independent research.`,
+**Year 3** includes Ethical AI, Research Design, and a track-specific course (Cognitive Psychology for AI or Automata and Complexity). A large part of the year is dedicated to a free elective minor and the Bachelor Project Artificial Intelligence, where you conduct independent research.`,
     },
     {
       heading: 'What Makes VU\'s AI Program Special',
@@ -37,11 +37,13 @@ Many students continue with a master's program in AI, Computer Science, or a rel
     },
     {
       heading: 'First-Year Community & Support',
-      content: `Starting university is as much about building a community as it is about academics. VU offers several resources specifically for first-year AI students:
+      content: `Starting university is as much about building a community as it is about academics. There are several resources and communities for AI students in Amsterdam:
 
-- **VU Mentor Program** — A free, university-funded initiative that pairs first-years with experienced students. They organize study prep sessions before exams, game nights, and peer mentoring. Students from the Class of 2028 called it "a vital resource" — sign up at the start of the year.
-- **Librae Community** — An active student group that organizes social events like café meetups and community drinks. Great for meeting people outside of lecture halls.
-- **STORM** — The official study association for AI students at VU. Offers exam archives, career events, study sessions, and social activities. Membership is highly recommended.
+- **STORM** — The official study association for AI, Computer Science, and Mathematics students at VU. Nearly 1,500 members. Offers exam archives, discounted textbooks, career events, study sessions, borrels, and social activities. They also run the VU Mentor Program. Membership is highly recommended. [Website](https://svstorm.nl/) · [Instagram](https://www.instagram.com/studyassociationstorm/)
+- **VU Mentor Program** — A free, university-funded initiative run by STORM that pairs first-years with experienced students. They organize exam prep sessions, game nights, trampoline park outings, community dinners, and peer mentoring throughout the year. Students from the Class of 2028 called it "a vital resource." They also maintain a [GitHub](https://github.com/VU-Mentor-Program) with course notes and study materials from previous years. Sign up at the start of the year via the [WhatsApp community](https://chat.whatsapp.com/Hrz64fgyYkvLtgadXgZDNn).
+- **AISO (AI Student Organisation)** — The largest AI student association in the Netherlands, based in Amsterdam and open to all students. They host bi-weekly events and **guest lectures (AISO Talks)** featuring C-level executives, professors, UN leaders, and startup founders — over 30 events per year. Their talks are a fantastic way to see how AI is applied across industries and to build your network beyond VU. Highly recommended even if you're in your first year. [Website](https://www.aisoamsterdam.com/) · [Instagram](https://www.instagram.com/aiso.nl/) · [Events](https://lu.ma/aiso)
+- **Amsterdam AI** — A cross-sector initiative connecting knowledge institutions, companies, and public organizations around responsible AI in Amsterdam. Great for staying informed about the broader AI ecosystem, events, and opportunities in the city. [Website](https://amsterdamai.com/)
+- **Librae Network** — A Netherlands-wide network promoting gender equality in STEM. They run mentorship programmes pairing women+ students with industry mentors, networking dinners, and community events with partner companies like McKinsey, Picnic, and Maven Securities. [Website](https://www.librae.network/) · [Instagram](https://www.instagram.com/libraenetwork/)
 
 Group sign-up deadlines on Canvas often close very early — sometimes on the first day of teaching or even the day before. Check Canvas → People → Groups immediately when courses go live.`,
     },
@@ -58,8 +60,8 @@ Group sign-up deadlines on Canvas often close very early — sometimes on the fi
       description: 'Course materials, assignments, and grades',
     },
     {
-      label: 'VUnet',
-      url: 'https://vu.nl/vuweb',
+      label: 'VUnet (Student Portal)',
+      url: 'https://student.vu.nl/',
       description: 'Course registration, exam registration, and student services',
     },
     {
@@ -70,12 +72,22 @@ Group sign-up deadlines on Canvas often close very early — sometimes on the fi
     {
       label: 'STORM — AI Study Association',
       url: 'https://svstorm.nl/',
-      description: 'Student association for AI students at VU',
+      description: 'Student association for AI, CS, and Mathematics students at VU',
     },
     {
       label: 'VU Mentor Program',
-      url: 'https://vu.nl/en/education/more-about/mentor-programme',
-      description: 'Free peer mentoring, study prep sessions, and social events for first-years',
+      url: 'https://svstorm.nl/pages/mentor-program',
+      description: 'Free peer mentoring, exam prep sessions, and social events for first-years',
+    },
+    {
+      label: 'AISO — AI Student Organisation',
+      url: 'https://www.aisoamsterdam.com/',
+      description: 'Guest lectures, talks, and events from the largest AI student org in NL',
+    },
+    {
+      label: 'Amsterdam AI',
+      url: 'https://amsterdamai.com/',
+      description: 'Cross-sector AI initiative connecting academia, business, and government',
     },
   ],
 };

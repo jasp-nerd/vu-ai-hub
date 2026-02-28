@@ -55,6 +55,25 @@ export interface Resource {
   author?: string;
 }
 
+export interface PracticeQuestion {
+  id: string;
+  courseId: string;
+  topic: string;
+  question: string;
+  answer: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+}
+
+export interface EssayPrompt {
+  id: string;
+  courseId: string;
+  category: 'A' | 'B' | 'C';
+  topic: string;
+  prompt: string;
+  guidance: string;
+  wordCountHint?: string;
+}
+
 export interface BlogPost {
   id: string;
   slug: string;
