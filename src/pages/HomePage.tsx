@@ -27,12 +27,6 @@ export default function HomePage() {
         <div className="absolute bottom-10 left-[5%] w-56 h-56 rounded-full bg-stone-100/50 dark:bg-stone-800/30 blur-3xl" />
         <div className="relative mx-auto max-w-6xl px-6 pt-20 pb-16 md:pt-28 md:pb-20">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-stone-900 border border-stone-200/60 dark:border-stone-700/60 shadow-sm mb-6">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-400" />
-              <span className="text-xs font-medium text-stone-500 dark:text-stone-400">
-                Community-driven resource
-              </span>
-            </div>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-[1.1]">
               Your guide to the{' '}
               <span className="text-vu-blue dark:text-vu-blue-light">AI bachelor</span> at VU

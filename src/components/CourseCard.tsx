@@ -15,7 +15,7 @@ export default function CourseCard({ course }: { course: Course }) {
           {course.code}
         </span>
         <span className="text-xs text-stone-400 dark:text-stone-500">
-          P{course.period}
+          {course.period ? `P${course.period}` : 'Full Year'}
           {course.credits ? ` · ${course.credits}` : ''}
         </span>
       </div>
@@ -38,16 +38,6 @@ export default function CourseCard({ course }: { course: Course }) {
           <span className="ml-1.5 text-xs text-stone-400 dark:text-stone-500">
             {difficultyLabel[course.difficulty]}
           </span>
-        </div>
-        <div className="flex gap-1.5">
-          {course.tags.slice(0, 2).map((tag) => (
-            <span
-              key={tag}
-              className="text-xs text-stone-400 dark:text-stone-500 bg-stone-50 dark:bg-stone-800 px-2 py-0.5 rounded"
-            >
-              {tag}
-            </span>
-          ))}
         </div>
       </div>
     </Link>

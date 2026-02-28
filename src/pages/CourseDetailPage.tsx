@@ -83,7 +83,7 @@ export default function CourseDetailPage() {
             {course.code}
           </span>
           <span className="text-xs text-stone-400 dark:text-stone-500">
-            Year {course.year} · Period {course.period}
+            Year {course.year} · {course.period ? `Period ${course.period}` : 'Full Year'}
           </span>
           {course.credits && (
             <span className="text-xs text-stone-400 dark:text-stone-500">{course.credits}</span>
