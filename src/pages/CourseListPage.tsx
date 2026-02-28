@@ -26,7 +26,7 @@ export default function CourseListPage() {
     ? allCourses.filter((c) => c.year === yearFilter)
     : allCourses;
 
-  if (yearFilter === 2 && specialisationFilter) {
+  if ((yearFilter === 2 || yearFilter === 3) && specialisationFilter) {
     filtered = filtered.filter(
       (c) => c.specialisation === specialisationFilter || !c.specialisation
     );
@@ -90,8 +90,8 @@ export default function CourseListPage() {
         ))}
       </div>
 
-      {/* Specialisation filter (Year 2) */}
-      {yearFilter === 2 && (
+      {/* Specialisation filter (Year 2 & 3) */}
+      {(yearFilter === 2 || yearFilter === 3) && (
         <div className="flex flex-wrap gap-2 mb-8">
           <button
             onClick={() => setSpecialisationFilter(null)}
@@ -116,7 +116,7 @@ export default function CourseListPage() {
           <h2 className="text-sm font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-4">
             Year {year}
           </h2>
-          {year === 2 && mandatory.length > 0 && (
+          {(year === 2 || year === 3) && mandatory.length > 0 && (
             <div className="mb-8">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-3">
                 Mandatory
@@ -128,7 +128,7 @@ export default function CourseListPage() {
               </div>
             </div>
           )}
-          {year === 2 &&
+          {(year === 2 || year === 3) &&
             bySpecialisation.map(({ spec, courses: specCourses }) => (
               <div key={spec} className="mb-8 last:mb-0">
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-3">
@@ -141,7 +141,7 @@ export default function CourseListPage() {
                 </div>
               </div>
             ))}
-          {year !== 2 && (
+          {year !== 2 && year !== 3 && (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {courses.map((course) => (
                 <CourseCard key={course.id} course={course} />

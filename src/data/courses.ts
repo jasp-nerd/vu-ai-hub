@@ -267,7 +267,7 @@ The course starts with a few introductory lectures refreshing relevant AI concep
     id: 'modelling-human-behaviour',
     slug: 'modelling-human-behaviour',
     name: 'Modelling Human Behaviour',
-    code: 'XB_0036',
+    code: 'XB_0146',
     year: 1,
     period: 4,
     credits: '6EC',
@@ -777,5 +777,148 @@ The course is divided into two complementary parts:
     prerequisites: '',
     difficulty: 2,
     tags: ['health', 'ai', 'elective'],
+  },
+  // ========== YEAR 3 — Mandatory ==========
+  {
+    id: 'bachelor-project-ai',
+    slug: 'bachelor-project-ai',
+    name: 'Bachelor Project Artificial Intelligence',
+    code: 'XB_40002',
+    year: 3,
+    period: 0,
+    credits: '15EC',
+    description:
+      'Individual research project concluding the AI bachelor: literature review, applied AI research, thesis, and oral presentation.',
+    overview: `The Bachelor Project is meant as a conclusion of AI bachelor studies. Each student will select a project based on available topics and supervisors. If the student works on the thesis according to the standard timeline, the student can select from an assortment of topics offered by the department, or do a project within a company. If the student finds a suitable supervisor, it is also possible to suggest an own topic. Part of the project consists of the study and review of literature. The Bachelor Project AI is concluded with an individual report/thesis.`,
+    objectives:
+      'After completing this course, the student: has demonstrated its individual ability to apply knowledge from at least one of the key areas of Artificial Intelligence (Apply knowledge and understanding) to a relevant problem, resulting in a tangible outcome; has demonstrated an analytical and critical way of thought and its ability to apply logical reasoning, with clear identification of assumptions and conclusions (Making judgements) (Apply knowledge and understanding); has shown to be able to manage one\'s own learning and development, including time management and organizational skills (Apply knowledge and understanding); has shown its competence in searching and critically processing professional literature in Artificial Intelligence (Making judgements) (Lifelong learning skills) has learned to present and communicate the results obtained during the project; (Communication) has reflected on its own style of thought and working methods (Lifelong learning skills);',
+    assessment:
+      'Grading is done via a rubric available on Canvas. evaluation of student work (50%) final report (40%) final oral presentation (10%)',
+    teachingMethods:
+      'After an orientation meeting, the student selects a supervisor and a topic. The work, carried out on individual basis, results in a written report (thesis) and an oral poster presentation at the annual AI Bachelor Seminar.',
+    literature: '',
+    prerequisites:
+      'Students can only enroll for the Bachelor Project Artificial Intelligence XB_40002 after obtaining 6 ECs for the course Introduction to Python Program XB_0145 (or the previous course XB_0082).',
+    difficulty: 4,
+    tags: ['project', 'research', 'required'],
+  },
+  {
+    id: 'ethical-ai',
+    slug: 'ethical-ai',
+    name: 'Ethical AI',
+    code: 'XB_0143',
+    year: 3,
+    period: 4,
+    credits: '6EC',
+    description:
+      'Philosophical foundations and technical frameworks for responsible AI: moral agency, fairness, transparency, accountability, and the EU AI Act.',
+    overview: `The course consists of two separate yet complementary blocks:
+
+Block I: Philosophical Foundations — Everyone seems to be talking about AI these days. While some present AI as the savior of humanity, others claim that it will soon become conscious and inevitably destroy us. In this course, we will provide the philosophical background that will allow you to contextualize the most important academic and non-academic debates about AI. We will start with some basic ethical issues (responsible AI, moral agency of AI). Those discussions will soon motivate more theoretical or foundational topics from the philosophy of mind and language.
+
+Block II: Ethical AI in Computer Science — This block focuses on the practical implementation of ethical principles in computer science and AI system development. Students will engage with key concepts such as fairness, transparency, and accountability, examining how these values can be operationalized through technical methods and design practices. Through hands-on exercises and real-world case studies, students will learn to identify ethical challenges in AI systems and apply contemporary frameworks and tools to address them.`,
+    objectives:
+      'Knowledge and insight: Understand foundational philosophical texts and theories relevant to artificial intelligence (e.g., moral agency, consciousness, language); Demonstrate knowledge of practical ethical AI frameworks, methodologies, and principles used in computer science, including fairness metrics, transparency techniques, and accountability standards. Applying knowledge and insight: Place contemporary debates on artificial intelligence within its proper historical and philosophical contexts; Apply key philosophical theories relevant to assessing the ethical relevance of cutting-edge AI technologies; Utilize computer science tools and ethical frameworks practically to assess, design, and implement ethical AI systems in real-world scenarios. Judgement: Analyze real-world data and AI system outputs critically, assessing ethical dimensions and technical considerations; Formulate informed ethical judgments about AI systems by integrating empirical evidence, philosophical perspectives, and established ethical standards. Communication: The student can clearly structure and express own philosophical views in writing and speech; Communicate technical insights and ethical considerations effectively. Learning skills: Relativize and contextualize potential threats posed by AI but also identify threats that might be overlooked; Continuously update ethical assessments in light of new technologies and evidence.',
+    assessment:
+      'Multiple-Choice Exam (40%) — must be passed with a 5.5 or higher. Weekly Assignments (10%) — some pass/fail, others numerically graded; late/missed submissions receive zero. Final Group Project (50%) — includes written report and group presentation; must obtain 5.5 or higher to pass.',
+    teachingMethods:
+      'Interactive lectures, supervised group work, tutorials and exercises, project-based learning and peer feedback.',
+    literature: '',
+    prerequisites: '',
+    difficulty: 3,
+    tags: ['ethics', 'philosophy', 'required'],
+  },
+  {
+    id: 'research-design-ai',
+    slug: 'research-design-ai',
+    name: 'Research Design for AI',
+    code: 'XB_0147',
+    year: 3,
+    period: 5,
+    credits: '3EC',
+    description:
+      'Scientific research skills for AI: research questions, literature reviews, methodology, data analysis, ethics, and scientific writing for the BSc thesis.',
+    overview: `This course teaches students how to design and conduct scientific research in the domain of artificial intelligence. They will be guided through the different stages of an AI research project, from formulating research questions and conducting literature reviews, to developing research designs, collecting and analysing data, and reporting on their findings in a clear and critical scientific manner. The course will support students in achieving key thesis milestones including: identifying and formulating relevant AI research topics and questions; conducting comprehensive literature reviews in relevant fields; selecting appropriate research methodologies for AI projects; collecting, processing, and analysing data (in accordance with GDPR requirements); following ethical and open research practices; scientific writing and communication of technical concepts; critically reporting on study findings and limitations. Students will apply these skills to progressively develop their Bachelor's project, receiving guidance and feedback at each milestone.`,
+    objectives:
+      'The goal of this course is to teach students fundamental scientific research skills and how to apply them to the planning and execution of their Bachelor\'s thesis in Artificial Intelligence. Upon completion of the course, students will: demonstrate knowledge of AI research design principles, including formulation of research questions and selection of appropriate research methods; be able to conduct thorough literature reviews and position their work within relevant AI research discourse; understand different approaches to data collection and analysis according to various AI research methodologies; be able to identify and address ethical considerations relevant to AI research; demonstrate ability to interpret and report on results in a clear and scientific manner; learn how to critically reflect on the limitations and implications of their findings.',
+    assessment:
+      'Assignments for this course are done individually and graded as either a pass or fail. The final project grade will be given by the BSc project supervisor.',
+    teachingMethods:
+      'Lectures. Individual appointments with BSc project supervisor. The course will be given in period 5 to guide and assist BSc AI project completion.',
+    literature:
+      'All course materials, readings, and assessment information will be made available on Canvas.',
+    prerequisites: '',
+    difficulty: 2,
+    tags: ['research', 'writing', 'required'],
+  },
+  // ========== YEAR 3 — Intelligent Systems specialisation ==========
+  {
+    id: 'automata-and-complexity',
+    slug: 'automata-and-complexity',
+    name: 'Automata and Complexity',
+    code: 'X_401049',
+    year: 3,
+    period: 4,
+    credits: '6EC',
+    specialisation: 'intelligent_systems',
+    description:
+      'Formal languages, automata, grammars, computability theory, and complexity classes (P, NP, NP-complete). Finite automata, pushdown automata, Turing machines.',
+    overview: `This course treats automata & formal languages and computability theory. The student gets acquainted with important notions and algorithms regarding formal languages, automata, grammars, compilers, computability, and complexity. This course addresses foundational questions in computer science: What can be computed? What are the limitations to what computers can do? How much time and memory does solving a problem require? What is a (programming) language? How can languages be recognized by computers (automata)? Which problems can be solved by what kinds of automata? This course conveys the important idea that certain problems cannot be solved by computers. A computer scientist must be able to reason whether a given problem is computable (decidable) or not. Moreover, a computer scientist should be able to reason what language/complexity class a given problem belongs to, and hence what kind of automata/algorithms are needed to tackle the problem.`,
+    objectives:
+      'The first part of the course, on automata and languages, covers: design finite automata and create regular expressions for a given regular language; apply algorithms to translate between finite automata, right-linear grammars, and regular expressions; apply algorithms to make automata deterministic and minimal; design pushdown automata and create context-free grammars for a given context-free language; use pumping lemmas to reason about whether a language is regular or context-free; apply algorithms for parsing context-free languages. The second part, on computability theory, covers: reason whether a given problem is decidable (computable) or undecidable; understand the classification of decidable problems in the complexity hierarchy (P, NP, EXP); reason about the complexity of a problem via reduction.',
+    assessment:
+      'The homework is mandatory for qualifying for the exam (70% of the homework points to qualify for the exam). In case at least 90% of the homework points is obtained, 0.5 bonus point is awarded for the final grade. At the end of the course there is a final exam. The overall grade is the grade of the final exam plus the possibly 0.5 bonus point obtained for the homework. (The bonus is only added for students that pass the exam with a grade of at least 5.5.) There is no resit opportunity for the homework.',
+    teachingMethods: '4 hours per week lectures; 4 hours per week exercise classes.',
+    literature:
+      'Peter Linz, An Introduction to Formal Languages and Automata, Jones & Bartlett, 4th or 5th edition',
+    prerequisites: '',
+    difficulty: 4,
+    tags: ['theory', 'mathematics', 'constrained choice'],
+  },
+  {
+    id: 'computational-intelligence',
+    slug: 'computational-intelligence',
+    name: 'Computational Intelligence',
+    code: 'XB_0025',
+    year: 3,
+    period: 4,
+    credits: '6EC',
+    specialisation: 'intelligent_systems',
+    description:
+      'Optimization algorithms for AI: evolutionary algorithms, neural networks (deep learning), reinforcement learning, and neuroevolution.',
+    overview: `In the course Computational Intelligence, we will focus mainly on computational aspects of Artificial Intelligence, namely, optimization algorithms for solving learning problems. Specifically, we will consider problems that cannot be solved using information about gradient due to their combinatorial character or complexity of the objective function (e.g., non-differentiability, blackbox objective function). These problems pop up in computer science and AI, such as, identification of biological systems, task scheduling on chips, robotics, finding optimal architecture of neural networks. For this purpose, we will introduce different classes of algorithms that can be used to tackle these problems, namely, hill climbing and local search, and evolutionary algorithms. Additionally, we explain sampling methods (Markov Chain Monte Carlo) and population-based sampling methods, and indicate how they are linked to evolutionary algorithms. In the second part of the course, we will discuss neural networks as current state-of-the-art modeling paradigm. We will present basic components of deep learning, such as, different layers (e.g., linear layers, convolutional layers, pooling layers, recurrent layers), non-linear activation functions (e.g., sigmoid, ReLU), and how to use them for specific problems. At the end of the course, we will touch upon alternative approaches to learning using Reinforcement Learning. We will conclude the course with a recently revived field of neuroevolution that aims for utilizing evolutionary algorithms in training neural networks.`,
+    objectives:
+      'Knowledge and understanding of: Optimization techniques (Hill Climbing, Local Search, Gradient Descent, SGD), Evolutionary Algorithms, Neural Networks (Fully-Connected, Convolutional), Sampling Methods (Metropolis-Hastings, Simulated Annealing), Reinforcement Learning (Q-learning), Neuroevolution (Neural Architecture Search). Applying knowledge and understanding: How optimization algorithms work and where to use them; How to formulate an evolutionary algorithm for a specific problem; What neural network fits best for a given problem. Making judgments: What optimization algorithm to use for a given problem. Communication skills: Presenting analysis in written form (short reports) for each assignment.',
+    assessment:
+      'The final grade is calculated based on the final exam (50 points) and 5 individual practical assignments (10 points each, 50 points in total). To pass the course, students are required to obtain at least 25 points from the final exam, and 55 points in total including all the points from the exam and assignments. The exam can be retaken (a resit). Solutions to practical assignments must be provided within given deadlines. There is no resit option for practical assignments.',
+    teachingMethods: 'Lectures and practical assignments.',
+    literature: 'The literature will be made available on Canvas.',
+    prerequisites: '',
+    difficulty: 3,
+    tags: ['optimization', 'neural-networks', 'constrained choice'],
+  },
+  // ========== YEAR 3 — Socially Aware Computing specialisation ==========
+  {
+    id: 'cognitive-psychology-ai',
+    slug: 'cognitive-psychology-ai',
+    name: 'Cognitive Psychology for AI',
+    code: 'XB_0072',
+    year: 3,
+    period: 4,
+    credits: '6EC',
+    specialisation: 'socially_aware_computing',
+    description:
+      'Understanding the mind and brain: perception, attention, memory, language processing, decision-making, and experimental design in cognitive science.',
+    overview: `The goal of this course is for students to acquire a good understanding of the mind and brain, and the various aspects of human cognitive functioning. You will learn about perception, attention, memory, language processing, decision-making, and about realms of cognition in which these elements are combined. You will also learn to adopt the general mindset that cognitive scientists need in order to unravel human cognitive functioning. Finally, you will gain experience in designing and building experiments. We will cover most realms of cognition, as discussed in the book by Goldstein (neurons and neural mechanisms, perception, attention, memory, language, learning, etc.). We will also discuss the potential shortcomings of various lines of research (when might evidence be regarded as conclusive?), and the characteristics of good theoretical quality.`,
+    objectives:
+      'The goal of this course is for students to acquire a good understanding of the mind and brain, and the various aspects of human cognitive functioning. You will learn about perception, attention, memory, language processing, decision-making, and about realms of cognition in which these elements are combined. You will also learn to adopt the general mindset that cognitive scientists need in order to unravel human cognitive functioning. Finally, you will gain experience in designing and building experiments.',
+    assessment:
+      '70% of the grade: Exam. 10% of the grade: Participation (quizzes, small assignments). 20% of the grade: Group project (design and build your own experiment). For the exam there is a resit opportunity; for the other components there is not.',
+    teachingMethods:
+      'The course will mostly consist of plenary lectures (2 per week), alongside practical sessions and practical assignments.',
+    literature: '',
+    prerequisites: '',
+    difficulty: 3,
+    tags: ['psychology', 'cognitive-science', 'socially-aware-computing'],
   },
 ];
