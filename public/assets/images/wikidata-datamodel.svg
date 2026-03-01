@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360"
+fill="none" font-family="DejaVu Sans" font-size="17">
+<switch text-anchor="middle" fill="#CCC" transform="translate(62,84)">
+<text systemLanguage="en">Label</text>
+<text systemLanguage="ru">Метка</text>
+<text systemLanguage="ja">ラベル</text>
+</switch>
+<path stroke="#CCC" d="m110,78 50,22"/>
+
+<switch fill="#39C" text-anchor="middle" transform="translate(464,35)">
+<text systemLanguage="bg">стойност</text>
+<text systemLanguage="bs">Vrijednost</text>
+<text systemLanguage="ca,es,pt">valor</text>
+<text systemLanguage="cs">hodnota</text>
+<text systemLanguage="en">value</text>
+<text systemLanguage="dsb">gódnota</text>
+<text systemLanguage="de">Wert</text>
+<text systemLanguage="eu">balioa</text>
+<text systemLanguage="fi">arvo</text>
+<text systemLanguage="fr">valeur</text>
+<text systemLanguage="hr">vrijednost</text>
+<text systemLanguage="hsb">hódnota</text>
+<text systemLanguage="hu">érték</text>
+<text systemLanguage="is">gildi</text>
+<text systemLanguage="it">valore</text>
+<text systemLanguage="ja">値</text>
+<text systemLanguage="ko">값</text>
+<text systemLanguage="mk">вредност</text>
+<text systemLanguage="nb">verdi</text>
+<text systemLanguage="pl">wartość</text>
+<text systemLanguage="ru">значение</text>
+<text systemLanguage="sk">hodnotu</text>
+<text systemLanguage="sl">vrednost</text>
+<text systemLanguage="sr">Вредност</text>
+<text systemLanguage="sv">värde</text>
+<text systemLanguage="tr">değer</text>
+<text>value</text>
+</switch>
+
+<switch fill="#00F" text-anchor="end" transform="translate(116,186)">
+<text systemLanguage="bg">свойство</text>
+<text systemLanguage="bs">Svojstvo</text>
+<text systemLanguage="ca">propietat</text>
+<text systemLanguage="cs">vlastnost</text>
+<text systemLanguage="de">Eigenschaft</text>
+<text systemLanguage="dsb">kakosć</text>
+<text systemLanguage="en">property</text>
+<text systemLanguage="es">propiedad</text>
+<text systemLanguage="eu">propietatea</text>
+<text systemLanguage="fi">ominaisuus</text>
+<text systemLanguage="fr">propriété</text>
+<text systemLanguage="hr">svojstvo</text>
+<text systemLanguage="hsb">kajkosć</text>
+<text systemLanguage="hu">tulajdonság</text>
+<text systemLanguage="is">eiginleiki</text>
+<text systemLanguage="it">proprietà</text>
+<text systemLanguage="ja">プロパティ</text>
+<text systemLanguage="ko">재산</text>
+<text systemLanguage="mk">својство</text>
+<text systemLanguage="nb,sv">egenskap</text>
+<text systemLanguage="pl">właściwość</text>
+<text systemLanguage="pt">propriedade</text>
+<text systemLanguage="ru">свойство</text>
+<text systemLanguage="sk">nehnuteľnosť</text>
+<text systemLanguage="sl">lastnost</text>
+<text systemLanguage="sr">Својство</text>
+<text systemLanguage="tr">mülk</text>
+<text>property</text>
+</switch>
+
+<switch fill="#390" transform="translate(104,300)">
+<text systemLanguage="bg">източник</text>
+<text systemLanguage="bs">Referenca<tspan x="0" y="19">(uklopljeno)</tspan></text>
+<text systemLanguage="ca">referència<tspan x="0" y="19">(replegada)</tspan></text>
+<text systemLanguage="cs">reference<tspan x="0" y="19">(skryto)</tspan></text>
+<text systemLanguage="en">reference<tspan x="0" y="19">(collapsed)</tspan></text>
+<text systemLanguage="de">Einzelnachweis<tspan x="0" y="19">(eingeklappt)</tspan></text>
+<text systemLanguage="dsb">referenca<tspan x="0" y="19">(schowana)</tspan></text>
+<text systemLanguage="es">referencia<tspan x="0" y="19">(plegada)</tspan></text>
+<text systemLanguage="eu">erreferentzia<tspan x="0" y="19">(bildua)</tspan></text>
+<text systemLanguage="fi">lähde (piilotettu)</text>
+<text systemLanguage="fr">référence<tspan x="0" y="19">(réduite)</tspan></text>
+<text systemLanguage="hr">referenca<tspan x="0" y="19">(skriveno)</tspan></text>
+<text systemLanguage="hsb">referenca<tspan x="0" y="19">(schowana)</tspan></text>
+<text systemLanguage="hu">hivatkozás<tspan x="0" y="19">(összecsukva)</tspan></text>
+<text systemLanguage="is">heimild (falin)</text>
+<text systemLanguage="it">fonti (nascoste)</text>
+<text systemLanguage="ja">情報源<tspan x="0" y="19">(折り畳まれてる)</tspan></text>
+<text systemLanguage="ko">참조 (축소)</text>
+<text systemLanguage="mk">референца<tspan x="0" y="19">(собрана)</tspan></text>
+<text systemLanguage="nb">referanse<tspan x="0" y="19"> </tspan>(skjult)</text>
+<text systemLanguage="pl">odnośnik<tspan x="0" y="19">(złożony)</tspan></text>
+<text systemLanguage="pt">referência<tspan x="0" y="19">(colapsou)</tspan></text>
+<text systemLanguage="ru">ссылка на источник<tspan x="0" y="19">(свёрнуто)</tspan></text>
+<text systemLanguage="sk">referencia<tspan x="0" y="19">(zbalená)</tspan></text>
+<text systemLanguage="sl">referenca<tspan x="0" y="19">(zvišana)</tspan></text>
+<text systemLanguage="sr">Референце<tspan x="0" y="19">(склопиве)</tspan></text>
+<text systemLanguage="sv">referens<tspan x="0" y="19">(ihopfälld)</tspan></text>
+<text systemLanguage="tr">referans<tspan x="0" y="19">(daraltılmış)</tspan></text>
+<text>reference</text>
+</switch>
+
+<switch fill="#F80" text-anchor="middle" transform="translate(335,326)">
+<text systemLanguage="bg">квалификатори</text>
+<text systemLanguage="bs">2 kriterije upita</text>
+<text systemLanguage="ca">qualificadors</text>
+<text systemLanguage="cs">vymezení</text>
+<text systemLanguage="de">Qualifikator</text>
+<text systemLanguage="dsb">2 kwalifikatora</text>
+<text systemLanguage="en">qualifiers</text>
+<text systemLanguage="es">calificadores</text>
+<text systemLanguage="eu">kualifikatzaileak</text>
+<text systemLanguage="fi">kaksi tarkennetta</text>
+<text systemLanguage="fr">qualificateurs</text>
+<text systemLanguage="hr">atribut</text>
+<text systemLanguage="hsb">2 kwalifikatoraj</text>
+<text systemLanguage="hu">minősítők</text>
+<text systemLanguage="is">2 sérgreinar</text>
+<text systemLanguage="it">qualificatore</text>
+<text systemLanguage="ja">修飾子</text>
+<text systemLanguage="ko">주장</text>
+<text systemLanguage="mk">квалификација</text>
+<text systemLanguage="nb">kvalifikator</text>
+<text systemLanguage="pl">kwalifikatory</text>
+<text systemLanguage="pt">qualificadores</text>
+<text systemLanguage="ru">квалификаторы</text>
+<text systemLanguage="sk">kvalifikátorov</text>
+<text systemLanguage="sl">kvalifikatorji</text>
+<text systemLanguage="sr">Квалификатори</text>
+<text systemLanguage="sv">bestämning</text>
+<text systemLanguage="tr">elemeler</text>
+<text>qualifier</text>
+</switch>
+
+<switch fill="#D00" transform="translate(418,307)">
+<text systemLanguage="bg">твърдение</text>
+<text systemLanguage="bs">Tvrdnja</text>
+<text systemLanguage="ca">afirmació</text>
+<text systemLanguage="cs">tvrzení</text>
+<text systemLanguage="de">Behauptung</text>
+<text systemLanguage="dsb">twarźenje</text>
+<text systemLanguage="en">claim</text>
+<text systemLanguage="es">afirmación</text>
+<text systemLanguage="eu">baieztapena</text>
+<text systemLanguage="fi">väite</text>
+<text systemLanguage="fr">affirmation</text>
+<text systemLanguage="hr">tvrdnja</text>
+<text systemLanguage="hsb">twjerdźenje</text>
+<text systemLanguage="hu">állítás</text>
+<text systemLanguage="is">fullyrðing</text>
+<text systemLanguage="it">asserzione</text>
+<text systemLanguage="ja">主張</text>
+<text systemLanguage="ko">성명서</text>
+<text systemLanguage="mk">тврдат</text>
+<text systemLanguage="nb">påstand</text>
+<text systemLanguage="pl">stwierdzenie</text>
+<text systemLanguage="ru">заявление</text>
+<text systemLanguage="pt">reclamação</text>
+<text systemLanguage="sk">tvrdiť</text>
+<text systemLanguage="sl">zahtevek</text>
+<text systemLanguage="sr">Тврдња</text>
+<text systemLanguage="sv">påstående</text>
+<text systemLanguage="tr">iddia etmek</text>
+<text>claim</text>
+</switch>
+
+<switch fill="#039" transform="translate(540,290)">
+<text systemLanguage="bg">изявление</text>
+<text systemLanguage="bs">Iskaz</text>
+<text systemLanguage="ca">declaració</text>
+<text systemLanguage="cs">výrok</text>
+<text systemLanguage="de">Aussage</text>
+<text systemLanguage="dsb">wugronjenje</text>
+<text systemLanguage="en">statement</text>
+<text systemLanguage="es">declaración</text>
+<text systemLanguage="eu">adierazpena</text>
+<text systemLanguage="fi">esitys</text>
+<text systemLanguage="fr">déclaration</text>
+<text systemLanguage="hr">izvadak</text>
+<text systemLanguage="hsb">wuprajenje</text>
+<text systemLanguage="hu">kijelentés</text>
+<text systemLanguage="is">staðhæfing</text>
+<text systemLanguage="it">dichiarazione</text>
+<text systemLanguage="ja">文</text>
+<text systemLanguage="ko">성명</text>
+<text systemLanguage="mk">изјава</text>
+<text systemLanguage="nb">utsagn</text>
+<text systemLanguage="pl">deklaracja</text>
+<text systemLanguage="ru">утверждение</text>
+<text systemLanguage="pt">declaração</text>
+<text systemLanguage="sk">vyhlásenie</text>
+<text systemLanguage="sl">vyhláseniea</text>
+<text systemLanguage="sr">Изјава</text>
+<text systemLanguage="sv">uttalande</text>
+<text systemLanguage="tr">beyan</text>
+<text>statement</text>
+</switch>
+
+
+<switch fill="#000" font-size="28" transform="translate(170,114)">
+<text systemLanguage="bg">Лондон</text>
+<text systemLanguage="bs">Sarajevo</text>
+<text systemLanguage="ca,es,fr">Londres</text>
+<text systemLanguage="cs">Budyšín</text>
+<text systemLanguage="de">Berlin</text>
+<text systemLanguage="dsb">Chóśebuz</text>
+<text systemLanguage="en">London</text>
+<text systemLanguage="es">Londres</text>
+<text systemLanguage="eu">Bilbo</text>
+<text systemLanguage="fi">Berliini</text>
+<text systemLanguage="fr">Londres</text>
+<text systemLanguage="hr">Zagreb</text>
+<text systemLanguage="hsb">Budyšin</text>
+<text systemLanguage="hu">Budapest</text>
+<text systemLanguage="is">Berlin</text>
+<text systemLanguage="it">Roma</text>
+<text systemLanguage="ja">東京</text>
+<text systemLanguage="ko">서울</text>
+<text systemLanguage="mk">Куманово</text>
+<text systemLanguage="nb">London</text>
+<text systemLanguage="pl">Warszawa</text>
+<text systemLanguage="pt">Berlim</text>
+<text systemLanguage="ru">Москва</text>
+<text systemLanguage="sk">Bratislava</text>
+<text systemLanguage="sl">Ljubljana</text>
+<text systemLanguage="sr">Београд</text>
+<text systemLanguage="sv">Stockholm</text>
+<text systemLanguage="tr"></text>
+<text>London</text>
+</switch>
+
+<switch fill="#00F" font-size="16" transform="translate(220,164)">
+<text systemLanguage="bg">население</text>
+<text systemLanguage="bs">Stanovništvo</text>
+<text systemLanguage="ca">Població</text>
+<text systemLanguage="cs">obyvatel</text>
+<text systemLanguage="de">Einwohner</text>
+<text systemLanguage="dsb">wobydlarjow</text>
+<text systemLanguage="en">population</text>
+<text systemLanguage="es">Población</text>
+<text systemLanguage="eu">biztanleria</text>
+<text systemLanguage="fi">Asukasluku</text>
+<text systemLanguage="fr">Population</text>
+<text systemLanguage="hr">Stanovništvo</text>
+<text systemLanguage="hsb">wobydlerjow</text>
+<text systemLanguage="hu">népesség</text>
+<text systemLanguage="is">Íbúafjöldi</text>
+<text systemLanguage="it">Popolazione</text>
+<text systemLanguage="ja">人口</text>
+<text systemLanguage="ko">인구</text>
+<text systemLanguage="mk">сопственост</text>
+<text systemLanguage="nb">Befolkning</text>
+<text systemLanguage="pl">populacja</text>
+<text systemLanguage="pt">população</text>
+<text systemLanguage="ru">население</text>
+<text systemLanguage="sk">populácia</text>
+<text systemLanguage="sl">populacija</text>
+<text systemLanguage="sr">становништво</text>
+<text systemLanguage="sv">folkmängd</text>
+<text systemLanguage="tr"></text>
+<text>population</text>
+</switch>
+
+<switch fill="#39C" font-size="16" text-anchor="end" transform="translate(500,164)">
+<text systemLanguage="bg">8 173 900</text>
+<text systemLanguage="bs">440,744</text>
+<text systemLanguage="ca,en,fr,nb,mk,pt">8 173 900</text>
+<text systemLanguage="cs">40.249</text>
+<text systemLanguage="de">3.515.473</text>
+<text systemLanguage="dsb">101.775</text>
+<text systemLanguage="es">8 416 535</text>
+<text systemLanguage="eu">349.356</text>
+<text systemLanguage="fi">3 500 000 </text>
+<text systemLanguage="hr">790.017</text>
+<text systemLanguage="hsb">40.249</text>
+<text systemLanguage="hu">1 757 618</text>
+<text systemLanguage="is">3 500 000</text>
+<text systemLanguage="it">2 638 842</text>
+<text systemLanguage="ja">9 640 742</text>
+<text systemLanguage="ko">25 400 000</text>
+<text systemLanguage="pl">1 711 324</text>
+<text systemLanguage="ru">11 977 988</text>
+<text systemLanguage="sk">440 948</text>
+<text systemLanguage="sl">284 355</text>
+<text systemLanguage="sr">1,659,440</text>
+<text systemLanguage="sv">949 761</text>
+<text systemLanguage="tr"></text>
+<text>1 000 000</text>
+</switch>
+
+<switch fill="#00F" font-size="12" transform="translate(233,188)">
+<text systemLanguage="bg">дата<tspan x="0" y="19">метод за определяне</tspan></text>
+<text systemLanguage="bs"> <tspan x="0" y="19">30. Juni 2012</tspan></text>
+<text systemLanguage="ca">estimació preliminar</text>
+<text systemLanguage="cs"> <tspan x="0" y="19"> </tspan></text>
+<text systemLanguage="de">Meldedaten<tspan x="0" y="19">Methode</tspan></text>
+<text systemLanguage="dsb">30. septembra 2012<tspan x="0" y="19">Amt za statistiku Barliń-Bramborska</tspan></text>
+<text systemLanguage="en">point in time<tspan x="0" y="19">determination method</tspan></text>
+<text systemLanguage="es">fecha:<tspan x="0" y="19">2012</tspan></text>
+<text systemLanguage="eu">gertaera-data<tspan x="0" y="19">zehazteko metodoa</tspan></text>
+<text systemLanguage="fi"> <tspan x="0" y="19">vuonna 2011</tspan></text>
+<text systemLanguage="fr">estimation provisoire<tspan x="0" y="19">pour juillet 2012</tspan></text>
+<text systemLanguage="hr">podaci iz cenzusa<tspan x="0" y="19">na dan 1. siječnja 2012</tspan></text>
+<text systemLanguage="hsb">30. septembra 2012<tspan x="0" y="19">Statitiski krajny zarjad Sakska</tspan></text>
+<text systemLanguage="hu">időpont<tspan x="0" y="19">meghatározás módja</tspan></text>
+<text systemLanguage="it">stima preliminare<tspan x="0" y="19">(giugno 2013)</tspan></text>
+<text systemLanguage="ja">時点<tspan x="0" y="19">使用された手段・手法</tspan></text>
+<text systemLanguage="ko">현재 데이터<tspan x="0" y="19">결정 방법</tspan></text>
+<text systemLanguage="mk">тековни податоци<tspan x="0" y="19">метод на одредување</tspan></text>
+<text systemLanguage="nb">foreløpig estimat<tspan x="0" y="19">per juni 2012</tspan></text>
+<text systemLanguage="pl">wstępne oszacowanie<tspan x="0" y="19">czerwiec 2012</tspan></text>
+<text systemLanguage="pt">ponto no tempo<tspan x="0" y="19">método de determinação</tspan></text>
+<text systemLanguage="ru">точка во времени<tspan x="0" y="19">метод определения</tspan></text>
+<text systemLanguage="sk">bod v čase<tspan x="0" y="19">metóda určenia</tspan></text>
+<text systemLanguage="sl">časovna točka<tspan x="0" y="19">metoda določanja</tspan></text>
+<text systemLanguage="sv">tidpunkt<tspan x="0" y="19">metod</tspan></text>
+<text systemLanguage="tr">mevcut veriler<tspan x="0" y="19">belirleme yöntemi</tspan></text>
+</switch>
+
+<switch fill="#39C" font-size="12" text-anchor="end" transform="translate(489,188)">
+<text systemLanguage="bg">януари 2012<tspan x="0" y="19">оценка</tspan></text>
+<text systemLanguage="bs">30. září 2012<tspan x="0" y="19">Procjena</tspan></text>
+<text systemLanguage="ca">a juny de 2012</text>
+<text systemLanguage="cs"> <tspan x="0" y="19">odhad</tspan></text>
+<text systemLanguage="de">31. Mai 2012<tspan x="0" y="19">Hochrechnng</tspan></text>
+<text systemLanguage="en">June 2012<tspan x="0" y="19">estimation</tspan></text>
+<text systemLanguage="es">método:<tspan x="0" y="19">estimación</tspan></text>
+<text systemLanguage="eu">2013<tspan x="0" y="19">errolda</tspan></text>
+<text systemLanguage="fi"> <tspan x="0" y="19">arvio</tspan></text>
+<text systemLanguage="hu">2015. január 1.<tspan x="0" y="19">becslés</tspan></text>
+<text systemLanguage="is">frá 2011<tspan x="0" y="19">aðferð: áætlað</tspan></text>
+<text systemLanguage="ja">7 2012<tspan x="0" y="19">概算</tspan></text>
+<text systemLanguage="ko">평가하다</text>
+<text systemLanguage="mk">попис на насел<tspan x="0" y="19">2002 r.</tspan></text>
+<text systemLanguage="pt">estimativa<tspan x="0" y="19">30. Juni 2012</tspan></text>
+<text systemLanguage="ru">январь 2013<tspan x="0" y="19">оценка</tspan></text>
+<text systemLanguage="sk">odhad</text>
+<text systemLanguage="sl">ocenjevanje</text>
+<text systemLanguage="sr">15. новембар 2011<tspan x="0" y="19">према попису</tspan></text>
+<text systemLanguage="sv">juni 2012<tspan x="0" y="19">belirleme yöntemi</tspan></text>
+<text systemLanguage="tr">mevcut veriler<tspan x="0" y="19">оценка</tspan></text>
+</switch>
+
+<switch fill="#390" font-size="14" transform="translate(200,248)">
+<text systemLanguage="bg">> 1 източник</text>
+<text systemLanguage="bs,hr">[1 izvor]</text>
+<text systemLanguage="ca">[1 font]</text>
+<text systemLanguage="cs">[1 zdroj]</text>
+<text systemLanguage="de">[1. Quelle]</text>
+<text systemLanguage="dsb">[1 žrědło]</text>
+<text systemLanguage="en">> 1 reference</text>
+<text systemLanguage="es">[1 fuente]</text>
+<text systemLanguage="eu">> 1 iturri</text>
+<text systemLanguage="fi">[1 lähde]</text>
+<text systemLanguage="fr">[1 source]</text>
+<text systemLanguage="hsb">[1 žórło]</text>
+<text systemLanguage="hu">> 1 hivatkozás</text>
+<text systemLanguage="is">[1 heimild]</text>
+<text systemLanguage="it">[1 fonte]</text>
+<text systemLanguage="ja">> 1件の情報源</text>
+<text systemLanguage="ko">> 1 참조</text>
+<text systemLanguage="mk">[1 извор]</text>
+<text systemLanguage="nb">[1 kilde]</text>
+<text systemLanguage="pl">[1 źródło]</text>
+<text systemLanguage="pt">> 1 referência</text>
+<text systemLanguage="ru">> 1 источник </text>
+<text systemLanguage="sk">> 1 referenca</text>
+<text systemLanguage="sl">> 1 referencia</text>
+<text systemLanguage="sr">[1 извор]</text>
+<text systemLanguage="sv">> 1 referens</text>
+<text systemLanguage="tr">> 1 Referans</text>
+<text>> 1 reference</text>
+</switch>
+
+<path stroke="#39C" d="m464,44v106"/>
+<path stroke="#000" d="m140,70h440v200H140zm30,56h380" stroke-width="2.4"/>
+<path stroke="#00F" d="m178,136h364v120H178zM120,179l92-17"/>
+<path stroke="#D00" d="m200,146h320v86H200zm.5,.5h319v85h-319zM364,226l50,71"/>
+<path stroke="#F80" d="m220,170h280v50H220zm1,1h278v48H221zM335,305V212"/>
+<path stroke="#390" d="m220,250-64,34"/>
+<path stroke="#039" d="m522,246 16,32"/>
+</svg>

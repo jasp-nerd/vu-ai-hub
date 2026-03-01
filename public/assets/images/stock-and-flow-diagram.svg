@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="242px" height="247.72px" viewBox="0 0 242 247.72" enable-background="new 0 0 242 247.72" xml:space="preserve">
+<polyline fill="none" stroke="#000000" stroke-miterlimit="10" points="14,15.852 83.629,15.852 83.629,94.074 "/>
+<polyline fill="none" stroke="#000000" stroke-miterlimit="10" points="14,35.852 63.629,35.852 63.629,94.074 "/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="141.405" y1="167.407" x2="146.405" y2="219.63"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="121.405" y1="167.407" x2="126.405" y2="219.074"/>
+<g>
+	<g>
+		<line fill="none" stroke="#2E3192" stroke-width="2" stroke-miterlimit="10" x1="73.738" y1="38.259" x2="73.738" y2="105.789"/>
+		<g>
+			<path fill="#2E3192" d="M73.738,117.859c-2.107-5.68-5.703-12.727-9.512-17.094l9.512,3.439l9.51-3.439
+				C79.439,105.133,75.844,112.18,73.738,117.859z"/>
+		</g>
+	</g>
+</g>
+<rect x="92.627" y="55.556" fill="none" width="75.555" height="58.519"/>
+<text transform="matrix(1 0 0 1 92.6274 64.1836)"><tspan x="0" y="0" fill="#2E3192" font-family="'Helvetica-BoldOblique'" font-size="12">flow of new </tspan><tspan x="0" y="14.4" fill="#2E3192" font-family="'Helvetica-BoldOblique'" font-size="12">investment</tspan></text>
+<rect x="153.627" y="175.556" fill="none" width="75.556" height="58.519"/>
+<text transform="matrix(1 0 0 1 153.6274 184.1836)"><tspan x="0" y="0" fill="#2E3192" font-family="'Helvetica-BoldOblique'" font-size="12">depreciation </tspan><tspan x="0" y="14.4" fill="#2E3192" font-family="'Helvetica-BoldOblique'" font-size="12">of capital</tspan></text>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="48.814" y1="167.407" x2="48.814" y2="129.63"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="179.183" y1="129.63" x2="179.183" y2="167.407"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="179.183" y1="167.407" x2="141.405" y2="167.407"/>
+<line fill="none" stroke="#000000" stroke-miterlimit="10" x1="121.405" y1="167.407" x2="48.814" y2="167.407"/>
+<polyline fill="none" stroke="#2E3192" stroke-width="2" stroke-miterlimit="10" points="48.814,141.481 67.331,129.63 
+	85.11,138.519 111.775,135.556 138.442,141.481 162.887,135.556 179.183,138.519 "/>
+<rect x="54.109" y="148.186" fill="none" width="121.481" height="31.111"/>
+<text transform="matrix(1 0 0 1 71.1709 156.8135)" fill="#BE1E2D" font-family="'Helvetica-Bold'" font-size="12">stock of capital</text>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#2E3192" stroke-width="2" stroke-miterlimit="10" x1="133.738" y1="174.12" x2="133.738" y2="227.004"/>
+		<g>
+			<path fill="#2E3192" d="M133.738,239.074c-2.107-5.68-5.703-12.727-9.512-17.095l9.512,3.44l9.51-3.44
+				C139.439,226.348,135.844,233.395,133.738,239.074z"/>
+		</g>
+	</g>
+</g>
+</svg>

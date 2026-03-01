@@ -22,12 +22,12 @@ import { DIFFICULTY_LABELS } from '../constants';
 type Tab = 'Overview' | 'Tips & Advice' | 'Quizzes' | 'Practice Problems' | 'Exam Practice' | 'Resources' | 'AI Chat';
 
 const resourceTypeIcon: Record<string, string> = {
-  video: '\u25B6',
-  article: '\u25C9',
-  tool: '\u2699',
-  pdf: '\u2193',
+  video: '▶',
+  article: '◉',
+  tool: '⚙',
+  pdf: '↓',
   'external-quiz': '?',
-  summary: '\u2605',
+  summary: '★',
 };
 
 export default function CourseDetailPage() {
@@ -350,7 +350,7 @@ export default function CourseDetailPage() {
                           className="w-full text-left p-5 flex items-start gap-4 group"
                         >
                           <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-vu-blue/10 dark:bg-vu-blue-light/10 text-vu-blue dark:text-vu-blue-light text-lg shrink-0" aria-hidden="true">
-                            \u2605
+                            ★
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
@@ -441,7 +441,7 @@ export default function CourseDetailPage() {
                             </div>
                           ) : (
                             <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-stone-50 dark:bg-stone-800 text-stone-400 dark:text-stone-500 text-sm shrink-0" aria-hidden="true">
-                              {resourceTypeIcon[resource.type] || '\u00B7'}
+                              {resourceTypeIcon[resource.type] || '·'}
                             </span>
                           )}
                           <div className="flex-1 min-w-0">

@@ -8,7 +8,7 @@ export const practiceQuestions: PracticeQuestion[] = [
     id: 'ls-se-1',
     courseId: 'logic-sets-ai',
     topic: 'Semantic Entailment',
-    difficulty: 'medium',
+    difficulty: 'hard',
     question: `Determine whether the following semantic entailment holds:
 
 $$(p \\to (q \\oplus r)) \\land ((q \\mid \\neg r) \\lor p) \\models \\neg q \\leftrightarrow r$$
@@ -984,7 +984,7 @@ $$\\text{GLB}(\\{6, 10\\}) = 2$$`,
     id: 'ls-eq-1',
     courseId: 'logic-sets-ai',
     topic: 'Equivalence Relations & Classes',
-    difficulty: 'easy',
+    difficulty: 'medium',
     question: `Define the relation $R$ on $\\mathbb{Z}$ (the integers) by:
 
 $$x \\; R \\; y \\iff x \\equiv y \\pmod{3}$$
@@ -1356,7 +1356,8 @@ If two non-leaf nodes are associated with the **same variable** and their 0-edge
 | **Distributivity** | $x + (y \\cdot z) = (x+y) \\cdot (x+z)$ | $x \\cdot (y + z) = (x \\cdot y) + (x \\cdot z)$ |
 | **Complement** | $x + x' = 1$ | $x \\cdot x' = 0$ |
 | **De Morgan** | $(x + y)' = x' \\cdot y'$ | $(x \\cdot y)' = x' + y'$ |
-| **Identity** | $x + 0 = x$, $x + 1 = 1$ | $x \\cdot 1 = x$, $x \\cdot 0 = 0$ |
+| **Identity** | $x + 0 = x$ | $x \\cdot 1 = x$ |
+| **Domination** | $x + 1 = 1$ | $x \\cdot 0 = 0$ |
 | **Involution** | $(x')' = x$ | |
 
 **Correspondence:**
@@ -1554,6 +1555,232 @@ $$= \\frac{(k+1)((k+1)+1)(2(k+1)+1)}{6}$$
 This matches the formula for $n = k+1$. ✓
 
 By mathematical induction, the formula holds for all $n \\geq 1$. $\\blacksquare$`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  TOPIC 13: PARSE TREES (1 question)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ls-pt-1',
+    courseId: 'logic-sets-ai',
+    topic: 'Parse Trees',
+    difficulty: 'easy',
+    question: `Draw the parse tree for the formula:
+
+$$p \\wedge q \\vee \\neg r \\to p$$
+
+Identify the main connective and all sub-formulas. Remember that operator priority (from strongest to weakest binding) is: $\\neg$, $\\wedge$, $\\vee$, $\\oplus$, $\\to$, $\\leftrightarrow$.`,
+    answer: `First, add implicit parentheses according to operator priority:
+
+$$((p \\wedge q) \\vee (\\neg r)) \\to p$$
+
+**Main connective:** $\\to$ (implication) — it has the lowest binding strength and is not inside parentheses.
+
+**Parse tree:**
+
+\`\`\`
+         →
+        / \\
+       ∨    p
+      / \\
+     ∧    ¬
+    / \\   |
+   p   q   r
+\`\`\`
+
+**Sub-formulas (from leaves to root):**
+1. $p$, $q$, $r$ (atomic)
+2. $\\neg r$
+3. $p \\wedge q$
+4. $(p \\wedge q) \\vee \\neg r$
+5. $((p \\wedge q) \\vee \\neg r) \\to p$ (the full formula)`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  TOPIC 14: TRUTH TABLES & SEMANTIC PROPERTIES (1 question)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ls-tt-1',
+    courseId: 'logic-sets-ai',
+    topic: 'Truth Tables & Semantic Properties',
+    difficulty: 'medium',
+    question: `Construct the truth table for the formula:
+
+$$((p \\to q) \\wedge (q \\to r)) \\to (p \\to r)$$
+
+Classify this formula as a tautology, contradiction, contingency, or satisfiable. Justify your answer.`,
+    answer: `**Truth table:**
+
+| $p$ | $q$ | $r$ | $p \\to q$ | $q \\to r$ | $(p \\to q) \\wedge (q \\to r)$ | $p \\to r$ | Full formula |
+|---|---|---|---|---|---|---|---|
+| T | T | T | T | T | T | T | T |
+| T | T | F | T | F | F | F | T |
+| T | F | T | F | T | F | T | T |
+| T | F | F | F | T | F | F | T |
+| F | T | T | T | T | T | T | T |
+| F | T | F | T | F | F | T | T |
+| F | F | T | T | T | T | T | T |
+| F | F | F | T | T | T | T | T |
+
+The formula is **T** in every row.
+
+**Classification:** This is a **tautology** (valid formula). It is true under every valuation. It is also satisfiable (trivially, since every tautology is satisfiable).
+
+This formula represents the **hypothetical syllogism** (transitivity of implication): if $p$ implies $q$ and $q$ implies $r$, then $p$ implies $r$.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  TOPIC 15: DNF CONVERSION (1 question)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ls-dnf-1',
+    courseId: 'logic-sets-ai',
+    topic: 'DNF Conversion',
+    difficulty: 'medium',
+    question: `Using the **truth table method**, construct a formula in DNF that is semantically equivalent to:
+
+$$(p \\to q) \\wedge (q \\to r)$$`,
+    answer: `**Step 1: Build the truth table.**
+
+| $p$ | $q$ | $r$ | $p \\to q$ | $q \\to r$ | $(p \\to q) \\wedge (q \\to r)$ |
+|---|---|---|---|---|---|
+| T | T | T | T | T | **T** |
+| T | T | F | T | F | F |
+| T | F | T | F | T | F |
+| T | F | F | F | T | F |
+| F | T | T | T | T | **T** |
+| F | T | F | T | F | F |
+| F | F | T | T | T | **T** |
+| F | F | F | T | T | **T** |
+
+**Step 2:** The formula is true in rows 1, 5, 7, and 8. For each true row, form a conjunction:
+
+- Row 1: $p = T, q = T, r = T \\Rightarrow p \\wedge q \\wedge r$
+- Row 5: $p = F, q = T, r = T \\Rightarrow \\neg p \\wedge q \\wedge r$
+- Row 7: $p = F, q = F, r = T \\Rightarrow \\neg p \\wedge \\neg q \\wedge r$
+- Row 8: $p = F, q = F, r = F \\Rightarrow \\neg p \\wedge \\neg q \\wedge \\neg r$
+
+**DNF:** $(p \\wedge q \\wedge r) \\vee (\\neg p \\wedge q \\wedge r) \\vee (\\neg p \\wedge \\neg q \\wedge r) \\vee (\\neg p \\wedge \\neg q \\wedge \\neg r)$`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  TOPIC 16: SHEFFER STROKE (1 question)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ls-ss-1',
+    courseId: 'logic-sets-ai',
+    topic: 'Sheffer Stroke',
+    difficulty: 'medium',
+    question: `The Sheffer stroke (NAND) $\\phi \\mid \\psi \\equiv \\neg(\\phi \\wedge \\psi)$ is functionally complete.
+
+Express the following using **only** the Sheffer stroke $\\mid$:
+
+1. $\\neg p$
+2. $p \\wedge q$
+3. $p \\vee q$
+4. $p \\to q$`,
+    answer: `**1. Negation:** $\\neg p \\equiv p \\mid p$
+
+Verification: $p \\mid p = \\neg(p \\wedge p) = \\neg p$. ✓
+
+**2. Conjunction:** $p \\wedge q \\equiv (p \\mid q) \\mid (p \\mid q)$
+
+Verification: $(p \\mid q) \\mid (p \\mid q) = \\neg(p \\mid q) = \\neg\\neg(p \\wedge q) = p \\wedge q$. ✓
+
+**3. Disjunction:** $p \\vee q \\equiv (p \\mid p) \\mid (q \\mid q)$
+
+Verification: $(p \\mid p) \\mid (q \\mid q) = \\neg p \\mid \\neg q = \\neg(\\neg p \\wedge \\neg q) = p \\vee q$ (by De Morgan). ✓
+
+**4. Implication:** $p \\to q \\equiv p \\mid (q \\mid q)$
+
+Verification: $p \\mid (q \\mid q) = p \\mid \\neg q = \\neg(p \\wedge \\neg q) = \\neg p \\vee q = p \\to q$. ✓`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  TOPIC 17: PREDICATE LOGIC (2 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ls-pl-1',
+    courseId: 'logic-sets-ai',
+    topic: 'Predicate Logic',
+    difficulty: 'medium',
+    question: `Translate the following English sentences into predicate logic formulas, using the predicates $S(x)$ = "$x$ is a student", $P(x)$ = "$x$ passes the exam", and $L(x, y)$ = "$x$ likes $y$".
+
+1. Every student passes the exam.
+2. Some student does not pass the exam.
+3. There is a student who likes every other student.
+4. No student likes every student.`,
+    answer: `**1.** "Every student passes the exam."
+
+$$\\forall x\\, (S(x) \\to P(x))$$
+
+**2.** "Some student does not pass the exam."
+
+$$\\exists x\\, (S(x) \\wedge \\neg P(x))$$
+
+Note: This is the negation of (1): $\\neg \\forall x\\, (S(x) \\to P(x)) \\equiv \\exists x\\, (S(x) \\wedge \\neg P(x))$.
+
+**3.** "There is a student who likes every other student."
+
+$$\\exists x\\, (S(x) \\wedge \\forall y\\, ((S(y) \\wedge y \\neq x) \\to L(x, y)))$$
+
+**4.** "No student likes every student."
+
+$$\\neg \\exists x\\, (S(x) \\wedge \\forall y\\, (S(y) \\to L(x, y)))$$
+
+Equivalently: $\\forall x\\, (S(x) \\to \\exists y\\, (S(y) \\wedge \\neg L(x, y)))$.`,
+  },
+  {
+    id: 'ls-pl-2',
+    courseId: 'logic-sets-ai',
+    topic: 'Predicate Logic',
+    difficulty: 'hard',
+    question: `Given the model $\\mathcal{M}$ with domain $D = \\{a, b, c\\}$ and interpretations:
+- $P^{\\mathcal{M}} = \\{a, c\\}$
+- $Q^{\\mathcal{M}} = \\{b\\}$
+- $R^{\\mathcal{M}} = \\{(a, b), (b, c), (c, a)\\}$
+
+Determine the truth value of each formula in $\\mathcal{M}$:
+1. $\\forall x\\, (P(x) \\vee Q(x))$
+2. $\\exists x\\, (P(x) \\wedge Q(x))$
+3. $\\forall x\\, \\exists y\\, R(x, y)$
+4. $\\exists x\\, \\forall y\\, R(x, y)$`,
+    answer: `**1.** $\\forall x\\, (P(x) \\vee Q(x))$
+
+Check each element:
+- $x = a$: $P(a) \\vee Q(a) = T \\vee F = T$ ✓
+- $x = b$: $P(b) \\vee Q(b) = F \\vee T = T$ ✓
+- $x = c$: $P(c) \\vee Q(c) = T \\vee F = T$ ✓
+
+All elements satisfy the formula. **TRUE.**
+
+**2.** $\\exists x\\, (P(x) \\wedge Q(x))$
+
+- $x = a$: $T \\wedge F = F$
+- $x = b$: $F \\wedge T = F$
+- $x = c$: $T \\wedge F = F$
+
+No element satisfies both $P$ and $Q$. **FALSE.**
+
+**3.** $\\forall x\\, \\exists y\\, R(x, y)$
+
+For each $x$, does there exist a $y$ such that $R(x, y)$?
+- $x = a$: $R(a, b) = T$ ✓ (take $y = b$)
+- $x = b$: $R(b, c) = T$ ✓ (take $y = c$)
+- $x = c$: $R(c, a) = T$ ✓ (take $y = a$)
+
+**TRUE.**
+
+**4.** $\\exists x\\, \\forall y\\, R(x, y)$
+
+Is there an $x$ related to every $y$?
+- $x = a$: $R(a, a) = F$. No.
+- $x = b$: $R(b, a) = F$. No.
+- $x = c$: $R(c, b) = F$. No.
+
+**FALSE.**
+
+Note: This illustrates that $\\forall x\\, \\exists y\\, R(x,y)$ does NOT imply $\\exists x\\, \\forall y\\, R(x,y)$.`,
   },
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -1870,7 +2097,7 @@ def multiplication_table(a, b, c):
     id: 'pq-py-7',
     courseId: 'intro-python-ai',
     topic: 'Conditionals & Loops',
-    difficulty: 'easy',
+    difficulty: 'medium',
     question: `Write a function \`capitalize_name(name)\` that capitalizes specific letters in a name:
 
 - If the name has **4 or more characters**, capitalize the **1st** and **4th** characters (indices 0 and 3), and lowercase the rest.
@@ -1880,7 +2107,7 @@ def multiplication_table(a, b, c):
 
 \`\`\`python
 capitalize_name("macdonald")  # → "MacDonald"
-capitalize_name("mcduck")     # → "McDuck"
+capitalize_name("mcduck")     # → "McdUck"
 capitalize_name("bob")        # → "BOB"
 capitalize_name("al")         # → "AL"
 \`\`\`
@@ -3372,5 +3599,322 @@ def get_most_popular_tag(tag_popularity):
 - **\`.get(key, 0)\`** pattern for accumulating totals in a dictionary
 - **Finding the maximum** by iterating with tracking, or using \`max()\` with a key function
 - Working with **object attributes** (\`artist.tags\`, \`artist.listeners\`) inside loops`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  PYTHON: TOPIC 10 — TESTING (2 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'pq-py-32',
+    courseId: 'intro-python-ai',
+    topic: 'Testing',
+    difficulty: 'medium',
+    question: `Write a file \`test_calculator.py\` that tests the following functions using **pytest**:
+
+\`\`\`python
+# calculator.py
+def add(a, b):
+    return a + b
+
+def divide(a, b):
+    if b == 0:
+        raise ZeroDivisionError("Cannot divide by zero")
+    return a / b
+
+def is_even(n):
+    return n % 2 == 0
+\`\`\`
+
+Write at least 5 test functions covering:
+- Normal cases for \`add\` and \`divide\`
+- Edge case: dividing by zero (use \`pytest.raises\`)
+- Testing \`is_even\` with both even and odd numbers
+
+**Hint:** Remember that test function names must start with \`test_\` and you need to import \`pytest\` to use \`pytest.raises\`.`,
+    answer: `\`\`\`python
+import pytest
+from calculator import add, divide, is_even
+
+
+def test_add_positive():
+    assert add(2, 3) == 5
+
+
+def test_add_negative():
+    assert add(-1, -1) == -2
+
+
+def test_divide_normal():
+    assert divide(10, 2) == 5.0
+
+
+def test_divide_by_zero():
+    with pytest.raises(ZeroDivisionError):
+        divide(10, 0)
+
+
+def test_is_even_true():
+    assert is_even(4) is True
+
+
+def test_is_even_false():
+    assert is_even(7) is False
+\`\`\`
+
+**How it works:**
+
+1. Each test function starts with \`test_\` so pytest can discover it.
+2. \`assert\` checks that the expected value matches the actual result.
+3. \`pytest.raises(ZeroDivisionError)\` is a **context manager** that verifies the code inside the \`with\` block raises the specified exception.
+4. We test normal cases, edge cases, and both True/False branches of \`is_even\`.
+
+**Key concepts:**
+- **pytest** naming conventions: files start with \`test_\`, functions start with \`test_\`
+- **\`assert\`** for checking expected outcomes
+- **\`pytest.raises\`** for testing that exceptions are raised
+- Testing both positive and negative cases`,
+  },
+  {
+    id: 'pq-py-33',
+    courseId: 'intro-python-ai',
+    topic: 'Testing',
+    difficulty: 'medium',
+    question: `Given the following \`Jar\` class:
+
+\`\`\`python
+class Jar:
+    def __init__(self, capacity=12):
+        if not isinstance(capacity, int) or capacity < 0:
+            raise ValueError("Capacity must be a non-negative integer")
+        self._capacity = capacity
+        self._size = 0
+
+    def deposit(self, n):
+        if self._size + n > self._capacity:
+            raise ValueError("Exceeds capacity")
+        self._size += n
+
+    def withdraw(self, n):
+        if n > self._size:
+            raise ValueError("Not enough cookies")
+        self._size -= n
+
+    @property
+    def capacity(self):
+        return self._capacity
+
+    @property
+    def size(self):
+        return self._size
+\`\`\`
+
+Write a \`test_jar.py\` file with tests for:
+- Creating a Jar with default capacity
+- Creating a Jar with invalid capacity (negative number)
+- Depositing and checking size
+- Withdrawing more than available
+- The \`capacity\` and \`size\` properties`,
+    answer: `\`\`\`python
+import pytest
+from jar import Jar
+
+
+def test_default_capacity():
+    jar = Jar()
+    assert jar.capacity == 12
+    assert jar.size == 0
+
+
+def test_invalid_capacity():
+    with pytest.raises(ValueError):
+        Jar(-1)
+
+
+def test_deposit():
+    jar = Jar(10)
+    jar.deposit(5)
+    assert jar.size == 5
+
+
+def test_deposit_exceeds_capacity():
+    jar = Jar(5)
+    with pytest.raises(ValueError):
+        jar.deposit(10)
+
+
+def test_withdraw():
+    jar = Jar(10)
+    jar.deposit(5)
+    jar.withdraw(3)
+    assert jar.size == 2
+
+
+def test_withdraw_too_many():
+    jar = Jar(10)
+    jar.deposit(3)
+    with pytest.raises(ValueError):
+        jar.withdraw(5)
+\`\`\`
+
+**Key concepts:**
+- **\`pytest.raises\`** as a context manager for testing exceptions
+- Testing both valid operations and error conditions
+- The \`@property\` decorator allows accessing \`jar.capacity\` and \`jar.size\` without parentheses
+- Each test function should test ONE specific behavior`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  PYTHON: TOPIC 11 — WHILE LOOPS & SET OPERATIONS (2 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'pq-py-34',
+    courseId: 'intro-python-ai',
+    topic: 'Conditionals & Loops',
+    difficulty: 'medium',
+    question: `Write a function \`guess_number(secret)\` that simulates a number-guessing game using a **while loop**.
+
+The function should:
+1. Start with \`low = 1\` and \`high = 100\`
+2. In each iteration, guess the middle number: \`guess = (low + high) // 2\`
+3. If \`guess == secret\`, return the number of guesses it took
+4. If \`guess < secret\`, set \`low = guess + 1\`
+5. If \`guess > secret\`, set \`high = guess - 1\`
+
+**Examples:**
+
+\`\`\`python
+guess_number(50)   # returns a small number (the count of guesses)
+guess_number(1)    # returns 7 or fewer guesses
+guess_number(100)  # returns 7 or fewer guesses
+\`\`\`
+
+**Hint:** This is binary search implemented with a while loop. It should never need more than 7 guesses for numbers 1-100.`,
+    answer: `\`\`\`python
+def guess_number(secret):
+    low = 1
+    high = 100
+    guesses = 0
+
+    while low <= high:
+        guess = (low + high) // 2
+        guesses += 1
+
+        if guess == secret:
+            return guesses
+        elif guess < secret:
+            low = guess + 1
+        else:
+            high = guess - 1
+
+    return guesses  # Should not reach here for valid input
+\`\`\`
+
+**How it works:**
+
+1. Initialize \`low\` and \`high\` to cover the full range [1, 100].
+2. The **while loop** continues as long as there is a valid range to search.
+3. Each iteration narrows the range by half.
+4. When \`guess == secret\`, we return the count.
+
+**Key concepts:**
+- **While loops** run as long as the condition is True
+- The loop variable (\`low\`/\`high\`) must be updated to avoid infinite loops
+- Binary search needs at most ceil(log2(100)) = 7 guesses`,
+  },
+  {
+    id: 'pq-py-35',
+    courseId: 'intro-python-ai',
+    topic: 'Dictionaries & Tuples',
+    difficulty: 'easy',
+    question: `Given two sets of student enrollments:
+
+\`\`\`python
+math_students = {"Alice", "Bob", "Charlie", "Diana"}
+science_students = {"Bob", "Diana", "Eve", "Frank"}
+\`\`\`
+
+Write expressions using **set operations** to find:
+1. Students enrolled in **both** courses
+2. Students enrolled in **either** course (or both)
+3. Students in math but **not** in science
+4. Students in **exactly one** course (not both)
+
+For each, state which set operator you used and show the result.`,
+    answer: `\`\`\`python
+math_students = {"Alice", "Bob", "Charlie", "Diana"}
+science_students = {"Bob", "Diana", "Eve", "Frank"}
+
+# 1. Students in BOTH courses (intersection)
+both = math_students & science_students
+# {"Bob", "Diana"}
+
+# 2. Students in EITHER course (union)
+either = math_students | science_students
+# {"Alice", "Bob", "Charlie", "Diana", "Eve", "Frank"}
+
+# 3. Students in math but NOT science (difference)
+math_only = math_students - science_students
+# {"Alice", "Charlie"}
+
+# 4. Students in EXACTLY ONE course (symmetric difference)
+exactly_one = math_students ^ science_students
+# {"Alice", "Charlie", "Eve", "Frank"}
+\`\`\`
+
+**Key concepts:**
+- \`&\` (intersection): elements in both sets
+- \`|\` (union): elements in either set
+- \`-\` (difference): elements in first set but not second
+- \`^\` (symmetric difference): elements in one set but not both
+- Sets are **unordered**, so the output order may vary`,
+  },
+  {
+    id: 'pq-py-36',
+    courseId: 'intro-python-ai',
+    topic: 'Dictionaries & Tuples',
+    difficulty: 'easy',
+    question: `Given the following dictionary of hex color codes:
+
+\`\`\`python
+colors = {
+    "red": "#ff0000",
+    "green": "#008000",
+    "blue": "#0000ff",
+}
+\`\`\`
+
+Write a **dictionary comprehension** that creates a new dictionary \`m_colors\` where the values have the \`#\` symbol removed. Then write a second dictionary comprehension that **inverts** the original dictionary (swaps keys and values).
+
+**Expected output:**
+\`\`\`python
+m_colors = {"red": "ff0000", "green": "008000", "blue": "0000ff"}
+inverted = {"#ff0000": "red", "#008000": "green", "#0000ff": "blue"}
+\`\`\``,
+    answer: `\`\`\`python
+colors = {
+    "red": "#ff0000",
+    "green": "#008000",
+    "blue": "#0000ff",
+}
+
+# Remove the '#' from values
+m_colors = {name: value[1:] for name, value in colors.items()}
+# {"red": "ff0000", "green": "008000", "blue": "0000ff"}
+
+# Invert the dictionary (swap keys and values)
+inverted = {value: name for name, value in colors.items()}
+# {"#ff0000": "red", "#008000": "green", "#0000ff": "blue"}
+\`\`\`
+
+**How it works:**
+
+1. **Dictionary comprehension syntax:** \`{key_expr: value_expr for var in iterable}\`
+2. \`value[1:]\` slices the string from index 1 onward, removing the \`#\` character.
+3. Inverting swaps the key and value positions in the comprehension.
+
+**Key concepts:**
+- **Dictionary comprehensions** create dictionaries concisely, similar to list comprehensions
+- **String slicing** (\`[1:]\`) to remove a prefix character
+- **\`.items()\`** returns key-value pairs for iteration`,
   },
 ];

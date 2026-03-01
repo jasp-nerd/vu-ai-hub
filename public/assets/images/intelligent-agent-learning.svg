@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="1171.8" height="715.3" version="1.1" viewBox="0 0 1171.8 715.3" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="marker4378" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="marker4198" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="marker4090" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="TriangleStart" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="TriangleStart-3-5" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="TriangleStart-3-6" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="TriangleStart-3-1" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="TriangleStart-3-9" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="TriangleStart-0" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="TriangleStart-7" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="TriangleStart-2" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+  <marker id="TriangleStart-3" overflow="visible" markerHeight="4" markerWidth="7" orient="auto-start-reverse" preserveAspectRatio="none" viewBox="0 0 5.3244081 6.1553851">
+   <path transform="scale(.5)" d="m5.77 0-8.65 5v-10z" fill="context-stroke" fill-rule="evenodd" stroke="context-stroke" stroke-width="1pt"/>
+  </marker>
+ </defs>
+ <g transform="translate(2.2929 .00245)" stroke-dashoffset="2.682" stroke-linejoin="bevel" stroke-miterlimit="0">
+  <g stroke-linecap="round">
+   <rect width="1167.1" height="715.29" fill="#fff" stroke-dashoffset="2.682" stroke-linecap="square" stroke-linejoin="bevel" stroke-miterlimit="0" stroke-opacity=".76432" stroke-width="4.557"/>
+   <rect x="6.1062e-14" y="2.2905" width="835.85" height="710.71" ry="38.582" fill="none" stroke="#000" stroke-width="4.5859"/>
+   <rect x="960.57" y="2.467" width="206.48" height="710.36" ry="38.987" fill="none" stroke="#000" stroke-width="4.9362"/>
+   <text x="1063.0236" y="357.42041" fill="#000000" font-family="sans-serif" font-size="22.667px" font-weight="bold" stroke-width="1.257" text-anchor="middle" style="line-height:0px" xml:space="preserve"><tspan x="1063.0236" y="357.42041">ENVIRONMENT</tspan></text>
+  </g>
+  <g fill="none" stroke="#000">
+   <g stroke-linecap="round">
+    <rect x="218.39" y="144.6" width="192.62" height="104.85" ry="0" stroke-width="4.557"/>
+    <rect x="226.3" y="343.11" width="191.65" height="112.79" stroke-width="4.5155"/>
+    <rect x="228.92" y="530.51" width="191.32" height="108.95" stroke-width="4.4699"/>
+    <rect x="568.02" y="346.23" width="189.82" height="111.99" stroke-width="4.4561"/>
+   </g>
+   <g stroke-linecap="square" stroke-opacity=".76432" stroke-width="4.557">
+    <path d="m316.72 250.59-0.71791 69.412" marker-end="url(#TriangleStart)"/>
+    <path d="m324 458v50" marker-end="url(#marker4090)"/>
+    <path d="m424 580 140-108" marker-end="url(#marker4198)"/>
+    <path d="m662 458-2 166" marker-end="url(#marker4378)"/>
+   </g>
+  </g>
+  <g font-family="sans-serif" font-size="22.667px" stroke-linecap="square" stroke-opacity=".76432" stroke-width="4.557" text-anchor="middle">
+   <text x="314.68063" y="207.77333"  style="line-height:0px" xml:space="preserve"><tspan x="314.68063" y="207.77333">Critic</tspan></text>
+   <text x="325.07272" y="392.70535"  style="line-height:0px" xml:space="preserve"><tspan x="325.07272" y="392.70535">Learning</tspan></text>
+   <text x="324.70663" y="425.22668"  style="line-height:0px" xml:space="preserve"><tspan x="324.70663" y="425.22668">element</tspan></text>
+   <text x="320" y="576" style="line-height:0px" xml:space="preserve"><tspan x="320" y="576">Problem</tspan><tspan x="320" y="576"/></text>
+   <text x="320" y="608"  style="line-height:0px" xml:space="preserve"><tspan x="320" y="608">Generator</tspan></text>
+   <text x="652" y="668"  style="line-height:0px" xml:space="preserve"><tspan x="652" y="668">Effectors</tspan></text>
+   <text x="255.73129" y="303.77335"  style="line-height:0px" xml:space="preserve"><tspan x="255.73129" y="303.77335">feedback</tspan></text>
+   <text x="224" y="496"  style="line-height:0px" xml:space="preserve"><tspan x="224" y="496">learning goals</tspan></text>
+   <text x="480" y="352"  style="line-height:0px" xml:space="preserve"><tspan x="480" y="352">changes</tspan></text>
+   <text x="492.11649" y="412.6665"  style="line-height:0px" xml:space="preserve"><tspan x="492.11649" y="412.6665">knowledge</tspan></text>
+   <text x="660" y="180"  style="line-height:0px" xml:space="preserve"><tspan x="660" y="180">Sensors</tspan></text>
+   <text x="898.88196" y="154.56"  style="line-height:0px" xml:space="preserve"><tspan x="898.88196" y="154.56">percepts</tspan></text>
+   <text x="888" y="648"  style="line-height:0px" xml:space="preserve"><tspan x="888" y="648">actions</tspan></text>
+   <text x="560" y="552"  style="line-height:0px" xml:space="preserve"><tspan x="560" y="552">experiments</tspan></text>
+   <text x="288" y="608"  style="line-height:0px" xml:space="preserve"><tspan x="288" y="608"/></text>
+   <text x="96" y="64" font-weight="bold"  style="line-height:0px" xml:space="preserve"><tspan x="96" y="64">Agent</tspan></text>
+   <text x="320.68057" y="33.340027"  style="line-height:0px" xml:space="preserve"><tspan x="320.68057" y="33.340027">Perfomance</tspan></text>
+   <text x="319.27142" y="63.773335"  style="line-height:0px" xml:space="preserve"><tspan x="319.27142" y="63.773335">Standard</tspan></text>
+   <text x="656" y="392"  style="line-height:0px" xml:space="preserve"><tspan x="656" y="392">Performance</tspan></text>
+   <text x="660" y="424"  style="line-height:0px" xml:space="preserve"><tspan x="660" y="424">element</tspan></text>
+  </g>
+  <g fill="none" stroke="#000" stroke-linecap="square" stroke-opacity=".76432" stroke-width="4.557">
+   <path d="m660 460v164" marker-end="url(#TriangleStart-3-5)"/>
+   <path d="m664 192v132" marker-end="url(#TriangleStart-3-6)"/>
+   <path d="m612 172h-180" marker-end="url(#TriangleStart-3-1)"/>
+   <path d="m312 72v52" marker-end="url(#TriangleStart-3-9)"/>
+   <path d="m424 364h122" marker-end="url(#TriangleStart-0)"/>
+   <path d="m564 428h-124" marker-end="url(#TriangleStart-7)"/>
+   <path d="m1e3 176h-256" marker-end="url(#TriangleStart-2)"/>
+   <path d="m720 664 284-4" marker-end="url(#TriangleStart-3)"/>
+  </g>
+ </g>
+</svg>
