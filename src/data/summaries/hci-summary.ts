@@ -2,7 +2,7 @@
  * Comprehensive HCI Summary — inline markdown content.
  * Compiled from all 8 chapters of MacKenzie's "Human-Computer Interaction:
  * An Empirical Research Perspective" plus supplementary lecture materials
- * on data analysis & visualization and exam preparation.
+ * on data analysis & visualization, exam preparation, and practice questions.
  */
 export const hciSummary = `
 ## Chapter 1: Historical Context
@@ -11,6 +11,13 @@ export const hciSummary = `
 - **HCI (Human-Computer Interaction)** emerged as a field of research in the early 1980s
 - The term was popularized at the first ACM SIGCHI conference (1983)
 - HCI draws from **computer science, psychology, sociology, design, and human factors engineering**
+- HCI is essentially human factors, but focused specifically on human interaction with computing technology
+
+### Human Factors (Ergonomics)
+- A science and a field of engineering concerned with:
+  - Human capabilities, limitations, and performance
+  - Design of systems that accommodate the human operator
+- HCI has an **interdisciplinary scope** — it brings together computer scientists, software engineers, psychologists, interaction designers, graphic designers, sociologists, and anthropologists
 
 ### Key Historical Milestones
 
@@ -19,52 +26,146 @@ export const hciSummary = `
 | 1945 | Vannevar Bush proposes the **memex** — a conceptual device for storing and linking documents (foreshadowed hypertext) |
 | 1940s-50s | **Batch processing** era — users submit jobs on punch cards; no real-time interaction |
 | 1960s | **Time-sharing** systems allow multiple users to interact with a computer simultaneously |
-| 1963 | Ivan Sutherland's **Sketchpad** — first graphical interface with a light pen |
+| 1962 | Ivan Sutherland's **Sketchpad** — first graphical interface with a light pen; first direct manipulation interface |
+| 1963 | Douglas Engelbart invents the **computer mouse** — needed an improved pointing device to replace the light pen for his NLS hypertext system |
 | 1968 | Douglas Engelbart's **"Mother of All Demos"** — demonstrates the mouse, hypertext, video conferencing, windows |
 | 1973 | Xerox PARC develops the **Alto** — first personal computer with a graphical user interface |
 | 1981 | **Xerox Star** — first commercially available computer with a GUI (the mouse became available outside the lab) |
-| 1984 | **Apple Macintosh** — brings the GUI to the mass market |
+| 1983 | Birth of HCI — first **ACM SIGCHI** conference; publication of Card, Moran & Newell's *The Psychology of Human-Computer Interaction* |
+| 1984 | **Apple Macintosh** — brings the GUI to the mass market with direct manipulation and point-select interaction |
 | 1991 | Tim Berners-Lee launches the **World Wide Web** |
+
+### Vannevar Bush's Memex (1945)
+- Essay "As We May Think" concerned with dissemination, storage, and access to scholarly knowledge
+- Proposed navigating the knowledge maze with a device called the **memex**
+- Key feature: **associative indexing** — points of interest could be connected and joined so that selecting one item immediately and automatically selects another
+- Foreshadowed hypertext and the World Wide Web
+
+### Xerox Star (1981)
+- First commercially released computer system with a GUI
+- Had **windows, icons, menus, and a pointing device (WIMP)**
+- Supported **direct manipulation** and **WYSIWYG** (what-you-see-is-what-you-get) interaction
+- Display was **bit-mapped** (images formed by mapping bits in memory to pixels on the display)
+- Used the **desktop metaphor** — brought concepts from the office desktop to the system's display
+- Users interacted with files, not programs — "open a document" rather than "invoke an editor"
+- **Continuous property**: e.g., display brightness or sound volume, has a continuous control such as a slider
+- **Discrete property**: e.g., font size or family, has a discrete control such as a multi-position switch or menu item
 
 ### Evolution of Interaction Paradigms
 1. **Batch processing** (1950s): No interaction during execution; punch cards and printouts
-2. **Command-line interfaces** (1960s-70s): Text commands typed at a terminal; time-sharing
+2. **Command-line interfaces** (1960s-70s): Text commands typed at a terminal; time-sharing; follow **sequential programming**
 3. **Graphical User Interfaces (GUIs)** (1980s): Windows, Icons, Menus, Pointer (**WIMP**)
-4. **Direct manipulation** (1980s-present): Objects on screen that users can drag, resize, and interact with
+4. **Direct manipulation** (1980s-present): Objects on screen that users can drag, resize, and interact with; must accept the user's actions according to the user's wishes
 5. **Touch, gesture, voice, AR/VR** (2000s-present): Post-WIMP interaction
 
 ### Important People
 - **Vannevar Bush** — memex concept (1945)
 - **J.C.R. Licklider** — "Man-Computer Symbiosis" (1960); vision of interactive computing
-- **Ivan Sutherland** — Sketchpad (1963), head-mounted display
+- **Ivan Sutherland** — Sketchpad (1962), head-mounted display
 - **Douglas Engelbart** — Mouse, NLS system, hypertext (1968 demo)
 - **Alan Kay** — Dynabook concept, Smalltalk, GUI pioneer at Xerox PARC
-- **Stuart Card, Thomas Moran, Allen Newell** — "The Psychology of Human-Computer Interaction" (1983); brought cognitive psychology into HCI
+- **Stuart Card, Thomas Moran, Allen Newell** — "The Psychology of Human-Computer Interaction" (1983); brought cognitive psychology into HCI; introduced the **Model Human Processor (MHP)**
+
+### The Psychology of Human-Computer Interaction (1983)
+- Emerged from work done at **Xerox PARC** (Applied Information-Processing Psychology Project)
+- **Model Human Processor (MHP)**: had an eye and an ear (perceptual processor), a brain (cognitive processor, short-term memory, long-term memory), and an arm, hand, and finger (motor responses)
+- Two most prominent predictive models in the book: **Hick's Law** (choice reaction time) and **Fitts' Law** (rapid aimed movement)
+- Key insight: human behavior can be understood and modeled as an **information processing activity**
+
+### Growth of HCI Research
+- Research initially focused on quality, effectiveness, and efficiency of the interface
+- **Recognition is preferred over recall** in user interfaces
+- Menu design was an actively pursued research topic in the early days
+
+> **Exam-style Q (Ch. 1):** In which period did the computer mouse become available outside the laboratory?
+> **Answer:** In the early 1980s as part of the Xerox Star system.
+
+> **Exam-style Q (Ch. 1):** The first commercially available computer system to use a GUI was...
+> **Answer:** Xerox Star (1981).
 
 ---
 
 ## Chapter 2: The Human Factor
 
+### Time Scale of Human Action
+- Time is the most common **dependent variable** in experimental research in HCI
+- **Newell's time scale of human action** ranges from the biological band (~1 ms, neurons) through the cognitive band (~100 ms - 10 s, deliberate acts and operations) to the rational band (minutes-hours, tasks) and the social band (days-months)
+- The lower in the scale, the more quantitative the research; the higher, the more qualitative
+
+### Human Factors Model
+- Model showing a human operator confronting a machine
+- The human monitors the state of the computer through **sensors** and **displays**
+- The human controls the state of the computer through **responders** and **controls**
+- The **interface** is the dashed vertical line where interaction takes place — this is where researchers observe and measure behavioral events
+
 ### Human Sensory Systems
 Humans receive information through sensory channels: **vision, hearing, touch, smell, taste**. Vision and hearing are the most important for HCI.
 
-**Vision:**
-- Dominant sensory channel for most computer interaction
-- Foveal vision: sharp central vision (~2 degrees)
+**Gestalt Principles of Perception:**
+
+The Gestalt principles explain how humans naturally group and organize visual elements. These principles are fundamental to UI design.
+
+![Gestalt Principle — Proximity](/assets/images/gestalt-proximity.svg)
+![Gestalt Principle — Similarity](/assets/images/gestalt-similarity.svg)
+![Gestalt Principle — Closure](/assets/images/gestalt-closure.svg)
+
+**Vision (Sight):**
+- Dominant sensory channel for most computer interaction — most people obtain about **80%** of their information through sight
+- The act of seeing: light reception through the lens, focused onto the **retina** (a transducer converting visible light into neurological signals), sent to the brain via the **optic nerve**
+- The **fovea** is responsible for sharp central vision (~2 degrees)
 - Peripheral vision: detects motion and changes
+- Properties of light: **frequency** (leads to color perception; visible spectrum 390-750 nm), **intensity** (luminance, measured in cd/m2; subjective analog is brightness)
+- **Fixations**: eyes are stationary, taking in visual detail; typically last at least **200 ms**
+- **Saccades**: rapid repositioning of the eyes to a new position; take only **30-120 ms**
 
-**Hearing:**
+**Hearing (Audition):**
+- Detection of sound by humans; sound transmitted through environment as sound waves
+- Physical properties: **intensity** (loudness), **frequency** (pitch), **timbre** (harmonic structure), **envelope** (how a note builds up and transitions in time)
+- **Loudness**: subjective analog of intensity; measured in **decibels (dB)** — hearing begins at 0-10 dB, conversational speech at 50-70 dB, pain at 120-140 dB
+- **Pitch**: subjective analog of frequency; measured in **Hertz (Hz)** — humans can perceive 20 Hz to 20,000 Hz; upper limit decreases with age
 - Important for alerts, notifications, and non-visual feedback
-- Auditory perception processes frequency, loudness, and timbre
 
-**Touch (Haptics):**
-- Skin receptors detect pressure, vibration, temperature
-- Key for touchscreens, force feedback, Braille displays
+**Touch (Tactition / Haptics):**
+- **Somatosensory system**: includes sensory receptors in the skin, muscles, bones, joints, and organs providing information on touch, temperature, pain, and body/limb position
+- **Tactile feedback** in HCI: information provided through the somatosensory system from a body part in contact with a physical object
+- All user interfaces involving physical contact include tactile feedback
 - **Penfield's Homunculus**: sensory/motor cortex map showing that hands, lips, and tongue have disproportionately large representation
+- **Proprioception**: coordination of limb movement and position through perception of stimuli within muscles and tendons
+
+**Smell and Taste:**
+- **Smell (olfaction)**: ability to perceive odors through sensory cells in the nasal cavity
+- **Taste (gustation)**: direct chemical reception of sweet, salty, bitter, and sour sensations through taste buds
+- **Flavor**: a perceptual process combining smell and taste senses
+- These senses are not generally "designed in" to systems
+
+### Responders
+- Through movement or **motor control**, humans affect the environment
+- **Limbs**: primarily upper body; movement is tightly coupled to the somatosensory system
+- **Voice**: vocal cords as responders; includes speech and non-speech vocalized sounds (**NVVI** — non-verbal voice interaction)
+- **Eyes**: can act both as sensor (receiving light) and responder (controlling a computer through fixations and saccades in eye-tracking systems)
+
+> **Exam-style Q (Ch. 2):** In an eye-tracking typing system for people unable to use their hands, what is the function of the eye?
+> **Answer:** Both input and output (the eye serves as both sensor and responder).
 
 ### Perception and Cognition
-- **Perception**: the process of interpreting sensory information
-- **Cognition**: higher-level processes including thinking, problem-solving, decision-making, language
+- **Perception**: first stage of processing in the brain when sensory signals are received; associations and meanings take shape
+- **Psychophysics**: examines the relationship between human perception and physical phenomena; a common goal is measuring the **just noticeable difference (JND)**
+- **Ambiguity**: the human ability to develop multiple interpretations of a sensory input
+- **Illusion**: the deception of common sense
+- **Cognition**: the human process of conscious intellectual activity — thinking, reasoning, deciding
+- Studying cognition is challenging because beginning and ending of cognitive operations are often not precisely known
+
+### Cognitive Operation in Reaction Time Tasks
+A reaction time task involves a sequence of operations:
+
+| Operation | Typical Time |
+|-----------|-------------|
+| Sensory reception | 1 - 38 ms |
+| Neural transmission to brain | 2 - 100 ms |
+| Cognitive processing | 70 - 300 ms |
+| Neural transmission to muscle | 10 - 20 ms |
+| Muscle latency and activation | 30 - 70 ms |
+| **Total** | **113 - 528 ms** |
 
 ### Memory Systems
 
@@ -74,8 +175,11 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 | **Short-term (working) memory** | ~15-30 seconds | **7 +/- 2 items** (Miller's Law) | Active processing; easily disrupted |
 | **Long-term memory** | Indefinite | Unlimited | Permanent storage; requires encoding |
 
-- **Chunking**: grouping items to increase effective working memory capacity (e.g., phone numbers as groups)
-- Long-term memory subdivisions: **declarative** (facts/events) vs. **procedural** (skills/how-to)
+- **Chunking**: grouping low-level items into a single high-level item to increase effective working memory capacity (e.g., phone numbers as groups) — an intuitive process
+- Long-term memory subdivisions:
+  - **Declarative/explicit area**: stores information about events in time and objects in the external world (similar to a data space)
+  - **Implicit/procedural area**: stores information about how to use objects or do things (similar to a code space)
+- Humans are typically able to distinguish about **seven levels** of a uni-dimensional stimulus
 
 ### Reaction Times
 
@@ -90,6 +194,7 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 ### Shannon's Information Theory
 - **Information** is measured in **bits**: $H = \\log_2(n)$ for $n$ equally likely alternatives
 - **Redundancy** in language reduces information content (English has ~50% redundancy)
+- **Entropy**: a measure of the information content of a language; relates to the predictability of characters
 - This framework is foundational for Hick-Hyman Law and Fitts' Law (Chapter 7)
 
 ### Human Error
@@ -136,15 +241,33 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 - **Isometric**: device does not move; senses applied force (e.g., IBM TrackPoint)
 
 ### Other Important Concepts
-- **Population stereotypes**: expected mappings between controls and effects (e.g., turning a knob clockwise = increase)
+- **Population stereotypes**: expected mappings between controls and effects (e.g., turning a knob clockwise = increase) — these are **natural relationships**
+- **Learned relationships**: mappings that must be learned through experience (e.g., keyboard shortcuts)
 - **Warrick's principle**: the display should move in the same direction as the side of the control closest to the display
 - **Mental models**: user's internal representation of how a system works
-- **Modes**: different states where the same input produces different outputs (can cause errors)
+- **Metaphor**: using familiar concepts to understand unfamiliar systems (e.g., desktop metaphor — folders, trash can, documents)
+- **Modes**: different states where the same input produces different outputs (can cause **mode errors**)
 - **6 DOF (degrees of freedom)**: 3 translation (x, y, z) + 3 rotation (pitch, yaw, roll)
 - **Direct input**: input and display share the same surface (e.g., touchscreen)
 - **Indirect input**: input and display are separate (e.g., mouse + monitor)
 - **Fat finger problem**: fingers occlude the touchscreen target; finger contact area limits precision
 - **Latency**: delay between input action and system response; should be minimized
+
+### Mobile Context
+- Mobile devices introduce unique interaction challenges: small screens, variable lighting, one-handed use, movement, social context
+- Touch is the primary input modality on mobile — no tracking state (State 0 or State 2 only)
+
+### Interaction Errors
+- Errors occur when the user's action does not match the intended outcome
+- Mode errors are particularly common when the same input produces different results depending on system state
+- Good design minimizes errors through clear feedback, undo functionality, and constraints
+
+### Prototypes
+- **Wizard of Oz**: a testing setup where a human operator simulates the system's responses (e.g., testing the UI of an AI chatbot before the AI is built, with humans providing answers instead)
+- Prototypes range from low-fidelity (paper sketches) to high-fidelity (interactive software mockups)
+
+> **Exam-style Q (Lectures):** A company is testing the UI of an AI chatbot. They have not built the AI yet, they test with answers provided by humans instead. This setup is...
+> **Answer:** A Wizard of Oz setup.
 
 ---
 
@@ -153,6 +276,12 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 ### What is Research?
 - **Research**: a systematic inquiry to describe, explain, predict, or control observed phenomena
 - **Empirical research**: based on observation and measurement rather than theory alone
+- Research must be **published** and **reproducible**
+- **Research vs. Engineering vs. Design**: research seeks to discover new knowledge; engineering applies knowledge to build systems; design focuses on creating useful and usable artifacts
+
+### Citations, References, and Impact
+- **H-index**: a metric for academic impact — an h-index of $n$ means $n$ papers have been cited at least $n$ times
+- Citations track how influential a paper is; references acknowledge prior work
 
 ### Research Methods
 
@@ -162,17 +291,20 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 | **Experimental** | Manipulate independent variables and measure effects on dependent variables | Establishes **cause and effect** |
 | **Correlational** | Measure relationship between variables | Shows association, **not causation** |
 
-### Measurement Scales
+### Measurement Scales (NOIR)
 
-| Scale | Properties | Example |
-|-------|-----------|---------|
-| **Nominal** | Categories only; no order | Gender, device type, color |
-| **Ordinal** | Categories with order; unequal intervals | Likert scale ratings, rankings, temperature rating |
-| **Interval** | Ordered with equal intervals; no true zero | Temperature in Celsius, IQ scores |
-| **Ratio** | Equal intervals with a true zero | Task completion time, error count, distance |
+| Scale | Properties | Example | Can Compute |
+|-------|-----------|---------|-------------|
+| **Nominal** | Categories only; no order | Gender, device type, color | Mode, frequency counts |
+| **Ordinal** | Categories with order; unequal intervals | Likert scale ratings, rankings, temperature rating | Median, percentiles |
+| **Interval** | Ordered with equal intervals; no true zero | Temperature in Celsius, IQ scores | Mean, standard deviation |
+| **Ratio** | Equal intervals with a true zero | Task completion time, error count, distance | All arithmetic operations |
 
-- **Likert scales**: typically treated as **ordinal** data (the intervals between "agree" and "strongly agree" are not necessarily equal)
+- **Likert scales**: technically **ordinal** data (the intervals between "agree" and "strongly agree" are not necessarily equal), but often treated as interval when the scale has 5+ points
 - The measurement scale determines which statistical tests can be used
+
+> **Exam-style Q (Ch. 4):** Consider a questionnaire asking "How would you rate the current temperature in your room?" with answers: way too cold, slightly cold, good, slightly warm, too hot, inferno! — this is an example of...
+> **Answer:** Ordinal scale (ordered categories with potentially unequal intervals).
 
 ### Validity
 
@@ -182,7 +314,13 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 | **External validity** | The degree to which results can be generalized to other settings, people, or times |
 | **Ecological validity** | The degree to which the experimental setting resembles real-world conditions |
 
-- **H-index**: a metric for academic impact — an h-index of $n$ means $n$ papers have been cited at least $n$ times
+### Relationships
+- **Circumstantial (correlational)**: two variables are related, but one does not necessarily cause the other
+- **Causal**: one variable directly causes changes in another (can only be established through experimental methods with controlled variables)
+
+### Comparative Evaluations
+- Compare two or more systems, devices, or techniques on measured outcomes
+- Common in HCI: comparing input devices (mouse vs. trackpad vs. touchscreen)
 
 ---
 
@@ -195,8 +333,11 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 
 ### Ethics
 - Research with human participants requires **ethics approval** from an Institutional Review Board (IRB)
-- **Informed consent**: participants must be told the purpose, procedures, risks, and their right to withdraw at any time
+- **Informed consent**: participants agree to participate after being given **clear indication** of what the study is about and what their participation would entail; they have the right to withdraw at any time
 - Data must be kept confidential and anonymous
+
+> **Exam-style Q (Ch. 5):** What is meant by 'informed consent' in human subject experiments?
+> **Answer:** People agree to participate after given clear indication what the study is about and what their participation would entail.
 
 ### Variables
 
@@ -210,6 +351,9 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 
 - IVs have **levels** (e.g., device type: mouse, trackpad, touchscreen = 3 levels)
 - A **factor** is another name for an independent variable; its values are **levels**
+
+> **Exam-style Q (Ch. 5):** We study the effect of adding colored buttons on usability of a device. We test with a colored and black version and measure the effect with the SUS. What is true?
+> **Answer:** In the experiment, button color is the independent variable (it is manipulated by the researcher; usability/SUS score is the dependent variable).
 
 ### Experimental Designs
 
@@ -234,7 +378,18 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 - **Symmetric transfer** (learning): improves performance in later conditions equally
 - **Asymmetric skill transfer**: experience with one condition helps with a specific other condition (more than the reverse)
 - **Longitudinal studies** can reveal the **crossover point** — where a new technique surpasses the old one
+
+### Questionnaire Design
+- Questions should be clear, unambiguous, and avoid leading the respondent
+- Use validated instruments when possible (e.g., **SUS** — System Usability Scale, **NASA-TLX**)
 - **NASA-TLX**: a standard subjective workload assessment tool (six subscales: mental demand, physical demand, temporal demand, performance, effort, frustration)
+- **SUS (System Usability Scale)**: a 10-item questionnaire yielding a single usability score (0-100)
+
+### Running the Experiment
+- Pilot test first to identify problems
+- Standardize instructions across participants
+- Record all relevant data; note any anomalies
+- Debrief participants after the study
 
 ---
 
@@ -277,15 +432,48 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 - **Two-way ANOVA**: two independent variables — can detect **main effects** and **interaction effects**
 - An **interaction effect** means the effect of one IV depends on the level of another IV
 
+### Why Analyze Variance (Not Just Means)?
+- Two datasets can have the same mean but very different variances
+- ANOVA partitions total variance into:
+  - **Between-groups variance**: variability due to the experimental manipulation (signal)
+  - **Within-groups variance**: variability due to individual differences and random error (noise)
+- If the ratio (F) is large enough, we conclude the manipulation had a real effect
+
+### Between-Subjects ANOVA
+- Uses independent samples — each participant only in one group
+- More participants needed because individual differences contribute to within-group variance
+- F-test compares between-group variance to within-group variance
+
+### Counterbalancing and Testing for Group Effects
+- When using a Latin square in a within-subjects design, you can test whether the order of conditions had a significant effect
+- If a group effect is significant, it suggests the counterbalancing did not fully eliminate order effects
+
 ### Post Hoc Comparisons
 - After a significant ANOVA, post hoc tests identify **which specific pairs** differ
 - Common tests: **Scheffe**, **Bonferroni/Dunn**, **Fisher PLSD**, **Tukey HSD**
 - Post hoc tests correct for the increased risk of Type I error from multiple comparisons
 
+### Chi-Square Test
+- Used when data are **frequencies** (counts) rather than scores
+- Tests whether observed frequencies differ significantly from expected frequencies
+- $df = (r-1)(c-1)$ for contingency tables (r = rows, c = columns)
+- Example: testing whether the distribution of preferred devices differs from what would be expected by chance
+
+### Parametric vs. Non-Parametric Tests
+**Parametric tests** assume:
+- Data are normally distributed
+- Data are at least interval scale
+- Homogeneity of variance
+
+**Non-parametric tests**:
+- Make fewer assumptions about the data
+- Used for ordinal data (e.g., Likert scales) or when normality is violated
+- Generally less powerful than parametric equivalents
+
 ### Choosing the Right Statistical Test
 
 **Step 1: Are your data frequencies or scores?**
-- Frequencies $\\rightarrow$ **Chi-Square test** ($df = (r-1)(c-1)$ for contingency tables)
+- Frequencies $\\rightarrow$ **Chi-Square test**
 - Scores $\\rightarrow$ proceed to Step 2
 
 **Step 2: Experimental or correlational?**
@@ -299,13 +487,40 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 
 ### Statistical Test Selection Table
 
-| Design | # Conditions | Parametric | Non-Parametric |
-|--------|-------------|-----------|----------------|
-| Between-subjects | 2 | Independent t-test | Mann-Whitney U test |
-| Within-subjects | 2 | Paired t-test | Wilcoxon Signed-Rank test |
-| Between-subjects | 3+ | One-way ANOVA | Kruskal-Wallis test |
-| Within-subjects | 3+ | Repeated-measures ANOVA | Friedman test |
-| Correlation | - | Pearson's r | Spearman's rho |
+| Data Setup | Parametric Test | Non-Parametric Test |
+|------------|----------------|-------------------|
+| 1 Variable, 2 Categories, **Between-Subjects** | Independent t-test | Mann-Whitney U test |
+| 1 Variable, 2 Categories, **Within-Subjects** | Paired t-test | Wilcoxon Signed-Rank test |
+| 1 Variable, >2 Categories, **Between-Subjects** | One-way ANOVA | Kruskal-Wallis test |
+| 1 Variable, >2 Categories, **Within-Subjects** | Repeated-measures ANOVA | Friedman test / Mood's median test |
+| 1 Variable, **Correlation** | Pearson's r | Spearman's rho ($\\rho$) |
+
+### Worked Example: Choosing a Test
+
+> **Exam-style Q (Ch. 6):** A group of Android users (A) and iPhone users (B) are asked how satisfied they are with their phone. The experiment uses a 5-point Likert-scale. What is the most appropriate test to see if the answers between group A and B differ significantly?
+>
+> **Step-by-step reasoning:**
+> 1. The data are **scores** (Likert scale), not frequencies
+> 2. The study is **experimental** (comparing two groups)
+> 3. Likert-scale data is **ordinal** (non-parametric)
+> 4. There are **2 categories** (Android vs. iPhone)
+> 5. The design is **between-subjects** (each person uses only one phone type)
+>
+> **Answer:** Mann-Whitney U test for ordinal data.
+
+### More Practice: Test Selection
+
+**Scenario A:** Comparing task completion time (ratio data, normally distributed) for 3 input devices where each participant uses all 3 devices.
+- Within-subjects, 3+ conditions, parametric $\\rightarrow$ **Repeated-measures ANOVA**
+
+**Scenario B:** Comparing SUS scores (ordinal) between a group using interface A and a group using interface B.
+- Between-subjects, 2 conditions, non-parametric $\\rightarrow$ **Mann-Whitney U test**
+
+**Scenario C:** Testing whether gender (male/female) is associated with preferred input device (mouse/trackpad/touchscreen).
+- Frequencies in a contingency table $\\rightarrow$ **Chi-Square test** ($df = (2-1)(3-1) = 2$)
+
+**Scenario D:** Examining the relationship between hours of practice and typing speed (both ratio data, normally distributed).
+- Correlational, parametric $\\rightarrow$ **Pearson's r**
 
 ### Effect Size
 - Statistical significance tells you **whether** an effect exists; effect size tells you **how big** it is
@@ -368,9 +583,15 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 | **State 1** | Tracking (no selection) | Mouse moving, cursor follows |
 | **State 2** | Dragging (selecting/manipulating) | Mouse button held down while moving |
 
-- A mouse is a 2-state device (State 1: tracking, State 2: dragging; cannot sense "out of range")
-- A stylus/pen is a 3-state device (can distinguish all three states)
-- A touchscreen is a 2-state device (State 0: not touching, State 2: touching/dragging; no tracking state)
+- A mouse is a **2-state device** (State 1: tracking, State 2: dragging; cannot sense "out of range")
+- A stylus/pen is a **3-state device** (can distinguish all three states)
+- A touchscreen is a **2-state device** (State 0: not touching, State 2: touching/dragging; no tracking state — this is why hover effects do not work on touchscreens)
+
+**Eye Tracking and Heatmaps:**
+
+Eye tracking records where users look on a screen. Heatmaps visualize aggregated gaze data — warmer colors indicate longer or more frequent fixations.
+
+![Eye tracking heatmap on a Wikipedia page](/assets/images/eye-tracking-heatmap.jpg)
 
 ### Predictive Models
 
@@ -381,6 +602,8 @@ Humans receive information through sensory channels: **vision, hearing, touch, s
 
 #### Fitts' Law
 The most important predictive model in HCI — predicts the time to move to a target based on distance and size.
+
+![Fitts' Law — relationship between target distance (D) and width (W)](/assets/images/fitts-law-diagram.svg)
 
 **Original formulation (Fitts, 1954):**
 $$ID = \\log_2\\left(\\frac{2A}{W}\\right)$$
@@ -410,6 +633,43 @@ $$ID_e = \\log_2\\left(\\frac{A}{W_e} + 1\\right)$$
 **Background — Shannon's Theorem 17:**
 Fitts' Law is analogous to Shannon's information theorem: $C = B \\log_2(S/N + 1)$, where signal-to-noise ratio maps to amplitude-to-width ratio.
 
+#### Fitts' Law: Detailed Calculation Examples
+
+**Example 1 — Basic ID Calculation (Shannon formulation):**
+A target is 200 pixels away ($A = 200$) and 50 pixels wide ($W = 50$).
+$$ID = \\log_2\\left(\\frac{200}{50} + 1\\right) = \\log_2(5) = 2.32 \\text{ bits}$$
+
+**Example 2 — Predicting Movement Time:**
+Given $a = 50$ ms and $b = 150$ ms/bit (empirically determined), and $ID = 2.32$ bits:
+$$MT = 50 + 150 \\times 2.32 = 50 + 348 = 398 \\text{ ms}$$
+
+**Example 3 — Comparing Two Targets:**
+- Target A: $A = 400$ px, $W = 20$ px $\\rightarrow$ $ID = \\log_2(400/20 + 1) = \\log_2(21) = 4.39$ bits
+- Target B: $A = 100$ px, $W = 50$ px $\\rightarrow$ $ID = \\log_2(100/50 + 1) = \\log_2(3) = 1.58$ bits
+- Target B is much easier (lower ID) — the combination of shorter distance and larger target makes it significantly faster to acquire
+
+**Example 4 — Effective Width and Throughput:**
+In a pointing study, participants aimed at a target with $A = 300$ px, $W = 40$ px.
+The standard deviation of their actual endpoints was $SD_x = 12$ px.
+$$W_e = 4.133 \\times 12 = 49.6 \\text{ px}$$
+$$ID_e = \\log_2\\left(\\frac{300}{49.6} + 1\\right) = \\log_2(7.05) = 2.82 \\text{ bits}$$
+If mean movement time was $MT = 450$ ms = 0.45 s:
+$$TP = \\frac{2.82}{0.45} = 6.27 \\text{ bits/s}$$
+
+#### Fitts' Law and Menu Design
+
+> **Exam-style Q (Ch. 7):** Order three menu types (pie, rectangular, linear) from fastest to slowest after the user clicks "Menu1", according to Fitts' Law.
+>
+> **Answer:** 1st: Pie menu (shortest distance, large targets), 2nd: Rectangular menu (moderate distance, wide targets), 3rd: Linear menu (longest distance for bottom items, narrow targets).
+>
+> **Explanation:** Pie menus arrange items radially around the cursor, so $A$ is small and $W$ is large (the wedge-shaped target extends outward). Linear menus stack items vertically, so bottom items have large $A$ and the items have small $W$.
+
+#### Fitts' Law Design Implications
+- **Make frequently used targets larger** and **closer** to the cursor's expected position
+- **Screen edges and corners** are effectively infinite-width targets (the cursor cannot overshoot) — this is why the Start menu is in the corner and macOS menu bar is at the top edge
+- **Pop-up/context menus** reduce $A$ by appearing near the cursor
+- **Pie menus** outperform linear menus because they minimize $A$ and maximize $W$
+
 #### Hick-Hyman Law
 Predicts decision time (reaction time) based on the number of choices.
 
@@ -425,6 +685,12 @@ Where:
 **With unequal probabilities:**
 $$H = \\sum p_i \\cdot \\log_2\\left(\\frac{1}{p_i} + 1\\right)$$
 
+**Example — Hick's Law Calculation:**
+A menu has 8 equally probable items. How long does it take to decide?
+$$RT = 200 + 150 \\cdot \\log_2(8 + 1) = 200 + 150 \\cdot 3.17 = 200 + 475.5 = 675.5 \\text{ ms}$$
+
+**Design implication:** Reducing the number of choices (or making some items more prominent) reduces decision time. This is why menus should be organized into logical groups with frequently used items highlighted.
+
 #### Keystroke-Level Model (KLM)
 Predicts expert task completion time by summing primitive operator times.
 
@@ -434,15 +700,15 @@ $$t_{EXECUTE} = t_K + t_P + t_H + t_D + t_M + t_R$$
 
 | Operator | Action | Time |
 |----------|--------|------|
-| **K** | Keystroke (key press) | 0.08s (expert typist) to 1.20s (unfamiliar key) |
-| **B** | Button press (mouse click) | 0.10s |
-| **P** | Pointing (moving cursor to target) | 1.10s (average) |
+| **K** | Keystroke (key press) | Expert typist (90 wpm): 0.12s; Average skilled (55 wpm): 0.20s; Average non-secretarial (40 wpm): 0.28s; Worst (unfamiliar): 1.20s |
+| **B** / **BB** | Button press (mouse click) / Double-click | 0.10s / 0.20s |
+| **P** | Pointing (moving cursor to target) | 0.8 to 1.5s, average 1.10s (can also use Fitts' Law) |
 | **H** | Homing (moving hand between keyboard and mouse) | 0.40s |
 | **D** | Drawing a line | $0.9n_D + 0.16l_D$ seconds ($n_D$ = number of segments, $l_D$ = total length in cm) |
-| **M** | Mental preparation (thinking/deciding) | 1.35s |
-| **R** | System response time | Variable (depends on the system) |
+| **M** | Mental preparation (thinking/deciding) | 1.35s (1.2s according to Olson and Olson 1995) |
+| **R(t)** or **W(t)** | System response (or 'work') time | Variable (depends on the system) |
 
-**KLM Example — Deleting an icon (from exam prep):**
+**KLM Example 1 — Deleting an icon via menu (from exam prep):**
 1. M — think about which icon to delete
 2. P — move cursor to the icon
 3. B — click to select the icon
@@ -454,15 +720,25 @@ $$t_{EXECUTE} = t_K + t_P + t_H + t_D + t_M + t_R$$
 
 $T = 2M + 3P + 3B = 2(1.35) + 3(1.10) + 3(0.10) = 2.70 + 3.30 + 0.30 = 6.30$ s
 
+**KLM Example 2 — Deleting an icon via drag-to-trash (from exam prep):**
+Task sequence: initiate the deletion, find the file icon, point to file icon, press and hold mouse, drag file to trash can, release mouse, point to original window.
+
+1. M — initiate the deletion (mental preparation)
+2. M$_V$ — find the file icon (visual search among N icons; e.g., $498 + 41 \\times 10 = 908$ ms for 10 icons)
+3. P — point to file icon (1.10s)
+4. B — press and hold mouse (0.10s)
+5. P — drag file to trash can (1.10s — pointing to the trash)
+6. B — release mouse (0.10s)
+7. P — point to original window (1.10s)
+
+$T = M + M_V + 3P + 2B = 1.35 + 0.908 + 3(1.10) + 2(0.10) = 1.35 + 0.908 + 3.30 + 0.20 = 5.76$ s
+
+Note: The exact time depends on the number of icons for visual search and can be refined using Fitts' Law for the pointing operations.
+
 **Modern KLM with Fitts' Law for pointing:**
 $$t_P = 0.159 + 0.204 \\times \\log_2\\left(\\frac{A}{W} + 1\\right)$$
 
 This replaces the flat 1.10s estimate with a Fitts' Law calculation based on the actual target distance and width.
-
-#### KSPC (Keystrokes Per Character)
-- Measures the efficiency of a text entry method
-- Optimal KSPC = 1.0 (one keystroke per character)
-- Higher KSPC = less efficient (e.g., multi-tap on a phone keypad: KSPC > 1)
 
 #### Mental Operator Variants
 More precise alternatives to the single M = 1.35s:
@@ -475,6 +751,11 @@ More precise alternatives to the single M = 1.35s:
 | $M_L$ | Class matching | ~450 ms |
 | $M_C$ | Choice reaction | Variable |
 | $M_V$ | Visual search (find target among N items) | $498 + 41N$ ms |
+
+#### KSPC (Keystrokes Per Character)
+- Measures the efficiency of a text entry method
+- Optimal KSPC = 1.0 (one keystroke per character)
+- Higher KSPC = less efficient (e.g., multi-tap on a phone keypad: KSPC > 1)
 
 #### Power Law of Learning
 Performance improves with practice following a power function:
@@ -537,6 +818,11 @@ $$y = a + b_1x_1 + b_2x_2 + \\ldots + b_nx_n$$
 - The abstract should state: what was done + what was found
 - It should NOT explain why an effect was observed (that belongs in the Discussion)
 
+### Preparing the Manuscript
+- **Citations and references** must be accurate and complete
+- **Visual aids**: figures and tables should be self-explanatory with clear captions
+- **Writing for clarity**: use active voice, be concise, avoid jargon where possible
+
 ---
 
 ## Data Analysis & Visualization (Supplementary)
@@ -553,11 +839,11 @@ The Likert scale debate: technically ordinal (intervals between "agree" and "str
 
 **Measures of Central Tendency:**
 
-| Measure | Pros | Cons |
-|---------|------|------|
-| **Mean** | Uses all data; basis for many statistical tests | Sensitive to outliers |
-| **Median** | Robust to outliers; good for skewed data | Ignores extreme values |
-| **Mode** | Works for nominal data; shows most common value | May not be unique; ignores spread |
+| Measure | Best For | Pros | Cons |
+|---------|----------|------|------|
+| **Mean** | Interval/ratio data | Uses all data; basis for many statistical tests | Sensitive to outliers |
+| **Median** | Ordinal data or skewed distributions | Robust to outliers; good for skewed data | Ignores extreme values |
+| **Mode** | Nominal data | Works for all data types; shows most common value | May not be unique; ignores spread |
 
 **Measures of Variability:**
 
@@ -575,20 +861,104 @@ The Likert scale debate: technically ordinal (intervals between "agree" and "str
 - **Bimodal**: two peaks
 - **Uniform**: all values equally likely
 
-### Confidence Intervals
+### Confidence Intervals and the Normal Distribution
 For a normal distribution:
 - **68.26%** of data falls within $\\pm 1$ SD of the mean
 - **95.44%** of data falls within $\\pm 2$ SD of the mean
 - **99.72%** of data falls within $\\pm 3$ SD of the mean
+
+**Standard Error of the Mean (SEM):**
+$$SEM = \\frac{SD}{\\sqrt{n}}$$
+
+- SEM describes the precision of the sample mean as an estimate of the population mean
+- Confidence intervals for the mean: $\\bar{x} \\pm z \\times SEM$ (e.g., 95% CI uses $z = 1.96$)
 
 ### Inferential Statistics
 - Goal: **infer** something about the **population** based on the **sample**
 - Sampling error may occur — the sample may not perfectly represent the population
 - Statistical tests help determine whether observed differences are likely real or due to chance
 
+### Data Visualization Best Practices
+- **Bar charts**: compare categorical groups (use error bars showing CI or SEM)
+- **Line charts**: show trends over time or ordered conditions
+- **Scatter plots**: show relationships between two continuous variables
+- **Box plots**: show distribution, median, quartiles, and outliers
+- **Histograms**: show frequency distribution of a single variable
+- Always label axes clearly and include units
+- Avoid misleading scales (e.g., truncated y-axis can exaggerate differences)
+- Use consistent colors and legends
+
 ### Tools for Statistical Analysis
 - **SPSS, STATA, R, Python, JASP**
 - R and Python recommended (free, powerful visualization)
 - R packages: dplyr, ggplot2, tidyr
 - Python packages: Pandas, Plotly, SciPy, Matplotlib
+
+---
+
+## Exam Preparation: Quick Reference
+
+### Key Formulas at a Glance
+
+| Formula | Equation | Use |
+|---------|----------|-----|
+| **Fitts' Law (Shannon)** | $ID = \\log_2(A/W + 1)$ | Predict pointing difficulty |
+| **Movement Time** | $MT = a + b \\times ID$ | Predict time to acquire target |
+| **Throughput** | $TP = ID_e / MT$ | Compare input device performance |
+| **Effective Width** | $W_e = 4.133 \\times SD_x$ | Account for actual accuracy |
+| **Hick-Hyman Law** | $RT = a + b \\cdot \\log_2(n+1)$ | Predict decision time |
+| **KLM** | $T = \\sum \\text{operators}$ | Predict expert task time |
+| **Power Law of Learning** | $T_n = T_1 \\times n^a$ | Model practice effects |
+| **Information** | $H = \\log_2(n)$ | Bits for n alternatives |
+| **Visual Search** | $RT = 498 + 41N$ | Time to find target among N items |
+| **Chi-Square df** | $df = (r-1)(c-1)$ | Degrees of freedom for contingency tables |
+
+### Common Exam Mistakes to Avoid
+1. **Confusing IV and DV**: the IV is what you manipulate; the DV is what you measure
+2. **Confusing ordinal and interval**: Likert scales are ordinal; temperature in Celsius is interval; task time is ratio
+3. **Choosing the wrong statistical test**: always check the data type (parametric vs. non-parametric) and the design (within vs. between-subjects)
+4. **Confusing "fail to reject H0" with "accept H0"**: we never "accept" H0 — we only fail to reject it
+5. **Forgetting that Xerox Star (1981) was the first commercial GUI**: not the Apple Macintosh (1984)
+6. **Confusing correlation with causation**: correlational studies show association, not causal relationships
+7. **Ignoring Fitts' Law when comparing menus**: pie menus beat linear menus because they have smaller $A$ and larger $W$
+8. **Overlooking the eye as both sensor and responder**: in eye-tracking systems, the eye serves as both input and output
+
+### Statistical Test Decision Flowchart (Text Version)
+
+1. **Data = frequencies?** $\\rightarrow$ Chi-Square
+2. **Data = scores, study = correlational?** $\\rightarrow$ Pearson's r (parametric) or Spearman's rho (non-parametric)
+3. **Data = scores, study = experimental:**
+   - **2 groups, between-subjects:** Independent t-test (parametric) / Mann-Whitney U (non-parametric)
+   - **2 groups, within-subjects:** Paired t-test (parametric) / Wilcoxon Signed-Rank (non-parametric)
+   - **3+ groups, between-subjects:** One-way ANOVA (parametric) / Kruskal-Wallis (non-parametric)
+   - **3+ groups, within-subjects:** Repeated-measures ANOVA (parametric) / Friedman test (non-parametric)
+
+### Practice Questions with Answers
+
+**Q1:** A researcher measures task completion time (in seconds) for two interfaces. Each participant uses both interfaces. The data are normally distributed. Which test should be used?
+**A1:** Paired t-test (within-subjects, 2 conditions, parametric/ratio data).
+
+**Q2:** You want to compare the usability ratings (5-point Likert scale) of three different websites. Different participants rate each website. Which test?
+**A2:** Kruskal-Wallis test (between-subjects, 3+ conditions, non-parametric/ordinal data).
+
+**Q3:** Calculate the Index of Difficulty for a target at distance $A = 160$ px with width $W = 40$ px using the Shannon formulation.
+**A3:** $ID = \\log_2(160/40 + 1) = \\log_2(5) = 2.32$ bits.
+
+**Q4:** Using KLM, estimate the time for a user to click a button on screen (from rest position with hand on mouse). Steps: think about which button to click, point to the button, click.
+**A4:** $T = M + P + B = 1.35 + 1.10 + 0.10 = 2.55$ s.
+
+**Q5:** What type of device is a mouse according to Buxton's Three-State Model?
+**A5:** A 2-state device (State 1: tracking; State 2: dragging). It cannot sense State 0 (out of range).
+
+**Q6:** In a study with 4 conditions using a Latin square design, how many participants (minimum) are needed?
+**A6:** 4 participants (one for each row of the 4x4 Latin square), though multiples of 4 are preferred for balanced data.
+
+**Q7:** An experiment finds $F(2, 27) = 4.12, p = .028$. What does this mean?
+**A7:** There is a statistically significant difference between the three groups ($p < .05$). The degrees of freedom tell us there were 3 groups (df_between = 2, so k = 3) and 30 total participants (df_within = 27, so N = 30). Post hoc tests should be conducted to determine which specific pairs differ.
+
+**Q8:** A pointing study yields $SD_x = 8$ px for a target at $A = 250$ px with $W = 30$ px. The mean MT was 520 ms. Calculate the throughput.
+**A8:**
+- $W_e = 4.133 \\times 8 = 33.06$ px
+- $ID_e = \\log_2(250/33.06 + 1) = \\log_2(8.56) = 3.10$ bits
+- $TP = 3.10 / 0.52 = 5.96$ bits/s
 `;

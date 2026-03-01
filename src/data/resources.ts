@@ -7,6 +7,10 @@ import { logicSetsSummary } from './summaries/logic-sets-summary';
 import { dynamicModellingSummary } from './summaries/dynamic-modelling-summary';
 import { historyOfAiSummary } from './summaries/history-of-ai-summary';
 import { hciSummary } from './summaries/hci-summary';
+import { introPythonSummary } from './summaries/intro-python-summary';
+import { appliedProgrammingSummary } from './summaries/applied-programming-summary';
+import { knowledgeAndDataSummary } from './summaries/knowledge-and-data-summary';
+import { academicWritingSummary } from './summaries/academic-writing-summary';
 
 export const resources: Resource[] = [
   // ========== DSA ==========
@@ -139,6 +143,18 @@ export const resources: Resource[] = [
 
   // ========== Knowledge & Data ==========
   {
+  id: 'res-summary-kd',
+  courseId: 'knowledge-and-data',
+  title: 'Knowledge & Data — Comprehensive Summary',
+  description:
+    'Complete summary covering RDF, RDFS, SPARQL, OWL, ontology engineering, linked data, and reasoning. Includes SPARQL query examples and exam prep patterns.',
+  url: '#',
+  type: 'summary',
+  tags: ['summary', 'all-lectures', 'site-exclusive'],
+  markdownContent: knowledgeAndDataSummary,
+  author: 'VU AI Student Hub',
+  },
+  {
   id: 'res-kd-1',
   courseId: 'knowledge-and-data',
   title: 'A Semantic Web Primer (Recommended Textbook)',
@@ -183,6 +199,18 @@ export const resources: Resource[] = [
 
   // ========== Python Programming ==========
   {
+  id: 'res-summary-py',
+  courseId: 'intro-python-ai',
+  title: 'Introduction to Python Programming — Comprehensive Summary',
+  description:
+    'Complete summary covering variables, control flow, functions, data structures, OOP, testing, file I/O, and coding style. Includes code examples throughout.',
+  url: '#',
+  type: 'summary',
+  tags: ['summary', 'all-lectures', 'site-exclusive'],
+  markdownContent: introPythonSummary,
+  author: 'VU AI Student Hub',
+  },
+  {
   id: 'res-py-1',
   courseId: 'intro-python-ai',
   title: 'Think Python — Free Online Textbook',
@@ -221,6 +249,20 @@ export const resources: Resource[] = [
   url: 'https://www.youtube.com/watch?v=XKHEtdqhLK8',
   type: 'video',
   tags: ['python', 'beginner', 'tutorial'],
+  },
+
+  // ========== Academic Writing ==========
+  {
+  id: 'res-summary-aw',
+  courseId: 'academic-writing',
+  title: 'Academic Writing — Comprehensive Summary',
+  description:
+    'Complete summary covering academic writing conventions, essay structure, argumentation, referencing, hedging language, and week-by-week course topics.',
+  url: '#',
+  type: 'summary',
+  tags: ['summary', 'all-weeks', 'site-exclusive'],
+  markdownContent: academicWritingSummary,
+  author: 'VU AI Student Hub',
   },
 
   // ========== General Tools ==========
@@ -417,15 +459,6 @@ export const resources: Resource[] = [
   tags: ['summary', 'all-lectures', 'site-exclusive'],
   markdownContent: introAiSummary,
   author: 'VU AI Student Hub',
-  },
-  {
-  id: 'res-pdf-iai-1',
-  courseId: 'intro-ai',
-  title: 'Course Overview Lecture Slides',
-  description: 'Introductory lecture slides covering the course structure and overview of AI topics.',
-  url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/intro-ai/lectures/01-intro-to-ai-course-overview.pdf',
-  type: 'pdf',
-  tags: ['lectures', 'slides'],
   },
   {
   id: 'res-pdf-iai-2',
@@ -1102,6 +1135,18 @@ export const resources: Resource[] = [
   },
 
   // ========== Applied Programming for AI ==========
+  {
+  id: 'res-summary-ap',
+  courseId: 'applied-programming-ai',
+  title: 'Applied Programming for AI — Comprehensive Summary',
+  description:
+    'Complete summary covering Git, Test-Driven Development, REST APIs, Flask web development, frontend basics, and project architecture.',
+  url: '#',
+  type: 'summary',
+  tags: ['summary', 'all-lectures', 'site-exclusive'],
+  markdownContent: appliedProgrammingSummary,
+  author: 'VU AI Student Hub',
+  },
   {
   id: 'res-ap-1',
   courseId: 'applied-programming-ai',

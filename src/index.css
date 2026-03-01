@@ -209,6 +209,22 @@ body {
   border-bottom: none;
 }
 
+.prose-custom img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+  margin: 1em auto;
+  display: block;
+  background: #fff;
+  padding: 0.5em;
+  border: 1px solid #e7e5e4;
+}
+
+.dark .prose-custom img {
+  border-color: #44403c;
+  background: #1c1917;
+}
+
 /* Line clamp utility */
 .line-clamp-2 {
   display: -webkit-box;

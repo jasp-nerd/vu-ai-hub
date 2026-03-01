@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="-70 -90 480 420">
+ <title>prisoners dilemma</title>
+ <desc>An example prisoner's dilemma payoff matrix drawn by CMG Lee using emojis from http://commons.wikimedia.org/wiki/File:Emojione_1F601.svg , http://commons.wikimedia.org/wiki/File:Emojione_1F629.svg and http://commons.wikimedia.org/wiki/File:Twemoji12_1f92b.svg .</desc>
+ <style type="text/css">
+svg { font-family:'Liberation Sans',Helvetica,Arial,sans-serif; font-size:28px; text-anchor:middle; fill:#000000; stroke:none; stroke-linejoin:round; }
+.a  { fill:#0066ff; }
+.b  { fill:#ff3300; }
+.emoji { fill-opacity:0.5; filter:url(#filter_shadow); }
+ </style>
+ <defs>
+  <filter id="filter_shadow">
+   <feOffset dx="2" dy="4" in="SourceAlpha"/>
+   <feMorphology operator="erode" radius="2"/>
+   <feGaussianBlur stdDeviation="2"/>
+   <feColorMatrix type="matrix" values="1,0,0,0,0 0,1,0,0,0 0,0,1,0,0 0,0,0,0.4,0"/>
+   <feBlend in="SourceGraphic"/>
+  </filter>
+  <g id="silent" class="emoji" transform="translate(-32,-80) scale(1.75)">
+   <circle cx="18" cy="17" r="17"/><ellipse fill="#000" cx="17.812" cy="23.125" rx="4.062" ry="1.93"/><path fill-opacity="1" d="M25.35 25.981l-.033-.02c-.839-.515-1.947-.25-2.462.589l-.151.245c-.542-.562-1.25-.974-2.068-1.141l-1.399-.286 1.272-6.224c.197-.965-.431-1.915-1.395-2.112l-.038-.008c-.965-.197-1.915.431-2.112 1.395l-1.673 8.183-.015.074-.313 1.531-.001.01-1.128 5.533c-.22 1.078.27 2.25 1.895 2.25H19c2.804 0 3.635-1.01 4.198-3.093l2.741-4.463c.514-.839.25-1.947-.589-2.463z"/><path fill="#000" d="M22.409 30.743c-.02 0-.042-.002-.064-.006-.184-.034-.305-.212-.269-.397.059-.312-.002-.587-.187-.839-.59-.808-2.289-1.175-2.894-1.248-.186-.022-.319-.192-.296-.377.022-.186.184-.321.377-.296.101.011 2.474.31 3.36 1.521.298.407.401.868.306 1.368-.031.161-.173.274-.333.274zm-3.259 4.73c-.253 0-.53-.031-.833-.102-.61-.144-1.04-.499-1.18-.975-.118-.401-.01-.825.289-1.135.388-.402 1.003-.534 1.695-.358.181.046.291.231.245.413-.046.18-.229.291-.413.245-.445-.114-.825-.05-1.038.171-.128.132-.175.309-.127.473.069.236.319.421.685.506 1.18.277 1.833-.186 2.174-.625.508-.653.568-1.538.387-1.885-.422-.812-2.049-.992-2.64-.993-.187 0-.339-.152-.339-.339 0-.187.152-.339.339-.339.103 0 2.542.015 3.242 1.359.305.585.218 1.751-.454 2.614-.308.394-.943.97-2.032.97zm-4.928-20.251c0 1.391-.846 2.519-1.889 2.519-1.043 0-1.889-1.127-1.889-2.519 0-1.391.845-2.519 1.889-2.519 1.043.001 1.889 1.128 1.889 2.519zm15.664-2.951c.222 0 .445-.069.637-.213.47-.352.564-1.018.212-1.487-3.466-4.622-8.092-4.675-8.287-4.675-.587 0-1.062.476-1.062 1.063 0 .585.473 1.06 1.058 1.062.166.002 3.792.091 6.592 3.825.208.278.527.425.85.425zm-8.108 2.951c0 1.391.846 2.519 1.889 2.519 1.043 0 1.889-1.127 1.889-2.519 0-1.391-.845-2.519-1.889-2.519-1.044.001-1.889 1.128-1.889 2.519zM6.114 12.271c-.222 0-.445-.069-.637-.213-.469-.352-.564-1.018-.212-1.487 3.466-4.622 8.092-4.675 8.287-4.675.587 0 1.062.476 1.062 1.063 0 .585-.473 1.06-1.058 1.062-.166.002-3.792.091-6.592 3.825-.208.278-.527.425-.85.425z"/>
+  </g>
+  <g id="testify" class="emoji" transform="translate(-32,-80)">
+   <circle cx="32" cy="32" r="30"/><path d="m39.4 18.2c3.2 2.7 7.5 3.9 11.7 3.1.6-.1 1.1 2 .4 2.2-4.8.9-9.8-.5-13.5-3.6-.5-.5 1-2 1.4-1.7M12.9 21.2c4.2.7 8.5-.4 11.7-3.1.4-.4 2 1.2 1.4 1.7-3.7 3.2-8.7 4.5-13.5 3.6-.7-.2-.2-2.3.4-2.2M35.8 24.8c2 8.8 10.2 11 16.3 4.4.3-.3-.2-.6-.7-1.3-4.9 2.1-11.4.1-14.3-3.8-.8.2-1.4.2-1.3.7M11.8 29.2c6.1 6.6 14.3 4.4 16.3-4.4.1-.4-.5-.5-1.2-.7-3.2 4.3-9.9 5.8-14.4 3.9-.5.5-1 .8-.7 1.2M47.7 44c-1.7-3.6-5.9-6-15.7-6-9.8 0-14 2.4-15.7 6-.9 1.9.4 5 .4 5 1.6 3.9 1.4 5 15.3 5 13.9 0 13.6-1.1 15.3-5 0 0 1.3-3.1.4-5" fill="#000"/><path d="m43.4 43c.1-.3 0-.6-.2-.8 0 0-2.5-2.2-11.1-2.2s-11.1 2.2-11.1 2.2c-.2.2-.3.5-.2.8l.2.6c.1.3.4.5.7.5h21c.3 0 .6-.2.7-.5v-.6" fill="#fff"/>
+  </g>
+  <g id="grin" class="emoji" transform="translate(-32,-80)">
+   <circle cx="32" cy="32" r="30"/><path d="m28.5 27.9c-1.9-5.1-4.7-7.7-7.5-7.7s-5.6 2.6-7.5 7.7c-.2.5.8 1.4 1.3.9 1.8-1.9 4-2.7 6.2-2.7 2.2 0 4.4.8 6.2 2.7.6.6 1.5-.4 1.3-.9M50.4 27.9c-1.9-5.1-4.7-7.7-7.5-7.7s-5.6 2.6-7.5 7.7c-.2.5.8 1.4 1.3.9 1.8-1.9 4-2.7 6.2-2.7s4.4.8 6.2 2.7c.5.6 1.5-.4 1.3-.9M54 37.4c0-.8-.6-1.8-2.4-2.1-4.4-.6-11.1-1.3-19.6-1.3-8.5 0-15.2.7-19.6 1.3-1.7.3-2.4 1.3-2.4 2.1 0 9.6 3.5 12.6 17.8 12.6h8.4c14.3 0 17.8-3 17.8-12.6" fill="#000"/><path d="m48.9 38.2c.2-.5-.1-1-.5-1.1 0 0-7.4-1.1-16.4-1.1-9 0-16.4 1.1-16.4 1.1-.5.1-.7.6-.5 1.1l1.1 2.9c.2.5.8.9 1.3.9h29.1c.5 0 1.1-.4 1.3-.9l1-2.9M32 48c6.4 0 15.5 0 15.2-2.1 0-.4-.1-.8-.3-1.3-.2-.5-.3-.7-1.4-.7-2.4 0-25.3 0-27.1 0-1.1 0-1.2.1-1.4.7-.1.5-.2.9-.3 1.3-.2 2.1 8.9 2.1 15.3 2.1" fill="#fff"/>
+  </g>
+  <g id="jail" stroke-width="3" transform="translate(0,-90)">
+   <path d="M -35,0 V 120 H 35 V 0 Z m 14,0 V 120 m 14,0 V 0 m 14,0 V 120 m 14,0 V 0" fill="none"/>
+   <path d="M -31,75 h 62 v 32 h -62 z" fill="#eeeeee" stroke-width="1"/>
+  </g>
+  <g id="t">                                          <text x="0" y="0.7ex"      >T, 0</text></g>
+  <g id="r"><use xlink:href="#jail" stroke="#cccccc"/><text x="0" y="0.7ex">R,&#8722;1</text></g>
+  <g id="p"><use xlink:href="#jail" stroke="#999999"/><text x="0" y="0.7ex">P,&#8722;2</text></g>
+  <g id="s"><use xlink:href="#jail" stroke="#000000"/><text x="0" y="0.7ex">S,&#8722;3</text></g>
+ </defs>
+ <circle cx="0" cy="0" r="99999" fill="#ffffff"/>
+ <path d="M 65,-85 V 325 M 235,-80 V 320 M -65,25 H 405 M -60,175 H 400 M 65,25 L -30,-60" stroke="#999999"/>
+ <text transform="translate( 0,  0)" x="0" y="0.7ex">A</text>
+ <text transform="translate(30,-40)" x="0" y="0.7ex">B</text>
+ <g transform="translate(0,130)">
+  <use class="a" xlink:href="#silent"/>
+  <switch>
+   <use xlink:href="#a_s" systemLanguage="en"/>
+   <text x="0" y="0.5ex"  systemLanguage="de">A<tspan x="0" dy="0.9em">schweigt</tspan></text>
+   <text x="0" y="0.5ex"  id="a_s">A stays<tspan x="0" dy="0.9em">silent</tspan></text>
+  </switch>
+ </g>
+ <g transform="translate(0,280)">
+  <use class="a" xlink:href="#testify"/>
+  <switch>
+   <use xlink:href="#a_t" systemLanguage="en"/>
+   <text x="0" y="0.7ex"  systemLanguage="de">A<tspan x="0" dy="0.9em">sagt aus</tspan></text>
+   <text x="0" y="0.7ex"  id="a_t" letter-spacing="-1">A&#8201;testifies</text>
+  </switch>
+ </g>
+ <g transform="translate(150,0)">
+  <use class="b" xlink:href="#silent"/>
+  <switch>
+   <use xlink:href="#b_s" systemLanguage="en"/>
+   <text x="0" y="0.7ex"  systemLanguage="de">B schweigt</text>
+   <text x="0" y="0.7ex"  id="b_s" letter-spacing="-1">B&#8201;stays&#8201;silent</text>
+  </switch>
+ </g>
+ <g transform="translate(320,0)">
+  <use class="b" xlink:href="#testify"/>
+  <switch>
+   <use xlink:href="#b_t" systemLanguage="en"/>
+   <text x="0" y="0.7ex"  systemLanguage="de">B sagt aus</text>
+   <text x="0" y="0.7ex"  id="b_t">B testifies</text>
+  </switch>
+ </g>
+ <g transform="translate(150,130)">
+  <g transform="translate(-35,0)">
+   <use class="a" xlink:href="#silent"/>
+   <use xlink:href="#r"/>
+  </g>
+  <g transform="translate( 35,0)">
+   <use class="b" xlink:href="#silent"/>
+   <use xlink:href="#r"/>
+  </g>
+ </g>
+ <g transform="translate(320,130)">
+  <g transform="translate(-35,0)">
+   <use class="a" xlink:href="#silent"/>
+   <use xlink:href="#s"/>
+  </g>
+  <g transform="translate( 35,0)">
+   <use class="b" xlink:href="#grin"/>
+   <use xlink:href="#t"/>
+  </g>
+ </g>
+ <g transform="translate(150,280)">
+  <g transform="translate(-35,0)">
+   <use class="a" xlink:href="#grin"/>
+   <use xlink:href="#t"/>
+  </g>
+  <g transform="translate( 35,0)">
+   <use class="b" xlink:href="#silent"/>
+   <use xlink:href="#s"/>
+  </g>
+ </g>
+ <g transform="translate(320,280)">
+  <g transform="translate(-35,0)">
+   <use class="a" xlink:href="#testify"/>
+   <use xlink:href="#p"/>
+  </g>
+  <g transform="translate( 35,0)">
+   <use class="b" xlink:href="#testify"/>
+   <use xlink:href="#p"/>
+  </g>
+ </g>
+</svg>

@@ -410,7 +410,7 @@ The course is divided into two complementary parts:
       'The following literature will be used: Judith Donath, Alex Dragulescu, Aaron Zinman, Fernanda Viégas, and Rebecca Xiong. 2010. Data portraits. In ACM SIGGRAPH 2010 Art Gallery (SIGGRAPH \'10). Association for Computing Machinery, New York, NY, USA, 375–383. https://doi.org/10.1145/1836786.1836793 Giorgia Lupi. Data Humanism: The Revolutionary Future of Data Visualization. In Printmag, January 30, 2017. https://www.printmag.com/article/data-humanism-future-of-data-visualization/ Edward R. Tufte. 2001. The visual display of quantitative information. Graphics Press, USA. Jacoba Urist. From Paint to Pixels. In The Atlantic, May 14, 2015. https://www.theatlantic.com/entertainment/archive/2015/05/the-rise-of-the-data-artist/392399/ Andy Kirk. 2016. Data Visualisation: A Handbook for Data Driven Design. Sage Publications Ltd.',
     prerequisites:
       'Students should have completed Introduction to Python Programming (XB_0082) with a sufficient grade before they can start this course.',
-    difficulty: 3,
+    difficulty: 2,
     tags: ['programming', 'python', 'elective'],
     workgroupInfo: {
       mandatory: true,
@@ -436,7 +436,7 @@ The course is divided into two complementary parts:
     literature:
       '1. "Business Information Management: Improving Performance using Information Systems", by Dave Chaffey and Steve Wood. ISBN: 9780273686552.',
     prerequisites: '',
-    difficulty: 3,
+    difficulty: 2,
     tags: ['data', 'databases', 'elective'],
   },
   // ========== YEAR 2 — Mandatory ==========

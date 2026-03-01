@@ -515,12 +515,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'knowledge-and-data',
         question: 'An RDF triple consists of:',
         options: [
-            'Table, row, column',
             'Subject, predicate, object',
+            'Table, row, column',
             'Key, value, type',
             'Node, edge, weight',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'RDF (Resource Description Framework) represents knowledge as triples: subject-predicate-object. For example: (Amsterdam, isCapitalOf, Netherlands). Subjects and predicates are URIs; objects can be URIs or literals.',
         difficulty: 'easy',
@@ -548,11 +548,11 @@ export const quizQuestions: QuizQuestion[] = [
             'In SPARQL, what does the SELECT clause do?',
         options: [
             'Defines the data source',
-            'Specifies which variables to return from the query',
             'Filters out invalid triples',
+            'Specifies which variables to return from the query',
             'Creates new triples',
         ],
-        correctIndex: 1,
+        correctIndex: 2,
         explanation:
             'SELECT specifies which bound variables from the WHERE pattern should be returned in the query results. The WHERE clause defines the graph pattern to match. Other query forms include CONSTRUCT, ASK, and DESCRIBE.',
         difficulty: 'easy',
@@ -563,15 +563,405 @@ export const quizQuestions: QuizQuestion[] = [
         question:
             'What is a "Knowledge Graph"?',
         options: [
-            'A bar chart of knowledge metrics',
             'A graph database that stores interconnected descriptions of entities using RDF or similar formalisms',
+            'A visualization tool for displaying statistical relationships',
             'A neural network architecture',
             'A hierarchical folder structure',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'A Knowledge Graph represents real-world entities and their relationships as a graph of interconnected nodes and edges. It uses formalisms like RDF to enable querying, integration, and reasoning over linked data from multiple sources.',
         difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-5',
+        courseId: 'knowledge-and-data',
+        question: 'What are the three components of a formal logic?',
+        options: [
+            'Syntax, semantics, and calculus',
+            'Classes, properties, and instances',
+            'Subject, predicate, and object',
+            'Axioms, theorems, and proofs',
+        ],
+        correctIndex: 0,
+        explanation:
+            'A formal logic consists of three components: syntax (which expressions are well-formed), semantics (what expressions mean with respect to interpretations), and calculus (how to determine meaning for legal expressions). This definition is fundamental to understanding all knowledge representation languages in the course.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-6',
+        courseId: 'knowledge-and-data',
+        question: 'In propositional logic, what is a tautology?',
+        options: [
+            'A formula that is false for every valuation',
+            'A formula that is true for at least one valuation',
+            'A formula that is true for every possible valuation',
+            'A formula that cannot be evaluated',
+        ],
+        correctIndex: 2,
+        explanation:
+            'A tautology is a formula that evaluates to true for every possible assignment of truth values to its variables. For example, "p OR NOT p" is a tautology. A formula that is false for every valuation is called a contradiction. A formula true for at least one valuation is called satisfiable.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-7',
+        courseId: 'knowledge-and-data',
+        question: 'What does the Open World Assumption (OWA) mean in the context of OWL?',
+        options: [
+            'All data is publicly accessible on the Web',
+            'If a statement is not explicitly present, it is considered false',
+            'Ontologies must be published as open source',
+            'If a statement is not explicitly present or derivable, it is unknown (not assumed false)',
+        ],
+        correctIndex: 3,
+        explanation:
+            'Under the Open World Assumption (OWA), the absence of a statement does not mean it is false — it simply means we do not know. This contrasts with the Closed World Assumption (CWA) used in databases, where anything not explicitly stated is assumed false. OWA is essential for the Web, where information is always incomplete.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-8',
+        courseId: 'knowledge-and-data',
+        question: 'In Turtle syntax, what does the semicolon (;) indicate?',
+        options: [
+            'The end of an RDF statement',
+            'A comment follows',
+            'The next triple shares the same subject as the previous one',
+            'The next triple shares the same predicate as the previous one',
+        ],
+        correctIndex: 2,
+        explanation:
+            'In Turtle syntax, the semicolon (;) is a shortcut indicating that the next predicate-object pair shares the same subject as the previous triple. The period (.) ends a statement, and the comma (,) indicates the next object shares the same subject AND predicate.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-9',
+        courseId: 'knowledge-and-data',
+        question: 'In RDF, which positions can a blank node appear in?',
+        options: [
+            'Subject and object only',
+            'Subject, predicate, and object',
+            'Object only',
+            'Subject only',
+        ],
+        correctIndex: 0,
+        explanation:
+            'Blank nodes can appear in the subject and object positions of an RDF triple, but never in the predicate position. Blank nodes represent resources without a URI and act as existential quantifiers. Predicates must always be URI references.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-10',
+        courseId: 'knowledge-and-data',
+        question: 'What does the RDFS entailment rule for rdfs:domain allow you to derive?',
+        options: [
+            'If "s p o" and "p rdfs:range X", then "o rdf:type X"',
+            'If "s p o" and "p rdfs:domain X", then "s rdf:type X"',
+            'If "s rdf:type A" and "A rdfs:subClassOf B", then "s rdf:type B"',
+            'If "p rdfs:subPropertyOf q" and "s p o", then "s q o"',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The RDFS domain rule states: if "s p o" and "p rdfs:domain X", then we can derive "s rdf:type X". The domain declaration tells us that any resource used as a subject of property p must be of type X. The range rule derives object types, the subclass rule handles type propagation, and the subproperty rule handles property substitution.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-11',
+        courseId: 'knowledge-and-data',
+        question: 'Which SPARQL query form returns a boolean (true/false) result?',
+        options: [
+            'SELECT',
+            'CONSTRUCT',
+            'DESCRIBE',
+            'ASK',
+        ],
+        correctIndex: 3,
+        explanation:
+            'The ASK query form returns true if the graph pattern has at least one match, and false otherwise. SELECT returns a table of variable bindings, CONSTRUCT builds a new RDF graph, and DESCRIBE returns an RDF graph describing a resource.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-12',
+        courseId: 'knowledge-and-data',
+        question: 'What does the OPTIONAL keyword do in a SPARQL query?',
+        options: [
+            'It removes duplicate results from the output',
+            'It specifies that a graph pattern must match, or the query fails',
+            'It includes results even when the optional pattern does not match (like a left join)',
+            'It limits the number of results returned',
+        ],
+        correctIndex: 2,
+        explanation:
+            'OPTIONAL in SPARQL acts like a left join: results are included whether or not the optional pattern matches. If it matches, the variables are bound; if not, they are unbound (null). This differs from main WHERE patterns, which must match.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-13',
+        courseId: 'knowledge-and-data',
+        question: 'In OWL, what happens when a property is declared as owl:FunctionalProperty?',
+        options: [
+            'The property can only relate individuals to literals',
+            'The property must be defined in a function-based language',
+            'If the property maps one subject to two different objects, those objects are inferred to be the same individual',
+            'The property is symmetric and transitive simultaneously',
+        ],
+        correctIndex: 2,
+        explanation:
+            'When a property p is declared as owl:FunctionalProperty, each individual can have at most one value for p. If both p(x, y) and p(x, z) hold, OWL infers y owl:sameAs z. This differs from databases which would reject the second value.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-14',
+        courseId: 'knowledge-and-data',
+        question: 'Which of the following correctly describes owl:disjointWith?',
+        options: [
+            'Two classes that together form the universal class owl:Thing',
+            'Two classes that share no individuals in common',
+            'Two classes that are semantically equivalent',
+            'Two classes where one is a subclass of the other',
+        ],
+        correctIndex: 1,
+        explanation:
+            'owl:disjointWith declares that two classes have no individuals in common. If an individual were typed as both, the ontology would be inconsistent. Disjointness is a key constraint that RDFS cannot express.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-15',
+        courseId: 'knowledge-and-data',
+        question: 'What is the difference between owl:Thing and owl:Nothing?',
+        options: [
+            'owl:Thing is for classes; owl:Nothing is for properties',
+            'owl:Thing is the top class containing all individuals; owl:Nothing is the bottom class containing no individuals',
+            'owl:Thing represents known facts; owl:Nothing represents unknown facts',
+            'They are equivalent under the Open World Assumption',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In OWL, owl:Thing is the universal/top class — every individual is an instance of owl:Thing. owl:Nothing is the bottom class with no instances. If any class must be empty but has members, this indicates an inconsistency.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-16',
+        courseId: 'knowledge-and-data',
+        question: 'Given: ex:A owl:disjointWith ex:B, ex:x rdf:type ex:A, ex:x rdf:type ex:B. What can be concluded?',
+        options: [
+            'ex:x is of type owl:Nothing',
+            'ex:A owl:equivalentClass ex:B',
+            'The ontology is inconsistent',
+            'ex:x must be a blank node',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Since ex:A and ex:B are declared disjoint, no individual can belong to both classes. The assertion that ex:x is of type both creates a logical contradiction, making the ontology inconsistent. A reasoner would detect this.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-kd-17',
+        courseId: 'knowledge-and-data',
+        question: 'What distinguishes data, information, and knowledge?',
+        options: [
+            'Data is structured, information is unstructured, knowledge is semi-structured',
+            'Data consists of individual facts out of context; information is data in context; knowledge is information combined with rules and understanding',
+            'They are three interchangeable terms for the same concept',
+            'Data is digital, information is analog, knowledge is conceptual',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The course defines a clear hierarchy: data consists of individual facts out of context; information is data placed in a relevant context; knowledge is information retained with an understanding of its significance, combined with rules.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-18',
+        courseId: 'knowledge-and-data',
+        question: 'Which of the Four Proposals (P1-P4) adds the Semantic Web layer to Linked Data?',
+        options: [
+            'P1: Give all things a name',
+            'P2: Names are addresses on the Web (URIs)',
+            'P3: Relations form a graph between things',
+            'P4: Make explicit the meaning of things (assign types, hierarchies, rules)',
+        ],
+        correctIndex: 3,
+        explanation:
+            'P1 + P2 + P3 create a global graph of Linked Data. P4 adds the Semantic Web layer by making meaning explicit: assigning types, organizing hierarchies, and defining rules. P4 enables a shared model with formal semantics and predictable inferencing.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-19',
+        courseId: 'knowledge-and-data',
+        question: 'In Turtle syntax, what does the keyword "a" abbreviate?',
+        options: [
+            'rdfs:subClassOf',
+            'owl:sameAs',
+            'rdfs:label',
+            'rdf:type',
+        ],
+        correctIndex: 3,
+        explanation:
+            'In Turtle syntax, "a" is shorthand for rdf:type, which asserts class membership. For example, "ex:s1 a dbr:Student ." is equivalent to "ex:s1 rdf:type dbr:Student ."',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-20',
+        courseId: 'knowledge-and-data',
+        question: 'What is the key difference between skos:broader and rdfs:subClassOf?',
+        options: [
+            'They are semantically identical and interchangeable',
+            'skos:broader covers hierarchical, part-whole, and topical relations, while rdfs:subClassOf strictly means set-theoretic class inclusion',
+            'rdfs:subClassOf is informal, while skos:broader has formal model-theoretic semantics',
+            'skos:broader can only be used between instances, not between concepts',
+        ],
+        correctIndex: 1,
+        explanation:
+            'skos:broader is a more generic hierarchical relation used in thesauri and taxonomies. It can represent class hierarchy, part-whole, location, or topic implication. rdfs:subClassOf strictly means every member of the subclass is also a member of the superclass (set inclusion).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-21',
+        courseId: 'knowledge-and-data',
+        question: 'What is the "no unique naming assumption" in OWL?',
+        options: [
+            'Every resource must have a unique URI',
+            'No two ontologies can share the same namespace',
+            'Two different URIs might refer to the same individual in the real world',
+            'Blank nodes cannot be used in OWL ontologies',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The "no unique naming assumption" means different URIs do not necessarily denote different individuals. This is why OWL provides owl:sameAs (to assert identity) and owl:differentFrom (to assert distinctness). This contrasts with databases where different keys always refer to different records.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-22',
+        courseId: 'knowledge-and-data',
+        question: 'Which OWL property characteristic means "if p(x,y) and p(y,z) then p(x,z)"?',
+        options: [
+            'Symmetric',
+            'Functional',
+            'Transitive',
+            'Reflexive',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Transitivity means the property propagates through a chain. A classic example is "ancestorOf" — if Alice is an ancestor of Bob, and Bob is an ancestor of Carol, then Alice is an ancestor of Carol. Symmetric means p(x,y) implies p(y,x). Functional means at most one value per subject.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-23',
+        courseId: 'knowledge-and-data',
+        question: 'What does owl:inverseOf express?',
+        options: [
+            'Two properties are logically equivalent',
+            'A property is the negation of another property',
+            'If property p relates x to y, then inverse property q relates y to x',
+            'A property chain where one step reverses direction',
+        ],
+        correctIndex: 2,
+        explanation:
+            'owl:inverseOf declares that one property is the inverse of another. If inverseOf(p, q) and p(x, y) holds, then q(y, x) is inferred. For example, if "hasParent" is the inverse of "hasChild", and Alice hasChild Bob, then Bob hasParent Alice.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-24',
+        courseId: 'knowledge-and-data',
+        question: 'Given: ex:VegetarianPizza owl:equivalentClass [owl:onProperty ex:hasTopping ; owl:allValuesFrom ex:VegetarianTopping]. If ex:myPizza rdf:type ex:VegetarianPizza and ex:myPizza ex:hasTopping ex:meatTopping, what can be inferred?',
+        options: [
+            'ex:meatTopping cannot be a pizza topping',
+            'ex:myPizza is not a real pizza',
+            'ex:meatTopping rdf:type ex:VegetarianTopping',
+            'Nothing can be inferred',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The owl:allValuesFrom restriction means all values of ex:hasTopping for a VegetarianPizza must be of type VegetarianTopping. Since ex:myPizza is a VegetarianPizza and has ex:meatTopping, the reasoner infers ex:meatTopping must be of type VegetarianTopping. If ex:meatTopping were separately declared as not being a VegetarianTopping, the ontology would be inconsistent.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-kd-25',
+        courseId: 'knowledge-and-data',
+        question: 'What is a triple store?',
+        options: [
+            'A file system that stores three copies of each file for redundancy',
+            'A relational database with three normalized tables',
+            'A purpose-built graph database optimized for storing and querying RDF triples',
+            'A cache that stores the three most recent SPARQL queries',
+        ],
+        correctIndex: 2,
+        explanation:
+            'A triple store is a purpose-built database designed for storing and querying RDF data. Triple stores use techniques like dictionary encoding and specialized indexing for fast SPARQL query processing. Examples include GraphDB and Apache Jena.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-26',
+        courseId: 'knowledge-and-data',
+        question: 'According to the course, what does "inferencing" (reasoning) mean?',
+        options: [
+            'Manually entering new facts into a knowledge base',
+            'Guessing unknown facts based on statistical probability',
+            'Algorithmic manipulation of knowledge to derive new knowledge using formal rules, without needing to understand word meanings',
+            'Querying a SPARQL endpoint to retrieve existing triples',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Inferencing is the algorithmic manipulation of knowledge to derive new knowledge. The meaning of words is not needed — the inference engine operates on formal structure and rules. This is what Proposal P4 enables: a shared model with formal semantics allows predictable, automated inference.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-27',
+        courseId: 'knowledge-and-data',
+        question: 'Which of the following is NOT a valid position for a literal in an RDF triple?',
+        options: [
+            'Object position',
+            'Subject position',
+            'Both subject and predicate positions',
+            'Predicate position only',
+        ],
+        correctIndex: 2,
+        explanation:
+            'In RDF, literals can only appear in the object position. They cannot be used as subjects or predicates. URI references can appear in all three positions. Blank nodes can appear in subject and object positions but not as predicates.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-28',
+        courseId: 'knowledge-and-data',
+        question: 'What is an ontology in the context of knowledge engineering?',
+        options: [
+            'A programming language for building knowledge bases',
+            'An explicit specification of a shared conceptualization that holds in a particular context',
+            'A database schema written in SQL',
+            'A visualization of all entities in a knowledge graph',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The standard definition: "An ontology is an explicit specification of a shared conceptualization that holds in a particular context." Key terms: explicit (formally defined), shared (agreed upon by a community), conceptualization (abstract model of a domain), and context (applicable within a scope).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-29',
+        courseId: 'knowledge-and-data',
+        question: 'Given: ex:hasMother rdfs:domain ex:Person, ex:hasMother rdfs:range ex:Woman, ex:bob ex:hasMother ex:alice. Which triples can be derived using RDFS entailment rules?',
+        options: [
+            'ex:bob rdf:type ex:Woman and ex:alice rdf:type ex:Person',
+            'ex:bob rdf:type ex:Person and ex:alice rdf:type ex:Woman',
+            'ex:alice rdf:type ex:Person only',
+            'No new triples can be derived',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The domain rule derives that the subject (ex:bob) is of type ex:Person. The range rule derives that the object (ex:alice) is of type ex:Woman. A common exam pitfall is confusing which rule applies to subjects vs objects.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-kd-30',
+        courseId: 'knowledge-and-data',
+        question: 'In the ontology engineering methodology, what is the principle of "minimal ontological commitment"?',
+        options: [
+            'Use the fewest number of classes possible',
+            'Only commit to the weakest claims needed to support your use case, avoiding over-constraining the domain',
+            'Never reuse existing ontologies from other domains',
+            'Ontologies should contain no more than 100 axioms',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Minimal ontological commitment means making only the claims about the domain that are truly necessary. Over-commitment makes statements that are too strong and may restrict valid interpretations. Since ontologies live in an open, distributed world, overly strong commitments can cause interoperability problems.',
+        difficulty: 'hard',
     },
 
     // ========== Probability & Statistics ==========
@@ -750,16 +1140,17 @@ export const quizQuestions: QuizQuestion[] = [
     {
         id: 'quiz-ct-10',
         courseId: 'computational-thinking',
-        question: 'What is the last step in the problem-solving process?',
+        question:
+            'What is the last step in the five-step problem-solving process?',
         options: [
-            'Understand the problem',
             'Choose a solution strategy',
+            'Check whether the strategy worked',
             'Execute the strategy',
-            'Check the solution',
+            'Verify the solution for correctness and reasonableness',
         ],
         correctIndex: 3,
         explanation:
-            'The problem-solving steps are: (1) understand the problem, (2) choose a strategy, (3) execute the strategy, and (4) check the solution. Verification is always the final step.',
+            'The five problem-solving steps are: (1) understand the problem, (2) choose a strategy, (3) solve/execute the strategy, (4) check whether the strategy worked (if not, go back to step 2), and (5) verify the solution — check for miscalculations and test reasonableness. Verification is the final step, distinct from step 4 which checks whether the overall approach worked.',
         difficulty: 'easy',
     },
     {
@@ -812,7 +1203,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 2,
         explanation:
             'Stability means equal elements keep their original relative order. Merge sort and insertion sort are stable; quicksort and heap sort are not. In-place refers to memory usage, not ordering.',
-        difficulty: 'easy',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-ct-15',
@@ -850,7 +1241,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 2,
         explanation:
             'Merge sort divides the list into halves (divide), sorts each half recursively (conquer), and merges the sorted halves (combine). This is the textbook divide-and-conquer pattern.',
-        difficulty: 'easy',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-ct-18',
@@ -920,7 +1311,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 2,
         explanation:
             'In the worst case (reverse-sorted list), bubble sort makes n-1 passes and up to n-1 comparisons per pass, giving approximately n² comparisons total — O(n²).',
-        difficulty: 'easy',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-ct-23',
@@ -1055,7 +1446,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 0,
         explanation:
             'An Eulerian circuit (a closed path traversing every edge exactly once) exists if and only if every vertex has even degree. If exactly two vertices have odd degree, an Eulerian path (not circuit) exists instead.',
-        difficulty: 'hard',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-ct-33',
@@ -1098,6 +1489,151 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'Merge sort always divides the list in half (log n levels) and does O(n) work at each level to merge. This gives O(n log n) in all cases — best, average, and worst. This is better than bubble sort or selection sort\'s O(n²).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ct-36',
+        courseId: 'computational-thinking',
+        question: 'Which of the following is NOT one of the four core pillars of Computational Thinking?',
+        options: [
+            'Decomposition',
+            'Pattern Recognition',
+            'Compilation',
+            'Abstraction',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The four pillars of Computational Thinking are Decomposition, Pattern Recognition, Abstraction, and Algorithm Design. Compilation is the process of converting source code to machine code and is not a CT pillar.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ct-37',
+        courseId: 'computational-thinking',
+        question: 'What is the decimal value of the binary number 1101?',
+        options: ['11', '12', '13', '15'],
+        correctIndex: 2,
+        explanation:
+            'Binary 1101 = 1×8 + 1×4 + 0×2 + 1×1 = 8 + 4 + 0 + 1 = 13. Each position represents a power of 2, starting from 2⁰ on the right.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ct-38',
+        courseId: 'computational-thinking',
+        question: 'How many bits are in one byte?',
+        options: ['2', '4', '8', '16'],
+        correctIndex: 2,
+        explanation:
+            'One byte consists of 8 bits. A bit is a single binary digit (0 or 1), and a byte is the standard unit of data storage in computing.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ct-39',
+        courseId: 'computational-thinking',
+        question: 'What is the result of the Boolean expression TRUE AND FALSE?',
+        options: ['TRUE', 'FALSE', 'NULL', 'Undefined'],
+        correctIndex: 1,
+        explanation:
+            'The AND operation returns TRUE only when both operands are TRUE. Since one operand is FALSE, the result is FALSE.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ct-40',
+        courseId: 'computational-thinking',
+        question: 'Which Boolean operation returns TRUE when exactly one of its two inputs is TRUE?',
+        options: ['AND', 'OR', 'NOT', 'XOR'],
+        correctIndex: 3,
+        explanation:
+            'XOR (exclusive OR) returns TRUE when exactly one input is TRUE and the other is FALSE. AND requires both TRUE, OR requires at least one, and NOT is a unary operator.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ct-41',
+        courseId: 'computational-thinking',
+        question: 'What is the time complexity of the following code?\n\nfor i in range(n):\n    for j in range(n):\n        print(i + j)',
+        options: ['O(n)', 'O(n log n)', 'O(n²)', 'O(2ⁿ)'],
+        correctIndex: 2,
+        explanation:
+            'The outer loop runs n times and the inner loop also runs n times for each iteration. The total operations are n × n = n², giving O(n²). This is the standard pattern for nested loops.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ct-42',
+        courseId: 'computational-thinking',
+        question: 'Which data structure uses a Last-In, First-Out (LIFO) access pattern?',
+        options: ['Queue', 'Stack', 'Dictionary', 'Array'],
+        correctIndex: 1,
+        explanation:
+            'A stack follows LIFO: the last element pushed is the first popped. A queue follows FIFO (First-In, First-Out). Dictionaries use key-based access, and arrays use index-based access.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-ct-43',
+        courseId: 'computational-thinking',
+        question: 'Which data structure would be most appropriate for implementing a print job scheduler where jobs are processed in the order they arrive?',
+        options: ['Stack', 'Queue', 'Dictionary', 'Binary search tree'],
+        correctIndex: 1,
+        explanation:
+            'A queue (FIFO — First In, First Out) processes elements in arrival order, ideal for scheduling tasks like print jobs. A stack would process the most recent job first.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ct-44',
+        courseId: 'computational-thinking',
+        question: 'What is the worst-case time complexity of quicksort, and when does it occur?',
+        options: [
+            'O(n log n), when the list is random',
+            'O(n²), when the pivot is always the smallest or largest element',
+            'O(n), when the list is already sorted',
+            'O(log n), when using the median as pivot',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Quicksort degrades to O(n²) when the pivot is always the minimum or maximum (e.g., already-sorted input with first-element pivot). One partition is empty and the other has n-1 elements, preventing effective division.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-ct-45',
+        courseId: 'computational-thinking',
+        question: 'Which sorting algorithm is NOT stable?',
+        options: ['Bubble sort', 'Insertion sort', 'Merge sort', 'Quicksort'],
+        correctIndex: 3,
+        explanation:
+            'Quicksort is not stable — equal elements may change their relative order during partitioning. Bubble sort, insertion sort, and merge sort are all stable algorithms.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ct-46',
+        courseId: 'computational-thinking',
+        question: 'A connected graph with 7 vertices has a spanning tree. How many edges does that spanning tree have?',
+        options: ['5', '6', '7', '8'],
+        correctIndex: 1,
+        explanation:
+            'A spanning tree of a graph with n vertices always has exactly n - 1 edges. For 7 vertices: 7 - 1 = 6 edges. A spanning tree includes all vertices, is connected, and has no cycles.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ct-47',
+        courseId: 'computational-thinking',
+        question: 'Which sorting algorithm has a best-case time complexity of O(n) because it can detect that the input is already sorted?',
+        options: ['Selection sort', 'Merge sort', 'Insertion sort', 'Quicksort'],
+        correctIndex: 2,
+        explanation:
+            'Insertion sort achieves O(n) on already-sorted input because each element is compared only once and no shifts are needed. Selection sort always performs O(n²) comparisons. Merge sort always takes O(n log n).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-ct-48',
+        courseId: 'computational-thinking',
+        question: 'What does the brute force solution strategy rely on?',
+        options: [
+            'Mathematical formulas to find the answer directly',
+            'Dividing the problem into smaller sub-problems',
+            'Sheer computing power to try all possibilities without heuristics',
+            'Making locally optimal choices at each step',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Brute force relies on raw computing power to exhaustively try all possibilities. It is used when no faster algorithm is known. Option B describes divide-and-conquer, and option D describes the greedy technique.',
         difficulty: 'easy',
     },
 
@@ -1489,7 +2025,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'The Hybrid Intelligence lecture introduces the CARE framework: Collaborative (using Theory of Mind), Adaptive (using Reinforcement Learning), Responsible (explicit norms & values), and Explainable (using knowledge graphs for explanations).',
-        difficulty: 'medium',
+        difficulty: 'hard',
     },
     {
         id: 'quiz-iai-5',
@@ -1617,7 +2153,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'John Searle\'s Chinese Room argument: even if someone inside a room uses a rulebook to produce perfect Chinese responses, they don\'t understand Chinese. The summary notes this "challenges the idea that AI can ever truly be intelligent or conscious."',
-        difficulty: 'hard',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-iai-13',
@@ -1840,7 +2376,7 @@ export const quizQuestions: QuizQuestion[] = [
         ],
         correctIndex: 2,
         explanation:
-            'The summary lists: MC Exam (30%), Group Project (40%), Poster (5%), Video (5%), and Diversity & Team Assignment (10%), summing to 90% with the remaining percentage implied by participation components.',
+            'The course grade is composed of: MC Exam (30%), Group Project (40%), Poster (5%), Video (5%), and Diversity & Team Assignment (10%). These are the five graded components listed in the course manual.',
         difficulty: 'easy',
     },
     {
@@ -1857,7 +2393,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'The course follows a problem-driven approach with four steps: (1) Identify the Problem, (2) Understand the Context (research theory), (3) Model Your Solution (build a computational model), and (4) Realise the Solution (apply and evaluate in the real world).',
-        difficulty: 'medium',
+        difficulty: 'easy',
     },
     {
         id: 'quiz-iai-28',
@@ -2145,7 +2681,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'The summary states: "Bias refers to errors due to overly simplistic models (leading to underfitting). Variance refers to the model\'s sensitivity to small fluctuations in training data (leading to overfitting). Achieving the right balance is key to building robust ML models."',
-        difficulty: 'hard',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-iai-46',
@@ -2193,7 +2729,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'The summary describes morphological intelligence as when "the structure and form of the robot\'s body evolve to facilitate learning and performance, highlighting the importance of the physical form in developing intelligence." Bodies evolve to become better at learning.',
-        difficulty: 'hard',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-iai-49',
@@ -2225,7 +2761,127 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'The summary explains Dennett\'s view: "we often attribute human qualities like intentions or emotions to machines because it is useful, even though machines may not have these qualities in reality." Intelligence and consciousness are \'attributed\' and \'gradual.\'',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-51',
+        courseId: 'intro-ai',
+        question: 'What does "rationality" mean in the context of AI agents?',
+        options: [
+            'The agent must have complete knowledge of all facts',
+            'The agent chooses actions that optimise the chance of achieving its goals given available information',
+            'The agent always produces the mathematically optimal result',
+            'The agent must explain all decisions in natural language',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Rationality means selecting actions to maximise expected goal achievement based on available percepts and knowledge. It does not require omniscience or guaranteed optimality.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-52',
+        courseId: 'intro-ai',
+        question: 'Which search algorithm uses a heuristic and guarantees finding the optimal path when the heuristic is admissible?',
+        options: [
+            'Depth-First Search (DFS)',
+            'Breadth-First Search (BFS)',
+            'A* search',
+            'Random search',
+        ],
+        correctIndex: 2,
+        explanation:
+            'A* search combines actual cost from start with a heuristic estimate of remaining cost. When the heuristic never overestimates (is admissible), A* guarantees the optimal path.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-53',
+        courseId: 'intro-ai',
+        question: 'In conversational AI, what is "grounding" in dialogue?',
+        options: [
+            'Connecting a robot physically to the ground',
+            'The process by which participants establish shared understanding',
+            'Training a language model on ground-truth labels',
+            'Removing bias from training data',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Grounding in dialogue refers to the ongoing process where participants update and confirm their mutual understanding through clarification questions and confirmations.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-54',
+        courseId: 'intro-ai',
+        question: 'What is "bias laundering" in the context of AI ethics?',
+        options: [
+            'A technique to remove all bias from datasets',
+            'When automation wraps historical human biases in a veneer of objectivity',
+            'A legal process for auditing AI systems',
+            'A method of cleaning biased training data by resampling',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Bias laundering occurs when automating a process gives existing human biases an appearance of objectivity. An AI trained on biased historical data perpetuates bias while appearing "objective."',
         difficulty: 'hard',
+    },
+    {
+        id: 'quiz-iai-55',
+        courseId: 'intro-ai',
+        question: 'What is the "reality gap" in evolutionary robotics?',
+        options: [
+            'The gap between battery life in simulation versus reality',
+            'The performance difference when solutions evolved in simulation are deployed on physical robots',
+            'The time delay between designing and manufacturing a robot',
+            'The difference between intended and actual selling price',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The reality gap refers to performance differences when simulation-evolved policies are deployed on real robots, due to unmodelled physics, noise, and sensor imperfections.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-56',
+        courseId: 'intro-ai',
+        question: 'Which best describes "backpropagation" in neural networks?',
+        options: [
+            'Collecting training data by tracing back to original sources',
+            'An algorithm that adjusts weights by propagating error gradients backward from the output layer',
+            'Removing layers from a network to reduce complexity',
+            'Sending data backward through the network to generate new inputs',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Backpropagation computes how much each weight contributed to prediction error, then adjusts weights to reduce it. Gradients flow backward from output through hidden layers.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-iai-57',
+        courseId: 'intro-ai',
+        question: 'What is "one-hot encoding" used for in data wrangling?',
+        options: [
+            'Encrypting sensitive data for privacy',
+            'Converting categorical variables into binary columns',
+            'Normalising numeric features to a 0-1 range',
+            'Reducing features through dimensionality reduction',
+        ],
+        correctIndex: 1,
+        explanation:
+            'One-hot encoding converts each category into a separate binary column (1 if the data point belongs to that category, 0 otherwise). This differs from normalisation or label encoding.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-iai-58',
+        courseId: 'intro-ai',
+        question: 'The Hawthorne effect is a threat to validity because:',
+        options: [
+            'Participants change behaviour because they know they are being observed',
+            'Participants drop out at different rates across groups',
+            'Measurement instruments change over the study',
+            'Participants are not randomly assigned to groups',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The Hawthorne effect occurs when participants alter behaviour due to awareness of being observed, regardless of the actual intervention.',
+        difficulty: 'medium',
     },
 
     // ========== Introduction to Psychology ==========
@@ -2279,12 +2935,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'intro-psychology',
         question: 'What is functionalism in psychology?',
         options: [
-            'The idea that the mind is too complex to understand as individual parts',
             'The idea that the mind evolved to solve specific problems in the environment',
+            'The idea that the mind is too complex to understand as individual parts',
             'The theory that behavior is independent of biological evolution',
             'The approach of studying only observable behavior without considering mental processes',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'Functionalism is the idea that the mind evolved to solve specific environmental problems. Human mental activity, behavior, and culture are guided by evolution and environmental challenges.',
         difficulty: 'medium',
@@ -2309,12 +2965,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'intro-psychology',
         question: 'What is the basic unit of the nervous system?',
         options: [
-            'The synapse',
             'The neuron',
+            'The synapse',
             'The brain stem',
             'The myelin sheath',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'Neurons (nerve cells) are the basic units of the nervous system. They receive and send electrical and chemical messages, and are linked together in neural networks.',
         difficulty: 'easy',
@@ -2369,12 +3025,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'intro-psychology',
         question: 'How do agonist drugs affect neurotransmission?',
         options: [
-            'They decrease the amount of neurotransmitter or block its receptors',
             'They enhance neurotransmitter activity by mimicking it or increasing its availability',
+            'They decrease the amount of neurotransmitter or block its receptors',
             'They destroy the synapse between neurons',
             'They permanently alter the structure of receptors',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'Agonist drugs enhance neurotransmitter activity. They can increase how much neurotransmitter is produced, block its reuptake, or mimic the neurotransmitter by binding to its receptors.',
         difficulty: 'medium',
@@ -2415,11 +3071,11 @@ export const quizQuestions: QuizQuestion[] = [
         question: 'What is the role of the corpus callosum?',
         options: [
             'Controlling balance and coordination',
-            'Connecting the brain\'s two hemispheres',
-            'Relaying sensory information to the cortex',
             'Regulating hormones throughout the body',
+            'Relaying sensory information to the cortex',
+            'Connecting the brain\'s two hemispheres',
         ],
-        correctIndex: 1,
+        correctIndex: 3,
         explanation:
             'The corpus callosum is a thick band of nerve fibers that connects the brain\'s two hemispheres, allowing them to communicate. Cutting it results in split-brain patients.',
         difficulty: 'easy',
@@ -2474,12 +3130,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'intro-psychology',
         question: 'What is epigenetics?',
         options: [
-            'The study of how mutations change DNA sequences',
             'The study of how genetic expression can be changed by experience and environment',
+            'The study of how mutations change DNA sequences',
             'The study of dominant and recessive gene inheritance',
             'The study of chromosomal disorders and their effects',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'Epigenetics is the study of how genetic expression may change due to experience and environmental contexts, without altering the DNA sequence itself.',
         difficulty: 'medium',
@@ -2505,11 +3161,11 @@ export const quizQuestions: QuizQuestion[] = [
         question: 'Which phenomenon illustrates how selective attention can be?',
         options: [
             'Sensory adaptation',
-            'Change blindness',
-            'Subliminal perception',
             'Signal detection',
+            'Subliminal perception',
+            'Change blindness',
         ],
-        correctIndex: 1,
+        correctIndex: 3,
         explanation:
             'Change blindness illustrates how selective an individual\'s attention can be — we often do not notice large changes in an environment because we fail to pay attention.',
         difficulty: 'medium',
@@ -2519,12 +3175,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'intro-psychology',
         question: 'What is the difference between controlled and automatic processing?',
         options: [
-            'Controlled processing is unconscious; automatic processing requires concentration',
             'Controlled processing requires concentration; automatic processing occurs with little conscious effort',
+            'Controlled processing is unconscious; automatic processing requires concentration',
             'Both require equal amounts of conscious effort',
             'Automatic processing only occurs during sleep',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'Controlled processing requires a great deal of concentration, while automatic processing happens with little conscious effort for highly practiced tasks. This frees up consciousness for other tasks.',
         difficulty: 'medium',
@@ -2579,12 +3235,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'intro-psychology',
         question: 'According to the activation-synthesis hypothesis, why do we dream?',
         options: [
-            'Dreams reveal repressed unconscious wishes and desires',
             'Dreams are the mind\'s attempt to make sense of random brain activity during sleep',
+            'Dreams reveal repressed unconscious wishes and desires',
             'Dreams serve to consolidate memories from the previous day',
             'Dreams are caused by external stimuli reaching the sleeping brain',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'The activation-synthesis hypothesis posits that dreams are the product of the mind\'s efforts to make sense of random brain activity during sleep, rather than revealing unconscious conflicts as Freud believed.',
         difficulty: 'medium',
@@ -2595,11 +3251,11 @@ export const quizQuestions: QuizQuestion[] = [
         question: 'Which category of psychoactive drugs activates GABA receptors and decreases behavioral and mental activity?',
         options: [
             'Stimulants',
-            'Depressants',
-            'Opioids',
             'Hallucinogens',
+            'Opioids',
+            'Depressants',
         ],
-        correctIndex: 1,
+        correctIndex: 3,
         explanation:
             'Depressants (including alcohol, barbiturates, and benzodiazepines) decrease behavioral and mental activity by activating GABA receptors. Stimulants increase activity, opioids reduce pain, and hallucinogens alter perceptions.',
         difficulty: 'medium',
@@ -2624,12 +3280,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'intro-psychology',
         question: 'What is the difference between sensation and perception?',
         options: [
-            'Sensation is conscious experience; perception is the detection of physical stimuli',
             'Sensation is the detection of physical stimuli; perception is the conscious experience of those stimuli',
+            'Sensation is conscious experience; perception is the detection of physical stimuli',
             'They are the same process with different names',
             'Sensation requires attention; perception does not',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'Sensation is the detection of physical stimuli in the environment, while perception is our conscious experience of those stimuli. Sensation is the raw input; perception is how the brain interprets it.',
         difficulty: 'easy',
@@ -2699,12 +3355,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'intro-psychology',
         question: 'In classical conditioning, what happens during extinction?',
         options: [
-            'The unconditioned stimulus is permanently forgotten',
             'The conditioned stimulus is presented without the unconditioned stimulus until the conditioned response stops',
+            'The unconditioned stimulus is permanently forgotten',
             'A new conditioned stimulus replaces the original one',
             'The organism becomes habituated to the unconditioned stimulus',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'Extinction occurs when the conditioned stimulus (CS) is repeatedly presented without the unconditioned stimulus (US), and the conditioned response gradually diminishes and stops.',
         difficulty: 'medium',
@@ -2751,7 +3407,7 @@ export const quizQuestions: QuizQuestion[] = [
         ],
         correctIndex: 2,
         explanation:
-            'Variable ratio schedules (reinforcement after an unpredictable number of responses) are most resistant to extinction. This is why gambling is so addictive — the reward comes at unpredictable intervals.',
+            'Variable ratio schedules (reinforcement after an unpredictable number of responses) are most resistant to extinction. This is why gambling is so addictive — the reward comes after an unpredictable number of responses, making it hard to detect that reinforcement has stopped.',
         difficulty: 'medium',
     },
     {
@@ -2760,11 +3416,11 @@ export const quizQuestions: QuizQuestion[] = [
         question: 'In operant conditioning, what is "shaping"?',
         options: [
             'Punishing incorrect behaviors until only the correct behavior remains',
-            'Reinforcing successive approximations of a desired behavior',
-            'Conditioning an animal to respond to a specific stimulus',
             'Eliminating unwanted behaviors through extinction',
+            'Conditioning an animal to respond to a specific stimulus',
+            'Reinforcing successive approximations of a desired behavior',
         ],
-        correctIndex: 1,
+        correctIndex: 3,
         explanation:
             'Shaping is the process of reinforcing successive approximations of the desired behavior. It is used when the target behavior is not performed spontaneously and needs to be built up gradually.',
         difficulty: 'medium',
@@ -2789,12 +3445,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'intro-psychology',
         question: 'What is the difference between explicit and implicit memory?',
         options: [
-            'Explicit memory is short-term; implicit memory is long-term',
             'Explicit memory requires conscious effort to declare; implicit memory is expressed without conscious awareness',
+            'Explicit memory is short-term; implicit memory is long-term',
             'Explicit memory stores facts; implicit memory stores emotions',
             'There is no meaningful difference between them',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'Explicit (declarative) memories require conscious effort to recall (episodic events and semantic facts). Implicit memories are expressed without conscious awareness (procedural skills, priming, classical conditioning).',
         difficulty: 'easy',
@@ -2864,12 +3520,12 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'intro-psychology',
         question: 'What is proactive interference?',
         options: [
-            'When new information interferes with the ability to remember old information',
             'When old information interferes with the ability to learn new information',
+            'When new information interferes with the ability to remember old information',
             'When two memories are combined into a single false memory',
             'When retrieval of one memory blocks retrieval of all related memories',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
             'Proactive interference occurs when previously learned (old) information interferes with the ability to remember new information. Retroactive interference is the opposite — new information interferes with old memories.',
         difficulty: 'medium',
@@ -2910,11 +3566,11 @@ export const quizQuestions: QuizQuestion[] = [
         question: 'According to the prototype model, how do we categorize objects?',
         options: [
             'By comparing them to every example we\'ve ever seen',
-            'By comparing them to the most typical example (prototype) of the category',
-            'By checking if they meet a strict set of defining features',
             'By randomly assigning them to the most recent category encountered',
+            'By checking if they meet a strict set of defining features',
+            'By comparing them to the most typical example (prototype) of the category',
         ],
-        correctIndex: 1,
+        correctIndex: 3,
         explanation:
             'The prototype model states that we form a concept around a category and choose a prototype — the most typical example — that best represents the concept. We then categorize new items by comparing them to this prototype.',
         difficulty: 'medium',
@@ -2977,6 +3633,381 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'Spontaneous recovery occurs when, after a period of time following extinction, the conditioned stimulus is presented alone and produces a weak conditioned response. This shows that extinction does not erase the original learning.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-51',
+        courseId: 'intro-psychology',
+        question: 'Which method of fixing belief is considered most reliable because it is empirical and self-correcting?',
+        options: [
+            'Personal experience and intuition',
+            'Appeal to authority',
+            'A priori reasoning from first principles',
+            'The scientific method',
+        ],
+        correctIndex: 3,
+        explanation:
+            'The scientific method is the most reliable way to fix beliefs because it is empirical (based on observation) and self-correcting (built-in error detection through replication and peer review).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-52',
+        courseId: 'intro-psychology',
+        question: 'A researcher claims that "therapy reduces anxiety symptoms." What type of claim is this?',
+        options: [
+            'A frequency claim',
+            'An association claim',
+            'A causal claim',
+            'A descriptive claim',
+        ],
+        correctIndex: 2,
+        explanation:
+            'This is a causal claim because it asserts that one variable (therapy) causes a change in another (anxiety symptoms). Causal claims require experimental evidence with random assignment.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-53',
+        courseId: 'intro-psychology',
+        question: 'In an experiment, the variable that is manipulated by the researcher is called the:',
+        options: [
+            'Dependent variable',
+            'Confounding variable',
+            'Control variable',
+            'Independent variable',
+        ],
+        correctIndex: 3,
+        explanation:
+            'The independent variable (IV) is manipulated by the researcher. The dependent variable (DV) is the measured outcome. Confounding variables are uncontrolled alternatives, and control variables are held constant.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-54',
+        courseId: 'intro-psychology',
+        question: 'Which type of validity asks whether findings can be generalized to other people, settings, and times?',
+        options: [
+            'Construct validity',
+            'Internal validity',
+            'External validity',
+            'Statistical validity',
+        ],
+        correctIndex: 2,
+        explanation:
+            'External validity concerns whether results generalize beyond the specific study. Construct validity asks if we measured what we claimed. Internal validity asks if causal conclusions are justified.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-55',
+        courseId: 'intro-psychology',
+        question: 'Which type of validity is most relevant when evaluating whether an experiment supports a causal claim?',
+        options: [
+            'External validity',
+            'Statistical validity',
+            'Internal validity',
+            'Construct validity',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Internal validity is the confidence that changes in the DV are truly caused by the IV, not confounds. Random assignment and control groups increase internal validity.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-56',
+        courseId: 'intro-psychology',
+        question: 'A correlation of r = -0.85 between two variables indicates:',
+        options: [
+            'A weak negative relationship',
+            'A strong positive relationship',
+            'No meaningful relationship',
+            'A strong negative relationship',
+        ],
+        correctIndex: 3,
+        explanation:
+            'The sign indicates direction (negative = inverse relationship). The absolute value indicates strength (0.85 is close to 1.00 = strong). Negative correlations are not weaker than positive ones.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-57',
+        courseId: 'intro-psychology',
+        question: 'Ice cream sales and drowning rates are positively correlated. A researcher concludes eating ice cream causes drowning. What flaw is this?',
+        options: [
+            'The directionality problem',
+            'The third variable problem: hot weather likely causes both',
+            'The sample size is too small',
+            'The correlation coefficient must be negative',
+        ],
+        correctIndex: 1,
+        explanation:
+            'This is the third variable problem: an unmeasured variable (hot weather) causes both. Correlation does not imply causation because of both the directionality problem and the third variable problem.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-58',
+        courseId: 'intro-psychology',
+        question: 'What are the three criteria for establishing a causal claim?',
+        options: [
+            'Reliability, validity, and generalizability',
+            'Covariance, temporal precedence, and internal validity (ruling out confounds)',
+            'Large sample size, random sampling, and statistical significance',
+            'Replication, peer review, and operational definitions',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The three criteria are: (1) covariance — X and Y must be related; (2) temporal precedence — cause before effect; (3) internal validity — alternative explanations ruled out. Only true experiments satisfy all three.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-psy-59',
+        courseId: 'intro-psychology',
+        question: 'In a between-subjects design, each participant experiences:',
+        options: [
+            'All levels of the independent variable',
+            'Only one level of the independent variable',
+            'The baseline phase followed by the treatment phase',
+            'Both the control and experimental conditions',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In a between-subjects design, each participant is assigned to only one condition. This eliminates order effects but introduces the risk of pre-existing group differences, addressed by random assignment.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-60',
+        courseId: 'intro-psychology',
+        question: 'What is the main advantage of a within-subjects design?',
+        options: [
+            'Each participant serves as their own control, eliminating individual differences between groups',
+            'It prevents participants from being influenced by previous conditions',
+            'It allows smaller independent variables',
+            'It increases external validity',
+        ],
+        correctIndex: 0,
+        explanation:
+            'In a within-subjects design, each participant experiences all conditions, serving as their own control. This eliminates individual differences and increases statistical power. The main disadvantage is order effects.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-61',
+        courseId: 'intro-psychology',
+        question: 'An experiment uses a 3 x 2 factorial design. How many conditions does it have?',
+        options: [
+            '3',
+            '5',
+            '6',
+            '8',
+        ],
+        correctIndex: 2,
+        explanation:
+            'In a factorial design, total conditions = levels of Factor A x levels of Factor B = 3 x 2 = 6. Every level of each factor is combined with every level of the other.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-62',
+        courseId: 'intro-psychology',
+        question: 'In a factorial design, an interaction effect means that:',
+        options: [
+            'Both independent variables have significant main effects',
+            'The effect of one IV depends on the level of the other IV',
+            'The dependent variable does not change across conditions',
+            'The two independent variables are confounded',
+        ],
+        correctIndex: 1,
+        explanation:
+            'An interaction occurs when the effect of one factor depends on the level of another. For example, a drug might improve performance in young adults but not older adults.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-63',
+        courseId: 'intro-psychology',
+        question: 'A disadvantage of quasi-experimental designs compared to true experiments is:',
+        options: [
+            'They cannot measure dependent variables',
+            'They have lower internal validity because random assignment is not possible',
+            'They can only be used with animal subjects',
+            'They require larger sample sizes',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Quasi-experiments select rather than manipulate the IV, so random assignment is impossible. This compromises internal validity because pre-existing group differences cannot be ruled out.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-64',
+        courseId: 'intro-psychology',
+        question: 'Which scale of measurement has equal intervals AND a true zero point?',
+        options: [
+            'Nominal scale',
+            'Ordinal scale',
+            'Interval scale',
+            'Ratio scale',
+        ],
+        correctIndex: 3,
+        explanation:
+            'A ratio scale has equal intervals and a meaningful true zero (e.g., weight, reaction time). An interval scale has equal intervals but no true zero (e.g., Celsius temperature, IQ scores).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-65',
+        courseId: 'intro-psychology',
+        question: 'What distinguishes genotype from phenotype?',
+        options: [
+            'Genotype is observable; phenotype is genetic code',
+            'Genotype is the genetic constitution; phenotype is the set of observable characteristics',
+            'Genotype refers to dominant genes only',
+            'Genotype changes throughout life; phenotype is fixed at birth',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Genotype refers to the genetic constitution (DNA sequence), while phenotype refers to observable characteristics resulting from the interaction of genotype with environment.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-66',
+        courseId: 'intro-psychology',
+        question: 'Which type of photoreceptors are responsible for color vision and fine detail?',
+        options: [
+            'Rods',
+            'Cones',
+            'Ganglion cells',
+            'Bipolar cells',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Cones handle color vision and fine detail in bright light. There are three types (short, medium, long wavelength). Rods handle dim-light and peripheral vision but do not detect color.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-67',
+        courseId: 'intro-psychology',
+        question: 'A child sees the same toy repeatedly and gradually loses interest. This is an example of:',
+        options: [
+            'Extinction',
+            'Sensitization',
+            'Stimulus generalization',
+            'Habituation',
+        ],
+        correctIndex: 3,
+        explanation:
+            'Habituation is decreased response to a repeated stimulus that provides no new information. It is distinct from extinction (conditioned stimuli) and sensitization (increased response in threatening contexts).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-68',
+        courseId: 'intro-psychology',
+        question: 'The serial position effect predicts you are most likely to remember:',
+        options: [
+            'Words in the middle of a list',
+            'Words at the beginning and end of a list',
+            'Only the last few words',
+            'Words that are emotionally neutral',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The serial position effect shows superior recall for items at the beginning (primacy effect, transferred to LTM) and end (recency effect, still in working memory). Middle items are recalled least.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-69',
+        courseId: 'intro-psychology',
+        question: 'Max knows one friendly New Zealander and concludes all New Zealanders are friendly. This judgment is based on:',
+        options: [
+            'The representativeness heuristic',
+            'The availability heuristic',
+            'Framing effects',
+            'Confirmation bias',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The representativeness heuristic involves judging a category based on similarity to a prototype or single example. The availability heuristic involves judging likelihood by how easily examples come to mind.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-70',
+        courseId: 'intro-psychology',
+        question: 'A measure that consistently produces the same results but does not measure what it claims to has:',
+        options: [
+            'High reliability and high validity',
+            'High reliability but low validity',
+            'Low reliability and high validity',
+            'Low reliability and low validity',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Reliability is consistency; validity is accuracy. A measure can be reliable but not valid (consistent but measuring the wrong thing). Reliability is necessary but not sufficient for validity.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-71',
+        courseId: 'intro-psychology',
+        question: 'What is sensory adaptation?',
+        options: [
+            'Detecting stimuli below the absolute threshold',
+            'Sensory receptors stop responding to an unchanging stimulus',
+            'The brain reorganizing after sensory deprivation',
+            'Increased sensitivity after repeated exposure',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Sensory adaptation occurs when receptors become less responsive to an unchanging stimulus over time (e.g., not noticing clothes on your skin). This allows focus on new or changing stimuli.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-psy-72',
+        courseId: 'intro-psychology',
+        question: 'A researcher measures "stress" by recording cortisol levels. Cortisol level is best described as:',
+        options: [
+            'The conceptual variable',
+            'The operational definition of stress',
+            'The dependent variable only',
+            'A confounding variable',
+        ],
+        correctIndex: 1,
+        explanation:
+            'An operational definition specifies the concrete, measurable way a conceptual variable is assessed. "Stress" is the abstract concept; "cortisol level" is the operational definition that makes it measurable.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-73',
+        courseId: 'intro-psychology',
+        question: 'In a reversal design (ABAB), removing and reintroducing the treatment demonstrates:',
+        options: [
+            'That the sample size is sufficient',
+            'That behavior changes are caused by the treatment rather than external factors',
+            'That participants remain blind to the condition',
+            'That individual differences are eliminated',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In ABAB designs, if behavior changes with treatment and returns to baseline without it, this strengthens the causal claim. The effect is demonstrated twice, increasing confidence.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-psy-74',
+        courseId: 'intro-psychology',
+        question: 'Variability within a species is best described as:',
+        options: [
+            'An unwanted by-product of genetic mutation',
+            'An essential condition for natural selection',
+            'A barrier to successful reproduction',
+            'A result of environmental damage to DNA',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Variability is essential for natural selection — without heritable variation, there would be no differences for selection to act upon. Variation from random mutations provides raw material for adaptation.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-psy-75',
+        courseId: 'intro-psychology',
+        question: 'In shadowing, a participant repeats back:',
+        options: [
+            'Text they are reading aloud',
+            'Words heard in one ear while ignoring the other ear',
+            'Sentences from a written questionnaire',
+            'Their own internal thoughts during meditation',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Shadowing is a selective attention task where participants repeat an auditory message in one ear while ignoring a different message in the other ear, demonstrating the limits of attention.',
         difficulty: 'medium',
     },
     // ========== Intelligent Systems ==========
@@ -3174,7 +4205,7 @@ export const quizQuestions: QuizQuestion[] = [
         ],
         correctIndex: 2,
         explanation: 'The DPLL algorithm determines the satisfiability of CNF formulas by systematically making partial Truth assignments, utilizing unit clauses, and backtracking when a conflict is found.',
-        difficulty: 'hard'
+        difficulty: 'medium'
     },
     {
         id: 'quiz-is-15',
@@ -3272,7 +4303,7 @@ export const quizQuestions: QuizQuestion[] = [
         ],
         correctIndex: 1,
         explanation: 'Bayesian Networks graphically represent conditional dependencies. By identifying pairs of variables that are conditionally independent, the network drastically reduces the number of parameters needed to define the full joint probability distribution.',
-        difficulty: 'hard'
+        difficulty: 'medium'
     },
     {
         id: 'quiz-is-22',
@@ -3328,7 +4359,7 @@ export const quizQuestions: QuizQuestion[] = [
         ],
         correctIndex: 2,
         explanation: 'If a feature was not observed in the training data for a specific class, its probability estimate would be zero. Because Naive Bayes implies multiplying probabilities, a single zero cancels the entire formula. Laplace smoothing adds a small constant to avoid this.',
-        difficulty: 'hard'
+        difficulty: 'medium'
     },
     {
         id: 'quiz-is-26',
@@ -3440,7 +4471,7 @@ export const quizQuestions: QuizQuestion[] = [
         ],
         correctIndex: 2,
         explanation: 'Batch training computes gradients using the entire dataset before making one parameter update. SGD updates the parameters much more frequently using randomly selected subsets (or individuals), leading to faster, although erratic, convergence.',
-        difficulty: 'hard'
+        difficulty: 'medium'
     },
     {
         id: 'quiz-is-34',
@@ -3482,7 +4513,7 @@ export const quizQuestions: QuizQuestion[] = [
         ],
         correctIndex: 2,
         explanation: 'Without non-linear activation functions, a neural network, regardless of how many layers it has, fundamentally behaves as a single layer linear regression model. Activation functions allow networks to approximate any complex function.',
-        difficulty: 'hard'
+        difficulty: 'medium'
     },
     {
         id: 'quiz-is-37',
@@ -3679,6 +4710,141 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 0,
         explanation: 'The self-attention calculation measures the similarity between the Queries ($Q$) and Keys ($K$) using dot-product, scales it down by $\\sqrt{d_k}$, applies softmax, and multiplies by the Values ($V$).',
         difficulty: 'hard'
+    },
+    {
+        id: 'quiz-is-51',
+        courseId: 'intelligent-systems',
+        question: 'Given a set S = {a, b, c}, how many elements does its power set contain?',
+        options: ['3', '6', '8', '9'],
+        correctIndex: 2,
+        explanation:
+            'The power set of a set with n elements contains 2^n subsets. Since |S| = 3, |P(S)| = 2^3 = 8.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-is-52',
+        courseId: 'intelligent-systems',
+        question: 'In an adjacency matrix for an undirected graph, which property must always hold?',
+        options: [
+            'The matrix is upper triangular',
+            'The matrix is symmetric',
+            'All diagonal entries must be 1',
+            'The sum of each row equals the total number of vertices',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In an undirected graph, an edge between vertex i and j means both (i,j)=1 and (j,i)=1, making the matrix symmetric.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-is-53',
+        courseId: 'intelligent-systems',
+        question: 'BFS uses which data structure for its frontier, and in what order does it expand nodes?',
+        options: [
+            'A LIFO stack; most recently added first',
+            'A priority queue; lowest heuristic first',
+            'A FIFO queue; earliest added first, level by level',
+            'A hash set; random order',
+        ],
+        correctIndex: 2,
+        explanation:
+            'BFS uses a FIFO queue. The first node added is the first expanded, ensuring all nodes at depth d are processed before depth d+1.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-is-54',
+        courseId: 'intelligent-systems',
+        question: 'If A* search uses h(n) = 0 for all nodes, which algorithm does it become?',
+        options: [
+            'Depth-First Search',
+            'Greedy Best-First Search',
+            'Uniform Cost Search',
+            'Hill Climbing',
+        ],
+        correctIndex: 2,
+        explanation:
+            'When h(n) = 0, f(n) = g(n) + 0 = g(n). A* then expands by lowest path cost, which is Uniform Cost Search.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-is-55',
+        courseId: 'intelligent-systems',
+        question: 'In a Minimax tree, the root MAX node has two MIN children. Left MIN has terminals 3 and 5. Right MIN has terminals 2 and 8. What is the root value?',
+        options: ['2', '3', '5', '8'],
+        correctIndex: 1,
+        explanation:
+            'Left MIN picks min(3,5)=3. Right MIN picks min(2,8)=2. Root MAX picks max(3,2)=3.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-is-56',
+        courseId: 'intelligent-systems',
+        question: 'What is the correct CNF conversion of A → B?',
+        options: [
+            'A ∧ B',
+            '¬A ∨ B',
+            'A ∨ ¬B',
+            '¬A ∧ ¬B',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The standard equivalence: A → B ≡ ¬A ∨ B. This is already a single clause in CNF.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-is-57',
+        courseId: 'intelligent-systems',
+        question: 'In DPLL, what happens when a unit clause is encountered?',
+        options: [
+            'The clause is removed and ignored',
+            'The algorithm backtracks',
+            'The literal must be set to make the clause true (unit propagation)',
+            'A new variable is introduced',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Unit propagation: when a clause has one unassigned literal, that literal must be set to true to satisfy the clause. This forced assignment can cascade.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-is-58',
+        courseId: 'intelligent-systems',
+        question: 'Forward chaining in propositional logic:',
+        options: [
+            'Starts from the goal and works backward',
+            'Starts from known facts and repeatedly applies rules until the query is derived',
+            'Evaluates all possible truth assignments',
+            'Converts KB to CNF and applies DPLL',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Forward chaining is data-driven: it begins with known facts, applies inference rules (like Modus Ponens), and continues until the query is found or no new facts arise.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-is-59',
+        courseId: 'intelligent-systems',
+        question: 'In fuzzy logic, if v(P) = 0.7 and v(Q) = 0.4, what is v(P ∧ Q)?',
+        options: ['0.7', '0.4', '0.3', '1.1'],
+        correctIndex: 1,
+        explanation:
+            'In fuzzy logic, conjunction (AND) is the minimum: v(P ∧ Q) = min(0.7, 0.4) = 0.4.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-is-60',
+        courseId: 'intelligent-systems',
+        question: 'What is the key difference between vagueness and uncertainty in AI?',
+        options: [
+            'Vagueness deals with imprecise concept boundaries; uncertainty deals with lack of knowledge about outcomes',
+            'Vagueness is modeled by Bayesian networks; uncertainty by fuzzy logic',
+            'Vagueness applies only to numbers; uncertainty to categories',
+            'They are interchangeable terms',
+        ],
+        correctIndex: 0,
+        explanation:
+            'Vagueness arises from imprecise semantic boundaries (handled by fuzzy logic), while uncertainty arises from incomplete knowledge (handled by probability theory).',
+        difficulty: 'medium',
     },
 
     // ========== Project Intelligent Systems ==========
@@ -3936,7 +5102,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 2,
         explanation:
             'Adaptive behaviour changes through experience, which requires a "sensitivity" parameter that adjusts based on past experiences. Reactive behaviour (stimulus-response and delayed response) does not need sensitivity — it responds based on current or remembered stimuli without learning.',
-        difficulty: 'hard',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-dm-11',
@@ -4000,7 +5166,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'The standard agent predicates include: sr (sensory representation), ps (preparation state), belief, desire, observed, to_be_observed, performed, communicated_from_to, and to_be_communicated. "prepare" is not a standard predicate — the correct one is "ps" (preparation state).',
-        difficulty: 'hard',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-dm-15',
@@ -4240,7 +5406,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'The new emotion level is: q_A(t+dt) = (1-gamma) * q_A + gamma * q_A*, which is a weighted average of the old emotion level and the average impact from others. The parameter gamma controls how much influence others have — if gamma is small, the person is resistant to contagion.',
-        difficulty: 'medium',
+        difficulty: 'hard',
     },
     {
         id: 'quiz-dm-30',
@@ -4400,7 +5566,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 2,
         explanation:
             'When a bee performs a role addressing a certain aspect (e.g., foraging for food), the norm for that aspect slowly decreases. This means the bee becomes more "used to" that role and more likely to keep performing it — leading to specialisation over time.',
-        difficulty: 'hard',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-dm-40',
@@ -4416,7 +5582,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'Validation checks whether the model correctly represents reality (is the model built right?). Evaluation compares simulation results with expected patterns/hypotheses (does the model behave as expected?). Both are part of the analysis phase, but they serve different purposes.',
-        difficulty: 'hard',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-dm-41',
@@ -4578,6 +5744,111 @@ export const quizQuestions: QuizQuestion[] = [
             'An intelligent agent does NOT always use forward reasoning. It can use backward reasoning (from desired conclusion to needed observations) in analysis models, and forward reasoning (from actions to effects) in support models. The choice depends on the task and model structure. Agents can and do use both directions.',
         difficulty: 'hard',
     },
+    {
+        id: 'quiz-dm-51',
+        courseId: 'modelling-human-behaviour',
+        question: 'In the wasp conditioning model, what is the key difference between pain and sensitivity?',
+        options: [
+            'Pain is persistent; sensitivity is temporary',
+            'Pain is temporary and short-lived; sensitivity persists over time',
+            'Both persist indefinitely',
+            'Neither persists; they are re-created each step',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Pain is short-term, triggered by being stung. Sensitivity persists once acquired, causing lasting behavioural change (panicking when a wasp is close).',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-52',
+        courseId: 'modelling-human-behaviour',
+        question: 'Starting from conditional trust (ct), after a negative experience then a positive experience, what is the trust state?',
+        options: [
+            'Unconditional trust (ut)',
+            'Conditional trust (ct)',
+            'Conditional distrust (cd)',
+            'Unconditional distrust (ud)',
+        ],
+        correctIndex: 1,
+        explanation:
+            'From ct: negative → cd, then positive → ct. Trust transitions follow: ud ↔ cd ↔ ct ↔ ut, with positive moving up and negative moving down.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-53',
+        courseId: 'modelling-human-behaviour',
+        question: 'In the BDI model, what two conditions generate an intention?',
+        options: [
+            'An observation AND a sensory representation',
+            'A desire AND a belief that an action will satisfy it',
+            'A belief AND a preparation state',
+            'An observation AND a desire for food',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Intention generation follows Aristotle\'s practical syllogism: IF the agent has a desire D AND believes action X achieves D, THEN the intention to do X is generated.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-dm-54',
+        courseId: 'modelling-human-behaviour',
+        question: 'Which statement about the intentional stance (Dennett) is correct?',
+        options: [
+            'Internal cognitive states correspond to real neurological properties',
+            'It treats an individual as rational and predicts behaviour based on attributed beliefs and desires',
+            'It requires detailed knowledge of the physical constitution',
+            'It can only be applied to humans, not artificial agents',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Dennett\'s intentional stance is instrumentalist: treat the other as rational, figure out what beliefs/desires they ought to have, and predict behaviour accordingly. It does not claim cognitive states are physically real.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-dm-55',
+        courseId: 'modelling-human-behaviour',
+        question: 'In the trust-based behaviour model, which trust states lead to buying from the shop?',
+        options: [
+            'Only unconditional trust (ut)',
+            'Conditional trust (ct) or unconditional trust (ut)',
+            'Conditional distrust (cd) or conditional trust (ct)',
+            'Any state except unconditional distrust (ud)',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The individual buys when in ct or ut. In cd or ud, they do not buy. The boundary lies between ct and cd.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-dm-56',
+        courseId: 'modelling-human-behaviour',
+        question: 'How do you choose reasoning direction in a SUPPORT model?',
+        options: [
+            'It follows from the position of observations and desire',
+            'You choose whichever direction is easiest to implement',
+            'You always use forward reasoning',
+            'You always use backward reasoning',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In support models, the reasoning direction is pragmatic: choose whatever is easiest to implement. This differs from analysis models, where direction follows from the model structure.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-dm-57',
+        courseId: 'modelling-human-behaviour',
+        question: 'What is the difference between a step property and a persistence property in logical modelling?',
+        options: [
+            'Step properties run for one time step; persistence for multiple',
+            'Step properties generate new facts at the next step; persistence properties maintain existing facts unless overridden',
+            'Step properties are numerical; persistence properties are logical',
+            'Step properties are for internal states; persistence for external',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In logical modelling (no closed-world assumption), step properties generate new facts, while persistence properties maintain existing facts across time steps unless a counteracting condition applies.',
+        difficulty: 'hard',
+    },
 
     // ========== HCI — Human-Computer Interaction for AI ==========
     {
@@ -4668,7 +5939,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'Simple reaction time (one stimulus, one response) is approximately 276 ms. This is faster than physical matching (~482 ms) and class matching (~565 ms), which require additional cognitive processing.',
-        difficulty: 'medium',
+        difficulty: 'hard',
     },
     {
         id: 'quiz-hci-7',
@@ -4683,7 +5954,7 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'Visual search reaction time follows RT = 498 + 41N ms, where N is the number of items in the display. This linear relationship means each additional item adds approximately 41 ms to the search time.',
-        difficulty: 'medium',
+        difficulty: 'hard',
     },
     {
         id: 'quiz-hci-8',
@@ -5102,8 +6373,8 @@ export const quizQuestions: QuizQuestion[] = [
         ],
         correctIndex: 3,
         explanation:
-            'The Mental operator (M) in KLM represents the time for mental preparation before an action and is estimated at 1.35 seconds. Other operator times: K (keystroke) = 0.08-1.20s, P (pointing) = 1.10s, H (homing) = 0.40s, B (button press) = 0.10s.',
-        difficulty: 'medium',
+            'The Mental operator (M) in KLM represents the time for mental preparation before an action and is estimated at 1.35 seconds. Other operator times: K (keystroke) = 0.12-1.20s depending on typing skill, P (pointing) = 1.10s, H (homing) = 0.40s, B (button press) = 0.10s.',
+        difficulty: 'hard',
     },
     {
         id: 'quiz-hci-36',
@@ -5328,6 +6599,121 @@ export const quizQuestions: QuizQuestion[] = [
         correctIndex: 1,
         explanation:
             'In a Wizard of Oz setup, a human operator (the "wizard") secretly controls the system\'s responses while the participant believes they are interacting with a fully functional system. This allows researchers to test interaction designs before building the actual system.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-51',
+        courseId: 'human-computer-interaction',
+        question: 'In an eye-tracking typing system, the eye functions as:',
+        options: [
+            'Input only (reading the screen)',
+            'Output only (controlling the cursor)',
+            'Both input and output (perceiving the screen and controlling cursor position)',
+            'Neither input nor output',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The eye serves dual roles: as a sensor (perceiving screen content) and as a responder (controlling cursor through gaze direction). 35% of students incorrectly chose "input only" on the exam.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-52',
+        courseId: 'human-computer-interaction',
+        question: 'According to Fitts\' Law, which menu type allows the fastest target acquisition?',
+        options: [
+            'Linear (vertical) menu',
+            'Rectangular (grid) menu',
+            'Pie (radial) menu',
+            'All menu types are equally fast',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Pie menus are fastest because items surround the cursor, minimizing amplitude (A) while maximizing target width (W) through wedge-shaped regions. Ranking: pie > rectangular > linear.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-53',
+        courseId: 'human-computer-interaction',
+        question: 'What distinguishes an isotonic from an isometric input device?',
+        options: [
+            'Isotonic devices are wireless; isometric require a cable',
+            'Isotonic devices move freely; isometric sense force without physical movement',
+            'Isotonic use absolute positioning; isometric use relative',
+            'Isotonic are for 2D; isometric for 3D',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Isotonic devices (e.g., mouse) move freely through space. Isometric devices (e.g., TrackPoint) sense force direction and magnitude without physical movement.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-54',
+        courseId: 'human-computer-interaction',
+        question: 'Why do hover effects not work on standard touchscreens?',
+        options: [
+            'Touchscreens lack processing power for hover animations',
+            'Touchscreens skip State 1 (tracking without contact) — they only have State 0 and State 2',
+            'The HTML standard does not support hover on mobile',
+            'Touchscreens use absolute positioning incompatible with hover',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In Buxton\'s three-state model, touchscreens are 2-state devices with only State 0 (not touching) and State 2 (touching). State 1 (tracking without contact, needed for hover) is skipped.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-hci-55',
+        courseId: 'human-computer-interaction',
+        question: 'What is the SUS (System Usability Scale)?',
+        options: [
+            'A method for measuring display dimensions',
+            'A 10-item questionnaire producing a usability score from 0 to 100',
+            'A software tool for running A/B tests',
+            'A scale measuring system response time',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The SUS is a standardized 10-item questionnaire yielding a composite score between 0 and 100, providing a quick and reliable measure of perceived usability.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-hci-56',
+        courseId: 'human-computer-interaction',
+        question: 'In a normal distribution, approximately what percentage of data falls within ±2 standard deviations?',
+        options: ['68%', '85%', '95%', '99%'],
+        correctIndex: 2,
+        explanation:
+            'In a normal distribution: ~68% within ±1 SD, ~95% within ±2 SD, ~99.7% within ±3 SD. The 95% rule relates to the commonly used alpha = 0.05 confidence level.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-57',
+        courseId: 'human-computer-interaction',
+        question: 'What is a "mode error" in interaction design?',
+        options: [
+            'Choosing the wrong input device for a task',
+            'Performing an action correct for one mode but the system is in a different mode',
+            'An error in the statistical mode of collected data',
+            'An error from unexpected light/dark mode switching',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A mode error occurs when the same input produces different outputs depending on the current mode, and the user acts as if in the wrong mode. Good design minimizes modes or provides clear mode indicators.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-hci-58',
+        courseId: 'human-computer-interaction',
+        question: 'After a significant one-way ANOVA with four groups, what should you do next?',
+        options: [
+            'Conclude all groups differ from each other',
+            'Run a post hoc test (e.g., Bonferroni or Tukey HSD) to find which pairs differ',
+            'Re-run ANOVA with only two groups at a time',
+            'Increase sample size and repeat the experiment',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A significant ANOVA says at least one group mean differs, but not which pairs. Post hoc tests perform pairwise comparisons while correcting for multiple comparisons.',
         difficulty: 'medium',
     },
 ];
