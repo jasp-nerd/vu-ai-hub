@@ -3,10 +3,12 @@ import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { getBlogPostBySlug } from '../services/contentService';
+import { useMountAnimation } from '../hooks/useAnimations';
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = getBlogPostBySlug(slug || '');
+  const mounted = useMountAnimation(50);
 
   useEffect(() => {
     document.title = post
@@ -16,7 +18,7 @@ export default function BlogPostPage() {
 
   if (!post) {
     return (
-      <div className="mx-auto max-w-6xl px-6 py-20 text-center">
+      <div className="mx-auto max-w-6xl px-6 py-20 text-center animate-fade-in">
         <h1 className="font-display text-2xl font-bold text-stone-900 dark:text-stone-100 mb-4">
           Post not found
         </h1>
@@ -33,7 +35,11 @@ export default function BlogPostPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-8">
+      <nav
+        className={`flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-8 ${
+          mounted ? 'animate-slide-in-left' : 'pre-animate'
+        }`}
+      >
         <Link
           to="/guide/blog"
           className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
@@ -58,10 +64,18 @@ export default function BlogPostPage() {
 
       <article>
         <header className="mb-10">
-          <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-tight">
+          <h1
+            className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-tight ${
+              mounted ? 'animate-blur-in stagger-1' : 'pre-animate'
+            }`}
+          >
             {post.title}
           </h1>
-          <div className="flex items-center gap-3 mt-4">
+          <div
+            className={`flex items-center gap-3 mt-4 ${
+              mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'
+            }`}
+          >
             <span className="text-sm text-stone-400 dark:text-stone-500">
               {new Date(post.date).toLocaleDateString('en-US', {
                 month: 'long',
@@ -74,13 +88,21 @@ export default function BlogPostPage() {
           </div>
         </header>
 
-        <div className="prose-custom">
+        <div
+          className={`prose-custom ${
+            mounted ? 'animate-fade-in-up stagger-3' : 'pre-animate'
+          }`}
+        >
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {post.content}
           </ReactMarkdown>
         </div>
 
-        <div className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-stone-200/60 dark:border-stone-700/60">
+        <div
+          className={`flex flex-wrap gap-2 mt-10 pt-8 border-t border-stone-200/60 dark:border-stone-700/60 ${
+            mounted ? 'animate-fade-in stagger-5' : 'pre-animate'
+          }`}
+        >
           {post.tags.map((tag) => (
             <span
               key={tag}

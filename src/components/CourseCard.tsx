@@ -4,11 +4,12 @@ import { DIFFICULTY_LABELS } from '../constants';
 
 const difficultyLabel = DIFFICULTY_LABELS;
 
-export default function CourseCard({ course }: { course: Course }) {
+export default function CourseCard({ course, style }: { course: Course; style?: React.CSSProperties }) {
   return (
     <Link
       to={`/courses/${course.slug}`}
-      className="group block rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-6 transition-all hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-lg hover:shadow-stone-100/80 dark:hover:shadow-stone-950/50 hover:-translate-y-0.5"
+      className="group block rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-6 hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-lg hover:shadow-stone-100/80 dark:hover:shadow-stone-950/50"
+      style={style}
     >
       <div className="flex items-start justify-between gap-3 mb-3">
         <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-md bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400">
@@ -31,7 +32,11 @@ export default function CourseCard({ course }: { course: Course }) {
             <div
               key={i}
               className={`w-1.5 h-5 rounded-full ${
-                i < course.difficulty ? 'bg-vu-blue dark:bg-vu-blue-light' : 'bg-stone-100 dark:bg-stone-800'
+                course.difficulty === 0
+                  ? 'bg-stone-200 dark:bg-stone-700'
+                  : i < course.difficulty
+                    ? 'bg-vu-blue dark:bg-vu-blue-light'
+                    : 'bg-stone-100 dark:bg-stone-800'
               }`}
             />
           ))}

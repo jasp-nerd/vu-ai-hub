@@ -4,7 +4,6 @@ import { introAiSummary } from './summaries/intro-ai-summary';
 import { psychologySummary } from './summaries/psychology-summary';
 import { intelligentSystemsSummary } from './summaries/intelligent-systems-summary';
 import { logicSetsSummary } from './summaries/logic-sets-summary';
-import { dynamicModellingSummary } from './summaries/dynamic-modelling-summary';
 import { historyOfAiSummary } from './summaries/history-of-ai-summary';
 import { hciSummary } from './summaries/hci-summary';
 import { introPythonSummary } from './summaries/intro-python-summary';
@@ -1050,67 +1049,6 @@ export const resources: Resource[] = [
   tags: ['textbook'],
   },
 
-  // --- Modelling Human Behaviour ---
-  {
-  id: 'res-pdf-mhb-1',
-  courseId: 'modelling-human-behaviour',
-  title: 'Dynamic Modelling — Summary',
-  description: 'Summary of the Dynamic Modelling course content.',
-  url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/modelling-human-behaviour/summaries/dynamic-modelling-summary.pdf',
-  type: 'pdf',
-  tags: ['summary'],
-  },
-  {
-  id: 'res-pdf-mhb-2',
-  courseId: 'modelling-human-behaviour',
-  title: 'Dynamic Modelling — Summary Notes',
-  description: 'Additional summary notes for Dynamic Modelling.',
-  url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/modelling-human-behaviour/summaries/dynamic-modelling-summary-notes.pdf',
-  type: 'pdf',
-  tags: ['summary', 'notes'],
-  },
-  {
-  id: 'res-pdf-mhb-3',
-  courseId: 'modelling-human-behaviour',
-  title: 'Full Exam Prep Summary',
-  description: 'Comprehensive summary covering all exam content for Dynamic Modelling.',
-  url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/modelling-human-behaviour/summaries/dynamic-modelling-full-exam-prep-summary.pdf',
-  type: 'pdf',
-  tags: ['exam-prep', 'summary'],
-  },
-  {
-  id: 'res-pdf-mhb-4',
-  courseId: 'modelling-human-behaviour',
-  title: 'Resit Exam 2022',
-  description: 'The 2022 resit exam for Dynamic Modelling.',
-  url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/modelling-human-behaviour/exams/dynamic-modelling-resit-exam-2022.pdf',
-  type: 'pdf',
-  tags: ['exam', 'resit'],
-  },
-  {
-  id: 'res-pdf-mhb-5',
-  courseId: 'modelling-human-behaviour',
-  title: 'Resit Exam 2023',
-  description: 'The 2023 resit exam for Dynamic Modelling.',
-  url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/modelling-human-behaviour/exams/dynamic-modelling-resit-exam-2023.pdf',
-  type: 'pdf',
-  tags: ['exam', 'resit'],
-  },
-
-  // --- Modelling Human Behaviour (inline summary) ---
-  {
-  id: 'res-summary-mhb',
-  courseId: 'modelling-human-behaviour',
-  title: 'Comprehensive Dynamic Modelling Summary',
-  description:
-    'Complete summary covering all 15 chapters: modelling cycle, growth models, E. coli decision-making, Aplysia learning, honeybee self-organisation, epidemics (SIR), emotion contagion, behaviour types, BDI agents, analysis & support models, and L2-Python implementation.',
-  url: '#',
-  type: 'summary',
-  tags: ['summary', 'all-chapters', 'site-exclusive'],
-  markdownContent: dynamicModellingSummary,
-  author: 'VU AI Student Hub',
-  },
-
   // --- Computational Thinking ---
   {
   id: 'res-summary-ct',
@@ -1604,17 +1542,6 @@ export const resources: Resource[] = [
     url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/logic-sets-ai/exam-prep/logic-sets-midterm-exam-prep-2026.pdf',
     type: 'pdf',
     tags: ['exam-prep', 'midterm', 'mentor-program', '2026'],
-  },
-
-  // --- Modelling Human Behaviour (additions) ---
-  {
-    id: 'res-pdf-mhb-6',
-    courseId: 'modelling-human-behaviour',
-    title: 'AI and Human Behaviour Quiz',
-    description: 'Quiz covering AI and human behaviour modelling topics.',
-    url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/modelling-human-behaviour/practice-questions/modelling-human-behaviour-quiz.pdf',
-    type: 'pdf',
-    tags: ['quiz', 'practice'],
   },
 
   // --- General (additions) ---

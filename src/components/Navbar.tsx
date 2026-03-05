@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getNavigation } from '../services/contentService';
 import { useTheme } from '../hooks/useTheme';
+import { useMountAnimation } from '../hooks/useAnimations';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -10,6 +11,7 @@ export default function Navbar() {
   const navItems = getNavigation();
   const { theme, toggleTheme } = useTheme();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const logoMounted = useMountAnimation(100);
 
   const isActive = (path: string) =>
     location.pathname === path || location.pathname.startsWith(path + '/');
@@ -38,12 +40,19 @@ export default function Navbar() {
     }
   }, [guideOpen]);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl border-b border-stone-200/60 dark:border-stone-700/60">
       <nav className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
         <Link
           to="/"
-          className="flex items-center gap-2.5 font-display font-bold text-lg tracking-tight text-stone-900 dark:text-stone-100 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors"
+          className={`flex items-center gap-2.5 font-display font-bold text-lg tracking-tight text-stone-900 dark:text-stone-100 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors press-effect ${
+            logoMounted ? 'animate-scale-in' : 'pre-animate'
+          }`}
         >
           <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-vu-blue text-white text-sm font-bold">
             AI
@@ -54,7 +63,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className={`hidden md:flex items-center gap-1 ${logoMounted ? 'animate-fade-in stagger-2' : 'pre-animate'}`}>
           {navItems.map((item) =>
             item.children ? (
               <div
@@ -69,7 +78,7 @@ export default function Navbar() {
                   onFocus={() => setGuideOpen(true)}
                   aria-expanded={guideOpen}
                   aria-haspopup="true"
-                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors press-effect ${
                     isActive(item.path)
                       ? 'text-vu-blue dark:text-vu-blue-light bg-blue-50/80 dark:bg-blue-950/50'
                       : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800'
@@ -77,7 +86,7 @@ export default function Navbar() {
                 >
                   {item.label}
                   <svg
-                    className="inline-block ml-1 w-3.5 h-3.5 opacity-50"
+                    className={`inline-block ml-1 w-3.5 h-3.5 opacity-50 transition-transform duration-200 ${guideOpen ? 'rotate-180' : ''}`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -93,14 +102,13 @@ export default function Navbar() {
                 </button>
                 {guideOpen && (
                   <div className="absolute top-full left-0 pt-1" role="menu">
-                    <div className="bg-white dark:bg-stone-900 rounded-xl shadow-lg shadow-stone-200/50 dark:shadow-stone-950/50 border border-stone-200/60 dark:border-stone-700/60 py-1.5 min-w-[180px]">
+                    <div className="animate-dropdown-in bg-white dark:bg-stone-900 rounded-xl shadow-lg shadow-stone-200/50 dark:shadow-stone-950/50 border border-stone-200/60 dark:border-stone-700/60 py-1.5 min-w-[180px]">
                       {item.children.map((child) => (
                         <Link
                           key={child.path}
                           to={child.path}
                           role="menuitem"
                           onBlur={(e) => {
-                            // Close dropdown when focus leaves the last item
                             if (!dropdownRef.current?.contains(e.relatedTarget as Node)) {
                               setGuideOpen(false);
                             }
@@ -122,7 +130,7 @@ export default function Navbar() {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
+                className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors press-effect ${
                   isActive(item.path)
                     ? 'text-vu-blue dark:text-vu-blue-light bg-blue-50/80 dark:bg-blue-950/50'
                     : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800'
@@ -136,7 +144,7 @@ export default function Navbar() {
           {/* Theme toggle */}
           <button
             onClick={toggleTheme}
-            className="ml-2 p-2 rounded-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
+            className="ml-2 p-2 rounded-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors press-effect"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {theme === 'dark' ? (
@@ -155,7 +163,7 @@ export default function Navbar() {
         <div className="flex md:hidden items-center gap-1">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
+            className="p-2 rounded-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors press-effect"
             aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {theme === 'dark' ? (
@@ -170,7 +178,7 @@ export default function Navbar() {
           </button>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 rounded-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
+            className="p-2 rounded-lg text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors press-effect"
             aria-label="Toggle menu"
           >
             {mobileOpen ? (
@@ -186,46 +194,53 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-stone-200/60 dark:border-stone-700/60 bg-white/95 dark:bg-stone-950/95 backdrop-blur-xl">
-          <div className="px-6 py-4 space-y-1">
-            {navItems.map((item) => (
-              <div key={item.path}>
-                <Link
-                  to={item.path}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                    isActive(item.path)
-                      ? 'text-vu-blue dark:text-vu-blue-light bg-blue-50/80 dark:bg-blue-950/50'
-                      : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-                {item.children && (
-                  <div className="ml-4 mt-1 space-y-1">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.path}
-                        to={child.path}
-                        onClick={() => setMobileOpen(false)}
-                        className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
-                          isActive(child.path)
-                            ? 'text-vu-blue dark:text-vu-blue-light bg-blue-50/60 dark:bg-blue-950/40'
-                            : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800'
-                        }`}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+      {/* Mobile menu — smooth slide animation */}
+      <div
+        className={`md:hidden border-t border-stone-200/60 dark:border-stone-700/60 bg-white/95 dark:bg-stone-950/95 backdrop-blur-xl overflow-hidden transition-all duration-300 ${
+          mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+        style={{ transitionTimingFunction: 'var(--ease-spring)' }}
+      >
+        <div className="px-6 py-4 space-y-1">
+          {navItems.map((item, i) => (
+            <div
+              key={item.path}
+              className={mobileOpen ? 'animate-fade-in-up' : 'pre-animate'}
+              style={{ animationDelay: `${i * 50 + 50}ms` }}
+            >
+              <Link
+                to={item.path}
+                onClick={() => setMobileOpen(false)}
+                className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors press-effect ${
+                  isActive(item.path)
+                    ? 'text-vu-blue dark:text-vu-blue-light bg-blue-50/80 dark:bg-blue-950/50'
+                    : 'text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800'
+                }`}
+              >
+                {item.label}
+              </Link>
+              {item.children && (
+                <div className="ml-4 mt-1 space-y-1">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.path}
+                      to={child.path}
+                      onClick={() => setMobileOpen(false)}
+                      className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
+                        isActive(child.path)
+                          ? 'text-vu-blue dark:text-vu-blue-light bg-blue-50/60 dark:bg-blue-950/40'
+                          : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-50 dark:hover:bg-stone-800'
+                      }`}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-      )}
+      </div>
     </header>
   );
 }

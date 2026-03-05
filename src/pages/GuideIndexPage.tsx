@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useMountAnimation } from '../hooks/useAnimations';
 
 const sections = [
   {
@@ -38,13 +39,15 @@ const sections = [
 ];
 
 export default function GuideIndexPage() {
+  const mounted = useMountAnimation(50);
+
   useEffect(() => {
     document.title = 'Student Guide — AI @ VU';
   }, []);
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-      <div className="mb-10">
+      <div className={`mb-10 ${mounted ? 'animate-blur-in' : 'pre-animate'}`}>
         <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
           Student Guide
         </h1>
@@ -55,11 +58,14 @@ export default function GuideIndexPage() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-3xl">
-        {sections.map((section) => (
+        {sections.map((section, i) => (
           <Link
             key={section.path}
             to={section.path}
-            className="group rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-6 transition-all hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-lg hover:shadow-stone-100/80 dark:hover:shadow-stone-950/50 hover:-translate-y-0.5"
+            className={`group rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-6 hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-lg hover:shadow-stone-100/80 dark:hover:shadow-stone-950/50 ${
+              mounted ? 'animate-scale-in' : 'pre-animate'
+            }`}
+            style={{ animationDelay: `${i * 80 + 150}ms` }}
           >
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-stone-50 dark:bg-stone-800 text-stone-400 dark:text-stone-500 group-hover:bg-blue-50 dark:group-hover:bg-blue-950/50 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors mb-4">
               {section.icon}

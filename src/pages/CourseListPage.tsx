@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getCourses } from '../services/courseService';
 import CourseCard from '../components/CourseCard';
+import { useMountAnimation, useStagger } from '../hooks/useAnimations';
 
 const specialisationLabels: Record<string, string> = {
   intelligent_systems: 'Intelligent Systems',
@@ -11,6 +12,7 @@ export default function CourseListPage() {
   const allCourses = getCourses();
   const [yearFilter, setYearFilter] = useState<number | null>(null);
   const [specialisationFilter, setSpecialisationFilter] = useState<string | null>(null);
+  const mounted = useMountAnimation(50);
 
   useEffect(() => {
     document.title = 'Courses — AI @ VU';
@@ -53,7 +55,7 @@ export default function CourseListPage() {
     .filter((g) => g.courses.length > 0);
 
   const filterClass = (active: boolean) =>
-    `px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+    `px-4 py-2 rounded-lg text-sm font-medium transition-colors press-effect ${
       active
         ? 'bg-vu-blue text-white shadow-sm'
         : 'bg-stone-50 dark:bg-stone-800 text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-700'
@@ -61,7 +63,7 @@ export default function CourseListPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-      <div className="mb-10">
+      <div className={`mb-10 ${mounted ? 'animate-blur-in' : 'pre-animate'}`}>
         <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
           Courses
         </h1>
@@ -72,7 +74,7 @@ export default function CourseListPage() {
       </div>
 
       {/* Year filters */}
-      <div className="flex flex-wrap gap-2 mb-4">
+      <div className={`flex flex-wrap gap-2 mb-4 ${mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'}`}>
         <button
           onClick={() => handleYearFilter(null)}
           className={filterClass(yearFilter === null)}
@@ -92,7 +94,7 @@ export default function CourseListPage() {
 
       {/* Specialisation filter (Year 2 & 3) */}
       {(yearFilter === 2 || yearFilter === 3) && (
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-8 animate-fade-in-up">
           <button
             onClick={() => setSpecialisationFilter(null)}
             className={filterClass(specialisationFilter === null)}
@@ -112,44 +114,101 @@ export default function CourseListPage() {
       )}
 
       {groupedByYear.map(({ year, mandatory, bySpecialisation, courses }) => (
-        <div key={year} className="mb-12 last:mb-0">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-4">
-            Year {year}
-          </h2>
-          {(year === 2 || year === 3) && mandatory.length > 0 && (
-            <div className="mb-8">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-3">
-                Mandatory
-              </h3>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {mandatory.map((course) => (
-                  <CourseCard key={course.id} course={course} />
-                ))}
-              </div>
-            </div>
-          )}
-          {(year === 2 || year === 3) &&
-            bySpecialisation.map(({ spec, courses: specCourses }) => (
-              <div key={spec} className="mb-8 last:mb-0">
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-3">
-                  {specialisationLabels[spec] || spec}
-                </h3>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {specCourses.map((course) => (
-                    <CourseCard key={course.id} course={course} />
-                  ))}
-                </div>
+        <CourseYearGroup
+          key={`${year}-${yearFilter}-${specialisationFilter}`}
+          year={year}
+          mandatory={mandatory}
+          bySpecialisation={bySpecialisation}
+          courses={courses}
+          specialisationLabels={specialisationLabels}
+        />
+      ))}
+    </div>
+  );
+}
+
+function CourseYearGroup({
+  year,
+  mandatory,
+  bySpecialisation,
+  courses,
+  specialisationLabels,
+}: {
+  year: number;
+  mandatory: ReturnType<typeof getCourses>;
+  bySpecialisation: { spec: string; courses: ReturnType<typeof getCourses> }[];
+  courses: ReturnType<typeof getCourses>;
+  specialisationLabels: Record<string, string>;
+}) {
+  const { ref, inView } = useStagger<HTMLDivElement>();
+
+  return (
+    <div ref={ref} className="mb-12 last:mb-0">
+      <h2
+        className={`text-sm font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-4 ${
+          inView ? 'animate-fade-in-up' : 'pre-animate'
+        }`}
+      >
+        Year {year}
+      </h2>
+      {(year === 2 || year === 3) && mandatory.length > 0 && (
+        <div className="mb-8">
+          <h3
+            className={`text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-3 ${
+              inView ? 'animate-fade-in stagger-1' : 'pre-animate'
+            }`}
+          >
+            Mandatory
+          </h3>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {mandatory.map((course, i) => (
+              <div
+                key={course.id}
+                className={inView ? 'animate-fade-in-up' : 'pre-animate'}
+                style={{ animationDelay: `${i * 70 + 100}ms` }}
+              >
+                <CourseCard course={course} />
               </div>
             ))}
-          {year !== 2 && year !== 3 && (
+          </div>
+        </div>
+      )}
+      {(year === 2 || year === 3) &&
+        bySpecialisation.map(({ spec, courses: specCourses }) => (
+          <div key={spec} className="mb-8 last:mb-0">
+            <h3
+              className={`text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-3 ${
+                inView ? 'animate-fade-in stagger-2' : 'pre-animate'
+              }`}
+            >
+              {specialisationLabels[spec] || spec}
+            </h3>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {courses.map((course) => (
-                <CourseCard key={course.id} course={course} />
+              {specCourses.map((course, i) => (
+                <div
+                  key={course.id}
+                  className={inView ? 'animate-fade-in-up' : 'pre-animate'}
+                  style={{ animationDelay: `${i * 70 + 150}ms` }}
+                >
+                  <CourseCard course={course} />
+                </div>
               ))}
             </div>
-          )}
+          </div>
+        ))}
+      {year !== 2 && year !== 3 && (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {courses.map((course, i) => (
+            <div
+              key={course.id}
+              className={inView ? 'animate-fade-in-up' : 'pre-animate'}
+              style={{ animationDelay: `${i * 70 + 100}ms` }}
+            >
+              <CourseCard course={course} />
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 }

@@ -18,6 +18,10 @@ export function getCoursesByYear(year: 1 | 2 | 3): Course[] {
   return courses.filter((c) => c.year === year);
 }
 
+export function getCoursesByPeriod(period: number): Course[] {
+  return courses.filter((c) => c.period === period || c.period === 0);
+}
+
 export function getTipsForCourse(courseId: string): CourseTip[] {
   return tips.filter((t) => t.courseId === courseId);
 }
