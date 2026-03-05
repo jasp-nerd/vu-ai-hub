@@ -17,23 +17,31 @@ import Quiz from '../components/Quiz';
 import PracticeProblems from '../components/PracticeProblems';
 import EssayPractice from '../components/EssayPractice';
 import CourseChat from '../components/CourseChat';
+import ContributionPopup from '../components/ContributionPopup';
+import FeedbackPopup from '../components/FeedbackPopup';
+import TipSubmitBox from '../components/TipSubmitBox';
 import { DIFFICULTY_LABELS } from '../constants';
+import { useMountAnimation } from '../hooks/useAnimations';
 
 type Tab = 'Overview' | 'Tips & Advice' | 'Quizzes' | 'Practice Problems' | 'Exam Practice' | 'Resources' | 'AI Chat';
 
 const resourceTypeIcon: Record<string, string> = {
-  video: '▶',
-  article: '◉',
-  tool: '⚙',
-  pdf: '↓',
+  video: '\u25B6',
+  article: '\u25C9',
+  tool: '\u2699',
+  pdf: '\u2193',
   'external-quiz': '?',
-  summary: '★',
+  summary: '\u2605',
 };
 
 export default function CourseDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [activeTab, setActiveTab] = useState<Tab>('Overview');
   const [expandedSummary, setExpandedSummary] = useState<string | null>(null);
+  const mounted = useMountAnimation(50);
+  // Key to trigger crossfade on tab change
+  const [tabKey, setTabKey] = useState(0);
+  const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
 
   const course = getCourseBySlug(slug || '');
 
@@ -43,9 +51,20 @@ export default function CourseDetailPage() {
       : 'Course not found — AI @ VU';
   }, [course]);
 
+  useEffect(() => {
+    if (!course) return;
+    if (course.difficulty === 0) return;
+    const reducedUntil = localStorage.getItem('feedbackPopupReducedUntil');
+    const isReduced = reducedUntil && Date.now() < Number(reducedUntil);
+    const chance = isReduced ? 0.01 : 0.05;
+    if (Math.random() < chance) {
+      setShowFeedbackPopup(true);
+    }
+  }, [course]);
+
   if (!course) {
     return (
-      <div className="mx-auto max-w-6xl px-6 py-20 text-center">
+      <div className="mx-auto max-w-6xl px-6 py-20 text-center animate-fade-in">
         <h1 className="font-display text-2xl font-bold text-stone-900 dark:text-stone-100 mb-4">
           Course not found
         </h1>
@@ -77,10 +96,19 @@ export default function CourseDetailPage() {
   const examPrepCount = essayPromptsList.length || practiceQuestions.length || quizQuestions.length;
   const tabs: Tab[] = ['Overview', 'Tips & Advice', examPrepTab, 'Resources', 'AI Chat'];
 
+  const handleTabChange = (tab: Tab) => {
+    setActiveTab(tab);
+    setTabKey((k) => k + 1);
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
       {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-8">
+      <nav
+        className={`flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-8 ${
+          mounted ? 'animate-slide-in-left' : 'pre-animate'
+        }`}
+      >
         <Link to="/courses" className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
           Courses
         </Link>
@@ -92,7 +120,11 @@ export default function CourseDetailPage() {
 
       {/* Header */}
       <div className="mb-8">
-        <div className="flex flex-wrap items-center gap-3 mb-3">
+        <div
+          className={`flex flex-wrap items-center gap-3 mb-3 ${
+            mounted ? 'animate-fade-in-up stagger-1' : 'pre-animate'
+          }`}
+        >
           <span className="px-2.5 py-1 text-xs font-medium rounded-md bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400">
             {course.code}
           </span>
@@ -111,10 +143,18 @@ export default function CourseDetailPage() {
             </span>
           )}
         </div>
-        <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
+        <h1
+          className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 ${
+            mounted ? 'animate-blur-in stagger-2' : 'pre-animate'
+          }`}
+        >
           {course.name}
         </h1>
-        <p className="mt-3 text-stone-500 dark:text-stone-400 max-w-2xl leading-relaxed">
+        <p
+          className={`mt-3 text-stone-500 dark:text-stone-400 max-w-2xl leading-relaxed ${
+            mounted ? 'animate-fade-in-up stagger-3' : 'pre-animate'
+          }`}
+        >
           {course.description}
         </p>
       </div>
@@ -122,7 +162,9 @@ export default function CourseDetailPage() {
       {/* Workgroup attendance notice */}
       {course.workgroupInfo && (
         <div
-          className={`mb-8 rounded-2xl border p-5 flex items-start gap-3 ${course.workgroupInfo.mandatory
+          className={`mb-8 rounded-2xl border p-5 flex items-start gap-3 ${
+            mounted ? 'animate-fade-in-up stagger-4' : 'pre-animate'
+          } ${course.workgroupInfo.mandatory
             ? 'border-amber-300/60 dark:border-amber-700/40 bg-amber-50/70 dark:bg-amber-950/30'
             : 'border-sky-200/60 dark:border-sky-800/40 bg-sky-50/50 dark:bg-sky-950/20'
             }`}
@@ -163,7 +205,11 @@ export default function CourseDetailPage() {
       )}
 
       {/* Tabs */}
-      <div className="border-b border-stone-200/60 dark:border-stone-700/60 mb-8">
+      <div
+        className={`border-b border-stone-200/60 dark:border-stone-700/60 mb-8 ${
+          mounted ? 'animate-fade-in stagger-5' : 'pre-animate'
+        }`}
+      >
         <div className="flex gap-1 -mb-px overflow-x-auto" role="tablist" aria-label="Course sections">
           {tabs.map((tab) => (
             <button
@@ -172,8 +218,8 @@ export default function CourseDetailPage() {
               aria-selected={activeTab === tab}
               aria-controls={`tabpanel-${tab}`}
               id={`tab-${tab}`}
-              onClick={() => setActiveTab(tab)}
-              className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${activeTab === tab
+              onClick={() => handleTabChange(tab)}
+              className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap press-effect ${activeTab === tab
                 ? 'border-vu-blue text-vu-blue dark:text-vu-blue-light dark:border-vu-blue-light'
                 : 'border-transparent text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300'
                 }`}
@@ -199,8 +245,8 @@ export default function CourseDetailPage() {
         </div>
       </div>
 
-      {/* Tab content */}
-      <div className="max-w-3xl">
+      {/* Tab content with crossfade */}
+      <div key={tabKey} className="max-w-3xl animate-tab-crossfade">
         {activeTab === 'Overview' && (
           <div role="tabpanel" id="tabpanel-Overview" aria-labelledby="tab-Overview">
             {course.objectives && (
@@ -277,10 +323,11 @@ export default function CourseDetailPage() {
               </p>
             ) : (
               <div className="space-y-4">
-                {tips.map((tip) => (
+                {tips.map((tip, i) => (
                   <div
                     key={tip.id}
-                    className="rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-6"
+                    className="rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-6 animate-fade-in-up"
+                    style={{ animationDelay: `${i * 60}ms` }}
                   >
                     <p className="text-stone-700 dark:text-stone-300 text-sm leading-relaxed mb-3">
                       {tip.content}
@@ -292,6 +339,9 @@ export default function CourseDetailPage() {
                 ))}
               </div>
             )}
+            <div className="mt-8">
+              <TipSubmitBox courseName={course.name} />
+            </div>
           </div>
         )}
 
@@ -333,12 +383,13 @@ export default function CourseDetailPage() {
                 {/* Featured summaries (inline markdown) */}
                 {resources
                   .filter((r) => r.type === 'summary' && r.markdownContent)
-                  .map((resource) => {
+                  .map((resource, i) => {
                     const isExpanded = expandedSummary === resource.id;
                     return (
                       <div
                         key={resource.id}
-                        className="rounded-2xl border-2 border-vu-blue/20 dark:border-vu-blue-light/20 bg-gradient-to-b from-vu-blue/[0.03] to-transparent dark:from-vu-blue-light/[0.03] overflow-hidden"
+                        className="rounded-2xl border-2 border-vu-blue/20 dark:border-vu-blue-light/20 bg-gradient-to-b from-vu-blue/[0.03] to-transparent dark:from-vu-blue-light/[0.03] overflow-hidden animate-fade-in-up"
+                        style={{ animationDelay: `${i * 60}ms` }}
                       >
                         {/* Header — always visible */}
                         <button
@@ -347,10 +398,10 @@ export default function CourseDetailPage() {
                           }
                           aria-expanded={isExpanded}
                           aria-controls={`summary-${resource.id}`}
-                          className="w-full text-left p-5 flex items-start gap-4 group"
+                          className="w-full text-left p-5 flex items-start gap-4 group press-effect"
                         >
                           <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-vu-blue/10 dark:bg-vu-blue-light/10 text-vu-blue dark:text-vu-blue-light text-lg shrink-0" aria-hidden="true">
-                            ★
+                            {'\u2605'}
                           </span>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
@@ -371,8 +422,9 @@ export default function CourseDetailPage() {
                             </p>
                           </div>
                           <svg
-                            className={`w-5 h-5 text-stone-400 dark:text-stone-500 shrink-0 mt-2 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''
+                            className={`w-5 h-5 text-stone-400 dark:text-stone-500 shrink-0 mt-2 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''
                               }`}
+                            style={{ transitionTimingFunction: 'var(--ease-spring)' }}
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -389,7 +441,7 @@ export default function CourseDetailPage() {
 
                         {/* Expandable content */}
                         {isExpanded && (
-                          <div id={`summary-${resource.id}`} className="border-t border-vu-blue/10 dark:border-vu-blue-light/10 px-5 py-6">
+                          <div id={`summary-${resource.id}`} className="border-t border-vu-blue/10 dark:border-vu-blue-light/10 px-5 py-6 animate-fade-in-up">
                             <div className="prose-custom max-w-none">
                               <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
                                 {resource.markdownContent!}
@@ -404,7 +456,7 @@ export default function CourseDetailPage() {
                 {/* Regular resources */}
                 {resources
                   .filter((r) => r.type !== 'summary')
-                  .map((resource) => {
+                  .map((resource, i) => {
                     // Extract YouTube video ID for thumbnail preview
                     const ytMatch = resource.url.match(
                       /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/
@@ -419,7 +471,8 @@ export default function CourseDetailPage() {
                         href={resource.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group block rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-5 transition-all hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-sm"
+                        className="group block rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-5 hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-sm animate-fade-in-up"
+                        style={{ animationDelay: `${i * 50 + 80}ms` }}
                       >
                         <div className="flex items-start gap-4">
                           {ytThumbnail ? (
@@ -441,7 +494,7 @@ export default function CourseDetailPage() {
                             </div>
                           ) : (
                             <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-stone-50 dark:bg-stone-800 text-stone-400 dark:text-stone-500 text-sm shrink-0" aria-hidden="true">
-                              {resourceTypeIcon[resource.type] || '·'}
+                              {resourceTypeIcon[resource.type] || '\u00B7'}
                             </span>
                           )}
                           <div className="flex-1 min-w-0">
@@ -497,6 +550,20 @@ export default function CourseDetailPage() {
           </div>
         )}
       </div>
+
+      {course.difficulty === 0 && <ContributionPopup courseName={course.name} />}
+      {showFeedbackPopup && (
+        <FeedbackPopup
+          courseName={course.name}
+          onClose={() => setShowFeedbackPopup(false)}
+          onShowLess={() => {
+            localStorage.setItem(
+              'feedbackPopupReducedUntil',
+              String(Date.now() + 30 * 24 * 60 * 60 * 1000)
+            );
+          }}
+        />
+      )}
     </div>
   );
 }

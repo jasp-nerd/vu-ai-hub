@@ -1,1 +1,1 @@
-export const DIFFICULTY_LABELS = ['', 'Easy', 'Moderate', 'Challenging', 'Hard', 'Very Hard'];
+export const DIFFICULTY_LABELS = ['Unknown', 'Easy', 'Moderate', 'Challenging', 'Hard', 'Very Hard'];

@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useInView } from '../hooks/useAnimations';
 
 export default function Footer() {
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.1 });
+
   return (
-    <footer className="border-t border-stone-200/60 dark:border-stone-700/60 bg-stone-50/50 dark:bg-stone-900/50 mt-auto">
+    <footer
+      ref={ref}
+      className={`border-t border-stone-200/60 dark:border-stone-700/60 bg-stone-50/50 dark:bg-stone-900/50 mt-auto ${
+        inView ? 'animate-fade-in-up' : 'pre-animate'
+      }`}
+    >
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="flex flex-col md:flex-row justify-between gap-8">
           <div>

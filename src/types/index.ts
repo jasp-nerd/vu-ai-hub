@@ -14,7 +14,7 @@ export interface Course {
   teachingMethods?: string;
   literature?: string;
   prerequisites?: string;
-  difficulty: 1 | 2 | 3 | 4 | 5;
+  difficulty: 0 | 1 | 2 | 3 | 4 | 5;
   tags: string[];
   specialisation?: 'intelligent_systems' | 'socially_aware_computing';
   workgroupInfo?: {

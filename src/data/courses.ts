@@ -272,27 +272,17 @@ The course starts with a few introductory lectures refreshing relevant AI concep
     period: 4,
     credits: '6EC',
     description:
-      'Dynamic modelling of human behaviour: build, simulate, and evaluate computational models of processes in psychology, bio-medicine, and social science using Excel and L2-Python.',
-    overview: `Dynamic Modelling for Human-Centred Systems (officially "Modelling Human Behaviour") teaches you how to create computational dynamic models of real-world processes — from medication levels in the blood, to bacterial decision-making, to how emotions spread through a group. The course follows a clear modelling-and-simulation cycle with four steps that you'll repeat throughout: (1) Conceptualisation — identify the key concepts and their relationships, (2) Formalisation — translate them into precise numerical or logical rules, (3) Simulation — run the model to generate traces, and (4) Evaluation — check whether the traces match your expected patterns.
-
-In the first half (weeks 1–3), you build models in Microsoft Excel. You'll start with growth models (linear, exponential, logistic), then move to biological models like E. coli food-intake decision-making and Aplysia sea-hare learning (classical conditioning at the neural level). You'll also model social processes: honeybee colony self-organisation, SIR epidemic spread (individual-based vs. population-based), and emotion contagion in groups. The second half (weeks 4–7) switches to L2-Python (a Jupyter Notebook framework) and covers more advanced topics: different types of behaviour (reactive, delayed response, motivation-based, adaptive), agent-based modelling with the BDI model (Beliefs-Desires-Intentions), domain models, analysis models (forward and backward reasoning), and support models. The final assignment asks you to design a complete stress prevention system with domain, analysis, and support models.
-
-The exam is 20 multiple-choice questions and accounts for 40% of your grade. Weekly assignments (5 total, excluding the programming tutorial) make up another 40%, and the final assignment is worth 20%. All partial grades must be above 5.5. The course uses a reader (15 chapters) and lecture slides — both are essential for the exam. The reader chapters are split into "to know" (exam material) and "to understand" (deeper context). Weekly Canvas quizzes help you check your understanding. The programming tutorial (Assignment 3) is pass/fail and must be completed in person with your TA — failing it results in a 0.5 point deduction from your final grade.`,
+      'Develop and apply models of human cognition and behaviour to the design of human-centred systems, exploring agent-based, cognitive, and collective behaviour approaches.',
+    overview: `This course investigates how to develop and apply models of human cognition and behaviour to the design of human-centred systems. Students will explore various understandings and abstractions of human behaviour and consider how these can be appropriately and responsibly applied in computational contexts. The course covers multiple perspectives on modelling human behaviour, ranging from agent-based cognitive and behavioural approaches to ones that capture collective behaviours and emergent phenomena. These frameworks provide different lenses through which to understand, simulate, predict, and/or influence human behaviour. Students will develop methodological skills for applying behavioural models to human-centred systems design, including information gathering, model selection, implementation, and critical assessment of outcomes and implications. Through examples drawn from relevant domains, they will investigate how these models can enhance understanding of human actions and inform the ethical design of technologies that support human behaviour and decision-making. The coursework balances theoretical understanding with practical application, engaging students with appropriate modelling tools and interdisciplinary research skills. By the conclusion of the course, students will possess both the technical capabilities and critical faculties needed for effective and responsible behavioural modelling in a variety of applied settings.`,
     objectives:
-      'Understand the modelling-and-simulation cycle (conceptualisation, formalisation, simulation, evaluation). Build dynamic models using both numerical (Excel) and logical (L2-Python) representations. Formulate and validate hypotheses about model behaviour. Model growth processes (linear, exponential, logistic). Model biological processes (E. coli decision-making, Aplysia learning). Model social processes (honeybee colony, epidemic spread, emotion contagion). Distinguish between individual-based and population-based modelling approaches. Understand and model different types of behaviour (reactive, delayed response, motivation-based, adaptive). Apply the BDI (Beliefs-Desires-Intentions) agent model. Design domain models, analysis models (forward/backward reasoning), and support models. Implement models in L2-Python using predicates, sorts, scenarios, and rules. Report scientifically about model design, simulation experiments, and evaluation.',
-    gradingStructure: 'Final grade = 0.4 × avg(Assignments) + 0.2 × Final Assignment + 0.4 × Exam. All partial grades must be ≥ 5.5. Late submissions lose 1 point per day.',
+      'At the end of the course, the student has knowledge and understanding of: the role and purpose of models in designing systems aiming to understand and support human behaviour; different approaches and abstraction levels for modelling human behaviour; the process of applying models of human cognition and behaviour to the design of human-centred systems; the importance of evaluating the ethics and contextual appropriateness of model choice. The student is able to apply this knowledge to: select appropriate modeling abstractions, apply models of human cognition and behaviour to the design of human-centred systems, use models as a lens through which to critically analyse user interface design features, apply models to predict how agent or system behaviour will evolve over time. The student is able to make judgments about: model appropriateness for different human behaviours and contexts, ethical implications of computational behavioural interventions, limitations and biases inherent in different modeling approaches, responsible application of behavioural models in real-world systems. The student has acquired communication skills to: report in a scientific and critical manner about model design, evaluation and application. The student has acquired research skills to: read and interpret scientific texts from other domains (e.g. psychology, cognitive science), evaluating the validity of modeling results, critically assessing the impact of different modelling approaches.',
     assessment:
-      'Five weekly assignments (40% combined), one final assignment building a complete stress model system (20%), and a 20-question multiple-choice exam (40%). The programming tutorial (Assignment 3) is pass/fail and must be checked in person. There is a resit for the exam.',
-    teachingMethods: 'Two lectures per week plus weekly practical/working group sessions. Assignments alternate between Excel-based modelling (weeks 1-2) and L2-Python implementation (weeks 3-7).',
-    literature: 'Course reader with 15 chapters (available on Canvas) covering topics from growth models to driving behaviour. Lecture slides for all 13 lectures.',
+      'Assignments (in total 50% of the grade) and an individual final exam (50% of the grade). Both elements should be graded with at least a 5.5. There is a resit for the exam. At most one assignment can be redone if the average of the assignments is below 5.5.',
+    teachingMethods: 'Lectures and practical sessions.',
+    literature: 'A reader is available via Canvas.',
     prerequisites: '',
-    difficulty: 1,
-    tags: ['modelling', 'simulation', 'psychology', 'agent-based', 'excel', 'python', 'required'],
-    workgroupInfo: {
-      mandatory: true,
-      maxAbsences: 1,
-      detail: 'Practical/working group sessions are mandatory. Assignment 3 (L2-Python tutorial) MUST be checked in person by your TA during the session — failing to do so results in a 0.5 point deduction from your final grade.',
-    },
+    difficulty: 2,
+    tags: ['modelling', 'cognition', 'behaviour', 'agent-based', 'ethics', 'required'],
   },
   {
     id: 'academic-writing',
@@ -571,7 +561,7 @@ The course is divided into two complementary parts:
     teachingMethods: 'Theoretical lectures and working group sessions',
     literature: '',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 0,
     tags: ['nlp', 'text-mining', 'required'],
   },
   // ========== YEAR 2 — Intelligent Systems specialisation ==========
@@ -645,7 +635,7 @@ The course is divided into two complementary parts:
     literature:
       'Database Systems, The Complete Book, by: Hector Garcia-Molina & Jeffrey D. Ullman & Jennifer Widom. 2nd edition.',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 0,
     tags: ['databases', 'sql', 'intelligent-systems'],
   },
   {
@@ -669,7 +659,7 @@ The course is divided into two complementary parts:
     literature:
       'Introductory papers on swarm robotics and collective dynamics, e.g. the review here https://link.springer.com/article/10.1007/s11721-012-0075-2',
     prerequisites: 'Coding skills in Python are necessary.',
-    difficulty: 3,
+    difficulty: 0,
     tags: ['project', 'simulation', 'elective'],
   },
   {
@@ -701,7 +691,7 @@ The course is divided into two complementary parts:
     literature:
       'For this course, you will read a relatively large number of journal articles, book chapters, and conference proceedings. The reading list will be announced on Canvas (in the syllabus) posted on Canvas before the start of the course. Access to journal articles/ book chapters / conference papers via Canvas, or else via the VU-library, check LibSearch, e-resources (e.g., select search in PsycInfo, EBSCOhost), else Google Scholar, or http://dx.doi.org',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 0,
     tags: ['robotics', 'hci', 'socially-aware-computing'],
   },
   {
@@ -724,7 +714,7 @@ The course is divided into two complementary parts:
       'This project course is given by means of active working group meetings. These meetings are mandatory. The course is divided into two parts. During the first week the students will work on assignments to learn how to work with Netlogo. If they pass these assignments they are allowed to start their project. They will work on their project during the next three weeks. During the first two weeks the students have 20 hours of work group sessions per week. During the third week there will be 12 hours of work group sessions. In the final week of the course (week 4) the students can schedule an individual meeting with a member of the teaching team. Attendance during the work group sessions is mandatory.',
     literature: '',
     prerequisites: '',
-    difficulty: 3,
+    difficulty: 0,
     tags: ['project', 'simulation', 'socially-aware-computing'],
   },
   {
@@ -753,7 +743,7 @@ The course is divided into two complementary parts:
     teachingMethods: 'Lectures and tutorials. The tutorials are mandatory.',
     literature: '',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 0,
     tags: ['law', 'ethics', 'elective'],
   },
   {
@@ -775,7 +765,7 @@ The course is divided into two complementary parts:
     teachingMethods: 'There will be two lectures per week and one practical session per week.',
     literature: 'Selected scientific papers.',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 0,
     tags: ['health', 'ai', 'elective'],
   },
   // ========== YEAR 3 — Mandatory ==========
@@ -799,7 +789,7 @@ The course is divided into two complementary parts:
     literature: '',
     prerequisites:
       'Students can only enroll for the Bachelor Project Artificial Intelligence XB_40002 after obtaining 6 ECs for the course Introduction to Python Program XB_0145 (or the previous course XB_0082).',
-    difficulty: 4,
+    difficulty: 0,
     tags: ['project', 'research', 'required'],
   },
   {
@@ -825,7 +815,7 @@ Block II: Ethical AI in Computer Science — This block focuses on the practical
       'Interactive lectures, supervised group work, tutorials and exercises, project-based learning and peer feedback.',
     literature: '',
     prerequisites: '',
-    difficulty: 3,
+    difficulty: 0,
     tags: ['ethics', 'philosophy', 'required'],
   },
   {
@@ -848,7 +838,7 @@ Block II: Ethical AI in Computer Science — This block focuses on the practical
     literature:
       'All course materials, readings, and assessment information will be made available on Canvas.',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 0,
     tags: ['research', 'writing', 'required'],
   },
   // ========== YEAR 3 — Intelligent Systems specialisation ==========
@@ -872,7 +862,7 @@ Block II: Ethical AI in Computer Science — This block focuses on the practical
     literature:
       'Peter Linz, An Introduction to Formal Languages and Automata, Jones & Bartlett, 4th or 5th edition',
     prerequisites: '',
-    difficulty: 4,
+    difficulty: 0,
     tags: ['theory', 'mathematics', 'constrained choice'],
   },
   {
@@ -894,7 +884,7 @@ Block II: Ethical AI in Computer Science — This block focuses on the practical
     teachingMethods: 'Lectures and practical assignments.',
     literature: 'The literature will be made available on Canvas.',
     prerequisites: '',
-    difficulty: 3,
+    difficulty: 0,
     tags: ['optimization', 'neural-networks', 'constrained choice'],
   },
   // ========== YEAR 3 — Socially Aware Computing specialisation ==========
@@ -918,7 +908,7 @@ Block II: Ethical AI in Computer Science — This block focuses on the practical
       'The course will mostly consist of plenary lectures (2 per week), alongside practical sessions and practical assignments.',
     literature: '',
     prerequisites: '',
-    difficulty: 3,
+    difficulty: 0,
     tags: ['psychology', 'cognitive-science', 'socially-aware-computing'],
   },
 ];
