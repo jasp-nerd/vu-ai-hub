@@ -26,32 +26,43 @@ export default function HomePage() {
         <div className="absolute top-20 right-[10%] w-72 h-72 rounded-full bg-blue-100/30 dark:bg-blue-900/20 blur-3xl" />
         <div className="absolute bottom-10 left-[5%] w-56 h-56 rounded-full bg-stone-100/50 dark:bg-stone-800/30 blur-3xl" />
         <div className="relative mx-auto max-w-6xl px-6 pt-20 pb-16 md:pt-28 md:pb-20">
-          <div className="max-w-2xl">
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-[1.1]">
-              Your guide to the{' '}
-              <span className="text-vu-blue dark:text-vu-blue-light">AI bachelor</span> at VU
-              Amsterdam
-            </h1>
-            <p className="mt-5 text-lg text-stone-500 dark:text-stone-400 leading-relaxed max-w-xl">
-              Course guides, study tips, practice quizzes, and curated resources
-              — built by students, for students.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to="/courses"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-vu-blue text-white text-sm font-medium shadow-md shadow-blue-200/50 dark:shadow-blue-900/30 hover:shadow-lg hover:shadow-blue-200/60 dark:hover:shadow-blue-900/40 hover:-translate-y-0.5 transition-all"
-              >
-                Browse courses
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link
-                to="/guide/blog"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 text-sm font-medium hover:border-stone-300 dark:hover:border-stone-600 hover:text-stone-900 dark:hover:text-stone-100 hover:-translate-y-0.5 transition-all"
-              >
-                Read the guide
-              </Link>
+          <div className="flex items-center justify-between gap-12">
+            <div className="max-w-2xl">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-[1.1]">
+                Your guide to the{' '}
+                <span className="text-vu-blue dark:text-vu-blue-light">AI bachelor</span> at VU
+                Amsterdam
+              </h1>
+              <p className="mt-5 text-lg text-stone-500 dark:text-stone-400 leading-relaxed max-w-xl">
+                Course guides, study tips, practice quizzes, and curated resources
+                — built by students, for students.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  to="/courses"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-vu-blue text-white text-sm font-medium shadow-md shadow-blue-200/50 dark:shadow-blue-900/30 hover:shadow-lg hover:shadow-blue-200/60 dark:hover:shadow-blue-900/40 hover:-translate-y-0.5 transition-all"
+                >
+                  Browse courses
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <Link
+                  to="/guide"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 text-sm font-medium hover:border-stone-300 dark:hover:border-stone-600 hover:text-stone-900 dark:hover:text-stone-100 hover:-translate-y-0.5 transition-all"
+                >
+                  Read the guide
+                </Link>
+              </div>
+            </div>
+
+            {/* Karel Martens-inspired geometric artwork — desktop only */}
+            <div className="hidden md:block flex-shrink-0">
+              <img
+                src="/assets/images/hero-artwork.png"
+                alt="Geometric artwork inspired by Karel Martens"
+                className="w-[320px] lg:w-[400px] h-auto"
+              />
             </div>
           </div>
         </div>
