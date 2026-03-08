@@ -139,7 +139,9 @@ export default function CourseDetailPage() {
           </span>
           {course.specialisation && (
             <span className="text-xs text-stone-400 dark:text-stone-500 capitalize">
-              {course.specialisation.replace(/_/g, ' ')}
+              {(Array.isArray(course.specialisation) ? course.specialisation : [course.specialisation])
+                .map((s) => s.replace(/_/g, ' '))
+                .join(' · ')}
             </span>
           )}
         </div>

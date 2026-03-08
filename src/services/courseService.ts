@@ -15,7 +15,7 @@ export function getCourseBySlug(slug: string): Course | undefined {
 }
 
 export function getCoursesByYear(year: 1 | 2 | 3): Course[] {
-  return courses.filter((c) => c.year === year);
+  return courses.filter((c) => c.year === year).sort((a, b) => a.period - b.period);
 }
 
 export function getCoursesByPeriod(period: number): Course[] {

@@ -17,7 +17,7 @@ const lawOfAiBase = {
     'Students will be given five lectures mainly focusing on the European Union\'s Artificial Intelligence Act. Teachers will use a Socratic method to create discussions in the classroom. Students will also take part in two seminars to explore the European AI Act from a practical perspective. They will comment on the AI Act and discuss their inputs with other classmates and professors. Students will work in small teams their professor will assign.',
   literature: '',
   prerequisites: '',
-  difficulty: 2 as const,
+  difficulty: 0 as const,
 } satisfies Omit<Course, 'id' | 'slug' | 'tags' | 'specialisation'>;
 
 export const courses: Course[] = [
@@ -440,7 +440,7 @@ The course is divided into two complementary parts:
     credits: '6EC',
     description:
       'Methods and technologies for expressing knowledge and data on the Web: RDF, RDFS, OWL, SPARQL, Linked Data, and Knowledge Graphs.',
-    overview: `In this course, we study formalisms that are useful and necessary to represent knowledge and data, in particular when these knowledge and data are to be reused, e.g. published and consumed on the Web. We introduce the concept of Knowledge Graphs, the technologies and representation formats (RDF, RDFS, OWL) for expressing semantics and linked data in a web-accessible format, use the SPARQL query language to query over this data. We finally build a data science application that uses integrated data for some intelligent task. Even though content on the web is generally produced from structured data sources (databases), its representation is in a form that is meant for human consumption. Linked Data allows to scale the walls of this siloed information space, by reusing identifiers and vocabularies across these datasets, and presenting that information in a way that is appropriate for machine consumption.`,
+    overview: `This course covers 5 modules over 8 weeks: formal systems & knowledge graphs, RDF & SPARQL, RDFS & inferencing, OWL & ontology modeling, and ontology engineering & data integration. Assessment is split into three equal parts: weekly individual assignments (5 assignments), a multiple choice exam covering theory from weeks 1–5, and a final group project. For 2 of the 5 practical assignments there are mandatory one-on-one coding interviews with a TA where you must explain your code. Weekly formative quizzes provide practice throughout the course.`,
     objectives:
       'The objective of the Knowledge and Data course is to make students acquainted with methods and technologies used for expressing knowledge and data, in particular on the Web. By the end of this course, students will have built an intelligent web application that queries and reasons over integrated knowledge from various sources obtained from the Web. All of this will be based on formal logic theory. Knowledge and understanding: at the end of the course, students will be familiar with: Theory of Data, Information and Knowledge Predictable inferencing and formal systems Linked Data and Knowledge Graphs Semantic Web technology stack (RDF, RDFS, OWL) Ontology Engineering Knowledge-driven Data Science Application of Knowledge and Insights: students will be able to: Represent knowledge and data in various formalisms (RDF, RDFS, OWL) Implement basic (RDFS) reasoning, Develop advanced knowledge models in RDFS and OWL Work with SPARQL for querying (distributed) knowledge graphs Integrate acquired knowledge in an intelligent semantic data driven application. Judgement: Students will be able to assess the value of available datasets and ontologies for web applications, and to choose the appropriate technology for a specific application. Communication: Students are able to write a report about a developed application. Learning skills: The skill to acquire and apply knowledge and skills about fundamental knowledge representation concepts as well as state-of-the art technology, both individually as in a group context.',
     assessment:
@@ -466,11 +466,11 @@ The course is divided into two complementary parts:
     overview: `Calculus: Functions Limits Derivatives Partial derivatives Gradients Linear Algebra: Linear systems of equations Row reduction Linear maps Matrix and vectors operations Vector spaces Determinants Eigenvalues, eigenvectors and diagonalization Inner product, orthogonalization and Gram Schmidt`,
     objectives:
       'Upon completion of the course, students will: Demonstrate a solid comprehension of fundamental concepts in Linear Algebra and Calculus, including vectors, matrices, linear systems, functions, limits and differentiation (Knowledge and Understanding). Apply mathematical techniques to solve basic exercises and problems across different levels of complexity within Linear Algebra and Calculus, such as solving linear systems or diagonalization, showcasing proficiency in computations and problem-solving strategies (Applying Knowledge and Understanding). Engage in rigorous mathematical reasoning by providing proofs of statements and theorems, and by explaining underlying concepts and principles (Applying Knowledge and Understanding; Making Judgments). Develop the ability to articulate mathematical solutions and explanations effectively, engaging clear communication of mathematical concepts (Communication Skills). Cultivate learning skills necessary for further study in mathematics and AI, including the ability to independently explore advanced topics, identify areas for improvement, and pursue self-directed learning opportunities (Learning Skills).',
-    assessment: '',
-    teachingMethods: '',
-    literature: '',
+    assessment: 'Optional calculus midterm (30%) and final exam (70% or 100% if midterm skipped). The final exam covers both calculus and linear algebra. There is a resit exam with mandatory calculus (30%) + linear algebra (70%). Must achieve 5.5 average to pass.',
+    teachingMethods: 'Lectures twice per week with tutorials. Incomplete notes are provided during lectures to encourage active participation — complete notes are available afterwards.',
+    literature: 'Adams & Essex, Calculus: A Complete Course (9th Edition). Lay, Lay & McDonald, Linear Algebra and its Applications (6th Edition).',
     prerequisites: '',
-    difficulty: 1,
+    difficulty: 4,
     tags: ['mathematics', 'foundations', 'required'],
   },
   {
@@ -491,7 +491,7 @@ The course is divided into two complementary parts:
     teachingMethods: 'Lectures, lab sessions (with computer/ laptops). Attendance at labs is obligatory.',
     literature: '',
     prerequisites: '',
-    difficulty: 1,
+    difficulty: 2,
     tags: ['ai', 'agents', 'prolog', 'required'],
     workgroupInfo: {
       mandatory: true,
@@ -585,7 +585,7 @@ The course is divided into two complementary parts:
       'The course is based on the following teaching methods: Weekly lectures introducing new topics Weekly lab sessions where student TAs will supervise students working on practical exercises Assignments in the form of programing challenges including analytical tasks describing the implemented solution to an algorithmic problem',
     literature: 'Introduction to algorithms. Thomas H. Cormen et al. 4th edition.',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 3,
     tags: ['algorithms', 'data-structures', 'intelligent-systems'],
   },
   {
@@ -599,7 +599,7 @@ The course is divided into two complementary parts:
     specialisation: 'intelligent_systems',
     description:
       'Develop a conversational agent for the cooking domain using DialogFlow, ontology, and natural conversation framework.',
-    overview: `Students learn how to develop a cognitive dialogue agent that uses Google's DialogFlow and builds on the natural conversation framework of Robert Moore. Groups will collaborate to develop a conversational agent for the cooking domain, with a focus on the recipe selection task in this domain. They will design and implement domain knowledge, conversational patterns, natural language understanding and visuals. The agent will be a recipe recommendation assistant with visual support that supports the user to find a suitable cooking recipe.`,
+    overview: `Students develop a speech-based conversational recipe recommendation agent using MARBEL (Prolog-based agent framework), Python, BERT for NLU, and HTML/Bootstrap for visual support. The project involves building an ASR+NLU pipeline, implementing dialogue management, and creating a visual interface. Groups of 6 students work together over 4 intensive weeks. The exam (15% of grade) is a 1-hour digital exam with 30 multiple choice questions covering the lecture content and preliminaries.`,
     objectives:
       '1. Develop a conversational agent by developing a simple ontology for a knowledge base for the cooking domain which enables the agent to reason about recipes (Applying knowledge and understanding) 2. Apply and understand conversation design patterns (Applying knowledge and understanding) 3. Design and implement visual support for different stages in the conversation (Applying knowledge and understanding) 4. Evaluate a prototype conversational agent for the cooking domain (Making judgments) 5. Plan and organize work together in a project group using appropriate tools (Applying knowledge and understanding)',
     assessment:
@@ -608,7 +608,7 @@ The course is divided into two complementary parts:
     literature:
       'Conversational UX Design: A Practitioner\'s Guide to the Natural Conversation Framework Robert J Moore en Raphael Arar | 29 mei 2019 ISBN-10: 1450363024 ISBN-13: 978-1450363020 A cognitive agent programming guide (online) Learn Prolog Now! (online) Github tutorial (online) Bootstrap tutorial (online) Dialogflow tutorial (online) Natural language understanding models (online)',
     prerequisites: '',
-    difficulty: 3,
+    difficulty: 2,
     tags: ['project', 'nlp', 'intelligent-systems'],
     workgroupInfo: {
       mandatory: true,
@@ -666,7 +666,7 @@ The course is divided into two complementary parts:
     ...lawOfAiBase,
     id: 'law-of-ai',
     slug: 'the-law-of-artificial-intelligence',
-    specialisation: 'intelligent_systems',
+    specialisation: ['intelligent_systems', 'socially_aware_computing'],
     tags: ['law', 'ethics', 'elective'],
   },
   // ========== YEAR 2 — Socially Aware Computing specialisation ==========
@@ -716,13 +716,6 @@ The course is divided into two complementary parts:
     prerequisites: '',
     difficulty: 0,
     tags: ['project', 'simulation', 'socially-aware-computing'],
-  },
-  {
-    ...lawOfAiBase,
-    id: 'law-of-ai-sac',
-    slug: 'the-law-of-artificial-intelligence-sac',
-    specialisation: 'socially_aware_computing',
-    tags: ['law', 'ethics', 'socially-aware-computing'],
   },
   {
     id: 'ai-and-law',
