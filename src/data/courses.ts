@@ -281,7 +281,7 @@ The course starts with a few introductory lectures refreshing relevant AI concep
     teachingMethods: 'Lectures and practical sessions.',
     literature: 'A reader is available via Canvas.',
     prerequisites: '',
-    difficulty: 2,
+    difficulty: 0,
     tags: ['modelling', 'cognition', 'behaviour', 'agent-based', 'ethics', 'required'],
   },
   {
