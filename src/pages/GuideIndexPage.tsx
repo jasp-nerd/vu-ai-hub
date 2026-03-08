@@ -27,7 +27,7 @@ const sections = [
   {
     title: 'Amsterdam Guide',
     description:
-      'Living in Amsterdam — transport, biking, housing, apps, health, costs, and more.',
+      'Living in Amsterdam: transport, biking, housing, apps, health, costs, and more.',
     path: '/guide/amsterdam',
     image: '/assets/images/guide-amsterdam.png',
   },

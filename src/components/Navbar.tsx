@@ -73,8 +73,8 @@ export default function Navbar() {
                 onMouseEnter={() => setGuideOpen(true)}
                 onMouseLeave={() => setGuideOpen(false)}
               >
-                <button
-                  onClick={() => setGuideOpen((prev) => !prev)}
+                <Link
+                  to={item.path}
                   onFocus={() => setGuideOpen(true)}
                   aria-expanded={guideOpen}
                   aria-haspopup="true"
@@ -99,7 +99,7 @@ export default function Navbar() {
                       d="M19 9l-7 7-7-7"
                     />
                   </svg>
-                </button>
+                </Link>
                 {guideOpen && (
                   <div className="absolute top-full left-0 pt-1" role="menu">
                     <div className="animate-dropdown-in bg-white dark:bg-stone-900 rounded-xl shadow-lg shadow-stone-200/50 dark:shadow-stone-950/50 border border-stone-200/60 dark:border-stone-700/60 py-1.5 min-w-[180px]">

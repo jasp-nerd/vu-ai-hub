@@ -46,7 +46,7 @@ export default function ContributionPopup({ courseName }: { courseName: string }
               Get in touch
             </p>
             <p className="text-xs text-stone-600 dark:text-stone-300">
-              <a href="mailto:j.f.l.meijerink@student.vu.nl" className="text-vu-blue dark:text-vu-blue-light hover:underline">
+              <a href="mailto:vu.caboose383@passinbox.com" className="text-vu-blue dark:text-vu-blue-light hover:underline">
                 Email us
               </a>
               {' · '}
