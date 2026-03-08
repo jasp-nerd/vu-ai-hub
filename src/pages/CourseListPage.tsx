@@ -8,6 +8,18 @@ const specialisationLabels: Record<string, string> = {
   socially_aware_computing: 'Socially Aware Computing',
 };
 
+function hasSpecialisation(course: { specialisation?: string | string[] }, spec: string): boolean {
+  if (!course.specialisation) return false;
+  if (Array.isArray(course.specialisation)) return course.specialisation.includes(spec);
+  return course.specialisation === spec;
+}
+
+function hasAnySpecialisation(course: { specialisation?: string | string[] }): boolean {
+  if (!course.specialisation) return false;
+  if (Array.isArray(course.specialisation)) return course.specialisation.length > 0;
+  return true;
+}
+
 export default function CourseListPage() {
   const allCourses = getCourses();
   const [yearFilter, setYearFilter] = useState<number | null>(null);
@@ -30,7 +42,7 @@ export default function CourseListPage() {
 
   if ((yearFilter === 2 || yearFilter === 3) && specialisationFilter) {
     filtered = filtered.filter(
-      (c) => c.specialisation === specialisationFilter || !c.specialisation
+      (c) => hasSpecialisation(c, specialisationFilter) || !hasAnySpecialisation(c)
     );
   }
 
@@ -38,16 +50,23 @@ export default function CourseListPage() {
     .filter((y) => !yearFilter || y === yearFilter)
     .map((year) => {
       const yearCourses = filtered.filter((c) => c.year === year);
-      const mandatory = yearCourses.filter((c) => !c.specialisation);
-      const bySpecialisation = [
-        ...new Set(yearCourses.filter((c) => c.specialisation).map((c) => c.specialisation!)),
-      ].sort();
+      const mandatory = yearCourses.filter((c) => !hasAnySpecialisation(c));
+      const allSpecs = new Set<string>();
+      yearCourses.forEach((c) => {
+        if (Array.isArray(c.specialisation)) {
+          c.specialisation.forEach((s) => allSpecs.add(s));
+        } else if (c.specialisation) {
+          allSpecs.add(c.specialisation);
+        }
+      });
+      const bySpecialisation = [...allSpecs].sort();
+      const sortByPeriod = (a: (typeof yearCourses)[0], b: (typeof yearCourses)[0]) => a.period - b.period;
       return {
         year,
-        mandatory,
+        mandatory: mandatory.sort(sortByPeriod),
         bySpecialisation: bySpecialisation.map((spec) => ({
           spec,
-          courses: yearCourses.filter((c) => c.specialisation === spec),
+          courses: yearCourses.filter((c) => hasSpecialisation(c, spec)).sort(sortByPeriod),
         })),
         courses: yearCourses,
       };

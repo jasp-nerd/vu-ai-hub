@@ -79,6 +79,7 @@ import type { QuizQuestion } from '../types';
 
 export const quizQuestions: QuizQuestion[] = [
     // ========== MAS — Prolog & Agent Theory ==========
+    // --- Prolog basics (5 Qs) ---
     {
         id: 'quiz-mas-1',
         courseId: 'multi-agent-systems',
@@ -86,339 +87,361 @@ export const quizQuestions: QuizQuestion[] = [
         options: ['X = 7', 'X = 4+3', 'false', 'error'],
         correctIndex: 1,
         explanation:
-            'The `=` operator performs unification, not arithmetic evaluation. It matches the term 4+3 as-is. To get X = 7, you would use `X is 4+3`.',
+            'The `=` operator performs unification, not arithmetic evaluation. It unifies X with the compound term +(4,3). To get X = 7, you would use `X is 4+3`, which evaluates the right-hand side arithmetically.',
         difficulty: 'easy',
     },
     {
         id: 'quiz-mas-2',
         courseId: 'multi-agent-systems',
-        question: 'What does `?- not(A=4).` return in Prolog?',
-        options: ['true', 'false', 'A = 4', 'error'],
-        correctIndex: 1,
+        question: 'Which of the following is NOT a valid Prolog term type?',
+        options: ['Atom', 'Variable', 'Compound term', 'Class'],
+        correctIndex: 3,
         explanation:
-            'not/1 (negation as failure) succeeds only if its argument cannot be proven. Since A is unbound, A can be unified with 4, so `A=4` succeeds — therefore `not(A=4)` fails and returns false.',
-        difficulty: 'medium',
+            'Prolog terms are: atoms (lowercase constants), numbers, variables (uppercase or underscore), and compound terms (functor with arguments). "Class" is not a Prolog term type; it belongs to object-oriented languages.',
+        difficulty: 'easy',
     },
     {
         id: 'quiz-mas-3',
         courseId: 'multi-agent-systems',
-        question:
-            'In Prolog, what search strategy is used to explore rules?',
-        options: [
-            'Breadth-first, left-to-right',
-            'Depth-first, top-to-bottom and left-to-right',
-            'Random selection',
-            'Best-first with heuristics',
-        ],
+        question: 'Given the facts `parent(tom, bob). parent(bob, ann).` and the rule `grandparent(X, Z) :- parent(X, Y), parent(Y, Z).`, what does `?- grandparent(tom, ann).` return?',
+        options: ['false', 'true', 'ann', 'error'],
         correctIndex: 1,
         explanation:
-            'Prolog uses backward chaining with depth-first search. Rules are tried in the order they appear (top-to-bottom), and subgoals within a rule are resolved left-to-right.',
+            'Prolog matches grandparent(tom, ann) with the rule head, setting X=tom, Z=ann. It then tries parent(tom, Y), finding Y=bob. Then parent(bob, ann) succeeds. So the query returns true.',
         difficulty: 'easy',
     },
     {
         id: 'quiz-mas-4',
         courseId: 'multi-agent-systems',
-        question:
-            'What is "floundering" in Prolog?',
-        options: [
-            'When a query runs infinitely',
-            'When negation is called with unbound variables',
-            'When two rules conflict',
-            'When a fact cannot be found',
-        ],
+        question: 'What does `?- f(a, g(X)) = f(a, g(b)).` return in Prolog?',
+        options: ['false', 'X = b', 'X = g(b)', 'error'],
         correctIndex: 1,
         explanation:
-            'Floundering occurs when negation (not/1 or \\+) is called with unbound variables. Since unification with an unbound variable almost always succeeds, the negation will fail unexpectedly. Always bind variables before negation.',
+            'Unification of compound terms requires the same functor and arity, then unifies corresponding arguments. f/2 matches f/2, a=a succeeds, g(X)=g(b) requires X=b. So the result is X = b.',
         difficulty: 'medium',
     },
     {
         id: 'quiz-mas-5',
         courseId: 'multi-agent-systems',
-        question:
-            'In MARBEL, which percept handler should be used for a percept that is sent only once at the start?',
-        options: ['replace', 'update', 'add', 'insert'],
-        correctIndex: 2,
+        question: 'What is the result of `?- A is 5+5.` in Prolog?',
+        options: ['A = 5+5', 'A = 10', 'false', 'error'],
+        correctIndex: 1,
         explanation:
-            'The `add` handler is used for "send once" percepts — it adds the percept to the belief base once. `update` is for "on-change" percepts, and `replace` is for "send always" percepts.',
+            'The `is/2` operator evaluates the arithmetic expression on the right-hand side and unifies the result with the left. 5+5 evaluates to 10, so A = 10. This is different from `=`, which would give A = 5+5 (the unevaluated term).',
         difficulty: 'easy',
     },
+    // --- Search trees (5 Qs) ---
     {
         id: 'quiz-mas-6',
         courseId: 'multi-agent-systems',
-        question:
-            'Which of the following is NOT a characteristic of an intelligent agent according to Wooldridge & Jennings?',
-        options: ['Reactive', 'Pro-active', 'Deterministic', 'Social'],
-        correctIndex: 2,
+        question: 'In Prolog, what search strategy is used to explore clauses?',
+        options: [
+            'Breadth-first, left-to-right',
+            'Depth-first, top-to-bottom and left-to-right',
+            'Random selection of clauses',
+            'Best-first with heuristic evaluation',
+        ],
+        correctIndex: 1,
         explanation:
-            'The four characteristics are: Reactive (responds to changes), Pro-active (takes initiative), Social (communicates and cooperates), and Autonomous (controls its own processes). Deterministic is an environment property, not an agent characteristic.',
-        difficulty: 'medium',
+            'Prolog uses backward chaining with depth-first search. Clauses are tried in the order they appear in the program (top-to-bottom), and subgoals within a rule body are resolved left-to-right.',
+        difficulty: 'easy',
     },
     {
         id: 'quiz-mas-7',
         courseId: 'multi-agent-systems',
-        question:
-            'What does Prolog\'s "incompleteness" mean?',
-        options: [
-            'Prolog cannot represent all types of knowledge',
-            'Prolog\'s depth-first search may miss solutions in infinite branches',
-            'Prolog cannot handle lists',
-            'Prolog cannot solve recursive problems',
-        ],
+        question: 'Given:\n```prolog\na(X) :- x(X), y(X), z(X).\nx(n). x(p).\ny(n). y(p).\nz(p).\n```\nWhat does `?- a(Y).` return?',
+        options: ['Y = n', 'Y = p', 'false', 'Y = n ; Y = p'],
         correctIndex: 1,
         explanation:
-            'Prolog\'s proof search is incomplete: depth-first search can get trapped in infinite branches, preventing it from finding valid solutions that exist on other branches. This is a fundamental limitation of the search strategy, not the language itself.',
-        difficulty: 'hard',
+            'Prolog tries x(Y) first: Y=n. Then y(n) succeeds, but z(n) fails (no z(n) fact). Prolog backtracks to try x(Y) with Y=p. Then y(p) succeeds and z(p) succeeds. So Y = p is the first (and only) answer.',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-mas-8',
         courseId: 'multi-agent-systems',
-        question:
-            'What is the advantage of tail recursion with accumulators in Prolog?',
+        question: 'In a Prolog search tree, which are the three possible outcomes for a branch?',
         options: [
-            'It runs faster because of parallel execution',
-            'It uses constant stack space by carrying partial results',
-            'It automatically handles negation',
-            'It enables backward chaining',
+            'Success, failure, timeout',
+            'Success, failure, infinite loop',
+            'True, false, undefined',
+            'Match, no match, partial match',
         ],
         correctIndex: 1,
         explanation:
-            'Tail recursion with accumulators carries partial results through an extra argument instead of building up stack frames. This means constant stack space usage rather than O(n) stack frames for a list of length n.',
+            'Every branch in a Prolog search tree ends in one of three ways: success (all goals satisfied), failure (a goal cannot be satisfied, triggering backtracking), or infinite loop (the branch never terminates, typically due to left-recursion or cycles).',
         difficulty: 'medium',
     },
     {
         id: 'quiz-mas-9',
         courseId: 'multi-agent-systems',
-        question:
-            'What does `?- X+2 is 5.` return in Prolog?',
-        options: ['X = 3', 'true', 'false', 'error'],
-        correctIndex: 3,
+        question: 'What does Prolog\'s "incompleteness" mean?',
+        options: [
+            'Prolog cannot represent all types of knowledge',
+            'Prolog\'s depth-first search may miss solutions trapped behind infinite branches',
+            'Prolog cannot process lists of arbitrary length',
+            'Prolog cannot handle more than two subgoals per rule',
+        ],
+        correctIndex: 1,
         explanation:
-            'The `is/2` predicate requires the right-hand side to be fully instantiated for evaluation. Here the right side is `5` (fine), but the left side `X+2` is a compound term, not a simple variable. SWI-Prolog throws an `instantiation_error` because it cannot evaluate the arithmetic expression on the left.',
+            'Prolog\'s proof search is sound but incomplete: depth-first search can get trapped in an infinite branch, preventing it from ever reaching valid solutions on other branches. This is a limitation of the search strategy, not of the logic itself.',
         difficulty: 'hard',
     },
     {
         id: 'quiz-mas-10',
         courseId: 'multi-agent-systems',
-        question:
-            'In MARBEL, what does the module option `exit=noaction` do?',
+        question: 'If the recursive rule `r(X,Y) :- f(X,Z), r(Z,Y).` appears BEFORE the base case `r(X,Y) :- f(X,Y).`, what risk does this create?',
         options: [
-            'Exits the module immediately',
-            'Never exits the module',
-            'Exits only when no action can be performed',
-            'Exits after performing one action',
-        ],
-        correctIndex: 2,
-        explanation:
-            'exit=noaction means the module exits only when no rule applies (no action can be performed). exit=always exits after any action, and exit=never keeps looping through rules indefinitely.',
-        difficulty: 'medium',
-    },
-
-    // ========== DSA ==========
-    {
-        id: 'quiz-dsa-1',
-        courseId: 'data-structures-algorithms-ai',
-        question: 'What is the time complexity of accessing an element in an array by index?',
-        options: ['O(n)', 'O(log n)', 'O(1)', 'O(n²)'],
-        correctIndex: 2,
-        explanation:
-            'Arrays store elements contiguously in memory. Given the base address, element size, and index, the memory address can be computed with a single formula: address = base + size × (index - start). This is a constant-time operation.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-dsa-2',
-        courseId: 'data-structures-algorithms-ai',
-        question:
-            'Which data structure follows a LIFO (Last-In, First-Out) policy?',
-        options: ['Queue', 'Stack', 'Linked List', 'Binary Search Tree'],
-        correctIndex: 1,
-        explanation:
-            'A stack follows LIFO — the most recently inserted element is removed first. The classic example is Ctrl+Z (undo). A queue follows FIFO (first in, first out).',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-dsa-3',
-        courseId: 'data-structures-algorithms-ai',
-        question: 'What is the worst-case time complexity of QuickSort?',
-        options: ['O(n log n)', 'O(n)', 'O(n²)', 'O(log n)'],
-        correctIndex: 2,
-        explanation:
-            'QuickSort has O(n²) worst-case complexity, which occurs when the pivot is consistently the smallest or largest element (e.g., already sorted input with first-element pivot). However, its average case is O(n log n), making it fast in practice.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-dsa-4',
-        courseId: 'data-structures-algorithms-ai',
-        question:
-            'In a min-heap, which property must always be maintained?',
-        options: [
-            'Every child is smaller than its parent',
-            'Every parent is smaller than or equal to its children',
-            'The tree is always perfectly balanced',
-            'All leaves are at the same level',
+            'Compilation error',
+            'Prolog always tries the recursive branch first, potentially causing infinite loops',
+            'The base case is never loaded',
+            'Results are returned in reverse order',
         ],
         correctIndex: 1,
         explanation:
-            'In a min-heap, every parent node has a value ≤ its children. The minimum element is always at the root. The tree is a complete binary tree (filled level by level), but not necessarily perfectly balanced.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-dsa-5',
-        courseId: 'data-structures-algorithms-ai',
-        question:
-            'What is the time complexity of BFS and DFS on a graph with V vertices and E edges?',
-        options: ['O(V)', 'O(E)', 'O(V + E)', 'O(V × E)'],
-        correctIndex: 2,
-        explanation:
-            'Both BFS and DFS visit every vertex once (O(V)) and examine every edge once (O(E)), giving O(V + E) total. This assumes an adjacency list representation; with an adjacency matrix, it would be O(V²).',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-dsa-6',
-        courseId: 'data-structures-algorithms-ai',
-        question: 'Which sorting algorithm is stable AND has O(n log n) worst-case time?',
-        options: ['QuickSort', 'HeapSort', 'MergeSort', 'Insertion Sort'],
-        correctIndex: 2,
-        explanation:
-            'MergeSort is both stable (preserves relative order of equal elements) and O(n log n) in the worst case. QuickSort is unstable and O(n²) worst-case. HeapSort is O(n log n) but unstable. Insertion Sort is stable but O(n²).',
+            'Since Prolog tries clauses top-to-bottom, listing the recursive rule first means Prolog always attempts recursion before checking the base case. If the recursive chain forms a cycle (e.g., via a cycle in the facts), this leads to an infinite loop.',
         difficulty: 'hard',
     },
+    // --- Prolog programming (6 Qs) ---
     {
-        id: 'quiz-dsa-7',
-        courseId: 'data-structures-algorithms-ai',
-        question:
-            'What is the key difference between row-major and column-major order for storing a matrix?',
+        id: 'quiz-mas-11',
+        courseId: 'multi-agent-systems',
+        question: 'What is the result of `?- [H|T] = [a, b, c].` in Prolog?',
+        options: ['H = a, T = [b, c]', 'H = [a], T = [b, c]', 'H = a, T = b, c', 'false'],
+        correctIndex: 0,
+        explanation:
+            'The [H|T] notation splits a list into its head (first element) and tail (remaining list). For [a, b, c], H unifies with a, and T unifies with [b, c].',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mas-12',
+        courseId: 'multi-agent-systems',
+        question: 'What does `?- not(A=4).` return in Prolog?',
+        options: ['true', 'false', 'A = 4', 'error'],
+        correctIndex: 1,
+        explanation:
+            'not/1 (negation as failure) succeeds only if its argument cannot be proven. Since A is an unbound variable, A can be unified with 4, so A=4 succeeds. Therefore not(A=4) fails and returns false. This is a classic example of floundering.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mas-13',
+        courseId: 'multi-agent-systems',
+        question: 'What is "floundering" in Prolog?',
         options: [
-            'Row-major stores one row after another; column-major stores one column after another',
-            'Row-major is faster than column-major',
-            'Column-major uses less memory',
-            'They produce different matrix values',
+            'When a query runs infinitely due to left-recursion',
+            'When negation is called with unbound variables, producing unexpected results',
+            'When two clauses have identical heads',
+            'When a fact cannot be found in the knowledge base',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Floundering occurs when negation (not/1 or \\+) is called with unbound variables. Since an unbound variable can unify with anything, the goal inside the negation succeeds, so the negation fails unexpectedly. The fix is to always bind variables before using them in negation.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mas-14',
+        courseId: 'multi-agent-systems',
+        question: 'What is the advantage of tail recursion with accumulators over simple (left) recursion in Prolog?',
+        options: [
+            'It runs in parallel across multiple cores',
+            'It uses constant O(1) stack space instead of O(n) stack frames',
+            'It automatically prevents infinite loops',
+            'It allows negative numbers in computations',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In simple recursion, stack frames accumulate until the base case, then results are computed on the way back. Tail recursion with accumulators carries partial results forward, so each recursive call replaces the previous stack frame, using O(1) stack space.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mas-15',
+        courseId: 'multi-agent-systems',
+        question: 'Given the cut operator in:\n```prolog\nmax(X, Y, X) :- X >= Y, !.\nmax(_, Y, Y).\n```\nWhat type of cut is this, and why?',
+        options: [
+            'Red cut — removing it changes the program\'s results',
+            'Green cut — it only removes unnecessary computation without changing results',
+            'Forced cut — it is required for the program to compile',
+            'Blue cut — it optimizes memory allocation',
         ],
         correctIndex: 0,
         explanation:
-            'In row-major order, elements are stored row by row in a contiguous array. In column-major order, they are stored column by column. Both store the same data — only the memory layout differs, which can affect cache performance.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-dsa-8',
-        courseId: 'data-structures-algorithms-ai',
-        question:
-            'Dijkstra\'s algorithm fails on graphs with:',
-        options: [
-            'Cycles',
-            'Negative edge weights',
-            'More than 100 vertices',
-            'Directed edges',
-        ],
-        correctIndex: 1,
-        explanation:
-            'Dijkstra\'s algorithm assumes all edge weights are non-negative. With negative weights, it can produce incorrect shortest paths because it greedily finalizes distances. Use Bellman-Ford for graphs with negative weights.',
-        difficulty: 'medium',
-    },
-
-    // ========== Linear Algebra & Calculus ==========
-    {
-        id: 'quiz-lac-1',
-        courseId: 'linear-algebra-calculus',
-        question: 'What is lim(x→-1) (x²-1)/(x+1)?',
-        options: ['0', '-2', '2', 'Does not exist'],
-        correctIndex: 1,
-        explanation:
-            'Direct substitution gives 0/0 (indeterminate). Factor: x²-1 = (x-1)(x+1). Cancel (x+1): lim(x→-1) (x-1) = -1-1 = -2.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-lac-2',
-        courseId: 'linear-algebra-calculus',
-        question: 'What is lim(x→9) (√x - 3)/(x - 9)?',
-        options: ['1/3', '1/6', '0', '3'],
-        correctIndex: 1,
-        explanation:
-            'Rationalize: multiply by (√x+3)/(√x+3). Numerator becomes x-9, denominator becomes (x-9)(√x+3). Cancel (x-9): 1/(√9+3) = 1/6.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-lac-3',
-        courseId: 'linear-algebra-calculus',
-        question:
-            'What is lim(x→∞) (3x³ - 5x² + 7)/(8 + 2x - 5x³)?',
-        options: ['0', '3/5', '-3/5', '∞'],
-        correctIndex: 2,
-        explanation:
-            'Both numerator and denominator have degree 3. Divide by x³: (3 - 5/x + 7/x³)/(8/x³ + 2/x² - 5) → 3/(-5) = -3/5 as x→∞.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-lac-4',
-        courseId: 'linear-algebra-calculus',
-        question:
-            'What is lim(x→2) |x-2|/(x-2)?',
-        options: ['1', '-1', '0', 'Does not exist'],
-        correctIndex: 3,
-        explanation:
-            'From the right (x>2): |x-2| = x-2, so the limit is 1. From the left (x<2): |x-2| = -(x-2), so the limit is -1. Since left ≠ right, the limit does not exist.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-lac-5',
-        courseId: 'linear-algebra-calculus',
-        question:
-            'A function f is continuous at x=a if and only if:',
-        options: [
-            'f(a) is defined',
-            'lim(x→a) f(x) exists',
-            'f(a) is defined, lim(x→a) f(x) exists, and lim(x→a) f(x) = f(a)',
-            'f(a) ≠ 0',
-        ],
-        correctIndex: 2,
-        explanation:
-            'Continuity requires all three conditions: (1) f(a) must be defined, (2) the limit must exist, and (3) the limit must equal the function value. If any condition fails, f has a discontinuity at a.',
-        difficulty: 'easy',
-    },
-    {
-        id: 'quiz-lac-6',
-        courseId: 'linear-algebra-calculus',
-        question:
-            'To apply the Intermediate Value Theorem to show f has a root in [a,b], what must be true?',
-        options: [
-            'f must be differentiable and f(a)·f(b) < 0',
-            'f must be continuous and f(a) and f(b) must have opposite signs',
-            'f must be a polynomial',
-            'f must be monotonically increasing',
-        ],
-        correctIndex: 1,
-        explanation:
-            'The IVT requires: (1) f is continuous on [a,b], and (2) f(a) and f(b) have opposite signs. Then there exists c in (a,b) where f(c)=0. Differentiability is not required — only continuity.',
-        difficulty: 'medium',
-    },
-    {
-        id: 'quiz-lac-7',
-        courseId: 'linear-algebra-calculus',
-        question: 'A matrix A is diagonalizable if and only if:',
-        options: [
-            'A is symmetric',
-            'A has n linearly independent eigenvectors',
-            'All eigenvalues are positive',
-            'A is invertible',
-        ],
-        correctIndex: 1,
-        explanation:
-            'An n×n matrix is diagonalizable if it has n linearly independent eigenvectors. Then A = PDP⁻¹ where D is diagonal (eigenvalues) and P has eigenvectors as columns. Symmetric matrices are always diagonalizable, but this is not the only case.',
+            'This is a red cut because removing it changes the program\'s results. Without the cut, querying max(5, 3, M) produces two answers: M=5 (clause 1) and M=3 (clause 2, since max(_, Y, Y) has no guard). The cut prevents the spurious second answer. For a green cut, the second clause would need an explicit guard: max(X, Y, Y) :- X < Y.',
         difficulty: 'hard',
     },
     {
-        id: 'quiz-lac-8',
-        courseId: 'linear-algebra-calculus',
-        question:
-            'What is the gradient of f(x,y) = x²y + 3y²?',
-        options: [
-            '(2xy, x² + 6y)',
-            '(2x + y, x + 6y)',
-            '(x²y, 3y²)',
-            '(2xy + 3y², x² + 6y)',
-        ],
-        correctIndex: 0,
+        id: 'quiz-mas-16',
+        courseId: 'multi-agent-systems',
+        question: 'What does `?- X+2 is 5.` return in Prolog?',
+        options: ['X = 3', 'true', 'false', 'error'],
+        correctIndex: 2,
         explanation:
-            'The gradient is the vector of partial derivatives: ∂f/∂x = 2xy, ∂f/∂y = x² + 6y. So ∇f = (2xy, x² + 6y). The gradient points in the direction of steepest ascent.',
+            'The `is/2` operator evaluates the right-hand side (5, which is fine) and tries to unify it with the left-hand side. But X+2 is the compound term +(X,2), not a simple variable. The unification +(X,2) = 5 fails because a compound term cannot unify with a number. The result is false.',
+        difficulty: 'hard',
+    },
+    // --- Agent theory (5 Qs) ---
+    {
+        id: 'quiz-mas-17',
+        courseId: 'multi-agent-systems',
+        question: 'Which of the following is NOT a characteristic of an intelligent agent according to Wooldridge & Jennings?',
+        options: ['Reactive', 'Pro-active', 'Deterministic', 'Social'],
+        correctIndex: 2,
+        explanation:
+            'The four characteristics of an intelligent agent are: Reactive (responds to environmental changes), Pro-active (takes initiative toward goals), Social (communicates and cooperates), and Autonomous (controls its own actions). Deterministic describes an environment property, not an agent characteristic.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mas-18',
+        courseId: 'multi-agent-systems',
+        question: 'An environment where the agent can see the complete state at each point in time is called:',
+        options: [
+            'Deterministic',
+            'Fully observable',
+            'Static',
+            'Discrete',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A fully observable environment gives the agent access to the complete state through its sensors. Partially observable means incomplete or noisy information. This is distinct from determinism (predictable action outcomes) and static/dynamic (whether the environment changes independently).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mas-19',
+        courseId: 'multi-agent-systems',
+        question: 'What is a "durative action" in agent theory?',
+        options: [
+            'An action that has no effect on the environment',
+            'An action that takes time to complete and may receive feedback during execution',
+            'An action that can only be performed once',
+            'An action triggered by another agent',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A durative action takes time to complete, as opposed to an instantaneous action. During execution, the agent may receive feedback, the action may fail, or a new action request may arrive. This requires the agent to handle interruption, queuing, or cancellation.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mas-20',
+        courseId: 'multi-agent-systems',
+        question: 'Why must an agent continuously monitor the environment through percepts?',
+        options: [
+            'Because the agent has no memory of previous states',
+            'Because dynamic and stochastic environments can change independently of the agent',
+            'Because the environment is always fully observable',
+            'Because actions always succeed in predictable ways',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Continuous monitoring is essential because: (1) dynamic environments change independently, (2) stochastic action outcomes are unpredictable, (3) other agents may modify the environment, and (4) durative actions may fail or be interrupted.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mas-21',
+        courseId: 'multi-agent-systems',
+        question: 'The challenge in agent design of balancing responsiveness to environmental changes with pursuing long-term goals is described as the tension between:',
+        options: [
+            'Observability and determinism',
+            'Reactivity and pro-activity',
+            'Autonomy and sociality',
+            'Discreteness and continuity',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The key design challenge is balancing reactivity (responding to changes) with pro-activity (pursuing goals). Too reactive and the agent is purely stimulus-driven; too pro-active and it ignores important environmental changes.',
+        difficulty: 'medium',
+    },
+    // --- MARBEL (7 Qs) ---
+    {
+        id: 'quiz-mas-22',
+        courseId: 'multi-agent-systems',
+        question: 'In MARBEL, which file extension is used for the main configuration that defines the agent, launch policy, and percept handlers?',
+        options: ['.pl', '.mod2g', '.mas2g', '.agent'],
+        correctIndex: 2,
+        explanation:
+            'The .mas2g file is the main configuration file. It defines which agent program files to use, how percepts are handled (add/update/replace), and the launch policy. The .mod2g files contain action rule modules, and .pl files contain the Prolog knowledge base.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mas-23',
+        courseId: 'multi-agent-systems',
+        question: 'In MARBEL, which percept handler should be used for a percept that is sent every cycle regardless of changes?',
+        options: ['add', 'update', 'replace', 'insert'],
+        correctIndex: 2,
+        explanation:
+            'The `replace` handler is for "send always" percepts that arrive every cycle. It replaces all matching percepts each cycle. `add` is for "send once" percepts, and `update` is for "send on-change" percepts that are sent only when the value changes.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mas-24',
+        courseId: 'multi-agent-systems',
+        question: 'In MARBEL, what does the module option `exit=noaction` do?',
+        options: [
+            'Exits the module immediately after entering it',
+            'Never exits the module under any circumstance',
+            'Exits only when no action rule is applicable',
+            'Exits after performing exactly one action',
+        ],
+        correctIndex: 2,
+        explanation:
+            'exit=noaction means the module exits only when no rule applies (no action can be performed). exit=always exits after executing any single action, and exit=never keeps looping through rules indefinitely.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mas-25',
+        courseId: 'multi-agent-systems',
+        question: 'Why must predicates used in MARBEL percept handling be declared as `:- dynamic` in the .pl file?',
+        options: [
+            'To make them visible to other agents',
+            'Because their truth values change at runtime via insert/delete operations',
+            'To enable pattern matching on those predicates',
+            'To allow them to have more than two arguments',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Dynamic declarations are mandatory for any predicate that is modified at runtime, whether by percept handlers (add/update/replace) or by explicit insert/delete operations in action rules. Without the declaration, Prolog would treat them as static and refuse modification.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mas-26',
+        courseId: 'multi-agent-systems',
+        question: 'In a MARBEL module with `order=linear`, why might a rule NOT need to explicitly check `not(conditionX)` if the preceding rule already checks `conditionX`?',
+        options: [
+            'Because Prolog automatically adds negation to subsequent rules',
+            'Because linear order means if the preceding rule matched conditionX, it would have fired, so reaching this rule implies conditionX is false',
+            'Because MARBEL removes duplicate conditions automatically',
+            'Because all conditions in a module are mutually exclusive by default',
+        ],
+        correctIndex: 1,
+        explanation:
+            'With order=linear, rules are tried top-to-bottom. If rule N-1 checks conditionX and would have fired if true, then reaching rule N implies conditionX is false. The explicit not(conditionX) check is therefore redundant.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mas-27',
+        courseId: 'multi-agent-systems',
+        question: 'In MARBEL, what does the `+` operator do in an action rule like `if at(0) then getCoffee + insert(has(coffee)).`?',
+        options: [
+            'Adds two numbers together',
+            'Combines an environment action with a belief update',
+            'Creates a logical disjunction between two conditions',
+            'Sends two percepts simultaneously',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The `+` operator combines an environment action (getCoffee) with a belief update (insert(has(coffee))). This allows the agent to perform an action and update its beliefs in a single rule. insert() adds beliefs, delete() removes them.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mas-28',
+        courseId: 'multi-agent-systems',
+        question: 'A robot agent receives `at/1` percepts only when its position changes. In the .mas2g file, which handler is most appropriate?',
+        options: [
+            'add at/1 — because the location is added once',
+            'update at/1 — because the percept is sent on-change',
+            'replace at/1 — because the location should be refreshed every cycle',
+            'insert at/1 — because the belief needs to be inserted',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Since the at/1 percept is sent only when the value changes (on-change), the correct handler is `update`. It removes the old at/1 value from the belief base and adds the new one. `add` would keep accumulating old positions, and `replace` expects the percept every cycle.',
         difficulty: 'medium',
     },
 
@@ -510,112 +533,111 @@ export const quizQuestions: QuizQuestion[] = [
     },
 
     // ========== Knowledge & Data ==========
+    // --- Module 1: Formal systems, propositional logic, knowledge graphs (~5 Qs) ---
     {
         id: 'quiz-kd-1',
         courseId: 'knowledge-and-data',
-        question: 'An RDF triple consists of:',
+        question: 'What are the three components of a formal logic (formal system)?',
         options: [
-            'Subject, predicate, object',
-            'Table, row, column',
-            'Key, value, type',
-            'Node, edge, weight',
+            'Syntax, semantics, and calculus',
+            'Classes, properties, and instances',
+            'Subject, predicate, and object',
+            'TBox, ABox, and RBox',
         ],
         correctIndex: 0,
         explanation:
-            'RDF (Resource Description Framework) represents knowledge as triples: subject-predicate-object. For example: (Amsterdam, isCapitalOf, Netherlands). Subjects and predicates are URIs; objects can be URIs or literals.',
+            'A formal logic consists of: syntax (which expressions are well-formed), semantics (what expressions mean with respect to interpretations), and calculus (how to determine meaning for legal expressions, e.g., truth tables, inference rules).',
         difficulty: 'easy',
     },
     {
         id: 'quiz-kd-2',
         courseId: 'knowledge-and-data',
-        question:
-            'What is the main difference between RDFS and OWL?',
+        question: 'In propositional logic, a formula that is true under every possible valuation is called a:',
         options: [
-            'RDFS is for queries, OWL is for storage',
-            'RDFS defines lightweight schemas; OWL adds complex constraints and reasoning',
-            'They are completely interchangeable',
-            'OWL replaced RDFS',
+            'Contradiction',
+            'Tautology',
+            'Model',
+            'Satisfiable formula',
         ],
         correctIndex: 1,
         explanation:
-            'RDFS (RDF Schema) provides basic vocabulary for class hierarchies (subClassOf, domain, range). OWL (Web Ontology Language) extends this with powerful constructs like cardinality constraints, property restrictions, and logical expressions enabling automated reasoning.',
-        difficulty: 'medium',
+            'A tautology is true under every possible truth value assignment. A contradiction is false under every valuation. A model is a specific valuation that makes a formula true. A satisfiable formula is true under at least one valuation.',
+        difficulty: 'easy',
     },
     {
         id: 'quiz-kd-3',
         courseId: 'knowledge-and-data',
-        question:
-            'In SPARQL, what does the SELECT clause do?',
+        question: 'To check whether KB ENTAILS formula F using truth tables, what must hold?',
         options: [
-            'Defines the data source',
-            'Filters out invalid triples',
-            'Specifies which variables to return from the query',
-            'Creates new triples',
+            'F is true in at least one row where KB is true',
+            'KB is true in every row of the truth table',
+            'In every row where KB is true, F must also be true',
+            'F and KB must have the same truth table column',
         ],
         correctIndex: 2,
         explanation:
-            'SELECT specifies which bound variables from the WHERE pattern should be returned in the query results. The WHERE clause defines the graph pattern to match. Other query forms include CONSTRUCT, ASK, and DESCRIBE.',
-        difficulty: 'easy',
+            'Semantic entailment (KB |= F) holds if and only if every valuation that makes KB true also makes F true. A single row where KB is true but F is false is a counterexample that disproves entailment.',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-kd-4',
         courseId: 'knowledge-and-data',
-        question:
-            'What is a "Knowledge Graph"?',
+        question: 'Which of the following best describes a knowledge graph?',
         options: [
-            'A graph database that stores interconnected descriptions of entities using RDF or similar formalisms',
-            'A visualization tool for displaying statistical relationships',
-            'A neural network architecture',
-            'A hierarchical folder structure',
+            'A neural network trained on knowledge base completions',
+            'A graph-based, heterogeneous, interpretable, and semantic representation of data published on the Web',
+            'A hierarchical file system for organizing structured data',
+            'A relational database with foreign key constraints',
         ],
-        correctIndex: 0,
+        correctIndex: 1,
         explanation:
-            'A Knowledge Graph represents real-world entities and their relationships as a graph of interconnected nodes and edges. It uses formalisms like RDF to enable querying, integration, and reasoning over linked data from multiple sources.',
+            'A knowledge graph is heterogeneous (accommodates different data types), interpretable (others can correctly interpret data), semantic (makes meaning explicit), graph-based (nodes and edges), and Web-accessible. It uses formalisms like RDF for querying, integration, and reasoning.',
         difficulty: 'easy',
     },
     {
         id: 'quiz-kd-5',
         courseId: 'knowledge-and-data',
-        question: 'What are the three components of a formal logic?',
+        question: 'What distinguishes data, information, and knowledge according to the course?',
         options: [
-            'Syntax, semantics, and calculus',
-            'Classes, properties, and instances',
-            'Subject, predicate, and object',
-            'Axioms, theorems, and proofs',
+            'Data is structured, information is unstructured, knowledge is semi-structured',
+            'Data consists of individual facts out of context; information is data in context; knowledge is information combined with rules and understanding',
+            'They are interchangeable terms for the same concept',
+            'Data is quantitative, information is qualitative, knowledge is procedural',
         ],
-        correctIndex: 0,
+        correctIndex: 1,
         explanation:
-            'A formal logic consists of three components: syntax (which expressions are well-formed), semantics (what expressions mean with respect to interpretations), and calculus (how to determine meaning for legal expressions). This definition is fundamental to understanding all knowledge representation languages in the course.',
+            'The course defines a clear hierarchy: data = individual facts out of context, information = data placed in a relevant context, knowledge = information retained with understanding of its significance plus rules. Data preparation accounts for roughly 80% of a data scientist\'s work.',
         difficulty: 'easy',
     },
+    // --- Module 2: RDF, URIs, Turtle, Linked Data, blank nodes (~7 Qs) ---
     {
         id: 'quiz-kd-6',
         courseId: 'knowledge-and-data',
-        question: 'In propositional logic, what is a tautology?',
+        question: 'In an RDF triple (subject, predicate, object), which positions can a literal appear in?',
         options: [
-            'A formula that is false for every valuation',
-            'A formula that is true for at least one valuation',
-            'A formula that is true for every possible valuation',
-            'A formula that cannot be evaluated',
+            'Subject and object',
+            'Object only',
+            'Subject, predicate, and object',
+            'Predicate only',
         ],
-        correctIndex: 2,
+        correctIndex: 1,
         explanation:
-            'A tautology is a formula that evaluates to true for every possible assignment of truth values to its variables. For example, "p OR NOT p" is a tautology. A formula that is false for every valuation is called a contradiction. A formula true for at least one valuation is called satisfiable.',
+            'Literals can only appear in the object position of an RDF triple. Subjects must be URIs or blank nodes. Predicates must be URIs only (never blank nodes or literals). This is a fundamental constraint of the RDF data model.',
         difficulty: 'easy',
     },
     {
         id: 'quiz-kd-7',
         courseId: 'knowledge-and-data',
-        question: 'What does the Open World Assumption (OWA) mean in the context of OWL?',
+        question: 'What role do blank nodes play in RDF?',
         options: [
-            'All data is publicly accessible on the Web',
-            'If a statement is not explicitly present, it is considered false',
-            'Ontologies must be published as open source',
-            'If a statement is not explicitly present or derivable, it is unknown (not assumed false)',
+            'They represent NULL values like in SQL databases',
+            'They are anonymous resources acting as existential quantifiers ("there exists some resource...")',
+            'They mark triples that should be deleted',
+            'They represent predicates with unknown URIs',
         ],
-        correctIndex: 3,
+        correctIndex: 1,
         explanation:
-            'Under the Open World Assumption (OWA), the absence of a statement does not mean it is false — it simply means we do not know. This contrasts with the Closed World Assumption (CWA) used in databases, where anything not explicitly stated is assumed false. OWA is essential for the Web, where information is always incomplete.',
+            'Blank nodes represent resources without a URI. They act as existential quantifiers: "there exists some resource with these properties." In Turtle they are written as _:label or inline with [...]. When merging graphs, blank node labels are local to each graph and must be renamed to avoid clashes.',
         difficulty: 'medium',
     },
     {
@@ -623,303 +645,316 @@ export const quizQuestions: QuizQuestion[] = [
         courseId: 'knowledge-and-data',
         question: 'In Turtle syntax, what does the semicolon (;) indicate?',
         options: [
-            'The end of an RDF statement',
-            'A comment follows',
-            'The next triple shares the same subject as the previous one',
-            'The next triple shares the same predicate as the previous one',
+            'End of the RDF statement',
+            'The next triple shares the same subject (different predicate-object)',
+            'A comment follows on this line',
+            'The next triple shares the same subject AND predicate (different object)',
         ],
-        correctIndex: 2,
+        correctIndex: 1,
         explanation:
-            'In Turtle syntax, the semicolon (;) is a shortcut indicating that the next predicate-object pair shares the same subject as the previous triple. The period (.) ends a statement, and the comma (,) indicates the next object shares the same subject AND predicate.',
+            'The semicolon (;) means the next predicate-object pair shares the same subject. The comma (,) means the next object shares both the same subject AND predicate. The period (.) terminates a statement. These shortcuts reduce repetition in Turtle files.',
         difficulty: 'easy',
     },
     {
         id: 'quiz-kd-9',
         courseId: 'knowledge-and-data',
-        question: 'In RDF, which positions can a blank node appear in?',
+        question: 'Consider this Turtle snippet:\n```turtle\nex:s1 a dbr:Student ;\n    ex:hasVUnetID "as344" ;\n    ex:studiesAt ex:UvA, ex:VU .\n```\nHow many RDF triples does this produce?',
         options: [
-            'Subject and object only',
-            'Subject, predicate, and object',
-            'Object only',
-            'Subject only',
+            '2',
+            '3',
+            '4',
+            '5',
         ],
-        correctIndex: 0,
+        correctIndex: 2,
         explanation:
-            'Blank nodes can appear in the subject and object positions of an RDF triple, but never in the predicate position. Blank nodes represent resources without a URI and act as existential quantifiers. Predicates must always be URI references.',
+            'This produces 4 triples: (1) ex:s1 rdf:type dbr:Student, (2) ex:s1 ex:hasVUnetID "as344", (3) ex:s1 ex:studiesAt ex:UvA, and (4) ex:s1 ex:studiesAt ex:VU. The semicolons reuse the subject, and the comma reuses both subject and predicate.',
         difficulty: 'medium',
     },
     {
         id: 'quiz-kd-10',
         courseId: 'knowledge-and-data',
-        question: 'What does the RDFS entailment rule for rdfs:domain allow you to derive?',
+        question: 'In Turtle, what does the keyword `a` abbreviate?',
         options: [
-            'If "s p o" and "p rdfs:range X", then "o rdf:type X"',
-            'If "s p o" and "p rdfs:domain X", then "s rdf:type X"',
-            'If "s rdf:type A" and "A rdfs:subClassOf B", then "s rdf:type B"',
-            'If "p rdfs:subPropertyOf q" and "s p o", then "s q o"',
+            'rdfs:subClassOf',
+            'owl:sameAs',
+            'rdf:type',
+            'rdfs:label',
         ],
-        correctIndex: 1,
+        correctIndex: 2,
         explanation:
-            'The RDFS domain rule states: if "s p o" and "p rdfs:domain X", then we can derive "s rdf:type X". The domain declaration tells us that any resource used as a subject of property p must be of type X. The range rule derives object types, the subclass rule handles type propagation, and the subproperty rule handles property substitution.',
-        difficulty: 'medium',
+            'In Turtle syntax, `a` is shorthand for rdf:type, which asserts class membership. For example, `ex:s1 a dbr:Student .` is equivalent to `ex:s1 rdf:type dbr:Student .`',
+        difficulty: 'easy',
     },
     {
         id: 'quiz-kd-11',
         courseId: 'knowledge-and-data',
-        question: 'Which SPARQL query form returns a boolean (true/false) result?',
+        question: 'When converting a relational table to RDF, what does a column header typically become?',
         options: [
-            'SELECT',
-            'CONSTRUCT',
-            'DESCRIBE',
-            'ASK',
+            'A literal value in the object position',
+            'A class via rdf:type',
+            'A property (predicate)',
+            'A blank node',
         ],
-        correctIndex: 3,
+        correctIndex: 2,
         explanation:
-            'The ASK query form returns true if the graph pattern has at least one match, and false otherwise. SELECT returns a table of variable bindings, CONSTRUCT builds a new RDF graph, and DESCRIBE returns an RDF graph describing a resource.',
-        difficulty: 'easy',
+            'In table-to-RDF conversion: row identifiers become URI resources (subjects), column headers become properties (predicates), cell values become literals or URI resources (objects), and the table name typically becomes a class (via rdf:type).',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-kd-12',
         courseId: 'knowledge-and-data',
-        question: 'What does the OPTIONAL keyword do in a SPARQL query?',
+        question: 'Which statement about URIs in RDF is correct?',
         options: [
-            'It removes duplicate results from the output',
-            'It specifies that a graph pattern must match, or the query fails',
-            'It includes results even when the optional pattern does not match (like a left join)',
-            'It limits the number of results returned',
+            'A URI is the resource itself',
+            'Each resource can have at most one URI',
+            'Multiple URIs can denote the same resource, and HTTP URIs have global scope',
+            'URIs can only identify Web pages, not abstract concepts',
         ],
         correctIndex: 2,
         explanation:
-            'OPTIONAL in SPARQL acts like a left join: results are included whether or not the optional pattern matches. If it matches, the variables are bound; if not, they are unbound (null). This differs from main WHERE patterns, which must match.',
+            'URIs identify (denote) resources but are not the resources themselves. Multiple URIs can refer to the same resource. HTTP URIs have global scope (unique throughout the Web) and are also dereferenceable addresses. Almost anything can be a resource, including abstract concepts.',
         difficulty: 'medium',
     },
+    // --- Module 3: RDFS, class hierarchies, SPARQL (~8 Qs) ---
     {
         id: 'quiz-kd-13',
         courseId: 'knowledge-and-data',
-        question: 'In OWL, what happens when a property is declared as owl:FunctionalProperty?',
+        question: 'What does the RDFS entailment rule rdfs2 (domain rule) allow you to derive?',
         options: [
-            'The property can only relate individuals to literals',
-            'The property must be defined in a function-based language',
-            'If the property maps one subject to two different objects, those objects are inferred to be the same individual',
-            'The property is symmetric and transitive simultaneously',
+            'If `s p o` and `p rdfs:range X`, then `o rdf:type X`',
+            'If `s p o` and `p rdfs:domain X`, then `s rdf:type X`',
+            'If `A rdfs:subClassOf B` and `s rdf:type A`, then `s rdf:type B`',
+            'If `p rdfs:subPropertyOf q` and `s p o`, then `s q o`',
         ],
-        correctIndex: 2,
+        correctIndex: 1,
         explanation:
-            'When a property p is declared as owl:FunctionalProperty, each individual can have at most one value for p. If both p(x, y) and p(x, z) hold, OWL infers y owl:sameAs z. This differs from databases which would reject the second value.',
+            'Rule rdfs2: if `s p o` and `p rdfs:domain X`, derive `s rdf:type X`. The domain tells us the class of subjects that use this property. The range rule (rdfs3) derives object types. Rule rdfs9 handles subclass type propagation. Rule rdfs7 handles subproperty substitution.',
         difficulty: 'medium',
     },
     {
         id: 'quiz-kd-14',
         courseId: 'knowledge-and-data',
-        question: 'Which of the following correctly describes owl:disjointWith?',
+        question: 'Given:\n```turtle\nex:hasMother rdfs:domain ex:Person .\nex:hasMother rdfs:range ex:Woman .\nex:bob ex:hasMother ex:alice .\n```\nWhich triples can be derived using RDFS entailment?',
         options: [
-            'Two classes that together form the universal class owl:Thing',
-            'Two classes that share no individuals in common',
-            'Two classes that are semantically equivalent',
-            'Two classes where one is a subclass of the other',
+            'ex:bob rdf:type ex:Woman and ex:alice rdf:type ex:Person',
+            'ex:bob rdf:type ex:Person and ex:alice rdf:type ex:Woman',
+            'ex:alice rdf:type ex:Person only',
+            'No new triples can be derived',
         ],
         correctIndex: 1,
         explanation:
-            'owl:disjointWith declares that two classes have no individuals in common. If an individual were typed as both, the ontology would be inconsistent. Disjointness is a key constraint that RDFS cannot express.',
-        difficulty: 'medium',
+            'By rdfs2 (domain): the subject ex:bob gets type ex:Person. By rdfs3 (range): the object ex:alice gets type ex:Woman. A common exam mistake is swapping domain (applies to subjects) and range (applies to objects).',
+        difficulty: 'hard',
     },
     {
         id: 'quiz-kd-15',
         courseId: 'knowledge-and-data',
-        question: 'What is the difference between owl:Thing and owl:Nothing?',
+        question: 'Which property of rdfs:subClassOf is used to derive `s rdf:type C` from `s rdf:type A` and `A rdfs:subClassOf B` and `B rdfs:subClassOf C`?',
         options: [
-            'owl:Thing is for classes; owl:Nothing is for properties',
-            'owl:Thing is the top class containing all individuals; owl:Nothing is the bottom class containing no individuals',
-            'owl:Thing represents known facts; owl:Nothing represents unknown facts',
-            'They are equivalent under the Open World Assumption',
+            'rdfs9 (subclass type propagation) and rdfs11 (subClassOf transitivity)',
+            'rdfs2 (domain rule) only',
+            'rdfs7 (subproperty substitution) only',
+            'rdfs5 (subPropertyOf transitivity)',
         ],
-        correctIndex: 1,
+        correctIndex: 0,
         explanation:
-            'In OWL, owl:Thing is the universal/top class — every individual is an instance of owl:Thing. owl:Nothing is the bottom class with no instances. If any class must be empty but has members, this indicates an inconsistency.',
-        difficulty: 'easy',
+            'First, rdfs11 derives A rdfs:subClassOf C (transitivity of subClassOf). Then rdfs9 derives s rdf:type C from s rdf:type A and A rdfs:subClassOf C. These two rules work together for hierarchical type inference.',
+        difficulty: 'hard',
     },
     {
         id: 'quiz-kd-16',
         courseId: 'knowledge-and-data',
-        question: 'Given: ex:A owl:disjointWith ex:B, ex:x rdf:type ex:A, ex:x rdf:type ex:B. What can be concluded?',
-        options: [
-            'ex:x is of type owl:Nothing',
-            'ex:A owl:equivalentClass ex:B',
-            'The ontology is inconsistent',
-            'ex:x must be a blank node',
-        ],
-        correctIndex: 2,
+        question: 'Which SPARQL query form returns a boolean (true/false) result?',
+        options: ['SELECT', 'CONSTRUCT', 'DESCRIBE', 'ASK'],
+        correctIndex: 3,
         explanation:
-            'Since ex:A and ex:B are declared disjoint, no individual can belong to both classes. The assertion that ex:x is of type both creates a logical contradiction, making the ontology inconsistent. A reasoner would detect this.',
-        difficulty: 'hard',
+            'ASK returns true if the graph pattern has at least one match, false otherwise. SELECT returns a table of variable bindings. CONSTRUCT builds a new RDF graph from a template. DESCRIBE returns an RDF graph describing a resource.',
+        difficulty: 'easy',
     },
     {
         id: 'quiz-kd-17',
         courseId: 'knowledge-and-data',
-        question: 'What distinguishes data, information, and knowledge?',
+        question: 'What does the OPTIONAL keyword do in a SPARQL query?',
         options: [
-            'Data is structured, information is unstructured, knowledge is semi-structured',
-            'Data consists of individual facts out of context; information is data in context; knowledge is information combined with rules and understanding',
-            'They are three interchangeable terms for the same concept',
-            'Data is digital, information is analog, knowledge is conceptual',
+            'Makes the entire query optional (returns empty if no match)',
+            'Includes results even when the optional pattern does not match (left join semantics)',
+            'Removes duplicate results from the output',
+            'Limits the number of results returned',
         ],
         correctIndex: 1,
         explanation:
-            'The course defines a clear hierarchy: data consists of individual facts out of context; information is data placed in a relevant context; knowledge is information retained with an understanding of its significance, combined with rules.',
-        difficulty: 'easy',
+            'OPTIONAL acts like a left join: results are included whether or not the optional pattern matches. If the pattern matches, variables are bound; otherwise they are unbound (null). Required WHERE patterns must match for a result to be included at all.',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-kd-18',
         courseId: 'knowledge-and-data',
-        question: 'Which of the Four Proposals (P1-P4) adds the Semantic Web layer to Linked Data?',
+        question: 'What does the following SPARQL query return?\n```sparql\nSELECT ?city (COUNT(?student) AS ?num)\nWHERE {\n    ?student ex:studiesAt ?uni .\n    ?uni ex:locatedIn ?city .\n}\nGROUP BY ?city\nORDER BY DESC(?num)\nLIMIT 5\n```',
         options: [
-            'P1: Give all things a name',
-            'P2: Names are addresses on the Web (URIs)',
-            'P3: Relations form a graph between things',
-            'P4: Make explicit the meaning of things (assign types, hierarchies, rules)',
+            'All cities where students study, sorted alphabetically',
+            'The top 5 cities by number of students, in descending order',
+            'The 5 most recent students and their cities',
+            'All students grouped by city without a limit',
         ],
-        correctIndex: 3,
+        correctIndex: 1,
         explanation:
-            'P1 + P2 + P3 create a global graph of Linked Data. P4 adds the Semantic Web layer by making meaning explicit: assigning types, organizing hierarchies, and defining rules. P4 enables a shared model with formal semantics and predictable inferencing.',
+            'The query counts students per city using GROUP BY, sorts in descending order of count using ORDER BY DESC(?num), and returns only the top 5 results using LIMIT 5. This is a standard aggregation pattern in SPARQL.',
         difficulty: 'medium',
     },
     {
         id: 'quiz-kd-19',
         courseId: 'knowledge-and-data',
-        question: 'In Turtle syntax, what does the keyword "a" abbreviate?',
+        question: 'In SPARQL, what does the SERVICE keyword enable?',
         options: [
-            'rdfs:subClassOf',
-            'owl:sameAs',
-            'rdfs:label',
-            'rdf:type',
+            'Starting a background process for long-running queries',
+            'Querying a remote SPARQL endpoint within a local query (federated query)',
+            'Caching query results for faster retrieval',
+            'Defining custom functions for FILTER expressions',
         ],
-        correctIndex: 3,
+        correctIndex: 1,
         explanation:
-            'In Turtle syntax, "a" is shorthand for rdf:type, which asserts class membership. For example, "ex:s1 a dbr:Student ." is equivalent to "ex:s1 rdf:type dbr:Student ."',
-        difficulty: 'easy',
+            'The SERVICE keyword enables federated queries by sending part of a query to a remote SPARQL endpoint. For example, `SERVICE <http://dbpedia.org/sparql> { ... }` queries DBpedia within a local query. This is fundamental to the Linked Data vision of distributed querying.',
+        difficulty: 'hard',
     },
     {
         id: 'quiz-kd-20',
         courseId: 'knowledge-and-data',
-        question: 'What is the key difference between skos:broader and rdfs:subClassOf?',
+        question: 'What is the difference between a SPARQL CONSTRUCT query and a SELECT query?',
         options: [
-            'They are semantically identical and interchangeable',
-            'skos:broader covers hierarchical, part-whole, and topical relations, while rdfs:subClassOf strictly means set-theoretic class inclusion',
-            'rdfs:subClassOf is informal, while skos:broader has formal model-theoretic semantics',
-            'skos:broader can only be used between instances, not between concepts',
+            'CONSTRUCT returns a table; SELECT returns a graph',
+            'CONSTRUCT returns a new RDF graph built from a template; SELECT returns a table of variable bindings',
+            'CONSTRUCT modifies the triple store; SELECT only reads it',
+            'They return the same results in different formats',
         ],
         correctIndex: 1,
         explanation:
-            'skos:broader is a more generic hierarchical relation used in thesauri and taxonomies. It can represent class hierarchy, part-whole, location, or topic implication. rdfs:subClassOf strictly means every member of the subclass is also a member of the superclass (set inclusion).',
+            'CONSTRUCT uses a template to build a new RDF graph from matched patterns (e.g., deriving new triples). SELECT returns tabular variable bindings. Neither modifies the triple store (that requires INSERT/DELETE). They serve fundamentally different purposes.',
         difficulty: 'medium',
     },
+    // --- Module 4: OWL, restrictions, open/closed world, reasoning (~8 Qs) ---
     {
         id: 'quiz-kd-21',
         courseId: 'knowledge-and-data',
-        question: 'What is the "no unique naming assumption" in OWL?',
+        question: 'What does the Open World Assumption (OWA) in OWL mean?',
         options: [
-            'Every resource must have a unique URI',
-            'No two ontologies can share the same namespace',
-            'Two different URIs might refer to the same individual in the real world',
-            'Blank nodes cannot be used in OWL ontologies',
+            'All ontologies must be publicly accessible',
+            'If a statement is not present, it is considered false',
+            'If a statement is not explicitly present or derivable, it is unknown (not assumed false)',
+            'Ontologies must be published as open-source software',
         ],
         correctIndex: 2,
         explanation:
-            'The "no unique naming assumption" means different URIs do not necessarily denote different individuals. This is why OWL provides owl:sameAs (to assert identity) and owl:differentFrom (to assert distinctness). This contrasts with databases where different keys always refer to different records.',
+            'Under OWA, absence of a statement means "unknown," not "false." This contrasts with the Closed World Assumption (CWA) in databases where missing data is treated as false. OWA is essential for the Web where information is inherently incomplete.',
         difficulty: 'medium',
     },
     {
         id: 'quiz-kd-22',
         courseId: 'knowledge-and-data',
-        question: 'Which OWL property characteristic means "if p(x,y) and p(y,z) then p(x,z)"?',
+        question: 'If a property is declared as owl:TransitiveProperty, and we have `ex:a ex:p ex:b` and `ex:b ex:p ex:c`, what can be inferred?',
         options: [
-            'Symmetric',
-            'Functional',
-            'Transitive',
-            'Reflexive',
+            'ex:c ex:p ex:a (symmetry)',
+            'ex:a ex:p ex:c (transitivity)',
+            'ex:a owl:sameAs ex:c',
+            'Nothing additional can be inferred',
         ],
-        correctIndex: 2,
+        correctIndex: 1,
         explanation:
-            'Transitivity means the property propagates through a chain. A classic example is "ancestorOf" — if Alice is an ancestor of Bob, and Bob is an ancestor of Carol, then Alice is an ancestor of Carol. Symmetric means p(x,y) implies p(y,x). Functional means at most one value per subject.',
+            'OWL rule 5: if p is transitive and p(a,b) and p(b,c), then p(a,c). Classic examples include ancestorOf, locatedIn, and subClassOf. Transitivity is distinct from symmetry (which would infer the reverse direction).',
         difficulty: 'easy',
     },
     {
         id: 'quiz-kd-23',
         courseId: 'knowledge-and-data',
-        question: 'What does owl:inverseOf express?',
+        question: 'What does owl:equivalentClass between classes A and B mean?',
         options: [
-            'Two properties are logically equivalent',
-            'A property is the negation of another property',
-            'If property p relates x to y, then inverse property q relates y to x',
-            'A property chain where one step reverses direction',
+            'A and B have the same URI',
+            'A rdfs:subClassOf B (one direction only)',
+            'A rdfs:subClassOf B AND B rdfs:subClassOf A (bidirectional subclass)',
+            'A and B are disjoint',
         ],
         correctIndex: 2,
         explanation:
-            'owl:inverseOf declares that one property is the inverse of another. If inverseOf(p, q) and p(x, y) holds, then q(y, x) is inferred. For example, if "hasParent" is the inverse of "hasChild", and Alice hasChild Bob, then Bob hasParent Alice.',
+            'owl:equivalentClass means A is a subclass of B AND B is a subclass of A — they have exactly the same instances. This is strictly stronger than rdfs:subClassOf (which is one-directional). It does not mean they share the same URI.',
         difficulty: 'medium',
     },
     {
         id: 'quiz-kd-24',
         courseId: 'knowledge-and-data',
-        question: 'Given: ex:VegetarianPizza owl:equivalentClass [owl:onProperty ex:hasTopping ; owl:allValuesFrom ex:VegetarianTopping]. If ex:myPizza rdf:type ex:VegetarianPizza and ex:myPizza ex:hasTopping ex:meatTopping, what can be inferred?',
+        question: 'In OWL, what happens when a property is declared as owl:FunctionalProperty and we have both `ex:x ex:p ex:y` and `ex:x ex:p ex:z`?',
         options: [
-            'ex:meatTopping cannot be a pizza topping',
-            'ex:myPizza is not a real pizza',
-            'ex:meatTopping rdf:type ex:VegetarianTopping',
-            'Nothing can be inferred',
+            'The second triple is rejected',
+            'An error is raised',
+            'OWL infers ex:y owl:sameAs ex:z',
+            'Both triples are silently ignored',
         ],
         correctIndex: 2,
         explanation:
-            'The owl:allValuesFrom restriction means all values of ex:hasTopping for a VegetarianPizza must be of type VegetarianTopping. Since ex:myPizza is a VegetarianPizza and has ex:meatTopping, the reasoner infers ex:meatTopping must be of type VegetarianTopping. If ex:meatTopping were separately declared as not being a VegetarianTopping, the ontology would be inconsistent.',
-        difficulty: 'hard',
+            'A FunctionalProperty means each subject has at most one value. If p(x,y) and p(x,z) both hold, OWL infers y owl:sameAs z (they must be the same individual). This differs from databases, which would reject the duplicate.',
+        difficulty: 'medium',
     },
     {
         id: 'quiz-kd-25',
         courseId: 'knowledge-and-data',
-        question: 'What is a triple store?',
+        question: 'Given:\n```turtle\nex:VegPizza owl:equivalentClass [\n    rdf:type owl:Restriction ;\n    owl:onProperty ex:hasTopping ;\n    owl:allValuesFrom ex:VegTopping\n] .\nex:myPizza a ex:VegPizza .\nex:myPizza ex:hasTopping ex:pepperoni .\n```\nWhat does OWL infer?',
         options: [
-            'A file system that stores three copies of each file for redundancy',
-            'A relational database with three normalized tables',
-            'A purpose-built graph database optimized for storing and querying RDF triples',
-            'A cache that stores the three most recent SPARQL queries',
+            'ex:myPizza is not a VegPizza',
+            'ex:pepperoni rdf:type ex:VegTopping',
+            'The ontology is immediately inconsistent',
+            'Nothing can be inferred under OWA',
         ],
-        correctIndex: 2,
+        correctIndex: 1,
         explanation:
-            'A triple store is a purpose-built database designed for storing and querying RDF data. Triple stores use techniques like dictionary encoding and specialized indexing for fast SPARQL query processing. Examples include GraphDB and Apache Jena.',
-        difficulty: 'easy',
+            'owl:allValuesFrom means ALL hasTopping values of a VegPizza must be VegTopping instances. Since myPizza is a VegPizza and has pepperoni as a topping, the reasoner concludes pepperoni must be a VegTopping. If pepperoni were also declared as NOT a VegTopping, then the ontology would become inconsistent.',
+        difficulty: 'hard',
     },
     {
         id: 'quiz-kd-26',
         courseId: 'knowledge-and-data',
-        question: 'According to the course, what does "inferencing" (reasoning) mean?',
+        question: 'Given:\n```turtle\nex:EurCitizen rdfs:subClassOf [\n    rdf:type owl:Restriction ;\n    owl:onProperty ex:citizenOf ;\n    owl:someValuesFrom ex:EurCountry\n] .\nex:john ex:citizenOf ex:netherlands .\nex:netherlands a ex:EurCountry .\n```\nCan we derive `ex:john rdf:type ex:EurCitizen`?',
         options: [
-            'Manually entering new facts into a knowledge base',
-            'Guessing unknown facts based on statistical probability',
-            'Algorithmic manipulation of knowledge to derive new knowledge using formal rules, without needing to understand word meanings',
-            'Querying a SPARQL endpoint to retrieve existing triples',
+            'Yes, because john has citizenship of a European country',
+            'No, because someValuesFrom on a superclass is a necessary condition of membership, not a sufficient one',
+            'Yes, because the restriction uses rdfs:subClassOf',
+            'No, because someValuesFrom requires all values to match',
         ],
-        correctIndex: 2,
+        correctIndex: 1,
         explanation:
-            'Inferencing is the algorithmic manipulation of knowledge to derive new knowledge. The meaning of words is not needed — the inference engine operates on formal structure and rules. This is what Proposal P4 enables: a shared model with formal semantics allows predictable, automated inference.',
-        difficulty: 'medium',
+            'The restriction says every EurCitizen has at least one citizenOf that is a EurCountry (necessary condition). Having such citizenship does not make someone an EurCitizen. To infer class membership, you would need owl:equivalentClass instead of rdfs:subClassOf. This is a critical exam distinction.',
+        difficulty: 'hard',
     },
     {
         id: 'quiz-kd-27',
         courseId: 'knowledge-and-data',
-        question: 'Which of the following is NOT a valid position for a literal in an RDF triple?',
+        question: 'Given: ex:A owl:disjointWith ex:B, ex:x rdf:type ex:A, ex:x rdf:type ex:B. What is the result?',
         options: [
-            'Object position',
-            'Subject position',
-            'Both subject and predicate positions',
-            'Predicate position only',
+            'ex:x is classified as owl:Nothing',
+            'The ontology is inconsistent',
+            'OWL removes one of the type assertions',
+            'ex:A owl:equivalentClass ex:B is derived',
         ],
-        correctIndex: 2,
+        correctIndex: 1,
         explanation:
-            'In RDF, literals can only appear in the object position. They cannot be used as subjects or predicates. URI references can appear in all three positions. Blank nodes can appear in subject and object positions but not as predicates.',
+            'Disjoint classes share no individuals. An individual typed as both disjoint classes creates a logical contradiction, making the ontology inconsistent. A reasoner would flag this. Under OWA, this is a genuine error, not just a missing assertion.',
         difficulty: 'medium',
     },
     {
         id: 'quiz-kd-28',
+        courseId: 'knowledge-and-data',
+        question: 'Which of the following can RDFS NOT express, but OWL can?',
+        options: [
+            'Class hierarchies with rdfs:subClassOf',
+            'Property domain and range declarations',
+            'Disjointness between classes, cardinality restrictions, and property transitivity',
+            'Instance typing with rdf:type',
+        ],
+        correctIndex: 2,
+        explanation:
+            'RDFS supports class hierarchies, domain/range, and instance typing. However, it cannot express disjointness, cardinality constraints, property characteristics (symmetric, transitive, functional), class restrictions, or equality. OWL adds all of these, built on Description Logics.',
+        difficulty: 'medium',
+    },
+    // --- Module 5: Ontology engineering, SKOS, data integration (~7 Qs) ---
+    {
+        id: 'quiz-kd-29',
         courseId: 'knowledge-and-data',
         question: 'What is an ontology in the context of knowledge engineering?',
         options: [
@@ -930,37 +965,97 @@ export const quizQuestions: QuizQuestion[] = [
         ],
         correctIndex: 1,
         explanation:
-            'The standard definition: "An ontology is an explicit specification of a shared conceptualization that holds in a particular context." Key terms: explicit (formally defined), shared (agreed upon by a community), conceptualization (abstract model of a domain), and context (applicable within a scope).',
+            'The standard definition: an ontology is an explicit (formalized) specification of a shared (agreed upon by a community) conceptualization (abstract domain model) that holds in a particular context (specific domain/purpose).',
         difficulty: 'medium',
     },
     {
-        id: 'quiz-kd-29',
+        id: 'quiz-kd-30',
         courseId: 'knowledge-and-data',
-        question: 'Given: ex:hasMother rdfs:domain ex:Person, ex:hasMother rdfs:range ex:Woman, ex:bob ex:hasMother ex:alice. Which triples can be derived using RDFS entailment rules?',
+        question: 'What is the difference between TBox and ABox in a knowledge base?',
         options: [
-            'ex:bob rdf:type ex:Woman and ex:alice rdf:type ex:Person',
-            'ex:bob rdf:type ex:Person and ex:alice rdf:type ex:Woman',
-            'ex:alice rdf:type ex:Person only',
-            'No new triples can be derived',
+            'TBox stores queries; ABox stores results',
+            'TBox contains class definitions and axioms (schema); ABox contains instance data (facts)',
+            'TBox is for OWL; ABox is for RDFS only',
+            'TBox is public; ABox is private',
         ],
         correctIndex: 1,
         explanation:
-            'The domain rule derives that the subject (ex:bob) is of type ex:Person. The range rule derives that the object (ex:alice) is of type ex:Woman. A common exam pitfall is confusing which rule applies to subjects vs objects.',
+            'TBox (Terminological) contains class definitions, property definitions, and axioms (the schema/vocabulary). ABox (Assertional) contains instance data and individual assertions (the data/facts). Together they form the complete knowledge base.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-31',
+        courseId: 'knowledge-and-data',
+        question: 'What is the key difference between skos:broader and rdfs:subClassOf?',
+        options: [
+            'They are semantically identical and interchangeable',
+            'skos:broader covers is-a, part-of, and topic-implication relations; rdfs:subClassOf strictly means set-theoretic class inclusion',
+            'rdfs:subClassOf is informal; skos:broader has formal model-theoretic semantics',
+            'skos:broader can only relate instances, not concepts',
+        ],
+        correctIndex: 1,
+        explanation:
+            'skos:broader is more generic: it covers generic (is-a), mereological (part-of, location), and topic-implication relations. rdfs:subClassOf strictly means every member of the subclass is a member of the superclass. Example: "Amsterdam skos:broader Netherlands" works, but "Amsterdam rdfs:subClassOf Netherlands" does not.',
         difficulty: 'hard',
     },
     {
-        id: 'quiz-kd-30',
+        id: 'quiz-kd-32',
+        courseId: 'knowledge-and-data',
+        question: 'In the ontology development methodology, what are "competency questions"?',
+        options: [
+            'Questions used to test whether students understand the ontology',
+            'Questions the ontology should be able to answer, used to determine scope and evaluate completeness',
+            'SPARQL queries that must return results within 1 second',
+            'Questions that verify the ontology has no inconsistencies',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Competency questions define the scope of the ontology by specifying what questions it should be able to answer. They are created in step 1 (determine domain and scope) and used throughout development to evaluate whether the ontology is complete and fit for purpose.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-33',
+        courseId: 'knowledge-and-data',
+        question: 'Which SKOS property represents a preferred human-readable label for a concept?',
+        options: [
+            'skos:broader',
+            'skos:prefLabel',
+            'skos:related',
+            'skos:definition',
+        ],
+        correctIndex: 1,
+        explanation:
+            'skos:prefLabel provides the preferred label for a concept (e.g., the main term in a thesaurus). skos:altLabel provides alternative labels (synonyms). skos:broader and skos:narrower express hierarchical relations. skos:related expresses associative (non-hierarchical) relations.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-kd-34',
+        courseId: 'knowledge-and-data',
+        question: 'When aligning two ontologies that describe overlapping domains, which OWL construct is used to assert that two individuals from different ontologies are the same real-world entity?',
+        options: [
+            'owl:equivalentClass',
+            'owl:sameAs',
+            'rdfs:subClassOf',
+            'owl:differentFrom',
+        ],
+        correctIndex: 1,
+        explanation:
+            'owl:sameAs asserts that two URIs denote the same individual (individual-individual mapping). owl:equivalentClass is for class-class mappings. rdfs:subClassOf expresses a subset relationship. owl:differentFrom asserts two URIs denote different individuals.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-kd-35',
         courseId: 'knowledge-and-data',
         question: 'In the ontology engineering methodology, what is the principle of "minimal ontological commitment"?',
         options: [
             'Use the fewest number of classes possible',
             'Only commit to the weakest claims needed to support your use case, avoiding over-constraining the domain',
-            'Never reuse existing ontologies from other domains',
+            'Reuse as many external ontologies as possible',
             'Ontologies should contain no more than 100 axioms',
         ],
         correctIndex: 1,
         explanation:
-            'Minimal ontological commitment means making only the claims about the domain that are truly necessary. Over-commitment makes statements that are too strong and may restrict valid interpretations. Since ontologies live in an open, distributed world, overly strong commitments can cause interoperability problems.',
+            'Minimal ontological commitment means making only the claims about the domain that are truly necessary. Over-commitment makes statements that are too strong and may exclude valid interpretations (e.g., "all birds can fly" excludes penguins). Under-commitment makes the ontology too vague to be useful.',
         difficulty: 'hard',
     },
 
@@ -5818,6 +5913,1208 @@ export const quizQuestions: QuizQuestion[] = [
         explanation:
             'A significant ANOVA says at least one group mean differs, but not which pairs. Post hoc tests perform pairwise comparisons while correcting for multiple comparisons.',
         difficulty: 'medium',
+    },
+
+    // ========== Project Conversational Agents ==========
+    // --- Git/GitHub (~3 Qs) ---
+    {
+        id: 'quiz-pca-1',
+        courseId: 'project-conversational-agents',
+        question: 'What does `git checkout -b feature-nlu` do?',
+        options: [
+            'Deletes the branch named feature-nlu',
+            'Creates a new branch named feature-nlu and switches to it',
+            'Merges the feature-nlu branch into main',
+            'Pushes the feature-nlu branch to the remote',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The `-b` flag creates a new branch and `checkout` switches to it. This is equivalent to running `git branch feature-nlu` followed by `git checkout feature-nlu`. It is the standard way to start working on a new feature.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-2',
+        courseId: 'project-conversational-agents',
+        question: 'A merge conflict occurs when:',
+        options: [
+            'Two team members push to different branches',
+            'The same lines in a file have been modified differently in two branches being merged',
+            'A .gitignore file is missing from the repository',
+            'The remote repository is ahead of the local by one commit',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Merge conflicts happen when Git cannot automatically reconcile changes because the same lines were modified differently in both branches. The developer must manually resolve conflicts by editing the affected files, then staging and committing the resolution.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-3',
+        courseId: 'project-conversational-agents',
+        question: 'Which files should typically be added to .gitignore in a Python ML project?',
+        options: [
+            'Source code files (.py) and documentation (.md)',
+            'Model checkpoints (.pt), virtual environments (venv/), and IDE settings (.idea/)',
+            'Requirements files (requirements.txt) and README.md',
+            'All test files and configuration files',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Large binary files (model checkpoints), environment-specific directories (venv/, __pycache__/), IDE configurations (.idea/, .vscode/), and sensitive files (.env) should be in .gitignore. Source code, documentation, and requirements files should be tracked.',
+        difficulty: 'easy',
+    },
+    // --- ML Basics (~4 Qs) ---
+    {
+        id: 'quiz-pca-4',
+        courseId: 'project-conversational-agents',
+        question: 'In a supervised learning pipeline, what is the purpose of the training/validation/test split?',
+        options: [
+            'Training data trains the model; validation tunes hyperparameters; test provides final unbiased evaluation',
+            'All three sets are used interchangeably for training',
+            'Validation is used to train; test is used to tune; training is used for final evaluation',
+            'Only the training set is necessary; validation and test sets are optional',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The training set optimizes model parameters. The validation set tunes hyperparameters and prevents overfitting during development. The test set provides a final, unbiased evaluation of model performance on unseen data. Using the test set for tuning leads to optimistic estimates.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-5',
+        courseId: 'project-conversational-agents',
+        question: 'A model with high training accuracy but low test accuracy is most likely suffering from:',
+        options: ['Underfitting', 'Overfitting', 'Data corruption', 'Feature scaling issues'],
+        correctIndex: 1,
+        explanation:
+            'High training accuracy + low test accuracy = overfitting. The model has memorized the training data (including noise) instead of learning generalizable patterns. Remedies include more data, regularization, dropout, data augmentation, or a simpler model.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-6',
+        courseId: 'project-conversational-agents',
+        question: 'Which evaluation metric is the harmonic mean of precision and recall?',
+        options: ['Accuracy', 'AUC-ROC', 'F1-Score', 'Mean Squared Error'],
+        correctIndex: 2,
+        explanation:
+            'F1-Score = 2 * (precision * recall) / (precision + recall). It balances precision (of predicted positives, how many are correct) and recall (of actual positives, how many are found). It is especially useful for imbalanced datasets where accuracy can be misleading.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-7',
+        courseId: 'project-conversational-agents',
+        question: 'In the context of NLU for the recipe agent, what is "classification"?',
+        options: [
+            'Sorting recipes alphabetically by name',
+            'Assigning a user utterance to one of several predefined intent categories',
+            'Splitting the dataset into training and test sets',
+            'Converting audio signals to text',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Classification maps an input (user utterance) to one of several predefined categories (intents like addFilter, farewell, deny). The NLU model performs intent classification to understand what the user wants to do, enabling the dialogue manager to respond appropriately.',
+        difficulty: 'easy',
+    },
+    // --- Deep Neural Networks (~4 Qs) ---
+    {
+        id: 'quiz-pca-8',
+        courseId: 'project-conversational-agents',
+        question: 'In a neural network, what does backpropagation compute?',
+        options: [
+            'The forward pass output for each layer',
+            'The gradients of the loss function with respect to each weight',
+            'The optimal learning rate',
+            'The number of epochs needed for convergence',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Backpropagation uses the chain rule to compute the gradient of the loss with respect to each weight in the network. These gradients tell the optimizer (e.g., Adam, SGD) how to adjust weights to minimize the loss function.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-9',
+        courseId: 'project-conversational-agents',
+        question: 'What is the role of a loss function in training a neural network?',
+        options: [
+            'It determines the architecture of the network',
+            'It measures the difference between predicted and ground truth labels, guiding weight updates',
+            'It selects which data samples to use for training',
+            'It converts text to numerical representations',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The loss function quantifies how wrong the model predictions are compared to the ground truth. During training, the optimizer minimizes this loss by adjusting weights. Common loss functions include CrossEntropyLoss (classification) and MSELoss (regression).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-10',
+        courseId: 'project-conversational-agents',
+        question: 'The Transformer architecture (Vaswani et al., 2017) introduced which key mechanism?',
+        options: [
+            'Recurrent connections between layers',
+            'Convolutional filters for sequence processing',
+            'Self-attention, allowing the model to relate all tokens simultaneously',
+            'Decision tree ensembles for classification',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The Transformer\'s key innovation is self-attention, which computes relationships between all tokens in a sequence simultaneously using Query, Key, and Value matrices. This enables parallelism and long-range dependencies, forming the basis for BERT, GPT, and Whisper.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-11',
+        courseId: 'project-conversational-agents',
+        question: 'Which category of pretrained Transformer is BERT?',
+        options: [
+            'Decoder-only (like GPT)',
+            'Encoder-only (bidirectional)',
+            'Encoder-Decoder (like T5)',
+            'Convolutional Neural Network',
+        ],
+        correctIndex: 1,
+        explanation:
+            'BERT is an encoder-only Transformer that processes the entire input bidirectionally. This makes it ideal for understanding tasks (classification, NLU). Decoder-only models (GPT) are for generation. Encoder-decoder models (T5, Whisper) handle sequence-to-sequence tasks like translation and ASR.',
+        difficulty: 'medium',
+    },
+    // --- Dialogue Systems Pipeline (~5 Qs) ---
+    {
+        id: 'quiz-pca-12',
+        courseId: 'project-conversational-agents',
+        question: 'What is the correct order of components in the dialogue system pipeline?',
+        options: [
+            'NLU -> ASR -> DM -> TTS -> NLG',
+            'ASR -> NLU -> DM -> NLG -> TTS',
+            'TTS -> ASR -> NLG -> NLU -> DM',
+            'DM -> NLU -> ASR -> NLG -> TTS',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The pipeline processes user speech as: ASR (speech to text) -> NLU (text to intent+slots) -> DM (decides next action) -> NLG (generates response text) -> TTS (text to speech). Each component transforms the signal for the next stage.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-13',
+        courseId: 'project-conversational-agents',
+        question: 'What does the ASR component do in the dialogue pipeline?',
+        options: [
+            'Classifies user intent from text',
+            'Converts spoken audio into text (speech-to-text)',
+            'Generates natural language responses',
+            'Manages the dialogue state and decides next actions',
+        ],
+        correctIndex: 1,
+        explanation:
+            'ASR (Automatic Speech Recognition) converts the user\'s spoken audio into text. In this project, Whisper (OpenAI) or Google STT can be used. The ASR output is then passed to the NLU component for intent classification and slot filling.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-14',
+        courseId: 'project-conversational-agents',
+        question: 'What is Whisper (OpenAI)?',
+        options: [
+            'A text-to-speech system using WaveNet',
+            'An encoder-decoder Transformer trained on 680,000 hours of audio for speech recognition',
+            'A rule-based grammar system for intent matching',
+            'A Bootstrap component library for web interfaces',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Whisper is an encoder-decoder Transformer ASR model trained on 680,000 hours of supervised audio data. It takes log-Mel spectrograms as input and outputs text transcripts. It is integrated into the SIC-v2 pipeline used in the project.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-15',
+        courseId: 'project-conversational-agents',
+        question: 'In the conversational agent architecture, what role does the Dialogue Manager (DM) play?',
+        options: [
+            'It converts audio to text',
+            'It decides the next action based on the current dialogue state, beliefs, and user intent',
+            'It generates the final speech output',
+            'It trains the NLU model on new data',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The DM receives the parsed intent and entities from the NLU, maintains the dialogue state, and decides what action to take next (e.g., ask a clarifying question, provide a recommendation). In this project, the DM is implemented as a MARBEL agent using Prolog.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-16',
+        courseId: 'project-conversational-agents',
+        question: 'In Dialogflow, what happens when no intent meets the ML classification threshold?',
+        options: [
+            'The system crashes',
+            'The fallback intent is triggered',
+            'The highest-scoring intent is returned regardless',
+            'The utterance is silently ignored',
+        ],
+        correctIndex: 1,
+        explanation:
+            'When no intent\'s confidence score meets the threshold (default 0.3), Dialogflow triggers the fallback intent. This allows the agent to handle unrecognized inputs gracefully, e.g., by asking the user to rephrase.',
+        difficulty: 'medium',
+    },
+    // --- NLU with BERT (~5 Qs) ---
+    {
+        id: 'quiz-pca-17',
+        courseId: 'project-conversational-agents',
+        question: 'The NLU model in this project performs two tasks simultaneously. What are they?',
+        options: [
+            'Speech recognition and text-to-speech',
+            'Intent classification and slot filling',
+            'Sentiment analysis and summarization',
+            'Translation and paraphrasing',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The BERT-based NLU model jointly performs: (1) intent classification using the [CLS] token representation, and (2) slot filling using per-token hidden states. Both classifiers share the same BERT encoder, making the model efficient.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-18',
+        courseId: 'project-conversational-agents',
+        question: 'In BIO format for slot labeling, what does the annotation `B-cuisine I-cuisine O O B-mealType` indicate for the input "Italian pasta for a lunch"?',
+        options: [
+            '"Italian pasta" is a cuisine entity, "lunch" is a mealType entity',
+            '"Italian" begins a cuisine entity, "pasta" continues it, "lunch" begins a mealType entity',
+            'All words are outside any entity',
+            '"Italian" is a mealType, "lunch" is a cuisine',
+        ],
+        correctIndex: 1,
+        explanation:
+            'BIO format: B-{slot} marks the beginning of an entity, I-{slot} marks continuation (inside), and O marks words outside any entity. So "Italian" begins a cuisine slot, "pasta" continues it, "for" and "a" are outside, and "lunch" begins a mealType slot.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-19',
+        courseId: 'project-conversational-agents',
+        question: 'What is the difference between BERT pretraining and fine-tuning?',
+        options: [
+            'Pretraining uses labeled data; fine-tuning uses unlabeled data',
+            'Pretraining learns general language representations from large unlabeled text; fine-tuning adapts the model to a specific downstream task with labeled data',
+            'Pretraining trains on images; fine-tuning trains on text',
+            'They are the same process applied at different learning rates',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Pretraining uses self-supervised tasks (Masked Language Model, Next Sentence Prediction) on large unlabeled corpora to learn general language representations. Fine-tuning then adapts the pretrained model to a specific task (like intent classification) using task-specific labeled data.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-20',
+        courseId: 'project-conversational-agents',
+        question: 'For intent classification, which part of BERT\'s output is used?',
+        options: [
+            'The hidden states of all tokens averaged together',
+            'The pooled output from the [CLS] token representation',
+            'The embedding of the last token only',
+            'The attention weights from the first layer',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Intent classification uses the pooled output from the [CLS] token, which serves as an aggregate representation of the entire input. This is fed through a linear classification layer that maps to the number of intent classes. Slot filling, by contrast, uses per-token hidden states.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-21',
+        courseId: 'project-conversational-agents',
+        question: 'Why does the BERT tokenizer sometimes split a single word into multiple subword tokens?',
+        options: [
+            'To reduce the vocabulary size by handling rare words as combinations of common subwords',
+            'Because BERT can only process single-character inputs',
+            'To increase the sequence length for better attention scores',
+            'Because English words are inherently ambiguous',
+        ],
+        correctIndex: 0,
+        explanation:
+            'BERT uses WordPiece tokenization, which splits rare or unknown words into known subword units. This keeps the vocabulary manageable while handling any input text. When words are split, special care is needed to align slot labels with subword tokens during training.',
+        difficulty: 'hard',
+    },
+    // --- Hugging Face (~2 Qs) ---
+    {
+        id: 'quiz-pca-22',
+        courseId: 'project-conversational-agents',
+        question: 'In the Hugging Face transformers library, what does `BertModel.from_pretrained("bert-base-uncased")` do?',
+        options: [
+            'Trains a new BERT model from scratch on the given dataset',
+            'Downloads and loads a pretrained BERT model with its learned weights',
+            'Creates an empty BERT architecture without any weights',
+            'Converts a TensorFlow model to PyTorch format',
+        ],
+        correctIndex: 1,
+        explanation:
+            'from_pretrained() downloads the model architecture and pretrained weights from Hugging Face Hub. "bert-base-uncased" specifies the specific model variant (base size, case-insensitive). This allows you to start from learned representations and fine-tune for your task.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-23',
+        courseId: 'project-conversational-agents',
+        question: 'After modifying the NLU model code in the social-interaction-cloud package, what must you do before the changes take effect?',
+        options: [
+            'Restart the computer',
+            'Reinstall the package using `pip install .`',
+            'Clear the browser cache',
+            'Delete the __pycache__ directory and restart Python',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Since the NLU model is part of the social-interaction-cloud Python package, any code changes require reinstalling via `pip install .` from the package directory. Simply restarting Python is not sufficient because the package is installed, not imported from source.',
+        difficulty: 'medium',
+    },
+    // --- HTML/Bootstrap (~3 Qs) ---
+    {
+        id: 'quiz-pca-24',
+        courseId: 'project-conversational-agents',
+        question: 'In Bootstrap, what does the class `col-md-4` mean in a grid layout?',
+        options: [
+            'The column takes up 4 pixels of width',
+            'The column spans 4 out of 12 grid columns on medium-sized screens and larger',
+            'The column has a margin of 4 pixels on all sides',
+            'The column contains exactly 4 items',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Bootstrap uses a 12-column grid system. col-md-4 means the element spans 4/12 (one-third) of the container width on medium screens and larger. On smaller screens, the column may stack vertically. This enables responsive layouts without custom CSS.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-25',
+        courseId: 'project-conversational-agents',
+        question: 'What is the purpose of the `<meta name="viewport" ...>` tag in the HTML head?',
+        options: [
+            'It sets the page title in the browser tab',
+            'It ensures the page scales correctly on mobile devices (responsive design)',
+            'It links to an external CSS stylesheet',
+            'It defines the character encoding for the document',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The viewport meta tag controls how the page is displayed on mobile devices. Setting width=device-width and initial-scale=1.0 ensures the page adapts to the device screen width rather than rendering at a desktop width and shrinking. It is essential for responsive design.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-26',
+        courseId: 'project-conversational-agents',
+        question: 'Which Bootstrap component is used to display recipe information as individual visual units with a title, text, and optional image?',
+        options: [
+            'Modal',
+            'Card',
+            'Navbar',
+            'Progress bar',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Bootstrap Cards are flexible content containers with options for headers, footers, images, and body text. In the recipe agent, cards display recipe names, cuisine badges, and duration information. They can be arranged in a responsive grid using row and col-md-* classes.',
+        difficulty: 'easy',
+    },
+    // --- Prolog (~4 Qs) ---
+    {
+        id: 'quiz-pca-27',
+        courseId: 'project-conversational-agents',
+        question: 'In Prolog, what does the query `?- member(pasta, [garlic, pasta, tomato]).` return?',
+        options: [
+            'false',
+            'true',
+            'pasta',
+            'error',
+        ],
+        correctIndex: 1,
+        explanation:
+            'member/2 checks if an element is in a list. It matches the head of the list recursively: first checks pasta=garlic (fails), then recurses to [pasta, tomato], checks pasta=pasta (succeeds). So the query returns true.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-pca-28',
+        courseId: 'project-conversational-agents',
+        question: 'Given the Prolog rule:\n```prolog\nhas_ingredient(Recipe, Ing) :-\n    recipe(Recipe, Ingredients, _),\n    member(Ing, Ingredients).\n```\nWhat does this rule express?',
+        options: [
+            'A recipe is created from an ingredient',
+            'Recipe has ingredient Ing if Recipe has an Ingredients list and Ing is a member of that list',
+            'The ingredient replaces the recipe',
+            'All recipes must contain at least one ingredient',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The rule states: Recipe has_ingredient Ing if there exists a recipe/3 fact where the second argument (Ingredients) is a list, and Ing is a member of that list. The underscore (_) ignores the third argument. This is pattern matching combined with list membership.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-29',
+        courseId: 'project-conversational-agents',
+        question: 'What is unification in Prolog?',
+        options: [
+            'Evaluating arithmetic expressions',
+            'Making two terms identical by finding appropriate variable substitutions',
+            'Combining two Prolog programs into one',
+            'Converting Prolog facts to Python dictionaries',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Unification is Prolog\'s fundamental operation: two terms unify if they can be made identical through variable substitutions. Variables unify with any term, atoms unify only if identical, and compound terms unify if they have the same functor, arity, and their arguments unify recursively.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-pca-30',
+        courseId: 'project-conversational-agents',
+        question: 'In Prolog, what happens during backtracking?',
+        options: [
+            'The program exits with an error',
+            'Prolog undoes variable bindings and tries the next alternative clause to satisfy a goal',
+            'The knowledge base is permanently modified',
+            'All variables are reset to zero',
+        ],
+        correctIndex: 1,
+        explanation:
+            'When a goal fails, Prolog backtracks: it undoes the most recent variable bindings and tries the next matching clause for the most recent choice point. This depth-first search with backtracking continues until a solution is found or all alternatives are exhausted.',
+        difficulty: 'medium',
+    },
+
+    // ========== ML — Machine Learning (VU) ==========
+    {
+        id: 'quiz-mlvu-1',
+        courseId: 'machine-learning',
+        question: 'Which of the following contains only unsupervised machine learning methods and tasks?',
+        options: [
+            'Clustering, Linear regression, and Generative modeling',
+            'k-Means, Clustering, and Density estimation',
+            'Classification, Clustering, and Expectation-Maximization',
+            'Logistic regression, Density estimation, and Clustering',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Unsupervised learning involves finding patterns in data without labels. Linear and Logistic regression are supervised because they require targets, while Classification is a supervised task.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-2',
+        courseId: 'machine-learning',
+        question: 'In machine learning conceptual spaces, which of the following is true regarding the feature space?',
+        options: [
+            'Every point in the feature space represents a loss function.',
+            'Every point in the feature space represents a single feature of an instance.',
+            'Every point in the feature space represents a single instance in the dataset.',
+            'Every point in the feature space represents a parameter set for a model.',
+        ],
+        correctIndex: 2,
+        explanation:
+            'In the feature space, each dimension corresponds to a feature, and each point corresponds to a single instance. The model space is where points represent specific models or parameter configurations.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-3',
+        courseId: 'machine-learning',
+        question: 'The ALVINN system (1995) used a grayscale camera to predict steering wheel positions. In this setup, what are the features?',
+        options: [
+            'The pixel values of the camera frames',
+            'The different car models used in the system',
+            'The individual frames produced by the camera',
+            'The specific angles of the steering wheel',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The instances are the individual frames (observations), and the features are the specific pixel values used by the classifier to make predictions.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-4',
+        courseId: 'machine-learning',
+        question: 'What is the relationship between a loss landscape and its gradient at a specific point?',
+        options: [
+            'The gradient points toward the region where loss is lowest.',
+            'The gradient points in the direction where the loss increases the fastest.',
+            'The gradient represents the lowest possible value on the loss surface.',
+            'The gradient points in the direction where the loss decreases the fastest.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'By definition, the gradient points in the direction of the steepest ascent. We subtract the gradient (gradient descent) to move toward lower loss.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-5',
+        courseId: 'machine-learning',
+        question: 'Under what condition is random search typically preferred over gradient descent?',
+        options: [
+            'When the model has multiple layers requiring backpropagation.',
+            'When the user needs to be certain they have found a global minimum.',
+            'When the loss surface is smooth and differentiable.',
+            'When the model is not differentiable.',
+        ],
+        correctIndex: 3,
+        explanation:
+            'Gradient descent requires calculating derivatives (gradients). If a model is non-differentiable, gradient-based methods cannot be applied, making random search or evolutionary methods necessary.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-6',
+        courseId: 'machine-learning',
+        question: 'Why is a convex loss surface highly desirable in machine learning optimization?',
+        options: [
+            'It allows the model to escape local maxima efficiently.',
+            'It ensures that there are no local minima other than the global minimum.',
+            'It makes the backpropagation algorithm significantly faster.',
+            'It guarantees that the gradient is always equal to zero.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "Convexity implies that any local minimum is also the global minimum, which simplifies optimization because the solver won't get stuck in suboptimal 'valleys'.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-7',
+        courseId: 'machine-learning',
+        question: 'A researcher trains a k-NN classifier, trying $k=1$ to $k=20$. They report the best test set accuracy as the final performance estimate. What is the fundamental mistake?',
+        options: [
+            'The researcher should have used a logarithmic range for k.',
+            'The test set should have been larger than the training set.',
+            'By reusing the test set to select k, the estimate is likely overfit and inflated.',
+            'A grid search is required for k-NN instead of a linear search.',
+        ],
+        correctIndex: 2,
+        explanation:
+            "Choosing hyperparameters using the test set 'leaks' information. One should use a validation set for selection and a separate test set for the final, unbiased estimate.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-8',
+        courseId: 'machine-learning',
+        question: 'In a spam classifier where false negatives and false positives have very different consequences, why might accuracy be a poor metric?',
+        options: [
+            'Because the problem involves high class imbalance.',
+            'Because the problem involves high cost imbalance.',
+            'Because the data arrives irregularly in an online setting.',
+            'Because accuracy cannot be computed from a confusion matrix.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "If deleting a legitimate email (false positive) is much 'more expensive' than missing a spam email, simple accuracy is misleading because it treats all errors as equal.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-9',
+        courseId: 'machine-learning',
+        question: 'Why did chaining multiple perceptrons fail to create more powerful networks in the 1960s?',
+        options: [
+            'Early computers lacked the GPU power to calculate outputs.',
+            'Chained perceptrons suffered from the vanishing gradient problem.',
+            'The perceptron is a linear function, and a composition of linear functions is still linear.',
+            'Chaining perceptrons is equivalent to hypothesis boosting, which is impossible.',
+        ],
+        correctIndex: 2,
+        explanation:
+            'A network of linear layers without non-linear activations (like ReLU) collapses into a single linear transformation, offering no more representational power than a single layer.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-10',
+        courseId: 'machine-learning',
+        question: "In a Support Vector Machine (SVM), what defines the 'support vectors'?",
+        options: [
+            'The weights $w^T$ that multiply the input features.',
+            'The points that are allowed to fall inside the margin during training.',
+            'The data points from each class that are closest to the decision boundary.',
+            'The bias parameter $b$ that shifts the decision boundary.',
+        ],
+        correctIndex: 2,
+        explanation:
+            "Support vectors are the critical data points that lie on the edge of the margin. They 'support' the position and orientation of the hyperplane.",
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-11',
+        courseId: 'machine-learning',
+        question: 'What is the primary difference between lazy and eager execution in deep learning frameworks?',
+        options: [
+            'Lazy execution builds the graph for each pass; eager execution keeps it static.',
+            'Eager execution uses backpropagation; lazy execution uses numeric approximation.',
+            'Lazy execution keeps the graph static; eager execution builds it for each forward pass.',
+            'Eager execution computes gradients via random search; lazy execution is symbolic.',
+        ],
+        correctIndex: 2,
+        explanation:
+            "Static/Lazy execution (like early TensorFlow) compiles the graph once for efficiency. Eager execution (like PyTorch) executes operations immediately as they are called.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-12',
+        courseId: 'machine-learning',
+        question: 'Why is the ReLU activation function often preferred over Sigmoid for hidden nodes in deep networks?',
+        options: [
+            "ReLU's derivative is mostly 0 or 1, which helps prevent vanishing gradients.",
+            'Sigmoid functions are non-differentiable at the origin.',
+            'ReLU causes more vanishing gradients, which stabilizes early training.',
+            'Sigmoid functions are incompatible with the gradient descent algorithm.',
+        ],
+        correctIndex: 0,
+        explanation:
+            "Sigmoid saturates at 0 and 1, where the gradient is near zero. ReLU stays at 1 for all positive values, allowing gradients to flow more easily through many layers.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-13',
+        courseId: 'machine-learning',
+        question: 'How do modern machine learning frameworks handle local derivatives of high-dimensional tensors without exhausting memory?',
+        options: [
+            'They approximate the local derivative using the EM algorithm.',
+            'They store only the product of the upstream derivative and the local derivative.',
+            'They use random search to avoid computing derivatives entirely.',
+            'They compute the product of the downstream derivative and the local derivative.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "Instead of storing a massive 3-tensor (Jacobian), they immediately multiply the incoming gradient (upstream) by the local derivative, storing only the resulting vector/matrix.",
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-14',
+        courseId: 'machine-learning',
+        question: 'Which GAN variant is specifically designed to allow non-deterministic outputs based on input (e.g., colorizing a photo with different possible colors)?',
+        options: [
+            'Vanilla GAN',
+            'CycleGAN',
+            'StyleGAN',
+            'Conditional GAN',
+        ],
+        correctIndex: 3,
+        explanation:
+            "Conditional GANs (cGANs) provide extra information (like a grayscale photo) to both the generator and discriminator, allowing the generator to produce various plausible 'continuations' for that specific input.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-15',
+        courseId: 'machine-learning',
+        question: "Standard decision trees often split until leaves are 'pure.' What is the default solution to prevent the resulting overfitting?",
+        options: [
+            'Adding more features to the data to allow for more complex splits.',
+            'Using a validation set to prune nodes that do not improve performance.',
+            'Removing all features so that the tree becomes a single leaf.',
+            'Switching to a linear classifier to ensure a simpler decision boundary.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Pruning involves removing branches that provide little predictive power on unseen data (validation set), which simplifies the model and improves generalization.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-16',
+        courseId: 'machine-learning',
+        question: 'Why is gradient descent particularly difficult to apply in reinforcement learning?',
+        options: [
+            'Backpropagation is impossible if the model outputs a probability distribution.',
+            'The loss surface is perfectly flat in most reinforcement learning tasks.',
+            'There is typically a non-differentiable step between the model output and the reward.',
+            'Reinforcement learning requires symbolic computation rather than numeric gradients.',
+        ],
+        correctIndex: 2,
+        explanation:
+            "The environment's reward signal is often a 'black box' or a discrete event. Since we cannot differentiate through the environment, we can't use standard backpropagation for the reward directly.",
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-17',
+        courseId: 'machine-learning',
+        question: 'What is the relationship between cross-entropy $H(p, q)$ and KL divergence $KL(p, q)$?',
+        options: [
+            'Cross-entropy is KL divergence with the entropy $H(p)$ added back in.',
+            'Cross-entropy is the bits wasted by using $p$ as a compressor for $q$.',
+            'KL divergence is cross-entropy with the entropy $H(q)$ subtracted.',
+            'KL divergence is cross-entropy with the entropy $H(p)$ added.',
+        ],
+        correctIndex: 0,
+        explanation:
+            'The formula is $H(p, q) = H(p) + KL(p, q)$. KL divergence measures the \'extra\' bits required beyond the optimal entropy $H(p)$ when using $q$ as the model.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-18',
+        courseId: 'machine-learning',
+        question: 'In the context of the EM algorithm and VAEs, what does the Evidence Lower Bound (ELBO) represent?',
+        options: [
+            'It is a bound showing that $p(x|\\theta)$ is always less than the KL divergence.',
+            'It shows that $L(q, \\theta)$ is a lower bound on the log-likelihood we wish to maximize.',
+            'It is a technique to eliminate expectations that are too expensive to compute.',
+            'It is the exact log-likelihood of the data given the model parameters.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Because the true log-likelihood is often intractable, we maximize the ELBO. Since ELBO is a lower bound, increasing it pushes the true log-likelihood upward.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-19',
+        courseId: 'machine-learning',
+        question: "What makes self-attention a 'set-to-set' operation rather than a 'sequence-to-sequence' operation by default?",
+        options: [
+            'It cannot handle sequences longer than 512 tokens.',
+            "It is permutation equivariant, meaning it doesn't 'see' the order of tokens.",
+            'It requires a fixed-length input and produces a fixed-length output.',
+            'It uses a weighted sum which only allows information to flow forward.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "Standard self-attention treats all inputs equally regardless of position. Shuffling the input shuffles the output identically, proving it doesn't naturally use sequence order without position embeddings.",
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-20',
+        courseId: 'machine-learning',
+        question: 'In self-attention, the dot product is often scaled by $\\frac{1}{\\sqrt{k}}$. What is $k$?',
+        options: [
+            'The number of heads in the multi-head attention.',
+            'The length of the input sequence.',
+            'The dimension of the input embedding vectors.',
+            'The number of layers in the transformer block.',
+        ],
+        correctIndex: 2,
+        explanation:
+            "Scaling by the square root of the dimension $k$ keeps the dot product values from growing too large, which prevents the softmax from saturating and keeps gradients healthy.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-21',
+        courseId: 'machine-learning',
+        question: "In the 'dictionary' analogy of attention, what role does the 'Key' play?",
+        options: [
+            'It is the vector that is ultimately summed to produce the output.',
+            'It is the vector used to match against the Query to determine weights.',
+            'It is the specific token at the position for which we are computing output.',
+            'It is a learned parameter matrix that projects the hidden state.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Queries are matched against Keys to calculate similarity (weights). These weights are then applied to the Values.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-22',
+        courseId: 'machine-learning',
+        question: 'Why does multi-head attention project the data into a lower dimensionality (e.g., $k/h$) for each head?',
+        options: [
+            'To ensure that the total number of parameters is similar to single-head attention.',
+            'To force the model to learn more complex non-linear relations.',
+            'To reduce the sequence length so the model can look further back.',
+            'To prevent the vanishing gradient problem in deep transformer stacks.',
+        ],
+        correctIndex: 0,
+        explanation:
+            'By splitting the dimension $k$ into $h$ heads of size $k/h$, the total computational cost and parameter count remain roughly the same as one large head, but with more representational diversity.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-23',
+        courseId: 'machine-learning',
+        question: "What is the primary function of a 'Residual Connection' in a transformer block?",
+        options: [
+            'To allow gradients to bypass layers during early training.',
+            'To normalize the variance of the hidden layers to 1.',
+            'To ensure the model is permutation equivariant.',
+            'To project the input tokens into a higher-dimensional space.',
+        ],
+        correctIndex: 0,
+        explanation:
+            "Residual (skip) connections add the input of a block to its output. This creates a 'short circuit' for gradients, helping training converge in very deep networks.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-24',
+        courseId: 'machine-learning',
+        question: 'How do position embeddings break the permutation equivariance of self-attention?',
+        options: [
+            'They sort the tokens based on their importance before processing.',
+            'They add a unique vector to each token based on its index in the sequence.',
+            'They mask out future tokens so the model can only look backward.',
+            'They use a convolution layer to capture local neighborhood structures.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "By adding a unique vector to the word embedding based on its position, identical words at different positions now have different vector representations, allowing the model to 'see' the order.",
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-25',
+        courseId: 'machine-learning',
+        question: 'What is the main bottleneck that makes long sequences difficult for standard transformers?',
+        options: [
+            'The linear layers in the feed-forward network.',
+            'The number of parameters in the embedding layer.',
+            'The $l \\times l$ attention weight matrix which grows quadratically.',
+            'The vanishing gradients through the residual connections.',
+        ],
+        correctIndex: 2,
+        explanation:
+            "Self-attention requires computing weights between every pair of tokens. This $O(l^2)$ complexity means doubling the sequence length quadruples the memory and computation required.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-26',
+        courseId: 'machine-learning',
+        question: 'Which tokenization method merges common character pairs recursively to find an optimal middle ground between word and character levels?',
+        options: [
+            'Global Max-pooling',
+            'Sub-word tokenization (e.g., Bytepair)',
+            'Positional Encoding',
+            'One-hot encoding',
+        ],
+        correctIndex: 1,
+        explanation:
+            "Sub-word tokenization (like BPE or WordPiece) builds a vocabulary of common chunks, allowing it to handle rare words via smaller pieces while keeping common words as single tokens.",
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-27',
+        courseId: 'machine-learning',
+        question: "In BERT's pre-training, what is the 'Masked Language Modeling' (MLM) task?",
+        options: [
+            'Predicting the next token in a sequence given all previous tokens.',
+            'Predicting the original identity of tokens that have been corrupted or hidden.',
+            'Determining if two sentences were originally adjacent in the corpus.',
+            'Translating a sentence from a masked language to a target language.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "BERT 'masks' 15% of tokens and tries to predict them. This forces the model to use bidirectional context (both left and right) to understand the sentence structure.",
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-28',
+        courseId: 'machine-learning',
+        question: "What does it mean for a transformer to be 'causal' in an autoregressive setting?",
+        options: [
+            'It uses a reward model to align with human values.',
+            'It is only allowed to look at current and previous tokens to predict the next one.',
+            'It determines the underlying cause-and-effect relationships in the text.',
+            'It requires a 1024-dimensional output vector to compute log-loss.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "Causal masking sets weights of future tokens to $-\\infty$ (effectively 0 after softmax), ensuring the model doesn't 'cheat' by looking at the word it is supposed to predict.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-29',
+        courseId: 'machine-learning',
+        question: "In GPT-2, what was the significance of the 'Unicorn' article generated by the model?",
+        options: [
+            'It proved that the model had achieved human-level sentience.',
+            'It demonstrated that the model could maintain long-term coherence over multiple paragraphs.',
+            'It showed that the model was immune to producing misinformation.',
+            'It was the first time a model successfully used sub-word tokenization.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "Unlike previous RNN-based models that forgot context quickly, GPT-2's output remained internally consistent (remembering names and themes) over a long passage.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-30',
+        courseId: 'machine-learning',
+        question: "What is 'in-context learning' as observed in large models like GPT-3?",
+        options: [
+            "Finetuning the model's weights on a small task-specific dataset.",
+            "Updating the bias parameters $b$ based on the user's current location.",
+            'The model recognizing and continuing a pattern of examples provided in the prompt.',
+            "Using a search engine plugin to augment the model's internal weights.",
+        ],
+        correctIndex: 2,
+        explanation:
+            "GPT-3 can 'learn' a task just by seeing a few examples in the text prompt (few-shot), without any actual updates to its neural network weights via backpropagation.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-31',
+        courseId: 'machine-learning',
+        question: "The 'Attention is All You Need' paper introduced the original transformer for what specific task?",
+        options: [
+            'Unsupervised Sentiment Classification',
+            'Autoregressive Chatbot Dialogue',
+            'Supervised Machine Translation',
+            'In-context Logic Puzzles',
+        ],
+        correctIndex: 2,
+        explanation:
+            'The original transformer was designed to translate between languages, which is why it originally had both an encoder (for source) and a decoder (for target).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-32',
+        courseId: 'machine-learning',
+        question: "In the RLHF process, what is the purpose of the 'Reward Model'?",
+        options: [
+            'To generate a wide variety of possible responses for the human to rank.',
+            'To provide a differentiable approximation of human ranking preferences.',
+            'To mask out harmful tokens before they reach the final user interface.',
+            'To calculate the cross-entropy loss between the prompt and the completion.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Humans rank outputs, and the reward model learns to mimic those rankings. We then use reinforcement learning to train the main LLM to maximize the score given by this reward model.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-33',
+        courseId: 'machine-learning',
+        question: "Why does GPT-4 often fail to correctly count letters in a word like 'ketchup' unless specifically prompted?",
+        options: [
+            "The model's vocabulary is too small to include common condiments.",
+            "The word is represented as a single token, so the model doesn't 'see' the letters.",
+            'The instruction tuning purposefully degrades performance on simple tasks.',
+            'Causal masking prevents the model from looking at the start of the word.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "Tokens are chunks of characters. If 'ketchup' is one token, the model only sees an ID (e.g., 11236) and must 'remember' from its training which letters are associated with that ID.",
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-34',
+        courseId: 'machine-learning',
+        question: "What is the 'Stochastic Parrot' position in the debate over AI intelligence?",
+        options: [
+            'The belief that LLMs are sentient but hide it to avoid being shut down.',
+            'The view that LLMs merely rehash training data without true understanding.',
+            'The theory that models learn logic via reinforcement from human feedback.',
+            'The idea that the Turing test is the only valid measure of intelligence.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "This position argues that because models are trained on so much data, their 'intelligent' output is just a probabilistic collage of things already said by humans.",
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-35',
+        courseId: 'machine-learning',
+        question: "What is 'Augmentation' in the context of Large Language Models?",
+        options: [
+            'Increasing the number of parameters from 175B to 1 trillion.',
+            'Allowing the model to trigger and use external tools like Python or search engines.',
+            'Adding more human annotators to the RLHF pipeline.',
+            'Feeding the model the same prompt multiple times to average the results.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "Augmentation (or tool use/plugins) lets the model overcome internal limitations (like math or up-to-date facts) by generating commands for external services.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-36',
+        courseId: 'machine-learning',
+        question: 'In Layer Normalization within a transformer, where is the normalization applied?',
+        options: [
+            'Across the entire batch for a single feature.',
+            'Individually to each vector across its own feature dimensions.',
+            'Across all tokens in a sequence for a single head.',
+            'Only to the weights of the $K, Q, V$ matrices.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Batch norm normalizes across the batch (samples). Layer norm normalizes the values within a single vector (features), making it more suitable for varying sequence lengths.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-37',
+        courseId: 'machine-learning',
+        question: "In the equation for self-attention, why is the row-wise softmax applied to $W'$?",
+        options: [
+            'To ensure that the weights for each output token sum to 1.',
+            "To convert the dot products into the model's final output classes.",
+            'To prevent the gradients from vanishing during the backward pass.',
+            'To project the keys and queries into the same Euclidean space.',
+        ],
+        correctIndex: 0,
+        explanation:
+            "Each row of the weight matrix corresponds to one output token's relationship with all input tokens. Softmaxing the row ensures a valid weighted sum (mixture) of inputs.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-38',
+        courseId: 'machine-learning',
+        question: 'What happens to a simple self-attention layer if we treat the weights $W$ as constant?',
+        options: [
+            'It becomes a non-linear activation function like Sigmoid.',
+            'It becomes a linear operation, providing clean non-vanishing gradients.',
+            'It becomes a set of 8 separate heads working in parallel.',
+            'It loses the ability to look far back into the sequence.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A weighted sum with constant weights is a linear transformation. The power of self-attention comes from $W$ being a dynamic function of the input, making the whole layer non-linear.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-39',
+        courseId: 'machine-learning',
+        question: "The concept of 'Emergence' suggests that certain LLM abilities...",
+        options: [
+            'Are programmed explicitly by researchers using Python scripts.',
+            'Appear suddenly only when models reach a massive parameter scale.',
+            'Are lost when the model is transitioned from BERT to GPT architecture.',
+            'Depend entirely on the choice of sub-word tokenization used.',
+        ],
+        correctIndex: 1,
+        explanation:
+            "Emergent properties (like multi-step reasoning) often appear only in models with tens of billions of parameters, showing a 'phase change' in capability.",
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-40',
+        courseId: 'machine-learning',
+        question: "How did GPT-3 filter 'high-quality' text from a general web crawl for its 800Gb training set?",
+        options: [
+            'Manual review by an army of human annotators.',
+            'Using links that received a certain number of upvotes on Reddit as a baseline.',
+            "Training a classifier to distinguish 'high-quality' text from unfiltered data.",
+            'Selecting only articles that were written in LaTeX format.',
+        ],
+        correctIndex: 2,
+        explanation:
+            'They used a smaller set of known high-quality links (Reddit-sourced) to train a filter, which then processed a much larger, messy web crawl to find similar quality text.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-41',
+        courseId: 'machine-learning',
+        question: "What is the 'Chain Rule' used for in the context of backpropagation?",
+        options: [
+            'To sum the losses of multiple different training instances.',
+            'To calculate the derivative of a composite function by multiplying local derivatives.',
+            'To choose the first feature for a split in a decision tree.',
+            'To normalize the input features to have zero mean and unit variance.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Backpropagation is essentially the multivariate chain rule applied to a computation graph, allowing the error to flow from the output back to each parameter.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-42',
+        courseId: 'machine-learning',
+        question: "In a Naive Bayes classifier, how do we typically handle 'unseen' feature values during training?",
+        options: [
+            'By removing the instances with unseen values entirely.',
+            'By using random search to guess the missing probability.',
+            'By adding pseudo-observations (smoothing) to ensure non-zero counts.',
+            'By switching to a Support Vector Machine which handles missing data naturally.',
+        ],
+        correctIndex: 2,
+        explanation:
+            'Laplace smoothing (adding 1 to all counts) prevents a single zero-probability from zeroing out the entire calculation for a class.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-43',
+        courseId: 'machine-learning',
+        question: 'Which component of the Transformer block is the ONLY one that propagates information across the time dimension?',
+        options: [
+            'The Layer Normalization step.',
+            'The Feed-forward layer (MLP).',
+            'The Self-attention mechanism.',
+            'The Residual Connection.',
+        ],
+        correctIndex: 2,
+        explanation:
+            "MLP and LayerNorm act on each token vector independently. Only Self-attention looks at other tokens to update the current one's representation.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-44',
+        courseId: 'machine-learning',
+        question: 'When computing entropy $H(p)$, what is the conventional value for $0 \\cdot \\log_2(0)$?',
+        options: [
+            'The value is undefined.',
+            'The value is set to 1.',
+            'The value is set to 0.',
+            'The value is set to $-\\infty$.',
+        ],
+        correctIndex: 2,
+        explanation:
+            'In information theory, $0 \\log 0$ is defined as 0 because the limit as $x \\to 0$ of $x \\log x$ is 0.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-45',
+        courseId: 'machine-learning',
+        question: "Why did BERT include a 'Next Sentence Prediction' (NSP) task using the [CLS] token?",
+        options: [
+            'To train the model to translate between different languages.',
+            'To force the model to represent the meaning of the entire sequence in a single token.',
+            'To prevent the model from looking ahead in autoregressive tasks.',
+            'To ensure the model could handle sequences longer than 512 tokens.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The [CLS] token was designed to capture a sequence-level summary, though later research suggested that MLM alone often produces good enough representations for this.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-46',
+        courseId: 'machine-learning',
+        question: "In recommender systems, what is 'implicit feedback'?",
+        options: [
+            'User-provided star ratings (1 to 5).',
+            'Associations assumed from user behavior (e.g., clicking or purchasing).',
+            'Manually crafted item features provided by experts.',
+            'Temporal data indicating the exact time a user logged in.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Explicit feedback is when users give a score. Implicit feedback is when we infer interest from their actions, which is more abundant but noisier.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-47',
+        courseId: 'machine-learning',
+        question: 'In the context of the loss function $L = \\frac{1}{2} \\sum_i (y_i - t_i)^2$, what does the $\\frac{1}{2}$ accomplish?',
+        options: [
+            'It ensures the loss is always positive.',
+            'It cancels out the power of 2 during differentiation.',
+            'It represents the assuming a Laplace distribution of errors.',
+            'It normalizes the loss over the number of instances.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The derivative of $x^2$ is $2x$. The $\\frac{1}{2}$ is a mathematical convenience so that the derivative $\\frac{\\partial L}{\\partial y}$ is simply $(y - t)$.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-48',
+        courseId: 'machine-learning',
+        question: "What is 'Instruction Tuning' as discovered by Google researchers?",
+        options: [
+            'Finetuning a model on various tasks described in natural language instructions.',
+            'Providing the model with a manual describing how to perform backpropagation.',
+            'Limiting the model\'s parameters to 8 billion to optimize inference speed.',
+            'Using a rule-based system to force the model to follow logical constraints.',
+        ],
+        correctIndex: 0,
+        explanation:
+            "By training on many instructed tasks (e.g., 'summarize this'), the model enters an 'instruction following mode' and generalizes to tasks it hasn't seen before.",
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-49',
+        courseId: 'machine-learning',
+        question: 'Which of these is NOT a common reason to prefer squaring the error in a loss function?',
+        options: [
+            "It ensures that positive and negative differences don't cancel out.",
+            'It makes large errors count more heavily toward the total loss.',
+            'It is a consequence of assuming normally distributed errors in MLE.',
+            'It ensures that points closest to the decision boundary weigh most heavily.',
+        ],
+        correctIndex: 3,
+        explanation:
+            'Squared error (least squares) weighs large outliers heavily. Focusing on points near the boundary is characteristic of Support Vector Machines or specific log losses.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-50',
+        courseId: 'machine-learning',
+        question: 'How do Variational Autoencoders (VAEs) differ from regular autoencoders?',
+        options: [
+            'They use a discriminator to distinguish real from fake data.',
+            'They produce a distribution in the latent space rather than a single point.',
+            'They are purely deterministic and lack a sampling step.',
+            'They cannot be trained using standard gradient descent.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'VAEs map input to parameters of a distribution (mean and variance). A latent vector is then sampled, and a KL loss ensures the latent space follows a standard normal distribution.',
+        difficulty: 'hard',
     },
 ];
 

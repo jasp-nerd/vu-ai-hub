@@ -37,6 +37,13 @@ export const tips: CourseTip[] = [
       'When comparing sorting algorithms: Insertion Sort is great for small/nearly-sorted arrays, Merge Sort guarantees O(n log n) but uses extra space, Quick Sort is fast in practice but O(n²) worst-case, and Heap Sort is O(n log n) in-place. Know the trade-offs!',
     author: 'AI @ VU Student',
   },
+  {
+    id: 'tip-dsa-6',
+    courseId: 'data-structures-algorithms-ai',
+    content:
+      'The MIT OpenCourseWare algorithms playlist on YouTube is an incredible free resource. The visual explanations of graph algorithms, dynamic programming, and complexity analysis complement the CLRS textbook perfectly. Highly recommended for building intuition.',
+    author: 'AI @ VU Student',
+  },
 
   // ========== MAS ==========
   {
@@ -74,6 +81,20 @@ export const tips: CourseTip[] = [
       'Watch out for floundering! Never use `not(X)` or `\\+(X)` with unbound variables. Always ensure variables are bound before negation. For example, `holding(X) :- block(X), not(on(X, table))` is safe because `block(X)` binds X first.',
     author: 'AI @ VU Student',
   },
+  {
+    id: 'tip-mas-6',
+    courseId: 'multi-agent-systems',
+    content:
+      'I hope by the time you\'re reading this they don\'t still make you use MARBEL, otherwise good luck. Set up your development environment (Eclipse, MARBEL plugin, SWI-Prolog) in the very first week. Don\'t wait until an assignment deadline to discover your setup doesn\'t work — debugging environment issues is painful and time-consuming.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-mas-7',
+    courseId: 'multi-agent-systems',
+    content:
+      'The exam isn\'t too hard if you\'ve been keeping up with the material. Focus on Prolog fundamentals (unification, search trees, backtracking) and MARBEL concepts (beliefs, goals, modules, percept handling). The study guide covers the exact exam structure — use it.',
+    author: 'AI @ VU Student',
+  },
 
   // ========== Linear Algebra & Calculus ==========
   {
@@ -109,6 +130,20 @@ export const tips: CourseTip[] = [
     courseId: 'linear-algebra-calculus',
     content:
       'Eigenvalue problems follow a recipe: (1) solve det(A - λI) = 0 for eigenvalues, (2) for each eigenvalue, solve (A - λI)x = 0 for eigenvectors. Practice the determinant calculation until it\'s automatic — it unlocks diagonalization.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-lac-6',
+    courseId: 'linear-algebra-calculus',
+    content:
+      'This is one of the hardest exams in Year 2. If you haven\'t had this material before, you really need to attend the lectures — the professor\'s explanations and examples are essential. The exam closely follows the style of lecture examples and exercises.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-lac-7',
+    courseId: 'linear-algebra-calculus',
+    content:
+      'YouTube videos (3Blue1Brown, the course playlist) are great for building intuition, but watching alone is NOT enough. You have to actually sit down with pen and paper and work through the exercises. The exam requires showing full working — there\'s no multiple choice. If you haven\'t practiced writing out solutions by hand, you will struggle.',
     author: 'AI @ VU Student',
   },
 
@@ -164,6 +199,27 @@ export const tips: CourseTip[] = [
       'For the exam: understand the difference between RDF (data model), RDFS (lightweight schema/vocabulary), and OWL (full ontology language). RDF just describes data, RDFS adds class hierarchies, OWL adds complex constraints and reasoning.',
     author: 'AI @ VU Student',
   },
+  {
+    id: 'tip-kd-4',
+    courseId: 'knowledge-and-data',
+    content:
+      'Submit your assignments on time — late submissions get -1 point if within 24 hours, and 0 if later. The assignments build on each other, so falling behind makes everything harder.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-kd-5',
+    courseId: 'knowledge-and-data',
+    content:
+      'Start the group project early and coordinate with your team from day one. You need to build an ontology with 10+ classes, 5+ properties, and 2+ restrictions, integrate external data, and write an 8-12 page report. This takes more time than you think.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-kd-6',
+    courseId: 'knowledge-and-data',
+    content:
+      'For 2 of the 5 practical assignments, you will have a mandatory one-on-one coding interview with a TA. They will ask you to explain your SPARQL queries, your OWL axioms, and your reasoning. Make sure you actually understand what you wrote — copying solutions without understanding will be exposed immediately.',
+    author: 'AI @ VU Student',
+  },
 
   // ========== Probability & Statistics ==========
   {
@@ -208,6 +264,41 @@ export const tips: CourseTip[] = [
     courseId: 'project-conversational-agents',
     content:
       'The extensions component (30% of your grade) is where you can really shine. Consider adding: exclusion filters ("I don\'t want X"), visual recipe cards, dietary restriction support, or multi-turn conversation memory. Pick something that genuinely improves the user experience.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pca-4',
+    courseId: 'project-conversational-agents',
+    content:
+      'I hope by the time you take this course they don\'t use MARBEL anymore, otherwise good luck. The MARBEL/Prolog integration can be incredibly frustrating, but it\'s the same for everyone.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pca-5',
+    courseId: 'project-conversational-agents',
+    content:
+      'In the first week, carefully read ALL the project information — every document, every requirement, every deadline. It is very easy to get lost at the beginning, and if you don\'t start on time you\'ll discover last-minute that you\'ve missed something important or done something wrong.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pca-6',
+    courseId: 'project-conversational-agents',
+    content:
+      'Don\'t panic if your conversational agent isn\'t working properly — it\'s not working for anyone. Everyone is dealing with the same struggle. Focus on understanding the concepts and documenting your approach well in the report, which is worth 35% of your grade.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pca-7',
+    courseId: 'project-conversational-agents',
+    content:
+      'Don\'t be afraid to ask the TAs anything — they are there to help. But find a TA who actually knows the material well. If your assigned TA can\'t help, don\'t hesitate to go to a different working group and ask a different TA. Some TAs are much more knowledgeable than others.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-pca-8',
+    courseId: 'project-conversational-agents',
+    content:
+      'The exam for this course is not hard at all. It\'s 30 multiple choice questions based on the lectures and the preliminaries page. If you attended the lectures and read the background material, you\'ll be fine.',
     author: 'AI @ VU Student',
   },
 

@@ -5,7 +5,7 @@ export const faqEntries: FAQEntry[] = [
     id: 'faq-1',
     question: 'How many hours per week should I expect to spend on studying?',
     answer:
-      'The AI bachelor is a full-time program, so expect to spend around 40 hours per week including lectures, tutorials, and self-study. Some periods are heavier than others — period 1 of year 1 tends to be intense as you adjust to university-level math and programming simultaneously.',
+      'The AI bachelor is a full-time program, so officially you should expect around 40 hours per week including lectures, tutorials, and self-study. Realistically though, you\'ll probably spend way less time than this. It really depends on what kind of grades you\'re aiming for and how efficient you are at studying — everyone works at their own pace. Some periods are heavier than others — period 1 of year 1 is actually pretty chill and a nice way to ease into university life.',
     category: 'Study Tips',
   },
   {
@@ -19,14 +19,14 @@ export const faqEntries: FAQEntry[] = [
     id: 'faq-3',
     question: 'How do I register for courses and exams?',
     answer:
-      'Course registration happens through VUnet (vu.nl/vuweb). You need to register for both the course AND the exam separately. Exam registration typically opens a few weeks before the exam period and has a strict deadline — miss it and you cannot take the exam. Set reminders for registration deadlines.',
+      'Course registration happens through vu.nl via the \'intekenmodule\'. You can register for the exam from the start, so that\'s easy. The important thing is to sign up for your courses on time — don\'t forget this! Ideally, you register for ALL of your courses the very first moment you begin studying.',
     category: 'Registration',
   },
   {
     id: 'faq-4',
     question: 'What happens if I fail an exam?',
     answer:
-      "Most courses have a resit (herkansing) opportunity, usually in a later period. You can find resit dates in the exam schedule on VUnet. Note that some courses only offer one resit per year, so it's best to pass on the first attempt when possible. Check the course-specific rules in the OER (Onderwijs- en Examenregeling).",
+      "Each course has one resit (herkansing), usually in a later period. You can find resit dates in the exam schedule on VUnet. Since there's only one resit, it's best to pass on the first attempt when possible. Check the course-specific rules in the OER (Onderwijs- en Examenregeling).",
     category: 'Exams',
   },
   {
@@ -47,7 +47,7 @@ export const faqEntries: FAQEntry[] = [
     id: 'faq-7',
     question: 'Should I join a study association?',
     answer:
-      "Absolutely. STORM is the study association for AI students at VU. They organize study sessions, social events, career events, and have a great community. It's one of the best ways to meet fellow students and get access to exam archives and course materials. The membership fee is minimal.",
+      "Absolutely. Joining a study association is one of the best ways to meet fellow students, attend study sessions, social events, and career events. The membership fee is minimal and the community is great.",
     category: 'Student Life',
   },
   {
@@ -61,21 +61,21 @@ export const faqEntries: FAQEntry[] = [
     id: 'faq-9',
     question: 'Which courses do students find the most challenging?',
     answer:
-      'This varies by person, but courses that consistently challenge students include: Data Structures & Algorithms (fast pace, heavy on proofs and pseudocode), Linear Algebra & Calculus (abstract math that requires consistent practice), and Machine Learning (combines math, programming, and theory). The key is to start studying early and use active recall rather than passive rereading.',
+      'This varies by person, but courses that consistently challenge students include: Data Structures & Algorithms (fast pace, heavy on proofs and pseudocode), Linear Algebra & Calculus (abstract math that requires consistent practice), and Introduction to Python Programming for AI (can be tough if you have no prior coding experience). The key is to start studying early and use active recall rather than passive rereading.',
     category: 'Study Tips',
   },
   {
     id: 'faq-10',
     question: 'I feel behind on math. Where can I catch up?',
     answer:
-      'Great free resources: 3Blue1Brown on YouTube for visual intuition (Essence of Linear Algebra and Essence of Calculus series), Khan Academy for practice problems, probabilitycourse.com for probability & statistics (mirrors the VU course), and Paul\'s Online Math Notes for calculus worked examples. The VU math support center also offers free drop-in tutoring.',
+      'Great free resources: 3Blue1Brown on YouTube for visual intuition (Essence of Linear Algebra and Essence of Calculus series), Khan Academy for practice problems, and probabilitycourse.com for probability & statistics (mirrors the VU course).',
     category: 'Study Tips',
   },
   {
     id: 'faq-11',
     question: 'How do group projects work in the AI bachelor?',
     answer:
-      'Several courses have group projects, including Project Conversational Agents (PCA), Project Intelligent Systems, and Computational Thinking. Group sizes are typically 3-5 students. You\'ll often choose your own groups — form them early with people you trust. Most group projects have individual accountability (personal reports or peer evaluation) in addition to the group deliverable.',
+      'Several courses have group projects, including Project Conversational Agents (PCA) and Project Intelligent Systems. Group sizes are typically 3-5 students. You\'ll often choose your own groups — form them early with people you trust. Most group projects have individual accountability (personal reports or peer evaluation) in addition to the group deliverable.',
     category: 'Exams',
   },
   {
@@ -96,7 +96,7 @@ export const faqEntries: FAQEntry[] = [
     id: 'faq-14',
     question: 'Are past exams available for practice?',
     answer:
-      'Yes, but availability varies by course. Some professors post past exams on Canvas, others don\'t. STORM (the AI study association) maintains an exam archive for members — this is one of the best reasons to join. Additionally, some courses have practice exams or sample questions in their course materials. Always practice under timed conditions to simulate the real exam.',
+      'Yes, but availability varies by course. Some professors post past exams on Canvas, others don\'t. Additionally, some courses have practice exams or sample questions in their course materials. Always practice under timed conditions to simulate the real exam.',
     category: 'Exams',
   },
   {
@@ -105,20 +105,6 @@ export const faqEntries: FAQEntry[] = [
     answer:
       'It depends on the course. Most courses have a minimum grade requirement for each component (e.g., you must score at least a 5.0 on the exam even if your assignment grades are high). Check the course-specific rules in the Study Guide (Studiegids) on vu.nl. Some courses allow you to compensate a lower exam grade with assignments, but many don\'t.',
     category: 'Exams',
-  },
-  {
-    id: 'faq-16',
-    question: 'Is Computational Thinking difficult?',
-    answer:
-      "Not at all — Computational Thinking is one of the most approachable courses in the entire AI bachelor. It's designed as an introduction to problem-solving and algorithms, so no prior programming experience is needed. The content covers solution strategies, basic search and sorting algorithms, and graph theory at a very accessible level. The supervised quizzes are short multiple-choice/true-false tests, and the assignments follow the lecture material closely. As long as you keep up with the weekly chapters and video lectures, you'll be absolutely fine. Many students score 8+ with minimal stress.",
-    category: 'Study Tips',
-  },
-  {
-    id: 'faq-17',
-    question: 'What is the group project in Computational Thinking?',
-    answer:
-      "The group project (worth 40% of your grade) asks you to design and implement an algorithm for a real-world scenario. The exact topic changes slightly each year, but the format is always the same: work in a small team to write pseudocode, create flowcharts, implement the algorithm in Python, and present your solution to peers. Start early — the report needs pseudocode, flowcharts, and a clear explanation of your algorithm. The project itself isn't technically difficult, but the grading is strict on documentation quality. It's also a great way to bond with classmates early in the program!",
-    category: 'Courses',
   },
 
   // ========== Crowdsourced from WhatsApp (2025–2026) ==========
@@ -133,14 +119,14 @@ export const faqEntries: FAQEntry[] = [
     id: 'faq-19',
     question: 'Are tutor groups (workgroups) mandatory?',
     answer:
-      'It depends on the course. For Introduction to AI, tutor groups are mandatory — you MUST attend them or you will not pass the course. For Computational Thinking, the practicum sessions serve as both tutorial and project time, and your practicum group becomes your project group. Always check the course-specific rules on Canvas in the first week, as attendance policies vary significantly between courses.',
+      'It depends on the course. For Introduction to AI, tutor groups are mandatory — you MUST attend them or you will not pass the course. Always check the course-specific rules on Canvas in the first week, as attendance policies vary significantly between courses.',
     category: 'Courses',
   },
   {
     id: 'faq-20',
     question: 'What happens if I miss a practical session?',
     answer:
-      'Generally, you are permitted to skip one practical session without penalty in most courses. However, this varies by course — some courses mark every practical, while others have mandatory attendance for all sessions. Check the course manual on Canvas at the start of each course. For courses like Applied Programming for AI, all practical sessions are mandatory with no exceptions.',
+      'Generally, you are permitted to skip one practical session without penalty in most courses. However, this varies by course — some courses mark every practical, while others have mandatory attendance for all sessions. Check the course manual on Canvas at the start of each course.',
     category: 'Courses',
   },
   {
@@ -149,13 +135,6 @@ export const faqEntries: FAQEntry[] = [
     answer:
       'Go to Canvas → People → Groups as soon as the course becomes available. Group sign-up deadlines can close on the very first day of teaching — sometimes even the day before the course officially starts. If you miss the deadline, you will be randomly assigned to whatever slot remains, which may not fit your schedule. Pro tip: set a calendar reminder for the day Canvas courses go live and sign up immediately.',
     category: 'Registration',
-  },
-  {
-    id: 'faq-22',
-    question: 'Does the Psychology exam penalize guessing?',
-    answer:
-      'Yes. Introduction to Psychology uses a correction-for-guessing formula in the grading, which means random guessing can actually hurt your score. You may need more correct answers than you\'d expect to reach a 5.5 because of this adjustment. Check the specific exam instructions carefully — some exams tell you whether it\'s better to guess or leave a question blank.',
-    category: 'Exams',
   },
 ];
 

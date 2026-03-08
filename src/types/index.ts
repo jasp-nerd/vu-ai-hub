@@ -16,7 +16,7 @@ export interface Course {
   prerequisites?: string;
   difficulty: 0 | 1 | 2 | 3 | 4 | 5;
   tags: string[];
-  specialisation?: 'intelligent_systems' | 'socially_aware_computing';
+  specialisation?: 'intelligent_systems' | 'socially_aware_computing' | ('intelligent_systems' | 'socially_aware_computing')[];
   workgroupInfo?: {
     mandatory: boolean;
     maxAbsences?: number;

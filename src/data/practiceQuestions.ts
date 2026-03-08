@@ -3917,4 +3917,1879 @@ inverted = {value: name for name, value in colors.items()}
 - **String slicing** (\`[1:]\`) to remove a prefix character
 - **\`.items()\`** returns key-value pairs for iteration`,
   },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  DATA STRUCTURES AND ALGORITHMS — COMPLEXITY ANALYSIS (3 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'dsa-complexity-1',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Complexity Analysis',
+    difficulty: 'easy',
+    question: `Determine the Big-O time complexity of the following pseudocode. Show your reasoning step by step.
+
+\`\`\`
+Algorithm Mystery(A, n):
+  count = 0
+  for i = 1 to n
+    for j = 1 to n
+      for k = 1 to 10
+        count = count + A[i] + A[j]
+  return count
+\`\`\`
+
+What is the time complexity in terms of $n$? Does the innermost loop affect the asymptotic complexity?`,
+    answer: `**Step-by-step analysis:**
+
+1. **Outermost loop** (\`i = 1 to n\`): runs $n$ times.
+2. **Middle loop** (\`j = 1 to n\`): runs $n$ times for each value of \`i\`.
+3. **Innermost loop** (\`k = 1 to 10\`): runs exactly **10 times** (a constant) for each pair \`(i, j)\`.
+
+**Total operations:**
+
+$$T(n) = \\sum_{i=1}^{n} \\sum_{j=1}^{n} \\sum_{k=1}^{10} c = n \\cdot n \\cdot 10 \\cdot c = 10cn^2$$
+
+Since $10c$ is a constant, we have:
+
+$$T(n) = O(n^2)$$
+
+**Answer:** The time complexity is $O(n^2)$.
+
+The innermost loop does **not** affect the asymptotic complexity because it runs a constant number of times (10). Constants are absorbed into the Big-O notation. If the innermost loop ran \`k = 1 to n\`, the complexity would be $O(n^3)$.`,
+  },
+  {
+    id: 'dsa-complexity-2',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Complexity Analysis',
+    difficulty: 'medium',
+    question: `Solve the following recurrence relation using the Master Theorem:
+
+$$T(n) = 4T(n/2) + n^2$$
+
+with base case $T(1) = 1$.
+
+State which case of the Master Theorem applies and why. Then give the asymptotic solution for $T(n)$.`,
+    answer: `**The Master Theorem** applies to recurrences of the form:
+
+$$T(n) = aT(n/b) + f(n)$$
+
+Here we have $a = 4$, $b = 2$, and $f(n) = n^2$.
+
+**Step 1: Compute** $n^{\\log_b a}$
+
+$$\\log_b a = \\log_2 4 = 2$$
+
+So $n^{\\log_b a} = n^2$.
+
+**Step 2: Compare** $f(n)$ with $n^{\\log_b a}$
+
+We have $f(n) = n^2$ and $n^{\\log_b a} = n^2$.
+
+Since $f(n) = \\Theta(n^{\\log_b a})$, this is **Case 2** of the Master Theorem.
+
+**Step 3: Apply Case 2**
+
+When $f(n) = \\Theta(n^{\\log_b a})$:
+
+$$T(n) = \\Theta(n^{\\log_b a} \\log n) = \\Theta(n^2 \\log n)$$
+
+**Answer:** $T(n) = \\Theta(n^2 \\log n)$.`,
+  },
+  {
+    id: 'dsa-complexity-3',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Complexity Analysis',
+    difficulty: 'hard',
+    question: `Consider two algorithms for the same problem:
+
+**Algorithm A** runs in $O(n^2 \\log n)$ time and $O(1)$ extra space.
+
+**Algorithm B** runs in $O(n \\log^2 n)$ time and $O(n)$ extra space.
+
+(a) For large $n$, which algorithm is asymptotically faster? Justify your answer rigorously.
+
+(b) Is there a value of $n$ below which Algorithm A might be preferable in practice? Explain.
+
+(c) If memory is severely constrained (e.g., an embedded system), which algorithm would you choose and why?`,
+    answer: `**(a) Asymptotic comparison:**
+
+We compare the growth rates by examining their ratio:
+
+$$\\frac{n^2 \\log n}{n \\log^2 n} = \\frac{n}{\\log n}$$
+
+Since $\\displaystyle\\lim_{n \\to \\infty} \\frac{n}{\\log n} = \\infty$, we have:
+
+$$n^2 \\log n \\gg n \\log^2 n \\text{ as } n \\to \\infty$$
+
+Therefore **Algorithm B** is asymptotically faster.
+
+**(b) Practical considerations for small $n$:**
+
+Yes. Asymptotic notation hides constant factors. If Algorithm A has a small constant $c_A$ and Algorithm B has a large constant $c_B$ (e.g., due to complex operations or poor cache behavior), then for small $n$, $c_A \\cdot n^2 \\log n < c_B \\cdot n \\log^2 n$ is possible. The exact crossover point depends on implementation details and hardware.
+
+**(c) Memory-constrained environments:**
+
+**Algorithm A** would be the better choice because it uses $O(1)$ extra space (in-place), meaning it needs only a fixed number of additional variables regardless of input size. Algorithm B requires $O(n)$ extra space, which could be prohibitive on systems with limited RAM. This illustrates the classic **time-space tradeoff** in algorithm design.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  DATA STRUCTURES AND ALGORITHMS — SORTING (3 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'dsa-sorting-1',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Sorting',
+    difficulty: 'easy',
+    question: `Trace through **Insertion Sort** on the array $A = [5, 2, 4, 6, 1, 3]$.
+
+Show the state of the array after each iteration of the outer loop (i.e., after each element is inserted into its correct position). Use 1-indexed arrays where the outer loop runs from $j = 2$ to $n$.`,
+    answer: `**Insertion Sort pseudocode (for reference):**
+\`\`\`
+InsertionSort(A):
+  for j = 2 to A.length
+    key = A[j]
+    i = j - 1
+    while i > 0 and A[i] > key
+      A[i+1] = A[i]
+      i = i - 1
+    A[i+1] = key
+\`\`\`
+
+**Trace:**
+
+| Iteration | key | Comparisons and shifts | Array after insertion |
+|---|---|---|---|
+| Initial | — | — | $[5, 2, 4, 6, 1, 3]$ |
+| $j = 2$ | $2$ | $5 > 2$: shift 5 right | $[\\mathbf{2}, 5, 4, 6, 1, 3]$ |
+| $j = 3$ | $4$ | $5 > 4$: shift; $2 < 4$: stop | $[2, \\mathbf{4}, 5, 6, 1, 3]$ |
+| $j = 4$ | $6$ | $5 < 6$: stop (no shifts) | $[2, 4, 5, \\mathbf{6}, 1, 3]$ |
+| $j = 5$ | $1$ | $6,5,4,2$ all $> 1$: shift all | $[\\mathbf{1}, 2, 4, 5, 6, 3]$ |
+| $j = 6$ | $3$ | $6,5,4$ all $> 3$: shift; $2 < 3$: stop | $[1, 2, \\mathbf{3}, 4, 5, 6]$ |
+
+**Final sorted array:** $[1, 2, 3, 4, 5, 6]$
+
+**Key observations:**
+- When $j = 4$, the key (6) is already larger than all elements to its left, so no shifts occur.
+- When $j = 5$, the key (1) is smaller than everything, requiring 4 shifts — worst case for that iteration.
+- Total comparisons: $1 + 2 + 1 + 4 + 4 = 12$.`,
+  },
+  {
+    id: 'dsa-sorting-2',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Sorting',
+    difficulty: 'medium',
+    question: `(a) Write pseudocode for the **Merge** procedure used in Merge Sort. The procedure \`Merge(A, p, q, r)\` merges two sorted subarrays $A[p..q]$ and $A[q{+}1..r]$ into a single sorted subarray $A[p..r]$.
+
+(b) What is the time complexity of the Merge procedure and why?
+
+(c) Using the recurrence $T(n) = 2T(n/2) + \\Theta(n)$, explain why Merge Sort runs in $\\Theta(n \\log n)$ time.`,
+    answer: `**(a) Merge pseudocode:**
+
+\`\`\`
+Merge(A, p, q, r):
+  n1 = q - p + 1
+  n2 = r - q
+  create arrays L[1..n1+1] and R[1..n2+1]
+
+  for i = 1 to n1
+    L[i] = A[p + i - 1]
+  for j = 1 to n2
+    R[j] = A[q + j]
+
+  L[n1 + 1] = infinity    // sentinel
+  R[n2 + 1] = infinity    // sentinel
+
+  i = 1
+  j = 1
+  for k = p to r
+    if L[i] <= R[j]
+      A[k] = L[i]
+      i = i + 1
+    else
+      A[k] = R[j]
+      j = j + 1
+\`\`\`
+
+**(b) Time complexity of Merge:**
+
+The Merge procedure runs in $\\Theta(n)$ where $n = r - p + 1$:
+
+- **Copying** to temporary arrays: $\\Theta(n_1 + n_2) = \\Theta(n)$
+- **Merging loop** (\`for k = p to r\`): exactly $n$ iterations, each doing $O(1)$ work
+- **Total:** $\\Theta(n)$
+
+**(c) Why Merge Sort is $\\Theta(n \\log n)$:**
+
+The recurrence $T(n) = 2T(n/2) + \\Theta(n)$ fits the Master Theorem with $a = 2$, $b = 2$, $f(n) = \\Theta(n)$.
+
+$n^{\\log_b a} = n^{\\log_2 2} = n$
+
+Since $f(n) = \\Theta(n^{\\log_b a})$, this is **Case 2**: $T(n) = \\Theta(n \\log n)$.
+
+**Intuitive explanation:** At each recursion level, the total merge work across all subproblems is $\\Theta(n)$. There are $\\log_2 n$ levels, so total work is $\\Theta(n \\log n)$.`,
+  },
+  {
+    id: 'dsa-sorting-3',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Sorting',
+    difficulty: 'hard',
+    question: `Consider the **Partition** procedure (Lomuto scheme) where the pivot is the last element:
+
+\`\`\`
+Partition(A, p, r):
+  x = A[r]
+  i = p - 1
+  for j = p to r - 1
+    if A[j] <= x
+      i = i + 1
+      swap A[i] and A[j]
+  swap A[i+1] and A[r]
+  return i + 1
+\`\`\`
+
+(a) Trace the Partition procedure on $A = [3, 8, 2, 5, 1, 4, 7, 6]$ with $p = 1$ and $r = 8$ (1-indexed). Show $i$, $j$, and the array state after each swap.
+
+(b) What input causes QuickSort's **worst-case** $O(n^2)$ performance with this pivot scheme? Why?
+
+(c) How can we mitigate this worst case?`,
+    answer: `**(a) Trace of Partition on** $[3, 8, 2, 5, 1, 4, 7, 6]$:
+
+**Pivot** $x = A[8] = 6$, initial $i = 0$.
+
+| $j$ | $A[j]$ | $A[j] \\leq 6$? | Action | $i$ | Array |
+|---|---|---|---|---|---|
+| — | — | — | Initial | 0 | $[3, 8, 2, 5, 1, 4, 7, 6]$ |
+| 1 | 3 | Yes | $i{=}1$, swap $A[1]{\\leftrightarrow}A[1]$ | 1 | $[3, 8, 2, 5, 1, 4, 7, 6]$ |
+| 2 | 8 | No | — | 1 | $[3, 8, 2, 5, 1, 4, 7, 6]$ |
+| 3 | 2 | Yes | $i{=}2$, swap $A[2]{\\leftrightarrow}A[3]$ | 2 | $[3, 2, 8, 5, 1, 4, 7, 6]$ |
+| 4 | 5 | Yes | $i{=}3$, swap $A[3]{\\leftrightarrow}A[4]$ | 3 | $[3, 2, 5, 8, 1, 4, 7, 6]$ |
+| 5 | 1 | Yes | $i{=}4$, swap $A[4]{\\leftrightarrow}A[5]$ | 4 | $[3, 2, 5, 1, 8, 4, 7, 6]$ |
+| 6 | 4 | Yes | $i{=}5$, swap $A[5]{\\leftrightarrow}A[6]$ | 5 | $[3, 2, 5, 1, 4, 8, 7, 6]$ |
+| 7 | 7 | No | — | 5 | $[3, 2, 5, 1, 4, 8, 7, 6]$ |
+
+**Final swap:** $A[i{+}1] = A[6] \\leftrightarrow A[8]$:
+
+$$A = [3, 2, 5, 1, 4, \\mathbf{6}, 7, 8]$$
+
+**Return** $i + 1 = 6$. Pivot 6 is at position 6; everything left of it is $\\leq 6$, everything right is $> 6$.
+
+**(b) Worst-case input:**
+
+With pivot = last element, the worst case is an **already sorted** array (ascending or descending). For $[1,2,3,4,5]$:
+- Pivot 5: left has 4 elements, right has 0
+- Pivot 4: left has 3 elements, right has 0
+- And so on...
+
+The recurrence becomes $T(n) = T(n{-}1) + \\Theta(n)$, giving $T(n) = \\Theta(n^2)$.
+
+**(c) Mitigations:**
+
+1. **Randomized pivot:** Choose a random element as pivot — makes worst case extremely unlikely.
+2. **Median-of-three:** Use the median of the first, middle, and last elements.
+3. **Shuffle the input** randomly before sorting.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  DATA STRUCTURES AND ALGORITHMS — DATA STRUCTURES (3 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'dsa-ds-1',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Data Structures',
+    difficulty: 'easy',
+    question: `An initially empty stack $S$ is subjected to the following sequence of operations:
+
+\`\`\`
+Push(S, 4)
+Push(S, 7)
+Push(S, 2)
+Pop(S)
+Push(S, 8)
+Push(S, 1)
+Pop(S)
+Pop(S)
+Push(S, 3)
+\`\`\`
+
+(a) Show the contents of the stack after **each** operation (top of stack on the right).
+
+(b) What value does each Pop return?
+
+(c) What are the final contents of the stack from bottom to top?`,
+    answer: `**(a) and (b) Step-by-step trace:**
+
+A stack is **LIFO** (Last In, First Out). We show the stack with the top on the right.
+
+| Operation | Returned | Stack (bottom to top) |
+|---|---|---|
+| Initial | — | $[]$ |
+| Push(S, 4) | — | $[4]$ |
+| Push(S, 7) | — | $[4, 7]$ |
+| Push(S, 2) | — | $[4, 7, 2]$ |
+| Pop(S) | **2** | $[4, 7]$ |
+| Push(S, 8) | — | $[4, 7, 8]$ |
+| Push(S, 1) | — | $[4, 7, 8, 1]$ |
+| Pop(S) | **1** | $[4, 7, 8]$ |
+| Pop(S) | **8** | $[4, 7]$ |
+| Push(S, 3) | — | $[4, 7, 3]$ |
+
+**Pop return values:** 2, then 1, then 8.
+
+**(c) Final contents:** $[4, 7, 3]$ — with 4 at the bottom and 3 at the top.
+
+**Key concept:** Each Push and Pop operation takes $O(1)$ time. Pop always removes and returns the most recently pushed element that has not yet been popped.`,
+  },
+  {
+    id: 'dsa-ds-2',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Data Structures',
+    difficulty: 'medium',
+    question: `(a) Write pseudocode for inserting a new key into a **Min-Heap** (stored as a 1-indexed array). Your procedure should maintain the min-heap property: $H[\\text{Parent}(i)] \\leq H[i]$ for all nodes $i$.
+
+(b) Trace the insertion of key $3$ into the following min-heap (given as an array):
+
+$$H = [2, 5, 4, 8, 7, 6]$$
+
+Show the heap as a tree before and after insertion, and indicate each swap made during the "bubble-up" process.
+
+(c) What is the time complexity of the insert operation? Justify your answer.`,
+    answer: `**(a) Min-Heap Insert pseudocode:**
+
+\`\`\`
+MinHeapInsert(H, key):
+  H.heap-size = H.heap-size + 1
+  H[H.heap-size] = infinity       // placeholder
+  HeapDecreaseKey(H, H.heap-size, key)
+
+HeapDecreaseKey(H, i, key):
+  H[i] = key
+  while i > 1 and H[Parent(i)] > H[i]
+    swap H[i] and H[Parent(i)]
+    i = Parent(i)
+
+Parent(i):
+  return floor(i / 2)
+\`\`\`
+
+**(b) Trace of inserting key 3:**
+
+**Before insertion** — $H = [2, 5, 4, 8, 7, 6]$ as a tree:
+
+\`\`\`
+         2
+       /   \\
+      5     4
+     / \\   /
+    8   7 6
+\`\`\`
+
+**Step 1:** Add key 3 at the next available position (index 7):
+
+$H = [2, 5, 4, 8, 7, 6, 3]$
+
+\`\`\`
+         2
+       /   \\
+      5     4
+     / \\   / \\
+    8   7 6   3
+\`\`\`
+
+**Step 2:** Bubble up — compare $H[7] = 3$ with $H[\\text{Parent}(7)] = H[3] = 4$. Since $3 < 4$, swap:
+
+$H = [2, 5, 3, 8, 7, 6, 4]$
+
+\`\`\`
+         2
+       /   \\
+      5     3
+     / \\   / \\
+    8   7 6   4
+\`\`\`
+
+**Step 3:** Compare $H[3] = 3$ with $H[\\text{Parent}(3)] = H[1] = 2$. Since $3 > 2$, stop.
+
+**Final heap:** $H = [2, 5, 3, 8, 7, 6, 4]$
+
+**(c) Time complexity:**
+
+The insert operation is $O(\\log n)$ because:
+- Adding the element at the end is $O(1)$.
+- The bubble-up process traverses at most one root-to-leaf path, which has length equal to the height of the heap.
+- A binary heap with $n$ elements has height $\\lfloor \\log_2 n \\rfloor$.
+- Each level requires $O(1)$ work (one comparison and possibly one swap).
+- Therefore the total time is $O(\\log n)$.`,
+  },
+  {
+    id: 'dsa-ds-3',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Data Structures',
+    difficulty: 'hard',
+    question: `Consider the following Binary Search Tree (BST):
+
+\`\`\`
+        15
+       /  \\
+      6    18
+     / \\   / \\
+    3   7 17  20
+     \\   \\
+      4   13
+         /
+        9
+\`\`\`
+
+(a) **Insert** the key $10$ into this BST. Draw the resulting tree.
+
+(b) **Delete** the key $15$ (the root) from the tree obtained in part (a). Use the standard BST deletion algorithm where you replace the deleted node with its **in-order successor**. Draw the resulting tree and explain each step.
+
+(c) What is the in-order traversal of the final tree (after both operations)?`,
+    answer: `**(a) Inserting key 10:**
+
+Starting at root 15: $10 < 15 \\to$ go left.
+At 6: $10 > 6 \\to$ go right.
+At 7: $10 > 7 \\to$ go right.
+At 13: $10 < 13 \\to$ go left.
+At 9: $10 > 9 \\to$ go right.
+Node 9 has no right child, so insert 10 as right child of 9.
+
+\`\`\`
+        15
+       /  \\
+      6    18
+     / \\   / \\
+    3   7 17  20
+     \\   \\
+      4   13
+         /
+        9
+         \\
+          10
+\`\`\`
+
+**(b) Deleting key 15 (root):**
+
+Node 15 has **two children**, so we use the in-order successor to replace it.
+
+**Step 1:** Find the in-order successor of 15. The in-order successor is the **minimum node in the right subtree**. Go to 18, then left to 17. Node 17 has no left child, so 17 is the in-order successor.
+
+**Step 2:** Replace 15's key with 17.
+
+**Step 3:** Delete node 17 from its original position. Node 17 is a leaf (no children), so simply remove it.
+
+Resulting tree:
+
+\`\`\`
+        17
+       /  \\
+      6    18
+     / \\     \\
+    3   7    20
+     \\   \\
+      4   13
+         /
+        9
+         \\
+          10
+\`\`\`
+
+**(c) In-order traversal of the final tree:**
+
+In-order traversal visits: left subtree, root, right subtree.
+
+$$3, 4, 6, 7, 9, 10, 13, 17, 18, 20$$
+
+**Verification:** The in-order traversal produces keys in sorted (non-decreasing) order, which confirms the BST property is maintained after both operations.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  DATA STRUCTURES AND ALGORITHMS — GRAPH ALGORITHMS (4 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'dsa-graphs-1',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Graph Algorithms',
+    difficulty: 'easy',
+    question: `Trace **Breadth-First Search (BFS)** starting from vertex $A$ on the following undirected graph. Adjacency lists are in alphabetical order.
+
+\`\`\`
+A --- B --- E
+|         / |
+|        /  |
+C --- D --- F
+\`\`\`
+
+Edges: $\\{A{-}B,\\; A{-}C,\\; B{-}E,\\; C{-}D,\\; D{-}E,\\; D{-}F,\\; E{-}F\\}$
+
+Show:
+(a) The order in which vertices are **discovered** (enqueued).
+(b) The **distance** $d$ (number of edges from $A$) for each vertex.
+(c) The BFS tree (parent pointers).`,
+    answer: `**BFS Trace from source $A$** (processing neighbors in alphabetical order):
+
+| Step | Dequeue | Discover (enqueue) | Queue after step |
+|---|---|---|---|
+| 0 | — | $A$ ($d=0$) | $[A]$ |
+| 1 | $A$ | $B$ ($d=1$), $C$ ($d=1$) | $[B, C]$ |
+| 2 | $B$ | $E$ ($d=2$) | $[C, E]$ |
+| 3 | $C$ | $D$ ($d=2$) | $[E, D]$ |
+| 4 | $E$ | $F$ ($d=3$) | $[D, F]$ |
+| 5 | $D$ | — (all neighbors discovered) | $[F]$ |
+| 6 | $F$ | — (all neighbors discovered) | $[]$ |
+
+Note: When $B$ is dequeued, its neighbors are $A$ (already discovered) and $E$ (new). When $C$ is dequeued, its neighbors are $A$ (discovered) and $D$ (new). When $E$ is dequeued, its neighbors $B$, $D$ are discovered but $F$ is new.
+
+**(a) Discovery order:** $A, B, C, E, D, F$
+
+**(b) Distances:**
+
+| Vertex | $A$ | $B$ | $C$ | $D$ | $E$ | $F$ |
+|---|---|---|---|---|---|---|
+| $d$ | 0 | 1 | 1 | 2 | 2 | 3 |
+
+**(c) BFS tree (parent pointers):**
+
+| Vertex | $A$ | $B$ | $C$ | $D$ | $E$ | $F$ |
+|---|---|---|---|---|---|---|
+| Parent | NIL | $A$ | $A$ | $C$ | $B$ | $E$ |
+
+\`\`\`
+    A
+   / \\
+  B   C
+  |   |
+  E   D
+  |
+  F
+\`\`\`
+
+BFS guarantees that \`d[v]\` is the **shortest path distance** (fewest edges) from $A$ to $v$.`,
+  },
+  {
+    id: 'dsa-graphs-2',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Graph Algorithms',
+    difficulty: 'medium',
+    question: `Perform **Depth-First Search (DFS)** on the following **directed** graph, starting from vertex $A$. Process adjacency lists in alphabetical order. If DFS from $A$ does not reach all vertices, restart from the earliest unvisited vertex alphabetically.
+
+\`\`\`
+A -> B, A -> D
+B -> E
+C -> A, C -> F
+D -> B
+E -> D
+F -> F
+\`\`\`
+
+(a) Record **discovery** and **finish** times for each vertex (using a global clock starting at 1).
+
+(b) Classify each edge as a **tree edge**, **back edge**, **forward edge**, or **cross edge**.`,
+    answer: `**DFS Trace** (processing neighbors in alphabetical order):
+
+Start DFS-Visit from $A$ (time clock starts at 1):
+
+| Action | Vertex | Time | Notes |
+|---|---|---|---|
+| Discover | $A$ | $d[A]=1$ | Visit $A$, first neighbor $B$ |
+| Discover | $B$ | $d[B]=2$ | Visit $B$, first neighbor $E$ |
+| Discover | $E$ | $d[E]=3$ | Visit $E$, first neighbor $D$ |
+| Discover | $D$ | $d[D]=4$ | Visit $D$, neighbor $B$ is gray (back edge) |
+| Finish | $D$ | $f[D]=5$ | Backtrack to $E$ |
+| Finish | $E$ | $f[E]=6$ | Backtrack to $B$ |
+| Finish | $B$ | $f[B]=7$ | Backtrack to $A$, next neighbor $D$ (already black, forward edge) |
+| Finish | $A$ | $f[A]=8$ | DFS from $A$ complete |
+
+$C$ is still white, so restart DFS-Visit from $C$:
+
+| Action | Vertex | Time | Notes |
+|---|---|---|---|
+| Discover | $C$ | $d[C]=9$ | Visit $C$, first neighbor $A$ is black (cross edge) |
+| Discover | $F$ | $d[F]=10$ | Next neighbor $F$, visit $F$; neighbor $F$ is gray (back edge / self-loop) |
+| Finish | $F$ | $f[F]=11$ | Backtrack to $C$ |
+| Finish | $C$ | $f[C]=12$ | Done |
+
+**(a) Discovery and finish times:**
+
+| Vertex | $A$ | $B$ | $C$ | $D$ | $E$ | $F$ |
+|---|---|---|---|---|---|---|
+| $d$ | 1 | 2 | 9 | 4 | 3 | 10 |
+| $f$ | 8 | 7 | 12 | 5 | 6 | 11 |
+
+**(b) Edge classification:**
+
+| Edge | Type | Reason |
+|---|---|---|
+| $A \\to B$ | **Tree** | $B$ is white when explored from $A$ |
+| $A \\to D$ | **Forward** | $D$ is black and $d[A] < d[D]$ (descendant in DFS tree) |
+| $B \\to E$ | **Tree** | $E$ is white when explored from $B$ |
+| $C \\to A$ | **Cross** | $A$ is black and $d[C] > f[A]$ (no ancestor/descendant relation) |
+| $C \\to F$ | **Tree** | $F$ is white when explored from $C$ |
+| $D \\to B$ | **Back** | $B$ is gray when explored from $D$ (ancestor in DFS tree) |
+| $E \\to D$ | **Tree** | $D$ is white when explored from $E$ |
+| $F \\to F$ | **Back** | $F$ is gray when exploring itself (self-loop is a back edge) |
+
+**Key rules:**
+- **Tree edge:** destination is white
+- **Back edge:** destination is gray (indicates a cycle)
+- **Forward edge:** destination is black with $d[\\text{src}] < d[\\text{dst}]$
+- **Cross edge:** destination is black with $d[\\text{src}] > d[\\text{dst}]$`,
+  },
+  {
+    id: 'dsa-graphs-3',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Graph Algorithms',
+    difficulty: 'medium',
+    question: `Apply **Dijkstra's algorithm** to find the shortest paths from source vertex $S$ to all other vertices in the following weighted directed graph:
+
+\`\`\`
+S --2--> A --3--> D
+|        ^        ^
+|        |        |
+5        1        2
+|        |        |
+v        |        |
+B --1--> C --4--> E
+\`\`\`
+
+Edges and weights: $S{\\to}A: 2$, $S{\\to}B: 5$, $B{\\to}C: 1$, $C{\\to}A: 1$, $A{\\to}D: 3$, $C{\\to}E: 4$, $E{\\to}D: 2$
+
+Show the state of the distance array and the vertex extracted at each step.`,
+    answer: `**Dijkstra's Algorithm Trace** from source $S$:
+
+**Initialization:** $d[S]=0$, $d[A]=\\infty$, $d[B]=\\infty$, $d[C]=\\infty$, $d[D]=\\infty$, $d[E]=\\infty$.
+
+Priority queue $Q$ contains all vertices keyed by $d$ values.
+
+| Step | Extract-Min | Relax edges | Updated distances |
+|---|---|---|---|
+| 1 | $S$ ($d=0$) | $S{\\to}A$: $0+2=2 < \\infty$ \\newline $S{\\to}B$: $0+5=5 < \\infty$ | $d[A]=2$, $d[B]=5$ |
+| 2 | $A$ ($d=2$) | $A{\\to}D$: $2+3=5 < \\infty$ | $d[D]=5$ |
+| 3 | $B$ ($d=5$) | $B{\\to}C$: $5+1=6 < \\infty$ | $d[C]=6$ |
+| 4 | $D$ ($d=5$) | No outgoing edges from $D$ | — |
+| 5 | $C$ ($d=6$) | $C{\\to}A$: $6+1=7 > 2$ (no update) \\newline $C{\\to}E$: $6+4=10 < \\infty$ | $d[E]=10$ |
+| 6 | $E$ ($d=10$) | $E{\\to}D$: $10+2=12 > 5$ (no update) | — |
+
+**Final shortest distances from $S$:**
+
+| Vertex | $S$ | $A$ | $B$ | $C$ | $D$ | $E$ |
+|---|---|---|---|---|---|---|
+| $d$ | $0$ | $2$ | $5$ | $6$ | $5$ | $10$ |
+
+**Shortest path tree (parent pointers):**
+
+| Vertex | $S$ | $A$ | $B$ | $C$ | $D$ | $E$ |
+|---|---|---|---|---|---|---|
+| Parent | NIL | $S$ | $S$ | $B$ | $A$ | $C$ |
+
+**Shortest paths:**
+- $S \\to A$: $S \\to A$ (cost 2)
+- $S \\to B$: $S \\to B$ (cost 5)
+- $S \\to C$: $S \\to B \\to C$ (cost 6)
+- $S \\to D$: $S \\to A \\to D$ (cost 5)
+- $S \\to E$: $S \\to B \\to C \\to E$ (cost 10)`,
+  },
+  {
+    id: 'dsa-graphs-4',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Graph Algorithms',
+    difficulty: 'hard',
+    question: `Apply **Kruskal's algorithm** to find the Minimum Spanning Tree (MST) of the following undirected weighted graph with vertices $\\{A, B, C, D, E, F\\}$:
+
+| Edge | Weight |
+|---|---|
+| $A{-}B$ | 4 |
+| $A{-}C$ | 2 |
+| $B{-}C$ | 1 |
+| $B{-}D$ | 5 |
+| $C{-}D$ | 8 |
+| $C{-}E$ | 10 |
+| $D{-}E$ | 2 |
+| $D{-}F$ | 6 |
+| $E{-}F$ | 3 |
+
+Show each step: the edge considered, whether it is added or rejected (and why), and the state of the Union-Find sets. Give the total MST weight.`,
+    answer: `**Kruskal's Algorithm Trace:**
+
+**Step 0:** Sort edges by weight: $B{-}C(1),\\; A{-}C(2),\\; D{-}E(2),\\; E{-}F(3),\\; A{-}B(4),\\; B{-}D(5),\\; D{-}F(6),\\; C{-}D(8),\\; C{-}E(10)$.
+
+Initialize Union-Find: each vertex in its own set: $\\{A\\}, \\{B\\}, \\{C\\}, \\{D\\}, \\{E\\}, \\{F\\}$.
+
+| Step | Edge | Weight | Action | Reason | Sets after |
+|---|---|---|---|---|---|
+| 1 | $B{-}C$ | 1 | **Add** | $B$ and $C$ in different sets | $\\{A\\}, \\{B,C\\}, \\{D\\}, \\{E\\}, \\{F\\}$ |
+| 2 | $A{-}C$ | 2 | **Add** | $A$ and $C$ in different sets | $\\{A,B,C\\}, \\{D\\}, \\{E\\}, \\{F\\}$ |
+| 3 | $D{-}E$ | 2 | **Add** | $D$ and $E$ in different sets | $\\{A,B,C\\}, \\{D,E\\}, \\{F\\}$ |
+| 4 | $E{-}F$ | 3 | **Add** | $E$ and $F$ in different sets | $\\{A,B,C\\}, \\{D,E,F\\}$ |
+| 5 | $A{-}B$ | 4 | **Reject** | $A$ and $B$ already in same set (would create cycle) | unchanged |
+| 6 | $B{-}D$ | 5 | **Add** | $B$ and $D$ in different sets | $\\{A,B,C,D,E,F\\}$ |
+
+**Stop:** We have $|V| - 1 = 5$ edges in the MST. All vertices are connected.
+
+**MST edges:** $\\{B{-}C,\\; A{-}C,\\; D{-}E,\\; E{-}F,\\; B{-}D\\}$
+
+**Total MST weight:** $1 + 2 + 2 + 3 + 5 = 13$
+
+**MST visualization:**
+
+\`\`\`
+A --2-- C --1-- B --5-- D --2-- E --3-- F
+\`\`\`
+
+**Key observations:**
+- Edges $A{-}B(4)$, $C{-}D(8)$, $C{-}E(10)$, and $D{-}F(6)$ were not needed.
+- $A{-}B$ was rejected because $A$ and $B$ were already connected through $C$.
+- The algorithm processed only 6 of 9 edges before finding the MST.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  DATA STRUCTURES AND ALGORITHMS — DYNAMIC PROGRAMMING (3 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'dsa-dp-1',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Dynamic Programming',
+    difficulty: 'easy',
+    question: `Fill in the DP table for the **0/1 Knapsack Problem** with the following items and knapsack capacity $W = 5$:
+
+| Item | Weight | Value |
+|---|---|---|
+| 1 | 2 | 3 |
+| 2 | 3 | 4 |
+| 3 | 4 | 5 |
+| 4 | 1 | 2 |
+
+Use the recurrence:
+
+$$K[i, w] = \\begin{cases} 0 & \\text{if } i = 0 \\text{ or } w = 0 \\\\ K[i{-}1, w] & \\text{if } w_i > w \\\\ \\max(K[i{-}1, w],\\; v_i + K[i{-}1, w - w_i]) & \\text{otherwise} \\end{cases}$$
+
+Show the complete table and state the maximum value achievable.`,
+    answer: `**DP Table $K[i, w]$:**
+
+|  | $w=0$ | $w=1$ | $w=2$ | $w=3$ | $w=4$ | $w=5$ |
+|---|---|---|---|---|---|---|
+| $i=0$ | 0 | 0 | 0 | 0 | 0 | 0 |
+| $i=1$ (wt=2, val=3) | 0 | 0 | 3 | 3 | 3 | 3 |
+| $i=2$ (wt=3, val=4) | 0 | 0 | 3 | 4 | 4 | 7 |
+| $i=3$ (wt=4, val=5) | 0 | 0 | 3 | 4 | 5 | 7 |
+| $i=4$ (wt=1, val=2) | 0 | 2 | 3 | 5 | 6 | 7 |
+
+**How key cells are computed:**
+
+- $K[1,2] = \\max(K[0,2],\\; 3 + K[0,0]) = \\max(0, 3) = 3$
+- $K[2,5] = \\max(K[1,5],\\; 4 + K[1,2]) = \\max(3, 4+3) = 7$
+- $K[3,4] = \\max(K[2,4],\\; 5 + K[2,0]) = \\max(4, 5) = 5$
+- $K[4,3] = \\max(K[3,3],\\; 2 + K[3,2]) = \\max(4, 2+3) = 5$
+- $K[4,4] = \\max(K[3,4],\\; 2 + K[3,3]) = \\max(5, 2+4) = 6$
+
+**Maximum value:** $K[4, 5] = 7$
+
+**Optimal selection:** Backtrack from $K[4,5]$:
+- $K[4,5] = K[3,5] = 7$, so item 4 is **not** included.
+- $K[3,5] = K[2,5] = 7$, so item 3 is **not** included.
+- $K[2,5] = 4 + K[1,2] = 7 \\neq K[1,5] = 3$, so item 2 **is** included. Remaining capacity: $5 - 3 = 2$.
+- $K[1,2] = 3 + K[0,0] = 3 \\neq K[0,2] = 0$, so item 1 **is** included.
+
+**Optimal items:** Items 1 and 2 (total weight $2+3=5$, total value $3+4=7$).`,
+  },
+  {
+    id: 'dsa-dp-2',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Dynamic Programming',
+    difficulty: 'medium',
+    question: `Consider the **Rod Cutting Problem**: given a rod of length $n$ and a price table, find the maximum revenue obtainable by cutting the rod into pieces.
+
+Price table:
+
+| Length $i$ | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| Price $p_i$ | 1 | 5 | 8 | 9 | 10 |
+
+(a) Write the **recurrence relation** for the optimal revenue $r_n$ and explain why this problem has **optimal substructure**.
+
+(b) Compute $r_1, r_2, r_3, r_4, r_5$ using the bottom-up approach.
+
+(c) For $n = 5$, what are the optimal cuts?`,
+    answer: `**(a) Recurrence relation:**
+
+$$r_n = \\max_{1 \\leq i \\leq n} (p_i + r_{n-i})$$
+
+with base case $r_0 = 0$.
+
+**Optimal substructure:** If we make a first cut of length $i$, the remaining rod has length $n - i$. The revenue from the remaining piece must itself be optimal (i.e., $r_{n-i}$), otherwise we could improve the total revenue. Thus an optimal solution to the whole problem contains an optimal solution to a subproblem.
+
+**Overlapping subproblems:** Computing $r_n$ naively requires computing $r_k$ for various $k < n$ multiple times. For instance, both $r_4$ and $r_3$ need $r_2$. This redundancy makes DP beneficial.
+
+**(b) Bottom-up computation:**
+
+**$r_1$:** $\\max(p_1 + r_0) = 1 + 0 = 1$. Optimal: no cut.
+
+**$r_2$:** $\\max(p_1 + r_1,\\; p_2 + r_0) = \\max(1+1,\\; 5+0) = \\max(2, 5) = 5$. Optimal: piece of length 2.
+
+**$r_3$:** $\\max(p_1 + r_2,\\; p_2 + r_1,\\; p_3 + r_0) = \\max(1+5,\\; 5+1,\\; 8+0) = \\max(6, 6, 8) = 8$. Optimal: piece of length 3.
+
+**$r_4$:** $\\max(p_1 + r_3,\\; p_2 + r_2,\\; p_3 + r_1,\\; p_4 + r_0) = \\max(1+8,\\; 5+5,\\; 8+1,\\; 9+0) = \\max(9, 10, 9, 9) = 10$. Optimal: two pieces of length 2.
+
+**$r_5$:** $\\max(p_1 + r_4,\\; p_2 + r_3,\\; p_3 + r_2,\\; p_4 + r_1,\\; p_5 + r_0) = \\max(1+10,\\; 5+8,\\; 8+5,\\; 9+1,\\; 10+0) = \\max(11, 13, 13, 10, 10) = 13$.
+
+| $n$ | 0 | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|---|
+| $r_n$ | 0 | 1 | 5 | 8 | 10 | 13 |
+
+**(c) Optimal cuts for $n = 5$:**
+
+$r_5 = 13$ is achieved by $p_2 + r_3 = 5 + 8 = 13$ or equivalently $p_3 + r_2 = 8 + 5 = 13$.
+
+Both give the same decomposition: **cut into pieces of length 2 and 3** (revenue $5 + 8 = 13$).`,
+  },
+  {
+    id: 'dsa-dp-3',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Dynamic Programming',
+    difficulty: 'hard',
+    question: `You are given a staircase with $n$ steps. You can climb either 1, 2, or 3 steps at a time. Each step $i$ has a **cost** $c[i]$ associated with stepping on it. You start at the ground (step 0, cost 0) and want to reach step $n$ with **minimum total cost**.
+
+(a) Identify this as a DP problem by explaining the **optimal substructure** and **overlapping subproblems**.
+
+(b) Write the **recurrence relation** for $\\text{minCost}(i)$, the minimum cost to reach step $i$.
+
+(c) Write **pseudocode** for a bottom-up DP solution.
+
+(d) Trace your algorithm on $n = 5$ with costs $c[1..5] = [10, 15, 20, 5, 30]$.`,
+    answer: `**(a) DP properties:**
+
+**Optimal substructure:** To reach step $i$ optimally, the last move was from step $i{-}1$, $i{-}2$, or $i{-}3$. Whichever step we came from, the path to that step must also be optimal (otherwise we could improve the total). So an optimal solution to the problem of reaching step $i$ contains an optimal solution to a smaller subproblem.
+
+**Overlapping subproblems:** $\\text{minCost}(5)$ depends on $\\text{minCost}(4)$, $\\text{minCost}(3)$, and $\\text{minCost}(2)$. But $\\text{minCost}(4)$ also depends on $\\text{minCost}(3)$ and $\\text{minCost}(2)$. These subproblems are solved multiple times in a naive recursion.
+
+**(b) Recurrence relation:**
+
+$$\\text{minCost}(0) = 0$$
+
+$$\\text{minCost}(i) = c[i] + \\min\\begin{cases} \\text{minCost}(i-1) & \\text{if } i \\geq 1 \\\\ \\text{minCost}(i-2) & \\text{if } i \\geq 2 \\\\ \\text{minCost}(i-3) & \\text{if } i \\geq 3 \\end{cases}$$
+
+**(c) Pseudocode:**
+
+\`\`\`
+MinCostStairs(c, n):
+  // c[1..n] are the step costs
+  dp[0] = 0
+  for i = 1 to n
+    dp[i] = c[i] + dp[i-1]
+    if i >= 2
+      dp[i] = min(dp[i], c[i] + dp[i-2])
+    if i >= 3
+      dp[i] = min(dp[i], c[i] + dp[i-3])
+  return dp[n]
+\`\`\`
+
+Time complexity: $O(n)$. Space complexity: $O(n)$ (can be reduced to $O(1)$ by keeping only 3 previous values).
+
+**(d) Trace on** $c = [10, 15, 20, 5, 30]$:
+
+| $i$ | $c[i]$ | From $i{-}1$ | From $i{-}2$ | From $i{-}3$ | $dp[i]$ |
+|---|---|---|---|---|---|
+| 0 | — | — | — | — | $0$ |
+| 1 | 10 | $10 + 0 = 10$ | — | — | $10$ |
+| 2 | 15 | $15 + 10 = 25$ | $15 + 0 = 15$ | — | $15$ |
+| 3 | 20 | $20 + 15 = 35$ | $20 + 10 = 30$ | $20 + 0 = 20$ | $20$ |
+| 4 | 5 | $5 + 20 = 25$ | $5 + 15 = 20$ | $5 + 10 = 15$ | $15$ |
+| 5 | 30 | $30 + 15 = 45$ | $30 + 20 = 50$ | $30 + 15 = 45$ | $45$ |
+
+**Minimum cost to reach step 5:** $dp[5] = 45$.
+
+**Optimal path (backtrack):**
+- Step 5: came from step 4 (or step 2, both give 45; take step 4 via $i{-}1$)
+- Step 4: came from step 1 (via $i{-}3$, cost 15)
+- Step 1: came from step 0 (via $i{-}1$, cost 10)
+
+**Path:** $0 \\to 1 \\to 4 \\to 5$ with costs $0 + 10 + 5 + 30 = 45$.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  DATA STRUCTURES AND ALGORITHMS — ADVANCED (2 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'dsa-advanced-1',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Advanced',
+    difficulty: 'medium',
+    question: `Perform a **topological sort** on the following Directed Acyclic Graph (DAG) using the DFS-based algorithm. Process vertices in alphabetical order when choosing which unvisited vertex to start from, and process adjacency lists in alphabetical order.
+
+\`\`\`
+A -> B, A -> C
+B -> D
+C -> D, C -> E
+D -> F
+E -> F
+\`\`\`
+
+Show the DFS finish order and the resulting topological ordering. Verify that every edge goes from an earlier to a later vertex in your ordering.`,
+    answer: `**DFS-based Topological Sort Trace:**
+
+We use the algorithm that assigns labels in reverse finish order: \`curLabel\` starts at $|V| = 6$ and decrements each time a vertex finishes.
+
+**Start DFS-Visit from $A$** (first unvisited, alphabetically):
+
+| Action | Vertex | Notes |
+|---|---|---|
+| Discover $A$ | $A$ | Neighbors: $B, C$. Visit $B$ first. |
+| Discover $B$ | $B$ | Neighbors: $D$. Visit $D$. |
+| Discover $D$ | $D$ | Neighbors: $F$. Visit $F$. |
+| Discover $F$ | $F$ | No unvisited neighbors. |
+| **Finish** $F$ | $F$ | $f(F) = 6$ (label 6) |
+| **Finish** $D$ | $D$ | $f(D) = 5$ (label 5) |
+| **Finish** $B$ | $B$ | $f(B) = 4$ (label 4). Back to $A$, visit $C$. |
+| Discover $C$ | $C$ | Neighbors: $D$ (visited), $E$. Visit $E$. |
+| Discover $E$ | $E$ | Neighbors: $F$ (visited). |
+| **Finish** $E$ | $E$ | $f(E) = 3$ (label 3) |
+| **Finish** $C$ | $C$ | $f(C) = 2$ (label 2) |
+| **Finish** $A$ | $A$ | $f(A) = 1$ (label 1) |
+
+All vertices visited. No restart needed.
+
+**Finish order** (first to last finished): $F, D, B, E, C, A$
+
+**Topological ordering** (reverse of finish order, or equivalently by label):
+
+$$A \\to C \\to E \\to B \\to D \\to F$$
+
+| Vertex | $A$ | $C$ | $E$ | $B$ | $D$ | $F$ |
+|---|---|---|---|---|---|---|
+| Topo position | 1 | 2 | 3 | 4 | 5 | 6 |
+
+**Verification** (every edge must go from earlier to later):
+
+| Edge | From position | To position | Valid? |
+|---|---|---|---|
+| $A \\to B$ | 1 | 4 | Yes |
+| $A \\to C$ | 1 | 2 | Yes |
+| $B \\to D$ | 4 | 5 | Yes |
+| $C \\to D$ | 2 | 5 | Yes |
+| $C \\to E$ | 2 | 3 | Yes |
+| $D \\to F$ | 5 | 6 | Yes |
+| $E \\to F$ | 3 | 6 | Yes |
+
+All edges go forward in the ordering, confirming it is a valid topological sort.`,
+  },
+  {
+    id: 'dsa-advanced-2',
+    courseId: 'data-structures-algorithms-ai',
+    topic: 'Advanced',
+    difficulty: 'hard',
+    question: `Apply the **A* search algorithm** to find the shortest path from $S$ to $G$ on the following 4x4 grid. The agent can move up, down, left, or right (no diagonals). Each move costs 1. Cells marked \`X\` are walls (impassable).
+
+\`\`\`
+S . . .
+. X X .
+. . . .
+. X . G
+\`\`\`
+
+Grid coordinates: $S = (0,0)$, $G = (3,3)$.
+
+Use the **Manhattan distance** as the heuristic: $h(v, G) = |row_v - row_G| + |col_v - col_G|$.
+
+Show the priority queue state (sorted by $f = g + h$) and the vertex extracted at each step. Give the final shortest path and its cost.`,
+    answer: `**Setup:**
+
+Grid (row, col), 0-indexed:
+\`\`\`
+(0,0)S  (0,1).  (0,2).  (0,3).
+(1,0).  (1,1)X  (1,2)X  (1,3).
+(2,0).  (2,1).  (2,2).  (2,3).
+(3,0).  (3,1)X  (3,2).  (3,3)G
+\`\`\`
+
+Walls at: $(1,1)$, $(1,2)$, $(3,1)$.
+
+**A* Trace** ($f(v) = g(v) + h(v)$ where $h$ = Manhattan distance to $G = (3,3)$):
+
+| Step | Extract | $g$ | $h$ | $f$ | Expand neighbors (update if better) |
+|---|---|---|---|---|---|
+| 0 | $(0,0)$ | 0 | 6 | 6 | $(0,1)$: $g{=}1, h{=}5, f{=}6$; $(1,0)$: $g{=}1, h{=}5, f{=}6$ |
+| 1 | $(0,1)$ | 1 | 5 | 6 | $(0,2)$: $g{=}2, h{=}4, f{=}6$ |
+| 2 | $(1,0)$ | 1 | 5 | 6 | $(2,0)$: $g{=}2, h{=}4, f{=}6$ |
+| 3 | $(0,2)$ | 2 | 4 | 6 | $(0,3)$: $g{=}3, h{=}3, f{=}6$ |
+| 4 | $(2,0)$ | 2 | 4 | 6 | $(2,1)$: $g{=}3, h{=}3, f{=}6$ |
+| 5 | $(0,3)$ | 3 | 3 | 6 | $(1,3)$: $g{=}4, h{=}2, f{=}6$ |
+| 6 | $(2,1)$ | 3 | 3 | 6 | $(2,2)$: $g{=}4, h{=}2, f{=}6$ |
+| 7 | $(1,3)$ | 4 | 2 | 6 | $(2,3)$: $g{=}5, h{=}1, f{=}6$ |
+| 8 | $(2,2)$ | 4 | 2 | 6 | $(2,3)$: $g{=}5$ (already $5$, no update); $(3,2)$: $g{=}5, h{=}1, f{=}6$ |
+| 9 | $(2,3)$ | 5 | 1 | 6 | $(3,3)$: $g{=}6, h{=}0, f{=}6$ |
+| 10 | $(3,3)$ | 6 | 0 | 6 | **Goal reached!** |
+
+**Shortest path cost:** $6$
+
+**Shortest path** (backtracking via parent pointers): There are two optimal paths of length 6, one through the top:
+
+$$S(0,0) \\to (0,1) \\to (0,2) \\to (0,3) \\to (1,3) \\to (2,3) \\to G(3,3)$$
+
+And one through the bottom:
+
+$$S(0,0) \\to (1,0) \\to (2,0) \\to (2,1) \\to (2,2) \\to (3,2) \\to G(3,3)$$
+
+Both have cost 6. The one returned depends on tie-breaking order.
+
+**Key observations:**
+- Notice that $f = 6$ for every extracted node. This is because the Manhattan distance is a **perfect heuristic** for this grid (all moves cost 1, no shortcuts). The heuristic exactly estimates the true distance for nodes on optimal paths.
+- A* with an admissible and consistent heuristic guarantees finding the optimal path. Manhattan distance satisfies both properties on grids with uniform movement cost.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  LINEAR ALGEBRA AND CALCULUS — LIMITS (3 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'lac-limits-1',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Limits',
+    difficulty: 'easy',
+    question: `Compute the following limit using algebraic simplification:
+
+$$\\lim_{x \\to 3} \\frac{x^2 - 9}{x^2 - x - 6}$$
+
+Show all steps. If direct substitution yields an indeterminate form, explain what technique you use and why.`,
+    answer: `**Step 1: Try direct substitution.**
+
+$$\\frac{3^2 - 9}{3^2 - 3 - 6} = \\frac{9 - 9}{9 - 3 - 6} = \\frac{0}{0}$$
+
+This is the indeterminate form $0/0$, so we need algebraic simplification.
+
+**Step 2: Factor numerator and denominator.**
+
+Numerator: $x^2 - 9 = (x - 3)(x + 3)$ (difference of squares)
+
+Denominator: $x^2 - x - 6 = (x - 3)(x + 2)$ (factor by finding roots: $x = 3$ and $x = -2$)
+
+**Step 3: Cancel the common factor.**
+
+$$\\frac{x^2 - 9}{x^2 - x - 6} = \\frac{(x-3)(x+3)}{(x-3)(x+2)} = \\frac{x+3}{x+2} \\quad \\text{for } x \\neq 3$$
+
+**Step 4: Evaluate the simplified expression.**
+
+$$\\lim_{x \\to 3} \\frac{x+3}{x+2} = \\frac{3+3}{3+2} = \\frac{6}{5}$$
+
+$$\\boxed{\\lim_{x \\to 3} \\frac{x^2 - 9}{x^2 - x - 6} = \\frac{6}{5}}$$
+
+**Note:** Canceling $(x-3)$ is valid because in a limit as $x \\to 3$, we consider $x$ values *near* 3 but *not equal to* 3, so $x - 3 \\neq 0$.`,
+  },
+  {
+    id: 'lac-limits-2',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Limits',
+    difficulty: 'medium',
+    question: `Compute the following limit using the conjugate (rationalization) technique:
+
+$$\\lim_{x \\to 4} \\frac{\\sqrt{x} - 2}{x - 4}$$
+
+Show all steps clearly.`,
+    answer: `**Step 1: Try direct substitution.**
+
+$$\\frac{\\sqrt{4} - 2}{4 - 4} = \\frac{2 - 2}{0} = \\frac{0}{0}$$
+
+Indeterminate form, so we need to simplify.
+
+**Step 2: Multiply by the conjugate.**
+
+The conjugate of $\\sqrt{x} - 2$ is $\\sqrt{x} + 2$. Multiply numerator and denominator:
+
+$$\\frac{\\sqrt{x} - 2}{x - 4} \\cdot \\frac{\\sqrt{x} + 2}{\\sqrt{x} + 2} = \\frac{(\\sqrt{x} - 2)(\\sqrt{x} + 2)}{(x - 4)(\\sqrt{x} + 2)}$$
+
+**Step 3: Simplify the numerator.**
+
+Using the difference of squares: $(\\sqrt{x} - 2)(\\sqrt{x} + 2) = x - 4$.
+
+$$= \\frac{x - 4}{(x - 4)(\\sqrt{x} + 2)}$$
+
+**Step 4: Cancel the common factor** $(x - 4)$:
+
+$$= \\frac{1}{\\sqrt{x} + 2} \\quad \\text{for } x \\neq 4$$
+
+**Step 5: Evaluate.**
+
+$$\\lim_{x \\to 4} \\frac{1}{\\sqrt{x} + 2} = \\frac{1}{\\sqrt{4} + 2} = \\frac{1}{2 + 2} = \\frac{1}{4}$$
+
+$$\\boxed{\\lim_{x \\to 4} \\frac{\\sqrt{x} - 2}{x - 4} = \\frac{1}{4}}$$
+
+**Note:** This limit is actually the derivative of $f(x) = \\sqrt{x}$ at $x = 4$ by definition: $f'(4) = \\lim_{x \\to 4} \\frac{f(x) - f(4)}{x - 4} = \\frac{1}{2\\sqrt{4}} = \\frac{1}{4}$.`,
+  },
+  {
+    id: 'lac-limits-3',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Limits',
+    difficulty: 'hard',
+    question: `Consider the piecewise function:
+
+$$f(x) = \\begin{cases} \\frac{x^2 - 4}{x - 2} & \\text{if } x < 2 \\\\ ax + b & \\text{if } 2 \\leq x \\leq 5 \\\\ \\frac{x^2 - 3x - 10}{x - 5} & \\text{if } x > 5 \\end{cases}$$
+
+Find the values of $a$ and $b$ that make $f$ continuous on all of $\\mathbb{R}$. Verify your answer by checking all three conditions for continuity at each boundary point.`,
+    answer: `For $f$ to be continuous everywhere, it must be continuous at the boundary points $x = 2$ and $x = 5$.
+
+**At $x = 2$:**
+
+**Left limit** ($x < 2$): Simplify $\\frac{x^2 - 4}{x - 2} = \\frac{(x-2)(x+2)}{x-2} = x + 2$ for $x \\neq 2$.
+
+$$\\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^-} (x + 2) = 4$$
+
+**Function value:** $f(2) = 2a + b$ (using the middle piece).
+
+**Right limit** ($x > 2$, still in middle piece): $\\lim_{x \\to 2^+} f(x) = 2a + b$.
+
+For continuity: $2a + b = 4$ ... (Equation 1)
+
+**At $x = 5$:**
+
+**Right limit** ($x > 5$): Simplify $\\frac{x^2 - 3x - 10}{x - 5} = \\frac{(x-5)(x+2)}{x-5} = x + 2$ for $x \\neq 5$.
+
+$$\\lim_{x \\to 5^+} f(x) = \\lim_{x \\to 5^+} (x + 2) = 7$$
+
+**Function value:** $f(5) = 5a + b$ (using the middle piece).
+
+**Left limit** ($x < 5$, still in middle piece): $\\lim_{x \\to 5^-} f(x) = 5a + b$.
+
+For continuity: $5a + b = 7$ ... (Equation 2)
+
+**Solve the system:**
+
+Subtract Equation 1 from Equation 2:
+
+$$(5a + b) - (2a + b) = 7 - 4$$
+$$3a = 3$$
+$$a = 1$$
+
+Substitute back: $2(1) + b = 4 \\implies b = 2$.
+
+$$\\boxed{a = 1, \\quad b = 2}$$
+
+**Verification at $x = 2$:**
+1. $f(2) = 1(2) + 2 = 4$ -- defined.
+2. $\\lim_{x \\to 2^-} (x+2) = 4$ and $\\lim_{x \\to 2^+} (x+2) = 4$, so the two-sided limit is $4$ -- exists.
+3. $\\lim_{x \\to 2} f(x) = 4 = f(2)$ -- limit equals function value. Continuous at $x=2$.
+
+**Verification at $x = 5$:**
+1. $f(5) = 1(5) + 2 = 7$ -- defined.
+2. $\\lim_{x \\to 5^-} (x+2) = 7$ and $\\lim_{x \\to 5^+} (x+2) = 7$, so the two-sided limit is $7$ -- exists.
+3. $\\lim_{x \\to 5} f(x) = 7 = f(5)$ -- limit equals function value. Continuous at $x=5$.
+
+The middle piece becomes $f(x) = x + 2$, which matches both boundary pieces. In fact, $f(x) = x + 2$ for all $x$.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  LINEAR ALGEBRA AND CALCULUS — DERIVATIVES (3 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'lac-derivatives-1',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Derivatives',
+    difficulty: 'easy',
+    question: `Compute the derivatives of the following functions. State which differentiation rule(s) you use in each case.
+
+(a) $f(x) = 3x^5 - 2x^3 + 7x - 4$
+
+(b) $g(x) = (2x + 1)(x^2 - 3)$
+
+(c) $h(x) = (5x^2 - 1)^4$`,
+    answer: `**(a)** Using the **power rule** ($\\frac{d}{dx} x^r = rx^{r-1}$) and **sum/constant multiple rules**:
+
+$$f'(x) = 3 \\cdot 5x^4 - 2 \\cdot 3x^2 + 7 \\cdot 1 - 0 = 15x^4 - 6x^2 + 7$$
+
+$$\\boxed{f'(x) = 15x^4 - 6x^2 + 7}$$
+
+**(b)** Using the **product rule** ($(fg)' = f'g + fg'$):
+
+Let $f(x) = 2x + 1$ and $g(x) = x^2 - 3$.
+- $f'(x) = 2$
+- $g'(x) = 2x$
+
+$$g'(x) = f'(x) \\cdot g(x) + f(x) \\cdot g'(x) = 2(x^2 - 3) + (2x+1)(2x)$$
+
+$$= 2x^2 - 6 + 4x^2 + 2x = 6x^2 + 2x - 6$$
+
+$$\\boxed{g'(x) = 6x^2 + 2x - 6}$$
+
+**Verification by expanding first:** $g(x) = 2x^3 - 6x + x^2 - 3 = 2x^3 + x^2 - 6x - 3$, so $g'(x) = 6x^2 + 2x - 6$. Matches.
+
+**(c)** Using the **chain rule** ($(f \\circ g)'(x) = f'(g(x)) \\cdot g'(x)$):
+
+Let $u = 5x^2 - 1$, so $h(x) = u^4$.
+- Outer: $\\frac{d}{du} u^4 = 4u^3$
+- Inner: $\\frac{du}{dx} = 10x$
+
+$$h'(x) = 4(5x^2 - 1)^3 \\cdot 10x = 40x(5x^2 - 1)^3$$
+
+$$\\boxed{h'(x) = 40x(5x^2 - 1)^3}$$`,
+  },
+  {
+    id: 'lac-derivatives-2',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Derivatives',
+    difficulty: 'medium',
+    question: `Let $f(x, y) = x^3 y^2 + 2xy^3 - 5x^2 + y$.
+
+(a) Compute the partial derivatives $\\frac{\\partial f}{\\partial x}$ and $\\frac{\\partial f}{\\partial y}$.
+
+(b) Compute the gradient $\\nabla f$ at the point $(1, -1)$.
+
+(c) In which direction does $f$ increase most rapidly at $(1, -1)$? What is the rate of increase in that direction?`,
+    answer: `**(a) Partial derivatives:**
+
+To find $\\frac{\\partial f}{\\partial x}$, differentiate with respect to $x$ while treating $y$ as a constant:
+
+$$\\frac{\\partial f}{\\partial x} = 3x^2 y^2 + 2y^3 - 10x$$
+
+To find $\\frac{\\partial f}{\\partial y}$, differentiate with respect to $y$ while treating $x$ as a constant:
+
+$$\\frac{\\partial f}{\\partial y} = 2x^3 y + 6xy^2 + 1$$
+
+**(b) Gradient at $(1, -1)$:**
+
+$$\\frac{\\partial f}{\\partial x}(1, -1) = 3(1)^2(-1)^2 + 2(-1)^3 - 10(1) = 3 - 2 - 10 = -9$$
+
+$$\\frac{\\partial f}{\\partial y}(1, -1) = 2(1)^3(-1) + 6(1)(-1)^2 + 1 = -2 + 6 + 1 = 5$$
+
+$$\\boxed{\\nabla f(1, -1) = \\begin{bmatrix} -9 \\\\ 5 \\end{bmatrix}}$$
+
+**(c) Direction of steepest ascent:**
+
+$f$ increases most rapidly in the direction of the gradient $\\nabla f$. At $(1, -1)$, this direction is:
+
+$$\\mathbf{u} = \\frac{\\nabla f}{\\|\\nabla f\\|} = \\frac{1}{\\sqrt{(-9)^2 + 5^2}} \\begin{bmatrix} -9 \\\\ 5 \\end{bmatrix} = \\frac{1}{\\sqrt{81 + 25}} \\begin{bmatrix} -9 \\\\ 5 \\end{bmatrix} = \\frac{1}{\\sqrt{106}} \\begin{bmatrix} -9 \\\\ 5 \\end{bmatrix}$$
+
+The **rate of increase** in that direction (the maximum directional derivative) is:
+
+$$\\|\\nabla f(1, -1)\\| = \\sqrt{81 + 25} = \\sqrt{106} \\approx 10.30$$`,
+  },
+  {
+    id: 'lac-derivatives-3',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Derivatives',
+    difficulty: 'hard',
+    question: `Let $\\mathbf{f} : \\mathbb{R}^2 \\to \\mathbb{R}^3$ be defined by:
+
+$$\\mathbf{f}(x, y) = \\begin{bmatrix} x^2 y \\\\ \\sin(xy) \\\\ e^x + y^2 \\end{bmatrix}$$
+
+(a) Compute the **Jacobian matrix** $D\\mathbf{f}(x, y)$.
+
+(b) Evaluate the Jacobian at the point $(0, 1)$.
+
+(c) If $\\mathbf{g}(t) = (t^2, t+1)$, use the chain rule for maps to find $D(\\mathbf{f} \\circ \\mathbf{g})(t)$ at $t = 0$.`,
+    answer: `**(a) Jacobian matrix:**
+
+For $\\mathbf{f} : \\mathbb{R}^2 \\to \\mathbb{R}^3$ with components $f_1 = x^2 y$, $f_2 = \\sin(xy)$, $f_3 = e^x + y^2$:
+
+$$D\\mathbf{f}(x, y) = \\begin{bmatrix} \\frac{\\partial f_1}{\\partial x} & \\frac{\\partial f_1}{\\partial y} \\\\[6pt] \\frac{\\partial f_2}{\\partial x} & \\frac{\\partial f_2}{\\partial y} \\\\[6pt] \\frac{\\partial f_3}{\\partial x} & \\frac{\\partial f_3}{\\partial y} \\end{bmatrix} = \\begin{bmatrix} 2xy & x^2 \\\\ y\\cos(xy) & x\\cos(xy) \\\\ e^x & 2y \\end{bmatrix}$$
+
+**(b) At $(0, 1)$:**
+
+$$D\\mathbf{f}(0, 1) = \\begin{bmatrix} 2(0)(1) & 0^2 \\\\ 1 \\cdot \\cos(0) & 0 \\cdot \\cos(0) \\\\ e^0 & 2(1) \\end{bmatrix} = \\begin{bmatrix} 0 & 0 \\\\ 1 & 0 \\\\ 1 & 2 \\end{bmatrix}$$
+
+**(c) Chain rule:** $D(\\mathbf{f} \\circ \\mathbf{g})(t) = D\\mathbf{f}(\\mathbf{g}(t)) \\cdot D\\mathbf{g}(t)$.
+
+First, $\\mathbf{g}(t) = (t^2, t+1)$, so:
+
+$$D\\mathbf{g}(t) = \\begin{bmatrix} \\frac{d}{dt}(t^2) \\\\[4pt] \\frac{d}{dt}(t+1) \\end{bmatrix} = \\begin{bmatrix} 2t \\\\ 1 \\end{bmatrix}$$
+
+At $t = 0$: $\\mathbf{g}(0) = (0, 1)$ and $D\\mathbf{g}(0) = \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix}$.
+
+Now multiply:
+
+$$D(\\mathbf{f} \\circ \\mathbf{g})(0) = D\\mathbf{f}(0, 1) \\cdot D\\mathbf{g}(0) = \\begin{bmatrix} 0 & 0 \\\\ 1 & 0 \\\\ 1 & 2 \\end{bmatrix} \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 0 \\\\ 0 \\\\ 2 \\end{bmatrix}$$
+
+$$\\boxed{D(\\mathbf{f} \\circ \\mathbf{g})(0) = \\begin{bmatrix} 0 \\\\ 0 \\\\ 2 \\end{bmatrix}}$$
+
+This is a $3 \\times 1$ matrix (the Jacobian of the composed map $\\mathbb{R} \\to \\mathbb{R}^3$), which makes sense dimensionally: $(3 \\times 2)(2 \\times 1) = 3 \\times 1$.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  LINEAR ALGEBRA AND CALCULUS — LINEAR SYSTEMS (3 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'lac-systems-1',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Linear Systems',
+    difficulty: 'easy',
+    question: `Solve the following system of linear equations using row reduction. Show the augmented matrix, each row operation, the echelon form, and the reduced echelon form.
+
+$$\\begin{cases} x_1 + 2x_2 + x_3 = 9 \\\\ 2x_1 + 4x_2 + 3x_3 = 21 \\\\ 3x_1 + 7x_2 + 2x_3 = 22 \\end{cases}$$`,
+    answer: `**Augmented matrix:**
+
+$$\\begin{bmatrix} 1 & 2 & 1 & 9 \\\\ 2 & 4 & 3 & 21 \\\\ 3 & 7 & 2 & 22 \\end{bmatrix}$$
+
+**Step 1:** $R_2 \\leftarrow R_2 - 2R_1$ and $R_3 \\leftarrow R_3 - 3R_1$:
+
+$$\\begin{bmatrix} 1 & 2 & 1 & 9 \\\\ 0 & 0 & 1 & 3 \\\\ 0 & 1 & -1 & -5 \\end{bmatrix}$$
+
+**Step 2:** Swap $R_2 \\leftrightarrow R_3$:
+
+$$\\begin{bmatrix} 1 & 2 & 1 & 9 \\\\ 0 & 1 & -1 & -5 \\\\ 0 & 0 & 1 & 3 \\end{bmatrix}$$
+
+This is now in **echelon form** (three pivots in columns 1, 2, 3).
+
+**Step 3:** Back-substitute to get **reduced echelon form**.
+
+$R_2 \\leftarrow R_2 + R_3$:
+
+$$\\begin{bmatrix} 1 & 2 & 1 & 9 \\\\ 0 & 1 & 0 & -2 \\\\ 0 & 0 & 1 & 3 \\end{bmatrix}$$
+
+$R_1 \\leftarrow R_1 - R_3$:
+
+$$\\begin{bmatrix} 1 & 2 & 0 & 6 \\\\ 0 & 1 & 0 & -2 \\\\ 0 & 0 & 1 & 3 \\end{bmatrix}$$
+
+$R_1 \\leftarrow R_1 - 2R_2$:
+
+$$\\begin{bmatrix} 1 & 0 & 0 & 10 \\\\ 0 & 1 & 0 & -2 \\\\ 0 & 0 & 1 & 3 \\end{bmatrix}$$
+
+**Reduced echelon form** achieved.
+
+**Solution:** $x_1 = 10$, $x_2 = -2$, $x_3 = 3$.
+
+**Verification:** $1(10) + 2(-2) + 1(3) = 10 - 4 + 3 = 9$ (correct), $2(10) + 4(-2) + 3(3) = 20 - 8 + 9 = 21$ (correct), $3(10) + 7(-2) + 2(3) = 30 - 14 + 6 = 22$ (correct).`,
+  },
+  {
+    id: 'lac-systems-2',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Linear Systems',
+    difficulty: 'medium',
+    question: `For each of the following augmented matrices (already in echelon form), determine whether the system has **0, 1, or infinitely many solutions**. Justify your answer by identifying pivot positions and free variables.
+
+(a) $\\begin{bmatrix} 1 & 3 & -2 & 5 \\\\ 0 & 1 & 4 & 7 \\\\ 0 & 0 & 0 & 3 \\end{bmatrix}$
+
+(b) $\\begin{bmatrix} 1 & -1 & 2 & 0 & 4 \\\\ 0 & 0 & 1 & 3 & 2 \\\\ 0 & 0 & 0 & 0 & 0 \\end{bmatrix}$
+
+(c) $\\begin{bmatrix} 2 & 0 & 6 \\\\ 0 & 1 & -3 \\\\ 0 & 0 & 0 \\end{bmatrix}$`,
+    answer: `**(a)** $\\begin{bmatrix} 1 & 3 & -2 & 5 \\\\ 0 & 1 & 4 & 7 \\\\ 0 & 0 & 0 & 3 \\end{bmatrix}$
+
+The last row represents the equation $0x_1 + 0x_2 + 0x_3 = 3$, i.e., $0 = 3$. This is a **contradiction**.
+
+The rightmost column (column 4) is a pivot column in row 3.
+
+**Answer: 0 solutions** (the system is **inconsistent**).
+
+**(b)** $\\begin{bmatrix} 1 & -1 & 2 & 0 & 4 \\\\ 0 & 0 & 1 & 3 & 2 \\\\ 0 & 0 & 0 & 0 & 0 \\end{bmatrix}$
+
+This is a system with 4 variables ($x_1, x_2, x_3, x_4$) and the augmented column is column 5.
+
+Pivots are in columns 1 and 3 (the leading entries). There is no row of the form $[0\\;0\\;0\\;0\\;b]$ with $b \\neq 0$, so the system is **consistent**.
+
+- **Basic variables:** $x_1$ (column 1), $x_3$ (column 3)
+- **Free variables:** $x_2$ (column 2), $x_4$ (column 4)
+
+Since there are free variables, the system has **infinitely many solutions** (a 2-parameter family).
+
+From the echelon form: $x_3 + 3x_4 = 2 \\Rightarrow x_3 = 2 - 3x_4$, and $x_1 - x_2 + 2x_3 = 4 \\Rightarrow x_1 = 4 + x_2 - 2(2 - 3x_4) = x_2 + 6x_4$.
+
+**(c)** $\\begin{bmatrix} 2 & 0 & 6 \\\\ 0 & 1 & -3 \\\\ 0 & 0 & 0 \\end{bmatrix}$
+
+This is a system with 2 variables ($x_1, x_2$) and augmented column is column 3.
+
+Pivots are in columns 1 and 2. No contradiction row. No free variables (every variable column is a pivot column).
+
+**Answer: Exactly 1 solution** (unique).
+
+From the matrix: $2x_1 = 6 \\Rightarrow x_1 = 3$ and $x_2 = -3$.`,
+  },
+  {
+    id: 'lac-systems-3',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Linear Systems',
+    difficulty: 'hard',
+    question: `Determine whether the following vectors in $\\mathbb{R}^4$ are **linearly independent**:
+
+$$v_1 = \\begin{bmatrix} 1 \\\\ 2 \\\\ -1 \\\\ 3 \\end{bmatrix}, \\quad v_2 = \\begin{bmatrix} 2 \\\\ 5 \\\\ 0 \\\\ 1 \\end{bmatrix}, \\quad v_3 = \\begin{bmatrix} 0 \\\\ 1 \\\\ 2 \\\\ -5 \\end{bmatrix}$$
+
+Use the matrix method: form the matrix $A = [v_1 \\; v_2 \\; v_3]$ and row reduce. Explain your conclusion.`,
+    answer: `**Form the matrix** with vectors as columns:
+
+$$A = \\begin{bmatrix} 1 & 2 & 0 \\\\ 2 & 5 & 1 \\\\ -1 & 0 & 2 \\\\ 3 & 1 & -5 \\end{bmatrix}$$
+
+The vectors are linearly independent if and only if $Ax = 0$ has only the trivial solution, which happens when every column is a pivot column.
+
+**Row reduce:**
+
+$R_2 \\leftarrow R_2 - 2R_1$, $R_3 \\leftarrow R_3 + R_1$, $R_4 \\leftarrow R_4 - 3R_1$:
+
+$$\\begin{bmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 1 \\\\ 0 & 2 & 2 \\\\ 0 & -5 & -5 \\end{bmatrix}$$
+
+$R_3 \\leftarrow R_3 - 2R_2$, $R_4 \\leftarrow R_4 + 5R_2$:
+
+$$\\begin{bmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix}$$
+
+**Echelon form** has pivots in columns 1 and 2 only. Column 3 is a **free variable** column.
+
+Since there are only 2 pivots for 3 columns, the system $Ax = 0$ has a nontrivial solution.
+
+$$\\boxed{\\text{The vectors are linearly dependent.}}$$
+
+**Finding the dependence relation:** From the echelon form:
+- $x_2 + x_3 = 0 \\Rightarrow x_2 = -x_3$
+- $x_1 + 2x_2 = 0 \\Rightarrow x_1 = -2x_2 = 2x_3$
+
+Let $x_3 = 1$: then $x_1 = 2$, $x_2 = -1$. So:
+
+$$2v_1 - v_2 + v_3 = 0 \\quad \\text{i.e.,} \\quad v_3 = -2v_1 + v_2$$
+
+**Verification:** $-2\\begin{bmatrix}1\\\\2\\\\-1\\\\3\\end{bmatrix} + \\begin{bmatrix}2\\\\5\\\\0\\\\1\\end{bmatrix} = \\begin{bmatrix}0\\\\1\\\\2\\\\-5\\end{bmatrix} = v_3$. Confirmed.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  LINEAR ALGEBRA AND CALCULUS — MATRIX OPERATIONS (3 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'lac-matrices-1',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Matrix Operations',
+    difficulty: 'easy',
+    question: `Let $A = \\begin{bmatrix} 1 & 3 \\\\ 2 & 5 \\end{bmatrix}$ and $B = \\begin{bmatrix} 4 & -1 \\\\ 0 & 2 \\end{bmatrix}$.
+
+(a) Compute $AB$.
+
+(b) Compute $BA$. Is $AB = BA$?
+
+(c) Find $A^{-1}$ using the $2 \\times 2$ inverse formula.
+
+(d) Verify that $A A^{-1} = I$.`,
+    answer: `**(a) $AB$:**
+
+$$AB = \\begin{bmatrix} 1 & 3 \\\\ 2 & 5 \\end{bmatrix} \\begin{bmatrix} 4 & -1 \\\\ 0 & 2 \\end{bmatrix}$$
+
+$$= \\begin{bmatrix} 1(4)+3(0) & 1(-1)+3(2) \\\\ 2(4)+5(0) & 2(-1)+5(2) \\end{bmatrix} = \\begin{bmatrix} 4 & 5 \\\\ 8 & 8 \\end{bmatrix}$$
+
+**(b) $BA$:**
+
+$$BA = \\begin{bmatrix} 4 & -1 \\\\ 0 & 2 \\end{bmatrix} \\begin{bmatrix} 1 & 3 \\\\ 2 & 5 \\end{bmatrix} = \\begin{bmatrix} 4(1)+(-1)(2) & 4(3)+(-1)(5) \\\\ 0(1)+2(2) & 0(3)+2(5) \\end{bmatrix} = \\begin{bmatrix} 2 & 7 \\\\ 4 & 10 \\end{bmatrix}$$
+
+$AB \\neq BA$. **Matrix multiplication is not commutative.**
+
+**(c) $A^{-1}$:**
+
+For $A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix}$, the inverse is $A^{-1} = \\frac{1}{ad - bc} \\begin{bmatrix} d & -b \\\\ -c & a \\end{bmatrix}$.
+
+$$\\det(A) = ad - bc = 1(5) - 3(2) = 5 - 6 = -1 \\neq 0$$
+
+So $A$ is invertible:
+
+$$A^{-1} = \\frac{1}{-1} \\begin{bmatrix} 5 & -3 \\\\ -2 & 1 \\end{bmatrix} = \\begin{bmatrix} -5 & 3 \\\\ 2 & -1 \\end{bmatrix}$$
+
+**(d) Verification:**
+
+$$AA^{-1} = \\begin{bmatrix} 1 & 3 \\\\ 2 & 5 \\end{bmatrix} \\begin{bmatrix} -5 & 3 \\\\ 2 & -1 \\end{bmatrix} = \\begin{bmatrix} -5+6 & 3-3 \\\\ -10+10 & 6-5 \\end{bmatrix} = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} = I$$
+
+Verified.`,
+  },
+  {
+    id: 'lac-matrices-2',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Matrix Operations',
+    difficulty: 'medium',
+    question: `Compute the determinant of the following matrix using **cofactor expansion**. Choose the row or column that minimizes computation and explain your choice.
+
+$$A = \\begin{bmatrix} 2 & 0 & 1 \\\\ 3 & -1 & 0 \\\\ 1 & 4 & 5 \\end{bmatrix}$$`,
+    answer: `**Choosing the best row/column:**
+
+We look for the row or column with the most zeros to minimize computation.
+- Row 1: one zero (position $(1,2)$)
+- Row 2: one zero (position $(2,3)$)
+- Column 2: no zeros but has a $0$ in position $(1,2)$
+- Column 3: one zero (position $(2,3)$)
+
+Row 1 or row 2 both have one zero. Let's expand along **Row 1** (the first row):
+
+$$\\det(A) = a_{11} C_{11} + a_{12} C_{12} + a_{13} C_{13}$$
+
+where $C_{ij} = (-1)^{i+j} \\det(A_{ij})$.
+
+**Term 1:** $a_{11} = 2$, $C_{11} = (-1)^{1+1} \\det \\begin{bmatrix} -1 & 0 \\\\ 4 & 5 \\end{bmatrix} = (+1)((-1)(5) - (0)(4)) = -5$
+
+$$a_{11} C_{11} = 2(-5) = -10$$
+
+**Term 2:** $a_{12} = 0$, so $a_{12} C_{12} = 0$ (no computation needed!)
+
+**Term 3:** $a_{13} = 1$, $C_{13} = (-1)^{1+3} \\det \\begin{bmatrix} 3 & -1 \\\\ 1 & 4 \\end{bmatrix} = (+1)((3)(4) - (-1)(1)) = 12 + 1 = 13$
+
+$$a_{13} C_{13} = 1(13) = 13$$
+
+**Result:**
+
+$$\\det(A) = -10 + 0 + 13 = 3$$
+
+$$\\boxed{\\det(A) = 3}$$
+
+Since $\\det(A) = 3 \\neq 0$, the matrix $A$ is **invertible**.`,
+  },
+  {
+    id: 'lac-matrices-3',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Matrix Operations',
+    difficulty: 'hard',
+    question: `Let $A$ be an $n \\times n$ matrix. Prove the following statement:
+
+**If** $A^2 = A$ (i.e., $A$ is idempotent), **then** either $\\det(A) = 0$ or $\\det(A) = 1$.
+
+Use properties of determinants. Then give an example of a $2 \\times 2$ matrix (other than $I$ and the zero matrix) satisfying $A^2 = A$, and verify your result.`,
+    answer: `**Proof:**
+
+Given: $A^2 = A$.
+
+Take the determinant of both sides:
+
+$$\\det(A^2) = \\det(A)$$
+
+By the multiplicative property of determinants ($\\det(AB) = \\det(A)\\det(B)$):
+
+$$\\det(A) \\cdot \\det(A) = \\det(A)$$
+
+$$(\\det(A))^2 = \\det(A)$$
+
+$$(\\det(A))^2 - \\det(A) = 0$$
+
+$$\\det(A)(\\det(A) - 1) = 0$$
+
+Therefore $\\det(A) = 0$ or $\\det(A) = 1$. $\\blacksquare$
+
+**Note:** By the Invertible Matrix Theorem, $\\det(A) = 0$ means $A$ is singular, and $\\det(A) = 1$ means $A$ is invertible. If $A$ is invertible and $A^2 = A$, multiply both sides by $A^{-1}$: $A = I$. So the only invertible idempotent matrix is the identity.
+
+**Example:** Let
+
+$$A = \\begin{bmatrix} 1 & 0 \\\\ 1 & 0 \\end{bmatrix}$$
+
+**Verify** $A^2 = A$:
+
+$$A^2 = \\begin{bmatrix} 1 & 0 \\\\ 1 & 0 \\end{bmatrix} \\begin{bmatrix} 1 & 0 \\\\ 1 & 0 \\end{bmatrix} = \\begin{bmatrix} 1(1)+0(1) & 1(0)+0(0) \\\\ 1(1)+0(1) & 1(0)+0(0) \\end{bmatrix} = \\begin{bmatrix} 1 & 0 \\\\ 1 & 0 \\end{bmatrix} = A \\;\\checkmark$$
+
+**Verify determinant:**
+
+$$\\det(A) = 1(0) - 0(1) = 0 \\;\\checkmark$$
+
+This confirms our result: $\\det(A) \\in \\{0, 1\\}$, and in this case $\\det(A) = 0$ (the matrix is singular).`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  LINEAR ALGEBRA AND CALCULUS — EIGENVALUES AND DIAGONALIZATION (3 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'lac-eigen-1',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Eigenvalues and Diagonalization',
+    difficulty: 'easy',
+    question: `Find the **eigenvalues** of the matrix:
+
+$$A = \\begin{bmatrix} 4 & -2 \\\\ 1 & 1 \\end{bmatrix}$$
+
+by solving the characteristic equation $\\det(A - \\lambda I) = 0$. Show all steps.`,
+    answer: `**Step 1:** Form $A - \\lambda I$:
+
+$$A - \\lambda I = \\begin{bmatrix} 4 - \\lambda & -2 \\\\ 1 & 1 - \\lambda \\end{bmatrix}$$
+
+**Step 2:** Compute the characteristic polynomial:
+
+$$\\det(A - \\lambda I) = (4 - \\lambda)(1 - \\lambda) - (-2)(1)$$
+
+$$= (4 - \\lambda)(1 - \\lambda) + 2$$
+
+$$= 4 - 4\\lambda - \\lambda + \\lambda^2 + 2$$
+
+$$= \\lambda^2 - 5\\lambda + 6$$
+
+**Step 3:** Solve $\\lambda^2 - 5\\lambda + 6 = 0$:
+
+Factor: $(\\lambda - 2)(\\lambda - 3) = 0$
+
+$$\\boxed{\\lambda_1 = 2, \\quad \\lambda_2 = 3}$$
+
+**Quick check using trace and determinant:**
+- $\\text{tr}(A) = 4 + 1 = 5 = \\lambda_1 + \\lambda_2 = 2 + 3$ (correct)
+- $\\det(A) = 4(1) - (-2)(1) = 6 = \\lambda_1 \\lambda_2 = 2 \\cdot 3$ (correct)
+
+**Note:** For $2 \\times 2$ matrices, the characteristic polynomial is always $\\lambda^2 - \\text{tr}(A)\\lambda + \\det(A) = 0$. This shortcut is very useful on exams.`,
+  },
+  {
+    id: 'lac-eigen-2',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Eigenvalues and Diagonalization',
+    difficulty: 'medium',
+    question: `Find all **eigenvalues and eigenvectors** of the matrix:
+
+$$A = \\begin{bmatrix} 1 & 0 & 2 \\\\ 0 & 3 & 0 \\\\ 2 & 0 & 1 \\end{bmatrix}$$
+
+For each eigenvalue, find a basis for its eigenspace.`,
+    answer: `**Step 1: Find eigenvalues** via $\\det(A - \\lambda I) = 0$.
+
+$$A - \\lambda I = \\begin{bmatrix} 1-\\lambda & 0 & 2 \\\\ 0 & 3-\\lambda & 0 \\\\ 2 & 0 & 1-\\lambda \\end{bmatrix}$$
+
+Expand along row 2 (two zeros make this efficient):
+
+$$\\det(A - \\lambda I) = (3 - \\lambda) \\det \\begin{bmatrix} 1-\\lambda & 2 \\\\ 2 & 1-\\lambda \\end{bmatrix}$$
+
+$$= (3 - \\lambda)[(1-\\lambda)^2 - 4]$$
+
+$$= (3 - \\lambda)(1 - 2\\lambda + \\lambda^2 - 4)$$
+
+$$= (3 - \\lambda)(\\lambda^2 - 2\\lambda - 3)$$
+
+$$= (3 - \\lambda)(\\lambda - 3)(\\lambda + 1)$$
+
+$$= -(\\lambda - 3)^2(\\lambda + 1)$$
+
+**Eigenvalues:** $\\lambda_1 = 3$ (multiplicity 2) and $\\lambda_2 = -1$ (multiplicity 1).
+
+**Step 2: Find eigenvectors for $\\lambda_1 = 3$:**
+
+Solve $(A - 3I)x = 0$:
+
+$$A - 3I = \\begin{bmatrix} -2 & 0 & 2 \\\\ 0 & 0 & 0 \\\\ 2 & 0 & -2 \\end{bmatrix}$$
+
+$R_3 \\leftarrow R_3 + R_1$, then $R_1 \\leftarrow -\\frac{1}{2}R_1$:
+
+$$\\begin{bmatrix} 1 & 0 & -1 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix}$$
+
+Free variables: $x_2$ and $x_3$. From row 1: $x_1 = x_3$.
+
+General solution: $x = x_2 \\begin{bmatrix} 0\\\\1\\\\0 \\end{bmatrix} + x_3 \\begin{bmatrix} 1\\\\0\\\\1 \\end{bmatrix}$
+
+**Eigenspace basis for $\\lambda = 3$:** $\\left\\{ \\begin{bmatrix}0\\\\1\\\\0\\end{bmatrix}, \\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix} \\right\\}$ (dimension 2)
+
+**Step 3: Find eigenvectors for $\\lambda_2 = -1$:**
+
+Solve $(A + I)x = 0$:
+
+$$A + I = \\begin{bmatrix} 2 & 0 & 2 \\\\ 0 & 4 & 0 \\\\ 2 & 0 & 2 \\end{bmatrix}$$
+
+Row reduce: $R_3 \\leftarrow R_3 - R_1$, scale:
+
+$$\\begin{bmatrix} 1 & 0 & 1 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix}$$
+
+Free variable: $x_3$. From rows: $x_1 = -x_3$, $x_2 = 0$.
+
+General solution: $x = x_3 \\begin{bmatrix} -1\\\\0\\\\1 \\end{bmatrix}$
+
+**Eigenspace basis for $\\lambda = -1$:** $\\left\\{ \\begin{bmatrix}-1\\\\0\\\\1\\end{bmatrix} \\right\\}$ (dimension 1)
+
+**Summary:**
+
+| Eigenvalue | Multiplicity | Eigenspace basis | Eigenspace dimension |
+|---|---|---|---|
+| $\\lambda = 3$ | 2 | $\\{(0,1,0)^T,\\; (1,0,1)^T\\}$ | 2 |
+| $\\lambda = -1$ | 1 | $\\{(-1,0,1)^T\\}$ | 1 |
+
+Total independent eigenvectors: $2 + 1 = 3 = n$, so $A$ is diagonalizable.`,
+  },
+  {
+    id: 'lac-eigen-3',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Eigenvalues and Diagonalization',
+    difficulty: 'hard',
+    question: `Determine whether the matrix
+
+$$A = \\begin{bmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 0 \\\\ 0 & 0 & 3 \\end{bmatrix}$$
+
+is diagonalizable. If so, find an invertible matrix $P$ and a diagonal matrix $D$ such that $A = PDP^{-1}$. If not, explain why.`,
+    answer: `**Step 1: Find eigenvalues.**
+
+$A$ is upper triangular, so the eigenvalues are the diagonal entries:
+
+$$\\lambda_1 = 2 \\text{ (multiplicity 2)}, \\quad \\lambda_2 = 3 \\text{ (multiplicity 1)}$$
+
+**Step 2: Find eigenspaces.**
+
+**For $\\lambda = 2$:** Solve $(A - 2I)x = 0$:
+
+$$A - 2I = \\begin{bmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}$$
+
+This is already in echelon form. Pivots in columns 2 and 3. Free variable: $x_1$.
+
+From the matrix: $x_2 = 0$, $x_3 = 0$, $x_1$ is free.
+
+Eigenspace: $\\text{span}\\left\\{\\begin{bmatrix}1\\\\0\\\\0\\end{bmatrix}\\right\\}$, dimension $= 1$.
+
+**For $\\lambda = 3$:** Solve $(A - 3I)x = 0$:
+
+$$A - 3I = \\begin{bmatrix} -1 & 1 & 0 \\\\ 0 & -1 & 0 \\\\ 0 & 0 & 0 \\end{bmatrix}$$
+
+From row 2: $x_2 = 0$. From row 1: $-x_1 + x_2 = 0 \\Rightarrow x_1 = 0$. Free variable: $x_3$.
+
+Eigenspace: $\\text{span}\\left\\{\\begin{bmatrix}0\\\\0\\\\1\\end{bmatrix}\\right\\}$, dimension $= 1$.
+
+**Step 3: Check diagonalizability.**
+
+Total independent eigenvectors: $1 + 1 = 2 < 3 = n$.
+
+$$\\boxed{A \\text{ is NOT diagonalizable.}}$$
+
+**Explanation:** The eigenvalue $\\lambda = 2$ has algebraic multiplicity 2 but geometric multiplicity 1 (eigenspace dimension is only 1). For diagonalizability, we need the geometric multiplicity to equal the algebraic multiplicity for every eigenvalue. Since $1 < 2$ for $\\lambda = 2$, we cannot find 3 linearly independent eigenvectors, so $A$ is not diagonalizable.
+
+**Intuition:** The $1$ in position $(1,2)$ of $A$ prevents diagonalizability. If it were $0$, $A$ would already be diagonal. Matrices of the form $\\begin{bmatrix} a & 1 \\\\ 0 & a \\end{bmatrix}$ (with a repeated eigenvalue and a $1$ on the superdiagonal) are the canonical examples of non-diagonalizable matrices.`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  LINEAR ALGEBRA AND CALCULUS — VECTOR SPACES AND ORTHOGONALITY (3 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'lac-spaces-1',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Vector Spaces and Orthogonality',
+    difficulty: 'medium',
+    question: `Let $W = \\left\\{ \\begin{bmatrix} a \\\\ b \\\\ c \\end{bmatrix} \\in \\mathbb{R}^3 : a - 2b + c = 0 \\right\\}$.
+
+(a) Prove that $W$ is a **subspace** of $\\mathbb{R}^3$ by verifying the three subspace conditions.
+
+(b) Find a **basis** for $W$.
+
+(c) What is $\\dim(W)$?`,
+    answer: `**(a) Subspace verification:**
+
+**Condition 1: Zero vector.** Check if $\\mathbf{0} = (0, 0, 0)^T \\in W$:
+
+$0 - 2(0) + 0 = 0$. Yes, $\\mathbf{0} \\in W$. $\\checkmark$
+
+**Condition 2: Closed under addition.** Let $\\mathbf{u} = (a_1, b_1, c_1)^T$ and $\\mathbf{v} = (a_2, b_2, c_2)^T$ be in $W$. Then $a_1 - 2b_1 + c_1 = 0$ and $a_2 - 2b_2 + c_2 = 0$.
+
+For $\\mathbf{u} + \\mathbf{v} = (a_1 + a_2,\\; b_1 + b_2,\\; c_1 + c_2)^T$:
+
+$(a_1 + a_2) - 2(b_1 + b_2) + (c_1 + c_2) = (a_1 - 2b_1 + c_1) + (a_2 - 2b_2 + c_2) = 0 + 0 = 0$
+
+So $\\mathbf{u} + \\mathbf{v} \\in W$. $\\checkmark$
+
+**Condition 3: Closed under scalar multiplication.** Let $\\mathbf{u} = (a, b, c)^T \\in W$ and $k \\in \\mathbb{R}$. Then $a - 2b + c = 0$.
+
+For $k\\mathbf{u} = (ka, kb, kc)^T$:
+
+$ka - 2(kb) + kc = k(a - 2b + c) = k \\cdot 0 = 0$
+
+So $k\\mathbf{u} \\in W$. $\\checkmark$
+
+Therefore $W$ is a subspace of $\\mathbb{R}^3$.
+
+**(b) Finding a basis:**
+
+The constraint $a - 2b + c = 0$ means $a = 2b - c$. Let $b$ and $c$ be free parameters:
+
+$$\\begin{bmatrix} a \\\\ b \\\\ c \\end{bmatrix} = \\begin{bmatrix} 2b - c \\\\ b \\\\ c \\end{bmatrix} = b \\begin{bmatrix} 2 \\\\ 1 \\\\ 0 \\end{bmatrix} + c \\begin{bmatrix} -1 \\\\ 0 \\\\ 1 \\end{bmatrix}$$
+
+**Basis for $W$:**
+
+$$\\mathcal{B} = \\left\\{ \\begin{bmatrix} 2 \\\\ 1 \\\\ 0 \\end{bmatrix}, \\begin{bmatrix} -1 \\\\ 0 \\\\ 1 \\end{bmatrix} \\right\\}$$
+
+These vectors are linearly independent (neither is a scalar multiple of the other) and span $W$.
+
+**(c) Dimension:**
+
+$$\\dim(W) = 2$$
+
+This makes sense: $W$ is defined by one linear equation in $\\mathbb{R}^3$, so it is a plane through the origin with dimension $3 - 1 = 2$.
+
+**Alternative viewpoint:** $W = \\text{Nul}(A)$ where $A = \\begin{bmatrix} 1 & -2 & 1 \\end{bmatrix}$. By the Rank Theorem: $\\text{rank}(A) + \\text{nullity}(A) = 3$, so $\\text{nullity}(A) = 3 - 1 = 2$.`,
+  },
+  {
+    id: 'lac-spaces-2',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Vector Spaces and Orthogonality',
+    difficulty: 'medium',
+    question: `Apply the **Gram-Schmidt process** to orthogonalize the following basis for a subspace of $\\mathbb{R}^3$:
+
+$$x_1 = \\begin{bmatrix} 1 \\\\ 1 \\\\ 0 \\end{bmatrix}, \\quad x_2 = \\begin{bmatrix} 1 \\\\ 0 \\\\ 1 \\end{bmatrix}, \\quad x_3 = \\begin{bmatrix} 0 \\\\ 1 \\\\ 1 \\end{bmatrix}$$
+
+Show all dot product computations and produce the orthogonal basis $\\{v_1, v_2, v_3\\}$.`,
+    answer: `**Step 1:** Set $v_1 = x_1$:
+
+$$v_1 = \\begin{bmatrix} 1 \\\\ 1 \\\\ 0 \\end{bmatrix}$$
+
+**Step 2:** Compute $v_2 = x_2 - \\frac{x_2 \\cdot v_1}{v_1 \\cdot v_1} v_1$:
+
+$$x_2 \\cdot v_1 = (1)(1) + (0)(1) + (1)(0) = 1$$
+
+$$v_1 \\cdot v_1 = 1^2 + 1^2 + 0^2 = 2$$
+
+$$v_2 = \\begin{bmatrix} 1 \\\\ 0 \\\\ 1 \\end{bmatrix} - \\frac{1}{2} \\begin{bmatrix} 1 \\\\ 1 \\\\ 0 \\end{bmatrix} = \\begin{bmatrix} 1/2 \\\\ -1/2 \\\\ 1 \\end{bmatrix}$$
+
+**Check orthogonality:** $v_1 \\cdot v_2 = (1)(1/2) + (1)(-1/2) + (0)(1) = 0$ $\\checkmark$
+
+**Step 3:** Compute $v_3 = x_3 - \\frac{x_3 \\cdot v_1}{v_1 \\cdot v_1} v_1 - \\frac{x_3 \\cdot v_2}{v_2 \\cdot v_2} v_2$:
+
+$$x_3 \\cdot v_1 = (0)(1) + (1)(1) + (1)(0) = 1$$
+
+$$x_3 \\cdot v_2 = (0)(1/2) + (1)(-1/2) + (1)(1) = 1/2$$
+
+$$v_2 \\cdot v_2 = (1/2)^2 + (-1/2)^2 + 1^2 = 1/4 + 1/4 + 1 = 3/2$$
+
+$$v_3 = \\begin{bmatrix} 0 \\\\ 1 \\\\ 1 \\end{bmatrix} - \\frac{1}{2} \\begin{bmatrix} 1 \\\\ 1 \\\\ 0 \\end{bmatrix} - \\frac{1/2}{3/2} \\begin{bmatrix} 1/2 \\\\ -1/2 \\\\ 1 \\end{bmatrix}$$
+
+$$= \\begin{bmatrix} 0 \\\\ 1 \\\\ 1 \\end{bmatrix} - \\begin{bmatrix} 1/2 \\\\ 1/2 \\\\ 0 \\end{bmatrix} - \\frac{1}{3} \\begin{bmatrix} 1/2 \\\\ -1/2 \\\\ 1 \\end{bmatrix}$$
+
+$$= \\begin{bmatrix} 0 - 1/2 - 1/6 \\\\ 1 - 1/2 + 1/6 \\\\ 1 - 0 - 1/3 \\end{bmatrix} = \\begin{bmatrix} -2/3 \\\\ 2/3 \\\\ 2/3 \\end{bmatrix}$$
+
+**Check orthogonality:**
+- $v_1 \\cdot v_3 = (1)(-2/3) + (1)(2/3) + (0)(2/3) = 0$ $\\checkmark$
+- $v_2 \\cdot v_3 = (1/2)(-2/3) + (-1/2)(2/3) + (1)(2/3) = -1/3 - 1/3 + 2/3 = 0$ $\\checkmark$
+
+**Orthogonal basis:**
+
+$$\\boxed{v_1 = \\begin{bmatrix} 1 \\\\ 1 \\\\ 0 \\end{bmatrix}, \\quad v_2 = \\begin{bmatrix} 1/2 \\\\ -1/2 \\\\ 1 \\end{bmatrix}, \\quad v_3 = \\begin{bmatrix} -2/3 \\\\ 2/3 \\\\ 2/3 \\end{bmatrix}}$$
+
+**Tip:** To avoid fractions, you can scale $v_2$ by $2$ to get $(1, -1, 2)^T$ and $v_3$ by $3/2$ to get $(-1, 1, 1)^T$. Scaling does not affect orthogonality.`,
+  },
+  {
+    id: 'lac-spaces-3',
+    courseId: 'linear-algebra-calculus',
+    topic: 'Vector Spaces and Orthogonality',
+    difficulty: 'hard',
+    question: `Let $W = \\text{Span}\\left\\{ u_1, u_2 \\right\\}$ where
+
+$$u_1 = \\begin{bmatrix} 1 \\\\ 0 \\\\ 1 \\\\ 0 \\end{bmatrix}, \\quad u_2 = \\begin{bmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 1 \\end{bmatrix}$$
+
+and let $y = \\begin{bmatrix} 3 \\\\ 5 \\\\ 2 \\\\ 4 \\end{bmatrix}$.
+
+(a) Verify that $\\{u_1, u_2\\}$ is an **orthogonal** set.
+
+(b) Compute the **orthogonal projection** $\\hat{y} = \\text{proj}_W\\, y$.
+
+(c) Compute the **residual** $z = y - \\hat{y}$ and verify that $z$ is orthogonal to both $u_1$ and $u_2$.
+
+(d) What is $\\|y - \\hat{y}\\|$, the distance from $y$ to $W$?`,
+    answer: `**(a) Verify orthogonality:**
+
+$$u_1 \\cdot u_2 = (1)(0) + (0)(1) + (1)(0) + (0)(1) = 0$$
+
+Since $u_1 \\cdot u_2 = 0$, the set $\\{u_1, u_2\\}$ is orthogonal. $\\checkmark$
+
+**(b) Orthogonal projection:**
+
+Since $\\{u_1, u_2\\}$ is an orthogonal basis for $W$:
+
+$$\\hat{y} = \\frac{y \\cdot u_1}{u_1 \\cdot u_1} u_1 + \\frac{y \\cdot u_2}{u_2 \\cdot u_2} u_2$$
+
+Compute the dot products:
+
+$$y \\cdot u_1 = 3(1) + 5(0) + 2(1) + 4(0) = 5$$
+
+$$u_1 \\cdot u_1 = 1 + 0 + 1 + 0 = 2$$
+
+$$y \\cdot u_2 = 3(0) + 5(1) + 2(0) + 4(1) = 9$$
+
+$$u_2 \\cdot u_2 = 0 + 1 + 0 + 1 = 2$$
+
+Therefore:
+
+$$\\hat{y} = \\frac{5}{2} \\begin{bmatrix} 1\\\\0\\\\1\\\\0 \\end{bmatrix} + \\frac{9}{2} \\begin{bmatrix} 0\\\\1\\\\0\\\\1 \\end{bmatrix} = \\begin{bmatrix} 5/2\\\\0\\\\5/2\\\\0 \\end{bmatrix} + \\begin{bmatrix} 0\\\\9/2\\\\0\\\\9/2 \\end{bmatrix}$$
+
+$$\\boxed{\\hat{y} = \\begin{bmatrix} 5/2 \\\\ 9/2 \\\\ 5/2 \\\\ 9/2 \\end{bmatrix}}$$
+
+**(c) Residual:**
+
+$$z = y - \\hat{y} = \\begin{bmatrix} 3 - 5/2 \\\\ 5 - 9/2 \\\\ 2 - 5/2 \\\\ 4 - 9/2 \\end{bmatrix} = \\begin{bmatrix} 1/2 \\\\ 1/2 \\\\ -1/2 \\\\ -1/2 \\end{bmatrix}$$
+
+**Verify orthogonality:**
+
+$$z \\cdot u_1 = (1/2)(1) + (1/2)(0) + (-1/2)(1) + (-1/2)(0) = 1/2 - 1/2 = 0 \\;\\checkmark$$
+
+$$z \\cdot u_2 = (1/2)(0) + (1/2)(1) + (-1/2)(0) + (-1/2)(1) = 1/2 - 1/2 = 0 \\;\\checkmark$$
+
+So $z \\in W^\\perp$ as expected from the Orthogonal Decomposition Theorem.
+
+**(d) Distance from $y$ to $W$:**
+
+$$\\|z\\| = \\sqrt{(1/2)^2 + (1/2)^2 + (-1/2)^2 + (-1/2)^2} = \\sqrt{4 \\cdot 1/4} = \\sqrt{1} = 1$$
+
+$$\\boxed{\\text{dist}(y, W) = \\|y - \\hat{y}\\| = 1}$$
+
+By the Best Approximation Theorem, $\\hat{y}$ is the unique closest point in $W$ to $y$.`,
+  },
 ];

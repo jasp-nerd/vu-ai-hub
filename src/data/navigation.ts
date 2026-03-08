@@ -9,6 +9,7 @@ export const navigationItems: NavItem[] = [
     label: 'Guide',
     path: '/guide',
     children: [
+      { label: 'Amsterdam Guide', path: '/guide/amsterdam' },
       { label: 'Blog', path: '/guide/blog' },
       { label: 'FAQ', path: '/guide/faq' },
       { label: 'Program Info', path: '/guide/program' },

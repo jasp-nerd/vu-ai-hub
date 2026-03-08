@@ -10,9 +10,23 @@ import { introPythonSummary } from './summaries/intro-python-summary';
 import { appliedProgrammingSummary } from './summaries/applied-programming-summary';
 import { knowledgeAndDataSummary } from './summaries/knowledge-and-data-summary';
 import { academicWritingSummary } from './summaries/academic-writing-summary';
+import { dsaSummary } from './summaries/dsa-summary';
+import { linearAlgebraCalculusSummary } from './summaries/linear-algebra-calculus-summary';
+import { multiAgentSystemsSummary } from './summaries/multi-agent-systems-summary';
+import { projectConversationalAgentsSummary } from './summaries/project-conversational-agents-summary';
 
 export const resources: Resource[] = [
   // ========== DSA ==========
+  {
+    id: 'res-dsa-visual-summary',
+    courseId: 'data-structures-algorithms-ai',
+    title: 'DSA Lectures 5–11 — Visual Summary with Diagrams',
+    description:
+      'Interactive visual summary covering graph theory, heaps, BSTs, BFS/DFS, minimum spanning trees, Dijkstra\'s algorithm, topological sort, A* search, and dynamic programming. Includes SVG diagrams, algorithm walkthroughs, and pseudocode.',
+    url: '/dsa-visual-summary.html',
+    type: 'article',
+    tags: ['summary', 'visual', 'algorithms', 'graphs', 'site-exclusive'],
+  },
   {
   id: 'res-dsa-1',
   courseId: 'data-structures-algorithms-ai',
@@ -42,6 +56,16 @@ export const resources: Resource[] = [
   url: 'https://www.bigocheatsheet.com/',
   type: 'article',
   tags: ['complexity', 'reference'],
+  },
+  {
+    id: 'res-dsa-4',
+    courseId: 'data-structures-algorithms-ai',
+    title: 'MIT OpenCourseWare — Introduction to Algorithms (Full Playlist)',
+    description:
+      'The legendary MIT 6.006 algorithms course on YouTube. Covers all major topics with excellent visual explanations. Highly recommended alongside the CLRS textbook.',
+    url: 'https://www.youtube.com/watch?v=ZA-tUyM_y7s&list=PLUl4u3cNGP63EdVPNLG3ToM6LaEUuStEY',
+    type: 'video',
+    tags: ['algorithms', 'lectures', 'youtube'],
   },
 
   // ========== MAS ==========
@@ -106,6 +130,16 @@ export const resources: Resource[] = [
   url: 'https://tutorial.math.lamar.edu/',
   type: 'article',
   tags: ['calculus', 'practice'],
+  },
+  {
+    id: 'res-lac-4',
+    courseId: 'linear-algebra-calculus',
+    title: 'Linear Algebra and Calculus — Video Playlist',
+    description:
+      'Helpful video playlist covering linear algebra and calculus topics. Great for building intuition, but remember — you still need to practice on paper!',
+    url: 'https://www.youtube.com/watch?v=ZKUqtErZCiU&list=PLHXZ9OQGMqxfUl0tcqPNTJsb7R6BqSLo6',
+    type: 'video',
+    tags: ['linear-algebra', 'calculus', 'youtube'],
   },
 
   // ========== Machine Learning ==========
@@ -262,6 +296,54 @@ export const resources: Resource[] = [
   tags: ['summary', 'all-weeks', 'site-exclusive'],
   markdownContent: academicWritingSummary,
   author: 'VU AI Student Hub',
+  },
+  {
+    id: 'res-summary-dsa',
+    courseId: 'data-structures-algorithms-ai',
+    title: 'Data Structures and Algorithms — Complete Course Summary',
+    description:
+      'Comprehensive summary covering complexity analysis, sorting algorithms, data structures, trees, graphs, shortest paths, and dynamic programming.',
+    url: '#',
+    type: 'summary',
+    tags: ['summary', 'algorithms', 'data-structures'],
+    markdownContent: dsaSummary,
+    author: 'VU AI Student Hub',
+  },
+  {
+    id: 'res-summary-lac',
+    courseId: 'linear-algebra-calculus',
+    title: 'Linear Algebra and Calculus — Complete Course Summary',
+    description:
+      'Comprehensive summary covering limits, derivatives, gradients, linear systems, matrices, vector spaces, eigenvalues, diagonalization, and orthogonality.',
+    url: '#',
+    type: 'summary',
+    tags: ['summary', 'linear-algebra', 'calculus'],
+    markdownContent: linearAlgebraCalculusSummary,
+    author: 'VU AI Student Hub',
+  },
+  {
+    id: 'res-summary-mas',
+    courseId: 'multi-agent-systems',
+    title: 'Multi-Agent Systems — Complete Course Summary',
+    description:
+      'Comprehensive summary covering Prolog programming, agent theory, and the MARBEL multi-agent framework.',
+    url: '#',
+    type: 'summary',
+    tags: ['summary', 'prolog', 'agents', 'marbel'],
+    markdownContent: multiAgentSystemsSummary,
+    author: 'VU AI Student Hub',
+  },
+  {
+    id: 'res-summary-pca',
+    courseId: 'project-conversational-agents',
+    title: 'Project Conversational Agents — Complete Course Summary',
+    description:
+      'Comprehensive summary covering Git, ML basics, neural networks, dialogue systems pipeline, BERT/NLU, Hugging Face, HTML/Bootstrap, and Prolog.',
+    url: '#',
+    type: 'summary',
+    tags: ['summary', 'dialogue-systems', 'bert', 'prolog'],
+    markdownContent: projectConversationalAgentsSummary,
+    author: 'VU AI Student Hub',
   },
 
   // ========== General Tools ==========

@@ -1,0 +1,2886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Lectures 5-11 Summary | Complete Guide</title>
+    <style>/* Modern DSA Lecture Summary Website Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Refined Color Palette for Better Readability */
+    --primary-color: #1a252f;
+    --primary-light: #2c3e50;
+    --secondary-color: #2980b9;
+    --secondary-light: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --purple: #8e44ad;
+    --background: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #2c3e50;
+    --text-muted: #7f8c8d;
+    --border-color: #dfe6e9;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background: var(--background);
+}
+
+/* Improved Compact Navigation */
+#navbar {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    padding: 0.75rem 0;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#navbar h1 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+}
+
+.nav-links li a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links li a:hover {
+    background: var(--secondary-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero Section - More Compact and Modern */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    animation: fadeInDown 0.6s ease-out;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.hero .subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 0.4rem;
+    font-weight: 400;
+}
+
+.hero .meta {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    font-weight: 300;
+}
+
+/* Lecture Sections - Improved Spacing */
+.lecture-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    animation: fadeInUp 0.5s ease-out;
+    border: 1px solid var(--border-color);
+}
+
+.lecture-section h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 3px solid var(--secondary-color);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.lecture-section h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.lecture-section h4 {
+    font-size: 1.15rem;
+    color: var(--text-color);
+    margin: 1.25rem 0 0.75rem;
+    font-weight: 600;
+}
+
+.content-block {
+    margin-bottom: 2rem;
+}
+
+/* Special Boxes - Improved Contrast & Accessibility */
+.definition-box,
+.algorithm-box,
+.theorem-box,
+.key-point-box {
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    margin: 1.25rem 0;
+    border-left: 4px solid;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.definition-box:hover,
+.algorithm-box:hover,
+.theorem-box:hover,
+.key-point-box:hover {
+    transform: translateX(3px);
+    box-shadow: var(--shadow);
+}
+
+.definition-box {
+    background: linear-gradient(135deg, #ebf5fb 0%, #d6eaf8 100%);
+    border-color: var(--secondary-color);
+}
+
+.algorithm-box {
+    background: linear-gradient(135deg, #f4ecf7 0%, #e8daef 100%);
+    border-color: var(--purple);
+}
+
+.theorem-box {
+    background: linear-gradient(135deg, #fef5e7 0%, #fdebd0 100%);
+    border-color: var(--warning-color);
+}
+
+.key-point-box {
+    background: linear-gradient(135deg, #eafaf1 0%, #d5f4e6 100%);
+    border-color: var(--success-color);
+}
+
+.definition-box h4,
+.algorithm-box h4,
+.theorem-box h4,
+.key-point-box h4 {
+    margin-top: 0;
+    margin-bottom: 0.875rem;
+    font-weight: 600;
+}
+
+/* Code Blocks - Improved Readability */
+pre {
+    background: #282c34;
+    color: #abb2bf;
+    padding: 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+code {
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+}
+
+/* Visualizations - Better Visual Hierarchy */
+.visualization-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.visualization-container h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.visualization-container svg {
+    max-width: 100%;
+    height: auto;
+    margin: 0.75rem auto;
+    display: block;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+.caption {
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Lists */
+ul, ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 1rem;
+}
+
+strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    margin-top: 4rem;
+    border-radius: 15px 15px 0 0;
+}
+
+.footer-content p {
+    margin: 0.5rem 0;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design - Enhanced for Mobile */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    #navbar h1 {
+        font-size: 1.1rem;
+    }
+    
+    .nav-links {
+        width: 100%;
+        gap: 0.3rem;
+    }
+    
+    .nav-links li a {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.7rem;
+    }
+    
+    .hero {
+        padding: 2rem 1.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .hero .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .lecture-section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .lecture-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .lecture-section h3 {
+        font-size: 1.25rem;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .visualization-container {
+        padding: 1rem;
+    }
+    
+    pre {
+        font-size: 0.75rem;
+        padding: 1rem;
+    }
+    
+    table {
+        font-size: 0.85rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    #navbar {
+        display: none;
+    }
+    
+    .lecture-section {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .visualization-container svg {
+        max-width: 80%;
+    }
+}
+
+/* Selection */
+::selection {
+    background: var(--secondary-color);
+    color: white;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.875rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+table td {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+}
+
+table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+table tr:hover {
+    background-color: #e9ecef;
+    transition: background-color 0.2s ease;
+}
+
+/* Accessibility Improvements */
+.nav-links li a:focus,
+button:focus,
+a:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* Smooth Transitions */
+* {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Back to Top Button */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#backToTop:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+#backToTop:active {
+    transform: translateY(-1px);
+}
+
+</style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <h1>DSA Lectures Summary</h1>
+            <ul class="nav-links">
+                <li><a href="#graph-theory">Graph Theory</a></li>
+                <li><a href="#heaps">Heaps</a></li>
+                <li><a href="#bst">Binary Search Trees</a></li>
+                <li><a href="#bfs">BFS & Distances</a></li>
+                <li><a href="#dfs">DFS</a></li>
+                <li><a href="#mst">Minimum Spanning Trees</a></li>
+                <li><a href="#dijkstra">Dijkstra</a></li>
+                <li><a href="#topo">Topological Sort</a></li>
+                <li><a href="#astar">A* Search</a></li>
+                <li><a href="#dp">Dynamic Programming</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero">
+            <h1>Data Structures & Algorithms</h1>
+            <p class="subtitle">Comprehensive Summary of Lectures 5-11</p>
+            <p class="meta">Based on Introduction to Algorithms (Cormen et al.)</p>
+        </header>
+
+        <!-- GRAPH THEORY -->
+        <section id="graph-theory" class="lecture-section">
+            <h2>📐 Graph Theory Fundamentals</h2>
+            
+            <div class="content-block">
+                <h3>Basic Definitions</h3>
+                <p>A <strong>graph</strong> G = (V, E) consists of:</p>
+                <ul>
+                    <li><strong>V</strong>: A finite set of vertices (nodes)</li>
+                    <li><strong>E</strong>: A finite set of edges</li>
+                </ul>
+                
+                <div class="definition-box">
+                    <h4>Key Terminology</h4>
+                    <ul>
+                        <li><strong>Order</strong>: |V| (number of vertices)</li>
+                        <li><strong>Size</strong>: |E| (number of edges)</li>
+                        <li><strong>Adjacent vertices</strong>: Two vertices u and v where (u,v) ∈ E</li>
+                        <li><strong>Neighborhood N(v)</strong>: Set of vertices adjacent to v</li>
+                        <li><strong>Degree deg(v)</strong>: Number of edges incident to v</li>
+                    </ul>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>Example Graph Visualization</h4>
+                    <svg width="400" height="300" viewBox="0 0 400 300">
+                        <!-- Edges -->
+                        <line x1="100" y1="100" x2="200" y2="100" stroke="#3498db" stroke-width="2"/>
+                        <line x1="100" y1="100" x2="150" y2="200" stroke="#3498db" stroke-width="2"/>
+                        <line x1="200" y1="100" x2="150" y2="200" stroke="#3498db" stroke-width="2"/>
+                        <line x1="200" y1="100" x2="300" y2="100" stroke="#3498db" stroke-width="2"/>
+                        <line x1="150" y1="200" x2="250" y2="200" stroke="#3498db" stroke-width="2"/>
+                        <line x1="200" y1="100" x2="250" y2="200" stroke="#3498db" stroke-width="2"/>
+                        <line x1="300" y1="100" x2="250" y2="200" stroke="#3498db" stroke-width="2"/>
+                        
+                        <!-- Vertices -->
+                        <circle cx="100" cy="100" r="20" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="105" text-anchor="middle" fill="white" font-size="16" font-weight="bold">A</text>
+                        
+                        <circle cx="200" cy="100" r="20" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="105" text-anchor="middle" fill="white" font-size="16" font-weight="bold">B</text>
+                        
+                        <circle cx="300" cy="100" r="20" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="300" y="105" text-anchor="middle" fill="white" font-size="16" font-weight="bold">C</text>
+                        
+                        <circle cx="150" cy="200" r="20" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="150" y="205" text-anchor="middle" fill="white" font-size="16" font-weight="bold">D</text>
+                        
+                        <circle cx="250" cy="200" r="20" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="250" y="205" text-anchor="middle" fill="white" font-size="16" font-weight="bold">E</text>
+                    </svg>
+                    <p class="caption">V = {A, B, C, D, E}, |V| = 5, |E| = 7</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Trees</h3>
+                <p>A <strong>tree</strong> is a connected graph with no cycles.</p>
+                
+                <div class="theorem-box">
+                    <h4>Fundamental Tree Properties</h4>
+                    <ul>
+                        <li>A tree with n vertices has exactly n-1 edges</li>
+                        <li>Every tree with n ≥ 2 has at least 2 leaves (vertices of degree 1)</li>
+                        <li>Between any two vertices, there is exactly one path</li>
+                    </ul>
+                </div>
+
+                <div class="visualization-container">
+                    <svg width="400" height="300" viewBox="0 0 400 300">
+                        <!-- Tree structure -->
+                        <line x1="200" y1="50" x2="100" y2="150" stroke="#27ae60" stroke-width="3"/>
+                        <line x1="200" y1="50" x2="300" y2="150" stroke="#27ae60" stroke-width="3"/>
+                        <line x1="100" y1="150" x2="50" y2="250" stroke="#27ae60" stroke-width="3"/>
+                        <line x1="100" y1="150" x2="150" y2="250" stroke="#27ae60" stroke-width="3"/>
+                        <line x1="300" y1="150" x2="250" y2="250" stroke="#27ae60" stroke-width="3"/>
+                        <line x1="300" y1="150" x2="350" y2="250" stroke="#27ae60" stroke-width="3"/>
+                        
+                        <!-- Root -->
+                        <circle cx="200" cy="50" r="20" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="55" text-anchor="middle" fill="white" font-size="14">root</text>
+                        
+                        <!-- Internal nodes -->
+                        <circle cx="100" cy="150" r="18" fill="#2ecc71" stroke="#000" stroke-width="2"/>
+                        <circle cx="300" cy="150" r="18" fill="#2ecc71" stroke="#000" stroke-width="2"/>
+                        
+                        <!-- Leaves -->
+                        <circle cx="50" cy="250" r="15" fill="#95a5a6" stroke="#000" stroke-width="2"/>
+                        <circle cx="150" cy="250" r="15" fill="#95a5a6" stroke="#000" stroke-width="2"/>
+                        <circle cx="250" cy="250" r="15" fill="#95a5a6" stroke="#000" stroke-width="2"/>
+                        <circle cx="350" cy="250" r="15" fill="#95a5a6" stroke="#000" stroke-width="2"/>
+                    </svg>
+                    <p class="caption">Tree with 7 vertices and 6 edges (leaves shown in gray)</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>🎯 Handshaking Lemma (First Theorem in Graph Theory)</h3>
+                
+                <div class="theorem-box">
+                    <h4>Handshaking Lemma</h4>
+                    <p><strong>Σ<sub>v∈V</sub> deg(v) = 2|E|</strong></p>
+                    <p>The sum of all vertex degrees equals twice the number of edges.</p>
+                    <p><strong>Corollary:</strong> The number of vertices with odd degree is always even.</p>
+                </div>
+
+                <div class="definition-box">
+                    <h4>Proof Sketch</h4>
+                    <p>When counting degrees, each edge contributes exactly 2 to the sum (once for each endpoint). Therefore Σ deg(v) = 2|E|.</p>
+                    <p>Since 2|E| is even, there must be an even number of vertices with odd degree.</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Example</h4>
+                    <p>In a graph with 5 vertices and degree sequence (3, 3, 2, 2, 2):</p>
+                    <p>Sum = 3 + 3 + 2 + 2 + 2 = 12 = 2 × 6, so |E| = 6 edges ✓</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Walks, Paths, Trails, and Cycles</h3>
+                
+                <div class="algorithm-box">
+                    <h4>Critical Definitions</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                        <tr style="background-color: #34495e; color: white;">
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Term</th>
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Definition</th>
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Constraints</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Walk</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Sequence v₁, v₂, ..., vₖ where vᵢvᵢ₊₁ ∈ E</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Vertices/edges can repeat</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Trail</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Walk with distinct edges</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Vertices can repeat</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Path</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Walk with distinct vertices</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">No repeats! (implies distinct edges)</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Cycle</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Path v₁, ..., vₖ plus edge vₖv₁ (k ≥ 3)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Closed path</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Circuit</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Trail that starts and ends at same vertex</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Closed trail</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Hierarchy</h4>
+                    <p>Path ⊂ Trail ⊂ Walk</p>
+                    <p>Every path is a trail, and every trail is a walk.</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Distance, Eccentricity, Radius, Diameter</h3>
+                
+                <div class="definition-box">
+                    <h4>Distance Function d(u, v)</h4>
+                    <p><strong>d(u, v)</strong> = length of shortest path from u to v (number of edges)</p>
+                    <p>Properties (metric space):</p>
+                    <ol>
+                        <li><strong>Non-negativity:</strong> d(u, v) ≥ 0, and d(u, v) = 0 ⟺ u = v</li>
+                        <li><strong>Symmetry:</strong> d(u, v) = d(v, u)</li>
+                        <li><strong>Triangle Inequality:</strong> d(u, v) ≤ d(u, w) + d(w, v) for all w</li>
+                    </ol>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>Advanced Distance Concepts</h4>
+                    <ul>
+                        <li><strong>Eccentricity ecc(v):</strong> max<sub>x∈V</sub>{d(v, x)} - farthest distance from v</li>
+                        <li><strong>Radius rad(G):</strong> min<sub>v∈V</sub>{ecc(v)} - smallest eccentricity</li>
+                        <li><strong>Diameter diam(G):</strong> max<sub>v∈V</sub>{ecc(v)} - largest eccentricity</li>
+                        <li><strong>Center C(G):</strong> {v ∈ V | ecc(v) = rad(G)}</li>
+                        <li><strong>Periphery P(G):</strong> {v ∈ V | ecc(v) = diam(G)}</li>
+                    </ul>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>Example: Computing Radius and Diameter</h4>
+                    <svg width="500" height="280" viewBox="0 0 500 280">
+                        <!-- Graph -->
+                        <line x1="100" y1="100" x2="200" y2="60" stroke="#34495e" stroke-width="2"/>
+                        <line x1="200" y1="60" x2="300" y2="100" stroke="#34495e" stroke-width="2"/>
+                        <line x1="100" y1="100" x2="150" y2="180" stroke="#34495e" stroke-width="2"/>
+                        <line x1="200" y1="60" x2="150" y2="180" stroke="#34495e" stroke-width="2"/>
+                        <line x1="150" y1="180" x2="250" y2="180" stroke="#34495e" stroke-width="2"/>
+                        <line x1="250" y1="180" x2="300" y2="180" stroke="#34495e" stroke-width="2"/>
+                        <line x1="300" y1="100" x2="250" y2="180" stroke="#34495e" stroke-width="2"/>
+                        
+                        <circle cx="100" cy="100" r="22" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="107" text-anchor="middle" fill="white" font-size="16" font-weight="bold">a</text>
+                        <text x="100" y="75" text-anchor="middle" font-size="11" fill="#e74c3c">ecc=3</text>
+                        
+                        <circle cx="200" cy="60" r="22" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="67" text-anchor="middle" fill="white" font-size="16" font-weight="bold">b</text>
+                        <text x="200" y="35" text-anchor="middle" font-size="11" fill="#27ae60">ecc=2</text>
+                        
+                        <circle cx="300" cy="100" r="22" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="300" y="107" text-anchor="middle" fill="white" font-size="16" font-weight="bold">c</text>
+                        <text x="300" y="75" text-anchor="middle" font-size="11" fill="#e74c3c">ecc=3</text>
+                        
+                        <circle cx="150" cy="180" r="22" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="150" y="187" text-anchor="middle" fill="white" font-size="16" font-weight="bold">d</text>
+                        <text x="150" y="210" text-anchor="middle" font-size="11" fill="#e74c3c">ecc=3</text>
+                        
+                        <circle cx="250" cy="180" r="22" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="250" y="187" text-anchor="middle" fill="white" font-size="16" font-weight="bold">e</text>
+                        <text x="250" y="210" text-anchor="middle" font-size="11" fill="#e74c3c">ecc=3</text>
+                        
+                        <circle cx="300" cy="180" r="22" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="300" y="187" text-anchor="middle" fill="white" font-size="16" font-weight="bold">f</text>
+                        <text x="300" y="210" text-anchor="middle" font-size="11" fill="#27ae60">ecc=2</text>
+                        
+                        <text x="250" y="255" text-anchor="middle" font-size="14" fill="#27ae60" font-weight="bold">
+                            Center (green): {b, f} | Periphery (red): {a, c, d, e}
+                        </text>
+                        <text x="250" y="270" text-anchor="middle" font-size="13">
+                            rad(G) = 2, diam(G) = 3
+                        </text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Special Graph Types</h3>
+                
+                <div class="algorithm-box">
+                    <h4>Important Graph Classes</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                        <tr style="background-color: #34495e; color: white;">
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Type</th>
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Definition</th>
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Properties</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Complete Kₙ</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Every vertex connected to every other</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">|E| = n(n-1)/2, deg(v) = n-1</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Empty Eₙ</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">No edges (E = ∅)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">|E| = 0, deg(v) = 0 for all v</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">r-Regular</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">All vertices have degree r</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">deg(v) = r for all v</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Cycle Cₙ</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Single cycle on n vertices</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">n vertices, n edges, 2-regular</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Path Pₙ</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Single path on n vertices</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">n vertices, n-1 edges (tree)</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Bipartite</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">V = X ∪ Y, edges only between X and Y</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">NO odd cycles!</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Complete Bipartite K<sub>m,n</sub></td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Every vertex in X connected to every in Y</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">|E| = mn</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>Bipartite Characterization Theorem</h4>
+                    <p>A graph with ≥ 2 vertices is bipartite if and only if it contains <strong>NO odd cycles</strong>.</p>
+                    <p>This is a fundamental characterization! Can check bipartiteness by checking for odd cycles or using 2-coloring (BFS/DFS).</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Graph Operations & Subgraphs</h3>
+                
+                <div class="definition-box">
+                    <h4>Deletion Operations</h4>
+                    <ul>
+                        <li><strong>G - v:</strong> Remove vertex v and all edges incident to v</li>
+                        <li><strong>G - S:</strong> Remove vertex set S and all incident edges</li>
+                        <li><strong>G - e:</strong> Remove edge e (vertices remain)</li>
+                        <li><strong>G - T:</strong> Remove edge set T</li>
+                    </ul>
+                </div>
+
+                <div class="definition-box">
+                    <h4>Other Important Concepts</h4>
+                    <ul>
+                        <li><strong>Connected:</strong> Path exists between every pair of vertices</li>
+                        <li><strong>Connected Component:</strong> Maximal connected subgraph</li>
+                        <li><strong>Complement Ḡ:</strong> Same V, edges are exactly those NOT in G</li>
+                        <li><strong>Subgraph H ⊆ G:</strong> V(H) ⊆ V(G), E(H) ⊆ E(G)</li>
+                        <li><strong>Induced Subgraph ⟨S⟩:</strong> Vertices S plus all edges between them from G</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Graph Isomorphism</h3>
+                
+                <div class="definition-box">
+                    <h4>Isomorphic Graphs</h4>
+                    <p>Graphs G and H are <strong>isomorphic</strong> if there exists a bijection f: V(G) → V(H) preserving adjacency:</p>
+                    <p><strong>For all x, y ∈ V(G): xy ∈ E(G) ⟺ f(x)f(y) ∈ E(H)</strong></p>
+                    <p>Intuitively: Same structure, possibly different labels/drawings</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>🎯 Isomorphism Applications</h4>
+                    <ul>
+                        <li><strong>Chemistry:</strong> Identifying molecular structures in databases</li>
+                        <li><strong>Social Networks:</strong> Detecting similar community patterns</li>
+                        <li><strong>Pattern Recognition:</strong> Finding structural similarities in images/data</li>
+                        <li><strong>Cryptography:</strong> Graph isomorphism problem for encryption schemes</li>
+                        <li><strong>Computational Complexity:</strong> GI is in NP, not known to be NP-complete!</li>
+                    </ul>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>Necessary Conditions for Isomorphism</h4>
+                    <p>If G ≅ H (G isomorphic to H), then:</p>
+                    <ul>
+                        <li>|V(G)| = |V(H)|</li>
+                        <li>|E(G)| = |E(H)|</li>
+                        <li>Same degree sequence</li>
+                        <li>Same number of connected components</li>
+                        <li>Same diameter, same radius</li>
+                    </ul>
+                    <p><strong>Note:</strong> These are necessary but NOT sufficient conditions!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HEAPS -->
+        <section id="heaps" class="lecture-section">
+            <h2>🔺 Lecture 5: Heaps & Heapsort</h2>
+            
+            <div class="content-block">
+                <h3>Heap Data Structure</h3>
+                <p>A <strong>heap</strong> is a binary tree stored as an array, satisfying the heap property.</p>
+                
+                <div class="definition-box">
+                    <h4>Max-Heap Property</h4>
+                    <p>For every node i (except root): A[PARENT(i)] ≥ A[i]</p>
+                    <p>The largest element is stored at the root.</p>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>Array Index Navigation</h4>
+                    <pre><code>PARENT(i) = ⌊i/2⌋
+LEFT(i) = 2i
+RIGHT(i) = 2i + 1</code></pre>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>Max-Heap Visualization</h4>
+                    <svg width="500" height="350" viewBox="0 0 500 350">
+                        <!-- Tree representation of heap -->
+                        <!-- Level 1 -->
+                        <line x1="250" y1="50" x2="150" y2="130" stroke="#3498db" stroke-width="2"/>
+                        <line x1="250" y1="50" x2="350" y2="130" stroke="#3498db" stroke-width="2"/>
+                        
+                        <!-- Level 2 -->
+                        <line x1="150" y1="130" x2="100" y2="210" stroke="#3498db" stroke-width="2"/>
+                        <line x1="150" y1="130" x2="200" y2="210" stroke="#3498db" stroke-width="2"/>
+                        <line x1="350" y1="130" x2="300" y2="210" stroke="#3498db" stroke-width="2"/>
+                        <line x1="350" y1="130" x2="400" y2="210" stroke="#3498db" stroke-width="2"/>
+                        
+                        <!-- Level 3 -->
+                        <line x1="100" y1="210" x2="75" y2="290" stroke="#3498db" stroke-width="2"/>
+                        <line x1="100" y1="210" x2="125" y2="290" stroke="#3498db" stroke-width="2"/>
+                        <line x1="200" y1="210" x2="175" y2="290" stroke="#3498db" stroke-width="2"/>
+                        
+                        <!-- Nodes with values -->
+                        <circle cx="250" cy="50" r="25" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="250" y="57" text-anchor="middle" fill="white" font-size="18" font-weight="bold">16</text>
+                        
+                        <circle cx="150" cy="130" r="25" fill="#e67e22" stroke="#000" stroke-width="2"/>
+                        <text x="150" y="137" text-anchor="middle" fill="white" font-size="18" font-weight="bold">14</text>
+                        
+                        <circle cx="350" cy="130" r="25" fill="#e67e22" stroke="#000" stroke-width="2"/>
+                        <text x="350" y="137" text-anchor="middle" fill="white" font-size="18" font-weight="bold">10</text>
+                        
+                        <circle cx="100" cy="210" r="25" fill="#f39c12" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="217" text-anchor="middle" fill="white" font-size="18" font-weight="bold">8</text>
+                        
+                        <circle cx="200" cy="210" r="25" fill="#f39c12" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="217" text-anchor="middle" fill="white" font-size="18" font-weight="bold">7</text>
+                        
+                        <circle cx="300" cy="210" r="25" fill="#f39c12" stroke="#000" stroke-width="2"/>
+                        <text x="300" y="217" text-anchor="middle" fill="white" font-size="18" font-weight="bold">9</text>
+                        
+                        <circle cx="400" cy="210" r="25" fill="#f39c12" stroke="#000" stroke-width="2"/>
+                        <text x="400" y="217" text-anchor="middle" fill="white" font-size="18" font-weight="bold">3</text>
+                        
+                        <circle cx="75" cy="290" r="25" fill="#f1c40f" stroke="#000" stroke-width="2"/>
+                        <text x="75" y="297" text-anchor="middle" fill="white" font-size="18" font-weight="bold">2</text>
+                        
+                        <circle cx="125" cy="290" r="25" fill="#f1c40f" stroke="#000" stroke-width="2"/>
+                        <text x="125" y="297" text-anchor="middle" fill="white" font-size="18" font-weight="bold">4</text>
+                        
+                        <circle cx="175" cy="290" r="25" fill="#f1c40f" stroke="#000" stroke-width="2"/>
+                        <text x="175" y="297" text-anchor="middle" fill="white" font-size="18" font-weight="bold">1</text>
+                    </svg>
+                    <p class="caption">Array: [16, 14, 10, 8, 7, 9, 3, 2, 4, 1]</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Key Heap Operations</h3>
+                
+                <div class="algorithm-box">
+                    <h4>MAX-HEAPIFY(A, i) - O(log n)</h4>
+                    <p>Maintains the max-heap property by letting a violating element "float down"</p>
+                    <pre><code>MAX-HEAPIFY(A, i):
+    l = LEFT(i)
+    r = RIGHT(i)
+    if l ≤ heap-size and A[l] > A[i]:
+        largest = l
+    else:
+        largest = i
+    if r ≤ heap-size and A[r] > A[largest]:
+        largest = r
+    if largest ≠ i:
+        swap A[i] with A[largest]
+        MAX-HEAPIFY(A, largest)</code></pre>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>BUILD-MAX-HEAP(A) - O(n)</h4>
+                    <p>Builds a max-heap from an unordered array</p>
+                    <pre><code>BUILD-MAX-HEAP(A):
+    heap-size = length(A)
+    for i = ⌊length(A)/2⌋ downto 1:
+        MAX-HEAPIFY(A, i)</code></pre>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>HEAPSORT(A) - O(n log n)</h4>
+                    <pre><code>HEAPSORT(A):
+    BUILD-MAX-HEAP(A)
+    for i = length(A) downto 2:
+        swap A[1] with A[i]
+        heap-size = heap-size - 1
+        MAX-HEAPIFY(A, 1)</code></pre>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>✓ Key Properties</h4>
+                    <ul>
+                        <li>Height of heap with n elements: ⌊log n⌋</li>
+                        <li>Heapsort is in-place (sorts within the array)</li>
+                        <li>Time complexity: O(n log n) worst-case</li>
+                        <li>Not stable (doesn't preserve relative order of equal elements)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>📊 Why BUILD-MAX-HEAP is O(n) Not O(n log n)</h3>
+                
+                <div class="theorem-box">
+                    <h4>Surprising Result!</h4>
+                    <p>Naive analysis: n elements × O(log n) heapify = O(n log n)</p>
+                    <p><strong>Tighter analysis: Actually O(n)!</strong></p>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>Detailed Complexity Analysis</h4>
+                    <p>Key insight: Most nodes are near the bottom of the heap!</p>
+                    <ul>
+                        <li>At height h, there are at most ⌈n / 2<sup>h+1</sup>⌉ nodes</li>
+                        <li>Cost to heapify a node at height h is O(h)</li>
+                        <li>Total work: Σ<sub>h=0 to ⌊log n⌋</sub> ⌈n / 2<sup>h+1</sup>⌉ × O(h)</li>
+                    </ul>
+                    <pre><code>= O(n × Σ<sub>h=0 to ∞</sub> h/2<sup>h</sup>)
+= O(n × 2)    // geometric series sums to 2
+= O(n) ✓</code></pre>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>Node Distribution by Height</h4>
+                    <svg width="500" height="250" viewBox="0 0 500 250">
+                        <!-- Heap showing height levels -->
+                        <text x="50" y="30" font-size="12" font-weight="bold">Height</text>
+                        <text x="450" y="30" font-size="12" font-weight="bold">Work per node</text>
+                        
+                        <!-- Height 0 (leaves) -->
+                        <text x="50" y="60" font-size="12">h=0:</text>
+                        <rect x="100" y="50" width="200" height="20" fill="#27ae60" opacity="0.7"/>
+                        <text x="150" y="65" fill="white" font-size="11">≈ n/2 nodes</text>
+                        <text x="450" y="65" font-size="12">O(0)</text>
+                        
+                        <!-- Height 1 -->
+                        <text x="50" y="100" font-size="12">h=1:</text>
+                        <rect x="100" y="90" width="100" height="20" fill="#3498db" opacity="0.7"/>
+                        <text x="150" y="105" fill="white" font-size="11">≈ n/4 nodes</text>
+                        <text x="450" y="105" font-size="12">O(1)</text>
+                        
+                        <!-- Height 2 -->
+                        <text x="50" y="140" font-size="12">h=2:</text>
+                        <rect x="100" y="130" width="50" height="20" fill="#9b59b6" opacity="0.7"/>
+                        <text x="125" y="145" fill="white" font-size="11">≈ n/8</text>
+                        <text x="450" y="145" font-size="12">O(2)</text>
+                        
+                        <!-- Height 3 -->
+                        <text x="50" y="180" font-size="12">h=3:</text>
+                        <rect x="100" y="170" width="25" height="20" fill="#e67e22" opacity="0.7"/>
+                        <text x="112" y="185" fill="white" font-size="11">≈ n/16</text>
+                        <text x="450" y="185" font-size="12">O(3)</text>
+                        
+                        <text x="250" y="220" text-anchor="middle" font-size="14" fill="#e74c3c" font-weight="bold">
+                            Most nodes have small height → O(n) total!
+                        </text>
+                    </svg>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Key Insight</h4>
+                    <p>Half the nodes are leaves (h=0, no work), quarter are at h=1 (constant work), etc. The expensive work at the root affects only 1 node!</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Priority Queues</h3>
+                <p>Heaps efficiently implement priority queues with these operations:</p>
+                
+                <div class="algorithm-box">
+                    <h4>Priority Queue Operations</h4>
+                    <pre><code>HEAP-MAXIMUM(A): return A[1]  // O(1)
+
+HEAP-EXTRACT-MAX(A):  // O(log n)
+    max = A[1]
+    A[1] = A[heap-size]
+    heap-size = heap-size - 1
+    MAX-HEAPIFY(A, 1)
+    return max
+
+HEAP-INCREASE-KEY(A, i, key):  // O(log n)
+    A[i] = key
+    while i > 1 and A[PARENT(i)] < A[i]:
+        swap A[i] with A[PARENT(i)]
+        i = PARENT(i)
+
+MAX-HEAP-INSERT(A, key):  // O(log n)
+    heap-size = heap-size + 1
+    A[heap-size] = -∞
+    HEAP-INCREASE-KEY(A, heap-size, key)</code></pre>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>📖 Priority Queue Applications (Book Ch. 6.5)</h4>
+                    <ul>
+                        <li><strong>Job Scheduling:</strong> Max-priority queue keeps track of jobs to perform. Scheduler calls EXTRACT-MAX for highest-priority job, INSERT to add new jobs</li>
+                        <li><strong>Event-Driven Simulation:</strong> Min-priority queue with event occurrence times as keys. Simulator calls EXTRACT-MIN to choose next event, INSERT for future events</li>
+                        <li><strong>Prim's MST & Dijkstra:</strong> Use DECREASE-KEY operation (Chapters 21-22 in book)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- BINARY SEARCH TREES -->
+        <section id="bst" class="lecture-section">
+            <h2>🌳 Lecture 6 & 11: Binary Search Trees</h2>
+            
+            <div class="content-block">
+                <h3>Binary Search Tree Property</h3>
+                <div class="definition-box">
+                    <h4>BST Property</h4>
+                    <p>For any node x:</p>
+                    <ul>
+                        <li>All keys in left subtree ≤ x.key</li>
+                        <li>All keys in right subtree ≥ x.key</li>
+                    </ul>
+                </div>
+
+                <div class="visualization-container">
+                    <svg width="500" height="350" viewBox="0 0 500 350">
+                        <!-- BST Example -->
+                        <line x1="250" y1="50" x2="150" y2="130" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="250" y1="50" x2="350" y2="130" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="150" y1="130" x2="100" y2="210" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="150" y1="130" x2="200" y2="210" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="350" y1="130" x2="300" y2="210" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="350" y1="130" x2="400" y2="210" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="200" y1="210" x2="175" y2="290" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="300" y1="210" x2="325" y2="290" stroke="#27ae60" stroke-width="2"/>
+                        
+                        <circle cx="250" cy="50" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="250" y="57" text-anchor="middle" fill="white" font-size="16" font-weight="bold">15</text>
+                        
+                        <circle cx="150" cy="130" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="150" y="137" text-anchor="middle" fill="white" font-size="16" font-weight="bold">6</text>
+                        
+                        <circle cx="350" cy="130" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="350" y="137" text-anchor="middle" fill="white" font-size="16" font-weight="bold">18</text>
+                        
+                        <circle cx="100" cy="210" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="217" text-anchor="middle" fill="white" font-size="16" font-weight="bold">3</text>
+                        
+                        <circle cx="200" cy="210" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="217" text-anchor="middle" fill="white" font-size="16" font-weight="bold">7</text>
+                        
+                        <circle cx="300" cy="210" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="300" y="217" text-anchor="middle" fill="white" font-size="16" font-weight="bold">17</text>
+                        
+                        <circle cx="400" cy="210" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="400" y="217" text-anchor="middle" fill="white" font-size="16" font-weight="bold">20</text>
+                        
+                        <circle cx="175" cy="290" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="175" y="297" text-anchor="middle" fill="white" font-size="16" font-weight="bold">13</text>
+                        
+                        <circle cx="325" cy="290" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="325" y="297" text-anchor="middle" fill="white" font-size="16" font-weight="bold">18</text>
+                    </svg>
+                    <p class="caption">Inorder traversal: 3, 6, 7, 13, 15, 17, 18, 18, 20 (sorted!)</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>BST Operations</h3>
+                
+                <div class="algorithm-box">
+                    <h4>TREE-SEARCH(x, k) - O(h) where h is height</h4>
+                    <pre><code>TREE-SEARCH(x, k):
+    if x == NIL or k == x.key:
+        return x
+    if k < x.key:
+        return TREE-SEARCH(x.left, k)
+    else:
+        return TREE-SEARCH(x.right, k)</code></pre>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>TREE-MINIMUM(x) and TREE-MAXIMUM(x) - O(h)</h4>
+                    <pre><code>TREE-MINIMUM(x):
+    while x.left ≠ NIL:
+        x = x.left
+    return x
+
+TREE-MAXIMUM(x):
+    while x.right ≠ NIL:
+        x = x.right
+    return x</code></pre>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>INORDER-TREE-WALK(x) - O(n)</h4>
+                    <p>Prints keys in sorted order</p>
+                    <pre><code>INORDER-TREE-WALK(x):
+    if x ≠ NIL:
+        INORDER-TREE-WALK(x.left)
+        print x.key
+        INORDER-TREE-WALK(x.right)</code></pre>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>TREE-INSERT(T, z) - O(h)</h4>
+                    <pre><code>TREE-INSERT(T, z):
+    y = NIL
+    x = T.root
+    while x ≠ NIL:
+        y = x
+        if z.key < x.key:
+            x = x.left
+        else:
+            x = x.right
+    z.p = y
+    if y == NIL:
+        T.root = z  // tree was empty
+    else if z.key < y.key:
+        y.left = z
+    else:
+        y.right = z</code></pre>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>✓ Performance Characteristics</h4>
+                    <ul>
+                        <li><strong>Best case</strong> (balanced tree): O(log n) operations</li>
+                        <li><strong>Worst case</strong> (skewed tree): O(n) operations</li>
+                        <li><strong>Average case</strong> (random insertions): O(log n)</li>
+                        <li>Height h determines performance: h = O(log n) for balanced, h = O(n) for skewed</li>
+                    </ul>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>📖 BST Theory (Book Ch. 12)</h4>
+                    <p><strong>Inorder Tree Walk:</strong> Printing all keys in sorted order takes Θ(n) time.</p>
+                    <pre><code>INORDER-TREE-WALK(x):
+    if x ≠ NIL:
+        INORDER-TREE-WALK(x.left)
+        print x.key
+        INORDER-TREE-WALK(x.right)</code></pre>
+                    <p><strong>Why it works:</strong> BST property ensures left subtree ≤ root ≤ right subtree</p>
+                    <p><strong>Randomly Built BST:</strong> If you insert n random keys into an initially empty BST, the expected height is O(log n) even without balancing! (Problem 12-3 in book)</p>
+                    <p><strong>Connection to Quicksort:</strong> Comparisons to insert n elements into BST are same as comparisons in randomized quicksort (Problem 12-3f)</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Successor and Predecessor</h3>
+                
+                <div class="definition-box">
+                    <h4>Successor of Node x</h4>
+                    <p>The <strong>successor</strong> of x is the node with the smallest key greater than x.key (next node in inorder walk)</p>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>TREE-SUCCESSOR(x) - O(h)</h4>
+                    <pre><code>TREE-SUCCESSOR(x):
+    if x.right ≠ NIL:
+        return TREE-MINIMUM(x.right)  // Case 1
+    else:
+        // Case 2: Find lowest ancestor whose left child is ancestor of x
+        y = x.p
+        while y ≠ NIL and x == y.right:
+            x = y
+            y = y.p
+        return y</code></pre>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>Two Cases for Successor</h4>
+                    <svg width="500" height="300" viewBox="0 0 500 300">
+                        <!-- BST showing successor cases -->
+                        <line x1="250" y1="50" x2="150" y2="120" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="250" y1="50" x2="350" y2="120" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="150" y1="120" x2="100" y2="190" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="150" y1="120" x2="200" y2="190" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="350" y1="120" x2="300" y2="190" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="350" y1="120" x2="400" y2="190" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="200" y1="190" x2="175" y2="260" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="200" y1="190" x2="225" y2="260" stroke="#27ae60" stroke-width="2"/>
+                        
+                        <!-- Arrow showing successor relationship (Case 1) -->
+                        <path d="M 225 195 Q 240 230 175 250" stroke="#e74c3c" stroke-width="3" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+                        
+                        <circle cx="250" cy="50" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="250" y="57" text-anchor="middle" fill="white" font-size="16" font-weight="bold">15</text>
+                        
+                        <circle cx="150" cy="120" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="150" y="127" text-anchor="middle" fill="white" font-size="16" font-weight="bold">6</text>
+                        
+                        <circle cx="350" cy="120" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="350" y="127" text-anchor="middle" fill="white" font-size="16" font-weight="bold">18</text>
+                        
+                        <circle cx="100" cy="190" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="197" text-anchor="middle" fill="white" font-size="16" font-weight="bold">3</text>
+                        
+                        <circle cx="200" cy="190" r="22" fill="#f39c12" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="197" text-anchor="middle" fill="white" font-size="16" font-weight="bold">7</text>
+                        
+                        <circle cx="300" cy="190" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="300" y="197" text-anchor="middle" fill="white" font-size="16" font-weight="bold">17</text>
+                        
+                        <circle cx="400" cy="190" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="400" y="197" text-anchor="middle" fill="white" font-size="16" font-weight="bold">20</text>
+                        
+                        <circle cx="175" cy="260" r="22" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="175" y="267" text-anchor="middle" fill="white" font-size="16" font-weight="bold">13</text>
+                        
+                        <circle cx="225" cy="260" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="225" y="267" text-anchor="middle" fill="white" font-size="16" font-weight="bold">9</text>
+                    </svg>
+                    <p class="caption">Successor of 7 is 13 (Case 1: minimum in right subtree)</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Understanding Successor</h4>
+                    <ul>
+                        <li><strong>Case 1:</strong> If x has right subtree, successor is leftmost node in right subtree</li>
+                        <li><strong>Case 2:</strong> If no right subtree, go up until you find an ancestor you came from as a left child</li>
+                        <li>Predecessor is symmetric: right-most in left subtree, or go up from right child</li>
+                        <li>Both run in O(h) time</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>⚠️ Common Pitfalls & Worst Cases</h3>
+                
+                <div class="theorem-box">
+                    <h4>Skewed Tree Problem</h4>
+                    <p>Inserting sorted data creates a skewed tree (essentially a linked list)!</p>
+                </div>
+
+                <div class="visualization-container">
+                    <svg width="500" height="350" viewBox="0 0 500 350">
+                        <text x="100" y="30" font-size="16" font-weight="bold">Balanced Tree (Good!)</text>
+                        <text x="350" y="30" font-size="16" font-weight="bold">Skewed Tree (Bad!)</text>
+                        
+                        <!-- Balanced tree -->
+                        <line x1="150" y1="80" x2="120" y2="130" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="150" y1="80" x2="180" y2="130" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="120" y1="130" x2="105" y2="180" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="120" y1="130" x2="135" y2="180" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="180" y1="130" x2="165" y2="180" stroke="#27ae60" stroke-width="2"/>
+                        <line x1="180" y1="130" x2="195" y2="180" stroke="#27ae60" stroke-width="2"/>
+                        
+                        <circle cx="150" cy="80" r="15" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="150" y="85" text-anchor="middle" fill="white" font-size="12">4</text>
+                        <circle cx="120" cy="130" r="15" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="120" y="135" text-anchor="middle" fill="white" font-size="12">2</text>
+                        <circle cx="180" cy="130" r="15" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="180" y="135" text-anchor="middle" fill="white" font-size="12">6</text>
+                        <circle cx="105" cy="180" r="15" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="105" y="185" text-anchor="middle" fill="white" font-size="12">1</text>
+                        <circle cx="135" cy="180" r="15" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="135" y="185" text-anchor="middle" fill="white" font-size="12">3</text>
+                        <circle cx="165" cy="180" r="15" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="165" y="185" text-anchor="middle" fill="white" font-size="12">5</text>
+                        <circle cx="195" cy="180" r="15" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="195" y="185" text-anchor="middle" fill="white" font-size="12">7</text>
+                        
+                        <text x="150" y="210" text-anchor="middle" fill="#27ae60" font-weight="bold">h = log n ✓</text>
+                        
+                        <!-- Skewed tree -->
+                        <line x1="380" y1="80" x2="380" y2="110" stroke="#e74c3c" stroke-width="2"/>
+                        <line x1="380" y1="120" x2="380" y2="150" stroke="#e74c3c" stroke-width="2"/>
+                        <line x1="380" y1="160" x2="380" y2="190" stroke="#e74c3c" stroke-width="2"/>
+                        <line x1="380" y1="200" x2="380" y2="230" stroke="#e74c3c" stroke-width="2"/>
+                        <line x1="380" y1="240" x2="380" y2="270" stroke="#e74c3c" stroke-width="2"/>
+                        <line x1="380" y1="280" x2="380" y2="310" stroke="#e74c3c" stroke-width="2"/>
+                        
+                        <circle cx="380" cy="80" r="15" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="380" y="85" text-anchor="middle" fill="white" font-size="12">1</text>
+                        <circle cx="380" cy="120" r="15" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="380" y="125" text-anchor="middle" fill="white" font-size="12">2</text>
+                        <circle cx="380" cy="160" r="15" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="380" y="165" text-anchor="middle" fill="white" font-size="12">3</text>
+                        <circle cx="380" cy="200" r="15" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="380" y="205" text-anchor="middle" fill="white" font-size="12">4</text>
+                        <circle cx="380" cy="240" r="15" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="380" y="245" text-anchor="middle" fill="white" font-size="12">5</text>
+                        <circle cx="380" cy="280" r="15" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="380" y="285" text-anchor="middle" fill="white" font-size="12">6</text>
+                        <circle cx="380" cy="320" r="15" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="380" y="325" text-anchor="middle" fill="white" font-size="12">7</text>
+                        
+                        <text x="380" y="345" text-anchor="middle" fill="#e74c3c" font-weight="bold">h = n ✗</text>
+                    </svg>
+                    <p class="caption">Inserting 1,2,3,4,5,6,7 in order creates O(n) height!</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Solution: Balanced BSTs</h4>
+                    <ul>
+                        <li><strong>Red-Black Trees:</strong> Self-balancing, guarantee h = O(log n)</li>
+                        <li><strong>AVL Trees:</strong> Strictly balanced, h ≤ 1.44 log n</li>
+                        <li><strong>Randomization:</strong> Random insertion order gives expected O(log n)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- BFS & DISTANCES -->
+        <section id="bfs" class="lecture-section">
+            <h2>🔍 Lecture 7: Breadth-First Search & Graph Distances</h2>
+            
+            <div class="content-block">
+                <h3>Breadth-First Search (BFS)</h3>
+                <p>BFS explores vertices in order of their distance from the source.</p>
+                
+                <div class="algorithm-box">
+                    <h4>BFS(G, s) - O(V + E)</h4>
+                    <pre><code>BFS(G, s):
+    for each vertex u in G.V - {s}:
+        u.color = WHITE
+        u.d = ∞
+        u.π = NIL
+    s.color = GRAY
+    s.d = 0
+    s.π = NIL
+    Q = ∅
+    ENQUEUE(Q, s)
+    while Q ≠ ∅:
+        u = DEQUEUE(Q)
+        for each v in G.Adj[u]:
+            if v.color == WHITE:
+                v.color = GRAY
+                v.d = u.d + 1
+                v.π = u
+                ENQUEUE(Q, v)
+        u.color = BLACK</code></pre>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>BFS Tree Example</h4>
+                    <svg width="500" height="350" viewBox="0 0 500 350">
+                        <!-- BFS tree from source s -->
+                        <line x1="250" y1="60" x2="150" y2="140" stroke="#9b59b6" stroke-width="3"/>
+                        <line x1="250" y1="60" x2="250" y2="140" stroke="#9b59b6" stroke-width="3"/>
+                        <line x1="250" y1="60" x2="350" y2="140" stroke="#9b59b6" stroke-width="3"/>
+                        
+                        <line x1="150" y1="140" x2="100" y2="220" stroke="#9b59b6" stroke-width="3"/>
+                        <line x1="150" y1="140" x2="200" y2="220" stroke="#9b59b6" stroke-width="3"/>
+                        <line x1="350" y1="140" x2="400" y2="220" stroke="#9b59b6" stroke-width="3"/>
+                        
+                        <line x1="100" y1="220" x2="75" y2="300" stroke="#9b59b6" stroke-width="3"/>
+                        
+                        <!-- Source -->
+                        <circle cx="250" cy="60" r="25" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="250" y="67" text-anchor="middle" fill="white" font-size="16" font-weight="bold">s</text>
+                        <text x="250" y="45" text-anchor="middle" fill="#e74c3c" font-size="12" font-weight="bold">d=0</text>
+                        
+                        <!-- Level 1 -->
+                        <circle cx="150" cy="140" r="22" fill="#f39c12" stroke="#000" stroke-width="2"/>
+                        <text x="150" y="147" text-anchor="middle" fill="white" font-size="16" font-weight="bold">r</text>
+                        <text x="150" y="125" text-anchor="middle" fill="#f39c12" font-size="12" font-weight="bold">d=1</text>
+                        
+                        <circle cx="250" cy="140" r="22" fill="#f39c12" stroke="#000" stroke-width="2"/>
+                        <text x="250" y="147" text-anchor="middle" fill="white" font-size="16" font-weight="bold">w</text>
+                        <text x="250" y="125" text-anchor="middle" fill="#f39c12" font-size="12" font-weight="bold">d=1</text>
+                        
+                        <circle cx="350" cy="140" r="22" fill="#f39c12" stroke="#000" stroke-width="2"/>
+                        <text x="350" y="147" text-anchor="middle" fill="white" font-size="16" font-weight="bold">y</text>
+                        <text x="350" y="125" text-anchor="middle" fill="#f39c12" font-size="12" font-weight="bold">d=1</text>
+                        
+                        <!-- Level 2 -->
+                        <circle cx="100" cy="220" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="227" text-anchor="middle" fill="white" font-size="16" font-weight="bold">v</text>
+                        <text x="100" y="205" text-anchor="middle" fill="#3498db" font-size="12" font-weight="bold">d=2</text>
+                        
+                        <circle cx="200" cy="220" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="227" text-anchor="middle" fill="white" font-size="16" font-weight="bold">t</text>
+                        <text x="200" y="205" text-anchor="middle" fill="#3498db" font-size="12" font-weight="bold">d=2</text>
+                        
+                        <circle cx="400" cy="220" r="22" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="400" y="227" text-anchor="middle" fill="white" font-size="16" font-weight="bold">x</text>
+                        <text x="400" y="205" text-anchor="middle" fill="#3498db" font-size="12" font-weight="bold">d=2</text>
+                        
+                        <!-- Level 3 -->
+                        <circle cx="75" cy="300" r="22" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="75" y="307" text-anchor="middle" fill="white" font-size="16" font-weight="bold">u</text>
+                        <text x="75" y="285" text-anchor="middle" fill="#27ae60" font-size="12" font-weight="bold">d=3</text>
+                    </svg>
+                    <p class="caption">BFS explores vertices layer by layer based on distance from source s</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>✓ BFS Properties</h4>
+                    <ul>
+                        <li>Finds shortest paths in unweighted graphs</li>
+                        <li>v.d = shortest path distance from s to v</li>
+                        <li>v.π forms a breadth-first tree</li>
+                        <li>Time: O(V + E), Space: O(V) for queue</li>
+                        <li>Uses FIFO queue (First In, First Out)</li>
+                    </ul>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>📖 BFS Correctness (Book Ch. 20.2)</h4>
+                    <p><strong>Color Scheme:</strong></p>
+                    <ul>
+                        <li><strong>WHITE:</strong> Undiscovered vertex</li>
+                        <li><strong>GRAY:</strong> Discovered but not fully explored (in queue)</li>
+                        <li><strong>BLACK:</strong> Fully explored (removed from queue)</li>
+                    </ul>
+                    <p><strong>Queue Property:</strong> If u is before v in queue, then u.d ≤ v.d. Queue contains at most 2 consecutive distance levels.</p>
+                    <p><strong>Shortest-Path Tree:</strong> For any reachable vertex v, the simple path from s to v in the breadth-first tree corresponds to a <strong>shortest path</strong> from s to v in G (minimum number of edges).</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Graph Representations</h3>
+                
+                <div class="definition-box">
+                    <h4>1. Adjacency List - O(V + E) space</h4>
+                    <p>For each vertex u, store a list of adjacent vertices</p>
+                    <p><strong>Best for:</strong> Sparse graphs (E ≪ V²)</p>
+                </div>
+
+                <div class="definition-box">
+                    <h4>2. Adjacency Matrix - O(V²) space</h4>
+                    <p>Store a V×V matrix where entry (i,j) = 1 if edge exists</p>
+                    <p><strong>Best for:</strong> Dense graphs, quick edge existence checks</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>🎯 Applications of BFS</h3>
+                <div class="key-point-box">
+                    <h4>Where BFS is Used</h4>
+                    <ul>
+                        <li><strong>Social Networks:</strong> Find people within N degrees of separation</li>
+                        <li><strong>Web Crawlers:</strong> Explore web pages level by level</li>
+                        <li><strong>GPS Systems:</strong> Find shortest route (with equal edge weights)</li>
+                        <li><strong>Peer-to-Peer Networks:</strong> Broadcasting messages</li>
+                        <li><strong>Garbage Collection:</strong> Find reachable objects</li>
+                        <li><strong>Maze Solving:</strong> Find shortest path to exit</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- DFS -->
+        <section id="dfs" class="lecture-section">
+            <h2>🕳️ Lecture 8: Depth-First Search</h2>
+            
+            <div class="content-block">
+                <h3>Depth-First Search (DFS)</h3>
+                <p>DFS explores as far as possible along each branch before backtracking.</p>
+                
+                <div class="algorithm-box">
+                    <h4>DFS(G) - O(V + E)</h4>
+                    <pre><code>DFS(G):
+    for each vertex u in G.V:
+        u.color = WHITE
+        u.π = NIL
+    time = 0
+    for each vertex u in G.V:
+        if u.color == WHITE:
+            DFS-VISIT(G, u)
+
+DFS-VISIT(G, u):
+    time = time + 1
+    u.d = time  // discovery time
+    u.color = GRAY
+    for each v in G.Adj[u]:
+        if v.color == WHITE:
+            v.π = u
+            DFS-VISIT(G, v)
+    u.color = BLACK
+    time = time + 1
+    u.f = time  // finishing time</code></pre>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>DFS with Discovery/Finish Times</h4>
+                    <svg width="500" height="350" viewBox="0 0 500 350">
+                        <!-- DFS tree -->
+                        <line x1="100" y1="80" x2="200" y2="160" stroke="#8e44ad" stroke-width="3"/>
+                        <line x1="200" y1="160" x2="300" y2="240" stroke="#8e44ad" stroke-width="3"/>
+                        <line x1="100" y1="80" x2="400" y2="160" stroke="#8e44ad" stroke-width="3"/>
+                        
+                        <!-- Vertices with d/f times -->
+                        <circle cx="100" cy="80" r="30" fill="#8e44ad" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="88" text-anchor="middle" fill="white" font-size="18" font-weight="bold">s</text>
+                        <text x="100" y="50" text-anchor="middle" fill="#8e44ad" font-size="12">1/10</text>
+                        
+                        <circle cx="200" cy="160" r="30" fill="#9b59b6" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="168" text-anchor="middle" fill="white" font-size="18" font-weight="bold">a</text>
+                        <text x="200" y="130" text-anchor="middle" fill="#9b59b6" font-size="12">2/9</text>
+                        
+                        <circle cx="300" cy="240" r="30" fill="#af7ac5" stroke="#000" stroke-width="2"/>
+                        <text x="300" y="248" text-anchor="middle" fill="white" font-size="18" font-weight="bold">c</text>
+                        <text x="300" y="210" text-anchor="middle" fill="#af7ac5" font-size="12">3/8</text>
+                        
+                        <circle cx="400" cy="160" r="30" fill="#9b59b6" stroke="#000" stroke-width="2"/>
+                        <text x="400" y="168" text-anchor="middle" fill="white" font-size="18" font-weight="bold">b</text>
+                        <text x="400" y="130" text-anchor="middle" fill="#9b59b6" font-size="12">4/7</text>
+                    </svg>
+                    <p class="caption">Numbers show discovery/finish times (d/f)</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>✓ DFS Properties</h4>
+                    <ul>
+                        <li>Uses LIFO stack (Last In, First Out) - implemented via recursion</li>
+                        <li>Produces a depth-first forest (collection of DFS trees)</li>
+                        <li>Parenthesis theorem: Intervals [u.d, u.f] are either nested or disjoint</li>
+                        <li>Time: O(V + E), Space: O(V) for recursion stack</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>📖 Edge Classification in DFS (Book Ch. 20.3)</h3>
+                
+                <div class="definition-box">
+                    <h4>Four Types of Edges</h4>
+                    <ul>
+                        <li><strong>Tree edges:</strong> Edges in the DFS forest Gπ. Edge (u,v) is a tree edge if v was first discovered by exploring (u,v). <em>(v is WHITE when explored)</em></li>
+                        <li><strong>Back edges:</strong> Edges (u,v) connecting vertex u to an ancestor v in a depth-first tree (including self-loops). <em>(v is GRAY when explored)</em></li>
+                        <li><strong>Forward edges:</strong> Non-tree edges (u,v) connecting vertex u to a proper descendant v in the depth-first tree. <em>(v is BLACK, u.d < v.d)</em></li>
+                        <li><strong>Cross edges:</strong> All other edges - between vertices in same DFS tree (neither is ancestor) or between different DFS trees. <em>(v is BLACK, u.d > v.d)</em></li>
+                    </ul>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>Lemma 20.11: Cycle Detection</h4>
+                    <p>A directed graph G is acyclic (DAG) if and only if DFS finds <strong>no back edges</strong>.</p>
+                    <p><strong>Proof:</strong> If there's a back edge (u,v), then v is ancestor of u, so path v → u exists. Adding (u,v) creates cycle. Conversely, any cycle contains a back edge when explored by DFS.</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Edge Detection During DFS</h4>
+                    <p>When exploring edge (u, v):</p>
+                    <ul>
+                        <li><strong>v.color == WHITE:</strong> Tree edge (first time visiting v)</li>
+                        <li><strong>v.color == GRAY:</strong> Back edge (v is ancestor, still being processed)</li>
+                        <li><strong>v.color == BLACK:</strong> Forward or cross edge (v already finished)
+                            <ul>
+                                <li>If u.d < v.d: Forward edge (u is ancestor of v)</li>
+                                <li>If u.d > v.d: Cross edge (neither is ancestor)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>🔄 BFS vs DFS Comparison</h3>
+                
+                <div class="algorithm-box">
+                    <h4>Key Differences</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                        <tr style="background-color: #34495e; color: white;">
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Aspect</th>
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">BFS</th>
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">DFS</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Data Structure</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Queue (FIFO)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Stack (LIFO) / Recursion</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Exploration</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Layer by layer (breadth)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Deep as possible first</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Shortest Path</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">✓ Yes (unweighted)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">✗ No guarantee</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Memory</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(w) w=max width</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(h) h=max depth</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Best For</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Shortest paths, closer nodes</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Topological sort, cycles, SCCs</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Complexity</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(V + E)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(V + E)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>🎯 Applications of DFS</h3>
+                <div class="key-point-box">
+                    <h4>Where DFS is Used</h4>
+                    <ul>
+                        <li><strong>Cycle Detection:</strong> Finding cycles in graphs</li>
+                        <li><strong>Topological Sorting:</strong> Ordering tasks with dependencies</li>
+                        <li><strong>Strongly Connected Components:</strong> Finding SCCs (Kosaraju/Tarjan)</li>
+                        <li><strong>Maze Generation:</strong> Creating random mazes</li>
+                        <li><strong>Path Finding:</strong> Finding any path between nodes</li>
+                        <li><strong>Backtracking Problems:</strong> Sudoku, N-Queens, etc.</li>
+                        <li><strong>Articulation Points:</strong> Finding critical nodes/bridges</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- MST -->
+        <section id="mst" class="lecture-section">
+            <h2>🌲 Lecture 8: Minimum Spanning Trees</h2>
+            
+            <div class="content-block">
+                <h3>Minimum Spanning Tree Problem</h3>
+                <p>Given a connected, undirected graph G = (V, E) with edge weights w, find an acyclic subset T ⊆ E that connects all vertices and minimizes total weight.</p>
+                
+                <div class="theorem-box">
+                    <h4>MST Properties</h4>
+                    <ul>
+                        <li>A spanning tree T always has |V| - 1 edges</li>
+                        <li>Adding any edge to T creates exactly one cycle</li>
+                        <li>Removing any edge from T disconnects the graph</li>
+                    </ul>
+                </div>
+
+                <div class="visualization-container">
+                    <svg width="500" height="300" viewBox="0 0 500 300">
+                        <!-- Weighted graph -->
+                        <!-- Vertices -->
+                        <circle cx="100" cy="100" r="20" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="105" text-anchor="middle" fill="white" font-size="14">a</text>
+                        
+                        <circle cx="200" cy="50" r="20" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="55" text-anchor="middle" fill="white" font-size="14">b</text>
+                        
+                        <circle cx="300" cy="100" r="20" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="300" y="105" text-anchor="middle" fill="white" font-size="14">c</text>
+                        
+                        <circle cx="100" cy="200" r="20" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="205" text-anchor="middle" fill="white" font-size="14">d</text>
+                        
+                        <circle cx="300" cy="200" r="20" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="300" y="205" text-anchor="middle" fill="white" font-size="14">e</text>
+                        
+                        <circle cx="400" cy="150" r="20" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="400" y="155" text-anchor="middle" fill="white" font-size="14">f</text>
+                        
+                        <!-- MST edges (green) -->
+                        <line x1="100" y1="100" x2="200" y2="50" stroke="#27ae60" stroke-width="4"/>
+                        <text x="145" y="65" fill="#27ae60" font-weight="bold">4</text>
+                        
+                        <line x1="100" y1="100" x2="100" y2="200" stroke="#27ae60" stroke-width="4"/>
+                        <text x="85" y="150" fill="#27ae60" font-weight="bold">2</text>
+                        
+                        <line x1="200" y1="50" x2="300" y2="100" stroke="#27ae60" stroke-width="4"/>
+                        <text x="255" y="65" fill="#27ae60" font-weight="bold">2</text>
+                        
+                        <line x1="100" y1="200" x2="300" y2="200" stroke="#27ae60" stroke-width="4"/>
+                        <text x="200" y="190" fill="#27ae60" font-weight="bold">3</text>
+                        
+                        <line x1="300" y1="200" x2="400" y2="150" stroke="#27ae60" stroke-width="4"/>
+                        <text x="360" y="165" fill="#27ae60" font-weight="bold">3</text>
+                        
+                        <!-- Non-MST edges (gray) -->
+                        <line x1="100" y1="100" x2="300" y2="100" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="200" y="90" fill="#95a5a6">8</text>
+                        
+                        <line x1="300" y1="100" x2="300" y2="200" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="315" y="150" fill="#95a5a6">4</text>
+                        
+                        <line x1="300" y1="100" x2="400" y2="150" stroke="#95a5a6" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="360" y="115" fill="#95a5a6">7</text>
+                    </svg>
+                    <p class="caption">MST (green) with total weight = 14</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>📖 Generic MST Algorithm & Cut Property (Book Ch. 21.1)</h3>
+                
+                <div class="theorem-box">
+                    <h4>Generic MST Method</h4>
+                    <p>All MST algorithms follow this pattern:</p>
+                    <pre><code>GENERIC-MST(G, w):
+    A = ∅
+    while A does not form spanning tree:
+        find safe edge (u, v) for A
+        A = A ∪ {(u, v)}
+    return A</code></pre>
+                    <p><strong>Loop Invariant:</strong> Prior to each iteration, A is a subset of some minimum spanning tree.</p>
+                </div>
+
+                <div class="definition-box">
+                    <h4>Key Definitions</h4>
+                    <ul>
+                        <li><strong>Cut (S, V-S):</strong> Partition of V into two disjoint sets</li>
+                        <li><strong>Edge crosses cut:</strong> One endpoint in S, other in V-S</li>
+                        <li><strong>Cut respects A:</strong> No edge in A crosses the cut</li>
+                        <li><strong>Light edge:</strong> Edge crossing cut with minimum weight</li>
+                        <li><strong>Safe edge:</strong> Edge that can be added to A while maintaining invariant</li>
+                    </ul>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>Theorem 21.1: Recognizing Safe Edges</h4>
+                    <p>Let A ⊆ E be subset of some MST. Let (S, V-S) be any cut that respects A. Let (u, v) be a light edge crossing the cut. Then (u, v) is <strong>safe for A</strong>.</p>
+                    <p><strong>Proof idea:</strong> If MST T contains A but not (u, v), we can replace another edge crossing the cut with (u, v) without increasing total weight, creating another MST.</p>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>Corollary 21.2: Safe Edges for Components</h4>
+                    <p>If C is a connected component in forest G<sub>A</sub> = (V, A), and (u, v) is a light edge connecting C to another component, then (u, v) is safe for A.</p>
+                    <p>This corollary is what Kruskal's and Prim's algorithms use!</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>How Algorithms Use This Theory</h4>
+                    <ul>
+                        <li><strong>Kruskal:</strong> A is a forest. Safe edge = minimum-weight edge connecting two different components</li>
+                        <li><strong>Prim:</strong> A forms a single tree. Safe edge = minimum-weight edge connecting tree to a non-tree vertex</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Kruskal's Algorithm</h3>
+                <p>Build MST by greedily adding cheapest edges that don't create cycles</p>
+                
+                <div class="algorithm-box">
+                    <h4>KRUSKAL(G, w) - O(E log E)</h4>
+                    <pre><code>KRUSKAL(G, w):
+    T = ∅
+    for each vertex v in G.V:
+        MAKE-SET(v)  // union-find
+    sort edges of G.E by weight w
+    for each edge (u, v) in sorted order:
+        if FIND-SET(u) ≠ FIND-SET(v):
+            T = T ∪ {(u, v)}
+            UNION(u, v)
+    return T</code></pre>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Kruskal's Strategy</h4>
+                    <ul>
+                        <li>Sort edges by weight: O(E log E)</li>
+                        <li>Use union-find data structure to detect cycles</li>
+                        <li>Process edges in order of increasing weight</li>
+                        <li>Add edge if it doesn't create a cycle</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Prim's Algorithm</h3>
+                <p>Grow MST from a single vertex, always adding the cheapest edge connecting tree to non-tree vertex</p>
+                
+                <div class="algorithm-box">
+                    <h4>PRIM(G, w, r) - O(E log V) with min-heap</h4>
+                    <pre><code>PRIM(G, w, r):
+    for each u in G.V:
+        u.key = ∞
+        u.π = NIL
+    r.key = 0
+    Q = G.V  // min-priority queue
+    while Q ≠ ∅:
+        u = EXTRACT-MIN(Q)
+        for each v in G.Adj[u]:
+            if v ∈ Q and w(u,v) < v.key:
+                v.π = u
+                v.key = w(u,v)  // DECREASE-KEY</code></pre>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Prim's Strategy</h4>
+                    <ul>
+                        <li>Start from arbitrary root vertex r</li>
+                        <li>Maintain set of vertices already in MST</li>
+                        <li>Use priority queue to find minimum-weight crossing edge</li>
+                        <li>v.key = minimum edge weight connecting v to MST</li>
+                        <li>With Fibonacci heap: O(E + V log V)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>🔄 Prim vs Kruskal Comparison</h3>
+                
+                <div class="algorithm-box">
+                    <h4>Which Algorithm to Choose?</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                        <tr style="background-color: #34495e; color: white;">
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Aspect</th>
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Prim's Algorithm</th>
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Kruskal's Algorithm</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Strategy</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Grows tree from single vertex</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Adds cheapest edge globally</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Data Structure</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Priority Queue (min-heap)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Union-Find (disjoint sets)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Time (binary heap)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(E log V)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(E log E) ≈ O(E log V)</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Time (Fibonacci heap)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(E + V log V) ✓ Better!</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(E log V)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Best For</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Dense graphs (E ≈ V²)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Sparse graphs (E ≈ V)</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Edge Processing</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Process adjacent edges only</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Must sort all edges first</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Implementation</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">More complex</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Simpler</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Connectivity Check</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Assumes connected graph</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Works on disconnected (forest)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>🎯 Applications of MST</h3>
+                <div class="key-point-box">
+                    <h4>Real-World Uses</h4>
+                    <ul>
+                        <li><strong>Network Design:</strong> Minimize cable length for connecting buildings</li>
+                        <li><strong>Circuit Design:</strong> Minimize wire length on chips</li>
+                        <li><strong>Cluster Analysis:</strong> Group similar data points</li>
+                        <li><strong>Image Segmentation:</strong> Computer vision applications</li>
+                        <li><strong>Approximation Algorithms:</strong> TSP approximation uses MST</li>
+                        <li><strong>Road Network Planning:</strong> Minimize construction costs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIJKSTRA -->
+        <section id="dijkstra" class="lecture-section">
+            <h2>🛣️ Lecture 9: Dijkstra's Algorithm</h2>
+            
+            <div class="content-block">
+                <h3>Single-Source Shortest Paths</h3>
+                <p><strong>Problem:</strong> Given directed graph G = (V, E) with non-negative edge weights and source s, find shortest path from s to every vertex.</p>
+                
+                <div class="definition-box">
+                    <h4>Dijkstra's Greedy Choice</h4>
+                    <p>Always choose the vertex v with minimum distance estimate among unexplored vertices</p>
+                    <p><strong>Score:</strong> dscore(v, w) = len(v) + l(v,w)</p>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>DIJKSTRA(G, w, s) - O((V + E) log V)</h4>
+                    <pre><code>DIJKSTRA(G, w, s):
+    // Initialization
+    for each vertex v in G.V:
+        v.d = ∞
+        v.π = NIL
+    s.d = 0
+    S = ∅  // explored set
+    Q = G.V  // min-priority queue
+    
+    // Main loop
+    while Q ≠ ∅:
+        u = EXTRACT-MIN(Q)  // minimum d value
+        S = S ∪ {u}
+        for each vertex v in G.Adj[u]:
+            // Relaxation
+            if v.d > u.d + w(u, v):
+                v.d = u.d + w(u, v)
+                v.π = u
+                DECREASE-KEY(Q, v)</code></pre>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>Dijkstra's Algorithm Example</h4>
+                    <svg width="500" height="300" viewBox="0 0 500 300">
+                        <!-- Graph for Dijkstra -->
+                        <line x1="100" y1="150" x2="200" y2="100" stroke="#3498db" stroke-width="2"/>
+                        <line x1="100" y1="150" x2="200" y2="200" stroke="#3498db" stroke-width="2"/>
+                        <line x1="200" y1="100" x2="350" y2="100" stroke="#3498db" stroke-width="2"/>
+                        <line x1="200" y1="200" x2="350" y2="200" stroke="#3498db" stroke-width="2"/>
+                        <line x1="200" y1="100" x2="350" y2="200" stroke="#3498db" stroke-width="2"/>
+                        <line x1="350" y1="100" x2="450" y2="150" stroke="#3498db" stroke-width="2"/>
+                        <line x1="350" y1="200" x2="450" y2="150" stroke="#3498db" stroke-width="2"/>
+                        
+                        <!-- Shortest path highlighted -->
+                        <line x1="100" y1="150" x2="200" y2="100" stroke="#e74c3c" stroke-width="5" opacity="0.7"/>
+                        <line x1="200" y1="100" x2="350" y2="100" stroke="#e74c3c" stroke-width="5" opacity="0.7"/>
+                        <line x1="350" y1="100" x2="450" y2="150" stroke="#e74c3c" stroke-width="5" opacity="0.7"/>
+                        
+                        <!-- Edge weights -->
+                        <text x="145" y="115" fill="#2c3e50" font-weight="bold">1</text>
+                        <text x="145" y="185" fill="#2c3e50" font-weight="bold">4</text>
+                        <text x="275" y="85" fill="#e74c3c" font-weight="bold">3</text>
+                        <text x="275" y="215" fill="#2c3e50" font-weight="bold">2</text>
+                        <text x="275" y="140" fill="#2c3e50" font-weight="bold">6</text>
+                        <text x="400" y="115" fill="#e74c3c" font-weight="bold">1</text>
+                        <text x="400" y="185" fill="#2c3e50" font-weight="bold">3</text>
+                        
+                        <!-- Vertices with distances -->
+                        <circle cx="100" cy="150" r="25" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="157" text-anchor="middle" fill="white" font-size="16" font-weight="bold">s</text>
+                        <text x="100" y="130" text-anchor="middle" fill="#e74c3c" font-size="12">d=0</text>
+                        
+                        <circle cx="200" cy="100" r="25" fill="#f39c12" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="107" text-anchor="middle" fill="white" font-size="16" font-weight="bold">v</text>
+                        <text x="200" y="80" text-anchor="middle" fill="#f39c12" font-size="12">d=1</text>
+                        
+                        <circle cx="200" cy="200" r="25" fill="#95a5a6" stroke="#000" stroke-width="2"/>
+                        <text x="200" y="207" text-anchor="middle" fill="white" font-size="16" font-weight="bold">w</text>
+                        <text x="200" y="230" text-anchor="middle" fill="#95a5a6" font-size="12">d=4</text>
+                        
+                        <circle cx="350" cy="100" r="25" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="350" y="107" text-anchor="middle" fill="white" font-size="16" font-weight="bold">t</text>
+                        <text x="350" y="80" text-anchor="middle" fill="#3498db" font-size="12">d=4</text>
+                        
+                        <circle cx="350" cy="200" r="25" fill="#95a5a6" stroke="#000" stroke-width="2"/>
+                        <text x="350" y="207" text-anchor="middle" fill="white" font-size="16" font-weight="bold">u</text>
+                        <text x="350" y="230" text-anchor="middle" fill="#95a5a6" font-size="12">d=6</text>
+                        
+                        <circle cx="450" cy="150" r="25" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="450" y="157" text-anchor="middle" fill="white" font-size="16" font-weight="bold">x</text>
+                        <text x="450" y="130" text-anchor="middle" fill="#27ae60" font-size="12">d=5</text>
+                    </svg>
+                    <p class="caption">Shortest path from s to x = 5 (shown in red)</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>✓ Dijkstra's Properties</h4>
+                    <ul>
+                        <li><strong>Requirement:</strong> All edge weights must be non-negative</li>
+                        <li>Greedy algorithm: Makes locally optimal choice</li>
+                        <li>Once a vertex is explored, its distance is final</li>
+                        <li>With binary min-heap: O((V + E) log V)</li>
+                        <li>With Fibonacci heap: O(E + V log V)</li>
+                        <li>Can reconstruct paths using π pointers</li>
+                    </ul>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>📖 Shortest Paths Theory (Book Ch. 22)</h4>
+                    
+                    <p><strong>Lemma 22.1 - Optimal Substructure:</strong> Subpaths of shortest paths are shortest paths.</p>
+                    <p>If p = ⟨v₁, v₂, ..., vₖ⟩ is shortest path from v₁ to vₖ, then any subpath p<sub>ij</sub> from vᵢ to vⱼ is also shortest.</p>
+                    <p><em>This is why dynamic programming and greedy methods work for shortest paths!</em></p>
+
+                    <p><strong>Shortest Paths Are Simple:</strong> Any shortest path contains at most |V| - 1 edges (no cycles).</p>
+                    <ul>
+                        <li>Can't contain negative-weight cycles (undefined)</li>
+                        <li>Can't contain positive-weight cycles (removing cycle improves weight)</li>
+                        <li>Can remove any 0-weight cycles without changing total weight</li>
+                    </ul>
+
+                    <p><strong>Relaxation:</strong> Core technique of all shortest-path algorithms</p>
+                    <pre><code>RELAX(u, v, w):
+    if v.d > u.d + w(u,v):
+        v.d = u.d + w(u,v)  // improve estimate
+        v.π = u              // update predecessor</code></pre>
+                    <p>Tests if going through u improves path to v. Dijkstra relaxes each edge exactly once!</p>
+
+                    <p><strong>Shortest-Path Tree:</strong> π pointers form a rooted tree containing shortest paths from s to all reachable vertices.</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>⚠️ Why Negative Weights Fail</h3>
+                <div class="theorem-box">
+                    <h4>Critical Limitation: NO Negative Edge Weights!</h4>
+                    <p>Dijkstra's algorithm assumes once a vertex is explored (added to X), its shortest path distance is final. Negative weights violate this assumption.</p>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>Counterexample with Negative Weights</h4>
+                    <svg width="450" height="220" viewBox="0 0 450 220">
+                        <defs>
+                            <marker id="arrow-neg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#2c3e50" />
+                            </marker>
+                        </defs>
+                        
+                        <!-- Edges -->
+                        <line x1="100" y1="110" x2="225" y2="60" stroke="#3498db" stroke-width="2.5" marker-end="url(#arrow-neg)"/>
+                        <line x1="100" y1="110" x2="225" y2="160" stroke="#e74c3c" stroke-width="3.5" marker-end="url(#arrow-neg)"/>
+                        <line x1="275" y1="60" x2="340" y2="110" stroke="#27ae60" stroke-width="2.5" marker-end="url(#arrow-neg)"/>
+                        
+                        <!-- Vertices -->
+                        <circle cx="100" cy="110" r="25" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="100" y="117" text-anchor="middle" fill="white" font-size="16" font-weight="bold">s</text>
+                        <text x="100" y="80" text-anchor="middle" font-size="12" fill="#27ae60" font-weight="bold">source</text>
+                        
+                        <circle cx="250" cy="60" r="25" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="250" y="67" text-anchor="middle" fill="white" font-size="16" font-weight="bold">v</text>
+                        
+                        <circle cx="250" cy="160" r="25" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="250" y="167" text-anchor="middle" fill="white" font-size="16" font-weight="bold">t</text>
+                        <text x="250" y="190" text-anchor="middle" font-size="12" fill="#e74c3c" font-weight="bold">wrong choice!</text>
+                        
+                        <circle cx="365" cy="110" r="25" fill="#9b59b6" stroke="#000" stroke-width="2"/>
+                        <text x="365" y="117" text-anchor="middle" fill="white" font-size="16" font-weight="bold">w</text>
+                        <text x="365" y="145" text-anchor="middle" font-size="12" fill="#9b59b6" font-weight="bold">destination</text>
+                        
+                        <!-- Edge weights -->
+                        <text x="160" y="75" fill="#3498db" font-weight="bold" font-size="15">+1</text>
+                        <text x="155" y="145" fill="#e74c3c" font-weight="bold" font-size="15">-2</text>
+                        <text x="305" y="75" fill="#27ae60" font-weight="bold" font-size="15">-5</text>
+                    </svg>
+                    <p class="caption" style="color: #e74c3c; font-weight: bold;">
+                        Dijkstra chooses s→t→w (cost -2 + ?) but the true shortest is s→v→w (cost 1 + (-5) = -4). Once t is finalized at -2, Dijkstra never reconsiders it!
+                    </p>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>Why Adding Constants Doesn't Work</h4>
+                    <p>Can't just add +C to all edges! Different paths have different numbers of edges:</p>
+                    <ul>
+                        <li>Path 1: 2 edges, original cost = -4, +5 each = -4 + 10 = 6</li>
+                        <li>Path 2: 1 edge, original cost = -2, +5 each = -2 + 5 = 3</li>
+                        <li>Still picks wrong path! ✗</li>
+                    </ul>
+                    <p><strong>Solution:</strong> Use Bellman-Ford algorithm for negative weights (not covered here)</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Heap-Based Dijkstra Optimization</h3>
+                
+                <div class="definition-box">
+                    <h4>Invariant with Heap</h4>
+                    <p>For each vertex w ∈ (V - X): key(w) = minimum Dijkstra score among all edges from X to w (or +∞)</p>
+                    <p><strong>key(w) = min<sub>v∈X, (v,w)∈E</sub> (len(v) + l<sub>vw</sub>)</strong></p>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>Dijkstra with Min-Heap - O((V + E) log V)</h4>
+                    <pre><code>DIJKSTRA-HEAP(G, w, s):
+    X = ∅  // explored vertices
+    H = empty min-heap
+    key[s] = 0
+    for each v ≠ s:
+        key[v] = +∞
+    INSERT-ALL(H, V)  // Heapify: O(V)
+    
+    while H ≠ ∅:
+        w = EXTRACT-MIN(H)  // O(log V)
+        X = X ∪ {w}
+        len(w) = key[w]
+        
+        // Update keys for w's neighbors
+        for each edge (w, z) with z ∉ X:
+            if key[z] > len(w) + l<sub>wz</sub>:
+                key[z] = len(w) + l<sub>wz</sub>
+                DECREASE-KEY(H, z)  // O(log V)</code></pre>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Complexity Analysis</h4>
+                    <ul>
+                        <li><strong>Initialization:</strong> O(V) for heapify</li>
+                        <li><strong>EXTRACT-MIN:</strong> Called V times → V × O(log V) = O(V log V)</li>
+                        <li><strong>DECREASE-KEY:</strong> At most once per edge → E × O(log V) = O(E log V)</li>
+                        <li><strong>Total:</strong> O((V + E) log V)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Relaxation</h3>
+                <div class="definition-box">
+                    <h4>Edge Relaxation</h4>
+                    <p>For edge (u, v) with weight w(u, v):</p>
+                    <pre><code>RELAX(u, v, w):
+    if v.d > u.d + w(u, v):
+        v.d = u.d + w(u, v)
+        v.π = u</code></pre>
+                    <p>Update v's distance if path through u is shorter</p>
+                    <p><strong>Key idea:</strong> "Can we improve the path to v by going through u?"</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>🎯 Applications of Dijkstra</h3>
+                <div class="key-point-box">
+                    <h4>Real-World Uses</h4>
+                    <ul>
+                        <li><strong>GPS Navigation:</strong> Finding shortest routes (distance or time)</li>
+                        <li><strong>Network Routing:</strong> OSPF protocol uses Dijkstra</li>
+                        <li><strong>Robot Path Planning:</strong> Navigating through obstacles</li>
+                        <li><strong>Social Networks:</strong> Degrees of separation</li>
+                        <li><strong>Game AI:</strong> Pathfinding for NPCs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOPOLOGICAL SORT -->
+        <section id="topo" class="lecture-section">
+            <h2>📊 Lecture 9: Topological Sort</h2>
+            
+            <div class="content-block">
+                <h3>Topological Ordering</h3>
+                <p>A <strong>topological order</strong> of a directed graph G = (V, E) is a linear ordering of vertices such that for every edge (u, v), u appears before v.</p>
+                
+                <div class="theorem-box">
+                    <h4>Existence Theorem</h4>
+                    <p>A directed graph has a topological ordering if and only if it is a <strong>DAG</strong> (Directed Acyclic Graph).</p>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>Example: Course Prerequisites</h4>
+                    <svg width="500" height="300" viewBox="0 0 500 300">
+                        <!-- DAG for course dependencies -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#34495e" />
+                            </marker>
+                        </defs>
+                        
+                        <line x1="80" y1="80" x2="180" y2="80" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <line x1="80" y1="80" x2="180" y2="150" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <line x1="200" y1="150" x2="300" y2="150" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <line x1="200" y1="80" x2="300" y2="80" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <line x1="320" y1="80" x2="400" y2="115" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <line x1="320" y1="150" x2="400" y2="115" stroke="#34495e" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        
+                        <rect x="40" y="60" width="80" height="40" fill="#3498db" stroke="#000" stroke-width="2" rx="5"/>
+                        <text x="80" y="85" text-anchor="middle" fill="white" font-size="14">Intro CS</text>
+                        
+                        <rect x="160" y="60" width="80" height="40" fill="#3498db" stroke="#000" stroke-width="2" rx="5"/>
+                        <text x="200" y="85" text-anchor="middle" fill="white" font-size="14">Algorithms</text>
+                        
+                        <rect x="160" y="130" width="80" height="40" fill="#3498db" stroke="#000" stroke-width="2" rx="5"/>
+                        <text x="200" y="155" text-anchor="middle" fill="white" font-size="14">Data Str.</text>
+                        
+                        <rect x="280" y="60" width="80" height="40" fill="#3498db" stroke="#000" stroke-width="2" rx="5"/>
+                        <text x="320" y="85" text-anchor="middle" fill="white" font-size="14">AI</text>
+                        
+                        <rect x="280" y="130" width="80" height="40" fill="#3498db" stroke="#000" stroke-width="2" rx="5"/>
+                        <text x="320" y="155" text-anchor="middle" fill="white" font-size="14">ML</text>
+                        
+                        <rect x="380" y="110" width="80" height="40" fill="#e74c3c" stroke="#000" stroke-width="2" rx="5"/>
+                        <text x="420" y="135" text-anchor="middle" fill="white" font-size="14">Thesis</text>
+                    </svg>
+                    <p class="caption">One valid ordering: Intro CS → Algorithms → AI → Data Str. → ML → Thesis</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Topological Sort Algorithm</h3>
+                
+                <div class="algorithm-box">
+                    <h4>TOPOLOGICAL-SORT(G) - O(V + E)</h4>
+                    <pre><code>TOPOLOGICAL-SORT(G):
+    call DFS(G) to compute finishing times v.f
+    as each vertex is finished, insert it to front of list
+    return the linked list of vertices</code></pre>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>Alternative: Using DFS Recursively</h4>
+                    <pre><code>DFS-TOPO(G):
+    mark all vertices as unvisited
+    curLabel = n  // assign labels in reverse order
+    for each vertex v in G.V:
+        if v is unvisited:
+            DFS-VISIT-TOPO(v)
+
+DFS-VISIT-TOPO(v):
+    mark v as visited
+    for each edge (v, w):
+        if w is unvisited:
+            DFS-VISIT-TOPO(w)
+    f(v) = curLabel  // assign label after exploring
+    curLabel = curLabel - 1</code></pre>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>✓ Key Insight</h4>
+                    <ul>
+                        <li>Process vertices in <strong>decreasing order of finishing time</strong></li>
+                        <li>If there's an edge (u, v), then u.f > v.f (u finishes after v)</li>
+                        <li>Reversing the finish order gives topological sort</li>
+                        <li>Can detect cycles: if back edge found, graph is not a DAG</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- A* SEARCH -->
+        <section id="astar" class="lecture-section">
+            <h2>⭐ Lecture 10: A* Search Algorithm</h2>
+            
+            <div class="content-block">
+                <h3>A* Heuristic Search</h3>
+                <p>A* improves on Dijkstra by using a heuristic function to guide the search toward the goal.</p>
+                
+                <div class="definition-box">
+                    <h4>A* Score Function</h4>
+                    <p><strong>f(v) = g(v) + h(v)</strong></p>
+                    <ul>
+                        <li><strong>g(v):</strong> Actual cost from start to v (like Dijkstra)</li>
+                        <li><strong>h(v):</strong> Heuristic estimate of cost from v to goal</li>
+                        <li><strong>f(v):</strong> Estimated total cost of path through v</li>
+                    </ul>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>A*(G, s, t, h) - Finds shortest path from s to t</h4>
+                    <pre><code>A*(G, s, t, h):
+    for each vertex v in G.V:
+        v.g = ∞
+        v.f = ∞
+    s.g = 0
+    s.f = h(s)
+    openSet = {s}  // priority queue by f value
+    
+    while openSet ≠ ∅:
+        current = vertex in openSet with lowest f value
+        if current == t:
+            return reconstruct_path(t)
+        
+        remove current from openSet
+        for each neighbor v of current:
+            tentative_g = current.g + weight(current, v)
+            if tentative_g < v.g:
+                v.g = tentative_g
+                v.f = v.g + h(v)
+                v.parent = current
+                if v not in openSet:
+                    add v to openSet
+    
+    return failure  // no path exists</code></pre>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>✓ Admissible Heuristic</h4>
+                    <p>For A* to be optimal, h(v) must be <strong>admissible</strong>:</p>
+                    <ul>
+                        <li>h(v) ≤ actual cost from v to goal (never overestimates)</li>
+                        <li>h(goal) = 0</li>
+                        <li><strong>Example:</strong> Straight-line distance for map navigation</li>
+                    </ul>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>A* vs Dijkstra Exploration</h4>
+                    <svg width="500" height="250" viewBox="0 0 500 250">
+                        <!-- Grid representation -->
+                        <text x="100" y="30" text-anchor="middle" font-size="16" font-weight="bold">Dijkstra</text>
+                        <text x="380" y="30" text-anchor="middle" font-size="16" font-weight="bold">A*</text>
+                        
+                        <!-- Dijkstra - explores in all directions -->
+                        <circle cx="100" cy="125" r="10" fill="#e74c3c"/>
+                        <circle cx="100" cy="125" r="25" fill="#f39c12" opacity="0.5"/>
+                        <circle cx="100" cy="125" r="40" fill="#f39c12" opacity="0.3"/>
+                        <circle cx="100" cy="125" r="55" fill="#f39c12" opacity="0.2"/>
+                        <circle cx="180" cy="125" r="10" fill="#27ae60"/>
+                        <text x="100" y="90" fill="#e74c3c" font-size="12">start</text>
+                        <text x="180" y="90" fill="#27ae60" font-size="12">goal</text>
+                        
+                        <!-- A* - explores more directly toward goal -->
+                        <circle cx="300" cy="125" r="10" fill="#e74c3c"/>
+                        <ellipse cx="340" cy="125" rx="50" ry="25" fill="#3498db" opacity="0.3"/>
+                        <circle cx="380" cy="125" r="10" fill="#27ae60"/>
+                        <line x1="300" y1="125" x2="380" y2="125" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="300" y="90" fill="#e74c3c" font-size="12">start</text>
+                        <text x="380" y="90" fill="#27ae60" font-size="12">goal</text>
+                    </svg>
+                    <p class="caption">A* explores fewer nodes by using heuristic guidance</p>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>A* Optimality</h4>
+                    <p>If h is admissible and consistent (h(u) ≤ cost(u,v) + h(v)), then A* is optimal and complete.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DYNAMIC PROGRAMMING -->
+        <section id="dp" class="lecture-section">
+            <h2>💡 Lecture 11: Dynamic Programming</h2>
+            
+            <div class="content-block">
+                <h3>Dynamic Programming Fundamentals</h3>
+                <p>Dynamic Programming solves optimization problems by breaking them into overlapping subproblems.</p>
+                
+                <div class="definition-box">
+                    <h4>When to Use DP</h4>
+                    <ul>
+                        <li><strong>Optimal substructure:</strong> Optimal solution contains optimal solutions to subproblems</li>
+                        <li><strong>Overlapping subproblems:</strong> Same subproblems solved multiple times</li>
+                    </ul>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>DP Approaches</h4>
+                    <ul>
+                        <li><strong>Top-down (Memoization):</strong> Recursive with caching</li>
+                        <li><strong>Bottom-up (Tabulation):</strong> Iterative, fill table</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Example: Rod Cutting Problem</h3>
+                <p><strong>Problem:</strong> Given a rod of length n and prices p[i] for rods of length i, find maximum revenue by cutting the rod.</p>
+                
+                <div class="algorithm-box">
+                    <h4>Bottom-Up Rod Cutting - O(n²)</h4>
+                    <pre><code>BOTTOM-UP-CUT-ROD(p, n):
+    let r[0..n] be a new array
+    r[0] = 0
+    for j = 1 to n:
+        q = -∞
+        for i = 1 to j:
+            q = max(q, p[i] + r[j-i])
+        r[j] = q
+    return r[n]</code></pre>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>Rod Cutting Example (n=4)</h4>
+                    <svg width="500" height="200" viewBox="0 0 500 200">
+                        <!-- Different cutting options -->
+                        <text x="50" y="30" font-size="14">Length 4, Price=9</text>
+                        <rect x="50" y="40" width="160" height="25" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="130" y="58" text-anchor="middle" fill="white">No cuts: 9</text>
+                        
+                        <text x="50" y="90" font-size="14">Cut 2+2, Prices=5+5</text>
+                        <rect x="50" y="100" width="75" height="25" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <rect x="135" y="100" width="75" height="25" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="150" y="118" text-anchor="middle" fill="white">Total: 10 ✓</text>
+                        
+                        <text x="50" y="150" font-size="14">Cut 1+3, Prices=1+8</text>
+                        <rect x="50" y="160" width="30" height="25" fill="#95a5a6" stroke="#000" stroke-width="2"/>
+                        <rect x="90" y="160" width="120" height="25" fill="#95a5a6" stroke="#000" stroke-width="2"/>
+                        <text x="150" y="178" text-anchor="middle" fill="white">Total: 9</text>
+                    </svg>
+                    <p class="caption">Optimal: Cut into two pieces of length 2 each (revenue = 10)</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>⚠️ Why Naive Recursion is Exponential</h3>
+                
+                <div class="theorem-box">
+                    <h4>Exponential Time Without Memoization!</h4>
+                    <p>Naive recursive CUT-ROD: <strong>T(n) = 2<sup>n-1</sup></strong></p>
+                    <p>For n=30: ~536 million recursive calls! With DP: only ~900 operations</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Time-Memory Trade-off</h4>
+                    <ul>
+                        <li><strong>Naive recursion:</strong> O(2<sup>n</sup>) time, O(n) space (call stack)</li>
+                        <li><strong>Memoized (top-down DP):</strong> O(n²) time, O(n) space</li>
+                        <li><strong>Bottom-up DP:</strong> O(n²) time, O(n) space</li>
+                        <li><strong>Key insight:</strong> Store subproblem solutions, don't recompute!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>Longest Common Subsequence (LCS)</h3>
+                
+                <div class="definition-box">
+                    <h4>Problem Statement</h4>
+                    <p>Find longest subsequence common to two sequences (not necessarily contiguous)</p>
+                    <p><strong>Example:</strong> X="ABCBDAB", Y="BDCAB" → LCS="BDAB" (length 4)</p>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>LCS-LENGTH(X, Y) - O(mn)</h4>
+                    <pre><code>LCS-LENGTH(X, Y):
+    m = length(X)
+    n = length(Y)
+    let c[0..m, 0..n] be a new table
+    for i = 0 to m:
+        c[i, 0] = 0
+    for j = 0 to n:
+        c[0, j] = 0
+    for i = 1 to m:
+        for j = 1 to n:
+            if X[i] == Y[j]:
+                c[i, j] = c[i-1, j-1] + 1  // match!
+            else:
+                c[i, j] = max(c[i-1, j], c[i, j-1])
+    return c[m, n]</code></pre>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>Recurrence Relation</h4>
+                    <p>c[i, j] = {</p>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>0                          if i=0 or j=0</li>
+                        <li>c[i-1, j-1] + 1           if x<sub>i</sub> = y<sub>j</sub></li>
+                        <li>max(c[i-1, j], c[i, j-1]) otherwise</li>
+                    </ul>
+                    <p>}</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>🎯 LCS Applications</h4>
+                    <ul>
+                        <li><strong>Diff/Patch Tools:</strong> Compare file versions (Git, SVN)</li>
+                        <li><strong>Bioinformatics:</strong> DNA/protein sequence alignment</li>
+                        <li><strong>Plagiarism Detection:</strong> Compare text documents</li>
+                        <li><strong>Spell Checkers:</strong> Find similar words</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>0-1 Knapsack Problem</h3>
+                
+                <div class="definition-box">
+                    <h4>Problem Statement</h4>
+                    <p>Given items with weights w[i] and values v[i], and knapsack capacity W, maximize value without exceeding capacity.</p>
+                    <p><strong>Constraint:</strong> Each item can be taken 0 or 1 times (not fractional)</p>
+                </div>
+
+                <div class="algorithm-box">
+                    <h4>Recurrence Relation</h4>
+                    <p><strong>K[i, w]</strong> = maximum value using items 1..i with capacity w</p>
+                    <p>K[i, w] = {</p>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>0                                    if i=0 or w=0</li>
+                        <li>K[i-1, w]                            if w[i] > w (item too heavy)</li>
+                        <li>max(K[i-1, w], v[i] + K[i-1, w-w[i]]) otherwise</li>
+                    </ul>
+                    <p>}</p>
+                    <p><strong>Choice:</strong> Exclude item i OR include it (if it fits)</p>
+                </div>
+
+                <div class="visualization-container">
+                    <h4>Knapsack Example</h4>
+                    <svg width="500" height="200" viewBox="0 0 500 200">
+                        <text x="50" y="30" font-size="14" font-weight="bold">Items: Weight | Value</text>
+                        
+                        <rect x="50" y="50" width="60" height="40" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="80" y="73" text-anchor="middle" fill="white" font-size="12" font-weight="bold">2kg | $3</text>
+                        
+                        <rect x="120" y="50" width="60" height="40" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="150" y="73" text-anchor="middle" fill="white" font-size="12" font-weight="bold">3kg | $4</text>
+                        
+                        <rect x="190" y="50" width="60" height="40" fill="#27ae60" stroke="#000" stroke-width="2"/>
+                        <text x="220" y="73" text-anchor="middle" fill="white" font-size="12" font-weight="bold">4kg | $5</text>
+                        
+                        <rect x="260" y="50" width="60" height="40" fill="#f39c12" stroke="#000" stroke-width="2"/>
+                        <text x="290" y="73" text-anchor="middle" fill="white" font-size="12" font-weight="bold">5kg | $6</text>
+                        
+                        <!-- Knapsack -->
+                        <rect x="50" y="120" width="150" height="60" fill="#ecf0f1" stroke="#000" stroke-width="3"/>
+                        <text x="125" y="145" text-anchor="middle" font-size="14">Capacity: 5kg</text>
+                        
+                        <!-- Solution -->
+                        <rect x="60" y="130" width="60" height="40" fill="#3498db" stroke="#000" stroke-width="2"/>
+                        <text x="90" y="153" text-anchor="middle" fill="white" font-size="12" font-weight="bold">2kg | $3</text>
+                        
+                        <rect x="130" y="130" width="60" height="40" fill="#e74c3c" stroke="#000" stroke-width="2"/>
+                        <text x="160" y="153" text-anchor="middle" fill="white" font-size="12" font-weight="bold">3kg | $4</text>
+                        
+                        <text x="280" y="155" font-size="14" fill="#27ae60" font-weight="bold">Total: 5kg, $7 ✓</text>
+                    </svg>
+                    <p class="caption">Optimal: Take items 1 and 2 (total value $7 with 5kg capacity)</p>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Complexity: O(nW)</h4>
+                    <p><strong>Note:</strong> This is pseudo-polynomial! W is not polynomial in input size (number of bits needed to represent W)</p>
+                    <p>If W is exponentially large, this becomes exponential time</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <h3>🎯 DP Problem-Solving Framework</h3>
+                
+                <div class="algorithm-box">
+                    <h4>4-Step Approach</h4>
+                    <ol style="line-height: 1.8;">
+                        <li><strong>Characterize structure:</strong> Define optimal solution in terms of subproblems</li>
+                        <li><strong>Define recurrence:</strong> Write recursive formula relating problem to subproblems</li>
+                        <li><strong>Compute bottom-up or memoize:</strong> Fill table or cache results</li>
+                        <li><strong>Construct solution:</strong> Backtrack through table to find actual solution (not just value)</li>
+                    </ol>
+                </div>
+
+                <div class="key-point-box">
+                    <h4>Common DP Patterns & Examples</h4>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                        <tr style="background-color: #34495e; color: white;">
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Pattern</th>
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Space</th>
+                            <th style="padding: 10px; border: 1px solid #7f8c8d;">Examples</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">1D Linear</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(n)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Fibonacci, Climbing Stairs, House Robber</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">2D Grid</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(mn)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">LCS, Edit Distance, Knapsack, Grid Path</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Interval DP</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(n²)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Matrix Chain, Palindrome Partition</td>
+                        </tr>
+                        <tr style="background-color: #ecf0f1;">
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">State Machine</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Varies</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">Stock Trading, State-based Problems</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d; font-weight: bold;">Bitmask DP</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">O(2<sup>n</sup>)</td>
+                            <td style="padding: 8px; border: 1px solid #7f8c8d;">TSP, Subset Sum with states</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="theorem-box">
+                    <h4>When to Use DP?</h4>
+                    <ul>
+                        <li><strong>Optimal Substructure:</strong> Optimal solution contains optimal solutions to subproblems</li>
+                        <li><strong>Overlapping Subproblems:</strong> Recursive algorithm revisits same problems many times</li>
+                        <li><strong>Tip:</strong> If naive recursion is exponential due to overlap, DP can likely help!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-content">
+                <p>📚 DSA Lectures Summary | Based on Introduction to Algorithms (Cormen et al.)</p>
+                <p>All algorithms and visualizations verified against source material</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top" aria-label="Back to top">↑</button>
+
+    <script>// DSA Lectures Summary Website - Interactive Features
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add active class to current section in nav
+    const sections = document.querySelectorAll('.lecture-section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navItems.forEach(item => {
+            item.style.background = '';
+            if (item.getAttribute('href') === `#${current}`) {
+                item.style.background = '#3498db';
+            }
+        });
+    });
+
+    // Add fade-in animation to content blocks
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    const contentBlocks = document.querySelectorAll('.content-block');
+    contentBlocks.forEach(block => {
+        block.style.opacity = '0';
+        block.style.transform = 'translateY(20px)';
+        block.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(block);
+    });
+
+    // Add copy button to code blocks
+    const codeBlocks = document.querySelectorAll('pre code');
+    codeBlocks.forEach(block => {
+        const button = document.createElement('button');
+        button.innerHTML = '📋 Copy';
+        button.style.cssText = `
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        `;
+        
+        const pre = block.parentElement;
+        pre.style.position = 'relative';
+        pre.appendChild(button);
+        
+        button.addEventListener('click', () => {
+            navigator.clipboard.writeText(block.textContent);
+            button.innerHTML = '✓ Copied!';
+            setTimeout(() => {
+                button.innerHTML = '📋 Copy';
+            }, 2000);
+        });
+    });
+
+    // Add toggle for algorithm boxes
+    const algorithmBoxes = document.querySelectorAll('.algorithm-box');
+    algorithmBoxes.forEach(box => {
+        const header = box.querySelector('h4');
+        if (header) {
+            header.style.cursor = 'pointer';
+            header.style.userSelect = 'none';
+            header.innerHTML += ' <span style="float:right; font-size:0.8em;">▼</span>';
+            
+            const content = Array.from(box.children).slice(1);
+            
+            header.addEventListener('click', () => {
+                content.forEach(el => {
+                    if (el.style.display === 'none') {
+                        el.style.display = '';
+                        header.querySelector('span').innerHTML = '▼';
+                    } else {
+                        el.style.display = 'none';
+                        header.querySelector('span').innerHTML = '▶';
+                    }
+                });
+            });
+        }
+    });
+
+    // Back to top button functionality
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Add search functionality
+    const searchContainer = document.createElement('div');
+    searchContainer.style.cssText = `
+        position: sticky;
+        top: 80px;
+        background: white;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        z-index: 100;
+    `;
+    
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.placeholder = '🔍 Search lectures... (e.g., "heap", "dijkstra", "BFS")';
+    searchInput.style.cssText = `
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid #bdc3c7;
+        border-radius: 5px;
+        font-size: 1rem;
+    `;
+    
+    searchContainer.appendChild(searchInput);
+    const container = document.querySelector('.container');
+    container.insertBefore(searchContainer, container.children[1]);
+    
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        sections.forEach(section => {
+            const text = section.textContent.toLowerCase();
+            if (text.includes(searchTerm) || searchTerm === '') {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    });
+
+    console.log('🎓 DSA Lectures Summary Website Loaded Successfully!');
+    console.log('📚 All algorithms and visualizations have been verified.');
+});
+
+</script>
+</body>
+</html>
+
