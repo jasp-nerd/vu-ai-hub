@@ -45,6 +45,12 @@ export default function Footer() {
               </h4>
               <div className="space-y-2">
                 <Link
+                  to="/guide/amsterdam"
+                  className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+                >
+                  Amsterdam Guide
+                </Link>
+                <Link
                   to="/guide/blog"
                   className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                 >

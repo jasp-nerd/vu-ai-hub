@@ -266,7 +266,7 @@ So I hope this guide can maybe put your minds at ease, there are generally a bun
 :::
 
 * If you already have experience you can apply to regular internships, though note that competition is high
-* Look for workshop programs and introductory opportunities on LinkedIn — companies like Uber sometimes offer programs for Y1/Y2 students that can lead to internships
+* Look for workshop programs and introductory opportunities on LinkedIn. Companies like Uber sometimes offer programs for Y1/Y2 students that can lead to internships
 
 #### Start of Y2: Summer Internships
 
@@ -313,23 +313,23 @@ This is another **very good point** for looking into internships, because it has
 
 The Netherlands has a strong tech ecosystem. Companies to look at include:
 
-* **Booking.com** — Amsterdam-based, large engineering org, regular internship programs
-* **Adyen** — Payments technology, Amsterdam HQ
-* **TomTom** — Location technology and mapping, Amsterdam
-* **Picnic** — Online grocery, tech-driven, Amsterdam
-* **ASML** — Semiconductor equipment, Eindhoven (hardware + software roles)
+* **Booking.com** (Amsterdam): large engineering org with regular internship programs
+* **Adyen** (Amsterdam): payments technology
+* **TomTom** (Amsterdam): location technology and mapping
+* **Picnic** (Amsterdam): online grocery, very tech-driven
+* **ASML** (Eindhoven): semiconductor equipment, both hardware and software roles
 
 ### AI Ecosystem in Amsterdam
 
 Amsterdam has a growing AI scene with research labs and companies:
 
 * University research groups (VU, UvA) often have student assistant or research positions
-* Startups in the Amsterdam AI ecosystem — check [Amsterdam AI](https://amsterdam-ai.com/) for an overview
+* Startups in the Amsterdam AI ecosystem (check [Amsterdam AI](https://amsterdam-ai.com/) for an overview)
 * Corporate AI labs from larger companies (Qualcomm AI Research, Elsevier, Ahold Delhaize)
 
 ### Finding Listings
 
-* **LinkedIn** — You will probably find the most relevant job listings here. If you have a good profile and some basic activity, recruiters will sometimes reach out to you
+* **LinkedIn** is probably where you'll find the most relevant job listings. If you have a good profile and some basic activity, recruiters will sometimes reach out to you
 
 ## Additional Strategies
 
@@ -374,7 +374,7 @@ To summarize, some recommendations for what to do in each year:
 ### Year 3
 
 * At this point try and have at least 1 project on your GitHub, make sure your LinkedIn is clean
-* Have a resume — [this template](https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs) is more than enough
+* Have a resume ([this template](https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs) is more than enough)
 * Start just looking at some job listings to get an idea of the market
 * Check [Magnet.me](https://magnet.me/) and [StageVinder](https://stagevinder.nl/) regularly
 
@@ -799,62 +799,115 @@ Taking your bike onto the trains and metro is only allowed during off-peak hours
     emoji: '\u{1F193}',
     description: 'A collection of free stuff you really should check out.',
     content: `
-## Developer Tools
+:::info
+Most of these require verification with your university email or student ID. Start with the **GitHub Student Developer Pack** since it unlocks many of the tools below automatically.
+:::
 
-### GitHub Student Developer Pack
+## GitHub Student Developer Pack
 
-[**Sign up for the GitHub Student Developer Pack**](https://education.github.com/benefits?type=student)
+[**Sign up for the GitHub Student Developer Pack**](https://education.github.com/pack)
 
-With this pack you get access to a bunch of free things, some notable ones are:
+The gateway to 100+ free tools. Once verified, you automatically unlock many of the benefits listed below. Requires enrollment in a degree-granting institution.
 
-* **GitHub Copilot** — Free AI code completion for students. Works in VS Code, JetBrains, and more
-* **Free domain names** — Potentially good if you want a nice domain name for a portfolio page
-* **Free cloud hosting** — Cloud credits for Azure, DigitalOcean, and others. Good for hosting projects, websites, or ML experiments
-* **GitHub Pro plan** — As a student you are also a GitHub Pro member which comes with its own benefits
+### Included in the Student Pack
 
-### JetBrains Free EDU Licenses
+* [**GitHub Copilot Pro**](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-free-access-to-copilot-pro): AI code completion, normally $10/mo. Full Pro with no feature limits
+* [**GitHub Pro**](https://education.github.com/pack): unlimited private repos, advanced CI/CD minutes, 2 GB Packages storage
+* [**DigitalOcean**](https://www.digitalocean.com/github-students): $200 in cloud credits, valid 1 year
+* [**Heroku**](https://www.heroku.com/github-students/): $13/mo in platform credits for 24 months
+* [**MongoDB Atlas**](https://www.mongodb.com/students): $50 credits + free certification ($150 value)
+* [**Namecheap**](https://nc.me/landing/github): free .me domain + SSL for 1 year (US/UK/CA/AU)
+* [**Educative**](https://www.educative.io/github-students): 6 months free access to 60+ courses, then 30% off
+* [**Frontend Masters**](https://frontendmasters.com/welcome/github-student-developers/): 6 months free membership (one-time)
+* [**GitKraken**](https://www.gitkraken.com/github-student-developer-pack-bundle): 6 months free, then 75-80% off Pro
+* [**Postman Student Expert**](https://www.postman.com/student-program/student-expert/): free API certification + digital badge (also available standalone)
 
-[**JetBrains Student Pack**](https://www.jetbrains.com/academy/student-pack/)
+---
 
-All JetBrains IDEs (IntelliJ, PyCharm, WebStorm, CLion, DataGrip, etc.) are free for students. These are professional-grade IDEs — especially useful for Python (PyCharm) and Java development.
+## AI & Development Tools
 
-### Figma Education
+* [**Cursor Pro**](https://cursor.com/students): 1 full year free ($240 value). AI-powered code editor. Verified via SheerID
+* [**Perplexity Pro Student**](https://www.perplexity.ai/students): 50% off ($10/mo) or $4.99/mo Education plan
+* [**JetBrains All Products**](https://www.jetbrains.com/academy/student-pack/): all IDEs free (IntelliJ, PyCharm, WebStorm, CLion, DataGrip, etc.). Renewable yearly. ~$250/yr value
+* [**Microsoft 365 Education**](https://www.microsoft.com/en-us/education/products/office): free Word, Excel, PowerPoint, Teams with school email
+* [**Autodesk**](https://www.autodesk.com/education/edu-software/overview): free 1-year licenses for AutoCAD, Fusion, Maya, etc. Renewable
+* [**Unity Student**](https://unity.com/products/unity-student): free professional Unity license for students 16+
+* [**Sketch**](https://www.sketch.com/education/): free Education plan (full workspace, Mac + web app). 1 year, renewable
 
-[**Figma for Education**](https://www.figma.com/education/)
+---
 
-Free access to Figma's professional plan for students. Great for UI/UX design, prototyping, and collaborative design work.
+## Design & Productivity
 
-### Notion Education
+* [**Figma Education**](https://www.figma.com/education/): free Professional plan for 2 years. Unlimited files and collaboration
+* [**Canva for Education**](https://www.canva.com/education/students/): free Canva Pro if your university has Canva for Campus
+* [**Notion Education**](https://www.notion.com/product/notion-for-education): free Plus plan ($10/mo value). Unlimited pages, file uploads
+* [**Adobe Creative Cloud**](https://www.adobe.com/creativecloud/buy/students.html): 65% off ($19.99/mo first year). All apps: Photoshop, Illustrator, Premiere Pro, etc.
+* [**Airtable Education**](https://support.airtable.com/docs/nonprofit-and-educational-plans-faqs): free Team plan for 6-24 months with .edu email
 
-[**Notion for Education**](https://www.notion.com/help/notion-for-education)
+---
 
-Free Notion Plus plan for students. Useful for note-taking, project management, and organizing your coursework.
+## Cloud & Infrastructure
+
+* [**Microsoft Azure for Students**](https://azure.microsoft.com/en-us/free/students): $100 free credits per year, no credit card needed. Renewable annually
+* [**AWS Educate**](https://aws.amazon.com/education/awseducate/): free cloud skills training + hands-on labs. Also check the [AWS Free Tier](https://aws.amazon.com/free/)
+* [**Google Cloud Education**](https://cloud.google.com/edu/students): ~$50 in credits distributed via faculty. Ask your professors
+* [**Oracle Cloud Free Tier**](https://www.oracle.com/cloud/free/): $300 trial credits + generous Always Free resources (4 ARM cores, 24 GB RAM). Available to everyone
+* [**Cloudflare for Students**](https://www.cloudflare.com/students/): 12 months of developer features (US only)
+* [**Red Hat Developer**](https://developers.redhat.com/): free developer subscription with up to 16 RHEL nodes. Available to everyone
+
+---
+
+## Data Science & ML
+
+* [**Kaggle**](https://www.kaggle.com/): 30 hours/week free GPU compute (Tesla P100/T4), 50,000+ datasets. Free for everyone
+* [**Microsoft Learn Challenges**](https://learn.microsoft.com/en-us/training/topics/event-challenges): periodic AI/cloud challenges with free certifications
+
+---
+
+## Learning Platforms
+
+* [**Coursera Financial Aid**](https://www.coursera.support/s/article/learner-000001455): apply for free access to any course (two short essays, ~16 days processing)
+* [**edX Audit**](https://www.edx.org/): audit most courses for free (no certificate, limited time access)
 
 ---
 
 ## Software Discounts (NL-specific)
 
-### Surfspot
-
-[**Surfspot**](https://www.surfspot.nl/)
-
-Dutch platform offering discounted software for students at Dutch universities. You can get Microsoft Office, Adobe Creative Cloud, and other software at significant discounts. Log in with your VU credentials.
+* [**Surfspot**](https://www.surfspot.nl/): discounted software for Dutch university students (Microsoft Office, Adobe, etc.). Log in with your VU credentials
 
 ---
 
-## Entertainment & Culture
+## Entertainment & Subscriptions
 
-### Spotify Premium Student
+* [**Spotify Student**](https://www.spotify.com/nl/student/): ~50% off Premium. Verified via SheerID
+* [**Apple Music Student**](https://support.apple.com/en-us/106008): $5.99/mo (vs $10.99) + free Apple TV+. Up to 48 months
+* [**YouTube Premium Student**](https://support.google.com/youtube/answer/9158808): ~43% off ($7.99/mo). Annual reverification required
 
-[**Spotify Student**](https://www.spotify.com/nl/student/) — roughly 50% off the regular Premium price for verified students.
+---
 
-### Apple Music Student
+## Discount Platforms
 
-[**Apple Music Student**](https://support.apple.com/en-us/108936) — discounted Apple Music subscription for students.
+* [**UNiDAYS**](https://www.myunidays.com/): free platform with up to 50% off across fashion, tech, food, travel
+* [**Student Beans**](https://www.studentbeans.com/): 10,000+ stores, includes digital student ID for in-store discounts
+* [**Apple Education Pricing**](https://www.apple.com/nl-edu/store): up to EUR 200 off Macs, EUR 100 off iPads
 
-### Museumkaart
+---
 
-[**Museumkaart**](https://www.museumkaart.nl/) — for around EUR 69/year, you get free entry to 400+ museums across the Netherlands. Pays for itself after just a few visits. Great for rainy weekends in Amsterdam.
+## Culture
+
+* [**Museumkaart**](https://www.museumkaart.nl/): ~EUR 69/year for free entry to 400+ museums across the Netherlands. Pays for itself after a few visits
+
+---
+
+## Free for Everyone (No Student ID Needed)
+
+These are not student-specific but worth knowing about:
+
+* [**Blender**](https://www.blender.org/): professional 3D creation suite, completely free and open source (GPL)
+* [**Oracle Cloud Free Tier**](https://www.oracle.com/cloud/free/): generous always-free compute resources
+* [**Red Hat Developer**](https://developers.redhat.com/): free RHEL developer subscription
+* [**Kaggle**](https://www.kaggle.com/): free GPU compute + datasets for ML projects
+* [**Let's Encrypt**](https://letsencrypt.org/): free SSL certificates for any website
 `,
   },
   {

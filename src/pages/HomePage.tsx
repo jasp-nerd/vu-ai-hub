@@ -34,8 +34,8 @@ export default function HomePage() {
                 Amsterdam
               </h1>
               <p className="mt-5 text-lg text-stone-500 dark:text-stone-400 leading-relaxed max-w-xl">
-                Course guides, study tips, practice quizzes, and curated resources
-                — built by students, for students.
+                Course guides, study tips, practice quizzes, and curated resources,
+                built by students, for students.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
@@ -61,15 +61,158 @@ export default function HomePage() {
               <img
                 src="/assets/images/hero-artwork.png"
                 alt="Geometric artwork inspired by Karel Martens"
-                className="w-[320px] lg:w-[400px] h-auto"
+                className="w-[320px] lg:w-[400px] h-auto dark:hidden"
+              />
+              <img
+                src="/assets/images/hero-artwork-dark.png"
+                alt="Geometric artwork inspired by Karel Martens"
+                className="w-[320px] lg:w-[400px] h-auto hidden dark:block"
               />
             </div>
           </div>
         </div>
       </section>
 
+      {/* What you'll find here */}
+      <section className="border-t border-stone-200/60 dark:border-stone-700/40 bg-stone-50/50 dark:bg-stone-900/50">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+        <div className="mb-8">
+          <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
+            What you'll find here
+          </h2>
+          <p className="mt-2 text-stone-500 dark:text-stone-400">
+            Everything you need for the AI bachelor, in one place.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {[
+            {
+              title: 'Course Guides',
+              description: 'Tips, quizzes, and resources for every course',
+              path: '/courses',
+              icon: (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                </svg>
+              ),
+            },
+            {
+              title: 'Blog & Advice',
+              description: 'Student life tips and study insights',
+              path: '/guide/blog',
+              icon: (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                </svg>
+              ),
+            },
+            {
+              title: 'FAQ',
+              description: 'Common questions answered',
+              path: '/guide/faq',
+              icon: (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                </svg>
+              ),
+            },
+            {
+              title: 'Program Info',
+              description: 'Curriculum overview and useful links',
+              path: '/guide/program',
+              icon: (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                </svg>
+              ),
+            },
+            {
+              title: 'Amsterdam Guide',
+              description: 'Living, transport, housing, and more',
+              path: '/guide/amsterdam',
+              icon: (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+              ),
+            },
+          ].map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="group flex items-start gap-3 rounded-xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-4 hover-lift hover:border-stone-300 dark:hover:border-stone-600 transition-all"
+            >
+              <div className="shrink-0 flex h-8 w-8 items-center justify-center rounded-lg bg-vu-blue/10 dark:bg-vu-blue-light/10 text-vu-blue dark:text-vu-blue-light">
+                {item.icon}
+              </div>
+              <div className="min-w-0">
+                <h3 className="font-display text-sm font-semibold text-stone-900 dark:text-stone-100 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">
+                  {item.description}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* About & Contribute */}
+        <div className="mt-10 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200/60 dark:border-stone-700/60 p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-10">
+          <div className="flex-1 min-w-0">
+            <h3 className="font-display text-lg font-bold text-stone-900 dark:text-stone-100 mb-2">
+              About this project
+            </h3>
+            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+              This site was created by Jasper, an AI student at VU Amsterdam since 2024. It's a community project, completely open source and built to be shared. Feel free to use everything here, but keep in mind that course content can change from year to year, so we can't guarantee everything is still 100% accurate. Always check the{' '}
+              <a href="https://studiegids.vu.nl/nl" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">studiegids</a>
+              {' '}or your course page on{' '}
+              <a href="https://canvas.vu.nl" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">Canvas</a>
+              {' '}for the latest info. If the content still matches, use all the quizzes and summaries as much as you'd like! And if you spot something outdated, we'd love your help updating it.
+            </p>
+          </div>
+
+          <div className="shrink-0 md:w-64">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-2">
+              <div className="rounded-lg bg-white dark:bg-stone-800/50 p-2.5">
+                <p className="text-[11px] font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-1">
+                  Send us your changes
+                </p>
+                <p className="text-xs text-stone-600 dark:text-stone-300">
+                  <a href="mailto:vu.caboose383@passinbox.com" className="text-vu-blue dark:text-vu-blue-light hover:underline">
+                    Email
+                  </a>
+                  {' · '}
+                  <span>Discord @papser</span>
+                </p>
+              </div>
+              <a
+                href="https://github.com/jasp-nerd/vu-ai-hub/blob/main/CONTRIBUTING.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-lg bg-white dark:bg-stone-800/50 p-2.5 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+              >
+                <p className="text-[11px] font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-1">
+                  Contribute directly
+                </p>
+                <p className="text-xs text-vu-blue dark:text-vu-blue-light group-hover:underline">
+                  Open a pull request &rarr;
+                </p>
+              </a>
+            </div>
+            <p className="mt-2 text-[10px] text-stone-400 dark:text-stone-500 leading-relaxed">
+              You'll also find contribution prompts on individual course pages.
+            </p>
+          </div>
+        </div>
+        </div>
+      </section>
+
       {/* Course overview */}
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+      <section className="border-t border-stone-200/60 dark:border-stone-700/40">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
         <div className="flex items-end justify-between mb-10">
           <div>
             <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
@@ -102,29 +245,6 @@ export default function HomePage() {
             </div>
           </div>
         ))}
-      </section>
-
-      {/* Guide CTA */}
-      <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200/60 dark:border-stone-700/60 p-8 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div>
-            <h2 className="font-display text-xl md:text-2xl font-bold text-stone-900 dark:text-stone-100">
-              General study advice & FAQ
-            </h2>
-            <p className="mt-2 text-stone-500 dark:text-stone-400 max-w-md">
-              Not looking for a specific course? Check out our blog posts, FAQs,
-              and general program information.
-            </p>
-          </div>
-          <Link
-            to="/guide/blog"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 text-sm font-medium shadow-sm hover:border-stone-300 dark:hover:border-stone-600 hover:shadow hover:-translate-y-0.5 transition-all shrink-0"
-          >
-            Explore the guide
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
         </div>
       </section>
     </div>

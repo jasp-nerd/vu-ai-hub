@@ -4,47 +4,92 @@ export const blogPosts: BlogPost[] = [
   {
     id: 'post-1',
     slug: 'surviving-first-year',
-    title: 'Surviving Your First Year in the AI Bachelor',
+    title: 'Surviving Your First Year: From Day One to Final Exams',
     date: '2026-02-15',
     author: 'AI @ VU Team',
     excerpt:
-      'Everything I wish I knew before starting the AI bachelor at VU Amsterdam. From managing your workload to finding your study rhythm.',
-    content: `Starting the AI bachelor at VU Amsterdam is exciting but can also be overwhelming. Here's what I wish someone had told me before I started.
+      'Everything I wish I knew before starting the AI bachelor at VU Amsterdam. Week 1 logistics, study habits, and the stuff nobody warns you about.',
+    content: `Starting the AI bachelor at VU Amsterdam is exciting, but it can also be a lot. This post covers the practical stuff: what to do in your first week, and how to get through the rest of year 1 without burning out.
+
+---
+
+# Part 1: Your first week
+
+Your first week is less about algorithms and more about logistics. Based on what the Class of 2028 ran into, here are the things that trip people up.
+
+## Sync your timetable IMMEDIATELY
+
+Before anything else, go to [rooster.vu.nl](https://rooster.vu.nl), find your schedule, and hit the sync button in the top right corner. You can subscribe with Google Calendar, Outlook, or Apple Calendar. It auto-updates when rooms or times change, which happens more often than you'd expect.
+
+Don't rely on checking the website manually. You *will* miss a room change eventually.
+
+## Canvas group sign-ups close FAST
+
+This is the #1 thing that catches new students off guard. Several courses require you to sign up for tutor groups, practicum groups, or project groups through Canvas (People → Groups). The problem is that **some deadlines close on the very first day of teaching, or even the day before.**
+
+For Introduction to AI, tutor groups are mandatory. Miss the sign-up and you get randomly assigned to whatever slot is left. For Computational Thinking, your practicum group IS your project group (worth 40% of your grade), so you're basically choosing your project partners on day one.
+
+Check the Groups section the moment a course appears on Canvas. Set a calendar reminder for when courses go live.
+
+## Join the Mentor Program
+
+The VU Mentor Program is free and specifically for first-year students. They run study prep sessions before exams, game nights, and peer mentoring with students who've already been through Year 1.
+
+Most people don't know about it, which is a shame because it's one of the easiest ways to meet people who actually know how things work. Between the Mentor Program, the Librae Community (café meetups and social stuff), and STORM (the AI study association), you can have a decent social circle before October if you just show up.
+
+## Don't skip Week 1 videos
+
+This is especially true for Computational Thinking, which uses a flipped classroom: you watch videos at home, then do cases in class. The Week 1 videos sometimes don't appear until a day or two into the period.
+
+Students who waited for "everything to be ready" before starting found themselves behind by the end of Week 1. Turn on Canvas notifications and watch things as soon as they're posted.
+
+## Course-specific gotchas
+
+A few things that surprised students in Period 1:
+
+- Introduction to Psychology has a guessing penalty on exams. Random guessing can actually *lower* your score. Read the exam instructions.
+- Introduction to AI tutor groups are mandatory for passing. This isn't the case for every course, so it catches people off guard.
+- Computational Thinking Quiz 2 is harder than Quiz 1 for most people. Know Kruskal's algorithm.
+
+## Set up your tools early
+
+- VS Code: Jupyter is used in some courses, but VS Code is better for managing project folders. Install both.
+- Python: Get Anaconda installed before courses start. You'll need it for multiple courses.
+- Canvas notifications: Turn these on. Group deadlines, schedule changes, and assignment clarifications all come through Canvas.
+
+---
+
+# Part 2: The rest of year 1
+
+Once you've sorted out the logistics, the actual academic challenge starts. Here's what I wish someone had told me.
 
 ## The workload is real
 
-The AI bachelor is one of the more demanding programs at VU. You'll be juggling logic and math (Logic and Sets for AI), programming (Python), psychology, and AI-specific content — often all at the same time. Don't underestimate the time commitment.
+The AI bachelor is one of the heavier programs at VU. You'll be juggling Logic and Sets for AI, programming (Python), psychology, and AI-specific content, sometimes all in the same week. Don't underestimate the time commitment.
 
-**My advice:** Treat university like a job. Be on campus from 9 to 5, attend all lectures, and use the gaps between classes to work on assignments. If you do this consistently, you'll rarely need to work evenings or weekends.
+My advice: treat university like a job. Be on campus from 9 to 5, go to all lectures, and use the gaps between classes to work on assignments. If you do this consistently, you'll rarely need to work evenings or weekends.
 
 ## Form a study group early
 
-This is probably the single best thing you can do. Find 3-4 people in your first week and commit to working together. You'll:
-
-- Learn faster by explaining concepts to each other
-- Stay motivated when things get tough
-- Have people to split the workload on group projects
-- Actually enjoy the process more
+Find 3-4 people in your first week and commit to working together. You'll learn faster by explaining concepts to each other, stay motivated when things get rough, have people to split the work on group projects, and actually enjoy the whole thing more. This is probably the single most useful thing you can do.
 
 ## Don't skip the math
 
-It's tempting to focus on the "cool" AI stuff and neglect the foundations. Don't. Logic and Sets for AI, Computational Thinking, and programming fundamentals are the foundation of everything you'll do later — machine learning, intelligent systems, computer vision, NLP. If you build a shaky foundation now, you'll pay for it in year 2 and 3.
+It's tempting to focus on the "cool" AI stuff and coast through the foundations. Don't. Logic and Sets for AI, Computational Thinking, and programming fundamentals are what everything else builds on: machine learning, intelligent systems, computer vision, NLP. A weak foundation in year 1 will cost you in years 2 and 3.
 
 ## Use the university resources
 
-VU offers a lot of support that many students don't know about or don't use:
+VU has a lot of support that most students either don't know about or don't bother with:
 
-- **Study advisors** — They're there to help, not to judge. If you're struggling, talk to them early
-- **Math support center** — Free drop-in tutoring for logic and math courses
-- **Student psychologists** — Mental health matters, especially during exam periods
-- **Career services** — Start thinking about internships from year 2
+- Study advisors: they're there to help, not judge. If you're struggling, go talk to them early.
+- Math support center: free drop-in tutoring for logic and math courses.
+- Student psychologists: mental health matters, especially during exams.
+- Career services: start thinking about internships from year 2.
 
 ## Take care of yourself
 
-This sounds obvious but it's easy to forget when deadlines pile up. Sleep enough, exercise, eat properly, and maintain a social life outside of your studies. Burning out in year 1 is more common than you'd think.
-
-The AI bachelor is challenging but also incredibly rewarding. You'll learn things that are genuinely shaping the future. Embrace the difficulty — that's where the growth happens.`,
-    tags: ['first-year', 'advice', 'student-life'],
+This sounds obvious but it's easy to forget when deadlines pile up. Sleep enough, exercise, eat properly, and keep a social life outside of your studies. Burning out in year 1 is more common than you'd think, and it's not worth it.`,
+    tags: ['first-year', 'first-week', 'advice', 'student-life', 'logistics'],
   },
   {
     id: 'post-2',
@@ -53,182 +98,99 @@ The AI bachelor is challenging but also incredibly rewarding. You'll learn thing
     date: '2026-02-01',
     author: 'AI @ VU Team',
     excerpt:
-      'A practical guide to exam preparation strategies that work for technical courses. Active recall, spaced repetition, and practice problems.',
-    content: `After 2+ years of exams in the AI bachelor, I've refined my exam preparation strategy. Here's what actually works for technical courses.
+      'What actually works for exam prep in technical courses, based on 2+ years of trial and error and a bunch of cognitive science papers I probably should have read sooner.',
+    content: `After 2+ years of exams in the AI bachelor, I've tried pretty much everything. Colour-coded notes, marathon study sessions, re-reading slides until my eyes glazed over. Most of it didn't work. Here's what did, and why.
 
-## Start early with active recall
+## Stop re-reading your notes
 
-The biggest mistake students make is passive studying — rereading slides, highlighting notes, watching lecture recordings. This feels productive but barely works.
+I'll start with the thing nobody wants to hear. Re-reading slides, highlighting, rewatching lectures: it all *feels* productive, but it barely moves the needle. Dunlosky et al. (2013) reviewed hundreds of studies and ranked re-reading and highlighting among the least effective study methods. The reason is that passive review creates a false sense of familiarity. You recognize the material, so you think you know it. But recognition is not recall. The exam doesn't ask "have you seen this before?" It asks you to produce answers from nothing.
 
-Instead, use **active recall**: close your notes and try to explain concepts from memory. Write down everything you remember about a topic, then check what you missed. This is uncomfortable but extremely effective.
+## Active recall
 
-## Spaced repetition for definitions and formulas
+This is the single biggest change I made. Instead of passively going over material, I close my notes and try to reproduce what I just studied. Write it out, say it out loud, whatever. It's uncomfortable because you realize how much you *don't* know, but that's the point.
 
-For courses with lots of definitions, theorems, or formulas (Logic and Sets for AI, Modelling Human Behaviour), use spaced repetition:
+Karpicke and Roediger (2008) tested this: students who used active recall retained 80% of information after a week, compared to 36% for students who just re-read the material. That's not a small difference.
 
-1. Make flashcards (Anki is great for this)
-2. Review them on a schedule — new cards daily, old cards at increasing intervals
-3. Start 3-4 weeks before the exam, not 3-4 days
+What this looks like in practice:
+- Read a section, close the book, write down everything you can remember, then check what you missed.
+- Use Anki or physical flashcards.
+- Do practice problems before you look at solutions. Struggle with them first.
+- Try the "blank page method": take an empty page and recreate the key ideas from memory.
 
-## Practice problems are non-negotiable
+## Spaced repetition
 
-For math and programming courses, doing practice problems is the single most important preparation activity. Aim to:
+Cramming the night before is tempting because it feels like you're covering a lot of ground. You are, but you'll forget most of it within a week. Spaced repetition is the opposite approach: review material at increasing intervals over days and weeks, so it actually sticks.
 
-- Complete all assigned problem sets (even ungraded ones)
-- Work through past exams under timed conditions
-- Solve problems without looking at solutions first — struggle is where learning happens
+A meta-analysis of 317 experiments (Cepeda et al., 2006) found that spaced practice can double or even triple long-term retention compared to cramming. It's not a new idea either; psychologists have been studying the spacing effect for over a century.
 
-## The "explain it to a friend" test
+For a 3-week study period, something like this works:
 
-If you can explain a concept clearly to someone who doesn't understand it, you truly know it. Study groups are perfect for this. Take turns being the "teacher" for different topics.
+| Day | What to review |
+|-----|---------------|
+| Day 1 | Learn new material |
+| Day 2 | Review Day 1 material |
+| Day 4 | Review Day 1 material again |
+| Day 8 | Review Day 1 material again |
+| Day 15 | Final review before exam |
 
-## Exam day tips
+Anki automates the scheduling for you. Create cards early (3-4 weeks before the exam, not 3-4 days) and let the algorithm do the rest.
 
-- Get a good night's sleep (cramming the night before rarely helps for technical courses)
-- Arrive early and do a quick review of key formulas
-- Read all questions before starting — do the ones you're most confident about first
-- Show your work clearly, even if you're not sure — partial credit adds up
-- If you're stuck, move on and come back later with fresh eyes`,
+## Interleaving
+
+This one is counterintuitive. Instead of studying one topic in a long block and then moving to the next, you mix topics within a single session. So instead of doing 20 linear algebra problems and then 20 calculus problems, you alternate: 5 LA, 5 calc, 5 LA, 5 calc.
+
+Rohrer and Taylor (2007) found that interleaving improved test scores by up to 43% compared to blocked practice. It feels harder while you're doing it, which is exactly why it works. Your brain has to keep distinguishing between different types of problems, and that effort makes the learning stick.
+
+## Ask "why?" more
+
+This is sometimes called elaborative interrogation, which is a fancy name for a simple habit. When you're studying a concept, don't just memorize the fact. Ask yourself *why* it's true and *how* it connects to other things you know.
+
+For example: don't just memorize that gradient descent updates weights by moving in the direction of the negative gradient. Ask yourself *why* the negative gradient direction reduces the loss. What would happen if you moved in a different direction? What if the learning rate is too large?
+
+This kind of questioning forces you to actually understand things instead of pattern-matching.
+
+## Draw things
+
+Combining text with visuals (diagrams, sketches, concept maps) helps because you're encoding the same information in two different ways. If you can't recall the text, you might still remember the diagram, and vice versa.
+
+For AI courses specifically: draw out neural network architectures, sketch decision boundaries, make concept maps that link related theorems together. It doesn't have to look good. The act of making it is what matters.
+
+## Teach it to someone
+
+If you can explain a concept clearly to someone who doesn't get it, you actually understand it. If you stumble or wave your hands vaguely, you've found a gap. This works great in study groups: take turns being the "teacher" for different topics.
+
+There's research showing that even the *expectation* of having to teach something changes how your brain processes it. You organize the material more carefully when you think you'll need to explain it.
+
+## Pomodoro (25 on, 5 off)
+
+I used to sit down for 3-hour blocks and wonder why I couldn't focus past the first hour. Now I do 25 minutes of focused work, then a 5-minute break, and take a longer break after four rounds. It's nothing revolutionary, but it works. My concentration lasts longer and I actually get more done in less time.
+
+## Sleep, exercise, and your phone
+
+Three things that have nothing to do with study technique but affect everything:
+
+**Sleep:** Your brain consolidates memories while you sleep. Pulling an all-nighter before an exam is actively making things worse. A meta-analysis in *Psychological Bulletin* found that sleep deprivation can cut cognitive performance by 25-50%. Just go to bed.
+
+**Exercise:** Even a 20-minute walk before studying helps with focus. I don't fully understand the neuroscience here (something about BDNF), but it works and it's free.
+
+**Your phone:** Put it in another room. I'm serious. What people call "multitasking" is actually rapid task-switching, and according to APA research it can reduce how much you learn by up to 40%. Every time you check a notification, you lose focus and it takes minutes to get it back.
+
+## Practice problems
+
+For math and programming courses, doing practice problems matters more than anything else on this list. Complete all the assigned problem sets, even the ungraded ones. Work through past exams under timed conditions. And actually *try* each problem before looking at the solution. Struggling with a problem you can't solve teaches you more than reading a solution you didn't attempt.
+
+## Reflecting on what worked
+
+After a study session, I spend a few minutes thinking about what I actually learned, what was still confusing, and what I should do differently next time. This sounds like journaling, and I guess it is, but it's helped me stop wasting time on methods that don't work for me.
+
+## On exam day
+
+- Sleep well the night before. Cramming doesn't help much for technical courses.
+- Get there early. Do a quick review of key formulas.
+- Read all the questions before you start. Do the ones you're confident about first.
+- Show your work even if you're unsure. Partial credit adds up.
+- If you're stuck, move on. Come back with fresh eyes later.`,
     tags: ['exams', 'study-tips', 'productivity'],
-  },
-  {
-    id: 'post-3',
-    slug: 'second-year-guide-dsa',
-    title: "A Second-Year Student's Guide to Data Structures & Algorithms",
-    date: '2026-02-20',
-    author: 'AI @ VU Team',
-    excerpt:
-      'Key data structures, algorithm analysis tips, and common exam patterns for DSA — one of the most challenging courses in the AI bachelor.',
-    content: `Data Structures & Algorithms (DSA) is the course that separates casual coders from computer scientists. Here's how to approach it strategically.
-
-## Understand the "Why" Before the "How"
-
-DSA isn't about memorizing algorithms — it's about understanding *why* they work and *when* to use them. Before diving into code, ask yourself:
-- What problem does this data structure solve?
-- What are the trade-offs compared to alternatives?
-- When would I choose this over something simpler?
-
-For example, a hash table gives O(1) average lookup but O(n) worst-case. A balanced BST gives O(log n) guaranteed. Which you choose depends on whether you need worst-case guarantees.
-
-## The Big-O Hierarchy
-
-Commit this to memory:
-
-**O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2ⁿ) < O(n!)**
-
-When analyzing code:
-- **Single loop over n elements** → O(n)
-- **Nested loops** → O(n²) (usually)
-- **Dividing the problem in half each step** → O(log n)
-- **Divide-and-conquer with linear merge** → O(n log n)
-
-## Sorting Algorithms: Know the Trade-Offs
-
-| Algorithm | Best | Average | Worst | Stable? | In-Place? |
-|-----------|------|---------|-------|---------|-----------|
-| Insertion Sort | O(n) | O(n²) | O(n²) | ✓ | ✓ |
-| Merge Sort | O(n log n) | O(n log n) | O(n log n) | ✓ | ✗ |
-| Quick Sort | O(n log n) | O(n log n) | O(n²) | ✗ | ✓ |
-| Heap Sort | O(n log n) | O(n log n) | O(n log n) | ✗ | ✓ |
-
-The exam loves asking "which sorting algorithm would you use for X scenario?" Understanding these trade-offs is key.
-
-## Graphs: The Exam Favorite
-
-Graph problems appear on nearly every DSA exam. Master these:
-
-1. **BFS** (Breadth-First Search) — Uses a queue, finds shortest path in unweighted graphs
-2. **DFS** (Depth-First Search) — Uses a stack/recursion, useful for topological sort and cycle detection
-3. **Dijkstra's** — Shortest path with non-negative weights (greedy)
-4. **Prim's/Kruskal's** — Minimum spanning trees
-
-**Pro tip:** Always draw the graph by hand and trace through the algorithm step by step. This prevents errors and helps you understand what's happening.
-
-## Exam Strategy
-
-The DSA course has two midterm exams plus assignments. For the exams:
-- Practice writing pseudocode by hand (no IDE autocomplete to save you!)
-- Work through past exams under timed conditions
-- Focus on understanding correctness proofs — the exam tests "prove this works" as much as "make this work"
-- The assignments are only 30% of your grade but they build the skills you need for the exams`,
-    tags: ['dsa', 'second-year', 'algorithms', 'study-guide'],
-  },
-  {
-    id: 'post-4',
-    slug: 'surviving-multi-agent-systems',
-    title: 'Surviving Multi-Agent Systems: A Prolog & MARBEL Primer',
-    date: '2026-02-22',
-    author: 'AI @ VU Team',
-    excerpt:
-      'How to approach Multi-Agent Systems — from Prolog fundamentals and common pitfalls to MARBEL agent programming and exam preparation.',
-    content: `Multi-Agent Systems (MAS) is unlike any other course you've taken. It combines logic programming (Prolog), agent theory, and practical agent development (MARBEL). Here's how to navigate it.
-
-## Prolog: A Different Way of Thinking
-
-If you've only programmed in Python or Java, Prolog will feel alien. There are no for-loops, no assignments, no mutable state. Instead:
-- You declare **facts** and **rules**
-- You ask **queries** that Prolog tries to prove
-- Prolog searches for solutions using **backward chaining** with **depth-first search**
-
-The biggest mental shift: you describe *what* is true, not *how* to compute it.
-
-## The #1 Prolog Mistake (and How to Avoid It)
-
-**Confusing \`=\` (unification) and \`is\` (arithmetic evaluation).**
-
-\`\`\`
-?- X = 4+3.
-X = 4+3.      ← NOT 7! It's just the term "4+3"
-
-?- X is 4+3.
-X = 7.        ← Now it evaluates the arithmetic
-\`\`\`
-
-This single distinction accounts for a huge number of exam errors. Remember:
-- \`=\` matches terms structurally (pattern matching)
-- \`is\` evaluates the right side arithmetically
-
-## Recursion and Accumulators
-
-Prolog uses recursion instead of loops. The efficient pattern uses an **accumulator** — an extra argument that carries the partial result:
-
-\`\`\`prolog
-% Inefficient (builds up stack)
-length([], 0).
-length([_|T], N) :- length(T, N1), N is N1 + 1.
-
-% Efficient (tail recursive with accumulator)
-length(L, N) :- length_acc(L, 0, N).
-length_acc([], Acc, Acc).
-length_acc([_|T], Acc, N) :- Acc1 is Acc + 1, length_acc(T, Acc1, N).
-\`\`\`
-
-Practice converting standard recursion to tail recursion — it's a common exam question.
-
-## MARBEL Agent Programming
-
-The practical part of MAS involves programming agents in MARBEL. The key files:
-
-| File | Purpose |
-|------|---------|
-| .mas2g | Configuration, percept handlers |
-| .mod2g | Action rules (if-then) |
-| .pl | Prolog knowledge base |
-
-Remember the percept handler types:
-- **add** — for percepts sent once (e.g., color at startup)
-- **update** — for percepts that change (e.g., robot position)
-- **replace** — for percepts sent every cycle (e.g., sensor data)
-
-## Exam Tips
-
-The MAS exam is roughly: Prolog queries (~10 pts), search trees (~10 pts), concepts (~10 pts), Prolog programming (~20 pts), agent theory (~8 pts), MARBEL (~40 pts).
-
-- **MARBEL is worth the most** — practice reading and modifying agent code
-- For Prolog queries, work through them by hand, step by step
-- Know the agent environment properties (observable, deterministic, static, etc.)
-- Practice search trees: trace through Prolog's execution order systematically`,
-    tags: ['mas', 'prolog', 'second-year', 'study-guide'],
   },
   {
     id: 'post-5',
@@ -237,185 +199,102 @@ The MAS exam is roughly: Prolog queries (~10 pts), search trees (~10 pts), conce
     date: '2026-02-24',
     author: 'AI @ VU Team',
     excerpt:
-      'How Linear Algebra, Calculus, and Probability & Statistics connect to Machine Learning — and why those math courses matter more than you think.',
-    content: `Many AI students see math courses as obstacles rather than foundations. Here's why they're directly relevant to everything you'll do in machine learning and beyond.
+      'How Linear Algebra, Calculus, and Probability connect to Machine Learning. If you\'re wondering why you\'re computing eigenvalues, this is why.',
+    content: `A lot of AI students treat math courses as hoops to jump through. I get it. When you signed up for an AI degree, you probably didn't picture yourself computing determinants by hand. But here's the thing: almost every "cool" AI technique you'll learn later is built directly on the math you're doing now. This post connects the dots.
 
-## Linear Algebra → The Language of Data
+## Linear algebra is how ML talks about data
 
-Machine Learning operates on vectors and matrices. Every image is a matrix of pixels, every dataset is a matrix of features, every neural network layer is a matrix multiplication.
+Machine learning operates on vectors and matrices. An image is a matrix of pixel values. A dataset is a matrix where each row is a data point and each column is a feature. A neural network layer is, at its core, a matrix multiplication:
 
-**Key connections:**
-- **Matrix multiplication** — Every layer of a neural network: output = W·x + b
-- **Eigenvalues & eigenvectors** — Principal Component Analysis (PCA) for dimensionality reduction
-- **Vector operations** — Cosine similarity, dot products for measuring word/document similarity
-- **Matrix decomposition** — SVD is used in recommendation systems, image compression, and NLP
+$$\\mathbf{y} = W\\mathbf{x} + \\mathbf{b}$$
 
-When you're computing eigenvalues in Linear Algebra, you're learning the foundation of PCA — one of the most-used techniques in data science.
+That's it. That's a neural network layer. $W$ is a weight matrix, $\\mathbf{x}$ is your input, and $\\mathbf{b}$ is a bias vector. When you learn matrix multiplication in Linear Algebra, you're learning the operation that every neural network runs thousands of times during a single forward pass.
 
-## Calculus → How Models Learn
+Some other connections:
 
-Gradient descent — the algorithm that trains nearly every modern ML model — is pure calculus.
+Eigenvalues and eigenvectors come up in PCA (Principal Component Analysis), which is one of the most common techniques for reducing the number of dimensions in a dataset. Given a covariance matrix $C$, PCA finds vectors $\\mathbf{v}$ where $C\\mathbf{v} = \\lambda \\mathbf{v}$. Those vectors point in the directions of maximum variance in your data.
 
-**Key connections:**
-- **Derivatives** — The gradient ∇L tells us how to adjust weights to reduce the loss
-- **Chain rule** — Backpropagation is just the chain rule applied recursively through a neural network
-- **Partial derivatives** — Gradients in multiple dimensions (∂L/∂w for every weight w)
-- **Limits & continuity** — Understanding when optimization is well-defined
+Cosine similarity, which measures how similar two vectors are, is used everywhere in NLP: $\\cos(\\theta) = \\frac{\\mathbf{a} \\cdot \\mathbf{b}}{\\|\\mathbf{a}\\| \\, \\|\\mathbf{b}\\|}$. It's how search engines compare documents and how word embeddings measure whether two words mean similar things.
 
-The gradient of f(x,y) = x²y + 3y² is ∇f = (2xy, x² + 6y). In ML, replace x and y with model weights, and f with the loss function — that's exactly how neural networks learn.
+SVD (Singular Value Decomposition) decomposes any matrix as $A = U\\Sigma V^T$. This shows up in recommendation systems (how Netflix suggests movies), image compression, and various NLP techniques.
 
-## Probability & Statistics → Making Decisions Under Uncertainty
+## Calculus is how models learn
 
-AI deals with uncertain information. You never have perfect data, and models always have some error.
+Gradient descent is the algorithm that trains almost every modern ML model, and it's just calculus. The idea: you have a loss function that measures how wrong your model is, and you want to make it smaller. Calculus tells you which direction to go.
 
-**Key connections:**
-- **Bayes' rule** — The foundation of Bayesian machine learning, spam filters, medical diagnosis
-- **Probability distributions** — Understanding your data (normal, binomial, Poisson distributions)
-- **Hypothesis testing** — "Is my model significantly better?" requires p-values and confidence intervals
-- **Expected value & variance** — Risk assessment, decision making, reinforcement learning reward functions
-- **The Central Limit Theorem** — Why averaging works and why larger datasets give better estimates
+The chain rule from calculus *is* backpropagation. That's not an analogy; it's literally what backpropagation does. For a composition $f(g(x))$:
 
-## The Big Picture
+$$\\frac{df}{dx} = \\frac{df}{dg} \\cdot \\frac{dg}{dx}$$
 
-In the AI bachelor, the math courses come in Year 1, and the applications come in Year 2-3. It might feel disconnected while you're computing limits or solving systems of equations, but every one of those skills has a direct application:
+In a neural network, each layer is a function composed with the next. To figure out how changing a weight deep in the network affects the final loss, you apply the chain rule backward through every layer. That's backpropagation.
 
-| Math Concept | AI Application |
+The gradient descent update rule is:
+
+$$w_{t+1} = w_t - \\eta \\nabla L(w_t)$$
+
+where $\\eta$ is the learning rate and $\\nabla L$ is the gradient of the loss with respect to the weights. You compute partial derivatives $\\frac{\\partial L}{\\partial w_j}$ for every weight $w_j$ in the model, then nudge each weight in the direction that reduces the loss.
+
+Here's a concrete example. Take $f(x,y) = x^2 y + 3y^2$. The gradient is:
+
+$$\\nabla f = \\left(\\frac{\\partial f}{\\partial x},\\; \\frac{\\partial f}{\\partial y}\\right) = \\left(2xy,\\; x^2 + 6y\\right)$$
+
+Now imagine $x$ and $y$ are weights in a model and $f$ is a loss function. That gradient tells you exactly how to adjust each weight to make the loss smaller. That's all gradient descent is doing, over and over, with millions of weights instead of two.
+
+## Probability is how you deal with the fact that data is noisy
+
+You never have perfect data. There's always noise, missing values, measurement error. Probability and statistics give you the tools to work with that.
+
+Bayes' rule is everywhere in ML:
+
+$$P(A \\mid B) = \\frac{P(B \\mid A) \\, P(A)}{P(B)}$$
+
+Spam filters use it. Medical diagnosis systems use it. Any model that updates its beliefs based on new evidence is doing some version of Bayes' rule.
+
+The normal distribution shows up constantly because of the Central Limit Theorem (more on that below). Its density function is:
+
+$$f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \\, e^{-\\frac{(x - \\mu)^2}{2\\sigma^2}}$$
+
+Maximum Likelihood Estimation (MLE) is how you find the best parameters $\\theta$ for a model. You pick the parameters that make your observed data most probable:
+
+$$\\hat{\\theta} = \\arg\\max_\\theta \\prod_{i=1}^{n} P(x_i \\mid \\theta)$$
+
+In practice, you minimize the negative log-likelihood instead (because products of tiny numbers are numerically unstable):
+
+$$\\hat{\\theta} = \\arg\\min_\\theta \\left[ -\\sum_{i=1}^{n} \\log P(x_i \\mid \\theta) \\right]$$
+
+Expected value and variance are basic but they come up in reinforcement learning (expected reward), risk assessment, and pretty much any situation where you need to summarize a distribution with a few numbers:
+
+$$\\mathbb{E}[X] = \\sum_x x \\, P(X = x), \\quad \\text{Var}(X) = \\mathbb{E}[X^2] - (\\mathbb{E}[X])^2$$
+
+Hypothesis testing is how you answer questions like "is model A actually better than model B, or did it just get lucky on this test set?" You need p-values and confidence intervals for this.
+
+And the Central Limit Theorem is why averaging works. If you take $n$ i.i.d. samples with mean $\\mu$ and variance $\\sigma^2$, the sample mean converges to a normal distribution:
+
+$$\\bar{X}_n \\xrightarrow{d} \\mathcal{N}\\!\\left(\\mu,\\; \\frac{\\sigma^2}{n}\\right)$$
+
+This is why larger datasets give you better estimates. It's also why so many things in nature look normally distributed.
+
+## How it all maps together
+
+The math courses come in Year 1. The applications come in Year 2-3. It feels disconnected while you're doing it, but here's where each thing shows up:
+
+| Math concept | Where it shows up in AI |
 |---|---|
-| Matrix multiplication | Neural network forward pass |
-| Eigenvalues | PCA, spectral clustering |
-| Gradient (∂f/∂x) | Training any model (gradient descent) |
-| Chain rule | Backpropagation |
-| Bayes' rule | Probabilistic models, classification |
-| Distributions | Data modeling, generative models |
+| Matrix multiplication $W\\mathbf{x} + \\mathbf{b}$ | Neural network forward pass |
+| Eigenvalues $C\\mathbf{v} = \\lambda\\mathbf{v}$ | PCA, spectral clustering |
+| Gradient $\\nabla L$ | Training any model (gradient descent) |
+| Chain rule $\\frac{df}{dg} \\cdot \\frac{dg}{dx}$ | Backpropagation |
+| Bayes' rule $P(A \\mid B)$ | Probabilistic models, classification |
+| Distributions $\\mathcal{N}(\\mu, \\sigma^2)$ | Data modeling, generative models |
 | Hypothesis testing | Model evaluation, A/B testing |
 
-## Practical Advice
+## Some practical advice
 
-1. **Don't skip the intuition.** 3Blue1Brown's "Essence of Linear Algebra" and "Essence of Calculus" videos are incredible for building visual understanding
-2. **Connect math to code.** When you learn matrix multiplication, implement it in NumPy. When you learn derivatives, implement gradient descent from scratch
-3. **Review before ML.** Before Machine Learning starts, spend a weekend reviewing gradients, matrix operations, and Bayes' rule — it pays off enormously`,
+3Blue1Brown's "Essence of Linear Algebra" and "Essence of Calculus" series on YouTube are excellent. They build geometric intuition for stuff that's usually taught purely algebraically. Watch them before or alongside your courses.
+
+When you learn a new math concept, try implementing it in code. Write matrix multiplication in NumPy. Implement gradient descent from scratch for a simple function. The combination of math on paper and code that runs makes things click in a way that neither does alone.
+
+Before Machine Learning starts in year 2, spend a weekend reviewing gradients, matrix operations, and Bayes' rule. Seriously. An afternoon of review will save you hours of confusion later.`,
     tags: ['math', 'machine-learning', 'linear-algebra', 'calculus', 'probability'],
-  },
-  {
-    id: 'post-6',
-    slug: 'computational-thinking-easiest-start',
-    title: 'Why Computational Thinking Is the Easiest Way to Start Your AI Journey',
-    date: '2026-02-25',
-    author: 'AI @ VU Team',
-    excerpt:
-      'Computational Thinking is one of the friendliest courses in the AI bachelor. Here\'s what you\'ll learn, how the course works, and why you really don\'t need to stress.',
-    content: `If you're about to start the AI bachelor at VU Amsterdam and feeling nervous — take a breath. Computational Thinking (X_400475) is genuinely one of the most approachable courses you'll encounter in the entire program. Here's everything you need to know.
-
-## What the course actually covers
-
-The course is structured in 5 weeks, each building on the last:
-
-| Week | Topics | Syllabus Chapters |
-|------|--------|-------------------|
-| 1 | Solution strategies (modeling, formulas, guess & check), mathematical proof | Ch. 1, 2, 3 |
-| 2 | Algorithms, flowcharts, recursion, pseudocode, intro to Python | Ch. 4 |
-| 3 | Linear search, binary search, time complexity & Big O notation | Ch. 5, 6 |
-| 4 | Sorting algorithms: bubble sort, merge sort, quicksort | Ch. 7 |
-| 5 | Graph theory: Dijkstra's, Prim's, Kruskal's algorithms | Ch. 8, 9, 10 |
-
-That's it. Five weeks, ten chapters, and a group project. The material is introductory — no prior programming experience is expected.
-
-## Why it's easy (really)
-
-**The grading is generous:**
-- 45% individual practicum assignments (follow the lecture material closely)
-- 40% group project (the topic changes each year, but always involves designing and presenting an algorithm)
-- 15% two supervised quizzes (short MC + T/F questions)
-
-The quizzes are multiple choice and true/false. If you've watched the video lectures and read the syllabus chapters, you'll recognise every single question. Many students score 90-100% on these.
-
-**The assignments are guided:** Each week's assignment directly applies what was covered in lectures. There are no trick questions or surprise topics.
-
-**The project is fun:** The group project asks your team to design an algorithm for a real-world scenario (the exact topic changes each year). You'll write pseudocode, create flowcharts, implement it in Python, and give a short presentation. Start early and it's genuinely enjoyable.
-
-## Tips from students who've been there
-
-1. **Watch the video lectures before the live sessions.** This is a flipped classroom — the videos ARE the primary teaching. Lectures are for Q&A and working through cases.
-
-2. **Practice flowcharts and pseudocode by hand.** These appear on quizzes and assignments. Standard shapes: rectangles (process), diamonds (decision), parallelograms (I/O).
-
-3. **Don't skip graph theory week.** Weeks 1-4 feel easy, and students sometimes relax for week 5. But graphs (Dijkstra, Prim, Kruskal) are heavier and show up on the final quiz.
-
-4. **Start the group project in week 3, not week 5.** Groups that wait until the last week always rush the report and lose easy marks on documentation.
-
-5. **You don't need to attend every lecture.** Everything is in the syllabus and video lectures. If you prefer self-study, check out [Aniel's Lectures on YouTube](https://www.youtube.com/@anielslectures) for clear explanations of the exact topics covered.
-
-6. **Use this course to make friends.** It's one of the very first courses you'll take. Team up with new people, explore study groups — these friendships often last the entire bachelor.
-
-## Helpful YouTube resources
-
-- **Big O Notation:** Search for "Big O Notation Full Course" on YouTube — freeCodeCamp has an excellent beginner-friendly video
-- **Sorting Algorithms:** Look for visual explanations of bubble sort, merge sort, and quicksort
-- **Graph Algorithms:** freeCodeCamp's "Graph Algorithms for Beginners" is a great 2-hour overview
-- **Kruskal's & Dijkstra's:** Search for visual walkthroughs — seeing the algorithms step-by-step makes them click
-
-## The bottom line
-
-Computational Thinking is designed to ease you into algorithmic thinking. It's not trying to break you — it's trying to build your foundation. Keep up with the weekly material, start the project early, and you'll walk out with a great grade and some new friends. Enjoy it!`,
-    tags: ['computational-thinking', 'first-year', 'study-guide', 'beginner'],
-  },
-  {
-    id: 'post-7',
-    slug: 'first-week-survival-guide',
-    title: 'Your First Week Survival Guide: Canvas, Groups \u0026 the Stuff Nobody Tells You',
-    date: '2026-02-25',
-    author: 'AI @ VU Team',
-    excerpt:
-      'The things that tripped up the most students in their first week — from Canvas group sign-ups to timetable syncing. Don\'t learn these the hard way.',
-    content: `Your first week in the AI bachelor is less about algorithms and more about logistics. Based on real experiences from the Class of 2028, here are the things that catch new students off guard — and how to handle them like a pro.
-
-## Sync your timetable IMMEDIATELY
-
-Before anything else, go to [rooster.vu.nl](https://rooster.vu.nl), find your schedule, and click the sync button in the top right corner. This lets you subscribe your Google Calendar, Outlook, or Apple Calendar to your VU schedule. It auto-updates when rooms or times change — which happens more often than you'd think.
-
-Don't rely on checking the website manually. You *will* miss a room change or a cancelled session eventually.
-
-## Canvas group sign-ups close FAST
-
-This is the #1 thing that catches new students off guard. Several courses require you to sign up for tutor groups, practicum groups, or project groups through Canvas → People → Groups. Here's the problem: **deadlines can close on the very first day of teaching, or even the day before.**
-
-For **Introduction to AI**, tutor groups are mandatory — if you miss sign-up, you get randomly assigned to whatever slot is left. For **Computational Thinking**, your practicum group IS your project group (worth 40% of your grade), so you're essentially choosing your project partners.
-
-**Action item:** The moment a course appears on Canvas, check the Groups section and sign up. Set a calendar reminder for the day courses go live.
-
-## Join the Mentor Program
-
-The VU Mentor Program is a free, university-funded initiative specifically for first-year students. They organize:
-
-- **Study prep sessions** before exams
-- **Game nights** and social events
-- **Peer mentoring** with students who've been through Year 1
-
-This is one of the best-kept secrets of the program. It costs nothing and instantly connects you with people who know the ropes. Combine this with the **Librae Community** (which organizes social events like café meetups) and **STORM** (the AI study association), and you'll have a solid social network before October.
-
-## Don't skip Week 1 videos
-
-This applies especially to Computational Thinking. The course uses a flipped classroom format: you watch videos at home, then work through cases in class. The Week 1 videos might not be uploaded on Day 1 — they sometimes appear a day or two into the period.
-
-Students who waited for "everything to be ready" before starting found themselves behind by the end of Week 1. Turn on Canvas notifications so you get pinged the moment new content drops, and watch videos as soon as they're available.
-
-## Course-specific gotchas
-
-A few things that surprised students in Period 1:
-
-- **Introduction to Psychology** has a guessing penalty on exams. Random guessing can actually *lower* your score. Check the exam instructions carefully.
-- **Introduction to AI** tutor groups are mandatory for passing — this isn't the case for every course, so it catches people off guard.
-- **Computational Thinking** Quiz 2 is harder than Quiz 1 for most students. Make sure you know Kruskal's algorithm — it's in the syllabus and it's tested.
-
-## Set up your tools early
-
-- **VS Code** — While Jupyter is used in some courses, VS Code is more stable for managing project folders. Install it alongside Jupyter.
-- **Python** — Get Anaconda installed before courses start. You'll need it for multiple courses.
-- **Canvas notifications** — Turn these on. Seriously. Important announcements about group deadlines, schedule changes, and assignment clarifications come through Canvas.
-
-## The bottom line
-
-Your first week is about systems, not studying. Get your calendar synced, sign up for groups, join the Mentor Program, and set up your tools. Do these things in Week 1 and you'll spend the rest of the period actually learning instead of scrambling to catch up on logistics.`,
-    tags: ['first-year', 'first-week', 'logistics', 'advice'],
   },
 ];

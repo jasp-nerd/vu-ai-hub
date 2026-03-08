@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 import { getBlogPostBySlug } from '../services/contentService';
 import { useMountAnimation } from '../hooks/useAnimations';
 
@@ -93,7 +96,7 @@ export default function BlogPostPage() {
             mounted ? 'animate-fade-in-up stagger-3' : 'pre-animate'
           }`}
         >
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
             {post.content}
           </ReactMarkdown>
         </div>
