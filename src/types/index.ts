@@ -22,6 +22,8 @@ export interface Course {
     maxAbsences?: number;
     detail: string;
   };
+  /** Optional banner image path (relative to public/) */
+  image?: string;
 }
 
 export interface CourseTip {
