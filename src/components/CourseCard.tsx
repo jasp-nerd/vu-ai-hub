@@ -8,41 +8,54 @@ export default function CourseCard({ course, style }: { course: Course; style?: 
   return (
     <Link
       to={`/courses/${course.slug}`}
-      className="group block rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-6 hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-lg hover:shadow-stone-100/80 dark:hover:shadow-stone-950/50"
+      className="group block rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 overflow-hidden hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-lg hover:shadow-stone-100/80 dark:hover:shadow-stone-950/50"
       style={style}
     >
-      <div className="flex items-start justify-between gap-3 mb-3">
-        <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-md bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400">
-          {course.code}
-        </span>
-        <span className="text-xs text-stone-400 dark:text-stone-500">
-          {course.period ? `P${course.period}` : 'Full Year'}
-          {course.credits ? ` · ${course.credits}` : ''}
-        </span>
-      </div>
-      <h3 className="font-display font-semibold text-stone-900 dark:text-stone-100 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors mb-2">
-        {course.name}
-      </h3>
-      <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed line-clamp-2 mb-4">
-        {course.description}
-      </p>
-      <div className="flex items-center justify-between">
-        <div className="flex gap-1.5">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div
-              key={i}
-              className={`w-1.5 h-5 rounded-full ${
-                course.difficulty === 0
-                  ? 'bg-stone-200 dark:bg-stone-700'
-                  : i < course.difficulty
-                    ? 'bg-vu-blue dark:bg-vu-blue-light'
-                    : 'bg-stone-100 dark:bg-stone-800'
-              }`}
-            />
-          ))}
-          <span className="ml-1.5 text-xs text-stone-400 dark:text-stone-500">
-            {difficultyLabel[course.difficulty]}
+      {course.image && (
+        <div className="relative w-full aspect-[5/2] bg-stone-100 dark:bg-stone-800/50 overflow-hidden">
+          <img
+            src={course.image}
+            alt=""
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white dark:from-stone-900 to-transparent pointer-events-none" />
+        </div>
+      )}
+      <div className="p-6">
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <span className="inline-block px-2.5 py-1 text-xs font-medium rounded-md bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400">
+            {course.code}
           </span>
+          <span className="text-xs text-stone-400 dark:text-stone-500">
+            {course.period ? `P${course.period}` : 'Full Year'}
+            {course.credits ? ` · ${course.credits}` : ''}
+          </span>
+        </div>
+        <h3 className="font-display font-semibold text-stone-900 dark:text-stone-100 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors mb-2">
+          {course.name}
+        </h3>
+        <p className="text-sm text-stone-500 dark:text-stone-400 leading-relaxed line-clamp-2 mb-4">
+          {course.description}
+        </p>
+        <div className="flex items-center justify-between">
+          <div className="flex gap-1.5">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div
+                key={i}
+                className={`w-1.5 h-5 rounded-full ${
+                  course.difficulty === 0
+                    ? 'bg-stone-200 dark:bg-stone-700'
+                    : i < course.difficulty
+                      ? 'bg-vu-blue dark:bg-vu-blue-light'
+                      : 'bg-stone-100 dark:bg-stone-800'
+                }`}
+              />
+            ))}
+            <span className="ml-1.5 text-xs text-stone-400 dark:text-stone-500">
+              {difficultyLabel[course.difficulty]}
+            </span>
+          </div>
         </div>
       </div>
     </Link>
