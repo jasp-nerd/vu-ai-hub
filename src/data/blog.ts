@@ -193,6 +193,195 @@ After a study session, I spend a few minutes thinking about what I actually lear
     tags: ['exams', 'study-tips', 'productivity'],
   },
   {
+    id: 'post-6',
+    slug: 'free-student-subscriptions',
+    title: '70+ Free Subscriptions You Can Get as a Student (Save Over $10,000/Year)',
+    date: '2026-03-14',
+    author: 'AI @ VU Team',
+    excerpt:
+      'A comprehensive list of 70+ tools, platforms, and services you can get for free or at massive discounts with a student email. Start with the GitHub Student Developer Pack and unlock everything else.',
+    content: `Almost everything is free, and some offer crazy discounts. As a student you have access to an absurd amount of software, cloud credits, and services that would otherwise cost you well over $10,000 a year. Most students don't even know half of these exist.
+
+This post is the full list. Bookmark it.
+
+---
+
+## The King: GitHub Student Developer Pack
+
+[**GitHub Student Developer Pack**](https://education.github.com/pack) is where you start. One application, one verification, 100+ tools unlocked. Every other student subscription saves you money on one thing. The GitHub Student Developer Pack builds your entire development environment for free.
+
+If you do nothing else on this list, do this one. It's the gateway to most of what follows.
+
+---
+
+## Dev Tools & IDEs
+
+These are the tools you'll actually use every day as an AI or CS student.
+
+- [**Cursor Pro**](https://cursor.com/students): 1 full year free ($240 value). AI-powered code editor. Verified via SheerID
+- [**GitHub Copilot Pro**](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-free-access-to-copilot-pro): free via GitHub Education. AI code completion, normally $10/mo
+- [**JetBrains All Products**](https://www.jetbrains.com/academy/student-pack/): all IDEs free (IntelliJ, PyCharm, WebStorm, CLion, DataGrip, etc.). Renewable yearly. ~$250/yr value
+- **JetBrains Space Pro**: via GitHub Pack
+- **Replit Pro**: via GitHub Pack
+- [**GitKraken**](https://www.gitkraken.com/github-student-developer-pack-bundle): 6 months free, then 75-80% off Pro. Via GitHub Pack
+- [**Postman Student Expert**](https://www.postman.com/student-program/student-expert/): free API certification + digital badge
+
+JetBrains alone is worth $250/year. Cursor is another $240. That's nearly $500 just from two items on this list.
+
+---
+
+## Cloud & Hosting
+
+Free cloud credits are incredibly useful for ML projects, hosting personal projects, or just learning how infrastructure works.
+
+- [**AWS Educate**](https://aws.amazon.com/education/awseducate/): free cloud skills training + hands-on labs. Also check the [AWS Free Tier](https://aws.amazon.com/free/)
+- [**Microsoft Azure for Students**](https://azure.microsoft.com/en-us/free/students): $100 free credits per year, no credit card needed. Renewable annually
+- [**Google Cloud Education**](https://cloud.google.com/edu/students): ~$50 in credits distributed via faculty. Ask your professors
+- [**DigitalOcean**](https://www.digitalocean.com/github-students): $200 in cloud credits via GitHub Pack, valid 1 year
+- [**Oracle Cloud Free Tier**](https://www.oracle.com/cloud/free/): $300 trial credits + generous Always Free resources (4 ARM cores, 24 GB RAM). Available to everyone
+- [**Heroku**](https://www.heroku.com/github-students/): $13/mo in platform credits for 24 months via GitHub Pack
+- **Vercel Pro**: via GitHub Pack
+- **Netlify**: via GitHub Pack
+- **Railway**: student discount
+- [**Cloudflare Pro**](https://www.cloudflare.com/students/): 12 months of developer features via GitHub Pack
+
+That's potentially **$600+ in cloud credits** across these platforms. More than enough to run ML training jobs, host side projects, or experiment with different providers.
+
+---
+
+## Databases
+
+- [**MongoDB Atlas**](https://www.mongodb.com/students): $50 credits + free certification ($150 value)
+
+---
+
+## Design & Productivity
+
+You don't have to pay for design or productivity tools. Almost all of them have student plans.
+
+- [**Figma Education**](https://www.figma.com/education/): free Professional plan for 2 years. Unlimited files and collaboration
+- [**Canva for Education**](https://www.canva.com/education/students/): free Canva Pro if your university has Canva for Campus
+- [**Sketch**](https://www.sketch.com/education/): free Education plan (full workspace, Mac + web app). 1 year, renewable
+- [**Autodesk**](https://www.autodesk.com/education/edu-software/overview): free 1-year licenses for AutoCAD, Fusion, Maya, etc. Renewable
+- **Miro**: free Education plan
+- [**Blender**](https://www.blender.org/): completely free and open source (GPL). Not student-specific but worth knowing
+- [**Notion Education**](https://www.notion.com/product/notion-for-education): free Plus plan ($10/mo value). Unlimited pages, file uploads
+- [**Microsoft 365 Education**](https://www.microsoft.com/en-us/education/products/office): free Word, Excel, PowerPoint, Teams with school email
+- **Grammarly EDU**: via university
+- **Obsidian**: free for students
+- **Todoist Pro**: discount via Student Beans
+- [**Airtable Education**](https://support.airtable.com/docs/nonprofit-and-educational-plans-faqs): free Team plan for 6-24 months with .edu email
+- **Loom**: free Education plan
+- **Linear**: student plan
+- **ClickUp**: free Education plan
+- **Asana**: student access
+
+---
+
+## Learning Platforms
+
+If you want to learn beyond your coursework, there's a lot available for free or nearly free.
+
+- [**Educative**](https://www.educative.io/github-students): 6 months free access to 60+ courses via GitHub Pack, then 30% off
+- [**Frontend Masters**](https://frontendmasters.com/welcome/github-student-developers/): 6 months free membership (one-time) via GitHub Pack
+- **LinkedIn Learning**: free via university (check if VU provides access)
+- [**Coursera Financial Aid**](https://www.coursera.support/s/article/learner-000001455): apply for free access to any course (two short essays, ~16 days processing)
+- [**edX Audit**](https://www.edx.org/): audit most courses for free (no certificate, limited time access)
+- **Udemy**: free courses periodically
+- **Pluralsight**: student plan
+- **IBM SkillsBuild**: free
+- **Meta Blueprint**: free certifications
+- **Microsoft Learn**: free challenges with periodic free certifications
+- **Google Developer Student Clubs**: free access
+- **Hack The Box**: student labs
+- **TryHackMe**: student plan
+- [**Kaggle**](https://www.kaggle.com/): 30 hours/week free GPU compute (Tesla P100/T4), 50,000+ datasets. Free for everyone
+- **LeetCode**: student discount
+- **HackerRank**: free certifications
+- [**Red Hat Developer**](https://developers.redhat.com/): free developer subscription with up to 16 RHEL nodes
+- **SAP Learning Hub**: student access
+
+---
+
+## Domains & SSL
+
+Want to host a personal portfolio? You can do it completely free.
+
+- [**Namecheap**](https://nc.me/landing/github): free .me domain + SSL for 1 year via GitHub Pack
+- [**Let's Encrypt**](https://letsencrypt.org/): free SSL certificates for any website. Forever. Available to everyone
+
+---
+
+## AI Tools
+
+- [**Perplexity Pro Student**](https://www.perplexity.ai/students): 50% off ($10/mo) or $4.99/mo Education plan
+- **Google Gemini**: via Google One Education
+- **OpenAI API Credits**: via partner student programs
+
+---
+
+## Music & Entertainment
+
+- [**Spotify Student**](https://www.spotify.com/nl/student/): ~50% off Premium. Verified via SheerID
+- [**Apple Music Student**](https://support.apple.com/en-us/106008): $5.99/mo (vs $10.99) + free Apple TV+. Up to 48 months
+- [**YouTube Premium Student**](https://support.google.com/youtube/answer/9158808): ~43% off ($7.99/mo). Annual reverification required
+- **Amazon Prime**: 6 months free for students
+
+---
+
+## Deals & Discount Platforms
+
+These aggregate discounts across hundreds of brands:
+
+- [**UNiDAYS**](https://www.myunidays.com/): free platform with up to 50% off across fashion, tech, food, travel. 1000+ brands
+- [**Student Beans**](https://www.studentbeans.com/): 10,000+ stores, includes digital student ID for in-store discounts
+- [**Apple Education Pricing**](https://www.apple.com/nl-edu/store): up to EUR 200 off Macs, EUR 100 off iPads
+- **Samsung Student Store**: device discounts
+
+---
+
+## Payments & DevOps
+
+- **Stripe**: no fees on first $1,000 via GitHub Pack
+- **Nvidia**: student resources & credits
+- **Intel Developer Zone**: free access
+
+---
+
+## Communication
+
+- **Zoom**: free Education plan via university
+- **Slack**: free Education plan
+
+---
+
+## NL-Specific
+
+If you're studying in the Netherlands, there's one more worth knowing:
+
+- [**Surfspot**](https://www.surfspot.nl/): discounted software for Dutch university students (Microsoft Office, Adobe, etc.). Log in with your VU credentials
+
+And don't forget the [**Museumkaart**](https://www.museumkaart.nl/) (~EUR 69/year for free entry to 400+ museums across the Netherlands). Not a subscription, but it pays for itself after a few visits.
+
+---
+
+## Where to Start
+
+If you're feeling overwhelmed, here's the order I'd recommend:
+
+1. **GitHub Student Developer Pack** — do this first, it unlocks most of the dev tools
+2. **JetBrains** — you'll use an IDE every day
+3. **Azure/DigitalOcean credits** — useful for ML projects and hosting
+4. **Figma + Notion** — even if you're not a designer, these are useful for project planning
+5. **Spotify/YouTube Premium student pricing** — might as well save money on what you already pay for
+6. **UNiDAYS + Student Beans** — install these and check them before buying anything
+
+The total value of everything on this list is conservatively over $10,000 per year. Most of it takes less than 5 minutes to set up. There's really no reason not to.
+
+Check out our [Free Stuff guide](/guide/amsterdam/free-stuff) for even more details on student freebies and how to set them up.`,
+    tags: ['free-stuff', 'student-discounts', 'tools', 'productivity', 'cloud'],
+  },
+  {
     id: 'post-5',
     slug: 'math-behind-ai',
     title: 'The Math Behind AI: What You Actually Need to Know',
