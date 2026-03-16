@@ -4,6 +4,13 @@ import remarkGfm from 'remark-gfm';
 import { getProgramInfo } from '../services/contentService';
 import { useMountAnimation, useInView } from '../hooks/useAnimations';
 
+function smoothScrollTo(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
 export default function ProgramInfoPage() {
   const info = getProgramInfo();
   const mounted = useMountAnimation(50);
@@ -11,6 +18,18 @@ export default function ProgramInfoPage() {
   useEffect(() => {
     document.title = 'Program Info — AI @ VU';
   }, []);
+
+  // Separate the TOC section from content sections
+  const tocSection = info.sections.find((s) => s.heading === 'On This Page');
+  const contentSections = info.sections.filter((s) => s.heading !== 'On This Page');
+
+  // Parse TOC links from markdown
+  const tocLinks = tocSection
+    ? [...tocSection.content.matchAll(/\[([^\]]+)\]\(#([^)]+)\)/g)].map((m) => ({
+        label: m[1],
+        id: m[2],
+      }))
+    : [];
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
@@ -24,7 +43,32 @@ export default function ProgramInfoPage() {
       </div>
 
       <div className="max-w-3xl">
-        {info.sections.map((section, i) => (
+        {/* Table of contents */}
+        {tocLinks.length > 0 && (
+          <nav
+            className={`mb-10 rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-stone-50/50 dark:bg-stone-900/50 p-5 ${
+              mounted ? 'animate-fade-in-up' : 'pre-animate'
+            }`}
+          >
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-3">
+              On this page
+            </h2>
+            <ul className="grid gap-1.5 sm:grid-cols-2">
+              {tocLinks.map((link) => (
+                <li key={link.id}>
+                  <button
+                    onClick={() => smoothScrollTo(link.id)}
+                    className="w-full text-left text-sm text-stone-600 dark:text-stone-400 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors py-0.5"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
+
+        {contentSections.map((section, i) => (
           <ProgramSection key={i} section={section} index={i} />
         ))}
 
@@ -60,11 +104,27 @@ function ProgramSection({ section, index }: { section: { heading: string; conten
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
-            a: ({ href, children, ...props }) => (
-              <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
-                {children}
-              </a>
-            ),
+            a: ({ href, children, ...props }) => {
+              if (href?.startsWith('#')) {
+                return (
+                  <a
+                    href={href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      smoothScrollTo(href.slice(1));
+                    }}
+                    {...props}
+                  >
+                    {children}
+                  </a>
+                );
+              }
+              return (
+                <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+                  {children}
+                </a>
+              );
+            },
           }}
         >
           {section.content}
