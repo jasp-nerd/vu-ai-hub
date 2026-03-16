@@ -35,12 +35,21 @@ export default function ProgramInfoPage() {
   );
 }
 
+function sectionId(heading: string): string {
+  return heading
+    .toLowerCase()
+    .replace(/['']/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
 function ProgramSection({ section, index }: { section: { heading: string; content: string }; index: number }) {
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <div
       ref={ref}
+      id={sectionId(section.heading)}
       className={`mb-10 ${inView ? 'animate-fade-in-up' : 'pre-animate'}`}
       style={{ animationDelay: `${index * 60}ms` }}
     >
@@ -48,7 +57,16 @@ function ProgramSection({ section, index }: { section: { heading: string; conten
         {section.heading}
       </h2>
       <div className="prose-custom">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            a: ({ href, children, ...props }) => (
+              <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+                {children}
+              </a>
+            ),
+          }}
+        >
           {section.content}
         </ReactMarkdown>
       </div>

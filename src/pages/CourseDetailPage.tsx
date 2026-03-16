@@ -12,12 +12,14 @@ import {
   getResourcesForCourse,
   getPracticeQuestionsForCourse,
   getEssayPromptsForCourse,
+  getGradeStructureForCourse,
 } from '../services/courseService';
 import Quiz from '../components/Quiz';
 import PracticeProblems from '../components/PracticeProblems';
 import EssayPractice from '../components/EssayPractice';
 import CourseChat from '../components/CourseChat';
 import ContributionPopup from '../components/ContributionPopup';
+import CourseGradeCalculator from '../components/CourseGradeCalculator';
 import FeedbackPopup from '../components/FeedbackPopup';
 import TipSubmitBox from '../components/TipSubmitBox';
 import { DIFFICULTY_LABELS } from '../constants';
@@ -86,6 +88,7 @@ export default function CourseDetailPage() {
   const resources = getResourcesForCourse(course.id);
   const practiceQuestions = getPracticeQuestionsForCourse(course.id);
   const essayPromptsList = getEssayPromptsForCourse(course.id);
+  const gradeStructure = getGradeStructureForCourse(course.id);
 
   // Determine which exam-prep tab to show
   const examPrepTab: Tab = essayPromptsList.length > 0
@@ -143,6 +146,19 @@ export default function CourseDetailPage() {
                 .map((s) => s.replace(/_/g, ' '))
                 .join(' · ')}
             </span>
+          )}
+          {course.studyGuideUrl && (
+            <a
+              href={course.studyGuideUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs font-medium text-vu-blue dark:text-vu-blue-light hover:underline transition-colors"
+            >
+              Official study guide
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           )}
         </div>
         <h1
@@ -272,6 +288,11 @@ export default function CourseDetailPage() {
                 <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed whitespace-pre-line">
                   {course.assessment || course.gradingStructure}
                 </p>
+              </div>
+            )}
+            {gradeStructure && (
+              <div className="mt-6">
+                <CourseGradeCalculator courseId={course.id} structure={gradeStructure} />
               </div>
             )}
             {course.teachingMethods && (
