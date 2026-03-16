@@ -4,6 +4,7 @@ import { quizQuestions } from '../data/quizzes';
 import { resources } from '../data/resources';
 import { practiceQuestions } from '../data/practiceQuestions';
 import { essayPrompts } from '../data/essayPrompts';
+import { courseGradeStructures, type CourseGradeStructure } from '../data/gradeComponents';
 import type { Course, CourseTip, QuizQuestion, Resource, PracticeQuestion, EssayPrompt } from '../types';
 
 export function getCourses(): Course[] {
@@ -40,4 +41,8 @@ export function getPracticeQuestionsForCourse(courseId: string): PracticeQuestio
 
 export function getEssayPromptsForCourse(courseId: string): EssayPrompt[] {
   return essayPrompts.filter((p) => p.courseId === courseId);
+}
+
+export function getGradeStructureForCourse(courseId: string): CourseGradeStructure | undefined {
+  return courseGradeStructures.find((g) => g.courseId === courseId);
 }

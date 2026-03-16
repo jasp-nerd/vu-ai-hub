@@ -24,6 +24,8 @@ export interface Course {
   };
   /** Optional banner image path (relative to public/) */
   image?: string;
+  /** Link to the official VU study guide page for this course */
+  studyGuideUrl?: string;
 }
 
 export interface CourseTip {

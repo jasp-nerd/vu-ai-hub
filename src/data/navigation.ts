@@ -13,6 +13,7 @@ export const navigationItems: NavItem[] = [
       { label: 'Blog', path: '/guide/blog' },
       { label: 'FAQ', path: '/guide/faq' },
       { label: 'Program Info', path: '/guide/program' },
+      { label: 'GPA Calculator', path: '/guide/gpa' },
     ],
   },
 ];
