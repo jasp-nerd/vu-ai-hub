@@ -83,10 +83,13 @@ export default function GPACalculatorPage() {
       if (isNaN(grade)) continue;
 
       graded.push({ courseId: course.id, grade: gradeStr });
-      weightedSum += grade * ec;
-      ecSum += ec;
-      if (grade >= 5.5) passing++;
-      else failing++;
+      if (grade >= 5.5) {
+        weightedSum += grade * ec;
+        ecSum += ec;
+        passing++;
+      } else {
+        failing++;
+      }
     }
 
     const totalEC = courses.reduce((sum, c) => sum + parseEC(c.credits), 0);
@@ -111,8 +114,10 @@ export default function GPACalculatorPage() {
     if (remainingEC <= 0) return { possible: false, message: 'All courses have grades entered.' };
 
     const currentWeightedSum = gradedCourses.reduce((sum, gc) => {
+      const grade = parseFloat(gc.grade);
+      if (grade < 5.5) return sum; // failed courses don't count
       const course = courses.find((c) => c.id === gc.courseId);
-      return sum + parseFloat(gc.grade) * parseEC(course?.credits);
+      return sum + grade * parseEC(course?.credits);
     }, 0);
 
     const neededWeightedSum = target * totalEC;
@@ -184,8 +189,59 @@ export default function GPACalculatorPage() {
         </div>
       </div>
 
+      {/* What-if predictor */}
+      <div className={`max-w-3xl mb-8 ${mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'}`}>
+        <div className="rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-stone-50/50 dark:bg-stone-900/50 p-6">
+          <button
+            onClick={() => setShowWhatIf(!showWhatIf)}
+            className="flex items-center gap-2 w-full text-left"
+          >
+            <h3 className="font-display font-semibold text-stone-900 dark:text-stone-100">
+              What-if predictor
+            </h3>
+            <svg
+              className={`w-4 h-4 text-stone-400 transition-transform ${showWhatIf ? 'rotate-180' : ''}`}
+              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {showWhatIf && (
+            <div className="mt-4">
+              <p className="text-sm text-stone-500 dark:text-stone-400 mb-3">
+                Enter your target GPA to see what average grade you need on your remaining courses.
+              </p>
+              <div className="flex items-center gap-3">
+                <label htmlFor="target-gpa" className="text-sm font-medium text-stone-700 dark:text-stone-300">
+                  Target GPA:
+                </label>
+                <input
+                  id="target-gpa"
+                  type="text"
+                  inputMode="decimal"
+                  value={targetGPA}
+                  onChange={(e) => {
+                    const v = e.target.value;
+                    if (v === '' || v === '.' || (!isNaN(parseFloat(v)) && parseFloat(v) >= 1 && parseFloat(v) <= 10)) {
+                      setTargetGPA(v);
+                    }
+                  }}
+                  placeholder="e.g. 7.5"
+                  className="w-20 text-center text-sm font-medium rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-stone-100 px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-vu-blue/30 dark:focus:ring-vu-blue-light/30"
+                />
+              </div>
+              {whatIfResult && (
+                <div className={`mt-4 text-sm leading-relaxed ${whatIfResult.possible ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>
+                  {whatIfResult.message}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Course grades by year */}
-      <div className={`max-w-3xl ${mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'}`}>
+      <div className={`max-w-3xl ${mounted ? 'animate-fade-in-up stagger-3' : 'pre-animate'}`}>
         {[1, 2, 3].map((year) => {
           const yearCourses = coursesByYear[year];
           if (!yearCourses) return null;
@@ -259,57 +315,6 @@ export default function GPACalculatorPage() {
         })}
       </div>
 
-      {/* What-if predictor */}
-      <div className={`max-w-3xl mb-8 ${mounted ? 'animate-fade-in-up stagger-3' : 'pre-animate'}`}>
-        <div className="rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-stone-50/50 dark:bg-stone-900/50 p-6">
-          <button
-            onClick={() => setShowWhatIf(!showWhatIf)}
-            className="flex items-center gap-2 w-full text-left"
-          >
-            <h3 className="font-display font-semibold text-stone-900 dark:text-stone-100">
-              What-if predictor
-            </h3>
-            <svg
-              className={`w-4 h-4 text-stone-400 transition-transform ${showWhatIf ? 'rotate-180' : ''}`}
-              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-          {showWhatIf && (
-            <div className="mt-4">
-              <p className="text-sm text-stone-500 dark:text-stone-400 mb-3">
-                Enter your target GPA to see what average grade you need on your remaining courses.
-              </p>
-              <div className="flex items-center gap-3">
-                <label htmlFor="target-gpa" className="text-sm font-medium text-stone-700 dark:text-stone-300">
-                  Target GPA:
-                </label>
-                <input
-                  id="target-gpa"
-                  type="text"
-                  inputMode="decimal"
-                  value={targetGPA}
-                  onChange={(e) => {
-                    const v = e.target.value;
-                    if (v === '' || v === '.' || (!isNaN(parseFloat(v)) && parseFloat(v) >= 1 && parseFloat(v) <= 10)) {
-                      setTargetGPA(v);
-                    }
-                  }}
-                  placeholder="e.g. 7.5"
-                  className="w-20 text-center text-sm font-medium rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800 text-stone-900 dark:text-stone-100 px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-vu-blue/30 dark:focus:ring-vu-blue-light/30"
-                />
-              </div>
-              {whatIfResult && (
-                <div className={`mt-4 text-sm leading-relaxed ${whatIfResult.possible ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>
-                  {whatIfResult.message}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </div>
-
       {/* Actions */}
       <div className={`max-w-3xl flex gap-3 ${mounted ? 'animate-fade-in-up stagger-4' : 'pre-animate'}`}>
         <button
@@ -323,7 +328,7 @@ export default function GPACalculatorPage() {
       {/* Info note */}
       <div className={`max-w-3xl mt-8 ${mounted ? 'animate-fade-in-up stagger-5' : 'pre-animate'}`}>
         <p className="text-xs text-stone-400 dark:text-stone-500 leading-relaxed">
-          GPA is calculated as a weighted average: sum(grade x EC) / sum(EC). Dutch grading scale: 1-10, passing is 5.5 or above.
+          GPA is calculated as a weighted average: sum(grade x EC) / sum(EC). Only passing grades (5.5 or above) count towards your GPA. Dutch grading scale: 1-10.
           You need 180 EC to complete the programme. Grades are stored locally in your browser and are not sent anywhere. Courses with 0 EC (like the English Language Test) are excluded.
         </p>
       </div>
