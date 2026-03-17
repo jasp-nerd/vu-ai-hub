@@ -160,52 +160,68 @@ export default function HomePage() {
         </div>
 
         {/* About & Contribute */}
-        <div className="mt-10 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200/60 dark:border-stone-700/60 p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-10">
-          <div className="flex-1 min-w-0">
-            <h3 className="font-display text-lg font-bold text-stone-900 dark:text-stone-100 mb-2">
-              About this project
-            </h3>
-            <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
-              This site was created by Jasper, an AI student at VU Amsterdam since 2024. It's a community project, completely open source and built to be shared. Feel free to use everything here, but keep in mind that course content can change from year to year, so we can't guarantee everything is still 100% accurate. Always check the{' '}
-              <a href="https://studiegids.vu.nl/nl" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">studiegids</a>
-              {' '}or your course page on{' '}
-              <a href="https://canvas.vu.nl" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">Canvas</a>
-              {' '}for the latest info. If the content still matches, use all the quizzes and summaries as much as you'd like! And if you spot something outdated, we'd love your help updating it.
-            </p>
+        <div className="mt-10 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200/60 dark:border-stone-700/60 p-6 md:p-8">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-10">
+            <div className="flex-1 min-w-0">
+              <h3 className="font-display text-lg font-bold text-stone-900 dark:text-stone-100 mb-2">
+                About this project
+              </h3>
+              <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+                I'm Jasper, an AI student at VU Amsterdam since 2024, and I built this site as a community project, completely open source and meant to be shared. Feel free to use everything here, but keep in mind that course content can change from year to year, so we can't guarantee everything is still 100% accurate. Always check the{' '}
+                <a href="https://studiegids.vu.nl/nl" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">studiegids</a>
+                {' '}or your course page on{' '}
+                <a href="https://canvas.vu.nl" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">Canvas</a>
+                {' '}for the latest info. If the content still matches, use all the quizzes and summaries as much as you'd like! And if you spot something outdated, we'd love your help updating it.
+              </p>
+            </div>
+
+            <div className="shrink-0 md:w-72">
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 gap-2">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfKnx3ui5cBtDMMaRwIOqqWjb6Uo2sphlsb-x_zv5dT6VRw7A/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group rounded-lg bg-vu-blue/10 dark:bg-vu-blue/15 p-3 hover:bg-vu-blue/15 dark:hover:bg-vu-blue/20 transition-colors"
+                >
+                  <p className="text-xs font-semibold text-vu-blue dark:text-vu-blue-light mb-0.5 flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+                    </svg>
+                    Submit study materials
+                  </p>
+                  <p className="text-[11px] text-stone-500 dark:text-stone-400">
+                    Upload summaries, notes &amp; more
+                  </p>
+                </a>
+                <div className="rounded-lg bg-white dark:bg-stone-800/50 p-3">
+                  <p className="text-xs font-semibold text-stone-700 dark:text-stone-300 mb-0.5">
+                    Get in touch
+                  </p>
+                  <p className="text-xs text-stone-600 dark:text-stone-400">
+                    <a href="mailto:vu.caboose383@passinbox.com" className="text-vu-blue dark:text-vu-blue-light hover:underline">
+                      Email
+                    </a>
+                    {' · '}
+                    <span>Discord @papser</span>
+                  </p>
+                </div>
+                <a
+                  href="https://github.com/jasp-nerd/vu-ai-hub/blob/main/CONTRIBUTING.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group rounded-lg bg-white dark:bg-stone-800/50 p-3 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+                >
+                  <p className="text-xs font-semibold text-stone-700 dark:text-stone-300 mb-0.5">
+                    Contribute on GitHub
+                  </p>
+                  <p className="text-[11px] text-vu-blue dark:text-vu-blue-light group-hover:underline">
+                    Open a pull request &rarr;
+                  </p>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="shrink-0 md:w-64">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-2">
-              <div className="rounded-lg bg-white dark:bg-stone-800/50 p-2.5">
-                <p className="text-[11px] font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-1">
-                  Send us your changes
-                </p>
-                <p className="text-xs text-stone-600 dark:text-stone-300">
-                  <a href="mailto:vu.caboose383@passinbox.com" className="text-vu-blue dark:text-vu-blue-light hover:underline">
-                    Email
-                  </a>
-                  {' · '}
-                  <span>Discord @papser</span>
-                </p>
-              </div>
-              <a
-                href="https://github.com/jasp-nerd/vu-ai-hub/blob/main/CONTRIBUTING.md"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group rounded-lg bg-white dark:bg-stone-800/50 p-2.5 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
-              >
-                <p className="text-[11px] font-medium text-stone-500 dark:text-stone-400 uppercase tracking-wider mb-1">
-                  Contribute directly
-                </p>
-                <p className="text-xs text-vu-blue dark:text-vu-blue-light group-hover:underline">
-                  Open a pull request &rarr;
-                </p>
-              </a>
-            </div>
-            <p className="mt-2 text-[10px] text-stone-400 dark:text-stone-500 leading-relaxed">
-              You'll also find contribution prompts on individual course pages.
-            </p>
-          </div>
         </div>
         </div>
       </section>
