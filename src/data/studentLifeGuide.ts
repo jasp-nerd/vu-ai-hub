@@ -1,40 +1,6 @@
-export interface AmsterdamGuideSection {
-  id: string;
-  title: string;
-  emoji: string;
-  description: string;
-  content: string;
-}
+import type { GuideSection } from '../types';
 
-export const amsterdamGuideSections: AmsterdamGuideSection[] = [
-  {
-    id: 'social-links',
-    title: 'Social Links',
-    emoji: '!',
-    description: 'Important social links and community groups for VU students.',
-    content: `
-:::info
-This guide contains information collected and written by students who have lived in Amsterdam and attend the VU for a good amount of time. While we have ensured that most of the information is indeed correct please always consult other sources as well. We hope you enjoy your stay here!
-:::
-
-## AI Student Groups
-
-### WhatsApp Groups
-
-* [Year 1 AI WhatsApp](https://chat.whatsapp.com/Fax2ctVh49w3fyAgl9wAAJ)
-* [Year 2 AI WhatsApp](https://chat.whatsapp.com/JzJTIzprbHIAmjnlw2i6pe)
-
-### Student Organizations
-
-* StudSec - Dutch Student CyberSecurity Association (Based at the VU)
-  * [VU Cyber Security Group Discord](https://url.studsec.nl/discord)
-  * [Website](https://studsec.nl)
-
----
-
-*The [CS Discord](https://discord.gg/MGG72qsKrn) and [CS Resource Hub](https://cs-hub.notion.site/CS-Hub-6e7cae889f844cb59ae5f1809c88e553) may also be useful if you are interested in CS-related content.*
-`,
-  },
+export const studentLifeGuideSections: GuideSection[] = [
   {
     id: 'life-in-amsterdam',
     title: 'Life in Amsterdam',
@@ -238,149 +204,55 @@ It is required to log in to certain government services as well as health insura
 `,
   },
   {
-    id: 'internships',
-    title: 'SWE & AI Internships',
-    emoji: '\u{1F392}',
-    description: 'Guide on internship opportunities for AI and software engineering students.',
+    id: 'biking',
+    title: 'Biking Guide',
+    emoji: '\u{1F6B2}',
+    description: 'A mostly comprehensive guide to biking in Amsterdam.',
     content: `
-If you just want the summary for what to do then jump to the bottom of the page.
+## General (unwritten) rules
 
-## Non-EU/EEA
+* "uitgezonderd" = "excepted". If you see a do not enter/wrong way sign, but it says "uitgezondered fiets" underneath, you are allowed to bike down it anyway.
+* Bike paths are usually delineated by red/maroon pavement or bricks, either as a small lane in the street or a dedicated path separate from the road. They may be other colors too, or just plain, but it should be fairly obvious where they are. If you do not see one, it is very likely you are on the wrong street and there is a parallel bike-friendly street nearby.
+* Do not cycle on sidewalks unless there is no other option!
+* Do not cycle on the wrong side of a 2-way cycle path or the wrong way down a one-way road when not excepted!
+* Do not cycle in the middle of the street when a cycle path exists! (this is legally enforced!)
+* When turning, especially if there are other bikers behind you, make sure to signal your turn by holding out a hand in the direction you're turning. For example, if turning left, extend your left hand outward (or bend your right arm 90 degrees upwards). For turning right just reverse this.
+* When biking near tram tracks, make sure to go across them at an angle, especially with thin wheels. If you don't, your wheel may fall into the track and you'll fall off your bike.
+* Always stay to the right. On streets with a one-way cycle path on each side, use the one on the right whenever convenient.
+  * When on a path, also keep to the right of your lane. There is always someone who wants to overtake you.
+* During the night and poor visibility (i.e. fog/stormy weather), you are legally required to have a front (white) and rear (red) light on and working. Additionally you legally need a functioning bell. You can be pulled over for this.
+* **DO NOT TOUCH YOUR PHONE!** You may use your phone for navigation, but you cannot interact with it at all while moving. You will get fined 100 EUR if caught!
+  * Listening to music with headphones, while potentially dangerous, is allowed while riding your bike. Use the transparency mode on your headphones if it has it.
+* If you see "shark's teeth" on the ground pointing towards you, that means you must give way to approaching bike/car traffic.
+  * Making eye contact with drivers is a great way to make them stop
+  * You must always give way to pedestrians in the path. Feel free to ring your bell at them repeatedly though. Go to the area near Amsterdam Centraal Station if you want to practice this.
 
-:::danger
-Non-EU/EEA students face significant restrictions for internships in the Netherlands. Talk with your study advisor about options, such as getting an internship as part of your thesis. Some companies can sponsor work permits, but this is less common for internships.
-:::
+## Buying/Renting a bike
 
-## Time Points for Internship Applications
+For people on a budget, your two options are:
 
-A commonly asked question is:
+* **Swapfiets** - Cheap and reliable long-term bike rental. Covers insurance, repairs, etc.
+* **Tweedehands** - 2nd hand bikes. Find them on Marktplaats or most bike stores.
 
-> When am I actually supposed to look for internships?
+## Locking your bike
 
-So I hope this guide can maybe put your minds at ease, there are generally a bunch of different points, and you should not feel pressured. Focus on passing your studies, and seek out opportunities when you feel the time is right.
+Lock your bike! Bikes in the Netherlands almost always have a ring lock (located below the chair) and a chain lock (either integrated into the ring lock or as a separate lock/key). Use both locks when in sketchy areas. Make sure to put the chain through the bike frame, at least one wheel, and something attached to the ground.
 
-#### Y1: First Year
+## Bike parking
 
-:::danger
-**Be careful** with internships here. If you are not experienced, focus on building your programming skills and portfolio. Don't worry too much about internships yet.
-:::
+Bike parking is widely available, although in busy areas it may be hard to find an available space. Nice parking is found at places marked "fietsenstalling", where there is usually a guard and 2-level racks. At many of these parking places, you must scan a bank card or OV-chipkaart to gain access.
 
-* If you already have experience you can apply to regular internships, though note that competition is high
-* Look for workshop programs and introductory opportunities on LinkedIn. Companies like Uber sometimes offer programs for Y1/Y2 students that can lead to internships
+![At these gates, you must place your bike's front wheel on the black pad before the gate will allow you to enter for the first time or exit with your bike.](https://lh6.googleusercontent.com/nfid9vZ-S4Qd_msweJq29gdj9FEC5KfXIVTGVGpDScajpInGinXrXBAn7ZsF5kx7Z9BBkqGZTZoZ0bWHuKz6g6S9Te9cPbrSp9FIeGKKQodY5N6XveQRQ3MbYhKQ_hp7yFNsUy3Q09wPiR1I44MrDXU)
 
-#### Start of Y2: Summer Internships
+Bike parking is almost always free for 24 hours, with an hourly/daily rate thereafter. Be aware of this!
 
-:::warning
-Strongly recommended to apply. These are aimed at Y2 students, often have approachable skill requirements (mainly DSA / LeetCode / HackerRank), and are a great way to get your foot in the door.
-:::
+## OV-fiets
 
-* Primarily **targeted** at Year 2 students
-* Competitive with low entry barriers; usually require *little specific skill*; do require good DSA knowledge though
-* Larger companies may offer these (Amazon, Databricks, Booking.com, Optiver, etc.), though not widely available in smaller firms
+OV-fiets bike rental is available at many NS stations for last-mile journeys, i.e. to get from the station to a business. You must load an OV-fiets subscription (which is free) onto your personal OV-chipkaart to access them. They cost a flat fare per 24 hours.
 
-#### During Y2: Student Internships
+## Bikes on public transport
 
-* Accessible to all students throughout the academic year
-* Generally accept both Msc and Bsc students
-* Consider focusing on opportunities designed for BSc students; internships that also accept Msc will be more competitive if you don't have too much prior experience
-
-#### Y3: Strategic Course Selection + Internships
-
-:::info
-A common strategy is to choose lighter elective courses during your final year and do an internship on the side. Design your course load to leave room for professional experience.
-:::
-
-* Doing an internship alongside lighter courses is a good strategy if you want to have it done during your studies
-* If you design your schedule well it can potentially be the best opportunity aside from summer internships
-
-#### Y3: Thesis Internship
-
-:::danger
-This is another **very good point** for looking into internships, because it has essentially no overlap with your courses. The companies might not overlap with your interests but I would still highly recommend to explore options at this point.
-:::
-
-#### (If you defer) After Y3: Student Internship
-
-:::info
-**If you defer you have to pay tuition**, so this strategy is not recommended for international students if you cannot afford to stay longer. The VU will pay you back a part of your tuition if you graduate halfway through your deferred year. But again **YOU HAVE TO PAY TUITION IF YOU DEFER, ONLY DO THIS IF YOU CAN AFFORD IT**
-:::
-
-* If you defer you retain your student status which should still allow you to apply for both student and regular internships
-
-## Where to Find Opportunities
-
-### Dutch Tech Companies
-
-The Netherlands has a strong tech ecosystem. Companies to look at include:
-
-* **Booking.com** (Amsterdam): large engineering org with regular internship programs
-* **Adyen** (Amsterdam): payments technology
-* **TomTom** (Amsterdam): location technology and mapping
-* **Picnic** (Amsterdam): online grocery, very tech-driven
-* **ASML** (Eindhoven): semiconductor equipment, both hardware and software roles
-
-### AI Ecosystem in Amsterdam
-
-Amsterdam has a growing AI scene with research labs and companies:
-
-* University research groups (VU, UvA) often have student assistant or research positions
-* Startups in the Amsterdam AI ecosystem (check [Amsterdam AI](https://amsterdam-ai.com/) for an overview)
-* Corporate AI labs from larger companies (Qualcomm AI Research, Elsevier, Ahold Delhaize)
-
-### Finding Listings
-
-* **LinkedIn** is probably where you'll find the most relevant job listings. If you have a good profile and some basic activity, recruiters will sometimes reach out to you
-
-## Additional Strategies
-
-**Honors**
-
-* If you have a GPA of 7.5, *even if you don't want to do Honors, **just apply***. They do company get-togethers which might be helpful for networking. A key thing to remember: *you do not have to do Honors courses to be in Honors*. You of course will not get the actual title if you don't do the courses, but you can still leverage being in Honors during your studies for networking.
-
-**STORM student association**
-
-* [STORM](https://svstorm.nl/) is a student association for CS, Math and AI students which also does networking events. Their membership fee is around 15 EUR. Worth signing up for events and getting to know more people. They sometimes organize company visits and career events that are particularly relevant for AI students.
-
-**Career Fairs**
-
-* There are a few career fairs usually yearly, remember to check your VU mail every now and then.
-
-**Advent of Code**
-
-* This is a programming competition website which hosts daily programming problems for the month of December until Christmas morning (25th). It's a great way to practice your programming skills and looks good on your CV.
-
-## Summary
-
-To summarize, some recommendations for what to do in each year:
-
-### Year 1
-
-* Make a LinkedIn and a GitHub account (populate them just with basic information)
-* Sign up to [STORM](https://svstorm.nl/)
-* Try out [Advent of Code](https://adventofcode.com/) in December
-* Apply to Honors if you have a GPA >= 7.5
-* Look out for programming competitions late in the school year
-* Start exploring AI/ML topics that interest you
-
-### Year 2
-
-* Try and populate your GitHub or LinkedIn with anything you did (it's fine if nothing yet)
-* Again do AoC (some more good practice)
-* Maybe over the year explore some things you find interesting in your personal time
-  * personal projects (especially AI/ML projects)
-  * Kaggle competitions
-  * open-source contributions
-
-### Year 3
-
-* At this point try and have at least 1 project on your GitHub, make sure your LinkedIn is clean
-* Have a resume ([this template](https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs) is more than enough)
-* Start just looking at some job listings to get an idea of the market
-* Check [Magnet.me](https://magnet.me/) and [StageVinder](https://stagevinder.nl/) regularly
-
-And of course at all these points see if you can find any good opportunities for an internship. And the one thing to remember:
-
-*IMPORTANT -> YOU ARE PROBABLY MORE SKILLED THAN YOU THINK, IT NEVER HURTS TO APPLY, GOOD LUCK!*
+Taking your bike onto the trains and metro is only allowed during off-peak hours, weekends, and public holidays, and you must pay an extra fee at ticket machines. Taking your bike on buses and trams is not allowed. Taking a folding bicycle onto public transport of any type is always allowed.
 `,
   },
   {
@@ -599,6 +471,109 @@ Don't be afraid to contact the support, they are excellent at helping out, this 
 `,
   },
   {
+    id: 'housing',
+    title: 'Housing Resources',
+    emoji: '\u{1F3D8}\u{FE0F}',
+    description: 'Resources and tips for finding housing as a student in Amsterdam.',
+    content: `
+**Full credit to the student who made the [original doc](https://docs.google.com/document/d/1ozPf7sfI6Auh0GI2xT_g7csGCrKKj4tCFkUJP1WMfyI/edit) on which this page is based on**
+
+### Places to Sign Up ASAP and Build Registration Time
+
+* [Room.nl](https://www.room.nl/en/home)
+* [Studentenwoningweb](https://www.studentenwoningweb.nl/en/)
+* [WoningNet Regio Amsterdam](https://www.woningnetregioamsterdam.nl/) (This is social housing, also available for non-students. If eligible, sign up ASAP!)
+
+### Places to Sign Up and Wait to Get Lucky
+
+* [Stunest](https://www.stunest.nl/)
+* [Student Experience](https://studentexperience.nl/en/)
+* [Hicondo](https://www.hicondo.nl/en/)
+* [The Student Hotel](https://www.thestudenthotel.com/)
+* [Our Campus](https://www.ourcampus.nl/)
+
+### Social Housing
+
+* [Connect Sociuswonen](https://connect.sociuswonen.nl/)
+
+:::warning
+**Careful with the 5 links below**, everything else listed is from organizations but this is private sector renting, don't get scammed!
+:::
+
+* [Kamernet](https://kamernet.nl/en)
+* [Kamer.nl](https://www.kamer.nl/en/)
+* [HousingAnywhere](https://housinganywhere.com/s/Amsterdam--Netherlands)
+* [Funda](https://www.funda.nl/huur/heel-nederland/)
+* [Huurwoningen](https://www.huurwoningen.com)
+
+### Income-Based Requirements
+
+* [Roofz](https://www.roofz.eu/availability) (The other sites in the private sector listed above may or may not also ask for a minimum income, it just depends on the landlord.)
+
+### Help Finding Rentals
+
+* [RentSlam](https://rentslam.com/)
+
+### Facebook Groups (BEWARE SCAMS)
+
+* [Kamer Gezocht/Aangeboden in Amsterdam](https://www.facebook.com/groups/1695927010691648/)
+* [Aangeboden in Amsterdam: kamers en appartementen](https://www.facebook.com/groups/237588910260110/)
+* [Amsterdam Apartments 4 Rent](https://www.facebook.com/groups/amsterdam.apartments/)
+* [Zoekt kamer in Amsterdam Community](https://www.facebook.com/groups/zoektkamerinamsterdam/)
+* [Amsterdam rent a room, apartment or studio](https://www.facebook.com/groups/143224392751384/)
+* [Amsterdam Student Housing](https://www.facebook.com/groups/amsterdamstudenthousing/)
+* [Amsterdam rent a room (2)](https://www.facebook.com/groups/484600675031215/)
+* [Student Housing Amsterdam](https://www.facebook.com/groups/577890138899102/)
+* [Amsterdam Housing, Rooms, Apartments, Sublets](https://www.facebook.com/groups/251441185632701/)
+* [Amsterdam Accommodations](https://www.facebook.com/groups/Amsterdam.Accommodations/)
+* [ROOM AVAILABLE IN AMSTERDAM](https://www.facebook.com/groups/182547965445/)
+* [Kamers en Appartementen Amsterdam](https://www.facebook.com/groups/kamersappartementenamsterdam/)
+* [Roommate and Flat Finder Amsterdam](https://www.facebook.com/groups/amsterdamroomskamers/)
+* [Woningen te huur in Amsterdam](https://www.facebook.com/groups/woningeninamsterdam/)
+
+### Tips and Tricks
+
+:::info
+**Hot Tip #1** - Uni will recommend you Wendy from Expat services. She is a scam.
+:::
+
+:::info
+**Hot Tip #2** - If it's too good, 99% a scam. ALWAYS ASK FOR A VIEWING AND FLOORPLANS FIRST BEFORE PAYING ANYTHING!
+:::
+
+:::info
+**Hot Tip #3** - Finding a place to live is a full-time job! Go to viewings! Talk to people! Call around! Expect it to eat up a lot of time in your day.
+:::
+
+:::info
+**Hot Tip #4** - Unless you really have no other option, get a place where you can register. You need a BSN and you need to have your address registered. Your life will be way harder without those things + you'll be forced to pay tourist tax.
+:::
+
+:::info
+**Hot Tip #5** - During summer, a huge housing bubble forms as everyone begins searching for a new place to stay. As a result, prices inflate to exorbitant amounts. You may want to wait out this period at home, and come back around October after the bubble has burst.
+:::
+
+:::info
+**Hot Tip #6** - Set alarms to receive newly listed rooms/apartments and call/reply ASAP. If you're techy enough, you could probably make a script for it :)
+:::
+`,
+  },
+  {
+    id: 'student-finance',
+    title: 'Student Finance Guide',
+    emoji: '\u{1F4D1}',
+    description: 'The ultimate guide to student finance, written by @daviklo.',
+    content: `
+The ultimate guide to student finance has been compiled in a comprehensive Google Doc:
+
+[**Read the Ultimate Student Finance Guide**](https://docs.google.com/document/d/19bZOmYB75NXlQ6l8PE40R_UcyZ-VSAyYoJPfofmWaYo/edit)
+
+This guide covers everything you need to know about student finances in the Netherlands.
+
+*Credit to @daviklo for writing this guide.*
+`,
+  },
+  {
     id: 'health-safety',
     title: 'Health & Safety',
     emoji: '\u{1F49F}',
@@ -742,58 +717,6 @@ Understanding the coverage details and actively managing your medical expenses c
 `,
   },
   {
-    id: 'biking',
-    title: 'Biking Guide',
-    emoji: '\u{1F6B2}',
-    description: 'A mostly comprehensive guide to biking in Amsterdam.',
-    content: `
-## General (unwritten) rules
-
-* "uitgezonderd" = "excepted". If you see a do not enter/wrong way sign, but it says "uitgezondered fiets" underneath, you are allowed to bike down it anyway.
-* Bike paths are usually delineated by red/maroon pavement or bricks, either as a small lane in the street or a dedicated path separate from the road. They may be other colors too, or just plain, but it should be fairly obvious where they are. If you do not see one, it is very likely you are on the wrong street and there is a parallel bike-friendly street nearby.
-* Do not cycle on sidewalks unless there is no other option!
-* Do not cycle on the wrong side of a 2-way cycle path or the wrong way down a one-way road when not excepted!
-* Do not cycle in the middle of the street when a cycle path exists! (this is legally enforced!)
-* When turning, especially if there are other bikers behind you, make sure to signal your turn by holding out a hand in the direction you're turning. For example, if turning left, extend your left hand outward (or bend your right arm 90 degrees upwards). For turning right just reverse this.
-* When biking near tram tracks, make sure to go across them at an angle, especially with thin wheels. If you don't, your wheel may fall into the track and you'll fall off your bike.
-* Always stay to the right. On streets with a one-way cycle path on each side, use the one on the right whenever convenient.
-  * When on a path, also keep to the right of your lane. There is always someone who wants to overtake you.
-* During the night and poor visibility (i.e. fog/stormy weather), you are legally required to have a front (white) and rear (red) light on and working. Additionally you legally need a functioning bell. You can be pulled over for this.
-* **DO NOT TOUCH YOUR PHONE!** You may use your phone for navigation, but you cannot interact with it at all while moving. You will get fined 100 EUR if caught!
-  * Listening to music with headphones, while potentially dangerous, is allowed while riding your bike. Use the transparency mode on your headphones if it has it.
-* If you see "shark's teeth" on the ground pointing towards you, that means you must give way to approaching bike/car traffic.
-  * Making eye contact with drivers is a great way to make them stop
-  * You must always give way to pedestrians in the path. Feel free to ring your bell at them repeatedly though. Go to the area near Amsterdam Centraal Station if you want to practice this.
-
-## Buying/Renting a bike
-
-For people on a budget, your two options are:
-
-* **Swapfiets** - Cheap and reliable long-term bike rental. Covers insurance, repairs, etc.
-* **Tweedehands** - 2nd hand bikes. Find them on Marktplaats or most bike stores.
-
-## Locking your bike
-
-Lock your bike! Bikes in the Netherlands almost always have a ring lock (located below the chair) and a chain lock (either integrated into the ring lock or as a separate lock/key). Use both locks when in sketchy areas. Make sure to put the chain through the bike frame, at least one wheel, and something attached to the ground.
-
-## Bike parking
-
-Bike parking is widely available, although in busy areas it may be hard to find an available space. Nice parking is found at places marked "fietsenstalling", where there is usually a guard and 2-level racks. At many of these parking places, you must scan a bank card or OV-chipkaart to gain access.
-
-![At these gates, you must place your bike's front wheel on the black pad before the gate will allow you to enter for the first time or exit with your bike.](https://lh6.googleusercontent.com/nfid9vZ-S4Qd_msweJq29gdj9FEC5KfXIVTGVGpDScajpInGinXrXBAn7ZsF5kx7Z9BBkqGZTZoZ0bWHuKz6g6S9Te9cPbrSp9FIeGKKQodY5N6XveQRQ3MbYhKQ_hp7yFNsUy3Q09wPiR1I44MrDXU)
-
-Bike parking is almost always free for 24 hours, with an hourly/daily rate thereafter. Be aware of this!
-
-## OV-fiets
-
-OV-fiets bike rental is available at many NS stations for last-mile journeys, i.e. to get from the station to a business. You must load an OV-fiets subscription (which is free) onto your personal OV-chipkaart to access them. They cost a flat fare per 24 hours.
-
-## Bikes on public transport
-
-Taking your bike onto the trains and metro is only allowed during off-peak hours, weekends, and public holidays, and you must pay an extra fee at ticket machines. Taking your bike on buses and trams is not allowed. Taking a folding bicycle onto public transport of any type is always allowed.
-`,
-  },
-  {
     id: 'free-stuff',
     title: 'Free Stuff',
     emoji: '\u{1F193}',
@@ -908,182 +831,6 @@ These are not student-specific but worth knowing about:
 * [**Red Hat Developer**](https://developers.redhat.com/): free RHEL developer subscription
 * [**Kaggle**](https://www.kaggle.com/): free GPU compute + datasets for ML projects
 * [**Let's Encrypt**](https://letsencrypt.org/): free SSL certificates for any website
-`,
-  },
-  {
-    id: 'useful-links',
-    title: 'VU Useful Links',
-    emoji: '\u{1F578}\u{FE0F}',
-    description: 'A consolidation of useful links for matters relating to the VU.',
-    content: `
-## Useful links from the VU website
-
-* VU Books: [Link](https://www.vuboekhandel.nl/)
-* Study Guide: [Link](https://studiegids.vu.nl/en/)
-* Dashboard: [Link](https://vu.nl/en/dashboard)
-* Timetable: [Link](https://rooster.vu.nl/schedule)
-
-### VU Graduate Winter and Summer Schools
-
-* Winter School: [Link](https://vu.nl/en/education/vu-graduate-winter-school)
-* Summer School: [Link](https://vu.nl/en/education/summer-school)
-
-### Entrepreneurship and Startups
-
-* IXA - Helping Startups: [Link](https://www.ixa.nl/)
-* Demonstrator Lab - Entrepreneur Hub: [Link](https://www.demonstratorlab.nl/projects/)
-
-### Campus Safety and Support
-
-* Safety on Campus: [Link](https://vu.nl/en/about-vu/more-about/safe-social-setting-on-campus)
-
-### Student Support and Counselling
-
-* Student Psychological Counsellors: [Link](https://vu.nl/en/student/contact-student-guidance-and-support/student-psychological-counsellor)
-* Confidential Support: [Link](https://vu.nl/en/education/more-about/what-to-do-when-you-experience-undesirable-behaviour)
-* General Counselling Service: [Link](https://vu.nl/en/education/more-about/student-general-counselling-service)
-
-### Student Wellbeing
-
-* Student Wellbeing: [Link](https://vu.nl/en/student/student-wellbeing)
-
-### Career Resources
-
-* VU Career Services: [Link](https://vu.nl/en/student/career-services)
-* Amsterdam Career Days: [Link](https://www.amsterdamcareerdays.nl/)
-
-### Sports and Recreation
-
-* Sports Center: [Link](https://sportcentrumvu.nl/en/)
-
-### VU Campus and Resources
-
-* VU Calendar (Interesting Events): [Link](https://vu.nl/en/events)
-* VU Library: [Link](https://vu.on.worldcat.org/v2?lang=eng)
-* Online VU Book Search: [Link](https://vu.on.worldcat.org/v2)
-* VU Study Places: [Link](https://vu-amsterdam.im-motion.net/)
-
-### Special Programs
-
-* Honors Program: [Link](https://vu.nl/en/education/honours)
-
-### AI Organizations
-
-* Amsterdam AI: [Link](https://amsterdam-ai.com/)
-* AISO (AI Student Organization): [Link](https://aiso.ai/)
-* ICAI (Innovation Center for Artificial Intelligence): [Link](https://icai.ai/)
-* ALLAI (Alliance for AI): [Link](https://allai.nl/)
-
-### VU Magazine
-
-* University Magazine "Ad Valvas": [Link](https://www.advalvas.vu.nl/)
-
-### VU History
-
-* VU History (Short and Sweet): [Link](https://vu.nl/en/about-vu/more-about/history)
-`,
-  },
-  {
-    id: 'housing',
-    title: 'Housing Resources',
-    emoji: '\u{1F3D8}\u{FE0F}',
-    description: 'Resources and tips for finding housing as a student in Amsterdam.',
-    content: `
-**Full credit to the student who made the [original doc](https://docs.google.com/document/d/1ozPf7sfI6Auh0GI2xT_g7csGCrKKj4tCFkUJP1WMfyI/edit) on which this page is based on**
-
-### Places to Sign Up ASAP and Build Registration Time
-
-* [Room.nl](https://www.room.nl/en/home)
-* [Studentenwoningweb](https://www.studentenwoningweb.nl/en/)
-* [WoningNet Regio Amsterdam](https://www.woningnetregioamsterdam.nl/) (This is social housing, also available for non-students. If eligible, sign up ASAP!)
-
-### Places to Sign Up and Wait to Get Lucky
-
-* [Stunest](https://www.stunest.nl/)
-* [Student Experience](https://studentexperience.nl/en/)
-* [Hicondo](https://www.hicondo.nl/en/)
-* [The Student Hotel](https://www.thestudenthotel.com/)
-* [Our Campus](https://www.ourcampus.nl/)
-
-### Social Housing
-
-* [Connect Sociuswonen](https://connect.sociuswonen.nl/)
-
-:::warning
-**Careful with the 5 links below**, everything else listed is from organizations but this is private sector renting, don't get scammed!
-:::
-
-* [Kamernet](https://kamernet.nl/en)
-* [Kamer.nl](https://www.kamer.nl/en/)
-* [HousingAnywhere](https://housinganywhere.com/s/Amsterdam--Netherlands)
-* [Funda](https://www.funda.nl/huur/heel-nederland/)
-* [Huurwoningen](https://www.huurwoningen.com)
-
-### Income-Based Requirements
-
-* [Roofz](https://www.roofz.eu/availability) (The other sites in the private sector listed above may or may not also ask for a minimum income, it just depends on the landlord.)
-
-### Help Finding Rentals
-
-* [RentSlam](https://rentslam.com/)
-
-### Facebook Groups (BEWARE SCAMS)
-
-* [Kamer Gezocht/Aangeboden in Amsterdam](https://www.facebook.com/groups/1695927010691648/)
-* [Aangeboden in Amsterdam: kamers en appartementen](https://www.facebook.com/groups/237588910260110/)
-* [Amsterdam Apartments 4 Rent](https://www.facebook.com/groups/amsterdam.apartments/)
-* [Zoekt kamer in Amsterdam Community](https://www.facebook.com/groups/zoektkamerinamsterdam/)
-* [Amsterdam rent a room, apartment or studio](https://www.facebook.com/groups/143224392751384/)
-* [Amsterdam Student Housing](https://www.facebook.com/groups/amsterdamstudenthousing/)
-* [Amsterdam rent a room (2)](https://www.facebook.com/groups/484600675031215/)
-* [Student Housing Amsterdam](https://www.facebook.com/groups/577890138899102/)
-* [Amsterdam Housing, Rooms, Apartments, Sublets](https://www.facebook.com/groups/251441185632701/)
-* [Amsterdam Accommodations](https://www.facebook.com/groups/Amsterdam.Accommodations/)
-* [ROOM AVAILABLE IN AMSTERDAM](https://www.facebook.com/groups/182547965445/)
-* [Kamers en Appartementen Amsterdam](https://www.facebook.com/groups/kamersappartementenamsterdam/)
-* [Roommate and Flat Finder Amsterdam](https://www.facebook.com/groups/amsterdamroomskamers/)
-* [Woningen te huur in Amsterdam](https://www.facebook.com/groups/woningeninamsterdam/)
-
-### Tips and Tricks
-
-:::info
-**Hot Tip #1** - Uni will recommend you Wendy from Expat services. She is a scam.
-:::
-
-:::info
-**Hot Tip #2** - If it's too good, 99% a scam. ALWAYS ASK FOR A VIEWING AND FLOORPLANS FIRST BEFORE PAYING ANYTHING!
-:::
-
-:::info
-**Hot Tip #3** - Finding a place to live is a full-time job! Go to viewings! Talk to people! Call around! Expect it to eat up a lot of time in your day.
-:::
-
-:::info
-**Hot Tip #4** - Unless you really have no other option, get a place where you can register. You need a BSN and you need to have your address registered. Your life will be way harder without those things + you'll be forced to pay tourist tax.
-:::
-
-:::info
-**Hot Tip #5** - During summer, a huge housing bubble forms as everyone begins searching for a new place to stay. As a result, prices inflate to exorbitant amounts. You may want to wait out this period at home, and come back around October after the bubble has burst.
-:::
-
-:::info
-**Hot Tip #6** - Set alarms to receive newly listed rooms/apartments and call/reply ASAP. If you're techy enough, you could probably make a script for it :)
-:::
-`,
-  },
-  {
-    id: 'student-finance',
-    title: 'Student Finance Guide',
-    emoji: '\u{1F4D1}',
-    description: 'The ultimate guide to student finance, written by @daviklo.',
-    content: `
-The ultimate guide to student finance has been compiled in a comprehensive Google Doc:
-
-[**Read the Ultimate Student Finance Guide**](https://docs.google.com/document/d/19bZOmYB75NXlQ6l8PE40R_UcyZ-VSAyYoJPfofmWaYo/edit)
-
-This guide covers everything you need to know about student finances in the Netherlands.
-
-*Credit to @daviklo for writing this guide.*
 `,
   },
 ];

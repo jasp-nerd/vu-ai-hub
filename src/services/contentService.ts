@@ -1,8 +1,7 @@
 import { blogPosts } from '../data/blog';
 import { faqEntries } from '../data/faq';
-import { programInfo } from '../data/program';
 import { navigationItems } from '../data/navigation';
-import type { BlogPost, ProgramInfo, NavItem } from '../types';
+import type { BlogPost, NavItem } from '../types';
 
 // Pre-sort blog posts once at module init (static data, no need to re-sort per call)
 const sortedBlogPosts = [...blogPosts].sort(
@@ -23,10 +22,6 @@ export function getFAQCategories(): string[] {
 
 export function getFAQByCategory(category: string) {
   return faqEntries.filter((e) => e.category === category);
-}
-
-export function getProgramInfo(): ProgramInfo {
-  return programInfo;
 }
 
 export function getNavigation(): NavItem[] {

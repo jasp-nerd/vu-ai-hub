@@ -81,8 +81,8 @@ export default function FeedbackPopup({ courseName, onClose, onShowLess }: Feedb
               <a href="mailto:vu.caboose383@passinbox.com" className="text-vu-blue dark:text-vu-blue-light hover:underline">
                 Email us
               </a>
-              {' · '}
-              <span>Discord @papser</span>
+              {' '}
+              <span className="text-stone-500 dark:text-stone-400">for quick changes, questions, or anything that isn't a large file.</span>
             </p>
           </div>
         </div>

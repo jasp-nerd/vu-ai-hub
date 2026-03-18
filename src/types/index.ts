@@ -96,18 +96,12 @@ export interface FAQEntry {
   category: string;
 }
 
-export interface ProgramInfo {
+export interface GuideSection {
+  id: string;
   title: string;
+  emoji: string;
   description: string;
-  sections: {
-    heading: string;
-    content: string;
-  }[];
-  usefulLinks: {
-    label: string;
-    url: string;
-    description: string;
-  }[];
+  content: string;
 }
 
 export interface NavItem {

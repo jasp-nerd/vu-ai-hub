@@ -13,8 +13,8 @@ const GuideIndexPage = lazy(() => import('./pages/GuideIndexPage'));
 const BlogListPage = lazy(() => import('./pages/BlogListPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 const FAQPage = lazy(() => import('./pages/FAQPage'));
-const ProgramInfoPage = lazy(() => import('./pages/ProgramInfoPage'));
-const AmsterdamGuidePage = lazy(() => import('./pages/AmsterdamGuidePage'));
+const AcademicGuidePage = lazy(() => import('./pages/AcademicGuidePage'));
+const StudentLifeGuidePage = lazy(() => import('./pages/StudentLifeGuidePage'));
 const GPACalculatorPage = lazy(() => import('./pages/GPACalculatorPage'));
 
 export default function App() {
@@ -33,9 +33,10 @@ export default function App() {
             <Route path="/guide/blog" element={<BlogListPage />} />
             <Route path="/guide/blog/:slug" element={<BlogPostPage />} />
             <Route path="/guide/faq" element={<FAQPage />} />
-            <Route path="/guide/program" element={<ProgramInfoPage />} />
-            <Route path="/guide/amsterdam" element={<AmsterdamGuidePage />} />
-            <Route path="/guide/amsterdam/:sectionId" element={<AmsterdamGuidePage />} />
+            <Route path="/guide/academic" element={<AcademicGuidePage />} />
+            <Route path="/guide/academic/:sectionId" element={<AcademicGuidePage />} />
+            <Route path="/guide/student-life" element={<StudentLifeGuidePage />} />
+            <Route path="/guide/student-life/:sectionId" element={<StudentLifeGuidePage />} />
             <Route path="/guide/gpa" element={<GPACalculatorPage />} />
           </Route>
         </Routes>
