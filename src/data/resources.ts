@@ -14,6 +14,8 @@ import { dsaSummary } from './summaries/dsa-summary';
 import { linearAlgebraCalculusSummary } from './summaries/linear-algebra-calculus-summary';
 import { multiAgentSystemsSummary } from './summaries/multi-agent-systems-summary';
 import { projectConversationalAgentsSummary } from './summaries/project-conversational-agents-summary';
+import { machineLearningSummary } from './summaries/machine-learning-summary';
+import { probabilityStatisticsSummary } from './summaries/probability-statistics-summary';
 
 export const resources: Resource[] = [
   // ========== DSA ==========
@@ -144,6 +146,18 @@ export const resources: Resource[] = [
 
   // ========== Machine Learning ==========
   {
+  id: 'res-summary-ml',
+  courseId: 'machine-learning',
+  title: 'Machine Learning — Comprehensive Summary',
+  description:
+    'Complete summary covering all 14 MLVU lectures: linear models, gradient descent, evaluation methodology, probabilistic models, SVMs, deep learning, transformers, GANs/VAEs, reinforcement learning, and more. Includes key formulas and terminology.',
+  url: '#',
+  type: 'summary',
+  tags: ['summary', 'all-lectures', 'site-exclusive'],
+  markdownContent: machineLearningSummary,
+  author: 'VU AI Student Hub',
+  },
+  {
   id: 'res-ml-1',
   courseId: 'machine-learning',
   title: 'MLVU — Machine Learning VU (Official Course Materials)',
@@ -172,6 +186,46 @@ export const resources: Resource[] = [
   url: 'https://www.3blue1brown.com/topics/neural-networks',
   type: 'video',
   tags: ['deep-learning', 'visualization'],
+  },
+  {
+  id: 'res-ml-4',
+  courseId: 'machine-learning',
+  title: 'Colah\'s Blog — Understanding LSTMs',
+  description:
+    'The classic visual guide to LSTM networks. Explains forget gates, input gates, and cell state with clear diagrams. Recommended by the course.',
+  url: 'https://colah.github.io/posts/2015-08-Understanding-LSTMs/',
+  type: 'article',
+  tags: ['deep-learning', 'sequences', 'lstm'],
+  },
+  {
+  id: 'res-ml-5',
+  courseId: 'machine-learning',
+  title: 'Peter Bloem — Transformers from Scratch',
+  description:
+    'Written by the course coordinator himself. A clear, code-driven walkthrough of the transformer architecture including self-attention, multi-head attention, and positional encodings.',
+  url: 'https://peterbloem.nl/blog/transformers',
+  type: 'article',
+  tags: ['transformers', 'deep-learning', 'self-attention'],
+  },
+  {
+  id: 'res-ml-6',
+  courseId: 'machine-learning',
+  title: 'StatQuest — Machine Learning Fundamentals',
+  description:
+    'Josh Starmer explains ML concepts with clear visuals and minimal jargon. Great for gradient descent, cross-validation, ROC curves, and random forests.',
+  url: 'https://www.youtube.com/@statquest',
+  type: 'video',
+  tags: ['fundamentals', 'visual', 'statistics'],
+  },
+  {
+  id: 'res-ml-7',
+  courseId: 'machine-learning',
+  title: 'Google ML Crash Course',
+  description:
+    'Free interactive course from Google covering core ML concepts with TensorFlow exercises. Good supplement for linear models, regularization, and neural networks.',
+  url: 'https://developers.google.com/machine-learning/crash-course',
+  type: 'article',
+  tags: ['fundamentals', 'interactive', 'google'],
   },
 
   // ========== Knowledge & Data ==========
@@ -210,6 +264,18 @@ export const resources: Resource[] = [
 
   // ========== Probability & Statistics ==========
   {
+  id: 'res-summary-ps',
+  courseId: 'probability-statistics',
+  title: 'Probability & Statistics — Comprehensive Summary',
+  description:
+    'Complete summary covering all chapters: basic probability, discrete and continuous random variables, special distributions, limit theorems (LLN, CLT), point estimation, MLE, confidence intervals, and hypothesis testing. Includes all key formulas and distribution tables.',
+  url: '#',
+  type: 'summary',
+  tags: ['summary', 'all-chapters', 'site-exclusive'],
+  markdownContent: probabilityStatisticsSummary,
+  author: 'VU AI Student Hub',
+  },
+  {
   id: 'res-ps-1',
   courseId: 'probability-statistics',
   title: 'Introduction to Probability, Statistics and Random Processes — Free Online Textbook',
@@ -228,6 +294,26 @@ export const resources: Resource[] = [
   url: 'https://www.youtube.com/@statquest',
   type: 'video',
   tags: ['statistics', 'visual'],
+  },
+  {
+  id: 'res-ps-3',
+  courseId: 'probability-statistics',
+  title: 'Seeing Theory — Brown University',
+  description:
+    'Beautiful interactive visualizations of probability concepts. Covers basic probability, compound probability, distributions, frequentist inference, and Bayesian inference with hands-on demos.',
+  url: 'https://seeing-theory.brown.edu/',
+  type: 'tool',
+  tags: ['interactive', 'visualization', 'probability'],
+  },
+  {
+  id: 'res-ps-4',
+  courseId: 'probability-statistics',
+  title: '3Blue1Brown — Bayes\' Theorem',
+  description:
+    'Visual explanation of Bayes\' theorem that builds deep intuition. Shows why the formula works geometrically rather than just algebraically.',
+  url: 'https://www.3blue1brown.com/lessons/bayes-theorem',
+  type: 'video',
+  tags: ['bayes', 'visualization', 'probability'],
   },
 
   // ========== Python Programming ==========
