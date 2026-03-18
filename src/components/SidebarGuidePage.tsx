@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { amsterdamGuideSections } from '../data/amsterdamGuide';
 import { useMountAnimation } from '../hooks/useAnimations';
+import type { GuideSection } from '../types';
 
 type Segment =
   | { type: 'markdown'; content: string }
@@ -99,24 +99,40 @@ const markdownComponents = {
   ),
 };
 
-export default function AmsterdamGuidePage() {
+interface SidebarGuidePageProps {
+  guideTitle: string;
+  guideSubtitle: string;
+  breadcrumbLabel: string;
+  baseRoute: string;
+  sections: GuideSection[];
+  attribution?: React.ReactNode;
+}
+
+export default function SidebarGuidePage({
+  guideTitle,
+  guideSubtitle,
+  breadcrumbLabel,
+  baseRoute,
+  sections,
+  attribution,
+}: SidebarGuidePageProps) {
   const { sectionId } = useParams<{ sectionId: string }>();
   const navigate = useNavigate();
   const mounted = useMountAnimation(50);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const currentSection =
-    amsterdamGuideSections.find((s) => s.id === sectionId) || amsterdamGuideSections[0];
+    sections.find((s) => s.id === sectionId) || sections[0];
 
   useEffect(() => {
     if (!sectionId) {
-      navigate(`/guide/amsterdam/${amsterdamGuideSections[0].id}`, { replace: true });
+      navigate(`${baseRoute}/${sections[0].id}`, { replace: true });
     }
-  }, [sectionId, navigate]);
+  }, [sectionId, navigate, baseRoute, sections]);
 
   useEffect(() => {
-    document.title = `${currentSection.title} — Amsterdam Guide — AI @ VU`;
-  }, [currentSection]);
+    document.title = `${currentSection.title} — ${guideTitle} — AI @ VU`;
+  }, [currentSection, guideTitle]);
 
   useEffect(() => {
     setSidebarOpen(false);
@@ -125,11 +141,11 @@ export default function AmsterdamGuidePage() {
 
   const segments = parseContent(currentSection.content);
 
-  const currentIndex = amsterdamGuideSections.findIndex((s) => s.id === currentSection.id);
-  const prevSection = currentIndex > 0 ? amsterdamGuideSections[currentIndex - 1] : null;
+  const currentIndex = sections.findIndex((s) => s.id === currentSection.id);
+  const prevSection = currentIndex > 0 ? sections[currentIndex - 1] : null;
   const nextSection =
-    currentIndex < amsterdamGuideSections.length - 1
-      ? amsterdamGuideSections[currentIndex + 1]
+    currentIndex < sections.length - 1
+      ? sections[currentIndex + 1]
       : null;
 
   return (
@@ -152,13 +168,13 @@ export default function AmsterdamGuidePage() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
           </svg>
-          <span className="text-stone-600 dark:text-stone-300">Amsterdam Student Guide</span>
+          <span className="text-stone-600 dark:text-stone-300">{breadcrumbLabel}</span>
         </nav>
         <h1 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
-          Amsterdam Student Guide
+          {guideTitle}
         </h1>
         <p className="mt-1.5 text-sm text-stone-500 dark:text-stone-400 max-w-xl">
-          Originally created by VU Amsterdam CS students, now maintained and adapted by AI students.
+          {guideSubtitle}
         </p>
       </div>
 
@@ -202,10 +218,10 @@ export default function AmsterdamGuidePage() {
           `}
         >
           <nav className="space-y-0.5">
-            {amsterdamGuideSections.map((section) => (
+            {sections.map((section) => (
               <Link
                 key={section.id}
-                to={`/guide/amsterdam/${section.id}`}
+                to={`${baseRoute}/${section.id}`}
                 onClick={() => setSidebarOpen(false)}
                 className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all duration-150 ${
                   currentSection.id === section.id
@@ -219,20 +235,11 @@ export default function AmsterdamGuidePage() {
             ))}
           </nav>
 
-          <div className="mt-6 pt-4 border-t border-stone-200/60 dark:border-stone-700/60">
-            <p className="text-xs text-stone-400 dark:text-stone-500 px-3 leading-relaxed">
-              Content from{' '}
-              <a
-                href="https://github.com/KaiErikNiermann/VU-Amst-Guide"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-vu-blue dark:text-vu-blue-light hover:underline"
-              >
-                VU-Amst-Guide
-              </a>{' '}
-              by KaiErikNiermann & contributors.
-            </p>
-          </div>
+          {attribution && (
+            <div className="mt-6 pt-4 border-t border-stone-200/60 dark:border-stone-700/60">
+              {attribution}
+            </div>
+          )}
         </aside>
 
         {/* Main content */}
@@ -271,7 +278,7 @@ export default function AmsterdamGuidePage() {
             <div className="flex items-center justify-between mt-12 pt-6 border-t border-stone-200/60 dark:border-stone-700/60">
               {prevSection ? (
                 <Link
-                  to={`/guide/amsterdam/${prevSection.id}`}
+                  to={`${baseRoute}/${prevSection.id}`}
                   className="group flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors"
                 >
                   <svg
@@ -292,7 +299,7 @@ export default function AmsterdamGuidePage() {
               )}
               {nextSection ? (
                 <Link
-                  to={`/guide/amsterdam/${nextSection.id}`}
+                  to={`${baseRoute}/${nextSection.id}`}
                   className="group flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors ml-auto"
                 >
                   <span>

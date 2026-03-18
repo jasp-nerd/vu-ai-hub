@@ -4,6 +4,20 @@ import { useMountAnimation } from '../hooks/useAnimations';
 
 const sections = [
   {
+    title: 'Academic & Career Guide',
+    description:
+      'Program structure, specialisations, career paths, master\'s programs, internships, and academic resources.',
+    path: '/guide/academic',
+    image: '/assets/images/guide-program.png',
+  },
+  {
+    title: 'Student Life Guide',
+    description:
+      'Living in Amsterdam: transport, biking, housing, apps, health, costs, and more.',
+    path: '/guide/student-life',
+    image: '/assets/images/guide-amsterdam.png',
+  },
+  {
     title: 'Blog & Advice',
     description:
       'General study tips, student life advice, and insights from fellow AI students.',
@@ -16,20 +30,6 @@ const sections = [
       'Answers to common questions about exams, registration, tools, and student life.',
     path: '/guide/faq',
     image: '/assets/images/guide-faq.png',
-  },
-  {
-    title: 'Program Info',
-    description:
-      'Overview of the AI bachelor curriculum, structure, and useful university links.',
-    path: '/guide/program',
-    image: '/assets/images/guide-program.png',
-  },
-  {
-    title: 'Amsterdam Guide',
-    description:
-      'Living in Amsterdam: transport, biking, housing, apps, health, costs, and more.',
-    path: '/guide/amsterdam',
-    image: '/assets/images/guide-amsterdam.png',
   },
 ];
 

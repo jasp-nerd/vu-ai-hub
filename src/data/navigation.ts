@@ -9,10 +9,10 @@ export const navigationItems: NavItem[] = [
     label: 'Guide',
     path: '/guide',
     children: [
-      { label: 'Amsterdam Guide', path: '/guide/amsterdam' },
+      { label: 'Academic & Career Guide', path: '/guide/academic' },
+      { label: 'Student Life Guide', path: '/guide/student-life' },
       { label: 'Blog', path: '/guide/blog' },
       { label: 'FAQ', path: '/guide/faq' },
-      { label: 'Program Info', path: '/guide/program' },
       { label: 'GPA Calculator', path: '/guide/gpa' },
     ],
   },

@@ -378,7 +378,7 @@ If you're feeling overwhelmed, here's the order I'd recommend:
 
 The total value of everything on this list is conservatively over $10,000 per year. Most of it takes less than 5 minutes to set up. There's really no reason not to.
 
-Check out our [Free Stuff guide](/guide/amsterdam/free-stuff) for even more details on student freebies and how to set them up.`,
+Check out our [Free Stuff guide](/guide/student-life/free-stuff) for even more details on student freebies and how to set them up.`,
     tags: ['free-stuff', 'student-discounts', 'tools', 'productivity', 'cloud'],
   },
   {

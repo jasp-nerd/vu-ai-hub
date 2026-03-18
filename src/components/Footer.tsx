@@ -45,10 +45,16 @@ export default function Footer() {
               </h4>
               <div className="space-y-2">
                 <Link
-                  to="/guide/amsterdam"
+                  to="/guide/academic"
                   className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                 >
-                  Amsterdam Guide
+                  Academic & Career
+                </Link>
+                <Link
+                  to="/guide/student-life"
+                  className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+                >
+                  Student Life
                 </Link>
                 <Link
                   to="/guide/blog"
@@ -61,12 +67,6 @@ export default function Footer() {
                   className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                 >
                   FAQ
-                </Link>
-                <Link
-                  to="/guide/program"
-                  className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
-                >
-                  Program Info
                 </Link>
               </div>
             </div>
