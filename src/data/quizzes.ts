@@ -7116,5 +7116,485 @@ export const quizQuestions: QuizQuestion[] = [
             'VAEs map input to parameters of a distribution (mean and variance). A latent vector is then sampled, and a KL loss ensures the latent space follows a standard normal distribution.',
         difficulty: 'hard',
     },
+    {
+        id: 'quiz-mlvu-51',
+        courseId: 'machine-learning',
+        question:
+            'Given a linear model $y = w_1 x_1 + w_2 x_2 + b$ and the MSE loss $L = \\frac{1}{2}(y - t)^2$, what is $\\frac{\\partial L}{\\partial w_1}$?',
+        options: [
+            '$(y - t)$',
+            '$(y - t) \\cdot x_1$',
+            '$(y - t) \\cdot w_1$',
+            '$x_1$',
+        ],
+        correctIndex: 1,
+        explanation:
+            'By the chain rule: $\\frac{\\partial L}{\\partial w_1} = \\frac{\\partial L}{\\partial y} \\cdot \\frac{\\partial y}{\\partial w_1} = (y - t) \\cdot x_1$. The local derivative of the linear function $y$ with respect to $w_1$ is simply $x_1$.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-52',
+        courseId: 'machine-learning',
+        question:
+            'A classifier assigns scores to 4 instances: A(+, 0.9), B(-, 0.7), C(+, 0.6), D(-, 0.3). When ranked by score, what is the order from highest to lowest?',
+        options: [
+            'A, B, C, D',
+            'A, C, B, D',
+            'D, C, B, A',
+            'B, A, D, C',
+        ],
+        correctIndex: 0,
+        explanation:
+            'Ranking by descending score gives A(0.9), B(0.7), C(0.6), D(0.3). In ROC analysis, this ranking determines whether the classifier separates positives from negatives well. Here, A positive is ranked first but B negative comes before C positive, so the classifier is imperfect.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-53',
+        courseId: 'machine-learning',
+        question:
+            'What is the entropy of a binary random variable with $P(+) = 0.5$ and $P(-) = 0.5$?',
+        options: [
+            '0 bits',
+            '0.5 bits',
+            '1 bit',
+            '2 bits',
+        ],
+        correctIndex: 2,
+        explanation:
+            '$H = -0.5 \\log_2(0.5) - 0.5 \\log_2(0.5) = -0.5 \\cdot (-1) - 0.5 \\cdot (-1) = 1$ bit. This is the maximum entropy for a binary variable, reflecting maximum uncertainty.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-54',
+        courseId: 'machine-learning',
+        question:
+            'A dataset has 6 positives and 4 negatives. After splitting on feature $A$, the left branch has 5 positives and 1 negative, the right has 1 positive and 3 negatives. How is the weighted entropy of the children computed?',
+        options: [
+            '$\\frac{6}{10} H(\\text{left}) + \\frac{4}{10} H(\\text{right})$',
+            '$H(\\text{left}) + H(\\text{right})$',
+            '$\\frac{1}{2} H(\\text{left}) + \\frac{1}{2} H(\\text{right})$',
+            '$H(\\text{left}) \\times H(\\text{right})$',
+        ],
+        correctIndex: 0,
+        explanation:
+            'Information gain uses the weighted average of child entropies, where each weight is the fraction of instances going to that branch. Left gets 6/10 of instances, right gets 4/10.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-55',
+        courseId: 'machine-learning',
+        question:
+            'In a two-layer neural network, the hidden layer computes $h = \\sigma(W_1 x + b_1)$ and output $y = W_2 h + b_2$. During backpropagation, to compute $\\frac{\\partial L}{\\partial W_1}$, which intermediate quantity is needed?',
+        options: [
+            'Only the output $y$ and the target $t$.',
+            'The upstream gradient $\\frac{\\partial L}{\\partial h}$ and the derivative $\\sigma\'(W_1 x + b_1)$.',
+            'Only the learning rate and the batch size.',
+            'The inverse of the weight matrix $W_1^{-1}$.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'By the chain rule: $\\frac{\\partial L}{\\partial W_1} = \\frac{\\partial L}{\\partial h} \\cdot \\sigma\'(W_1 x + b_1) \\cdot x^T$. We need the upstream gradient flowing back through $W_2$ and the local derivative of the activation function.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-56',
+        courseId: 'machine-learning',
+        question:
+            'In the ELBO decomposition $\\log p(x) = \\text{ELBO}(q, \\theta) + D_{KL}(q(z|x) \\| p(z|x, \\theta))$, why does maximizing the ELBO also maximize the log-likelihood?',
+        options: [
+            'Because the KL divergence term is always negative.',
+            'Because the KL divergence is always non-negative, so the ELBO is always $\\leq \\log p(x)$.',
+            'Because maximizing the ELBO directly sets the KL divergence to exactly 1.',
+            'Because the ELBO is the exact log-likelihood when q is a Gaussian.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Since $D_{KL} \\geq 0$, we have $\\text{ELBO} \\leq \\log p(x)$. Maximizing the ELBO pushes the bound upward. When $q(z|x)$ perfectly matches $p(z|x,\\theta)$, the KL term is zero and the ELBO equals the log-likelihood.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-57',
+        courseId: 'machine-learning',
+        question:
+            'In Naive Bayes with Laplace smoothing, given class "spam" with 100 emails, the word "free" appears in 20 of them, and the vocabulary size is 1000. What is the smoothed estimate of $P(\\text{free}|\\text{spam})$?',
+        options: [
+            '$\\frac{20}{100} = 0.200$',
+            '$\\frac{21}{1100} \\approx 0.019$',
+            '$\\frac{21}{102} \\approx 0.206$',
+            '$\\frac{20}{1000} = 0.020$',
+        ],
+        correctIndex: 2,
+        explanation:
+            'With Laplace smoothing: $P(\\text{free}|\\text{spam}) = \\frac{\\text{count}(\\text{free}, \\text{spam}) + 1}{\\text{count}(\\text{spam}) + |V|} = \\frac{20 + 1}{100 + 2} = \\frac{21}{102}$. Here $|V| = 2$ for binary features (word present or absent), not the full vocabulary. However, the standard formulation for binary features adds the number of possible values (2) to the denominator.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-58',
+        courseId: 'machine-learning',
+        question:
+            'For a linear SVM with decision boundary $w^T x + b = 0$, the margin width is $\\frac{2}{\\|w\\|}$. If $w = [3, 4]^T$, what is the margin?',
+        options: [
+            '$\\frac{2}{7}$',
+            '$\\frac{2}{5}$',
+            '$\\frac{2}{\\sqrt{7}}$',
+            '$\\frac{2}{25}$',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The norm $\\|w\\| = \\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$. The margin is $\\frac{2}{\\|w\\|} = \\frac{2}{5} = 0.4$. A common mistake is to forget to take the square root of the sum of squares.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-59',
+        courseId: 'machine-learning',
+        question:
+            'A first-order Markov model defines $P(x_1, x_2, x_3) = P(x_1) \\cdot P(x_2|x_1) \\cdot P(x_3|x_2)$. Given $P(A) = 0.5$, $P(B|A) = 0.6$, $P(A|B) = 0.3$, what is $P(A, B, A)$?',
+        options: [
+            '$0.5 \\times 0.6 \\times 0.3 = 0.09$',
+            '$0.5 \\times 0.6 \\times 0.6 = 0.18$',
+            '$0.5 \\times 0.3 \\times 0.6 = 0.09$',
+            '$0.5 \\times 0.3 \\times 0.3 = 0.045$',
+        ],
+        correctIndex: 0,
+        explanation:
+            '$P(A, B, A) = P(A) \\cdot P(B|A) \\cdot P(A|B) = 0.5 \\times 0.6 \\times 0.3 = 0.09$. Each transition depends only on the immediately preceding state, which is the Markov property.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-60',
+        courseId: 'machine-learning',
+        question:
+            'When computing the Jacobian of a vector-valued function $f: \\mathbb{R}^n \\to \\mathbb{R}^m$, the resulting Jacobian matrix has dimensions:',
+        options: [
+            '$n \\times n$',
+            '$m \\times n$',
+            '$n \\times m$',
+            '$m \\times m$',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The Jacobian $J_{ij} = \\frac{\\partial f_i}{\\partial x_j}$ has one row per output dimension and one column per input dimension, giving an $m \\times n$ matrix. In backpropagation, this matrix multiplies the upstream gradient.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-61',
+        courseId: 'machine-learning',
+        question:
+            'On an ROC curve, a classifier at the point (0, 1) represents:',
+        options: [
+            'A random classifier that guesses equally.',
+            'A perfect classifier with 100% true positive rate and 0% false positive rate.',
+            'A classifier that labels everything as positive.',
+            'A classifier that labels everything as negative.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The point (0,1) means FPR = 0 (no false positives) and TPR = 1 (all positives correctly identified). This is perfect classification. The diagonal line from (0,0) to (1,1) represents random guessing.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-62',
+        courseId: 'machine-learning',
+        question:
+            'A confusion matrix shows: TP=80, FP=20, FN=10, TN=90. What is the precision of the positive class?',
+        options: [
+            '$\\frac{80}{90} \\approx 0.89$',
+            '$\\frac{80}{100} = 0.80$',
+            '$\\frac{80}{170} \\approx 0.47$',
+            '$\\frac{80}{200} = 0.40$',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Precision = $\\frac{TP}{TP + FP} = \\frac{80}{80 + 20} = \\frac{80}{100} = 0.80$. Precision answers: "Of all instances predicted positive, what fraction was actually positive?" Recall would be $\\frac{TP}{TP+FN} = \\frac{80}{90}$.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-63',
+        courseId: 'machine-learning',
+        question:
+            'In PCA, the first principal component is the direction that:',
+        options: [
+            'Minimizes the total variance of the projected data.',
+            'Maximizes the variance of the data when projected onto it.',
+            'Is perpendicular to the direction of highest class separability.',
+            'Minimizes the reconstruction error of the labels.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'PCA finds orthogonal directions of maximum variance. The first principal component captures the most variance in the data. Equivalently, projecting onto this direction minimizes reconstruction error. PCA is unsupervised, so it does not consider class labels.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-64',
+        courseId: 'machine-learning',
+        question:
+            'Which property of the expectation operator $\\mathbb{E}$ allows us to write $\\mathbb{E}[aX + b] = a\\mathbb{E}[X] + b$?',
+        options: [
+            'Idempotence',
+            'Linearity of expectation',
+            'The law of large numbers',
+            'Jensen\'s inequality',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Linearity of expectation holds for any random variables (even dependent ones). It states that expectation distributes over addition and pulls out constants. This is heavily used in deriving ML loss functions and the ELBO.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-65',
+        courseId: 'machine-learning',
+        question:
+            'Given the loss function $L(w) = (2w - 4)^2$, a gradient descent step with learning rate $\\eta = 0.1$ starting at $w = 0$ produces:',
+        options: [
+            '$w = 0.8$',
+            '$w = 1.6$',
+            '$w = -1.6$',
+            '$w = 0.4$',
+        ],
+        correctIndex: 1,
+        explanation:
+            '$\\frac{\\partial L}{\\partial w} = 2(2w - 4) \\cdot 2 = 4(2w - 4)$. At $w = 0$: gradient $= 4(0 - 4) = -16$. Update: $w_{new} = 0 - 0.1 \\times (-16) = 1.6$. We subtract the gradient, so a negative gradient moves $w$ in the positive direction.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-66',
+        courseId: 'machine-learning',
+        question:
+            'For linear regression with features $X$ and targets $t$, the closed-form solution for the optimal weights is:',
+        options: [
+            '$w = (X^T X)^{-1} X^T t$',
+            '$w = X^T (X X^T)^{-1} t$',
+            '$w = (X X^T)^{-1} X t$',
+            '$w = X (X^T X)^{-1} t$',
+        ],
+        correctIndex: 0,
+        explanation:
+            'Setting the gradient of MSE to zero: $X^T(Xw - t) = 0 \\Rightarrow X^T X w = X^T t \\Rightarrow w = (X^T X)^{-1} X^T t$. This is the normal equation. It requires $X^T X$ to be invertible, which fails when features are linearly dependent.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-67',
+        courseId: 'machine-learning',
+        question:
+            'In ROC analysis, what does the Area Under the Curve (AUC) represent intuitively?',
+        options: [
+            'The accuracy of the classifier at the optimal threshold.',
+            'The probability that the classifier ranks a random positive higher than a random negative.',
+            'The total number of correct predictions divided by the dataset size.',
+            'The maximum achievable F1 score across all thresholds.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'AUC has a probabilistic interpretation: it equals the probability that a randomly chosen positive instance receives a higher score than a randomly chosen negative instance. AUC = 0.5 corresponds to random guessing, AUC = 1.0 to perfect ranking.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-68',
+        courseId: 'machine-learning',
+        question:
+            'In the ID3 algorithm for building decision trees, what criterion is used to select the feature for each split?',
+        options: [
+            'The feature with the smallest absolute weight in a linear model.',
+            'The feature that results in the highest information gain.',
+            'The feature with the highest correlation to the target.',
+            'A random feature, as in Random Forest.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'ID3 selects the feature that maximizes information gain: $IG(S, A) = H(S) - \\sum_{v} \\frac{|S_v|}{|S|} H(S_v)$. It picks the feature whose split reduces entropy the most, greedily building the tree top-down.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-69',
+        courseId: 'machine-learning',
+        question:
+            'In a VAE, the "reparameterization trick" replaces sampling $z \\sim \\mathcal{N}(\\mu, \\sigma^2)$ with $z = \\mu + \\sigma \\cdot \\epsilon$, where $\\epsilon \\sim \\mathcal{N}(0, 1)$. Why is this necessary?',
+        options: [
+            'To make the latent space discrete instead of continuous.',
+            'To make the sampling step differentiable so gradients can flow through $\\mu$ and $\\sigma$.',
+            'To ensure the decoder always produces the same output for a given input.',
+            'To remove the need for the KL divergence term in the loss.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Sampling from a distribution is a stochastic, non-differentiable operation. By reparameterizing, the randomness is isolated in $\\epsilon$ (which does not depend on parameters), and the gradient can flow through $\\mu$ and $\\sigma$ via standard backpropagation.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-70',
+        courseId: 'machine-learning',
+        question:
+            'Which of the following is true about the Naive Bayes "independence assumption"?',
+        options: [
+            'Features must be statistically independent in the dataset for the classifier to work.',
+            'It assumes features are conditionally independent given the class label.',
+            'It assumes the class prior probabilities are all equal.',
+            'It assumes the features follow a normal (Gaussian) distribution.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Naive Bayes assumes $P(x_1, x_2, \\ldots | C) = \\prod_i P(x_i | C)$: features are independent given the class. This is rarely true in practice, but the classifier often works well despite this "naive" assumption because it only needs to get the ranking of class probabilities right.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-71',
+        courseId: 'machine-learning',
+        question:
+            'In an SVM, which data points determine the position of the decision boundary?',
+        options: [
+            'All data points contribute equally to the boundary.',
+            'Only the points that lie exactly on or within the margin (support vectors).',
+            'Only the points that are furthest from the boundary.',
+            'Only the centroids of each class.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The SVM solution depends only on the support vectors (points on or inside the margin). Removing any non-support-vector point does not change the decision boundary at all. This makes SVMs memory-efficient at prediction time.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-72',
+        courseId: 'machine-learning',
+        question:
+            'A Markov chain has states {A, B} with transition matrix $T = \\begin{bmatrix} 0.7 & 0.3 \\\\ 0.4 & 0.6 \\end{bmatrix}$. Starting in state A, what is the probability of being in state B after two steps?',
+        options: [
+            '$0.3 \\times 0.6 = 0.18$',
+            '$0.7 \\times 0.3 + 0.3 \\times 0.6 = 0.39$',
+            '$0.3 + 0.6 = 0.9$',
+            '$0.3 \\times 0.4 + 0.7 \\times 0.3 = 0.33$',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Two paths lead from A to B in 2 steps: $A \\to A \\to B$ with probability $0.7 \\times 0.3 = 0.21$, and $A \\to B \\to B$ with probability $0.3 \\times 0.6 = 0.18$. Total: $0.21 + 0.18 = 0.39$. This is entry $(1,2)$ of $T^2$.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-73',
+        courseId: 'machine-learning',
+        question:
+            'When using backpropagation with matrix multiplication $Y = XW$, what is $\\frac{\\partial L}{\\partial W}$?',
+        options: [
+            '$X^T \\cdot \\frac{\\partial L}{\\partial Y}$',
+            '$\\frac{\\partial L}{\\partial Y} \\cdot X^T$',
+            '$W^T \\cdot \\frac{\\partial L}{\\partial Y}$',
+            '$\\frac{\\partial L}{\\partial Y} \\cdot W^T$',
+        ],
+        correctIndex: 0,
+        explanation:
+            'For $Y = XW$, the gradient with respect to $W$ is $\\frac{\\partial L}{\\partial W} = X^T \\cdot \\frac{\\partial L}{\\partial Y}$. Similarly, $\\frac{\\partial L}{\\partial X} = \\frac{\\partial L}{\\partial Y} \\cdot W^T$. These are key matrix calculus identities in neural network training.',
+        difficulty: 'hard',
+    },
+    {
+        id: 'quiz-mlvu-74',
+        courseId: 'machine-learning',
+        question:
+            'What is the recall (sensitivity) if TP = 60, FP = 30, FN = 40, TN = 70?',
+        options: [
+            '$\\frac{60}{90} \\approx 0.67$',
+            '$\\frac{60}{100} = 0.60$',
+            '$\\frac{60}{130} \\approx 0.46$',
+            '$\\frac{60}{200} = 0.30$',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Recall = $\\frac{TP}{TP + FN} = \\frac{60}{60 + 40} = \\frac{60}{100} = 0.60$. Recall measures the fraction of actual positives that were correctly identified. It is also called sensitivity or true positive rate.',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-75',
+        courseId: 'machine-learning',
+        question:
+            'After applying PCA and reducing from 100 features to 10 principal components that capture 95% of the variance, what has been achieved?',
+        options: [
+            'The model accuracy is guaranteed to improve by 95%.',
+            'The data is projected into a lower-dimensional space while retaining most of its structure.',
+            'The remaining 5% of features have been removed from the dataset.',
+            'The class labels have been transformed into a continuous space.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'PCA provides dimensionality reduction by projecting data onto the directions of greatest variance. Retaining 95% of variance means the 10 components capture most of the data structure, while reducing computation and potential overfitting. PCA is unsupervised and does not guarantee improved classification accuracy.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-76',
+        courseId: 'machine-learning',
+        question:
+            'Which logarithm identity is most directly used when converting a product of probabilities (as in Naive Bayes) into a sum?',
+        options: [
+            '$\\log(a^b) = b \\log(a)$',
+            '$\\log(ab) = \\log(a) + \\log(b)$',
+            '$\\log(a/b) = \\log(a) - \\log(b)$',
+            '$\\log(1) = 0$',
+        ],
+        correctIndex: 1,
+        explanation:
+            'In Naive Bayes, we compute $P(C) \\prod_i P(x_i|C)$. Taking the log converts this product into a sum: $\\log P(C) + \\sum_i \\log P(x_i|C)$, which is numerically more stable (avoids underflow from multiplying many small probabilities).',
+        difficulty: 'easy',
+    },
+    {
+        id: 'quiz-mlvu-77',
+        courseId: 'machine-learning',
+        question:
+            'A dataset has classes with proportions $P(C_1) = 0.25$ and $P(C_2) = 0.75$. What is the entropy of this label distribution?',
+        options: [
+            '$-0.25 \\log_2(0.25) - 0.75 \\log_2(0.75) \\approx 0.81$ bits',
+            '$-0.25 \\log_2(0.75) - 0.75 \\log_2(0.25) \\approx 1.94$ bits',
+            '$0.25 \\times 0.75 = 0.1875$ bits',
+            '$1.0$ bit',
+        ],
+        correctIndex: 0,
+        explanation:
+            '$H = -0.25 \\log_2(0.25) - 0.75 \\log_2(0.75) = -0.25(-2) - 0.75(-0.415) = 0.5 + 0.311 = 0.811$ bits. Maximum entropy for two classes is 1 bit (when $P = 0.5$); the more skewed the distribution, the lower the entropy.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-78',
+        courseId: 'machine-learning',
+        question:
+            'In gradient descent, if the gradient $\\nabla L(w)$ is zero at a point $w^*$, what can we conclude?',
+        options: [
+            '$w^*$ is definitely the global minimum.',
+            '$w^*$ is a critical point, which could be a minimum, maximum, or saddle point.',
+            '$w^*$ is always a saddle point in high-dimensional spaces.',
+            'The loss function is convex at $w^*$.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'A zero gradient indicates a critical (stationary) point. In non-convex loss landscapes (common in deep learning), this could be a local minimum, local maximum, or saddle point. Additional analysis (e.g., the Hessian) is needed to classify the critical point.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-79',
+        courseId: 'machine-learning',
+        question:
+            'On an ROC curve, what does a classifier at the point (1, 1) represent?',
+        options: [
+            'A perfect classifier.',
+            'A classifier that predicts all instances as positive.',
+            'A classifier that predicts all instances as negative.',
+            'A random classifier.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'The point (1,1) means FPR = 1 and TPR = 1: the classifier labels every instance as positive. It catches all positives (TPR = 1) but also falsely labels all negatives as positive (FPR = 1). The point (0,0) is the opposite: everything labeled negative.',
+        difficulty: 'medium',
+    },
+    {
+        id: 'quiz-mlvu-80',
+        courseId: 'machine-learning',
+        question:
+            'In a Markov model used for text classification, class probabilities are computed as $P(c) \\cdot \\prod_i P(x_i | x_{i-1}, c)$. How does this differ from Naive Bayes?',
+        options: [
+            'Markov models do not use class priors.',
+            'Markov models condition each feature on the previous feature (within a class), not just on the class.',
+            'Markov models require the features to be continuous rather than discrete.',
+            'Markov models can only handle two classes.',
+        ],
+        correctIndex: 1,
+        explanation:
+            'Naive Bayes assumes features are conditionally independent given the class: $P(x_i | c)$. A Markov model captures sequential dependencies by conditioning on the previous observation: $P(x_i | x_{i-1}, c)$. This makes it more suitable for sequential data like text or time series.',
+        difficulty: 'hard',
+    },
 ];
 

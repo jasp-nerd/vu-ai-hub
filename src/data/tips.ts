@@ -152,28 +152,21 @@ export const tips: CourseTip[] = [
     id: 'tip-ml-1',
     courseId: 'machine-learning',
     content:
-      'Gradient descent intuition: imagine rolling a ball downhill on a loss landscape. The learning rate controls step size — too big and you overshoot, too small and training takes forever. Start with 0.001 and adjust from there.',
+      'The exam is 1/3 recall, 1/3 combination, 1/3 application — so pure memorisation only gets you a third of the marks. For the application questions, practice doing full backpropagation by hand (forward pass → compute loss → backward pass with chain rule), computing entropy/information gain for decision tree splits, and deriving Naive Bayes posteriors with Laplace smoothing. The weekly exercises at mlvu.github.io are the single best prep: if you can do those fluently, the exam will feel familiar.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-ml-2',
     courseId: 'machine-learning',
     content:
-      'The bias-variance tradeoff is central to ML. High bias = underfitting (model too simple), high variance = overfitting (model memorizes training data). Regularization (L1/L2) helps control variance at the cost of slightly more bias.',
+      'Build a "model zoo" cheat sheet mapping each model family to its loss function, optimisation method, and key hyperparameter. For example: Logistic Regression → cross-entropy loss → gradient descent → learning rate; SVM → hinge loss → quadratic programming → C (regularisation); Decision Tree → entropy/Gini → greedy splits → max depth. This mental map helps you instantly identify what\'s being asked in exam questions and connects the entire course into one coherent framework rather than 14 isolated lectures.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-ml-3',
     courseId: 'machine-learning',
     content:
-      'For the practical assignment: start early and understand the data before writing code. Visualize your features, check for missing values, and establish a baseline model first. Then iterate with more complex approaches.',
-    author: 'AI @ VU Student',
-  },
-  {
-    id: 'tip-ml-4',
-    courseId: 'machine-learning',
-    content:
-      'The mlvu.github.io website has all the lecture materials and is genuinely one of the best ML resources available. Watch the videos and do the exercises — they\'re directly aligned with the exam content.',
+      'For the project report: treat it like a real research paper from day one. The rubric heavily weights "Writing" and "Description of Methods" — meaning clear structure, proper citations (10+ references required), and demonstrating you understand the algorithm beyond just calling sklearn.fit(). A common mistake is spending weeks on code but only 2 days on the report. Flip that: outline your report structure in week 2, write your methods section before you even finish coding, and leave the final week for polishing results and validation. Groups that score 9+ almost always have strong writing, not just strong models.',
     author: 'AI @ VU Student',
   },
 
@@ -226,21 +219,21 @@ export const tips: CourseTip[] = [
     id: 'tip-ps-1',
     courseId: 'probability-statistics',
     content:
-      'Bayes\' rule is just the product rule rearranged: P(A|B) = P(B|A)·P(A)/P(B). To remember it: "the probability of the hypothesis given the evidence equals the likelihood times the prior, divided by the evidence." This formula appears everywhere in AI.',
+      'The midterm is 30% and covers Chapters 1, 3, and part of Chapter 4 — but the final is 70% and covers EVERYTHING. This means you need to nail the early chapters twice: once for the midterm and once for the final. A strong midterm score gives you a huge buffer. Pro tip: re-do the midterm exam as practice the week before the final — it\'s the most realistic preview you\'ll get for the Chapter 1-4 portion.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-ps-2',
     courseId: 'probability-statistics',
     content:
-      'The free online textbook at probabilitycourse.com mirrors the course perfectly. Each chapter has worked examples and practice problems. Do these before the exam — the exam problems are very similar in style.',
+      'Create a "distribution decision tree" for yourself: Is the RV discrete or continuous? → If discrete, are we counting successes in n trials (Binomial), waiting for first success (Geometric), waiting for r-th success (Negative Binomial), or counting rare events (Poisson)? → If continuous, is it bounded (Uniform), measuring time between events (Exponential), or a natural phenomenon (Normal)? Half the exam is recognising which distribution applies — if you can identify it quickly, the rest is just plugging into formulas on the formula sheet.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-ps-3',
     courseId: 'probability-statistics',
     content:
-      'For hypothesis testing: always write out H₀ and H₁ first, then determine the test statistic, find the critical region or p-value, and make your decision. This structured approach prevents errors and earns full marks even if the final answer is wrong.',
+      'Chapter 8 (Statistical Inference) is worth the most on the final and is where most students lose marks. The key insight: confidence intervals and hypothesis tests are two sides of the same coin — rejecting H₀: μ = μ₀ at level α is equivalent to μ₀ falling outside the (1-α) confidence interval. Master the pivot method for CIs (find a quantity whose distribution is known and doesn\'t depend on unknown parameters), and for hypothesis testing always follow the 5-step recipe: (1) state H₀/H₁, (2) choose significance level α, (3) compute test statistic, (4) find critical region or p-value, (5) decide. The formula sheet gives you all the formulas — you just need to know which one to pick.',
     author: 'AI @ VU Student',
   },
 

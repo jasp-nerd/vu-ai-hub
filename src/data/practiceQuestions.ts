@@ -5792,4 +5792,2013 @@ $$\\boxed{\\text{dist}(y, W) = \\|y - \\hat{y}\\| = 1}$$
 
 By the Best Approximation Theorem, $\\hat{y}$ is the unique closest point in $W$ to $y$.`,
   },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  PROBABILITY & STATISTICS — TOPIC 1: BASIC PROBABILITY (10 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ps-bp-1',
+    courseId: 'probability-statistics',
+    topic: 'Basic Probability',
+    difficulty: 'easy',
+    question: `A standard deck of 52 cards is shuffled. You draw one card at random. Let $A$ be the event "the card is a heart" and $B$ be the event "the card is a face card (Jack, Queen, King)."
+
+Compute:
+(a) $P(A \\cup B)$
+(b) $P(A \\cap B)$
+(c) Are $A$ and $B$ independent?`,
+    answer: `**Step 1: Identify the individual probabilities.**
+
+$P(A) = \\frac{13}{52} = \\frac{1}{4}$ (13 hearts in a deck)
+
+$P(B) = \\frac{12}{52} = \\frac{3}{13}$ (12 face cards: 3 per suit $\\times$ 4 suits)
+
+**Step 2: Compute $P(A \\cap B)$.**
+
+$A \\cap B$ = "heart and face card" = \\{J♥, Q♥, K♥\\}, so $P(A \\cap B) = \\frac{3}{52}$.
+
+$$\\boxed{P(A \\cap B) = \\frac{3}{52}}$$
+
+**Step 3: Apply inclusion-exclusion for $P(A \\cup B)$.**
+
+$$P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = \\frac{13}{52} + \\frac{12}{52} - \\frac{3}{52} = \\frac{22}{52} = \\frac{11}{26}$$
+
+$$\\boxed{P(A \\cup B) = \\frac{11}{26}}$$
+
+**Step 4: Check independence.**
+
+$A$ and $B$ are independent if and only if $P(A \\cap B) = P(A) \\cdot P(B)$.
+
+$$P(A) \\cdot P(B) = \\frac{1}{4} \\cdot \\frac{3}{13} = \\frac{3}{52}$$
+
+Since $P(A \\cap B) = \\frac{3}{52} = P(A) \\cdot P(B)$, the events $A$ and $B$ are **independent**.
+
+$$\\boxed{\\text{Yes, } A \\text{ and } B \\text{ are independent.}}$$`,
+  },
+  {
+    id: 'ps-bp-2',
+    courseId: 'probability-statistics',
+    topic: 'Basic Probability',
+    difficulty: 'medium',
+    question: `A medical test for a rare disease has the following characteristics:
+- The disease affects 0.1% of the population: $P(D) = 0.001$.
+- The test has a sensitivity (true positive rate) of 99%: $P(+|D) = 0.99$.
+- The test has a specificity (true negative rate) of 95%: $P(-|D^c) = 0.95$.
+
+A person tests positive. What is the probability that they actually have the disease? Use Bayes' theorem and show all steps.`,
+    answer: `**Step 1: Identify the known quantities.**
+
+$$P(D) = 0.001, \\quad P(D^c) = 0.999$$
+$$P(+|D) = 0.99, \\quad P(+|D^c) = 1 - P(-|D^c) = 1 - 0.95 = 0.05$$
+
+**Step 2: Apply the Law of Total Probability to find $P(+)$.**
+
+$$P(+) = P(+|D)P(D) + P(+|D^c)P(D^c)$$
+
+$$= (0.99)(0.001) + (0.05)(0.999) = 0.00099 + 0.04995 = 0.05094$$
+
+**Step 3: Apply Bayes' theorem.**
+
+$$P(D|+) = \\frac{P(+|D)P(D)}{P(+)} = \\frac{(0.99)(0.001)}{0.05094} = \\frac{0.00099}{0.05094}$$
+
+$$\\boxed{P(D|+) \\approx 0.0194 \\approx 1.94\\%}$$
+
+Despite the high sensitivity and specificity, the probability of actually having the disease given a positive test is only about 2%. This is because the disease is very rare (low base rate), so the false positives from the healthy population vastly outnumber the true positives.`,
+  },
+  {
+    id: 'ps-bp-3',
+    courseId: 'probability-statistics',
+    topic: 'Basic Probability',
+    difficulty: 'medium',
+    question: `A factory has three machines $M_1, M_2, M_3$ that produce 30%, 45%, and 25% of a product respectively. The defective rates are:
+$$P(\\text{defective} | M_1) = 0.02, \\quad P(\\text{defective} | M_2) = 0.03, \\quad P(\\text{defective} | M_3) = 0.05$$
+
+(a) What is the probability that a randomly selected item is defective?
+(b) If an item is found to be defective, what is the probability it was produced by machine $M_3$?`,
+    answer: `**Step 1: Apply the Law of Total Probability for part (a).**
+
+$$P(D) = P(D|M_1)P(M_1) + P(D|M_2)P(M_2) + P(D|M_3)P(M_3)$$
+
+$$= (0.02)(0.30) + (0.03)(0.45) + (0.05)(0.25)$$
+
+$$= 0.006 + 0.0135 + 0.0125 = 0.032$$
+
+$$\\boxed{P(\\text{defective}) = 0.032}$$
+
+**Step 2: Apply Bayes' theorem for part (b).**
+
+$$P(M_3|D) = \\frac{P(D|M_3)P(M_3)}{P(D)} = \\frac{(0.05)(0.25)}{0.032} = \\frac{0.0125}{0.032}$$
+
+$$\\boxed{P(M_3|D) = \\frac{25}{64} \\approx 0.3906}$$
+
+So about 39% of defective items come from machine $M_3$, even though $M_3$ only produces 25% of all items. This reflects its higher defective rate.`,
+  },
+  {
+    id: 'ps-bp-4',
+    courseId: 'probability-statistics',
+    topic: 'Basic Probability',
+    difficulty: 'easy',
+    question: `A committee of 5 people is to be chosen from a group of 8 men and 6 women. In how many ways can the committee be formed if:
+
+(a) There are no restrictions?
+(b) The committee must contain exactly 3 men and 2 women?
+(c) The committee must contain at least 1 woman?`,
+    answer: `**Part (a): No restrictions.**
+
+Choose 5 from 14 people:
+
+$$\\binom{14}{5} = \\frac{14!}{5! \\cdot 9!} = \\frac{14 \\cdot 13 \\cdot 12 \\cdot 11 \\cdot 10}{5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1} = 2002$$
+
+$$\\boxed{\\binom{14}{5} = 2002}$$
+
+**Part (b): Exactly 3 men and 2 women.**
+
+Choose 3 men from 8 and 2 women from 6:
+
+$$\\binom{8}{3} \\cdot \\binom{6}{2} = 56 \\cdot 15 = 840$$
+
+$$\\boxed{840 \\text{ ways}}$$
+
+**Part (c): At least 1 woman.**
+
+Use complement: at least 1 woman = total $-$ no women (all men).
+
+$$\\binom{14}{5} - \\binom{8}{5} = 2002 - 56 = 1946$$
+
+$$\\boxed{1946 \\text{ ways}}$$`,
+  },
+  {
+    id: 'ps-bp-5',
+    courseId: 'probability-statistics',
+    topic: 'Basic Probability',
+    difficulty: 'hard',
+    question: `Let $A$, $B$, and $C$ be events in a sample space with:
+$$P(A) = 0.4, \\quad P(B) = 0.5, \\quad P(C) = 0.3$$
+$$P(A \\cap B) = 0.2, \\quad P(A \\cap C) = 0.12, \\quad P(B \\cap C) = 0.15, \\quad P(A \\cap B \\cap C) = 0.06$$
+
+(a) Compute $P(A \\cup B \\cup C)$ using inclusion-exclusion.
+(b) Are $A$ and $C$ independent?
+(c) Compute $P(A | B \\cup C)$.`,
+    answer: `**Part (a): Inclusion-exclusion for three events.**
+
+$$P(A \\cup B \\cup C) = P(A) + P(B) + P(C) - P(A \\cap B) - P(A \\cap C) - P(B \\cap C) + P(A \\cap B \\cap C)$$
+
+$$= 0.4 + 0.5 + 0.3 - 0.2 - 0.12 - 0.15 + 0.06 = 0.79$$
+
+$$\\boxed{P(A \\cup B \\cup C) = 0.79}$$
+
+**Part (b): Check independence of $A$ and $C$.**
+
+$A$ and $C$ are independent iff $P(A \\cap C) = P(A) \\cdot P(C)$.
+
+$$P(A) \\cdot P(C) = 0.4 \\times 0.3 = 0.12$$
+
+Since $P(A \\cap C) = 0.12 = P(A) \\cdot P(C)$:
+
+$$\\boxed{\\text{Yes, } A \\text{ and } C \\text{ are independent.}}$$
+
+**Part (c): Compute $P(A | B \\cup C)$.**
+
+$$P(A | B \\cup C) = \\frac{P(A \\cap (B \\cup C))}{P(B \\cup C)}$$
+
+**Step 1:** Find $P(B \\cup C) = P(B) + P(C) - P(B \\cap C) = 0.5 + 0.3 - 0.15 = 0.65$.
+
+**Step 2:** Find $P(A \\cap (B \\cup C))$ using the identity $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$:
+
+$$P((A \\cap B) \\cup (A \\cap C)) = P(A \\cap B) + P(A \\cap C) - P(A \\cap B \\cap C)$$
+
+$$= 0.2 + 0.12 - 0.06 = 0.26$$
+
+**Step 3:**
+
+$$P(A | B \\cup C) = \\frac{0.26}{0.65} = \\frac{26}{65} = \\frac{2}{5}$$
+
+$$\\boxed{P(A | B \\cup C) = 0.4}$$`,
+  },
+  {
+    id: 'ps-bp-6',
+    courseId: 'probability-statistics',
+    topic: 'Basic Probability',
+    difficulty: 'easy',
+    question: `Two fair dice are rolled. Let $A$ be the event that the sum is 7 and $B$ be the event that the first die shows 3.
+
+(a) Compute $P(A)$.
+(b) Compute $P(A|B)$.
+(c) Compute $P(B|A)$.`,
+    answer: `**Step 1: The sample space has $6 \\times 6 = 36$ equally likely outcomes.**
+
+**Part (a):** The pairs that sum to 7 are: $(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)$.
+
+$$\\boxed{P(A) = \\frac{6}{36} = \\frac{1}{6}}$$
+
+**Part (b):** Given that the first die shows 3, we condition on $B = \\{(3,1),(3,2),(3,3),(3,4),(3,5),(3,6)\\}$ with $|B| = 6$.
+
+The only outcome in $A \\cap B$ is $(3,4)$.
+
+$$P(A|B) = \\frac{P(A \\cap B)}{P(B)} = \\frac{1/36}{6/36} = \\frac{1}{6}$$
+
+$$\\boxed{P(A|B) = \\frac{1}{6}}$$
+
+**Part (c):**
+
+$$P(B|A) = \\frac{P(A \\cap B)}{P(A)} = \\frac{1/36}{6/36} = \\frac{1}{6}$$
+
+$$\\boxed{P(B|A) = \\frac{1}{6}}$$
+
+**Note:** Here $P(A|B) = P(A)$ and $P(B|A) = P(B)$, confirming that $A$ and $B$ are independent. Knowing the first die is 3 does not change the probability that the sum is 7.`,
+  },
+  {
+    id: 'ps-bp-7',
+    courseId: 'probability-statistics',
+    topic: 'Basic Probability',
+    difficulty: 'medium',
+    question: `A box contains 5 red, 4 blue, and 3 green balls. Three balls are drawn without replacement. Compute:
+
+(a) The probability that all three balls are the same color.
+(b) The probability that exactly one ball is red.`,
+    answer: `**Total number of ways to choose 3 balls from 12:**
+
+$$\\binom{12}{3} = 220$$
+
+**Part (a): All three the same color.**
+
+$$P(\\text{all same}) = \\frac{\\binom{5}{3} + \\binom{4}{3} + \\binom{3}{3}}{\\binom{12}{3}} = \\frac{10 + 4 + 1}{220} = \\frac{15}{220} = \\frac{3}{44}$$
+
+$$\\boxed{P(\\text{all same color}) = \\frac{3}{44} \\approx 0.0682}$$
+
+**Part (b): Exactly one red ball.**
+
+Choose 1 red from 5, and 2 non-red from $4 + 3 = 7$:
+
+$$P(\\text{exactly 1 red}) = \\frac{\\binom{5}{1} \\cdot \\binom{7}{2}}{\\binom{12}{3}} = \\frac{5 \\cdot 21}{220} = \\frac{105}{220} = \\frac{21}{44}$$
+
+$$\\boxed{P(\\text{exactly 1 red}) = \\frac{21}{44} \\approx 0.4773}$$`,
+  },
+  {
+    id: 'ps-bp-8',
+    courseId: 'probability-statistics',
+    topic: 'Basic Probability',
+    difficulty: 'hard',
+    question: `Suppose you have three urns:
+- Urn 1 contains 3 white and 2 black balls.
+- Urn 2 contains 1 white and 4 black balls.
+- Urn 3 contains 4 white and 1 black ball.
+
+You roll a fair die. If the outcome is 1 or 2, you draw from Urn 1. If the outcome is 3, you draw from Urn 2. If the outcome is 4, 5, or 6, you draw from Urn 3. You draw one ball.
+
+(a) What is the probability the ball is white?
+(b) Given that the ball drawn is white, what is the probability it came from Urn 3?`,
+    answer: `**Step 1: Identify the prior probabilities of selecting each urn.**
+
+$$P(U_1) = \\frac{2}{6} = \\frac{1}{3}, \\quad P(U_2) = \\frac{1}{6}, \\quad P(U_3) = \\frac{3}{6} = \\frac{1}{2}$$
+
+**Step 2: Identify the likelihoods.**
+
+$$P(W|U_1) = \\frac{3}{5}, \\quad P(W|U_2) = \\frac{1}{5}, \\quad P(W|U_3) = \\frac{4}{5}$$
+
+**Part (a): Law of Total Probability.**
+
+$$P(W) = P(W|U_1)P(U_1) + P(W|U_2)P(U_2) + P(W|U_3)P(U_3)$$
+
+$$= \\frac{3}{5} \\cdot \\frac{1}{3} + \\frac{1}{5} \\cdot \\frac{1}{6} + \\frac{4}{5} \\cdot \\frac{1}{2}$$
+
+$$= \\frac{1}{5} + \\frac{1}{30} + \\frac{2}{5} = \\frac{6}{30} + \\frac{1}{30} + \\frac{12}{30} = \\frac{19}{30}$$
+
+$$\\boxed{P(W) = \\frac{19}{30}}$$
+
+**Part (b): Bayes' theorem.**
+
+$$P(U_3|W) = \\frac{P(W|U_3)P(U_3)}{P(W)} = \\frac{\\frac{4}{5} \\cdot \\frac{1}{2}}{\\frac{19}{30}} = \\frac{\\frac{2}{5}}{\\frac{19}{30}} = \\frac{2}{5} \\cdot \\frac{30}{19} = \\frac{12}{19}$$
+
+$$\\boxed{P(U_3|W) = \\frac{12}{19} \\approx 0.6316}$$`,
+  },
+  {
+    id: 'ps-bp-9',
+    courseId: 'probability-statistics',
+    topic: 'Basic Probability',
+    difficulty: 'medium',
+    question: `In a group of 30 students, 18 study Mathematics, 15 study Physics, and 10 study both Mathematics and Physics.
+
+A student is selected at random. Compute:
+(a) $P(\\text{Math} \\cup \\text{Physics})$
+(b) $P(\\text{neither Math nor Physics})$
+(c) $P(\\text{Math} | \\text{Physics})$
+(d) $P(\\text{Physics} | \\text{Math}^c)$`,
+    answer: `**Step 1: Define events.** Let $M$ = studies Math, $P$ = studies Physics.
+
+$$P(M) = \\frac{18}{30}, \\quad P(P) = \\frac{15}{30}, \\quad P(M \\cap P) = \\frac{10}{30}$$
+
+**Part (a): Inclusion-exclusion.**
+
+$$P(M \\cup P) = P(M) + P(P) - P(M \\cap P) = \\frac{18}{30} + \\frac{15}{30} - \\frac{10}{30} = \\frac{23}{30}$$
+
+$$\\boxed{P(M \\cup P) = \\frac{23}{30}}$$
+
+**Part (b): Complement.**
+
+$$P((M \\cup P)^c) = 1 - P(M \\cup P) = 1 - \\frac{23}{30} = \\frac{7}{30}$$
+
+$$\\boxed{P(\\text{neither}) = \\frac{7}{30}}$$
+
+**Part (c): Conditional probability.**
+
+$$P(M|P) = \\frac{P(M \\cap P)}{P(P)} = \\frac{10/30}{15/30} = \\frac{10}{15} = \\frac{2}{3}$$
+
+$$\\boxed{P(M|P) = \\frac{2}{3}}$$
+
+**Part (d):** We need $P(P | M^c)$.
+
+Students not studying Math: $30 - 18 = 12$. Of these, students studying Physics but not Math: $15 - 10 = 5$.
+
+$$P(P|M^c) = \\frac{P(P \\cap M^c)}{P(M^c)} = \\frac{5/30}{12/30} = \\frac{5}{12}$$
+
+$$\\boxed{P(P|M^c) = \\frac{5}{12}}$$`,
+  },
+  {
+    id: 'ps-bp-10',
+    courseId: 'probability-statistics',
+    topic: 'Basic Probability',
+    difficulty: 'hard',
+    question: `A password consists of 4 characters. Each character is independently chosen from the 26 lowercase letters (a–z).
+
+(a) How many total passwords are possible?
+(b) How many passwords have all distinct characters?
+(c) What is the probability that a random password has at least one repeated character?
+(d) How many passwords are arranged in strictly increasing alphabetical order (e.g., "adkz")?`,
+    answer: `**Part (a): Total passwords.**
+
+Each of the 4 positions has 26 choices:
+
+$$\\boxed{26^4 = 456{,}976}$$
+
+**Part (b): All distinct characters.**
+
+First position: 26 choices, second: 25, third: 24, fourth: 23 (sampling without replacement, order matters):
+
+$$26 \\cdot 25 \\cdot 24 \\cdot 23 = \\frac{26!}{22!} = P(26,4) = 358{,}800$$
+
+$$\\boxed{358{,}800}$$
+
+**Part (c): At least one repeated character.**
+
+Use complement:
+
+$$P(\\text{at least one repeat}) = 1 - P(\\text{all distinct}) = 1 - \\frac{358{,}800}{456{,}976}$$
+
+$$= 1 - \\frac{26 \\cdot 25 \\cdot 24 \\cdot 23}{26^4} \\approx 1 - 0.7854 = 0.2146$$
+
+$$\\boxed{P(\\text{at least one repeat}) \\approx 0.2146}$$
+
+**Part (d): Strictly increasing order.**
+
+A strictly increasing password of length 4 from 26 letters is uniquely determined by which 4 letters are chosen (since there is exactly one way to arrange any 4 distinct letters in increasing order):
+
+$$\\boxed{\\binom{26}{4} = \\frac{26!}{4! \\cdot 22!} = 14{,}950}$$`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  PROBABILITY & STATISTICS — TOPIC 2: DISCRETE RANDOM VARIABLES (10 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ps-drv-1',
+    courseId: 'probability-statistics',
+    topic: 'Discrete Random Variables',
+    difficulty: 'easy',
+    question: `A discrete random variable $X$ has the following PMF:
+
+| $x$ | 0 | 1 | 2 | 3 |
+|---|---|---|---|---|
+| $P(X=x)$ | $0.1$ | $c$ | $0.3$ | $0.2$ |
+
+(a) Find the value of $c$.
+(b) Compute $E[X]$ and $\\text{Var}(X)$.`,
+    answer: `**Part (a): Find $c$.**
+
+The PMF must sum to 1:
+
+$$0.1 + c + 0.3 + 0.2 = 1 \\implies c = 1 - 0.6 = 0.4$$
+
+$$\\boxed{c = 0.4}$$
+
+**Part (b): Compute $E[X]$.**
+
+$$E[X] = \\sum_x x \\cdot P(X=x) = 0(0.1) + 1(0.4) + 2(0.3) + 3(0.2)$$
+
+$$= 0 + 0.4 + 0.6 + 0.6 = 1.6$$
+
+$$\\boxed{E[X] = 1.6}$$
+
+**Compute $E[X^2]$:**
+
+$$E[X^2] = 0^2(0.1) + 1^2(0.4) + 2^2(0.3) + 3^2(0.2)$$
+
+$$= 0 + 0.4 + 1.2 + 1.8 = 3.4$$
+
+**Variance:**
+
+$$\\text{Var}(X) = E[X^2] - (E[X])^2 = 3.4 - (1.6)^2 = 3.4 - 2.56 = 0.84$$
+
+$$\\boxed{\\text{Var}(X) = 0.84}$$`,
+  },
+  {
+    id: 'ps-drv-2',
+    courseId: 'probability-statistics',
+    topic: 'Discrete Random Variables',
+    difficulty: 'medium',
+    question: `A fair coin is flipped 10 times. Let $X$ be the number of heads.
+
+(a) What is the distribution of $X$? State its parameters.
+(b) Compute $P(X = 4)$.
+(c) Compute $P(X \\geq 8)$.
+(d) Find $E[X]$ and $\\text{Var}(X)$.`,
+    answer: `**Part (a):** $X \\sim \\text{Binomial}(n=10, p=1/2)$.
+
+**Part (b):**
+
+$$P(X=4) = \\binom{10}{4} \\left(\\frac{1}{2}\\right)^4 \\left(\\frac{1}{2}\\right)^6 = \\binom{10}{4} \\left(\\frac{1}{2}\\right)^{10}$$
+
+$$= \\frac{210}{1024} = \\frac{105}{512}$$
+
+$$\\boxed{P(X=4) = \\frac{105}{512} \\approx 0.2051}$$
+
+**Part (c):**
+
+$$P(X \\geq 8) = P(X=8) + P(X=9) + P(X=10)$$
+
+$$= \\binom{10}{8}\\left(\\frac{1}{2}\\right)^{10} + \\binom{10}{9}\\left(\\frac{1}{2}\\right)^{10} + \\binom{10}{10}\\left(\\frac{1}{2}\\right)^{10}$$
+
+$$= \\frac{45 + 10 + 1}{1024} = \\frac{56}{1024} = \\frac{7}{128}$$
+
+$$\\boxed{P(X \\geq 8) = \\frac{7}{128} \\approx 0.0547}$$
+
+**Part (d):**
+
+For $\\text{Binomial}(n, p)$: $E[X] = np$ and $\\text{Var}(X) = np(1-p)$.
+
+$$E[X] = 10 \\cdot \\frac{1}{2} = 5, \\quad \\text{Var}(X) = 10 \\cdot \\frac{1}{2} \\cdot \\frac{1}{2} = 2.5$$
+
+$$\\boxed{E[X] = 5, \\quad \\text{Var}(X) = 2.5}$$`,
+  },
+  {
+    id: 'ps-drv-3',
+    courseId: 'probability-statistics',
+    topic: 'Discrete Random Variables',
+    difficulty: 'medium',
+    question: `The number of emails arriving at a server follows a Poisson distribution with an average rate of 6 per hour.
+
+(a) What is the probability that exactly 4 emails arrive in a given hour?
+(b) What is the probability that no emails arrive in a 30-minute period?
+(c) What is the probability of at least 2 emails in a 20-minute period?`,
+    answer: `**Part (a):** Let $X \\sim \\text{Poisson}(\\lambda = 6)$ for a 1-hour period.
+
+$$P(X = 4) = \\frac{e^{-6} \\cdot 6^4}{4!} = \\frac{e^{-6} \\cdot 1296}{24} = 54 e^{-6}$$
+
+$$\\boxed{P(X=4) = 54e^{-6} \\approx 0.1339}$$
+
+**Part (b):** For a 30-minute period, $\\lambda = 6 \\cdot \\frac{1}{2} = 3$.
+
+Let $Y \\sim \\text{Poisson}(3)$.
+
+$$P(Y = 0) = \\frac{e^{-3} \\cdot 3^0}{0!} = e^{-3}$$
+
+$$\\boxed{P(Y=0) = e^{-3} \\approx 0.0498}$$
+
+**Part (c):** For a 20-minute period, $\\lambda = 6 \\cdot \\frac{1}{3} = 2$.
+
+Let $Z \\sim \\text{Poisson}(2)$.
+
+$$P(Z \\geq 2) = 1 - P(Z=0) - P(Z=1)$$
+
+$$= 1 - e^{-2} - 2e^{-2} = 1 - 3e^{-2}$$
+
+$$\\boxed{P(Z \\geq 2) = 1 - 3e^{-2} \\approx 0.5940}$$`,
+  },
+  {
+    id: 'ps-drv-4',
+    courseId: 'probability-statistics',
+    topic: 'Discrete Random Variables',
+    difficulty: 'easy',
+    question: `A biased coin has probability $p = 0.3$ of heads. The coin is flipped repeatedly until the first head appears. Let $X$ be the number of flips needed.
+
+(a) What is the distribution of $X$?
+(b) Compute $P(X = 5)$.
+(c) Compute $P(X > 3)$.
+(d) Find $E[X]$ and $\\text{Var}(X)$.`,
+    answer: `**Part (a):** $X \\sim \\text{Geometric}(p = 0.3)$, where $P(X = k) = (1-p)^{k-1} p$ for $k = 1, 2, 3, \\ldots$
+
+**Part (b):**
+
+$$P(X = 5) = (0.7)^4 (0.3) = (0.2401)(0.3) = 0.07203$$
+
+$$\\boxed{P(X=5) = 0.07203}$$
+
+**Part (c):** $P(X > 3)$ means the first 3 flips are all tails:
+
+$$P(X > 3) = (1-p)^3 = (0.7)^3 = 0.343$$
+
+$$\\boxed{P(X > 3) = 0.343}$$
+
+**Part (d):** For $\\text{Geometric}(p)$:
+
+$$E[X] = \\frac{1}{p} = \\frac{1}{0.3} = \\frac{10}{3} \\approx 3.33$$
+
+$$\\text{Var}(X) = \\frac{1-p}{p^2} = \\frac{0.7}{0.09} = \\frac{70}{9} \\approx 7.78$$
+
+$$\\boxed{E[X] = \\frac{10}{3}, \\quad \\text{Var}(X) = \\frac{70}{9}}$$`,
+  },
+  {
+    id: 'ps-drv-5',
+    courseId: 'probability-statistics',
+    topic: 'Discrete Random Variables',
+    difficulty: 'hard',
+    question: `Let $X$ be a discrete random variable with PMF:
+
+$$P(X = k) = \\frac{c}{k^2}, \\quad k = 1, 2, 3, 4, 5$$
+
+(a) Find the normalizing constant $c$.
+(b) Compute $E[X]$.
+(c) Use LOTUS to compute $E[1/X]$.`,
+    answer: `**Part (a): Find $c$.**
+
+$$\\sum_{k=1}^{5} P(X=k) = 1 \\implies c \\sum_{k=1}^{5} \\frac{1}{k^2} = 1$$
+
+$$c \\left(1 + \\frac{1}{4} + \\frac{1}{9} + \\frac{1}{16} + \\frac{1}{25}\\right) = 1$$
+
+Finding common denominator (LCM of 1, 4, 9, 16, 25 = 3600):
+
+$$c \\left(\\frac{3600 + 900 + 400 + 225 + 144}{3600}\\right) = 1$$
+
+$$c \\cdot \\frac{5269}{3600} = 1 \\implies c = \\frac{3600}{5269}$$
+
+$$\\boxed{c = \\frac{3600}{5269}}$$
+
+**Part (b): Compute $E[X]$.**
+
+$$E[X] = \\sum_{k=1}^{5} k \\cdot \\frac{c}{k^2} = c \\sum_{k=1}^{5} \\frac{1}{k} = c \\left(1 + \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + \\frac{1}{5}\\right)$$
+
+$$= c \\cdot \\frac{137}{60} = \\frac{3600}{5269} \\cdot \\frac{137}{60} = \\frac{3600 \\cdot 137}{5269 \\cdot 60} = \\frac{60 \\cdot 137}{5269} = \\frac{8220}{5269}$$
+
+$$\\boxed{E[X] = \\frac{8220}{5269} \\approx 1.5600}$$
+
+**Part (c): LOTUS for $E[1/X]$.**
+
+$$E\\left[\\frac{1}{X}\\right] = \\sum_{k=1}^{5} \\frac{1}{k} \\cdot \\frac{c}{k^2} = c \\sum_{k=1}^{5} \\frac{1}{k^3}$$
+
+$$= c \\left(1 + \\frac{1}{8} + \\frac{1}{27} + \\frac{1}{64} + \\frac{1}{125}\\right)$$
+
+Common denominator is 27000:
+
+$$= c \\cdot \\frac{27000 + 3375 + 1000 + 421.875 + 216}{27000}$$
+
+Using exact fractions: LCD = 27000.
+
+$$1 = \\frac{27000}{27000}, \\; \\frac{1}{8} = \\frac{3375}{27000}, \\; \\frac{1}{27} = \\frac{1000}{27000}, \\; \\frac{1}{64} = \\frac{421.875}{27000}$$
+
+Let's use a cleaner LCD. $\\text{lcm}(1,8,27,64,125) = 27000$ doesn't work cleanly for 64. Use $\\text{lcm} = 216000$:
+
+$$\\frac{216000 + 27000 + 8000 + 3375 + 1728}{216000} = \\frac{256103}{216000}$$
+
+$$E\\left[\\frac{1}{X}\\right] = \\frac{3600}{5269} \\cdot \\frac{256103}{216000} = \\frac{256103}{315(5269)/1} $$
+
+Computing numerically:
+
+$$\\sum_{k=1}^{5} \\frac{1}{k^3} \\approx 1 + 0.125 + 0.03704 + 0.01563 + 0.008 = 1.18566$$
+
+$$E[1/X] \\approx \\frac{3600}{5269} \\times 1.18566 \\approx 0.6832 \\times 1.18566 \\approx 0.8100$$
+
+$$\\boxed{E[1/X] \\approx 0.810}$$`,
+  },
+  {
+    id: 'ps-drv-6',
+    courseId: 'probability-statistics',
+    topic: 'Discrete Random Variables',
+    difficulty: 'medium',
+    question: `Suppose $X \\sim \\text{Binomial}(n = 20, p = 0.4)$.
+
+(a) Compute $E[X]$ and $\\text{Var}(X)$.
+(b) Use the Poisson approximation to estimate $P(X = 3)$ when $n = 100$ and $p = 0.02$.
+(c) For $n = 100, p = 0.02$, what Poisson parameter $\\lambda$ do you use, and why is this approximation valid?`,
+    answer: `**Part (a):** For $X \\sim \\text{Binomial}(20, 0.4)$:
+
+$$E[X] = np = 20 \\cdot 0.4 = 8$$
+
+$$\\text{Var}(X) = np(1-p) = 20 \\cdot 0.4 \\cdot 0.6 = 4.8$$
+
+$$\\boxed{E[X] = 8, \\quad \\text{Var}(X) = 4.8}$$
+
+**Part (b):** When $n$ is large and $p$ is small, $\\text{Binomial}(n,p)$ is well approximated by $\\text{Poisson}(\\lambda = np)$.
+
+Here $\\lambda = np = 100 \\cdot 0.02 = 2$.
+
+$$P(X = 3) \\approx \\frac{e^{-2} \\cdot 2^3}{3!} = \\frac{8e^{-2}}{6} = \\frac{4e^{-2}}{3}$$
+
+$$\\boxed{P(X = 3) \\approx \\frac{4e^{-2}}{3} \\approx 0.1804}$$
+
+**Part (c):** We use $\\lambda = np = 2$. The approximation is valid because:
+- $n = 100$ is large,
+- $p = 0.02$ is small,
+- $\\lambda = np = 2$ is moderate.
+
+The Poisson approximation works well when $n \\geq 20$ and $p \\leq 0.05$ (rule of thumb). The exact binomial probability is $P(X=3) = \\binom{100}{3}(0.02)^3(0.98)^{97} \\approx 0.1823$, which is close to our Poisson approximation of $0.1804$.`,
+  },
+  {
+    id: 'ps-drv-7',
+    courseId: 'probability-statistics',
+    topic: 'Discrete Random Variables',
+    difficulty: 'hard',
+    question: `Let $X$ and $Y$ be independent random variables, each taking values in $\\{0, 1, 2\\}$ with PMF:
+
+$$P(X = k) = P(Y = k) = \\frac{k+1}{6}, \\quad k = 0, 1, 2$$
+
+(a) Verify this is a valid PMF.
+(b) Compute $E[X]$, $E[X^2]$, and $\\text{Var}(X)$.
+(c) Let $Z = X + Y$. Compute $E[Z]$ and $\\text{Var}(Z)$.
+(d) Use LOTUS to compute $E[X \\cdot Y]$.`,
+    answer: `**Part (a): Verify PMF.**
+
+$$\\sum_{k=0}^{2} P(X=k) = \\frac{1}{6} + \\frac{2}{6} + \\frac{3}{6} = \\frac{6}{6} = 1 \\; \\checkmark$$
+
+All probabilities are non-negative. $\\checkmark$
+
+**Part (b):**
+
+$$E[X] = 0 \\cdot \\frac{1}{6} + 1 \\cdot \\frac{2}{6} + 2 \\cdot \\frac{3}{6} = 0 + \\frac{2}{6} + \\frac{6}{6} = \\frac{8}{6} = \\frac{4}{3}$$
+
+$$E[X^2] = 0^2 \\cdot \\frac{1}{6} + 1^2 \\cdot \\frac{2}{6} + 2^2 \\cdot \\frac{3}{6} = 0 + \\frac{2}{6} + \\frac{12}{6} = \\frac{14}{6} = \\frac{7}{3}$$
+
+$$\\text{Var}(X) = E[X^2] - (E[X])^2 = \\frac{7}{3} - \\frac{16}{9} = \\frac{21 - 16}{9} = \\frac{5}{9}$$
+
+$$\\boxed{E[X] = \\frac{4}{3}, \\quad \\text{Var}(X) = \\frac{5}{9}}$$
+
+**Part (c):** Since $X$ and $Y$ are independent with the same distribution:
+
+$$E[Z] = E[X] + E[Y] = \\frac{4}{3} + \\frac{4}{3} = \\frac{8}{3}$$
+
+$$\\text{Var}(Z) = \\text{Var}(X) + \\text{Var}(Y) = \\frac{5}{9} + \\frac{5}{9} = \\frac{10}{9}$$
+
+(Independence gives $\\text{Var}(X+Y) = \\text{Var}(X) + \\text{Var}(Y)$.)
+
+$$\\boxed{E[Z] = \\frac{8}{3}, \\quad \\text{Var}(Z) = \\frac{10}{9}}$$
+
+**Part (d):** Since $X$ and $Y$ are independent:
+
+$$E[XY] = E[X] \\cdot E[Y] = \\frac{4}{3} \\cdot \\frac{4}{3} = \\frac{16}{9}$$
+
+$$\\boxed{E[XY] = \\frac{16}{9}}$$`,
+  },
+  {
+    id: 'ps-drv-8',
+    courseId: 'probability-statistics',
+    topic: 'Discrete Random Variables',
+    difficulty: 'easy',
+    question: `A lot of 20 items contains 4 defective items. A sample of 5 items is drawn without replacement. Let $X$ be the number of defective items in the sample.
+
+(a) What is the distribution of $X$?
+(b) Compute $P(X = 2)$.
+(c) Compute $E[X]$.`,
+    answer: `**Part (a):** $X$ follows a Hypergeometric distribution with parameters $N = 20$ (population), $K = 4$ (defectives in population), $n = 5$ (sample size).
+
+$$X \\sim \\text{Hypergeometric}(N=20, K=4, n=5)$$
+
+**Part (b):**
+
+$$P(X = 2) = \\frac{\\binom{4}{2}\\binom{16}{3}}{\\binom{20}{5}}$$
+
+$$\\binom{4}{2} = 6, \\quad \\binom{16}{3} = \\frac{16 \\cdot 15 \\cdot 14}{6} = 560, \\quad \\binom{20}{5} = 15504$$
+
+$$P(X=2) = \\frac{6 \\cdot 560}{15504} = \\frac{3360}{15504} = \\frac{140}{646} = \\frac{70}{323}$$
+
+$$\\boxed{P(X=2) = \\frac{70}{323} \\approx 0.2168}$$
+
+**Part (c):** For the Hypergeometric distribution:
+
+$$E[X] = n \\cdot \\frac{K}{N} = 5 \\cdot \\frac{4}{20} = 5 \\cdot 0.2 = 1$$
+
+$$\\boxed{E[X] = 1}$$`,
+  },
+  {
+    id: 'ps-drv-9',
+    courseId: 'probability-statistics',
+    topic: 'Discrete Random Variables',
+    difficulty: 'medium',
+    question: `Let $X \\sim \\text{Poisson}(\\lambda)$. Show that $E[X(X-1)] = \\lambda^2$, and use this to derive that $\\text{Var}(X) = \\lambda$.`,
+    answer: `**Step 1: Compute $E[X(X-1)]$ using the definition.**
+
+$$E[X(X-1)] = \\sum_{k=0}^{\\infty} k(k-1) \\frac{e^{-\\lambda} \\lambda^k}{k!}$$
+
+The $k=0$ and $k=1$ terms are zero. For $k \\geq 2$:
+
+$$= \\sum_{k=2}^{\\infty} k(k-1) \\frac{e^{-\\lambda} \\lambda^k}{k!} = \\sum_{k=2}^{\\infty} \\frac{e^{-\\lambda} \\lambda^k}{(k-2)!}$$
+
+**Step 2: Substitute $j = k - 2$.**
+
+$$= e^{-\\lambda} \\lambda^2 \\sum_{j=0}^{\\infty} \\frac{\\lambda^j}{j!} = e^{-\\lambda} \\lambda^2 \\cdot e^{\\lambda} = \\lambda^2$$
+
+$$\\boxed{E[X(X-1)] = \\lambda^2}$$
+
+**Step 3: Derive the variance.**
+
+$$E[X(X-1)] = E[X^2 - X] = E[X^2] - E[X]$$
+
+Since $E[X] = \\lambda$ for Poisson:
+
+$$\\lambda^2 = E[X^2] - \\lambda \\implies E[X^2] = \\lambda^2 + \\lambda$$
+
+$$\\text{Var}(X) = E[X^2] - (E[X])^2 = (\\lambda^2 + \\lambda) - \\lambda^2 = \\lambda$$
+
+$$\\boxed{\\text{Var}(X) = \\lambda}$$`,
+  },
+  {
+    id: 'ps-drv-10',
+    courseId: 'probability-statistics',
+    topic: 'Discrete Random Variables',
+    difficulty: 'hard',
+    question: `Let $X$ be a random variable with PMF $P(X = k) = \\frac{1}{2^k}$ for $k = 1, 2, 3, \\ldots$
+
+(a) Verify this is a valid PMF.
+(b) Compute $E[X]$.
+(c) Compute $\\text{Var}(X)$.
+(d) Use LOTUS to compute $E[2^X]$. Does it exist?`,
+    answer: `**Part (a): Verify PMF sums to 1.**
+
+$$\\sum_{k=1}^{\\infty} \\frac{1}{2^k} = \\frac{1/2}{1 - 1/2} = 1 \\; \\checkmark \\quad \\text{(geometric series with ratio } 1/2\\text{)}$$
+
+**Part (b): Compute $E[X]$.**
+
+$$E[X] = \\sum_{k=1}^{\\infty} k \\cdot \\frac{1}{2^k} = \\sum_{k=1}^{\\infty} \\frac{k}{2^k}$$
+
+Using the identity $\\sum_{k=1}^{\\infty} k x^k = \\frac{x}{(1-x)^2}$ for $|x| < 1$, with $x = 1/2$:
+
+$$E[X] = \\frac{1/2}{(1/2)^2} = \\frac{1/2}{1/4} = 2$$
+
+$$\\boxed{E[X] = 2}$$
+
+**Part (c): Compute $\\text{Var}(X)$.**
+
+First find $E[X^2] = \\sum_{k=1}^{\\infty} k^2 / 2^k$.
+
+Using $\\sum_{k=1}^{\\infty} k^2 x^k = \\frac{x(1+x)}{(1-x)^3}$ with $x = 1/2$:
+
+$$E[X^2] = \\frac{(1/2)(3/2)}{(1/2)^3} = \\frac{3/4}{1/8} = 6$$
+
+$$\\text{Var}(X) = E[X^2] - (E[X])^2 = 6 - 4 = 2$$
+
+$$\\boxed{\\text{Var}(X) = 2}$$
+
+**Part (d): $E[2^X]$ via LOTUS.**
+
+$$E[2^X] = \\sum_{k=1}^{\\infty} 2^k \\cdot \\frac{1}{2^k} = \\sum_{k=1}^{\\infty} 1 = \\infty$$
+
+$$\\boxed{E[2^X] \\text{ does not exist (diverges to } \\infty\\text{).}}$$`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  PROBABILITY & STATISTICS — TOPIC 3: CONTINUOUS RANDOM VARIABLES (8 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ps-crv-1',
+    courseId: 'probability-statistics',
+    topic: 'Continuous Random Variables',
+    difficulty: 'easy',
+    question: `A continuous random variable $X$ has PDF:
+
+$$f(x) = \\begin{cases} cx^2 & 0 \\leq x \\leq 2 \\\\ 0 & \\text{otherwise} \\end{cases}$$
+
+(a) Find the constant $c$.
+(b) Compute $P(X > 1)$.
+(c) Find the CDF $F(x)$.`,
+    answer: `**Part (a): Find $c$.**
+
+$$\\int_{-\\infty}^{\\infty} f(x)\\,dx = 1 \\implies \\int_0^2 cx^2\\,dx = 1$$
+
+$$c \\cdot \\frac{x^3}{3}\\Big|_0^2 = c \\cdot \\frac{8}{3} = 1 \\implies c = \\frac{3}{8}$$
+
+$$\\boxed{c = \\frac{3}{8}}$$
+
+**Part (b):**
+
+$$P(X > 1) = \\int_1^2 \\frac{3}{8} x^2\\,dx = \\frac{3}{8} \\cdot \\frac{x^3}{3}\\Big|_1^2 = \\frac{1}{8}(8 - 1) = \\frac{7}{8}$$
+
+$$\\boxed{P(X > 1) = \\frac{7}{8}}$$
+
+**Part (c): CDF.**
+
+For $x < 0$: $F(x) = 0$.
+
+For $0 \\leq x \\leq 2$:
+
+$$F(x) = \\int_0^x \\frac{3}{8} t^2\\,dt = \\frac{3}{8} \\cdot \\frac{t^3}{3}\\Big|_0^x = \\frac{x^3}{8}$$
+
+For $x > 2$: $F(x) = 1$.
+
+$$\\boxed{F(x) = \\begin{cases} 0 & x < 0 \\\\ \\frac{x^3}{8} & 0 \\leq x \\leq 2 \\\\ 1 & x > 2 \\end{cases}}$$`,
+  },
+  {
+    id: 'ps-crv-2',
+    courseId: 'probability-statistics',
+    topic: 'Continuous Random Variables',
+    difficulty: 'medium',
+    question: `Let $X \\sim \\text{Uniform}(2, 8)$.
+
+(a) Write down the PDF and CDF of $X$.
+(b) Compute $E[X]$ and $\\text{Var}(X)$.
+(c) Compute $P(3 < X < 6)$.
+(d) Find the median and the 75th percentile of $X$.`,
+    answer: `**Part (a):** For $X \\sim \\text{Uniform}(a, b)$ with $a = 2, b = 8$:
+
+$$f(x) = \\begin{cases} \\frac{1}{b-a} = \\frac{1}{6} & 2 \\leq x \\leq 8 \\\\ 0 & \\text{otherwise} \\end{cases}$$
+
+$$F(x) = \\begin{cases} 0 & x < 2 \\\\ \\frac{x - 2}{6} & 2 \\leq x \\leq 8 \\\\ 1 & x > 8 \\end{cases}$$
+
+**Part (b):**
+
+$$E[X] = \\frac{a + b}{2} = \\frac{2 + 8}{2} = 5$$
+
+$$\\text{Var}(X) = \\frac{(b - a)^2}{12} = \\frac{36}{12} = 3$$
+
+$$\\boxed{E[X] = 5, \\quad \\text{Var}(X) = 3}$$
+
+**Part (c):**
+
+$$P(3 < X < 6) = F(6) - F(3) = \\frac{6-2}{6} - \\frac{3-2}{6} = \\frac{4}{6} - \\frac{1}{6} = \\frac{3}{6} = \\frac{1}{2}$$
+
+$$\\boxed{P(3 < X < 6) = \\frac{1}{2}}$$
+
+**Part (d):**
+
+Median: solve $F(m) = 0.5$: $\\frac{m - 2}{6} = 0.5 \\implies m = 5$.
+
+75th percentile: solve $F(q) = 0.75$: $\\frac{q - 2}{6} = 0.75 \\implies q = 6.5$.
+
+$$\\boxed{\\text{Median} = 5, \\quad Q_{75} = 6.5}$$`,
+  },
+  {
+    id: 'ps-crv-3',
+    courseId: 'probability-statistics',
+    topic: 'Continuous Random Variables',
+    difficulty: 'medium',
+    question: `Let $X \\sim \\text{Exponential}(\\lambda = 0.5)$, i.e., $f(x) = 0.5 e^{-0.5x}$ for $x \\geq 0$.
+
+(a) Compute $P(X > 4)$.
+(b) Compute $P(2 < X < 6)$.
+(c) Find the median of $X$.
+(d) Verify the memoryless property: show $P(X > s + t | X > s) = P(X > t)$ for $s, t > 0$.`,
+    answer: `**Part (a):**
+
+$$P(X > 4) = 1 - F(4) = e^{-0.5 \\cdot 4} = e^{-2}$$
+
+$$\\boxed{P(X > 4) = e^{-2} \\approx 0.1353}$$
+
+**Part (b):**
+
+$$P(2 < X < 6) = F(6) - F(2) = (1 - e^{-3}) - (1 - e^{-1}) = e^{-1} - e^{-3}$$
+
+$$\\boxed{P(2 < X < 6) = e^{-1} - e^{-3} \\approx 0.3679 - 0.0498 = 0.3181}$$
+
+**Part (c): Median.**
+
+Solve $F(m) = 0.5$:
+
+$$1 - e^{-0.5m} = 0.5 \\implies e^{-0.5m} = 0.5 \\implies -0.5m = \\ln(0.5)$$
+
+$$m = \\frac{-\\ln(0.5)}{0.5} = \\frac{\\ln 2}{0.5} = 2\\ln 2$$
+
+$$\\boxed{\\text{Median} = 2\\ln 2 \\approx 1.386}$$
+
+**Part (d): Memoryless property.**
+
+$$P(X > s + t | X > s) = \\frac{P(X > s + t)}{P(X > s)} = \\frac{e^{-\\lambda(s+t)}}{e^{-\\lambda s}} = e^{-\\lambda t} = P(X > t)$$
+
+$$\\boxed{P(X > s+t \\mid X > s) = P(X > t) \\; \\checkmark}$$
+
+This holds for any $s, t > 0$, confirming the memoryless property of the exponential distribution.`,
+  },
+  {
+    id: 'ps-crv-4',
+    courseId: 'probability-statistics',
+    topic: 'Continuous Random Variables',
+    difficulty: 'medium',
+    question: `Let $Z \\sim N(0,1)$ be a standard normal random variable. Using the standard normal table, compute:
+
+(a) $P(Z < 1.96)$
+(b) $P(Z > -1.5)$
+(c) $P(-1 < Z < 2)$
+(d) Find $z$ such that $P(Z > z) = 0.05$.
+
+Now let $X \\sim N(100, 16)$ (mean 100, variance 16). Compute:
+(e) $P(X > 106)$.`,
+    answer: `**Part (a):** From the standard normal table:
+
+$$\\boxed{P(Z < 1.96) = \\Phi(1.96) = 0.9750}$$
+
+**Part (b):** By symmetry of the normal distribution:
+
+$$P(Z > -1.5) = P(Z < 1.5) = \\Phi(1.5) = 0.9332$$
+
+$$\\boxed{P(Z > -1.5) = 0.9332}$$
+
+**Part (c):**
+
+$$P(-1 < Z < 2) = \\Phi(2) - \\Phi(-1) = \\Phi(2) - (1 - \\Phi(1))$$
+
+$$= 0.9772 - (1 - 0.8413) = 0.9772 - 0.1587 = 0.8185$$
+
+$$\\boxed{P(-1 < Z < 2) = 0.8185}$$
+
+**Part (d):** We need $P(Z > z) = 0.05$, so $P(Z < z) = 0.95$.
+
+From the table: $\\Phi(1.645) \\approx 0.95$.
+
+$$\\boxed{z = 1.645}$$
+
+**Part (e): Standardize $X \\sim N(100, 16)$.**
+
+$\\sigma = \\sqrt{16} = 4$.
+
+$$P(X > 106) = P\\left(\\frac{X - 100}{4} > \\frac{106 - 100}{4}\\right) = P(Z > 1.5)$$
+
+$$= 1 - \\Phi(1.5) = 1 - 0.9332 = 0.0668$$
+
+$$\\boxed{P(X > 106) = 0.0668}$$`,
+  },
+  {
+    id: 'ps-crv-5',
+    courseId: 'probability-statistics',
+    topic: 'Continuous Random Variables',
+    difficulty: 'hard',
+    question: `Let $X$ have PDF $f_X(x) = 2x$ for $0 \\leq x \\leq 1$ and $f_X(x) = 0$ otherwise. Let $Y = X^2$.
+
+Find the PDF of $Y$ using the CDF method.`,
+    answer: `**Step 1: Find the CDF of $Y$.**
+
+Since $Y = X^2$ and $0 \\leq X \\leq 1$, we have $0 \\leq Y \\leq 1$.
+
+For $0 \\leq y \\leq 1$:
+
+$$F_Y(y) = P(Y \\leq y) = P(X^2 \\leq y) = P(X \\leq \\sqrt{y})$$
+
+(Since $X \\geq 0$, we only need the positive root.)
+
+**Step 2: Use the CDF of $X$.**
+
+$$F_X(x) = \\int_0^x 2t\\,dt = x^2 \\quad \\text{for } 0 \\leq x \\leq 1$$
+
+Therefore:
+
+$$F_Y(y) = F_X(\\sqrt{y}) = (\\sqrt{y})^2 = y$$
+
+**Step 3: Differentiate to get the PDF.**
+
+$$f_Y(y) = \\frac{d}{dy} F_Y(y) = 1 \\quad \\text{for } 0 \\leq y \\leq 1$$
+
+$$\\boxed{f_Y(y) = \\begin{cases} 1 & 0 \\leq y \\leq 1 \\\\ 0 & \\text{otherwise} \\end{cases}}$$
+
+So $Y = X^2 \\sim \\text{Uniform}(0, 1)$. This is a classic result: applying the probability integral transform to a random variable produces a uniform distribution.`,
+  },
+  {
+    id: 'ps-crv-6',
+    courseId: 'probability-statistics',
+    topic: 'Continuous Random Variables',
+    difficulty: 'hard',
+    question: `Let $X$ have PDF $f_X(x) = e^{-x}$ for $x > 0$. Let $Y = \\sqrt{X}$.
+
+(a) Find the CDF of $Y$.
+(b) Find the PDF of $Y$.
+(c) Compute $E[Y]$ using the PDF of $Y$, and verify using LOTUS applied to $X$.`,
+    answer: `**Part (a): CDF of $Y$.**
+
+Since $Y = \\sqrt{X}$ and $X > 0$, we have $Y > 0$.
+
+For $y > 0$:
+
+$$F_Y(y) = P(Y \\leq y) = P(\\sqrt{X} \\leq y) = P(X \\leq y^2) = F_X(y^2)$$
+
+$$= \\int_0^{y^2} e^{-t}\\,dt = 1 - e^{-y^2}$$
+
+$$\\boxed{F_Y(y) = 1 - e^{-y^2}, \\quad y > 0}$$
+
+**Part (b): PDF of $Y$.**
+
+$$f_Y(y) = F_Y'(y) = 2y\\,e^{-y^2}, \\quad y > 0$$
+
+$$\\boxed{f_Y(y) = 2y\\,e^{-y^2}, \\quad y > 0}$$
+
+**Part (c): $E[Y]$ using the PDF of $Y$.**
+
+$$E[Y] = \\int_0^{\\infty} y \\cdot 2y\\,e^{-y^2}\\,dy = 2\\int_0^{\\infty} y^2 e^{-y^2}\\,dy$$
+
+Using the Gaussian integral $\\int_0^{\\infty} y^2 e^{-y^2}\\,dy = \\frac{\\sqrt{\\pi}}{4}$:
+
+$$E[Y] = 2 \\cdot \\frac{\\sqrt{\\pi}}{4} = \\frac{\\sqrt{\\pi}}{2}$$
+
+**Verification using LOTUS:** $E[Y] = E[\\sqrt{X}] = \\int_0^{\\infty} \\sqrt{x}\\,e^{-x}\\,dx = \\Gamma(3/2) = \\frac{1}{2}\\Gamma(1/2) = \\frac{\\sqrt{\\pi}}{2}$.
+
+$$\\boxed{E[Y] = \\frac{\\sqrt{\\pi}}{2} \\approx 0.8862}$$`,
+  },
+  {
+    id: 'ps-crv-7',
+    courseId: 'probability-statistics',
+    topic: 'Continuous Random Variables',
+    difficulty: 'easy',
+    question: `Let $X$ have PDF:
+
+$$f(x) = \\begin{cases} \\frac{3}{4}(1 - x^2) & -1 \\leq x \\leq 1 \\\\ 0 & \\text{otherwise} \\end{cases}$$
+
+(a) Verify that $f$ is a valid PDF.
+(b) Compute $E[X]$.
+(c) Compute $\\text{Var}(X)$.`,
+    answer: `**Part (a): Verify $f$ is a valid PDF.**
+
+**Non-negativity:** For $-1 \\leq x \\leq 1$, we have $x^2 \\leq 1$, so $1 - x^2 \\geq 0$, thus $f(x) \\geq 0$. $\\checkmark$
+
+**Integrates to 1:**
+
+$$\\int_{-1}^{1} \\frac{3}{4}(1 - x^2)\\,dx = \\frac{3}{4}\\left[x - \\frac{x^3}{3}\\right]_{-1}^{1}$$
+
+$$= \\frac{3}{4}\\left[\\left(1 - \\frac{1}{3}\\right) - \\left(-1 + \\frac{1}{3}\\right)\\right] = \\frac{3}{4}\\left[\\frac{2}{3} + \\frac{2}{3}\\right] = \\frac{3}{4} \\cdot \\frac{4}{3} = 1 \\; \\checkmark$$
+
+**Part (b): $E[X]$.**
+
+$$E[X] = \\int_{-1}^{1} x \\cdot \\frac{3}{4}(1 - x^2)\\,dx = \\frac{3}{4}\\int_{-1}^{1} (x - x^3)\\,dx = 0$$
+
+The integrand $x(1 - x^2)$ is an odd function on a symmetric interval, so the integral is 0.
+
+$$\\boxed{E[X] = 0}$$
+
+**Part (c): $\\text{Var}(X) = E[X^2] - (E[X])^2 = E[X^2]$.**
+
+$$E[X^2] = \\int_{-1}^{1} x^2 \\cdot \\frac{3}{4}(1 - x^2)\\,dx = \\frac{3}{4}\\int_{-1}^{1}(x^2 - x^4)\\,dx$$
+
+Since $x^2 - x^4$ is an even function:
+
+$$= \\frac{3}{4} \\cdot 2 \\int_0^1 (x^2 - x^4)\\,dx = \\frac{3}{2}\\left[\\frac{x^3}{3} - \\frac{x^5}{5}\\right]_0^1 = \\frac{3}{2}\\left(\\frac{1}{3} - \\frac{1}{5}\\right) = \\frac{3}{2} \\cdot \\frac{2}{15} = \\frac{1}{5}$$
+
+$$\\boxed{\\text{Var}(X) = \\frac{1}{5}}$$`,
+  },
+  {
+    id: 'ps-crv-8',
+    courseId: 'probability-statistics',
+    topic: 'Continuous Random Variables',
+    difficulty: 'hard',
+    question: `The lifetime (in years) of a certain electronic component follows an exponential distribution with mean 5. Three such components operate independently.
+
+(a) What is the probability that a single component lasts more than 3 years?
+(b) What is the probability that all three components last more than 3 years?
+(c) What is the probability that at least one component fails within 3 years?`,
+    answer: `**Setup:** If the mean is 5, then $\\lambda = 1/5$, so $X_i \\sim \\text{Exp}(1/5)$.
+
+$$P(X > t) = e^{-t/5}$$
+
+**Part (a):**
+
+$$P(X > 3) = e^{-3/5} = e^{-0.6}$$
+
+$$\\boxed{P(X > 3) = e^{-0.6} \\approx 0.5488}$$
+
+**Part (b):** Since the components are independent:
+
+$$P(\\text{all three last} > 3) = (e^{-0.6})^3 = e^{-1.8}$$
+
+$$\\boxed{P(\\text{all three} > 3) = e^{-1.8} \\approx 0.1653}$$
+
+**Part (c):** Complement of part (b):
+
+$$P(\\text{at least one fails within 3}) = 1 - P(\\text{all last} > 3) = 1 - e^{-1.8}$$
+
+$$\\boxed{P(\\text{at least one fails within 3 years}) = 1 - e^{-1.8} \\approx 0.8347}$$`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  PROBABILITY & STATISTICS — TOPIC 4: LIMIT THEOREMS (5 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ps-lt-1',
+    courseId: 'probability-statistics',
+    topic: 'Limit Theorems',
+    difficulty: 'medium',
+    question: `A fair die is rolled $n = 360$ times. Let $S = X_1 + X_2 + \\cdots + X_{360}$ be the sum of the outcomes, where each $X_i$ is the result of one roll.
+
+Use the Central Limit Theorem to approximate $P(S > 1300)$.
+
+*Hint: For a single fair die, $E[X_i] = 7/2$ and $\\text{Var}(X_i) = 35/12$.*`,
+    answer: `**Step 1: Compute the mean and variance of $S$.**
+
+$$E[S] = n \\cdot E[X_i] = 360 \\cdot \\frac{7}{2} = 1260$$
+
+$$\\text{Var}(S) = n \\cdot \\text{Var}(X_i) = 360 \\cdot \\frac{35}{12} = 1050$$
+
+$$\\sigma_S = \\sqrt{1050} \\approx 32.40$$
+
+**Step 2: Standardize using the CLT.**
+
+By CLT, $S \\approx N(1260, 1050)$.
+
+$$P(S > 1300) = P\\left(\\frac{S - 1260}{\\sqrt{1050}} > \\frac{1300 - 1260}{\\sqrt{1050}}\\right) = P\\left(Z > \\frac{40}{32.40}\\right) = P(Z > 1.234)$$
+
+**Step 3: Use the standard normal table.**
+
+$$P(Z > 1.234) = 1 - \\Phi(1.23) \\approx 1 - 0.8907 = 0.1093$$
+
+$$\\boxed{P(S > 1300) \\approx 0.1093}$$`,
+  },
+  {
+    id: 'ps-lt-2',
+    courseId: 'probability-statistics',
+    topic: 'Limit Theorems',
+    difficulty: 'medium',
+    question: `An insurance company processes claims with mean $\\mu = \\$500$ and standard deviation $\\sigma = \\$200$. In a given month, $n = 100$ independent claims are filed.
+
+(a) Use the CLT to approximate the probability that the average claim exceeds $\\$530$.
+(b) What sample size $n$ is needed so that the probability that the sample mean differs from the true mean by more than $\\$10$ is at most $5\\%$?`,
+    answer: `**Part (a):** Let $\\bar{X} = \\frac{1}{n}\\sum_{i=1}^n X_i$. By CLT:
+
+$$\\bar{X} \\approx N\\left(\\mu, \\frac{\\sigma^2}{n}\\right) = N\\left(500, \\frac{200^2}{100}\\right) = N(500, 400)$$
+
+$$\\sigma_{\\bar{X}} = \\frac{200}{\\sqrt{100}} = 20$$
+
+$$P(\\bar{X} > 530) = P\\left(Z > \\frac{530 - 500}{20}\\right) = P(Z > 1.5) = 1 - \\Phi(1.5)$$
+
+$$= 1 - 0.9332 = 0.0668$$
+
+$$\\boxed{P(\\bar{X} > 530) \\approx 0.0668}$$
+
+**Part (b):** We need $P(|\\bar{X} - \\mu| > 10) \\leq 0.05$.
+
+$$P(|\\bar{X} - \\mu| > 10) = P\\left(|Z| > \\frac{10}{\\sigma/\\sqrt{n}}\\right) = P\\left(|Z| > \\frac{10\\sqrt{n}}{200}\\right) \\leq 0.05$$
+
+For $P(|Z| > z_{0.025}) = 0.05$, we need $z_{0.025} = 1.96$.
+
+$$\\frac{10\\sqrt{n}}{200} \\geq 1.96 \\implies \\sqrt{n} \\geq \\frac{1.96 \\cdot 200}{10} = 39.2$$
+
+$$n \\geq 39.2^2 = 1536.64$$
+
+$$\\boxed{n \\geq 1537}$$`,
+  },
+  {
+    id: 'ps-lt-3',
+    courseId: 'probability-statistics',
+    topic: 'Limit Theorems',
+    difficulty: 'easy',
+    question: `Let $X$ be a random variable with $E[X] = 10$ and $\\text{Var}(X) = 9$.
+
+(a) Use Chebyshev's inequality to find an upper bound for $P(|X - 10| \\geq 6)$.
+(b) Compare this with the exact probability if $X \\sim N(10, 9)$.`,
+    answer: `**Part (a): Chebyshev's inequality.**
+
+$$P(|X - \\mu| \\geq k\\sigma) \\leq \\frac{1}{k^2}$$
+
+Here $\\mu = 10$, $\\sigma = 3$, and we want $|X - 10| \\geq 6 = 2\\sigma$, so $k = 2$.
+
+$$P(|X - 10| \\geq 6) \\leq \\frac{1}{2^2} = \\frac{1}{4}$$
+
+$$\\boxed{P(|X - 10| \\geq 6) \\leq 0.25 \\text{ (Chebyshev bound)}}$$
+
+**Part (b): Exact probability for $X \\sim N(10, 9)$.**
+
+$$P(|X - 10| \\geq 6) = P\\left(|Z| \\geq \\frac{6}{3}\\right) = P(|Z| \\geq 2) = 2(1 - \\Phi(2))$$
+
+$$= 2(1 - 0.9772) = 2(0.0228) = 0.0456$$
+
+$$\\boxed{P(|X - 10| \\geq 6) = 0.0456 \\text{ (exact, under normality)}}$$
+
+The Chebyshev bound of 0.25 is much looser than the exact value of 0.0456. Chebyshev applies to any distribution, which is why it must be conservative.`,
+  },
+  {
+    id: 'ps-lt-4',
+    courseId: 'probability-statistics',
+    topic: 'Limit Theorems',
+    difficulty: 'hard',
+    question: `A factory produces light bulbs whose lifetimes have mean $\\mu = 1000$ hours and standard deviation $\\sigma = 100$ hours. A quality inspector tests $n = 25$ bulbs.
+
+(a) Use the CLT to approximate the probability that the sample mean lifetime is between 980 and 1020 hours.
+(b) Without assuming normality, use Chebyshev's inequality to bound $P(|\\bar{X} - 1000| \\geq 50)$.
+(c) How large must $n$ be so that $P(|\\bar{X} - 1000| < 20) \\geq 0.95$ by Chebyshev's inequality?`,
+    answer: `**Part (a): CLT approximation.**
+
+$$\\bar{X} \\approx N\\left(1000, \\frac{100^2}{25}\\right) = N(1000, 400), \\quad \\sigma_{\\bar{X}} = 20$$
+
+$$P(980 < \\bar{X} < 1020) = P\\left(\\frac{980-1000}{20} < Z < \\frac{1020-1000}{20}\\right) = P(-1 < Z < 1)$$
+
+$$= \\Phi(1) - \\Phi(-1) = 0.8413 - 0.1587 = 0.6826$$
+
+$$\\boxed{P(980 < \\bar{X} < 1020) \\approx 0.6826}$$
+
+**Part (b): Chebyshev bound.**
+
+$$\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n} = \\frac{10000}{25} = 400$$
+
+$$P(|\\bar{X} - 1000| \\geq 50) \\leq \\frac{\\text{Var}(\\bar{X})}{50^2} = \\frac{400}{2500} = 0.16$$
+
+$$\\boxed{P(|\\bar{X} - 1000| \\geq 50) \\leq 0.16}$$
+
+**Part (c): Sample size by Chebyshev.**
+
+We need $P(|\\bar{X} - 1000| \\geq 20) \\leq 0.05$.
+
+$$\\frac{\\sigma^2/n}{20^2} \\leq 0.05 \\implies \\frac{10000}{400n} \\leq 0.05 \\implies \\frac{25}{n} \\leq 0.05 \\implies n \\geq 500$$
+
+$$\\boxed{n \\geq 500}$$`,
+  },
+  {
+    id: 'ps-lt-5',
+    courseId: 'probability-statistics',
+    topic: 'Limit Theorems',
+    difficulty: 'medium',
+    question: `A coin has probability $p = 0.6$ of heads. It is flipped $n = 400$ times. Let $\\hat{p} = X/n$ where $X$ is the number of heads.
+
+(a) Use the CLT to approximate $P(0.57 < \\hat{p} < 0.63)$.
+(b) How many flips are needed so that $P(|\\hat{p} - 0.6| < 0.02) \\geq 0.99$?`,
+    answer: `**Part (a):** $X \\sim \\text{Binomial}(400, 0.6)$, so $\\hat{p} = X/400$.
+
+$$E[\\hat{p}] = p = 0.6, \\quad \\text{Var}(\\hat{p}) = \\frac{p(1-p)}{n} = \\frac{0.6 \\cdot 0.4}{400} = \\frac{0.24}{400} = 0.0006$$
+
+$$\\sigma_{\\hat{p}} = \\sqrt{0.0006} = 0.02449$$
+
+By CLT, $\\hat{p} \\approx N(0.6, 0.0006)$.
+
+$$P(0.57 < \\hat{p} < 0.63) = P\\left(\\frac{0.57 - 0.6}{0.02449} < Z < \\frac{0.63 - 0.6}{0.02449}\\right)$$
+
+$$= P(-1.225 < Z < 1.225) = 2\\Phi(1.225) - 1 \\approx 2(0.8897) - 1 = 0.7794$$
+
+$$\\boxed{P(0.57 < \\hat{p} < 0.63) \\approx 0.7794}$$
+
+**Part (b):** We need $P(|\\hat{p} - 0.6| < 0.02) \\geq 0.99$, i.e., $P(|\\hat{p} - 0.6| \\geq 0.02) \\leq 0.01$.
+
+$$P\\left(|Z| \\geq \\frac{0.02}{\\sqrt{0.24/n}}\\right) \\leq 0.01$$
+
+We need $\\frac{0.02}{\\sqrt{0.24/n}} \\geq z_{0.005} = 2.576$.
+
+$$\\frac{0.02\\sqrt{n}}{\\sqrt{0.24}} \\geq 2.576 \\implies \\sqrt{n} \\geq \\frac{2.576 \\cdot \\sqrt{0.24}}{0.02} = \\frac{2.576 \\cdot 0.4899}{0.02} = 63.1$$
+
+$$n \\geq 63.1^2 \\approx 3981.6$$
+
+$$\\boxed{n \\geq 3982}$$`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  PROBABILITY & STATISTICS — TOPIC 5: POINT ESTIMATION AND MLE (7 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ps-mle-1',
+    courseId: 'probability-statistics',
+    topic: 'Point Estimation and MLE',
+    difficulty: 'medium',
+    question: `Let $X_1, X_2, \\ldots, X_n$ be an i.i.d. sample from $\\text{Exponential}(\\lambda)$ with PDF $f(x; \\lambda) = \\lambda e^{-\\lambda x}$ for $x > 0$.
+
+(a) Write down the likelihood function $L(\\lambda)$.
+(b) Find the log-likelihood $\\ell(\\lambda)$.
+(c) Derive the MLE $\\hat{\\lambda}_{\\text{MLE}}$.`,
+    answer: `**Part (a): Likelihood function.**
+
+$$L(\\lambda) = \\prod_{i=1}^n f(x_i; \\lambda) = \\prod_{i=1}^n \\lambda e^{-\\lambda x_i} = \\lambda^n \\exp\\left(-\\lambda \\sum_{i=1}^n x_i\\right)$$
+
+**Part (b): Log-likelihood.**
+
+$$\\ell(\\lambda) = \\ln L(\\lambda) = n \\ln \\lambda - \\lambda \\sum_{i=1}^n x_i$$
+
+**Part (c): Maximize $\\ell(\\lambda)$.**
+
+**Step 1:** Take the derivative and set it to zero:
+
+$$\\frac{d\\ell}{d\\lambda} = \\frac{n}{\\lambda} - \\sum_{i=1}^n x_i = 0$$
+
+**Step 2:** Solve:
+
+$$\\frac{n}{\\lambda} = \\sum_{i=1}^n x_i \\implies \\lambda = \\frac{n}{\\sum_{i=1}^n x_i} = \\frac{1}{\\bar{X}}$$
+
+**Step 3:** Verify this is a maximum:
+
+$$\\frac{d^2\\ell}{d\\lambda^2} = -\\frac{n}{\\lambda^2} < 0 \\; \\checkmark$$
+
+$$\\boxed{\\hat{\\lambda}_{\\text{MLE}} = \\frac{1}{\\bar{X}}}$$`,
+  },
+  {
+    id: 'ps-mle-2',
+    courseId: 'probability-statistics',
+    topic: 'Point Estimation and MLE',
+    difficulty: 'medium',
+    question: `Let $X_1, \\ldots, X_n \\sim \\text{Poisson}(\\lambda)$ i.i.d.
+
+(a) Derive the MLE $\\hat{\\lambda}_{\\text{MLE}}$.
+(b) Show that $\\hat{\\lambda}_{\\text{MLE}}$ is unbiased.
+(c) Compute $\\text{Var}(\\hat{\\lambda}_{\\text{MLE}})$ and show it is consistent.`,
+    answer: `**Part (a): Derive MLE.**
+
+$$L(\\lambda) = \\prod_{i=1}^n \\frac{e^{-\\lambda} \\lambda^{x_i}}{x_i!} = \\frac{e^{-n\\lambda} \\lambda^{\\sum x_i}}{\\prod x_i!}$$
+
+$$\\ell(\\lambda) = -n\\lambda + \\left(\\sum_{i=1}^n x_i\\right) \\ln \\lambda - \\sum_{i=1}^n \\ln(x_i!)$$
+
+$$\\frac{d\\ell}{d\\lambda} = -n + \\frac{\\sum x_i}{\\lambda} = 0 \\implies \\lambda = \\frac{\\sum x_i}{n} = \\bar{X}$$
+
+$$\\frac{d^2\\ell}{d\\lambda^2} = -\\frac{\\sum x_i}{\\lambda^2} < 0 \\; \\checkmark$$
+
+$$\\boxed{\\hat{\\lambda}_{\\text{MLE}} = \\bar{X}}$$
+
+**Part (b): Unbiasedness.**
+
+$$E[\\hat{\\lambda}] = E[\\bar{X}] = \\frac{1}{n}\\sum_{i=1}^n E[X_i] = \\frac{1}{n} \\cdot n\\lambda = \\lambda$$
+
+$$\\boxed{\\text{Bias} = E[\\hat{\\lambda}] - \\lambda = 0, \\text{ so } \\hat{\\lambda} \\text{ is unbiased.}}$$
+
+**Part (c): Variance and consistency.**
+
+$$\\text{Var}(\\hat{\\lambda}) = \\text{Var}(\\bar{X}) = \\frac{\\text{Var}(X_1)}{n} = \\frac{\\lambda}{n}$$
+
+As $n \\to \\infty$, $\\text{Var}(\\hat{\\lambda}) = \\frac{\\lambda}{n} \\to 0$. Since $\\hat{\\lambda}$ is unbiased and its variance goes to 0, by the bias-variance criterion:
+
+$$\\text{MSE}(\\hat{\\lambda}) = \\text{Var}(\\hat{\\lambda}) + \\text{Bias}^2 = \\frac{\\lambda}{n} \\to 0$$
+
+$$\\boxed{\\hat{\\lambda}_{\\text{MLE}} = \\bar{X} \\text{ is consistent.}}$$`,
+  },
+  {
+    id: 'ps-mle-3',
+    courseId: 'probability-statistics',
+    topic: 'Point Estimation and MLE',
+    difficulty: 'hard',
+    question: `Let $X_1, \\ldots, X_n \\sim N(\\mu, \\sigma^2)$ i.i.d., where both $\\mu$ and $\\sigma^2$ are unknown.
+
+(a) Derive the MLEs $\\hat{\\mu}$ and $\\hat{\\sigma}^2$.
+(b) Is $\\hat{\\sigma}^2_{\\text{MLE}}$ unbiased? If not, find the bias and provide the unbiased version.`,
+    answer: `**Part (a): Log-likelihood.**
+
+$$\\ell(\\mu, \\sigma^2) = -\\frac{n}{2}\\ln(2\\pi) - \\frac{n}{2}\\ln(\\sigma^2) - \\frac{1}{2\\sigma^2}\\sum_{i=1}^n (x_i - \\mu)^2$$
+
+**Step 1: Maximize w.r.t. $\\mu$.**
+
+$$\\frac{\\partial \\ell}{\\partial \\mu} = \\frac{1}{\\sigma^2}\\sum_{i=1}^n(x_i - \\mu) = 0 \\implies \\sum_{i=1}^n x_i = n\\mu$$
+
+$$\\boxed{\\hat{\\mu}_{\\text{MLE}} = \\bar{X}}$$
+
+**Step 2: Maximize w.r.t. $\\sigma^2$.**
+
+$$\\frac{\\partial \\ell}{\\partial \\sigma^2} = -\\frac{n}{2\\sigma^2} + \\frac{1}{2(\\sigma^2)^2}\\sum_{i=1}^n(x_i - \\mu)^2 = 0$$
+
+$$\\frac{n}{2\\sigma^2} = \\frac{\\sum(x_i - \\bar{x})^2}{2(\\sigma^2)^2} \\implies \\sigma^2 = \\frac{1}{n}\\sum_{i=1}^n(x_i - \\bar{x})^2$$
+
+$$\\boxed{\\hat{\\sigma}^2_{\\text{MLE}} = \\frac{1}{n}\\sum_{i=1}^n(X_i - \\bar{X})^2}$$
+
+**Part (b): Bias of $\\hat{\\sigma}^2_{\\text{MLE}}$.**
+
+It is a well-known result that:
+
+$$E\\left[\\sum_{i=1}^n (X_i - \\bar{X})^2\\right] = (n-1)\\sigma^2$$
+
+Therefore:
+
+$$E[\\hat{\\sigma}^2_{\\text{MLE}}] = \\frac{(n-1)\\sigma^2}{n} = \\sigma^2 \\cdot \\frac{n-1}{n}$$
+
+$$\\text{Bias} = E[\\hat{\\sigma}^2_{\\text{MLE}}] - \\sigma^2 = -\\frac{\\sigma^2}{n}$$
+
+The MLE is **biased** (it underestimates $\\sigma^2$). The unbiased version is:
+
+$$\\boxed{S^2 = \\frac{1}{n-1}\\sum_{i=1}^n(X_i - \\bar{X})^2}$$
+
+This is the sample variance with Bessel's correction.`,
+  },
+  {
+    id: 'ps-mle-4',
+    courseId: 'probability-statistics',
+    topic: 'Point Estimation and MLE',
+    difficulty: 'easy',
+    question: `Let $X_1, \\ldots, X_n$ be i.i.d. with $E[X_i] = \\mu$ and $\\text{Var}(X_i) = \\sigma^2$.
+
+Consider two estimators for $\\mu$:
+$$T_1 = \\bar{X} = \\frac{1}{n}\\sum_{i=1}^n X_i, \\qquad T_2 = \\frac{X_1 + X_2}{2}$$
+
+(a) Show both are unbiased.
+(b) Compute the MSE of each.
+(c) Which estimator is more efficient and why?`,
+    answer: `**Part (a): Unbiasedness.**
+
+$$E[T_1] = E[\\bar{X}] = \\frac{1}{n}\\sum_{i=1}^n E[X_i] = \\frac{n\\mu}{n} = \\mu \\; \\checkmark$$
+
+$$E[T_2] = \\frac{E[X_1] + E[X_2]}{2} = \\frac{\\mu + \\mu}{2} = \\mu \\; \\checkmark$$
+
+$$\\boxed{\\text{Both } T_1 \\text{ and } T_2 \\text{ are unbiased.}}$$
+
+**Part (b): MSE = Variance (since both are unbiased).**
+
+$$\\text{MSE}(T_1) = \\text{Var}(T_1) = \\frac{\\sigma^2}{n}$$
+
+$$\\text{MSE}(T_2) = \\text{Var}(T_2) = \\frac{\\text{Var}(X_1) + \\text{Var}(X_2)}{4} = \\frac{2\\sigma^2}{4} = \\frac{\\sigma^2}{2}$$
+
+$$\\boxed{\\text{MSE}(T_1) = \\frac{\\sigma^2}{n}, \\quad \\text{MSE}(T_2) = \\frac{\\sigma^2}{2}}$$
+
+**Part (c):** For $n \\geq 3$, $\\text{MSE}(T_1) = \\frac{\\sigma^2}{n} < \\frac{\\sigma^2}{2} = \\text{MSE}(T_2)$.
+
+$T_1$ (the sample mean) is more efficient because it uses all $n$ observations, while $T_2$ wastes information by only using the first two.
+
+$$\\boxed{T_1 = \\bar{X} \\text{ is more efficient for } n \\geq 3.}$$`,
+  },
+  {
+    id: 'ps-mle-5',
+    courseId: 'probability-statistics',
+    topic: 'Point Estimation and MLE',
+    difficulty: 'hard',
+    question: `Let $X_1, \\ldots, X_n$ be i.i.d. from $\\text{Uniform}(0, \\theta)$ where $\\theta > 0$ is unknown.
+
+(a) Write down the likelihood function $L(\\theta)$.
+(b) Find the MLE $\\hat{\\theta}_{\\text{MLE}}$.
+(c) Is $\\hat{\\theta}_{\\text{MLE}}$ unbiased? If not, find its bias.`,
+    answer: `**Part (a): Likelihood function.**
+
+$$f(x; \\theta) = \\frac{1}{\\theta} \\cdot \\mathbf{1}(0 \\leq x \\leq \\theta)$$
+
+$$L(\\theta) = \\prod_{i=1}^n \\frac{1}{\\theta} \\cdot \\mathbf{1}(0 \\leq x_i \\leq \\theta) = \\frac{1}{\\theta^n} \\cdot \\mathbf{1}(\\theta \\geq x_{(n)})$$
+
+where $x_{(n)} = \\max(x_1, \\ldots, x_n)$, because we need $\\theta \\geq x_i$ for all $i$.
+
+**Part (b): MLE.**
+
+For $\\theta \\geq x_{(n)}$, we have $L(\\theta) = 1/\\theta^n$, which is a decreasing function of $\\theta$. So $L$ is maximized at the smallest allowed $\\theta$.
+
+$$\\boxed{\\hat{\\theta}_{\\text{MLE}} = X_{(n)} = \\max(X_1, \\ldots, X_n)}$$
+
+**Part (c): Bias.**
+
+The CDF of $X_{(n)}$ is:
+
+$$F_{X_{(n)}}(t) = P(X_{(n)} \\leq t) = P(\\text{all } X_i \\leq t) = \\left(\\frac{t}{\\theta}\\right)^n \\quad \\text{for } 0 \\leq t \\leq \\theta$$
+
+The PDF is: $f_{X_{(n)}}(t) = \\frac{n t^{n-1}}{\\theta^n}$ for $0 \\leq t \\leq \\theta$.
+
+$$E[X_{(n)}] = \\int_0^{\\theta} t \\cdot \\frac{n t^{n-1}}{\\theta^n}\\,dt = \\frac{n}{\\theta^n} \\int_0^{\\theta} t^n\\,dt = \\frac{n}{\\theta^n} \\cdot \\frac{\\theta^{n+1}}{n+1} = \\frac{n}{n+1}\\theta$$
+
+$$\\text{Bias} = E[\\hat{\\theta}] - \\theta = \\frac{n}{n+1}\\theta - \\theta = -\\frac{\\theta}{n+1}$$
+
+The MLE is biased downward. An unbiased estimator is $\\tilde{\\theta} = \\frac{n+1}{n} X_{(n)}$.
+
+$$\\boxed{\\text{Bias}(\\hat{\\theta}_{\\text{MLE}}) = -\\frac{\\theta}{n+1}}$$`,
+  },
+  {
+    id: 'ps-mle-6',
+    courseId: 'probability-statistics',
+    topic: 'Point Estimation and MLE',
+    difficulty: 'medium',
+    question: `Let $X_1, \\ldots, X_n \\sim \\text{Bernoulli}(p)$ i.i.d.
+
+(a) Derive the MLE $\\hat{p}_{\\text{MLE}}$.
+(b) Find $\\text{Var}(\\hat{p})$ and $\\text{MSE}(\\hat{p})$.
+(c) Is the MLE consistent?`,
+    answer: `**Part (a): Likelihood and MLE.**
+
+$$L(p) = \\prod_{i=1}^n p^{x_i}(1-p)^{1-x_i} = p^{\\sum x_i}(1-p)^{n - \\sum x_i}$$
+
+$$\\ell(p) = \\left(\\sum x_i\\right) \\ln p + \\left(n - \\sum x_i\\right) \\ln(1-p)$$
+
+$$\\frac{d\\ell}{dp} = \\frac{\\sum x_i}{p} - \\frac{n - \\sum x_i}{1 - p} = 0$$
+
+$$\\frac{\\sum x_i}{p} = \\frac{n - \\sum x_i}{1 - p}$$
+
+$$(1 - p)\\sum x_i = p(n - \\sum x_i) \\implies \\sum x_i = np$$
+
+$$\\boxed{\\hat{p}_{\\text{MLE}} = \\frac{\\sum_{i=1}^n X_i}{n} = \\bar{X}}$$
+
+**Part (b):** Since $\\hat{p} = \\bar{X}$ and $\\text{Var}(X_i) = p(1-p)$:
+
+$$\\text{Var}(\\hat{p}) = \\frac{p(1-p)}{n}$$
+
+Since $\\hat{p}$ is unbiased ($E[\\hat{p}] = p$):
+
+$$\\text{MSE}(\\hat{p}) = \\text{Var}(\\hat{p}) = \\frac{p(1-p)}{n}$$
+
+$$\\boxed{\\text{MSE}(\\hat{p}) = \\frac{p(1-p)}{n}}$$
+
+**Part (c):** As $n \\to \\infty$:
+
+$$\\text{MSE}(\\hat{p}) = \\frac{p(1-p)}{n} \\to 0$$
+
+$$\\boxed{\\hat{p}_{\\text{MLE}} \\text{ is consistent.}}$$`,
+  },
+  {
+    id: 'ps-mle-7',
+    courseId: 'probability-statistics',
+    topic: 'Point Estimation and MLE',
+    difficulty: 'hard',
+    question: `A random sample of size $n = 5$ from an exponential distribution yields observations:
+$$x_1 = 2.1, \\; x_2 = 0.7, \\; x_3 = 1.5, \\; x_4 = 3.2, \\; x_5 = 0.5$$
+
+(a) Compute the MLE $\\hat{\\lambda}$.
+(b) Find the MLE of the mean $1/\\lambda$.
+(c) Find the MLE of $P(X > 2)$.`,
+    answer: `**Part (a): MLE of $\\lambda$.**
+
+From the exponential MLE result, $\\hat{\\lambda} = 1/\\bar{x}$.
+
+$$\\bar{x} = \\frac{2.1 + 0.7 + 1.5 + 3.2 + 0.5}{5} = \\frac{8.0}{5} = 1.6$$
+
+$$\\boxed{\\hat{\\lambda}_{\\text{MLE}} = \\frac{1}{1.6} = 0.625}$$
+
+**Part (b): MLE of the mean $1/\\lambda$.**
+
+By the invariance property of MLE, the MLE of $g(\\lambda) = 1/\\lambda$ is $g(\\hat{\\lambda}) = 1/\\hat{\\lambda}$:
+
+$$\\boxed{\\widehat{1/\\lambda} = \\bar{x} = 1.6}$$
+
+**Part (c): MLE of $P(X > 2)$.**
+
+$P(X > 2) = e^{-2\\lambda}$, so by invariance:
+
+$$\\widehat{P(X > 2)} = e^{-2\\hat{\\lambda}} = e^{-2(0.625)} = e^{-1.25}$$
+
+$$\\boxed{\\widehat{P(X > 2)} = e^{-1.25} \\approx 0.2865}$$`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  PROBABILITY & STATISTICS — TOPIC 6: CONFIDENCE INTERVALS (7 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ps-ci-1',
+    courseId: 'probability-statistics',
+    topic: 'Confidence Intervals',
+    difficulty: 'easy',
+    question: `A random sample of $n = 36$ observations from a population with known standard deviation $\\sigma = 12$ yields a sample mean $\\bar{x} = 85$.
+
+(a) Construct a 95% confidence interval for $\\mu$.
+(b) Construct a 99% confidence interval for $\\mu$.
+(c) How does increasing the confidence level affect the width?`,
+    answer: `**Setup:** With known $\\sigma$, the CI for $\\mu$ is:
+
+$$\\bar{x} \\pm z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}}$$
+
+**Part (a): 95% CI ($z_{0.025} = 1.96$).**
+
+$$85 \\pm 1.96 \\cdot \\frac{12}{\\sqrt{36}} = 85 \\pm 1.96 \\cdot 2 = 85 \\pm 3.92$$
+
+$$\\boxed{95\\% \\text{ CI}: (81.08, \\; 88.92)}$$
+
+**Part (b): 99% CI ($z_{0.005} = 2.576$).**
+
+$$85 \\pm 2.576 \\cdot 2 = 85 \\pm 5.152$$
+
+$$\\boxed{99\\% \\text{ CI}: (79.85, \\; 90.15)}$$
+
+**Part (c):** The 99% CI has width $2 \\times 5.152 = 10.30$, compared to $2 \\times 3.92 = 7.84$ for the 95% CI. Increasing the confidence level widens the interval: higher confidence requires a wider net to ensure the true parameter is captured.`,
+  },
+  {
+    id: 'ps-ci-2',
+    courseId: 'probability-statistics',
+    topic: 'Confidence Intervals',
+    difficulty: 'medium',
+    question: `A researcher measures the reaction times (in ms) of $n = 16$ subjects and obtains $\\bar{x} = 250$ ms and sample standard deviation $s = 40$ ms. Assume the population is normally distributed.
+
+(a) Construct a 95% confidence interval for the mean reaction time $\\mu$.
+(b) Why do we use the $t$-distribution instead of the $z$-distribution here?`,
+    answer: `**Part (a): 95% CI with unknown $\\sigma$.**
+
+Use the $t$-distribution with $\\nu = n - 1 = 15$ degrees of freedom.
+
+From the $t$-table: $t_{0.025, 15} = 2.131$.
+
+$$\\bar{x} \\pm t_{\\alpha/2, n-1} \\cdot \\frac{s}{\\sqrt{n}} = 250 \\pm 2.131 \\cdot \\frac{40}{\\sqrt{16}} = 250 \\pm 2.131 \\cdot 10$$
+
+$$= 250 \\pm 21.31$$
+
+$$\\boxed{95\\% \\text{ CI}: (228.69, \\; 271.31)}$$
+
+**Part (b):** We use the $t$-distribution because:
+
+1. The population standard deviation $\\sigma$ is **unknown** and estimated by $s$.
+2. The sample size $n = 16$ is small.
+3. When $\\sigma$ is unknown, the pivot $\\frac{\\bar{X} - \\mu}{S/\\sqrt{n}}$ follows a $t_{n-1}$ distribution (not $N(0,1)$), assuming normality of the population.
+
+The $t$-distribution has heavier tails than the normal, producing wider CIs to account for the extra uncertainty from estimating $\\sigma$.`,
+  },
+  {
+    id: 'ps-ci-3',
+    courseId: 'probability-statistics',
+    topic: 'Confidence Intervals',
+    difficulty: 'hard',
+    question: `A random sample of $n = 20$ observations from a normal population yields $\\bar{x} = 50$ and $s^2 = 25$.
+
+Construct a 95% confidence interval for the population variance $\\sigma^2$.
+
+*Hint: Use the fact that $\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}$.*`,
+    answer: `**Step 1: Set up the pivot.**
+
+$$\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1} = \\chi^2_{19}$$
+
+**Step 2: Find the critical values.**
+
+For a 95% CI: $\\alpha = 0.05$, so $\\alpha/2 = 0.025$.
+
+From the $\\chi^2$ table with 19 df:
+
+$$\\chi^2_{0.025, 19} = 32.852, \\quad \\chi^2_{0.975, 19} = 8.907$$
+
+**Step 3: Construct the CI.**
+
+$$P\\left(\\chi^2_{0.975, 19} \\leq \\frac{(n-1)S^2}{\\sigma^2} \\leq \\chi^2_{0.025, 19}\\right) = 0.95$$
+
+Inverting:
+
+$$\\frac{(n-1)s^2}{\\chi^2_{0.025, 19}} \\leq \\sigma^2 \\leq \\frac{(n-1)s^2}{\\chi^2_{0.975, 19}}$$
+
+$$\\frac{19 \\cdot 25}{32.852} \\leq \\sigma^2 \\leq \\frac{19 \\cdot 25}{8.907}$$
+
+$$\\frac{475}{32.852} \\leq \\sigma^2 \\leq \\frac{475}{8.907}$$
+
+$$14.46 \\leq \\sigma^2 \\leq 53.33$$
+
+$$\\boxed{95\\% \\text{ CI for } \\sigma^2: (14.46, \\; 53.33)}$$`,
+  },
+  {
+    id: 'ps-ci-4',
+    courseId: 'probability-statistics',
+    topic: 'Confidence Intervals',
+    difficulty: 'medium',
+    question: `A manufacturer wants to estimate the mean weight of its product. From past data, $\\sigma = 5$ grams. How large a sample is needed so that the 95% confidence interval has a total width of at most 2 grams?`,
+    answer: `**Step 1: The width of the CI.**
+
+The 95% CI is $\\bar{x} \\pm z_{0.025} \\cdot \\frac{\\sigma}{\\sqrt{n}} = \\bar{x} \\pm 1.96 \\cdot \\frac{5}{\\sqrt{n}}$.
+
+The total width is $2 \\times 1.96 \\cdot \\frac{5}{\\sqrt{n}}$.
+
+**Step 2: Set width $\\leq 2$.**
+
+$$2 \\times 1.96 \\times \\frac{5}{\\sqrt{n}} \\leq 2$$
+
+$$\\frac{19.6}{\\sqrt{n}} \\leq 2$$
+
+$$\\sqrt{n} \\geq 9.8$$
+
+$$n \\geq 96.04$$
+
+**Step 3:** Since $n$ must be an integer, round up.
+
+$$\\boxed{n \\geq 97}$$`,
+  },
+  {
+    id: 'ps-ci-5',
+    courseId: 'probability-statistics',
+    topic: 'Confidence Intervals',
+    difficulty: 'easy',
+    question: `In a survey of $n = 400$ voters, 220 support a particular candidate. Construct a 95% confidence interval for the true proportion $p$ of voters who support this candidate.`,
+    answer: `**Step 1: Point estimate.**
+
+$$\\hat{p} = \\frac{220}{400} = 0.55$$
+
+**Step 2: Standard error of $\\hat{p}$.**
+
+$$\\text{SE}(\\hat{p}) = \\sqrt{\\frac{\\hat{p}(1 - \\hat{p})}{n}} = \\sqrt{\\frac{0.55 \\cdot 0.45}{400}} = \\sqrt{\\frac{0.2475}{400}} = \\sqrt{0.00061875}$$
+
+$$\\text{SE}(\\hat{p}) \\approx 0.02487$$
+
+**Step 3: 95% CI for $p$.**
+
+$$\\hat{p} \\pm z_{0.025} \\cdot \\text{SE}(\\hat{p}) = 0.55 \\pm 1.96 \\times 0.02487 = 0.55 \\pm 0.04875$$
+
+$$\\boxed{95\\% \\text{ CI}: (0.5013, \\; 0.5987)}$$
+
+Since the entire interval is above 0.5, we can be 95% confident that a majority of voters support this candidate.`,
+  },
+  {
+    id: 'ps-ci-6',
+    courseId: 'probability-statistics',
+    topic: 'Confidence Intervals',
+    difficulty: 'hard',
+    question: `Let $X_1, \\ldots, X_n$ be i.i.d. $\\text{Exponential}(\\lambda)$. The MLE of $\\lambda$ is $\\hat{\\lambda} = 1/\\bar{X}$.
+
+(a) Show that $2\\lambda \\sum_{i=1}^n X_i \\sim \\chi^2_{2n}$.
+(b) Use part (a) to construct a $100(1-\\alpha)\\%$ confidence interval for $\\lambda$.
+(c) For $n = 10$ and $\\bar{x} = 3.5$, compute the 95% CI for $\\lambda$.`,
+    answer: `**Part (a):** Each $X_i \\sim \\text{Exp}(\\lambda)$, so $2\\lambda X_i \\sim \\text{Exp}(1/2) = \\chi^2_2$.
+
+Since the $X_i$ are independent:
+
+$$2\\lambda \\sum_{i=1}^n X_i = \\sum_{i=1}^n 2\\lambda X_i \\sim \\chi^2_{2n}$$
+
+$$\\boxed{2\\lambda n \\bar{X} \\sim \\chi^2_{2n}}$$
+
+**Part (b): Construct the CI.**
+
+$$P\\left(\\chi^2_{\\alpha/2, 2n} \\leq 2\\lambda n \\bar{X} \\leq \\chi^2_{1-\\alpha/2, 2n}\\right) = 1 - \\alpha$$
+
+Note: here $\\chi^2_{\\alpha/2, 2n}$ denotes the lower $\\alpha/2$ quantile.
+
+Inverting:
+
+$$\\frac{\\chi^2_{\\alpha/2, 2n}}{2n\\bar{X}} \\leq \\lambda \\leq \\frac{\\chi^2_{1-\\alpha/2, 2n}}{2n\\bar{X}}$$
+
+$$\\boxed{\\text{CI for } \\lambda: \\left(\\frac{\\chi^2_{\\alpha/2, 2n}}{2n\\bar{x}}, \\; \\frac{\\chi^2_{1-\\alpha/2, 2n}}{2n\\bar{x}}\\right)}$$
+
+**Part (c): $n = 10$, $\\bar{x} = 3.5$, 95% CI.**
+
+Degrees of freedom: $2n = 20$. From $\\chi^2_{20}$ table:
+
+$$\\chi^2_{0.025, 20} = 9.591, \\quad \\chi^2_{0.975, 20} = 34.170$$
+
+$$\\frac{9.591}{2 \\cdot 10 \\cdot 3.5} \\leq \\lambda \\leq \\frac{34.170}{2 \\cdot 10 \\cdot 3.5}$$
+
+$$\\frac{9.591}{70} \\leq \\lambda \\leq \\frac{34.170}{70}$$
+
+$$\\boxed{95\\% \\text{ CI for } \\lambda: (0.137, \\; 0.488)}$$`,
+  },
+  {
+    id: 'ps-ci-7',
+    courseId: 'probability-statistics',
+    topic: 'Confidence Intervals',
+    difficulty: 'medium',
+    question: `A sample of $n = 25$ observations from a normal population gives $\\bar{x} = 72$ and $s = 8$.
+
+(a) Construct a 90% confidence interval for $\\mu$.
+(b) What sample size is needed to reduce the margin of error to 2 (at 90% confidence), assuming $\\sigma \\approx 8$?`,
+    answer: `**Part (a): 90% CI using $t$-distribution.**
+
+Degrees of freedom: $\\nu = 24$. From the $t$-table: $t_{0.05, 24} = 1.711$.
+
+$$\\bar{x} \\pm t_{0.05, 24} \\cdot \\frac{s}{\\sqrt{n}} = 72 \\pm 1.711 \\cdot \\frac{8}{\\sqrt{25}} = 72 \\pm 1.711 \\cdot 1.6 = 72 \\pm 2.738$$
+
+$$\\boxed{90\\% \\text{ CI}: (69.26, \\; 74.74)}$$
+
+**Part (b): Required sample size.**
+
+For large $n$, use $z_{0.05} = 1.645$. The margin of error is:
+
+$$E = z_{\\alpha/2} \\cdot \\frac{\\sigma}{\\sqrt{n}} \\leq 2$$
+
+$$1.645 \\cdot \\frac{8}{\\sqrt{n}} \\leq 2 \\implies \\sqrt{n} \\geq \\frac{1.645 \\times 8}{2} = 6.58$$
+
+$$n \\geq 43.3$$
+
+$$\\boxed{n \\geq 44}$$`,
+  },
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  //  PROBABILITY & STATISTICS — TOPIC 7: HYPOTHESIS TESTING (7 questions)
+  // ═══════════════════════════════════════════════════════════════════════════
+  {
+    id: 'ps-ht-1',
+    courseId: 'probability-statistics',
+    topic: 'Hypothesis Testing',
+    difficulty: 'easy',
+    question: `A company claims their batteries last on average $\\mu_0 = 500$ hours. A consumer group tests $n = 25$ batteries and obtains $\\bar{x} = 490$ hours with $s = 30$ hours. Test at the $\\alpha = 0.05$ significance level whether the true mean is less than 500 hours.
+
+(a) State $H_0$ and $H_1$.
+(b) Compute the test statistic.
+(c) Determine the critical value and make a decision.
+(d) Compute the $p$-value.`,
+    answer: `**Part (a): Hypotheses.**
+
+$$H_0: \\mu = 500 \\quad \\text{vs.} \\quad H_1: \\mu < 500$$
+
+This is a **one-sided (left-tailed)** test.
+
+**Part (b): Test statistic.**
+
+$$t = \\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}} = \\frac{490 - 500}{30/\\sqrt{25}} = \\frac{-10}{6} = -1.667$$
+
+$$\\boxed{t = -1.667}$$
+
+**Part (c): Critical value and decision.**
+
+For a left-tailed test with $\\alpha = 0.05$ and $\\nu = n - 1 = 24$:
+
+$$t_{\\text{crit}} = -t_{0.05, 24} = -1.711$$
+
+Since $t = -1.667 > -1.711$, the test statistic does **not** fall in the rejection region.
+
+$$\\boxed{\\text{Fail to reject } H_0 \\text{ at } \\alpha = 0.05.}$$
+
+**Part (d): $p$-value.**
+
+$$p\\text{-value} = P(T_{24} < -1.667)$$
+
+From the $t$-table, $t_{0.05, 24} = 1.711$ and $t_{0.10, 24} = 1.318$. Since $1.318 < 1.667 < 1.711$:
+
+$$0.05 < p\\text{-value} < 0.10$$
+
+More precisely, $p \\approx 0.054$.
+
+$$\\boxed{p\\text{-value} \\approx 0.054 > 0.05}$$
+
+The $p$-value exceeds $\\alpha$, confirming our decision not to reject $H_0$.`,
+  },
+  {
+    id: 'ps-ht-2',
+    courseId: 'probability-statistics',
+    topic: 'Hypothesis Testing',
+    difficulty: 'medium',
+    question: `A machine fills bottles with a target mean of $\\mu_0 = 500$ ml. The fill volume is normally distributed with known $\\sigma = 10$ ml. A sample of $n = 50$ bottles has $\\bar{x} = 498$ ml.
+
+Test at $\\alpha = 0.05$ whether the mean fill volume differs from 500 ml (two-sided test).
+
+(a) State the hypotheses.
+(b) Compute the test statistic.
+(c) Find the critical region.
+(d) Compute the $p$-value and state your conclusion.`,
+    answer: `**Part (a):**
+
+$$H_0: \\mu = 500 \\quad \\text{vs.} \\quad H_1: \\mu \\neq 500$$
+
+**Part (b):** Since $\\sigma$ is known, use the $z$-test:
+
+$$z = \\frac{\\bar{x} - \\mu_0}{\\sigma/\\sqrt{n}} = \\frac{498 - 500}{10/\\sqrt{50}} = \\frac{-2}{1.414} = -1.414$$
+
+$$\\boxed{z = -1.414}$$
+
+**Part (c): Critical region (two-sided, $\\alpha = 0.05$).**
+
+$$|z| > z_{0.025} = 1.96$$
+
+The rejection region is $z < -1.96$ or $z > 1.96$.
+
+Since $|{-1.414}| = 1.414 < 1.96$, we do **not** reject $H_0$.
+
+**Part (d): $p$-value.**
+
+$$p\\text{-value} = 2 \\cdot P(Z < -1.414) = 2 \\cdot (1 - \\Phi(1.414)) = 2(1 - 0.9213) = 2(0.0787) = 0.1574$$
+
+$$\\boxed{p\\text{-value} = 0.157 > 0.05}$$
+
+**Conclusion:** At the 5% significance level, there is insufficient evidence to conclude that the mean fill volume differs from 500 ml.`,
+  },
+  {
+    id: 'ps-ht-3',
+    courseId: 'probability-statistics',
+    topic: 'Hypothesis Testing',
+    difficulty: 'medium',
+    question: `A pharmaceutical company claims that a new drug reduces blood pressure by more than 10 mmHg. In a trial with $n = 30$ patients, the sample mean reduction is $\\bar{x} = 12.5$ mmHg with $s = 6$ mmHg.
+
+(a) Formulate the hypotheses.
+(b) Compute the test statistic.
+(c) Test at $\\alpha = 0.01$.`,
+    answer: `**Part (a): Hypotheses.**
+
+The company wants to show the reduction is more than 10:
+
+$$H_0: \\mu = 10 \\quad \\text{vs.} \\quad H_1: \\mu > 10$$
+
+This is a **right-tailed** test.
+
+**Part (b): Test statistic.**
+
+$$t = \\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}} = \\frac{12.5 - 10}{6/\\sqrt{30}} = \\frac{2.5}{1.095} = 2.283$$
+
+$$\\boxed{t = 2.283}$$
+
+**Part (c): Test at $\\alpha = 0.01$.**
+
+Degrees of freedom: $\\nu = 29$. From the $t$-table:
+
+$$t_{0.01, 29} = 2.462$$
+
+Since $t = 2.283 < 2.462$, we **fail to reject $H_0$** at $\\alpha = 0.01$.
+
+$$\\boxed{\\text{Fail to reject } H_0 \\text{ at } \\alpha = 0.01.}$$
+
+The $p$-value satisfies $0.01 < p < 0.025$ (since $t_{0.025, 29} = 2.045 < 2.283 < 2.462 = t_{0.01, 29}$). So while the result is significant at $\\alpha = 0.05$, it is not significant at $\\alpha = 0.01$.`,
+  },
+  {
+    id: 'ps-ht-4',
+    courseId: 'probability-statistics',
+    topic: 'Hypothesis Testing',
+    difficulty: 'hard',
+    question: `Let $X_1, \\ldots, X_n \\sim N(\\mu, \\sigma^2)$ with $\\sigma^2$ known. Consider testing $H_0: \\mu = \\mu_0$ vs. $H_1: \\mu = \\mu_1$ where $\\mu_1 > \\mu_0$.
+
+(a) Write down the likelihood ratio $\\Lambda = \\frac{L(\\mu_0)}{L(\\mu_1)}$.
+(b) Show that the likelihood ratio test "reject $H_0$ when $\\Lambda \\leq c$" is equivalent to "reject $H_0$ when $\\bar{X} \\geq k$" for some constant $k$.
+(c) For $\\mu_0 = 5$, $\\mu_1 = 7$, $\\sigma = 2$, $n = 16$, $\\alpha = 0.05$, find $k$.`,
+    answer: `**Part (a): Likelihood ratio.**
+
+$$L(\\mu) = \\prod_{i=1}^n \\frac{1}{\\sqrt{2\\pi}\\sigma} \\exp\\left(-\\frac{(x_i - \\mu)^2}{2\\sigma^2}\\right) = (2\\pi\\sigma^2)^{-n/2} \\exp\\left(-\\frac{\\sum(x_i - \\mu)^2}{2\\sigma^2}\\right)$$
+
+$$\\Lambda = \\frac{L(\\mu_0)}{L(\\mu_1)} = \\exp\\left(-\\frac{\\sum(x_i - \\mu_0)^2 - \\sum(x_i - \\mu_1)^2}{2\\sigma^2}\\right)$$
+
+**Step 1:** Simplify the exponent.
+
+$$\\sum(x_i - \\mu_0)^2 - \\sum(x_i - \\mu_1)^2 = \\sum\\left[(x_i - \\mu_0)^2 - (x_i - \\mu_1)^2\\right]$$
+
+$$= \\sum(\\mu_1 - \\mu_0)(2x_i - \\mu_0 - \\mu_1) = (\\mu_1 - \\mu_0)(2n\\bar{x} - n\\mu_0 - n\\mu_1)$$
+
+$$= n(\\mu_1 - \\mu_0)(2\\bar{x} - \\mu_0 - \\mu_1)$$
+
+$$\\boxed{\\Lambda = \\exp\\left(-\\frac{n(\\mu_1 - \\mu_0)(2\\bar{x} - \\mu_0 - \\mu_1)}{2\\sigma^2}\\right)}$$
+
+**Part (b):** $\\Lambda \\leq c$ iff:
+
+$$-\\frac{n(\\mu_1 - \\mu_0)(2\\bar{x} - \\mu_0 - \\mu_1)}{2\\sigma^2} \\leq \\ln c$$
+
+Since $\\mu_1 > \\mu_0$, the factor $n(\\mu_1 - \\mu_0) > 0$, so $\\Lambda \\leq c$ iff $2\\bar{x} - \\mu_0 - \\mu_1 \\geq$ some constant, which is equivalent to $\\bar{X} \\geq k$ for some threshold $k$.
+
+$$\\boxed{\\text{Reject } H_0 \\text{ when } \\bar{X} \\geq k.}$$
+
+**Part (c):** Under $H_0$: $\\bar{X} \\sim N\\left(5, \\frac{4}{16}\\right) = N(5, 0.25)$, so $\\sigma_{\\bar{X}} = 0.5$.
+
+$$P(\\bar{X} \\geq k \\mid H_0) = \\alpha = 0.05$$
+
+$$P\\left(Z \\geq \\frac{k - 5}{0.5}\\right) = 0.05 \\implies \\frac{k - 5}{0.5} = 1.645$$
+
+$$k = 5 + 0.5 \\times 1.645 = 5.8225$$
+
+$$\\boxed{k = 5.8225}$$`,
+  },
+  {
+    id: 'ps-ht-5',
+    courseId: 'probability-statistics',
+    topic: 'Hypothesis Testing',
+    difficulty: 'easy',
+    question: `A coin is flipped $n = 100$ times and heads comes up 62 times. Test at $\\alpha = 0.05$ whether the coin is fair (two-sided test).
+
+(a) State $H_0$ and $H_1$.
+(b) Compute the test statistic.
+(c) Make a decision and compute the $p$-value.`,
+    answer: `**Part (a):**
+
+$$H_0: p = 0.5 \\quad \\text{vs.} \\quad H_1: p \\neq 0.5$$
+
+**Part (b):** Under $H_0$, $\\hat{p} = 62/100 = 0.62$.
+
+$$z = \\frac{\\hat{p} - p_0}{\\sqrt{p_0(1-p_0)/n}} = \\frac{0.62 - 0.5}{\\sqrt{0.5 \\cdot 0.5 / 100}} = \\frac{0.12}{0.05} = 2.4$$
+
+$$\\boxed{z = 2.4}$$
+
+**Part (c):** Two-sided critical values: $\\pm 1.96$.
+
+Since $|z| = 2.4 > 1.96$, we **reject $H_0$**.
+
+$p$-value:
+
+$$p = 2 \\cdot P(Z > 2.4) = 2(1 - \\Phi(2.4)) = 2(1 - 0.9918) = 2(0.0082) = 0.0164$$
+
+$$\\boxed{p\\text{-value} = 0.0164 < 0.05}$$
+
+**Conclusion:** There is significant evidence at the 5% level that the coin is not fair.`,
+  },
+  {
+    id: 'ps-ht-6',
+    courseId: 'probability-statistics',
+    topic: 'Hypothesis Testing',
+    difficulty: 'hard',
+    question: `Let $X_1, \\ldots, X_n$ be i.i.d. $N(\\mu, \\sigma_0^2)$ with $\\sigma_0^2$ known. We test $H_0: \\mu = \\mu_0$ vs. $H_1: \\mu > \\mu_0$ using the test statistic $Z = \\frac{\\bar{X} - \\mu_0}{\\sigma_0/\\sqrt{n}}$ and reject $H_0$ when $Z > z_\\alpha$.
+
+(a) What is the power of the test as a function of the true mean $\\mu$?
+(b) For $\\mu_0 = 10$, $\\sigma_0 = 4$, $n = 16$, $\\alpha = 0.05$: compute the power at $\\mu = 12$.
+(c) What sample size $n$ is needed to achieve power $0.90$ at $\\mu = 12$?`,
+    answer: `**Part (a): Power function.**
+
+The power at true mean $\\mu$ is $\\beta(\\mu) = P(\\text{reject } H_0 | \\mu)$:
+
+$$\\beta(\\mu) = P(Z > z_\\alpha | \\mu) = P\\left(\\frac{\\bar{X} - \\mu_0}{\\sigma_0/\\sqrt{n}} > z_\\alpha \\;\\Big|\\; \\mu\\right)$$
+
+Under $\\mu$, $\\bar{X} \\sim N(\\mu, \\sigma_0^2/n)$, so:
+
+$$\\beta(\\mu) = P\\left(\\frac{\\bar{X} - \\mu}{\\sigma_0/\\sqrt{n}} > z_\\alpha - \\frac{\\mu - \\mu_0}{\\sigma_0/\\sqrt{n}}\\right) = 1 - \\Phi\\left(z_\\alpha - \\frac{(\\mu - \\mu_0)\\sqrt{n}}{\\sigma_0}\\right)$$
+
+$$\\boxed{\\beta(\\mu) = 1 - \\Phi\\left(z_\\alpha - \\frac{(\\mu - \\mu_0)\\sqrt{n}}{\\sigma_0}\\right)}$$
+
+**Part (b):** With $\\mu_0 = 10$, $\\sigma_0 = 4$, $n = 16$, $\\alpha = 0.05$ ($z_{0.05} = 1.645$), $\\mu = 12$:
+
+$$\\beta(12) = 1 - \\Phi\\left(1.645 - \\frac{(12-10)\\sqrt{16}}{4}\\right) = 1 - \\Phi(1.645 - 2) = 1 - \\Phi(-0.355)$$
+
+$$= \\Phi(0.355) \\approx 0.6388$$
+
+$$\\boxed{\\text{Power at } \\mu = 12: \\approx 0.639}$$
+
+**Part (c):** We need $\\beta(12) = 0.90$:
+
+$$1 - \\Phi\\left(1.645 - \\frac{2\\sqrt{n}}{4}\\right) = 0.90$$
+
+$$\\Phi\\left(1.645 - \\frac{\\sqrt{n}}{2}\\right) = 0.10$$
+
+$$1.645 - \\frac{\\sqrt{n}}{2} = -1.282 \\quad (\\text{since } \\Phi(-1.282) = 0.10)$$
+
+$$\\frac{\\sqrt{n}}{2} = 2.927 \\implies \\sqrt{n} = 5.854 \\implies n = 34.27$$
+
+$$\\boxed{n \\geq 35}$$`,
+  },
+  {
+    id: 'ps-ht-7',
+    courseId: 'probability-statistics',
+    topic: 'Hypothesis Testing',
+    difficulty: 'medium',
+    question: `A sample of $n = 20$ observations from a normal population has sample variance $s^2 = 18$. Test at $\\alpha = 0.05$ whether the population variance exceeds 10.
+
+(a) State $H_0$ and $H_1$.
+(b) Compute the test statistic.
+(c) Find the critical value and make a decision.`,
+    answer: `**Part (a):**
+
+$$H_0: \\sigma^2 = 10 \\quad \\text{vs.} \\quad H_1: \\sigma^2 > 10$$
+
+This is a right-tailed chi-squared test.
+
+**Part (b): Test statistic.**
+
+$$\\chi^2 = \\frac{(n-1)s^2}{\\sigma_0^2} = \\frac{19 \\cdot 18}{10} = \\frac{342}{10} = 34.2$$
+
+$$\\boxed{\\chi^2 = 34.2}$$
+
+**Part (c): Critical value.**
+
+Degrees of freedom: $\\nu = 19$. From the $\\chi^2$ table:
+
+$$\\chi^2_{0.05, 19} = 30.144$$
+
+Since $\\chi^2 = 34.2 > 30.144$, the test statistic falls in the rejection region.
+
+$$\\boxed{\\text{Reject } H_0 \\text{ at } \\alpha = 0.05.}$$
+
+**Conclusion:** There is significant evidence at the 5% level that the population variance exceeds 10. The $p$-value satisfies $0.01 < p < 0.025$ (since $\\chi^2_{0.025, 19} = 32.852 < 34.2 < 36.191 = \\chi^2_{0.01, 19}$).`,
+  },
 ];
