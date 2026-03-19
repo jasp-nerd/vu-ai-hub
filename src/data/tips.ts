@@ -1041,5 +1041,14 @@ export const tips: CourseTip[] = [
       'For the group project, divide roles clearly from the start: someone for literature review, someone for prototype development (Kotlin/Furhat SDK), someone for study design and data collection, and someone for statistical analysis and writing. Meet regularly and use a shared document. Groups of 4 work best when everyone has a defined responsibility.',
     author: 'AI @ VU Student',
   },
+
+  // ========== Information Management ==========
+  {
+    id: 'tip-im-1',
+    courseId: 'information-management',
+    content:
+      'The midterm exam is the hardest, and covers mostly only book content, so make sure to focus on that. The final is pretty easy, as it is 90% just drawing/completing graphs.',
+    author: 'AI @ VU Student',
+  },
 ];
 

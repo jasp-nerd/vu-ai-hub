@@ -41,7 +41,7 @@ export default function TipSubmitBox({ courseName }: { courseName: string }) {
         Share a tip
       </h4>
       <p className="text-xs text-stone-400 dark:text-stone-500 mb-3">
-        Got advice for students taking this course? Submit a quick tip anonymously.
+        Got advice for students taking this course? Submit a quick tip anonymously. Feel free to send as many as you like — tips are reviewed first and will be added within 24 hours.
       </p>
       <textarea
         value={text}
@@ -58,7 +58,7 @@ export default function TipSubmitBox({ courseName }: { courseName: string }) {
         <div className="flex items-center gap-3">
           {submitted && (
             <span className="text-xs text-emerald-600 dark:text-emerald-400 animate-fade-in">
-              Tip submitted — thank you!
+              Tip submitted — thank you! It will be reviewed and added within 24 hours.
             </span>
           )}
           {error && (
