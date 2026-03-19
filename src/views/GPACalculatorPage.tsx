@@ -1,5 +1,7 @@
+'use client';
+
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { courses } from '../data/courses';
 import { useMountAnimation } from '../hooks/useAnimations';
 
@@ -31,12 +33,13 @@ function saveGrades(grades: Record<string, string>) {
 
 export default function GPACalculatorPage() {
   const mounted = useMountAnimation(50);
-  const [grades, setGrades] = useState<Record<string, string>>(loadGrades);
+  const [grades, setGrades] = useState<Record<string, string>>({});
   const [targetGPA, setTargetGPA] = useState('');
   const [showWhatIf, setShowWhatIf] = useState(false);
 
+  // Load grades from localStorage on mount (SSR-safe)
   useEffect(() => {
-    document.title = 'GPA Calculator — AI @ VU';
+    setGrades(loadGrades());
   }, []);
 
   useEffect(() => {
@@ -145,7 +148,7 @@ export default function GPACalculatorPage() {
           mounted ? 'animate-slide-in-left' : 'pre-animate'
         }`}
       >
-        <Link to="/guide" className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+        <Link href="/guide" className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
           Guide
         </Link>
         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -272,7 +275,7 @@ export default function GPACalculatorPage() {
                     >
                       <div className="flex-1 min-w-0">
                         <Link
-                          to={`/courses/${course.slug}`}
+                          href={`/courses/${course.slug}`}
                           className="text-sm font-medium text-stone-900 dark:text-stone-100 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors"
                         >
                           {course.name}

@@ -1,19 +1,13 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
-
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  const { context, messages } = req.body;
+export async function POST(request: Request) {
+  const { context, messages } = await request.json();
 
   if (!context || !Array.isArray(messages) || messages.length === 0) {
-    return res.status(400).json({ error: 'Missing context or messages' });
+    return Response.json({ error: 'Missing context or messages' }, { status: 400 });
   }
 
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'OpenRouter API key not configured' });
+    return Response.json({ error: 'OpenRouter API key not configured' }, { status: 500 });
   }
 
   const systemPrompt = `You are an AI study assistant for a VU Amsterdam course. Answer questions accurately based ONLY on the provided course material. If you don't know something or the information isn't in the provided material, say so honestly. Be helpful, concise, and encouraging. When referencing quiz questions, include the explanation. Format your responses with markdown.
@@ -49,33 +43,24 @@ ${context}`;
 
     if (!openRouterResponse.ok) {
       const errorBody = await openRouterResponse.text();
-      return res
-        .status(openRouterResponse.status)
-        .json({ error: 'OpenRouter API error', detail: errorBody });
+      return Response.json(
+        { error: 'OpenRouter API error', detail: errorBody },
+        { status: openRouterResponse.status }
+      );
     }
 
-    res.setHeader('Content-Type', 'text/event-stream');
-    res.setHeader('Cache-Control', 'no-cache');
-    res.setHeader('Connection', 'keep-alive');
-
-    const reader = openRouterResponse.body?.getReader();
-    const decoder = new TextDecoder();
-
-    if (!reader) {
-      return res.status(500).json({ error: 'No response body from OpenRouter' });
-    }
-
-    try {
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        res.write(decoder.decode(value, { stream: true }));
-      }
-    } finally {
-      res.end();
-    }
+    return new Response(openRouterResponse.body, {
+      headers: {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        Connection: 'keep-alive',
+      },
+    });
   } catch (err) {
     const message = err instanceof Error ? err.message : 'Unknown error';
-    return res.status(500).json({ error: 'Failed to call OpenRouter', detail: message });
+    return Response.json(
+      { error: 'Failed to call OpenRouter', detail: message },
+      { status: 500 }
+    );
   }
 }

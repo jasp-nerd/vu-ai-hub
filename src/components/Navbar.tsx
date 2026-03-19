@@ -1,5 +1,8 @@
+'use client';
+
 import { useState, useRef, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { getNavigation } from '../services/contentService';
 import { useTheme } from '../hooks/useTheme';
 import { useMountAnimation } from '../hooks/useAnimations';
@@ -7,14 +10,14 @@ import { useMountAnimation } from '../hooks/useAnimations';
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [guideOpen, setGuideOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
   const navItems = getNavigation();
   const { theme, toggleTheme } = useTheme();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const logoMounted = useMountAnimation(100);
 
   const isActive = (path: string) =>
-    location.pathname === path || location.pathname.startsWith(path + '/');
+    pathname === path || (pathname?.startsWith(path + '/') ?? false);
 
   // Close dropdown on Escape key
   useEffect(() => {
@@ -43,13 +46,13 @@ export default function Navbar() {
   // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-stone-950/80 backdrop-blur-xl border-b border-stone-200/60 dark:border-stone-700/60">
       <nav className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
         <Link
-          to="/"
+          href="/"
           className={`flex items-center gap-2.5 font-display font-bold text-lg tracking-tight text-stone-900 dark:text-stone-100 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors press-effect ${
             logoMounted ? 'animate-scale-in' : 'pre-animate'
           }`}
@@ -74,7 +77,7 @@ export default function Navbar() {
                 onMouseLeave={() => setGuideOpen(false)}
               >
                 <Link
-                  to={item.path}
+                  href={item.path}
                   onFocus={() => setGuideOpen(true)}
                   aria-expanded={guideOpen}
                   aria-haspopup="true"
@@ -106,7 +109,7 @@ export default function Navbar() {
                       {item.children.map((child) => (
                         <Link
                           key={child.path}
-                          to={child.path}
+                          href={child.path}
                           role="menuitem"
                           onBlur={(e) => {
                             if (!dropdownRef.current?.contains(e.relatedTarget as Node)) {
@@ -129,7 +132,7 @@ export default function Navbar() {
             ) : (
               <Link
                 key={item.path}
-                to={item.path}
+                href={item.path}
                 className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors press-effect ${
                   isActive(item.path)
                     ? 'text-vu-blue dark:text-vu-blue-light bg-blue-50/80 dark:bg-blue-950/50'
@@ -209,7 +212,7 @@ export default function Navbar() {
               style={{ animationDelay: `${i * 50 + 50}ms` }}
             >
               <Link
-                to={item.path}
+                href={item.path}
                 onClick={() => setMobileOpen(false)}
                 className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors press-effect ${
                   isActive(item.path)
@@ -224,7 +227,7 @@ export default function Navbar() {
                   {item.children.map((child) => (
                     <Link
                       key={child.path}
-                      to={child.path}
+                      href={child.path}
                       onClick={() => setMobileOpen(false)}
                       className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
                         isActive(child.path)

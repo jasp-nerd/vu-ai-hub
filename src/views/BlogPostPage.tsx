@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
@@ -8,16 +9,9 @@ import 'katex/dist/katex.min.css';
 import { getBlogPostBySlug } from '../services/contentService';
 import { useMountAnimation } from '../hooks/useAnimations';
 
-export default function BlogPostPage() {
-  const { slug } = useParams<{ slug: string }>();
-  const post = getBlogPostBySlug(slug || '');
+export default function BlogPostPage({ slug }: { slug: string }) {
+  const post = getBlogPostBySlug(slug);
   const mounted = useMountAnimation(50);
-
-  useEffect(() => {
-    document.title = post
-      ? `${post.title} — AI @ VU`
-      : 'Post not found — AI @ VU';
-  }, [post]);
 
   if (!post) {
     return (
@@ -26,7 +20,7 @@ export default function BlogPostPage() {
           Post not found
         </h1>
         <Link
-          to="/guide/blog"
+          href="/guide/blog"
           className="text-sm font-medium text-vu-blue dark:text-vu-blue-light hover:underline"
         >
           Back to blog
@@ -44,7 +38,7 @@ export default function BlogPostPage() {
         }`}
       >
         <Link
-          to="/guide/blog"
+          href="/guide/blog"
           className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
         >
           Blog

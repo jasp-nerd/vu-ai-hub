@@ -280,7 +280,7 @@ Never use the test set for model selection — this causes **data leakage** and 
 
 **$k$-fold cross-validation**: split data into $k$ folds; for each fold, train on $k-1$ folds, validate on the remaining one. Average the results.
 
-- **Leave-one-out** (LOO): $k = n$ (one instance per fold). Low bias but high variance and expensive.
+- **Leave-one-out** (LOO): $k = n$ (one instance per fold). Low bias but can have high variance (since folds are highly correlated) and is computationally expensive.
 - **Stratified $k$-fold**: ensures each fold has approximately the same class distribution as the full dataset.
 
 ---
@@ -706,7 +706,7 @@ Convolutions exploit **translation equivariance** and **parameter sharing**, mak
 
 Variants:
 - **Leaky ReLU**: $\\max(\\alpha z, z)$ with small $\\alpha > 0$ to avoid dead neurons.
-- **GELU**: smooth approximation used in transformers.
+- **GELU**: smooth approximation used in modern transformers (e.g., BERT, GPT).
 
 ---
 
@@ -748,7 +748,7 @@ Add $\\lambda \\|\\mathbf{w}\\|_1 = \\lambda \\sum_i |w_i|$ to the loss. Encoura
 
 #### Dropout
 
-During training, randomly set each hidden unit to zero with probability $p$ (typically $p = 0.5$). At test time, scale activations by $(1 - p)$. This prevents co-adaptation of neurons and acts as an ensemble of subnetworks.
+During training, randomly set each hidden unit to zero with probability $p$ (typically $p = 0.5$). To compensate, modern frameworks use **inverted dropout**: scale activations by $\\frac{1}{1 - p}$ during training so that no scaling is needed at test time. This prevents co-adaptation of neurons and acts as an ensemble of subnetworks.
 
 #### Batch Normalisation
 
@@ -986,7 +986,7 @@ A transformer block consists of:
 
 1. **Multi-head self-attention** sublayer.
 2. **Add & Norm**: residual connection + layer normalisation.
-3. **Feedforward network** (two linear layers with activation): $\\text{FFN}(\\mathbf{x}) = \\text{ReLU}(\\mathbf{x}\\mathbf{W}_1 + \\mathbf{b}_1)\\mathbf{W}_2 + \\mathbf{b}_2$.
+3. **Feedforward network** (two linear layers with activation): $\\text{FFN}(\\mathbf{x}) = \\sigma(\\mathbf{x}\\mathbf{W}_1 + \\mathbf{b}_1)\\mathbf{W}_2 + \\mathbf{b}_2$, where $\\sigma$ is ReLU in the original Transformer and GELU in later models like BERT/GPT.
 4. **Add & Norm**: another residual connection + layer normalisation.
 
 **Residual connections**: $\\mathbf{y} = \\mathbf{x} + f(\\mathbf{x})$. They allow gradients to flow directly through the network, enabling training of very deep models.
@@ -997,7 +997,7 @@ A transformer block consists of:
 
 ### 10.4 Position Embeddings
 
-Self-attention is **permutation-invariant** — it has no inherent notion of position. Position information is added via:
+Self-attention is **permutation-equivariant** (permuting the input permutes the output identically) — it has no inherent notion of position. Position information is added via:
 - **Sinusoidal** position encodings (fixed): different frequencies for each dimension.
 - **Learned** position embeddings: trainable vectors for each position.
 

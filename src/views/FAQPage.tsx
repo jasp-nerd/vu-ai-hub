@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+'use client';
+
+import { useState } from 'react';
 import { getFAQCategories, getFAQByCategory } from '../services/contentService';
 import { useMountAnimation, useInView, useCollapsible } from '../hooks/useAnimations';
 
@@ -6,10 +8,6 @@ export default function FAQPage() {
   const categories = getFAQCategories();
   const [openId, setOpenId] = useState<string | null>(null);
   const mounted = useMountAnimation(50);
-
-  useEffect(() => {
-    document.title = 'FAQ — AI @ VU';
-  }, []);
 
   const toggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));

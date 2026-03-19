@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
 import { useInView } from '../hooks/useAnimations';
 
 export default function Footer() {
@@ -15,7 +17,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between gap-8">
           <div>
             <Link
-              to="/"
+              href="/"
               className="font-display font-bold text-lg tracking-tight text-stone-900 dark:text-stone-100"
             >
               AI <span className="text-vu-blue dark:text-vu-blue-light">@</span> VU
@@ -32,7 +34,7 @@ export default function Footer() {
               </h4>
               <div className="space-y-2">
                 <Link
-                  to="/courses"
+                  href="/courses"
                   className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                 >
                   All Courses
@@ -45,25 +47,25 @@ export default function Footer() {
               </h4>
               <div className="space-y-2">
                 <Link
-                  to="/guide/academic"
+                  href="/guide/academic"
                   className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                 >
                   Academic & Career
                 </Link>
                 <Link
-                  to="/guide/student-life"
+                  href="/guide/student-life"
                   className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                 >
                   Student Life
                 </Link>
                 <Link
-                  to="/guide/blog"
+                  href="/guide/blog"
                   className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                 >
                   Blog
                 </Link>
                 <Link
-                  to="/guide/faq"
+                  href="/guide/faq"
                   className="block text-sm text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
                 >
                   FAQ

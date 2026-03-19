@@ -475,7 +475,7 @@ A partial order where **every** pair of elements is comparable:
 $\\forall a, b \\in A: a \\leq b \\text{ or } b \\leq a$
 
 #### Strict Partial Order
-A relation that is **irreflexive**, **antisymmetric**, and **transitive** (e.g., $<$ instead of $\\leq$).
+A relation that is **irreflexive** and **transitive** (e.g., $<$ instead of $\\leq$). Note: irreflexivity + transitivity implies **asymmetry** (if $a R b$ then not $b R a$).
 
 #### Hasse Diagrams
 A **Hasse diagram** is a simplified visualization of a partial order:
@@ -672,9 +672,9 @@ $$[a] := \\{x \\in A : x \\equiv a\\}$$
 - Example: if the classes are $\\{[a_1], [a_2], [a_3]\\}$, a system of representatives is $\\{a_1, a_2, a_3\\}$
 
 #### Worked Example (Modular Arithmetic)
-Given $A = \\{0,1,2,3,4,5\\}$ and the relation $\\langle a,b \\rangle\\, R\\, \\langle c,d \\rangle$ iff $a \\equiv c \\pmod{3}$:
-- Pairs like $\\langle 0,0 \\rangle$, $\\langle 3,0 \\rangle$, $\\langle 0,3 \\rangle$, $\\langle 3,3 \\rangle$ form one equivalence class
-- Pick one representative from each class to form the system of representatives
+Given $A = \\{0,1,2,3,4,5\\}$ and the relation $a\\, R\\, b$ iff $a \\equiv b \\pmod{3}$:
+- The equivalence classes are: $[0] = \\{0, 3\\}$, $[1] = \\{1, 4\\}$, $[2] = \\{2, 5\\}$
+- A system of representatives is $\\{0, 1, 2\\}$ (one element from each class)
 
 > **Exam tip:** Systematically check all pairs -- for each pair, find all other pairs related to it. Group them into classes.
 

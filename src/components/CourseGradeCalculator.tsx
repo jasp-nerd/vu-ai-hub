@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, useMemo } from 'react';
 import type { CourseGradeStructure } from '../data/gradeComponents';
 
@@ -22,8 +24,13 @@ function saveCourseGrades(courseId: string, grades: Record<string, string>) {
 }
 
 export default function CourseGradeCalculator({ courseId, structure }: Props) {
-  const [grades, setGrades] = useState<Record<string, string>>(() => loadCourseGrades(courseId));
+  const [grades, setGrades] = useState<Record<string, string>>({});
   const [expanded, setExpanded] = useState(false);
+
+  // Load from localStorage on mount (SSR-safe)
+  useEffect(() => {
+    setGrades(loadCourseGrades(courseId));
+  }, [courseId]);
 
   useEffect(() => {
     saveCourseGrades(courseId, grades);

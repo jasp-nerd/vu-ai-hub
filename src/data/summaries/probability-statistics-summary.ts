@@ -323,7 +323,7 @@ Models the number of trials until the first success.
 | **Mean** | $E(X) = \\dfrac{1}{p}$ |
 | **Variance** | $\\text{Var}(X) = \\dfrac{1 - p}{p^2}$ |
 
-**Memoryless property:** $P(X > s + t \\mid X > s) = P(X > t)$ for all $s, t \\geq 0$.
+**Memoryless property:** $P(X > s + t \\mid X > s) = P(X > t)$ for all $s, t \\in \\{0, 1, 2, \\ldots\\}$.
 
 > The geometric distribution is the **only** discrete distribution with the memoryless property.
 

@@ -1,5 +1,8 @@
+'use client';
+
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
@@ -37,7 +40,7 @@ const resourceTypeIcon: Record<string, string> = {
 };
 
 export default function CourseDetailPage() {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams() as { slug: string };
   const [activeTab, setActiveTab] = useState<Tab>('Overview');
   const [expandedSummary, setExpandedSummary] = useState<string | null>(null);
   const mounted = useMountAnimation(50);
@@ -46,12 +49,6 @@ export default function CourseDetailPage() {
   const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
 
   const course = getCourseBySlug(slug || '');
-
-  useEffect(() => {
-    document.title = course
-      ? `${course.name} — AI @ VU`
-      : 'Course not found — AI @ VU';
-  }, [course]);
 
   useEffect(() => {
     if (!course) return;
@@ -74,7 +71,7 @@ export default function CourseDetailPage() {
           The course you're looking for doesn't exist.
         </p>
         <Link
-          to="/courses"
+          href="/courses"
           className="text-sm font-medium text-vu-blue dark:text-vu-blue-light hover:underline"
         >
           Back to courses
@@ -112,7 +109,7 @@ export default function CourseDetailPage() {
           mounted ? 'animate-slide-in-left' : 'pre-animate'
         }`}
       >
-        <Link to="/courses" className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
+        <Link href="/courses" className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
           Courses
         </Link>
         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">

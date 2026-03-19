@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+'use client';
+
+import { useState } from 'react';
 import { getCourses } from '../services/courseService';
 import CourseCard from '../components/CourseCard';
 import { useMountAnimation, useStagger } from '../hooks/useAnimations';
@@ -25,10 +27,6 @@ export default function CourseListPage() {
   const [yearFilter, setYearFilter] = useState<number | null>(null);
   const [specialisationFilter, setSpecialisationFilter] = useState<string | null>(null);
   const mounted = useMountAnimation(50);
-
-  useEffect(() => {
-    document.title = 'Courses — AI @ VU';
-  }, []);
 
   const handleYearFilter = (year: number | null) => {
     setYearFilter(year);
