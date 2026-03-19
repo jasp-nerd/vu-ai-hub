@@ -136,7 +136,7 @@ Prove it via a truth table, or provide a counterexample.`,
 | F | F | T | T | F | T | T |
 | F | F | F | T | T | T | T |
 
-The columns for $(\\phi \\mid \\psi) \\mid \\chi$ and $\\phi \\mid (\\psi \\mid \\chi)$ differ in rows 2, 3, 4, and 5.
+The columns for $(\\phi \\mid \\psi) \\mid \\chi$ and $\\phi \\mid (\\psi \\mid \\chi)$ differ in rows 2, 4, and 5.
 
 **Counterexample:** $\\phi = T, \\psi = T, \\chi = F$: $(T \\mid T) \\mid F = F \\mid F = T$ but $T \\mid (T \\mid F) = T \\mid T = F$.
 

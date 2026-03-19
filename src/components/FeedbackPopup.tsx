@@ -1,3 +1,5 @@
+'use client';
+
 interface FeedbackPopupProps {
   courseName: string;
   onClose: () => void;

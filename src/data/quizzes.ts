@@ -6523,7 +6523,7 @@ export const quizQuestions: QuizQuestion[] = [
         options: [
             'Lazy execution builds the graph for each pass; eager execution keeps it static.',
             'Eager execution uses backpropagation; lazy execution uses numeric approximation.',
-            'Lazy execution keeps the graph static; eager execution builds it for each forward pass.',
+            'Lazy execution keeps the graph static; eager execution dynamically constructs it during each forward pass.',
             'Eager execution computes gradients via random search; lazy execution is symbolic.',
         ],
         correctIndex: 2,
@@ -6654,16 +6654,16 @@ export const quizQuestions: QuizQuestion[] = [
     {
         id: 'quiz-mlvu-20',
         courseId: 'machine-learning',
-        question: 'In self-attention, the dot product is often scaled by $\\frac{1}{\\sqrt{k}}$. What is $k$?',
+        question: 'In self-attention, the dot product is often scaled by $\\frac{1}{\\sqrt{d_k}}$. What is $d_k$?',
         options: [
             'The number of heads in the multi-head attention.',
             'The length of the input sequence.',
-            'The dimension of the input embedding vectors.',
+            'The dimension of the key (and query) vectors.',
             'The number of layers in the transformer block.',
         ],
         correctIndex: 2,
         explanation:
-            "Scaling by the square root of the dimension $k$ keeps the dot product values from growing too large, which prevents the softmax from saturating and keeps gradients healthy.",
+            "Scaling by $\\sqrt{d_k}$, the dimension of the key/query vectors, keeps the dot product values from growing too large, which prevents the softmax from saturating and keeps gradients healthy. In multi-head attention, $d_k = d_{\\text{model}} / h$ where $h$ is the number of heads.",
         difficulty: 'medium',
     },
     {
@@ -7216,7 +7216,7 @@ export const quizQuestions: QuizQuestion[] = [
         id: 'quiz-mlvu-57',
         courseId: 'machine-learning',
         question:
-            'In Naive Bayes with Laplace smoothing, given class "spam" with 100 emails, the word "free" appears in 20 of them, and the vocabulary size is 1000. What is the smoothed estimate of $P(\\text{free}|\\text{spam})$?',
+            'In Naive Bayes with Laplace smoothing, given class "spam" with 100 emails, the word "free" appears in 20 of them. Each feature is binary (word present or absent). What is the smoothed estimate of $P(\\text{free}|\\text{spam})$?',
         options: [
             '$\\frac{20}{100} = 0.200$',
             '$\\frac{21}{1100} \\approx 0.019$',
@@ -7225,7 +7225,7 @@ export const quizQuestions: QuizQuestion[] = [
         ],
         correctIndex: 2,
         explanation:
-            'With Laplace smoothing: $P(\\text{free}|\\text{spam}) = \\frac{\\text{count}(\\text{free}, \\text{spam}) + 1}{\\text{count}(\\text{spam}) + |V|} = \\frac{20 + 1}{100 + 2} = \\frac{21}{102}$. Here $|V| = 2$ for binary features (word present or absent), not the full vocabulary. However, the standard formulation for binary features adds the number of possible values (2) to the denominator.',
+            'With Laplace smoothing for binary features: $P(\\text{free}|\\text{spam}) = \\frac{\\text{count}(\\text{free}, \\text{spam}) + 1}{\\text{count}(\\text{spam}) + |V|} = \\frac{20 + 1}{100 + 2} = \\frac{21}{102}$. Here $|V| = 2$ because each feature has two possible values (present or absent), so we add 2 to the denominator.',
         difficulty: 'hard',
     },
     {

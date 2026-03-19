@@ -1,3 +1,5 @@
+'use client';
+
 import type { QuizQuestion } from '../types';
 import { useQuiz } from '../hooks/useQuiz';
 import ReactMarkdown from 'react-markdown';

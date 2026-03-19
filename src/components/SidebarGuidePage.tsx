@@ -1,5 +1,8 @@
+'use client';
+
 import { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useParams, useRouter } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useMountAnimation } from '../hooks/useAnimations';
@@ -116,8 +119,9 @@ export default function SidebarGuidePage({
   sections,
   attribution,
 }: SidebarGuidePageProps) {
-  const { sectionId } = useParams<{ sectionId: string }>();
-  const navigate = useNavigate();
+  const params = useParams();
+  const sectionId = params?.sectionId as string | undefined;
+  const router = useRouter();
   const mounted = useMountAnimation(50);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -126,13 +130,9 @@ export default function SidebarGuidePage({
 
   useEffect(() => {
     if (!sectionId) {
-      navigate(`${baseRoute}/${sections[0].id}`, { replace: true });
+      router.replace(`${baseRoute}/${sections[0].id}`);
     }
-  }, [sectionId, navigate, baseRoute, sections]);
-
-  useEffect(() => {
-    document.title = `${currentSection.title} — ${guideTitle} — AI @ VU`;
-  }, [currentSection, guideTitle]);
+  }, [sectionId, router, baseRoute, sections]);
 
   useEffect(() => {
     setSidebarOpen(false);
@@ -154,7 +154,7 @@ export default function SidebarGuidePage({
       <div className={`mb-8 ${mounted ? 'animate-blur-in' : 'pre-animate'}`}>
         <nav className="flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-4">
           <Link
-            to="/guide"
+            href="/guide"
             className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors"
           >
             Guide
@@ -221,7 +221,7 @@ export default function SidebarGuidePage({
             {sections.map((section) => (
               <Link
                 key={section.id}
-                to={`${baseRoute}/${section.id}`}
+                href={`${baseRoute}/${section.id}`}
                 onClick={() => setSidebarOpen(false)}
                 className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all duration-150 ${
                   currentSection.id === section.id
@@ -278,7 +278,7 @@ export default function SidebarGuidePage({
             <div className="flex items-center justify-between mt-12 pt-6 border-t border-stone-200/60 dark:border-stone-700/60">
               {prevSection ? (
                 <Link
-                  to={`${baseRoute}/${prevSection.id}`}
+                  href={`${baseRoute}/${prevSection.id}`}
                   className="group flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors"
                 >
                   <svg
@@ -299,7 +299,7 @@ export default function SidebarGuidePage({
               )}
               {nextSection ? (
                 <Link
-                  to={`${baseRoute}/${nextSection.id}`}
+                  href={`${baseRoute}/${nextSection.id}`}
                   className="group flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors ml-auto"
                 >
                   <span>

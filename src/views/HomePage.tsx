@@ -1,13 +1,9 @@
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import Image from 'next/image';
 import { getCoursesByYear } from '../services/courseService';
 import CourseCard from '../components/CourseCard';
 
 export default function HomePage() {
-  useEffect(() => {
-    document.title = 'AI @ VU — Student Resource Hub';
-  }, []);
-
   const year1 = getCoursesByYear(1);
   const year2 = getCoursesByYear(2);
   const year3 = getCoursesByYear(3);
@@ -39,7 +35,7 @@ export default function HomePage() {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
-                  to="/courses"
+                  href="/courses"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-vu-blue text-white text-sm font-medium shadow-md shadow-blue-200/50 dark:shadow-blue-900/30 hover:shadow-lg hover:shadow-blue-200/60 dark:hover:shadow-blue-900/40 hover:-translate-y-0.5 transition-all"
                 >
                   Browse courses
@@ -48,7 +44,7 @@ export default function HomePage() {
                   </svg>
                 </Link>
                 <Link
-                  to="/guide"
+                  href="/guide"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 text-sm font-medium hover:border-stone-300 dark:hover:border-stone-600 hover:text-stone-900 dark:hover:text-stone-100 hover:-translate-y-0.5 transition-all"
                 >
                   Read the guide
@@ -58,15 +54,21 @@ export default function HomePage() {
 
             {/* Karel Martens-inspired geometric artwork — desktop only */}
             <div className="hidden md:block flex-shrink-0">
-              <img
+              <Image
                 src="/assets/images/hero-artwork.png"
                 alt="Geometric artwork inspired by Karel Martens"
+                width={400}
+                height={400}
                 className="w-[320px] lg:w-[400px] h-auto dark:hidden"
+                priority
               />
-              <img
+              <Image
                 src="/assets/images/hero-artwork-dark.png"
                 alt="Geometric artwork inspired by Karel Martens"
+                width={400}
+                height={400}
                 className="w-[320px] lg:w-[400px] h-auto hidden dark:block"
+                priority
               />
             </div>
           </div>
@@ -141,7 +143,7 @@ export default function HomePage() {
           ].map((item) => (
             <Link
               key={item.path}
-              to={item.path}
+              href={item.path}
               className="group flex items-start gap-3 rounded-xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-4 hover-lift hover:border-stone-300 dark:hover:border-stone-600 transition-all"
             >
               <div className="shrink-0 flex h-8 w-8 items-center justify-center rounded-lg bg-vu-blue/10 dark:bg-vu-blue-light/10 text-vu-blue dark:text-vu-blue-light">
@@ -239,7 +241,7 @@ export default function HomePage() {
             </p>
           </div>
           <Link
-            to="/courses"
+            href="/courses"
             className="hidden md:inline-flex items-center gap-1 text-sm font-medium text-vu-blue dark:text-vu-blue-light hover:underline"
           >
             View all

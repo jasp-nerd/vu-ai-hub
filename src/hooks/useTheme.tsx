@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 
 type Theme = 'light' | 'dark';
@@ -9,14 +11,16 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-function getInitialTheme(): Theme {
-  const stored = localStorage.getItem('theme');
-  if (stored === 'light' || stored === 'dark') return stored;
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  // Initialize to 'light' on server. The inline <script> in layout.tsx
+  // already applied the correct class to <html>, so there's no flash.
+  const [theme, setTheme] = useState<Theme>('light');
+
+  // On mount, sync state with what the inline script already set
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setTheme(isDark ? 'dark' : 'light');
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;

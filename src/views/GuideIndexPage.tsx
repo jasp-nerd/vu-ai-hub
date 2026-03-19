@@ -1,5 +1,7 @@
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
 import { useMountAnimation } from '../hooks/useAnimations';
 
 const sections = [
@@ -36,10 +38,6 @@ const sections = [
 export default function GuideIndexPage() {
   const mounted = useMountAnimation(50);
 
-  useEffect(() => {
-    document.title = 'Student Guide — AI @ VU';
-  }, []);
-
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
       <div className={`mb-10 ${mounted ? 'animate-blur-in' : 'pre-animate'}`}>
@@ -56,17 +54,19 @@ export default function GuideIndexPage() {
         {sections.map((section, i) => (
           <Link
             key={section.path}
-            to={section.path}
+            href={section.path}
             className={`group rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 overflow-hidden hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-lg hover:shadow-stone-100/80 dark:hover:shadow-stone-950/50 ${
               mounted ? 'animate-scale-in' : 'pre-animate'
             }`}
             style={{ animationDelay: `${i * 80 + 150}ms` }}
           >
-            <div className="aspect-[16/10] bg-stone-50 dark:bg-stone-800/50 overflow-hidden">
-              <img
+            <div className="relative aspect-[16/10] bg-stone-50 dark:bg-stone-800/50 overflow-hidden">
+              <Image
                 src={section.image}
                 alt={section.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="p-5">

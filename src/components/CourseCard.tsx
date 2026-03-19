@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import Image from 'next/image';
 import type { Course } from '../types';
 import { DIFFICULTY_LABELS } from '../constants';
 
@@ -7,17 +8,18 @@ const difficultyLabel = DIFFICULTY_LABELS;
 export default function CourseCard({ course, style }: { course: Course; style?: React.CSSProperties }) {
   return (
     <Link
-      to={`/courses/${course.slug}`}
+      href={`/courses/${course.slug}`}
       className="group block rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 overflow-hidden hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-lg hover:shadow-stone-100/80 dark:hover:shadow-stone-950/50"
       style={style}
     >
       {course.image && (
         <div className="relative w-full aspect-[5/2] bg-stone-100 dark:bg-stone-800/50 overflow-hidden">
-          <img
+          <Image
             src={course.image}
             alt=""
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            loading="lazy"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-white dark:from-stone-900 to-transparent pointer-events-none" />
         </div>
