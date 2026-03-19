@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import HeroArtwork from '../components/HeroArtwork';
 import { getCoursesByYear } from '../services/courseService';
 import CourseCard from '../components/CourseCard';
 
@@ -52,24 +52,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Karel Martens-inspired geometric artwork — desktop only */}
-            <div className="hidden md:block flex-shrink-0">
-              <Image
-                src="/assets/images/hero-artwork.png"
-                alt="Geometric artwork inspired by Karel Martens"
-                width={400}
-                height={400}
-                className="w-[320px] lg:w-[400px] h-auto dark:hidden"
-                priority
-              />
-              <Image
-                src="/assets/images/hero-artwork-dark.png"
-                alt="Geometric artwork inspired by Karel Martens"
-                width={400}
-                height={400}
-                className="w-[320px] lg:w-[400px] h-auto hidden dark:block"
-                priority
-              />
+            {/* Animated isometric study desk artwork — desktop only */}
+            <div className="hidden md:block flex-shrink-0 w-[380px] lg:w-[480px]">
+              <HeroArtwork />
             </div>
           </div>
         </div>
