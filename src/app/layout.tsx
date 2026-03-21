@@ -26,15 +26,22 @@ export const metadata: Metadata = {
     template: '%s — AI @ VU',
   },
   description:
-    'Course guides, study tips, practice quizzes, and curated resources for AI bachelor students at VU Amsterdam.',
+    'Built by Jasper, a fellow AI student. Course guides, study tips, practice quizzes, and curated resources for AI bachelor students at VU Amsterdam.',
   metadataBase: new URL('https://vu-ai.vercel.app'),
   openGraph: {
     type: 'website',
     siteName: 'AI @ VU',
-    images: ['/logo.svg'],
+    images: [
+      {
+        url: '/vu-ai-hub-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'AI @ VU — Student Resource Hub',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
   },
   icons: {
     icon: '/logo.svg',
