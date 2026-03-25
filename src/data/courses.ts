@@ -331,6 +331,12 @@ This is generally considered one of the lighter courses in the programme — the
     prerequisites: '',
     difficulty: 2,
     tags: ['writing', 'academic', 'required'],
+    workgroupInfo: {
+      mandatory: true,
+      maxAbsences: 3,
+      detail:
+        'Weekly 1-hour lectures (whole cohort) and 2-hour seminars (small groups of ~10) are both mandatory — you must maintain at least 80% attendance overall. Missing more than three sessions disqualifies you from the final assignment. Seminars are where you practise writing and get individual feedback, so showing up matters.',
+    },
   },
   {
     id: 'history-of-ai',
