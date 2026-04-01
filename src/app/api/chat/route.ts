@@ -15,7 +15,7 @@ export async function POST(request: Request) {
 COURSE MATERIAL:
 ${context}`;
 
-  const model = process.env.CHAT_MODEL || 'stepfun/step-3.5-flash:free';
+  const model = process.env.CHAT_MODEL || 'openai/gpt-oss-120b';
 
   try {
     const openRouterResponse = await fetch(
