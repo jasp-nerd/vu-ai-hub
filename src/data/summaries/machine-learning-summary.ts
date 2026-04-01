@@ -1,1331 +1,923 @@
 /**
  * Comprehensive Machine Learning Summary — inline markdown content.
- * Compiled from all MLVU lectures (0–13) covering: mathematical preliminaries,
- * linear models, evaluation methodology, probabilistic models, data pre-processing,
- * neural networks, deep learning, sequences, trees & ensembles, transformers,
- * deep generative modeling, embedding models, and reinforcement learning.
+ * Compiled from MLVU lectures 1–13 covering: foundations, linear models,
+ * probability, evaluation, data pre-processing, neural networks, deep learning,
+ * sequences, trees & ensembles, transformers, deep generative modeling,
+ * embedding models, and reinforcement learning.
  */
 export const machineLearningSummary = `
-## Lecture 0 — Preliminaries
+# Machine Learning Study Guide — Part 1: Foundations (Lectures 1–4)
 
----
-
-### 0.1 Logarithms
-
-The **logarithm** $\\log_b(x)$ answers the question: "To what power must $b$ be raised to obtain $x$?"
-
-$$\\log_b(x) = y \\iff b^y = x$$
-
-Key identities:
-
-- $\\log(xy) = \\log(x) + \\log(y)$
-- $\\log\\!\\left(\\frac{x}{y}\\right) = \\log(x) - \\log(y)$
-- $\\log(x^a) = a \\log(x)$
-- $\\log_b(x) = \\frac{\\ln(x)}{\\ln(b)}$ (change of base)
-
-In ML we almost always use the **natural logarithm** $\\ln(x) = \\log_e(x)$. The logarithm is a **monotonically increasing** function, so maximising $\\ln f(x)$ is equivalent to maximising $f(x)$.
-
----
-
-### 0.2 Linear Algebra
-
-#### Vectors
-
-A vector $\\mathbf{x} \\in \\mathbb{R}^n$ is an ordered list of $n$ real numbers. The **Euclidean norm** (L2 norm) is:
-
-$$\\|\\mathbf{x}\\| = \\sqrt{\\sum_{i=1}^{n} x_i^2}$$
-
-#### Dot Product
-
-$$\\mathbf{a} \\cdot \\mathbf{b} = \\sum_{i=1}^{n} a_i b_i = \\|\\mathbf{a}\\|\\,\\|\\mathbf{b}\\|\\cos\\theta$$
-
-The dot product measures how **aligned** two vectors are. It equals zero when the vectors are orthogonal.
-
-#### Matrices
-
-A matrix $\\mathbf{A} \\in \\mathbb{R}^{m \\times n}$ has $m$ rows and $n$ columns. Matrix multiplication $\\mathbf{C} = \\mathbf{A}\\mathbf{B}$ requires that the inner dimensions match: $\\mathbf{A} \\in \\mathbb{R}^{m \\times k},\\; \\mathbf{B} \\in \\mathbb{R}^{k \\times n} \\Rightarrow \\mathbf{C} \\in \\mathbb{R}^{m \\times n}$.
-
-$$C_{ij} = \\sum_{l=1}^{k} A_{il} B_{lj}$$
-
-The **transpose** $\\mathbf{A}^\\top$ flips rows and columns: $(\\mathbf{A}^\\top)_{ij} = A_{ji}$.
-
-#### Hyperplanes
-
-A **hyperplane** in $\\mathbb{R}^n$ is defined by $\\mathbf{w} \\cdot \\mathbf{x} + b = 0$, where $\\mathbf{w}$ is the normal vector and $b$ is the bias. Hyperplanes are the decision boundaries of linear classifiers.
-
----
-
-### 0.3 Calculus
-
-#### Derivatives
-
-The derivative of $f$ at $x$ measures the instantaneous rate of change:
-
-$$f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}$$
-
-Common derivatives:
-
-| $f(x)$ | $f'(x)$ |
-|---|---|
-| $x^n$ | $nx^{n-1}$ |
-| $e^x$ | $e^x$ |
-| $\\ln(x)$ | $1/x$ |
-| $\\sigma(x)$ | $\\sigma(x)(1 - \\sigma(x))$ |
-
-#### Partial Derivatives and Gradients
-
-For $f(x_1, \\ldots, x_n)$, the **gradient** is the vector of all partial derivatives:
-
-$$\\nabla f = \\left(\\frac{\\partial f}{\\partial x_1}, \\ldots, \\frac{\\partial f}{\\partial x_n}\\right)$$
-
-The gradient points in the direction of steepest ascent.
-
-#### Chain Rule
-
-If $y = f(g(x))$, then:
-
-$$\\frac{dy}{dx} = \\frac{df}{dg} \\cdot \\frac{dg}{dx}$$
-
-This is the theoretical foundation of **backpropagation**.
-
----
-
-### 0.4 Argmax and Argmin
-
-$$\\arg\\max_x f(x)$$ returns the value of $x$ that **maximises** $f(x)$.
-
-$$\\arg\\min_x f(x)$$ returns the value of $x$ that **minimises** $f(x)$.
-
-Note: $\\arg\\min$ and $\\min$ are different — $\\min$ returns the minimum **value**, $\\arg\\min$ returns the **input** at which it occurs.
-
----
-
-## Lecture 1 — Introduction to Machine Learning
-
----
-
-### 1.1 What Is Machine Learning?
-
-Machine learning is a field of study concerned with algorithms that **learn from data**. Instead of explicitly programming rules, we provide data and let the algorithm discover patterns.
-
-> "A computer program is said to learn from experience $E$ with respect to some class of tasks $T$ and performance measure $P$, if its performance at tasks in $T$, as measured by $P$, improves with experience $E$." — Tom Mitchell
-
----
-
-### 1.2 Supervised vs Unsupervised Learning
-
-| Paradigm | Data | Goal |
-|---|---|---|
-| **Supervised** | Labelled examples $(\\mathbf{x}_i, y_i)$ | Learn a mapping $f: \\mathbf{x} \\to y$ |
-| **Unsupervised** | Unlabelled examples $\\mathbf{x}_i$ | Discover structure (clusters, density) |
-| **Semi-supervised** | Mix of labelled and unlabelled | Exploit unlabelled data to improve |
-| **Reinforcement** | State-action-reward sequences | Learn optimal policy |
-
----
-
-### 1.3 Classification vs Regression
-
-- **Classification**: target $y$ is a **discrete** class label (e.g., spam/not spam).
-- **Regression**: target $y$ is a **continuous** value (e.g., house price).
-
----
-
-### 1.4 Feature Spaces
-
-Each instance is described by a **feature vector** $\\mathbf{x} = (x_1, x_2, \\ldots, x_d) \\in \\mathbb{R}^d$. The features span a $d$-dimensional **feature space** (also called instance space). A classifier defines a **decision boundary** that partitions this space.
-
----
-
-### 1.5 Loss Functions
-
-A **loss function** $L(y, \\hat{y})$ quantifies the error between the true label $y$ and the prediction $\\hat{y}$. Common choices:
-
-- **0/1 loss** (classification): $L = \\mathbb{1}[y \\neq \\hat{y}]$
-- **Squared error** (regression): $L = (y - \\hat{y})^2$
-- **Absolute error**: $L = |y - \\hat{y}|$
-
-The goal of learning is to find parameters that minimise the **expected loss** (risk) over the data distribution.
-
----
-
-### 1.6 k-Nearest Neighbours (kNN)
-
-To classify a new point $\\mathbf{x}$:
-
-1. Find the $k$ closest training points (using e.g. Euclidean distance).
-2. Assign the **majority class** among those $k$ neighbours.
-
-Properties:
-- **Non-parametric** (no fixed model structure).
-- No training phase; all computation at prediction time (**lazy learning**).
-- Choice of $k$ controls the bias-variance tradeoff: small $k$ = low bias, high variance; large $k$ = high bias, low variance.
-- Suffers from the **curse of dimensionality**: in high dimensions, distances become less meaningful.
-
----
-
-### 1.7 Decision Trees (Introduction)
-
-A **decision tree** recursively splits the feature space using axis-aligned thresholds. Each internal node tests a feature; each leaf assigns a class. They are **interpretable** but prone to overfitting when grown deep.
-
----
-
-### 1.8 Linear Classifiers (Introduction)
-
-A linear classifier assigns class based on:
-
-$$\\hat{y} = \\text{sign}(\\mathbf{w} \\cdot \\mathbf{x} + b)$$
-
-The decision boundary is a **hyperplane**. Linear classifiers are fast and simple but can only model linearly separable problems.
-
----
-
-### 1.9 Social Impact and Bias
-
-ML systems can encode and amplify societal biases present in training data. Key concerns:
-- **Data bias**: historical data may reflect discrimination.
-- **Feedback loops**: biased predictions influence future data collection.
-- **Fairness**: different definitions (demographic parity, equal opportunity, calibration) can conflict.
-
----
-
-## Lecture 2 — Linear Models and Search
-
----
-
-### 2.1 Linear Regression
-
-Model: $\\hat{y} = \\mathbf{w}^\\top \\mathbf{x} + b$
-
-The **mean squared error** (MSE) loss over $n$ data points:
-
-$$\\mathcal{L}(\\mathbf{w}) = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\mathbf{w}^\\top \\mathbf{x}_i - b)^2$$
-
-The MSE loss surface for linear regression is a **convex** function (bowl-shaped), so it has a single global minimum.
-
-#### Closed-Form Solution (Normal Equation)
-
-$$\\mathbf{w}^* = (\\mathbf{X}^\\top \\mathbf{X})^{-1} \\mathbf{X}^\\top \\mathbf{y}$$
-
-where $\\mathbf{X}$ is the design matrix (with a column of ones for the bias).
-
----
-
-### 2.2 Gradient Descent
-
-An iterative optimisation algorithm. At each step, move in the direction of steepest descent:
-
-$$\\mathbf{w}_{t+1} = \\mathbf{w}_t - \\eta \\nabla_{\\mathbf{w}} \\mathcal{L}(\\mathbf{w}_t)$$
-
-- $\\eta$ is the **learning rate** (step size).
-- Too large $\\eta$: divergence (overshooting).
-- Too small $\\eta$: slow convergence.
-
-#### Convexity
-
-A function $f$ is **convex** if for all $\\mathbf{x}, \\mathbf{y}$ and $\\lambda \\in [0,1]$:
-
-$$f(\\lambda \\mathbf{x} + (1-\\lambda)\\mathbf{y}) \\le \\lambda f(\\mathbf{x}) + (1-\\lambda) f(\\mathbf{y})$$
-
-For convex loss functions, gradient descent is guaranteed to converge to the **global minimum** (with appropriate learning rate).
-
----
-
-### 2.3 Search-Based Optimisation
-
-When the loss landscape is non-convex or non-differentiable, gradient-free methods can be used.
-
-#### Random Search
-
-Sample random parameter vectors; keep the best. Simple but inefficient in high dimensions.
-
-#### Simulated Annealing
-
-Like random search, but occasionally accepts **worse** solutions to escape local minima. The acceptance probability decreases over time (temperature schedule).
-
-#### Evolutionary Algorithms
-
-Maintain a **population** of solutions. In each generation:
-1. **Select** the fittest individuals.
-2. **Crossover** (recombine) pairs of parents.
-3. **Mutate** offspring randomly.
-4. Replace the population.
-
----
-
-### 2.4 Linear Classification
-
-For binary classification, use the linear model $\\hat{y} = \\text{sign}(\\mathbf{w}^\\top \\mathbf{x} + b)$.
-
-#### Least-Squares Classification
-
-Fit a linear regression model to the class labels (e.g., $+1$ and $-1$) and classify based on the sign of the output. This works but is suboptimal because the squared loss penalises points that are **too correct** (far from the boundary on the right side).
-
----
-
-## Lecture 3 — Evaluation (Methodology)
-
----
-
-### 3.1 Train / Validation / Test Splits
-
-- **Training set**: used to fit the model.
-- **Validation set**: used to tune hyperparameters and select models.
-- **Test set**: used **once** at the end to estimate generalisation performance.
-
-Never use the test set for model selection — this causes **data leakage** and gives an optimistic estimate.
-
----
-
-### 3.2 Cross-Validation
-
-**$k$-fold cross-validation**: split data into $k$ folds; for each fold, train on $k-1$ folds, validate on the remaining one. Average the results.
-
-- **Leave-one-out** (LOO): $k = n$ (one instance per fold). Low bias but can have high variance (since folds are highly correlated) and is computationally expensive.
-- **Stratified $k$-fold**: ensures each fold has approximately the same class distribution as the full dataset.
-
----
-
-### 3.3 Confidence Intervals
-
-With $n$ test instances and accuracy $\\hat{p}$, an approximate 95% confidence interval is:
-
-$$\\hat{p} \\pm 1.96 \\sqrt{\\frac{\\hat{p}(1 - \\hat{p})}{n}}$$
-
-Larger test sets give tighter intervals.
-
----
-
-### 3.4 Bias-Variance Tradeoff
-
-The expected test error decomposes into:
-
-$$\\text{Error} = \\text{Bias}^2 + \\text{Variance} + \\text{Irreducible Noise}$$
-
-- **Bias**: error from simplifying assumptions (underfitting).
-- **Variance**: error from sensitivity to training data fluctuations (overfitting).
-- Increasing model complexity decreases bias but increases variance.
-
----
-
-### 3.5 Confusion Matrix
-
-For binary classification:
-
-| | Predicted Positive | Predicted Negative |
-|---|---|---|
-| **Actual Positive** | True Positive (TP) | False Negative (FN) |
-| **Actual Negative** | False Positive (FP) | True Negative (TN) |
-
----
-
-### 3.6 Precision, Recall, and F1
-
-$$\\text{Precision} = \\frac{TP}{TP + FP} \\qquad \\text{Recall} = \\frac{TP}{TP + FN}$$
-
-$$F_1 = 2 \\cdot \\frac{\\text{Precision} \\cdot \\text{Recall}}{\\text{Precision} + \\text{Recall}}$$
-
-- **Precision**: of all positive predictions, how many are correct?
-- **Recall** (sensitivity): of all actual positives, how many are found?
-- **F1**: harmonic mean of precision and recall.
-
----
-
-### 3.7 ROC Curves and AUC
-
-The **ROC curve** plots **True Positive Rate** (recall) vs **False Positive Rate** ($\\frac{FP}{FP+TN}$) at varying classification thresholds.
-
-- **AUC** (Area Under the ROC Curve): a threshold-independent performance measure.
-  - AUC = 1.0: perfect classifier.
-  - AUC = 0.5: random classifier.
-  - AUC is equivalent to the probability that the model ranks a random positive higher than a random negative.
-
----
-
-### 3.8 Class Imbalance
-
-When one class vastly outnumbers the other, accuracy is misleading (e.g., 99% accuracy by always predicting the majority class). Remedies:
-- Use **precision, recall, F1, or AUC** instead of accuracy.
-- **Oversampling** the minority class or **undersampling** the majority.
-- **Cost-sensitive learning**: assign higher loss to minority-class errors.
-
----
-
-### 3.9 No Free Lunch Theorem
-
-There is no single algorithm that is best for all possible problems. Every algorithm has a set of problems where it excels and another where it fails. Model selection must be guided by the **specific data and task**.
-
----
-
-## Lecture 4 — Probabilistic Models
-
----
-
-### 4.1 Maximum Likelihood Estimation (MLE)
-
-Given data $\\mathcal{D} = \\{x_1, \\ldots, x_n\\}$ and a model with parameters $\\theta$, the **likelihood** is:
-
-$$L(\\theta) = p(\\mathcal{D} \\mid \\theta) = \\prod_{i=1}^{n} p(x_i \\mid \\theta)$$
-
-The **log-likelihood** is preferred for numerical stability:
-
-$$\\ell(\\theta) = \\sum_{i=1}^{n} \\ln p(x_i \\mid \\theta)$$
-
-MLE finds $\\theta^* = \\arg\\max_\\theta \\ell(\\theta)$.
-
----
-
-### 4.2 Bayesian Learning
-
-Instead of a point estimate, Bayesian learning maintains a **posterior distribution** over parameters:
-
-$$p(\\theta \\mid \\mathcal{D}) = \\frac{p(\\mathcal{D} \\mid \\theta)\\, p(\\theta)}{p(\\mathcal{D})}$$
-
-- $p(\\theta)$: **prior** (beliefs before seeing data).
-- $p(\\mathcal{D} \\mid \\theta)$: **likelihood**.
-- $p(\\theta \\mid \\mathcal{D})$: **posterior** (updated beliefs).
-- $p(\\mathcal{D})$: **evidence** (normalising constant).
-
-The **MAP** (Maximum a Posteriori) estimate uses the mode of the posterior:
-
-$$\\theta_{\\text{MAP}} = \\arg\\max_\\theta p(\\theta \\mid \\mathcal{D}) = \\arg\\max_\\theta [\\ln p(\\mathcal{D} \\mid \\theta) + \\ln p(\\theta)]$$
-
----
-
-### 4.3 Naive Bayes
-
-A **generative** classifier that models $p(\\mathbf{x} \\mid y)$ and uses Bayes' rule:
+## 1. What is Machine Learning?
 
-$$p(y \\mid \\mathbf{x}) \\propto p(y) \\prod_{j=1}^{d} p(x_j \\mid y)$$
+Machine learning is the practice of building systems that **improve their behaviour based on experience**, where that behaviour has **not been explicitly programmed**. Instead of writing rules by hand, we provide examples and let an algorithm find the patterns.
 
-The **naive** assumption: features are conditionally independent given the class. Despite this strong assumption, Naive Bayes often works surprisingly well, especially for text classification.
+### When ML is appropriate
+- Approximate solutions are acceptable (movie recommendations, spam filtering)
+- We have lots of examples to learn from
+- We can't write the rules ourselves (digit recognition, speech understanding)
 
----
-
-### 4.4 Logistic Regression
-
-A **discriminative** classifier that directly models $p(y \\mid \\mathbf{x})$ using the **sigmoid function**:
-
-$$p(y = 1 \\mid \\mathbf{x}) = \\sigma(\\mathbf{w}^\\top \\mathbf{x} + b) = \\frac{1}{1 + e^{-(\\mathbf{w}^\\top \\mathbf{x} + b)}}$$
-
-Properties of the sigmoid:
-- Output in $(0, 1)$, interpretable as a probability.
-- $\\sigma(-z) = 1 - \\sigma(z)$.
-- $\\sigma'(z) = \\sigma(z)(1 - \\sigma(z))$.
-
-#### Cross-Entropy Loss (Log Loss)
-
-$$\\mathcal{L} = -\\frac{1}{n} \\sum_{i=1}^{n} \\left[ y_i \\ln \\hat{y}_i + (1 - y_i) \\ln(1 - \\hat{y}_i) \\right]$$
-
-This is derived from MLE under a Bernoulli model. Minimising cross-entropy is equivalent to maximising the log-likelihood.
-
----
-
-### 4.5 Entropy and Information Theory
+### When ML is a bad fit
+- Exact solutions are required (computing taxes)
+- Consequences of errors are severe and uncontrollable (some legal decisions)
+- We already know how to solve the problem perfectly without learning
 
-**Shannon entropy** measures the uncertainty of a distribution:
+### Offline vs Online vs Reinforcement Learning
+- **Offline learning**: Gather data → train model → deploy fixed model. The model never learns after deployment. This is the focus of most of the course.
+- **Online learning**: The model predicts and learns simultaneously, updating itself with each new example.
+- **Reinforcement learning**: An agent takes actions in an environment and receives rewards. It must balance exploring new strategies with exploiting known ones.
 
-$$H(p) = -\\sum_{x} p(x) \\ln p(x)$$
-
-- Maximum entropy: uniform distribution.
-- Minimum entropy (0): all probability on one outcome.
-
-**Cross-entropy** between true distribution $p$ and model distribution $q$:
-
-$$H(p, q) = -\\sum_{x} p(x) \\ln q(x)$$
-
-**KL divergence** (Kullback-Leibler) measures how much $q$ diverges from $p$:
-
-$$D_{\\text{KL}}(p \\| q) = \\sum_{x} p(x) \\ln \\frac{p(x)}{q(x)} = H(p, q) - H(p)$$
-
-- $D_{\\text{KL}} \\geq 0$, with equality iff $p = q$.
-- **Not symmetric**: $D_{\\text{KL}}(p \\| q) \\neq D_{\\text{KL}}(q \\| p)$.
-
 ---
-
-### 4.6 Minimum Description Length (MDL)
-
-The MDL principle says the best model is the one that **compresses the data most**: choose the model that minimises the total length of encoding the model plus encoding the data given the model. This provides a principled way to balance model complexity and fit, relating to Occam's razor.
 
----
+## 2. Abstract Tasks
 
-## Lecture 5 — Data Pre-processing
+ML works by translating real problems into **abstract tasks** — generic, well-studied problem formulations.
 
----
+### Supervised tasks (labeled data)
+- **Classification**: Predict a category (spam/ham, digit 0–9). The target is one of a finite set of classes.
+- **Regression**: Predict a number (body mass, house price). The target is a continuous value.
 
-### 5.1 Missing Values
+### Unsupervised tasks (no labels)
+- **Clustering**: Group instances into natural clusters (k-means).
+- **Density estimation**: Learn how likely new data is (fit a distribution).
+- **Generative modeling**: Learn to sample new examples that look like the data.
 
-Strategies:
-- **Remove** instances or features with too many missing values.
-- **Imputation**: replace with mean, median, mode, or use a model to predict missing values.
-- Add a **binary indicator feature** for missingness.
+### Key vocabulary
+- **Instance**: One example/row in the data (an email, a penguin, an image).
+- **Features**: The measurements we make for each instance (pixel values, word counts). Features can be **numeric** (real-valued) or **categoric** (one of a finite set of values).
+- **Target / label**: The thing we want to predict.
+- **Model class**: The family of models we search through (e.g., all possible lines).
 
 ---
-
-### 5.2 Outliers
 
-Outliers can distort model training. Detection methods:
-- Z-score: flag points with $|z| > 3$.
-- IQR method: flag points outside $[Q_1 - 1.5 \\cdot \\text{IQR},\\; Q_3 + 1.5 \\cdot \\text{IQR}]$.
+## 3. The Basic Recipe
 
-Handle by removal, capping (winsorisation), or using robust models.
+1. Take a real-world problem
+2. Translate (part of) it into an abstract task — choose instances, features, and target
+3. Choose a model class (linear model, decision tree, kNN, etc.)
+4. Search the model space for a model that minimises a loss function on the training data
+5. Evaluate on held-out test data
 
----
-
-### 5.3 Class Imbalance (SMOTE)
+### Feature space vs Model space
+- **Feature space**: Each axis is a feature, each point is an instance. This is where your data lives.
+- **Model space**: Each axis is a model parameter, each point is a specific model. This is where you search.
 
-**SMOTE** (Synthetic Minority Over-sampling Technique): generate synthetic minority-class samples by interpolating between existing minority instances and their nearest neighbours. This avoids exact duplication and provides a richer training signal.
+### Loss function
+A loss function maps a model to a number expressing how poorly it fits the data. Lower is better. The loss defines a **loss surface** (or loss landscape) over the model space.
 
 ---
 
-### 5.4 Feature Engineering
+## 4. Three Simple Classifiers
 
-Creating new features from raw data to improve model performance:
-- **Polynomial features**: $x_1^2, x_1 x_2, \\ldots$
-- **Domain-specific** transformations (e.g., extracting day-of-week from timestamps).
-- **Interaction terms**: products of features.
+### Linear classifier
+Draws a hyperplane through feature space. Points on one side get one class, points on the other side get the other. Defined by weights **w** and bias **b**: classify based on the sign of **w**ᵀ**x** + b.
 
----
+### Decision tree
+A tree of if-then rules. Each internal node checks one feature, each leaf assigns a class. Can handle non-linear boundaries by carving the space into rectangular segments.
 
-### 5.5 One-Hot Encoding
+### k-Nearest Neighbours (kNN)
+No learning at all — just memorise the data. For a new point, find the k closest training points and take a majority vote. **k** is a hyperparameter.
 
-Convert a categorical feature with $k$ categories into $k$ binary features. For a category $c$, the one-hot vector has a 1 in position $c$ and 0 elsewhere. This avoids imposing an artificial ordering on categories.
-
 ---
-
-### 5.6 Normalisation and Standardisation
 
-**Min-max normalisation** (scales to $[0, 1]$):
+## 5. Linear Regression
 
-$$x' = \\frac{x - x_{\\min}}{x_{\\max} - x_{\\min}}$$
+The model is **f(x) = wᵀx + b**, a linear function mapping features to a predicted number. The parameters are the weight vector **w** and the bias scalar **b**.
 
-**Standardisation** (z-score normalisation, zero mean and unit variance):
+### Dot product
+wᵀx = Σᵢ wᵢxᵢ. Geometrically: ||w|| · ||x|| · cos(α). Each weight controls how much its feature contributes to the output, and in which direction.
 
-$$x' = \\frac{x - \\mu}{\\sigma}$$
+### Mean Squared Error (MSE) loss
+loss = (1/n) Σᵢ (f(xᵢ) - tᵢ)². The residual is the difference between prediction and target. Squaring ensures negatives and positives don't cancel, and big errors are penalised more heavily.
 
-Important for distance-based methods (kNN, SVMs) and gradient-based optimisation.
-
 ---
-
-### 5.7 PCA (Principal Component Analysis)
-
-PCA finds the directions of **maximum variance** in the data. Steps:
 
-1. Centre the data (subtract the mean).
-2. Compute the covariance matrix $\\mathbf{C} = \\frac{1}{n} \\mathbf{X}^\\top \\mathbf{X}$.
-3. Compute eigenvectors and eigenvalues of $\\mathbf{C}$.
-4. Project data onto the top $k$ eigenvectors.
+## 6. Searching for a Good Model
 
-The first principal component captures the most variance, the second captures the most remaining variance orthogonal to the first, etc.
-
-PCA is used for **dimensionality reduction**, visualisation, and noise reduction.
-
----
+### Black-box methods (only need to compute the loss)
+- **Random search**: Take a random step; keep it if loss goes down. Simple but slow.
+- **Simulated annealing**: Like random search but occasionally accept uphill steps, allowing escape from local minima.
+- **Population/evolutionary methods**: Maintain a population of models; breed new ones from the best.
 
-### 5.8 Whitening
+### Convexity
+A loss surface is **convex** if every local minimum is also the global minimum. On a convex surface, any descent method will find the optimum.
 
-**Whitening** transforms data so that the covariance matrix becomes the identity matrix $\\mathbf{I}$. After PCA, divide each component by the square root of its eigenvalue:
+### Gradient descent
+Instead of random steps, compute the **gradient** — the direction of steepest ascent — and step in the opposite direction. The gradient ∇f(p) is a vector of partial derivatives. The update rule:
 
-$$\\mathbf{z} = \\mathbf{\\Lambda}^{-1/2} \\mathbf{V}^\\top (\\mathbf{x} - \\boldsymbol{\\mu})$$
+**p ← p − η · ∇loss(p)**
 
-This decorrelates features and equalises their variances.
+- **η (learning rate)**: Controls step size. Too high → overshoot/diverge. Too low → very slow convergence.
+- The gradient automatically provides both direction and magnitude (steps shrink near the minimum).
+- On non-convex surfaces, gradient descent can get stuck in local minima.
 
----
+### Gradient for linear regression (MSE)
+∂loss/∂w = Σᵢ (f(xᵢ) - tᵢ) · xᵢ
+∂loss/∂b = Σᵢ (f(xᵢ) - tᵢ)
 
-## Lecture 6 — Beyond Linear Models
+The ½ in front of MSE cancels the factor of 2 from the chain rule, giving clean derivatives.
 
 ---
-
-### 6.1 Neural Networks
-
-#### The Perceptron
-
-The simplest neural network: a single linear unit with a step activation:
-
-$$\\hat{y} = \\text{step}(\\mathbf{w}^\\top \\mathbf{x} + b)$$
-
-The **perceptron learning algorithm** updates weights when a misclassification occurs:
-- If $y = +1$ but $\\hat{y} = -1$: $\\mathbf{w} \\leftarrow \\mathbf{w} + \\mathbf{x}$
-- If $y = -1$ but $\\hat{y} = +1$: $\\mathbf{w} \\leftarrow \\mathbf{w} - \\mathbf{x}$
-
-Converges if the data is **linearly separable** (Perceptron Convergence Theorem). Cannot learn XOR.
-
-#### Multi-Layer Perceptrons (MLPs)
-
-Stacking layers of neurons with **non-linear activation functions** enables learning non-linear decision boundaries.
-
-A 2-layer MLP:
-
-$$\\mathbf{h} = \\sigma(\\mathbf{W}_1 \\mathbf{x} + \\mathbf{b}_1)$$
-$$\\hat{y} = \\mathbf{W}_2 \\mathbf{h} + \\mathbf{b}_2$$
 
-With enough hidden units and a non-linear activation, an MLP can approximate **any continuous function** (Universal Approximation Theorem).
+## 7. Linear Classification and Loss Functions
 
-#### Activation Functions
+### How a linear classifier works
+The function wᵀx + b defines a hyperplane. Where it equals zero is the **decision boundary**. Above → positive class, below → negative class. The vector **w** is perpendicular to the decision boundary.
 
-| Function | Formula | Notes |
-|---|---|---|
-| Sigmoid | $\\sigma(z) = \\frac{1}{1+e^{-z}}$ | Output in $(0,1)$; suffers from vanishing gradients |
-| Tanh | $\\tanh(z) = \\frac{e^z - e^{-z}}{e^z + e^{-z}}$ | Output in $(-1,1)$; zero-centred |
-| ReLU | $\\max(0, z)$ | Sparse activation; fast; can cause dead neurons |
+### Why the error function is a bad loss
+The number of misclassifications creates a flat, stepped loss surface. The gradient is zero almost everywhere (tiny changes in parameters don't change the number of mistakes). Gradient descent would never move.
 
----
-
-### 6.2 Backpropagation
+### Least-squares classification
+Assign classes numeric values (+1 and −1) and do regression. Creates a smooth loss surface, but far-away correctly-classified points create huge residuals that distort the decision boundary.
 
-The algorithm for computing gradients in neural networks. It applies the **chain rule** layer by layer, from output to input.
+### Logistic regression (log loss)
+Apply the **logistic sigmoid** σ(t) = 1/(1+e⁻ᵗ) to squeeze wᵀx + b into [0,1]. Interpret the output as the probability of the positive class.
 
-For a loss $\\mathcal{L}$ and a weight $w$ in layer $l$:
+**Key sigmoid properties:**
+- σ(-t) = 1 - σ(t)  (symmetry)
+- σ'(t) = σ(t) · σ(-t) = σ(t) · (1 - σ(t))  (derivative)
 
-$$\\frac{\\partial \\mathcal{L}}{\\partial w} = \\frac{\\partial \\mathcal{L}}{\\partial a_l} \\cdot \\frac{\\partial a_l}{\\partial z_l} \\cdot \\frac{\\partial z_l}{\\partial w}$$
+**Log loss** = −Σ[positive instances] ln σ(wᵀx+b) − Σ[negative instances] ln(1 − σ(wᵀx+b))
 
-where $z_l$ is the pre-activation and $a_l$ is the post-activation output.
+This is also called **binary cross-entropy loss**. Correctly classified points far from the boundary contribute almost zero loss (unlike least-squares, which still penalises them). The decision boundary is still linear (where σ = 0.5, i.e., wᵀx + b = 0).
 
-**Forward pass**: compute outputs layer by layer. **Backward pass**: compute gradients layer by layer in reverse.
-
 ---
-
-### 6.3 Softmax
-
-For multi-class classification with $K$ classes, the **softmax** function converts raw scores (logits) $z_1, \\ldots, z_K$ into probabilities:
 
-$$p(y = k) = \\frac{e^{z_k}}{\\sum_{j=1}^{K} e^{z_j}}$$
+## 8. Probability and Maximum Likelihood
 
-Used with **categorical cross-entropy** loss:
+### Frequentist approach
+The true model is a fixed, unknown thing. We use the data to make our best guess (a point estimate). The **maximum likelihood** principle says: pick the parameters θ that make the observed data most probable.
 
-$$\\mathcal{L} = -\\sum_{k=1}^{K} y_k \\ln p(y = k)$$
+### Log-likelihood
+Taking the logarithm of the likelihood turns products into sums (because instances are independent) and is easier to work with. Maximising log-likelihood = minimising negative log-likelihood (which becomes our loss function).
 
----
+### Connection to MSE
+Assuming normally distributed noise leads directly to the MSE loss. The maximum likelihood estimate for the mean of a normal distribution is the arithmetic mean of the data.
 
-### 6.4 Stochastic Gradient Descent (SGD)
+### Bayesian approach
+Instead of a point estimate, compute a full **posterior distribution** over models using Bayes' rule:
+p(θ|data) = p(data|θ) · p(θ) / p(data)
 
-Instead of computing the gradient over the entire dataset (**batch gradient descent**), SGD approximates it using a single instance (or a **mini-batch**):
+- **Prior** p(θ): What we believe before seeing data
+- **Likelihood** p(data|θ): How probable the data is under each model
+- **Posterior** p(θ|data): Updated beliefs after seeing data
 
-$$\\mathbf{w}_{t+1} = \\mathbf{w}_t - \\eta \\nabla_{\\mathbf{w}} \\mathcal{L}(\\mathbf{w}_t; \\mathbf{x}_i, y_i)$$
+The posterior tells us not just the best model, but how uncertain we are.
 
-Advantages: faster per iteration, introduces noise that can help escape local minima, scales to large datasets.
-
 ---
-
-### 6.5 Support Vector Machines (SVMs)
-
-SVMs find the hyperplane that maximises the **margin** — the distance between the decision boundary and the closest training points (**support vectors**).
-
-#### Hard-Margin SVM
-
-Assumes linearly separable data. Optimisation problem:
 
-$$\\min_{\\mathbf{w}, b} \\frac{1}{2} \\|\\mathbf{w}\\|^2 \\quad \\text{s.t.} \\quad y_i(\\mathbf{w}^\\top \\mathbf{x}_i + b) \\geq 1 \\;\\forall\\, i$$
+## 9. Naive Bayes Classifier
 
-The margin width is $\\frac{2}{\\|\\mathbf{w}\\|}$.
+A **generative** classifier: learns p(features|class) and uses Bayes' rule to get p(class|features).
 
-#### Soft-Margin SVM
+### The naive assumption
+All features are **conditionally independent given the class**. This means:
+p(x₁, x₂, ..., xₙ | class) = p(x₁|class) · p(x₂|class) · ... · p(xₙ|class)
 
-Allows some misclassifications via **slack variables** $\\xi_i \\geq 0$:
+Each factor is estimated from relative frequencies in the training data.
 
-$$\\min_{\\mathbf{w}, b, \\boldsymbol{\\xi}} \\frac{1}{2} \\|\\mathbf{w}\\|^2 + C \\sum_{i=1}^{n} \\xi_i$$
+### Smoothing
+If a feature value never appears for some class, its estimated probability is 0, which zeros out the entire product. Fix this by adding **pseudo-observations** (one fake instance per value per class). With weight λ:
+p(xᵢ = v | class) = (count + λ) / (class_total + λ·num_values)
 
-$C$ controls the tradeoff between a wide margin and few violations.
-
-#### Hinge Loss
-
-The SVM objective can be expressed using the **hinge loss**:
-
-$$L(y, f(\\mathbf{x})) = \\max(0, 1 - y \\cdot f(\\mathbf{x}))$$
-
-Points correctly classified with margin $\\geq 1$ incur zero loss.
-
 ---
 
-### 6.6 The Kernel Trick
+## 10. Information Theory and Entropy
 
-Many algorithms (including SVMs) only need dot products $\\mathbf{x}_i \\cdot \\mathbf{x}_j$. A **kernel function** $K(\\mathbf{x}_i, \\mathbf{x}_j) = \\phi(\\mathbf{x}_i) \\cdot \\phi(\\mathbf{x}_j)$ computes the dot product in a high-dimensional (or infinite-dimensional) feature space **without explicitly computing** $\\phi$.
+### Codelength interpretation
+−log₂ p(x) is the number of bits needed to encode outcome x. Low-probability events need long codes; high-probability events need short codes.
 
-Common kernels:
+### Entropy
+H(p) = −Σ p(x) log₂ p(x)
+The expected codelength = the average "surprise" of the distribution. Uniform distributions have maximum entropy; certainty has entropy 0. Convention: 0 · log(0) = 0.
 
-| Kernel | Formula |
-|---|---|
-| **Polynomial** | $K(\\mathbf{x}, \\mathbf{y}) = (\\mathbf{x} \\cdot \\mathbf{y} + c)^d$ |
-| **RBF (Gaussian)** | $K(\\mathbf{x}, \\mathbf{y}) = \\exp\\!\\left(-\\frac{\\|\\mathbf{x} - \\mathbf{y}\\|^2}{2\\sigma^2}\\right)$ |
+### Cross-entropy
+H(p, q) = −Σ p(x) log₂ q(x)
+Expected codelength when encoding data from distribution p using the code optimised for q. Always ≥ H(p), with equality when p = q.
 
-The RBF kernel maps to an infinite-dimensional space and can fit complex boundaries.
+**Warning:** H(p,q) is undefined if q(x) = 0 but p(x) ≠ 0 (infinite codelength for an event that actually occurs).
 
----
+### KL divergence
+KL(p, q) = H(p, q) − H(p)
+The "wasted bits" from using the wrong code. Always ≥ 0, equals 0 only when p = q. Not symmetric: KL(p,q) ≠ KL(q,p).
 
-## Lecture 7 — Deep Learning
+### Connection to log loss
+Minimising the log loss of a classifier is equivalent to minimising the cross-entropy between the true label distribution and the model's predicted distribution.
 
 ---
 
-### 7.1 Tensors
+## 11. Generalization and Overfitting
 
-A **tensor** is a multi-dimensional array generalising scalars (rank 0), vectors (rank 1), and matrices (rank 2) to higher dimensions. In deep learning, tensors represent batches of data, feature maps, and weight matrices.
+### The most important rule
+**Never judge performance on the training data.** A model that memorises random noise in the training set will look perfect on training data but fail on new data. This is **overfitting**.
 
----
+### Train / Validation / Test split
+- **Training data**: Used to fit the model
+- **Validation data**: Used to select hyperparameters and compare models (can be used repeatedly)
+- **Test data**: Used **once** at the very end to report final performance
 
-### 7.2 Computation Graphs and Automatic Differentiation
+### Cross-validation
+Split training data into k folds. For each fold, train on the other k−1 and validate on the held-out fold. Average the scores. Gives a better estimate when data is limited.
 
-A **computation graph** represents a function as a directed acyclic graph of elementary operations. **Automatic differentiation** (autodiff) traverses this graph to compute exact gradients.
+### Bias-variance tradeoff
+- **Bias**: Error from a model being too simple (underfitting). Stays if you resample data.
+- **Variance**: Error from a model being too sensitive to the specific training data (overfitting). Changes if you resample.
 
-- **Forward mode**: propagates derivatives from inputs to outputs.
-- **Reverse mode** (backpropagation): propagates derivatives from outputs to inputs — more efficient when there are many inputs and few outputs (the typical neural network setting).
+### The No Free Lunch Theorem
+No learning algorithm is universally best across all possible problems. Every model makes assumptions (**inductive biases**) about the data. Generally, simpler models are preferred when they fit the data well enough.
 
 ---
-
-### 7.3 Backpropagation in Tensor Settings
-
-In modern frameworks (PyTorch, TensorFlow), backpropagation operates on tensors. Each operation (matrix multiply, convolution, etc.) has a corresponding **backward function** that computes the gradient with respect to its inputs given the gradient of its output.
 
-The Jacobian for a function $\\mathbf{f}: \\mathbb{R}^n \\to \\mathbb{R}^m$ is the matrix of partial derivatives:
+## 12. Model Evaluation (Classification)
 
-$$J_{ij} = \\frac{\\partial f_i}{\\partial x_j}$$
+### Confusion matrix
+A table of actual vs predicted classes. Diagonal = correct; off-diagonal = errors. Gives counts of True Positives (TP), True Negatives (TN), False Positives (FP), False Negatives (FN).
 
----
+### Key metrics
+- **Accuracy** = (TP + TN) / total
+- **Precision** = TP / (TP + FP) — "of those we called positive, how many are?"
+- **Recall (TPR)** = TP / (TP + FN) — "of actual positives, how many did we find?"
+- **False Positive Rate** = FP / (TN + FP)
 
-### 7.4 Convolutional Layers
+### Class imbalance
+When one class dominates (e.g., 99% negative), accuracy is misleading. A majority-class baseline (predict everything as the majority class) already gets 99%.
 
-A **convolutional layer** applies a set of learnable **kernels** (filters) that slide across the input:
+### Cost imbalance
+Different types of errors have different costs. Missing cancer (false negative) is far worse than a false alarm (false positive).
 
-$$\\text{output}(i,j) = \\sum_{m,n} \\text{input}(i+m, j+n) \\cdot \\text{kernel}(m,n)$$
+### Ranking classifiers and ROC/AUC
+Turn a classifier into a **ranking** by scoring how "positive" each instance is (e.g., distance to boundary for linear classifiers). A **ranking error** is a pair (one positive, one negative instance) where the negative is ranked higher than the positive.
 
-Key parameters:
-- **Kernel size**: spatial dimensions of the filter (e.g., $3 \\times 3$).
-- **Padding**: adding zeros around the input to control output size.
-- **Stride**: step size of the kernel. Stride $> 1$ downsamples.
-- **Channels**: input channels (e.g., 3 for RGB); output channels = number of filters.
+- **ROC curve**: Plot TPR vs FPR as you vary the classification threshold
+- **AUC** (Area Under ROC Curve): Probability that a random positive is ranked higher than a random negative
+- **PR curve**: Plot Precision vs Recall (more informative under extreme class imbalance)
 
-**Pooling layers** downsample feature maps:
-- **Max pooling**: take the maximum in each window.
-- **Average pooling**: take the mean in each window.
+### Social Impact: Sensitive Attributes
+Gender, race, sexuality etc. require careful treatment. Key questions: Can the model be used for harm? Can it be offensive? Are we confusing correlation with causation? Does the data have sampling bias?
 
-Convolutions exploit **translation equivariance** and **parameter sharing**, making them efficient for image data.
-
 ---
-
-### 7.5 Activation Functions in Deep Learning
 
-**ReLU** (Rectified Linear Unit): $\\text{ReLU}(z) = \\max(0, z)$
+# Machine Learning Study Guide — Part 2: Data, Neural Networks & Sequences (Lectures 5–8, 10)
 
-Variants:
-- **Leaky ReLU**: $\\max(\\alpha z, z)$ with small $\\alpha > 0$ to avoid dead neurons.
-- **GELU**: smooth approximation used in modern transformers (e.g., BERT, GPT).
+## 1. Data Pre-processing (Lecture 5)
 
----
-
-### 7.6 Adam Optimiser
+### Philosophy: Think about production
+Whenever you're unsure how to handle your data, ask: *what will the production setting look like?* Your test set should simulate production as closely as possible. If production will have missing values, your test set should too. If production won't, remove them.
 
-**Adam** combines momentum and adaptive learning rates:
+### Missing data
+- **Remove features** with many missing values (if the feature isn't important)
+- **Remove instances** with missing values (be careful: removal may change your distribution if data isn't missing uniformly)
+- **Impute**: Fill in missing values
+  - Categorical features → use the **mode** (most common category)
+  - Numeric features → use the **mean** (minimises squared error) or **median** (minimises absolute error, more robust to outliers)
+  - Advanced: Predict missing values from other features using a classifier or regressor
 
-$$m_t = \\beta_1 m_{t-1} + (1 - \\beta_1) g_t \\quad \\text{(first moment estimate)}$$
-$$v_t = \\beta_2 v_{t-1} + (1 - \\beta_2) g_t^2 \\quad \\text{(second moment estimate)}$$
-$$\\hat{m}_t = \\frac{m_t}{1 - \\beta_1^t}, \\quad \\hat{v}_t = \\frac{v_t}{1 - \\beta_2^t} \\quad \\text{(bias correction)}$$
-$$w_{t+1} = w_t - \\frac{\\eta}{\\sqrt{\\hat{v}_t} + \\epsilon} \\hat{m}_t$$
+### Outliers
+- **Unnatural outliers**: Measurement errors, encoding mistakes (e.g., using -1 for "missing"). Remove or treat as missing data.
+- **Natural outliers**: Genuine extreme values (Bill Gates' net worth). Don't remove — adapt your model instead.
 
-Default values: $\\beta_1 = 0.9$, $\\beta_2 = 0.999$, $\\epsilon = 10^{-8}$.
+### Mean vs Median: A crucial distinction
+- The **mean** minimises the sum of **squared** errors. It is the maximum likelihood estimate under a **normal distribution** assumption.
+- The **median** minimises the sum of **absolute** errors. It is robust to extreme values.
+- If your data has heavy tails or extreme outliers, the mean can be wildly misleading. Example: "average wealth" in a country with billionaires.
+- Anything using squared errors (MSE loss, linear regression, etc.) implicitly assumes normally distributed data and will be sensitive to outliers.
 
-#### Momentum
+### Class imbalance in training
+Your test/validation set must reflect the true class distribution (to simulate production). Your training set can be manipulated:
+- **Oversampling**: Duplicate minority class instances (risk: overfitting on duplicates)
+- **Undersampling**: Remove majority class instances (risk: losing information)
+- **SMOTE**: Generate synthetic minority points by interpolating between nearby minority instances
+- Treat resampling ratio as a hyperparameter; optimise with ROC/PR curves
 
-**Momentum** accelerates SGD by accumulating a running average of past gradients:
+### Feature design
 
-$$\\mathbf{v}_t = \\gamma \\mathbf{v}_{t-1} + \\eta \\nabla \\mathcal{L}$$
-$$\\mathbf{w}_{t+1} = \\mathbf{w}_t - \\mathbf{v}_t$$
+**Categorical → Numeric:**
+- **One-hot coding** (preferred): Create one binary feature per category. No false ordering imposed.
+- **Integer coding** (avoid if possible): Imposes a meaningless ordering on unordered categories.
 
-This dampens oscillations and speeds up convergence along consistent gradient directions.
+**Feature expansion:**
+Adding derived features (x², x₁·x₂, sin(x), etc.) allows a linear model to learn non-linear decision boundaries. A linear classifier in the expanded space is a non-linear classifier in the original space. Example: Adding x₁² and x₂² lets a linear model learn a circular decision boundary.
 
 ---
-
-### 7.7 Regularisation
-
-Techniques to prevent overfitting:
-
-#### L2 Regularisation (Weight Decay)
-
-Add $\\lambda \\|\\mathbf{w}\\|^2$ to the loss. Encourages small weights.
-
-$$\\mathcal{L}_{\\text{reg}} = \\mathcal{L} + \\lambda \\sum_i w_i^2$$
-
-#### L1 Regularisation
-
-Add $\\lambda \\|\\mathbf{w}\\|_1 = \\lambda \\sum_i |w_i|$ to the loss. Encourages **sparse** weights (drives some to exactly zero).
-
-#### Dropout
-
-During training, randomly set each hidden unit to zero with probability $p$ (typically $p = 0.5$). To compensate, modern frameworks use **inverted dropout**: scale activations by $\\frac{1}{1 - p}$ during training so that no scaling is needed at test time. This prevents co-adaptation of neurons and acts as an ensemble of subnetworks.
 
-#### Batch Normalisation
+## 2. Normalization (Lecture 5)
 
-Normalise each mini-batch to have zero mean and unit variance within each layer:
+### Why normalise?
+Many models (kNN, SVMs, neural networks) are sensitive to the scale of features. If one feature ranges from 0–100 and another from 0–0.001, the first dominates distance calculations.
 
-$$\\hat{x}_i = \\frac{x_i - \\mu_B}{\\sqrt{\\sigma_B^2 + \\epsilon}}$$
+### Three approaches
 
-Then scale and shift with learnable parameters $\\gamma$ and $\\beta$:
+| Method | What it does | Result |
+|--------|-------------|--------|
+| **Normalisation** | z = (x - x_min) / (x_max - x_min) | Values in [0, 1] |
+| **Standardisation** | z = (x - μ) / σ | Mean = 0, std = 1 |
+| **Whitening** | Transform so features are uncorrelated with unit variance | Data looks like it came from a standard MVN |
 
-$$y_i = \\gamma \\hat{x}_i + \\beta$$
+**Standardisation** is the most common. It assumes data is roughly normally distributed. Think of it as *reversing* a transformation: the data was "generated" from a standard normal, scaled by σ, shifted by μ. We undo that.
 
-Benefits: faster training, allows higher learning rates, mild regularisation effect.
+**Whitening** handles correlations between features. It requires a basis transformation (see PCA below). PCA whitening: apply full PCA, then scale each component by 1/σ along that component.
 
 ---
 
-## Lecture 8 — Sequences
+## 3. Principal Component Analysis (Lecture 5)
 
----
-
-### 8.1 Markov Models
-
-A **Markov model** assumes the future depends only on the current state (Markov property):
-
-$$p(x_t \\mid x_1, \\ldots, x_{t-1}) = p(x_t \\mid x_{t-1})$$
-
-The transition probabilities $p(x_t \\mid x_{t-1})$ can be estimated by counting from data.
+### What PCA does
+PCA finds the directions in feature space along which the data varies the most. It provides a new coordinate system (basis) for the data, ordered by importance.
 
----
-
-### 8.2 N-grams
-
-An **n-gram model** extends the Markov assumption to depend on the previous $n-1$ tokens:
+### Two equivalent views
+1. **Maximum variance**: The first principal component is the direction along which the variance of the projected data is maximised. The second is the best direction orthogonal to the first, and so on.
+2. **Minimum reconstruction error**: The first principal component is the direction onto which projecting and reconstructing the data gives the smallest squared error. These two views are equivalent by the Pythagorean theorem: variance + reconstruction error = constant.
 
-$$p(x_t \\mid x_1, \\ldots, x_{t-1}) \\approx p(x_t \\mid x_{t-n+1}, \\ldots, x_{t-1})$$
+### How it works
+- The data must be **mean-centered** first (subtract the mean from every instance).
+- Each principal component **c** is a unit vector. The reduced representation is z = cᵀx (dot product = orthogonal projection). The reconstruction is x' = z·c.
+- **Key insight**: The reduction vector c' and reconstruction vector c are the same (when c is a unit vector). This is because the optimal z for a given c is the orthogonal projection of x onto c, which equals cᵀx.
 
-- **Unigram** ($n=1$): $p(x_t)$ — ignores context.
-- **Bigram** ($n=2$): $p(x_t \\mid x_{t-1})$.
-- **Trigram** ($n=3$): $p(x_t \\mid x_{t-2}, x_{t-1})$.
+### Choosing the number of components
+Plot variance retained vs number of components. Often there's an "elbow" — a natural point where adding more components gives diminishing returns.
 
-Higher $n$ captures more context but requires exponentially more data to estimate reliably (**data sparsity**).
+### Applications
+- **Dimensionality reduction**: Reduce 4096 pixel features to 60 dimensions while retaining recognisable faces (eigenfaces).
+- **Visualisation**: Plot the first 2–3 components as a scatter plot.
+- **Whitening**: Full PCA (same number of output dimensions as input) gives uncorrelated features; scale by 1/σ per component for unit variance.
+- **Bias/variance tradeoff**: Feature expansion increases model power (↓bias, ↑variance). PCA does the opposite (↑bias, ↓variance). Use PCA to counteract overfitting from too many features.
 
 ---
 
-### 8.3 Autoregressive Generation
+## 4. Neural Networks (Lecture 6)
 
-Generate sequences token by token, where each new token is sampled from the model's predicted distribution conditioned on all previous tokens:
+### From perceptrons to networks
+A **perceptron** is just a linear classifier: wᵀx + b, check the sign. The problem: composing linear functions gives another linear function. Chaining perceptrons adds no power.
 
-$$x_t \\sim p(x_t \\mid x_1, \\ldots, x_{t-1})$$
+**Solution**: Add a **non-linear activation function** after each layer.
 
-Sampling strategies: **greedy** (take argmax), **temperature sampling** (scale logits by $T$), **top-k** (restrict to top $k$ tokens), **nucleus/top-p** (restrict to smallest set with cumulative probability $\\geq p$).
+### Activation functions
+- **Sigmoid** σ(t) = 1/(1+e⁻ᵗ): Squishes to [0,1]. Smooth, but derivative ≤ 0.25 → gradients vanish in deep networks.
+- **ReLU** r(t) = max(0, t): Derivative is 1 for positive inputs (no vanishing gradient), 0 for negative inputs. Preferred for hidden layers. Risk: "dead neurons" (always negative input → gradient always 0).
 
----
+### Feedforward network (MLP)
+Layers are fully connected, no cycles. Each layer: multiply by weight matrix → add bias → apply activation. Think of the first layer as a **learned feature expansion** and the second layer as a linear model in that expanded space.
 
-### 8.4 Embeddings and Word2Vec
+### Output layers
+| Task | Activation | Loss |
+|------|-----------|------|
+| Regression | Linear (none) | MSE |
+| Binary classification | Sigmoid | Log loss (binary cross-entropy) |
+| Multiclass classification | **Softmax** | Log loss on correct class |
 
-An **embedding** maps discrete tokens to dense continuous vectors $\\mathbf{e} \\in \\mathbb{R}^d$. Similar words get similar vectors.
+**Softmax**: softmax(yᵢ) = exp(yᵢ) / Σⱼ exp(yⱼ). Makes all outputs positive and sum to 1 → interpretable as class probabilities.
 
-**Word2Vec** learns embeddings by predicting context:
-- **Skip-gram**: given a word, predict surrounding words.
-- **CBOW** (Continuous Bag of Words): given surrounding words, predict the centre word.
+### Stochastic Gradient Descent (SGD)
+Instead of computing the loss over the entire dataset, compute it for one instance (or a small **minibatch**) and take a gradient step. Benefits: cheaper per step, adds noise that helps escape local minima, many small inaccurate steps often beat one big accurate step.
 
-Famously captures semantic relationships: $\\text{king} - \\text{man} + \\text{woman} \\approx \\text{queen}$.
-
 ---
-
-### 8.5 1D Convolutions for Sequences
 
-Apply convolutional filters along the **time/sequence** dimension. A 1D convolution with kernel size $k$ looks at $k$ consecutive tokens. Useful for capturing local patterns.
+## 5. Backpropagation (Lecture 6)
 
-**Causal convolutions**: mask future positions so the output at time $t$ depends only on $x_1, \\ldots, x_t$. Required for autoregressive models.
+### The problem
+For complex models, we can't work out symbolic gradients by hand. We need to automate gradient computation.
 
----
-
-### 8.6 Recurrent Neural Networks (RNNs)
+### Three approaches
+1. **Symbolic differentiation**: The computer manipulates algebraic expressions. Exact but expressions grow exponentially.
+2. **Numerical differentiation**: Estimate gradients by evaluating the function at nearby points. Inaccurate and expensive.
+3. **Backpropagation**: A middle ground — part symbolic, part numeric. Accurate and efficient.
 
-An RNN processes sequences by maintaining a **hidden state** $\\mathbf{h}_t$ that is updated at each time step:
+### How backpropagation works
+1. **Break the function into modules** (small, simple operations).
+2. **Forward pass**: Compute output, saving all intermediate values.
+3. **Work out local derivatives symbolically** (derivative of each module's output w.r.t. its inputs).
+4. **Backward pass**: Walk backward through the computation graph. At each module, multiply the gradient of the loss w.r.t. the output (already computed) by the local derivative to get the gradient w.r.t. the inputs. Fill in numeric values from the forward pass.
 
-$$\\mathbf{h}_t = \\tanh(\\mathbf{W}_h \\mathbf{h}_{t-1} + \\mathbf{W}_x \\mathbf{x}_t + \\mathbf{b})$$
+### The key principle
+At any module: **gradient for input = gradient for output × local derivative**. Since we traverse the graph from output to input, the gradient for the output is always something we've already computed.
 
-The same weights are shared across all time steps (**weight sharing**).
+### Multivariate chain rule
+If variable x affects the output through multiple paths (x → a and x → b, both feeding into c), sum the derivatives along all paths:
+∂f/∂x = (∂f/∂a)(∂a/∂x) + (∂f/∂b)(∂b/∂x)
 
-Problem: **vanishing/exploding gradients** — during backpropagation through time (BPTT), gradients are multiplied by the recurrence matrix at each step, causing them to shrink or grow exponentially.
-
 ---
-
-### 8.7 LSTMs (Long Short-Term Memory)
-
-LSTMs address vanishing gradients by introducing a **cell state** $\\mathbf{c}_t$ and three **gates**:
 
-**Forget gate**: decides what to remove from the cell state:
-$$\\mathbf{f}_t = \\sigma(\\mathbf{W}_f [\\mathbf{h}_{t-1}, \\mathbf{x}_t] + \\mathbf{b}_f)$$
+## 6. Maximum Margin / SVM Loss (Lecture 6)
 
-**Input gate**: decides what new information to store:
-$$\\mathbf{i}_t = \\sigma(\\mathbf{W}_i [\\mathbf{h}_{t-1}, \\mathbf{x}_t] + \\mathbf{b}_i)$$
-$$\\tilde{\\mathbf{c}}_t = \\tanh(\\mathbf{W}_c [\\mathbf{h}_{t-1}, \\mathbf{x}_t] + \\mathbf{b}_c)$$
+### The intuition
+When data is well-separable, many decision boundaries work equally well. The **maximum margin** classifier picks the one that maximises the distance to the nearest point of either class.
 
-**Cell state update**:
-$$\\mathbf{c}_t = \\mathbf{f}_t \\odot \\mathbf{c}_{t-1} + \\mathbf{i}_t \\odot \\tilde{\\mathbf{c}}_t$$
+### Key definitions
+- **Support vectors**: The points closest to the decision boundary (where yᵢ(wᵀxᵢ + b) = 1).
+- **Margin**: The distance from the boundary to the support vectors = 2/||w||.
+- **Objective**: Minimise ½||w||² (equivalently, maximise the margin), subject to all points being correctly classified with margin ≥ 1.
 
-**Output gate**: decides what to output:
-$$\\mathbf{o}_t = \\sigma(\\mathbf{W}_o [\\mathbf{h}_{t-1}, \\mathbf{x}_t] + \\mathbf{b}_o)$$
-$$\\mathbf{h}_t = \\mathbf{o}_t \\odot \\tanh(\\mathbf{c}_t)$$
+### Soft margin (allows mistakes)
+Introduce slack variables πᵢ for each point. Points can fall inside the margin (or be misclassified) but pay a penalty. Hyperparameter **C** controls the tradeoff between a wide margin and few violations.
 
-where $\\odot$ denotes element-wise multiplication. The cell state acts as a **conveyor belt** that allows gradients to flow through long sequences with less decay.
+### Hinge loss (unconstrained form)
+loss = ½wᵀw + C · Σᵢ max(0, 1 − yᵢ(wᵀxᵢ + b))
 
----
+The first term is a **regulariser** (prefers small weights). The second is the error, but only for points inside or on the wrong side of the margin. Points safely outside the margin contribute zero error.
 
-## Lecture 9 — Trees and Ensembles
+### Kernel trick (optional/not on exam)
+The SVM dual formulation depends only on dot products between instances. Replace the dot product with a **kernel function** k(x, x') that computes dot products in a much higher-dimensional space without explicitly computing the expanded features. Examples: polynomial kernel (x·y + 1)ᵈ, RBF kernel exp(−γ||x−y||²).
 
 ---
-
-### 9.1 Decision Trees
-
-A decision tree partitions the feature space with a series of **axis-aligned splits**. At each internal node, choose the feature and threshold that best separates the classes.
 
-#### Splitting Criteria — Entropy and Information Gain
+## 7. Deep Learning (Lecture 7)
 
-**Entropy** of a set $S$:
+### Tensors
+A generalisation of vectors and matrices: rank-0 = scalar, rank-1 = vector, rank-2 = matrix, rank-3+ = higher-dimensional arrays. All data and computations in deep learning are expressed as tensor operations.
 
-$$H(S) = -\\sum_{c=1}^{C} p_c \\log_2 p_c$$
+### Automatic differentiation
+Deep learning frameworks (PyTorch, TensorFlow) build a **computation graph** automatically. Each function/module has a **forward** (compute output) and **backward** (compute gradients for inputs, given gradients for outputs).
 
-where $p_c$ is the proportion of class $c$ in $S$.
+- **Lazy execution**: Define the graph first, compile, then feed data. Harder to debug.
+- **Eager execution**: Build the graph on-the-fly as you compute. Easier to debug; now the default.
 
-**Information gain** of splitting $S$ on feature $A$:
+### Tensor backpropagation
+The loss must always be a **scalar**. The gradient of the loss w.r.t. any tensor T has the **same shape as T**. We write T∇ for this gradient (where T∇ᵢⱼ = ∂loss/∂Tᵢⱼ).
 
-$$\\text{IG}(S, A) = H(S) - \\sum_{v \\in \\text{values}(A)} \\frac{|S_v|}{|S|} H(S_v)$$
+For each module, the backward function receives the gradient for its outputs and must return the gradient for its inputs. The trick is to work out scalar derivatives first, then **vectorise** (express the pattern as matrix operations).
 
-Choose the split that **maximises information gain** (equivalently, minimises the weighted entropy of the children).
-
-Alternative: **Gini impurity**: $G(S) = 1 - \\sum_{c=1}^{C} p_c^2$
-
----
+Example for a linear layer k = Wx + b:
+- W∇ = k∇ · xᵀ (outer product)
+- x∇ = Wᵀ · k∇
+- b∇ = k∇
 
-### 9.2 Regression Trees
+### Convolutions
+Instead of connecting every input to every output, slide a small **kernel** (weight matrix) across the input. Weights are **shared** across all positions → far fewer parameters.
 
-For regression, leaves store the **mean target value** of the training instances that reach them. Splits are chosen to minimise the **sum of squared errors** within each child:
+- **Kernel size**: The spatial extent of the filter (e.g., 3×3)
+- **Channels**: Input has C_in channels, output has C_out channels. Total weights = kernel_size² × C_in × C_out
+- **Padding**: Add zeros around edges so output has same spatial size. Same padding = floor(kernel_size/2)
+- **Stride**: How far the kernel moves each step (stride > 1 reduces resolution)
+- **Max pooling**: Take the max of each n×n block → reduces resolution, focuses gradient on the most important pixel
 
-$$\\text{SSE} = \\sum_{i \\in S_L} (y_i - \\bar{y}_L)^2 + \\sum_{i \\in S_R} (y_i - \\bar{y}_R)^2$$
+### Making deep learning work
 
----
+**Vanishing gradients**: In deep networks, gradients shrink as they propagate backward. Solutions:
+- **ReLU activation** (derivative = 1 for positive inputs)
+- **Careful initialisation** (Xavier/Glorot or He init: set weights so variance is preserved across layers)
+- **Residual connections**: Add the input of a block directly to its output (shortcut for gradients)
+- **Batch/Layer normalisation**: Re-normalise intermediate values to prevent magnitude drift
 
-### 9.3 Pruning
+**Optimisers**:
+- **Momentum**: Instead of following the gradient directly, maintain a "velocity" that accumulates gradient history. Like a boulder rolling downhill.
+- **Adam**: Combines momentum with per-parameter scaling by the standard deviation of recent gradients. The most popular optimiser in practice.
 
-Growing a tree until all leaves are pure leads to overfitting. **Pruning** removes branches that do not significantly improve performance:
-- **Pre-pruning** (early stopping): stop splitting when a criterion is met (min samples, max depth).
-- **Post-pruning** (cost-complexity pruning): grow a full tree, then remove subtrees that increase a penalised error measure.
+**Regularisation**:
+- **L2 regulariser**: Add λ||θ||² to the loss. Prefers small weights. Iso-contours are circles → no preference for axes.
+- **L1 regulariser**: Add λ||θ||₁ to the loss. Prefers **sparse** weights (many exactly zero). Iso-contours are diamonds → solutions tend to lie on axes.
+- **Dropout**: During training, randomly set hidden nodes to zero with probability p. Prevents co-adaptation of neurons. At test time, multiply activations by p to compensate.
 
 ---
-
-### 9.4 Ensemble Methods
-
-Combine multiple models to improve prediction.
-
-#### Stacking
-
-Train a **meta-learner** on the predictions of base models. The base models' outputs become features for the meta-model.
-
-#### Bagging (Bootstrap Aggregating)
 
-1. Create $B$ bootstrap samples (sample with replacement).
-2. Train one model on each bootstrap sample.
-3. Aggregate predictions: majority vote (classification) or average (regression).
-
-Bagging reduces **variance** while keeping bias roughly the same.
-
-#### Random Forests
-
-Bagging with decision trees, plus **feature randomisation**: at each split, consider only a random subset of $m$ features (typically $m = \\sqrt{d}$ for classification).
-
-This **decorrelates** the trees, further reducing variance. Random forests are robust, require little tuning, and provide feature importance estimates.
-
----
+## 8. Sequences (Lecture 8)
 
-### 9.5 Boosting
+### Types of sequential data
+- Numeric sequences (stock prices, sensor data)
+- Symbolic sequences (text as words or characters)
+- One label per sequence (sentiment classification) or one label per timestep (POS tagging)
 
-Build an ensemble **sequentially**, where each new model focuses on the mistakes of the previous ones.
+### Simple approach: Feature extraction
+Convert a sequence to a fixed-size feature vector (e.g., use the last k values as features) and apply any standard model. Quick and effective for simple tasks.
 
-#### AdaBoost
+### Markov models
+Model the probability of a sequence by breaking it into conditional probabilities:
+p(x₁, x₂, ..., xₙ) = p(x₁) · p(x₂|x₁) · p(x₃|x₁,x₂) · ...
 
-1. Assign equal weights to all training instances.
-2. Train a weak learner (e.g., decision stump).
-3. Increase weights of misclassified instances; decrease weights of correct ones.
-4. Repeat; final prediction is a weighted vote of all weak learners.
+**Markov assumption**: Limit the history to the last k tokens:
+p(xₜ | x₁...xₜ₋₁) ≈ p(xₜ | xₜ₋ₖ...xₜ₋₁)
 
-The weight of weak learner $t$ with error $\\epsilon_t$:
+Estimate probabilities from n-gram frequencies: p(prize | won, a) = count("won a prize") / count("won a"). Apply smoothing for unseen n-grams.
 
-$$\\alpha_t = \\frac{1}{2} \\ln \\frac{1 - \\epsilon_t}{\\epsilon_t}$$
+**Autoregressive sampling**: Start with a seed, predict the next token, append it, repeat.
 
-#### Gradient Boosting
+### Deep learning on sequences
 
-Generalises boosting to arbitrary differentiable loss functions. Each new tree fits the **negative gradient** (pseudo-residuals) of the loss:
+**Input representation**:
+- One-hot vectors (small vocabulary) or **embedding vectors** (large vocabulary, learned by backpropagation)
+- Sequences of different lengths → pad shorter sequences to match within a batch
 
-$$r_i = -\\frac{\\partial \\mathcal{L}(y_i, F(\\mathbf{x}_i))}{\\partial F(\\mathbf{x}_i)}$$
+**Embedding vectors**: Assign each discrete object a learnable vector. These are parameters of the model, updated by gradient descent. Pre-trained embeddings (Word2Vec) capture semantic structure: king − man + woman ≈ queen.
 
-The model is updated: $F_{t+1}(\\mathbf{x}) = F_t(\\mathbf{x}) + \\eta \\cdot h_t(\\mathbf{x})$
+**Sequence-to-sequence layers** (accept variable-length input with fixed weights):
+- **1D convolutions**: Fixed kernel slides along time; limited memory (kernel size). Causal variant only looks backward.
+- **Recurrent Neural Networks (RNN)**: Hidden state is fed back as input at the next timestep. When unrolled over time, it's a deep feedforward net with shared weights. Can look arbitrarily far back in theory.
 
-Popular implementations: **XGBoost**, **LightGBM**, **CatBoost**.
+### LSTM (Long Short-Term Memory)
+Solves the vanishing gradient problem in RNNs with a **cell state** ("conveyor belt") that passes through the network with only linear operations. Three gates control information flow:
+1. **Forget gate**: Decides what to erase from the cell state (sigmoid → element-wise multiply)
+2. **Input gate**: Decides what new information to write (sigmoid × tanh → add to cell state)
+3. **Output gate**: Decides what to read from the cell state for the current output
 
----
+The conveyor belt gives gradients a path with no activations → long-range dependencies can be learned.
 
-## Lecture 10 — Transformers
+### Sequence model configurations
+- **Sequence → Sequence**: One output per input timestep (POS tagging, autoregressive modeling)
+- **Sequence → Label**: Reduce to a single vector (global pooling, or take the last output of a causal model)
+- **Label → Sequence**: Repeat input vector into a sequence, or feed as initial hidden state (generation)
 
 ---
 
-### 10.1 Self-Attention
+## 9. Decision Trees and Ensembles (Lecture 10)
 
-The core mechanism of transformers. For each position, self-attention computes a weighted combination of **all** positions in the sequence.
+### Decision tree training
+Grow the tree greedily, one node at a time. At each node, choose the feature split that maximises **information gain**:
 
-Given input embeddings $\\mathbf{X}$, compute **queries**, **keys**, and **values**:
+**Information gain** = H(S) − Σᵢ (|Sᵢ|/|S|) · H(Sᵢ)
 
-$$\\mathbf{Q} = \\mathbf{X}\\mathbf{W}_Q, \\quad \\mathbf{K} = \\mathbf{X}\\mathbf{W}_K, \\quad \\mathbf{V} = \\mathbf{X}\\mathbf{W}_V$$
+where H is entropy, S is the set before the split, and Sᵢ are the subsets after splitting.
 
-**Scaled dot-product attention**:
+**Stop conditions**: All instances in a leaf have the same class, no features left to split on, or maximum depth reached.
 
-$$\\text{Attention}(\\mathbf{Q}, \\mathbf{K}, \\mathbf{V}) = \\text{softmax}\\!\\left(\\frac{\\mathbf{Q}\\mathbf{K}^\\top}{\\sqrt{d_k}}\\right) \\mathbf{V}$$
+**Numeric features**: Try thresholds between consecutive instances of different classes. Pick the threshold with the highest information gain.
 
-- The scaling factor $\\sqrt{d_k}$ prevents dot products from growing too large.
-- Each query attends to all keys; the softmax weights determine how much each value contributes.
+**Regression trees**: Leaves output the mean of their instances. Split by **variance reduction** instead of information gain.
 
----
+**Pruning**: After growing the full tree, remove leaves one by one if removing them improves validation performance. This combats overfitting.
 
-### 10.2 Multi-Head Attention
+### Ensembling
 
-Run $h$ attention heads in parallel with different learned projections:
+**Bagging (Bootstrap Aggregating)**: Train many models on bootstrap samples (sampling with replacement) of the data. Combine by majority vote or averaging. Reduces **variance** (helps overfitting models).
+- **Random Forest**: Bagged decision trees, also randomly subsampling features per split.
 
-$$\\text{MultiHead}(\\mathbf{Q}, \\mathbf{K}, \\mathbf{V}) = \\text{Concat}(\\text{head}_1, \\ldots, \\text{head}_h) \\mathbf{W}_O$$
+**Boosting**: Train models sequentially. Each new model focuses on the mistakes of the previous ensemble. Reduces **bias** (helps underfitting models).
+- **AdaBoost**: Reweight instances — misclassified ones get higher weight. Model weight αₜ = ½ ln((1−εₜ)/εₜ), where εₜ is the weighted error rate.
+- **Gradient Boosting**: Train the next model to predict the **residuals** (negative gradient of the loss w.r.t. the model output) of the current ensemble. Generalises to any differentiable loss via pseudo-residuals.
 
-Each head can learn to attend to different types of relationships (syntactic, semantic, positional, etc.).
+**Stacking**: Use predictions of multiple models as features for a second-level "combiner" model (usually simple, like logistic regression).
 
 ---
-
-### 10.3 Transformer Blocks
-
-A transformer block consists of:
-
-1. **Multi-head self-attention** sublayer.
-2. **Add & Norm**: residual connection + layer normalisation.
-3. **Feedforward network** (two linear layers with activation): $\\text{FFN}(\\mathbf{x}) = \\sigma(\\mathbf{x}\\mathbf{W}_1 + \\mathbf{b}_1)\\mathbf{W}_2 + \\mathbf{b}_2$, where $\\sigma$ is ReLU in the original Transformer and GELU in later models like BERT/GPT.
-4. **Add & Norm**: another residual connection + layer normalisation.
 
-**Residual connections**: $\\mathbf{y} = \\mathbf{x} + f(\\mathbf{x})$. They allow gradients to flow directly through the network, enabling training of very deep models.
+# Machine Learning Study Guide — Part 3: Generative Models, Transformers, Embeddings & RL (Lectures 9–10, 12–13)
 
-**Layer normalisation**: normalise across features (not across the batch), applied before or after sublayers.
+## 1. Deep Generative Models (Lecture 9)
 
----
-
-### 10.4 Position Embeddings
-
-Self-attention is **permutation-equivariant** (permuting the input permutes the output identically) — it has no inherent notion of position. Position information is added via:
-- **Sinusoidal** position encodings (fixed): different frequencies for each dimension.
-- **Learned** position embeddings: trainable vectors for each position.
+### Neural networks as probability distributions
+A deterministic neural network can be turned into a probability model by interpreting its outputs as **parameters of a distribution**:
+- Single sigmoid output → Bernoulli distribution (binary classification)
+- Softmax output → Categorical distribution (multiclass)
+- Linear output → Mean of a normal distribution (regression)
+- Two outputs per dimension → Mean and variance of a diagonal Gaussian
 
----
+When outputs parametrise a normal distribution, maximising the likelihood is equivalent to minimising the MSE loss (for fixed variance) or a modified MSE that also learns the variance.
 
-### 10.5 Sub-word Tokenisation
+### Generator networks
+Instead of putting the probability distribution at the *output*, put it at the *input*. Sample z from a standard normal distribution N(0, I) and feed it through a neural network. The output is a random point — we've defined a complex probability distribution by transforming a simple one.
 
-Instead of word-level or character-level tokens, use **sub-word** units that balance vocabulary size and sequence length.
+Even with random weights (no training), a deep enough network transforms the standard normal into an extremely complex, multi-modal distribution. The challenge is training the network so that this distribution matches the data.
 
-- **Byte Pair Encoding (BPE)**: iteratively merge the most frequent adjacent pairs of characters/subwords.
-- **WordPiece**: similar to BPE but uses likelihood-based merging.
-- **SentencePiece**: language-agnostic tokenisation.
+### The mode collapse problem
+Naive training (sample a random output from the generator, compare it to a random data point, backpropagate the difference) fails. The generator can't figure out *which* data point it should be matching each output to. It collapses to predicting only the mean of the data — a single blurry output that minimises average distance to everything.
 
 ---
 
-### 10.6 BERT (Bidirectional Encoder Representations from Transformers)
+## 2. Generative Adversarial Networks (GANs)
 
-BERT uses the **encoder** portion of the transformer, trained with:
-- **Masked Language Modelling (MLM)**: randomly mask 15% of tokens; predict the masked tokens from context.
-- **Next Sentence Prediction (NSP)**: predict whether two sentences are consecutive.
+### Vanilla GAN
+Two networks trained in opposition:
+- **Generator G**: Takes random noise z → produces a fake example
+- **Discriminator D**: Takes an example → classifies it as real (from data) or fake (from G)
 
-BERT produces contextual embeddings that can be fine-tuned for downstream tasks (classification, NER, QA, etc.).
+Training alternates:
+1. **Train D**: Show it real data (label: positive) and G's output (label: negative). Freeze G's weights.
+2. **Train G**: Feed output through D, train G to produce things D calls positive. Freeze D's weights.
 
----
+Think of D as a very complex, learned loss function for G.
 
-### 10.7 GPT Family (Generative Pre-trained Transformers)
+### Conditional GAN
+G takes an *input* (e.g., a line drawing) plus noise, and produces an output (e.g., a photograph). D sees input-output pairs and judges whether they're real or fake. This allows probabilistic image-to-image translation where G can imagine specific details differently each time.
 
-GPT uses the **decoder** portion (causal/autoregressive self-attention — each token can only attend to previous tokens).
+### CycleGAN (unpaired data)
+When we don't have matched pairs (e.g., horse photos ↔ zebra photos), train two generators: horse→zebra and zebra→horse. **Cycle consistency loss**: transforming a horse to a zebra and back should recover the original horse. Plus discriminators for each domain to ensure realism.
 
-- **GPT-2/GPT-3/GPT-4**: scaled up with more parameters, data, and compute.
-- **In-context learning**: the ability to perform tasks by providing examples in the prompt, without updating weights.
-- **Few-shot / zero-shot**: prompting with few or no examples.
+### StyleGAN
+The latent vector z is fed to the generator at every layer (through learned affine transformations), not just the input. This lets different layers control different levels of detail: early layers control coarse features (gender, age), middle layers control medium features (hairstyle), late layers control fine details (skin texture). Separate random noise per layer allows stochastic variation in fine details.
 
 ---
-
-### 10.8 RLHF (Reinforcement Learning from Human Feedback)
 
-Process for aligning language models with human preferences:
+## 3. Autoencoders
 
-1. **Supervised fine-tuning** (SFT) on high-quality demonstrations.
-2. Train a **reward model** from human preference comparisons.
-3. Optimise the language model using **PPO** (Proximal Policy Optimisation) against the reward model, with a KL penalty to stay close to the SFT model.
+### Basic autoencoder
+An hourglass-shaped network: **encoder** compresses input to a low-dimensional **bottleneck** (latent representation), **decoder** reconstructs the input from the bottleneck. Trained to minimise reconstruction error (MSE, L1, or binary cross-entropy).
 
----
-
-## Lecture 11 — Deep Generative Modelling
+After training:
+- **Encoder alone** → dimensionality reduction
+- **Decoder alone** → generator (fit an MVN to the latent representations of the training data, sample from it, decode)
+- **Both together** → data manipulation (encode, modify the latent vector, decode)
 
----
+### Latent space manipulation
+Label a small set of examples with an attribute (e.g., "smiling" vs "not smiling"). Compute the mean latent vector for each group. The difference = a "smiling vector". Adding this vector to any encoded face makes it smile.
 
-### 11.1 Generator Networks
+### Limitation of basic autoencoders
+There's no guarantee the latent space is smooth or well-structured. Points between training examples might decode to garbage. The decoder works as a generator, but it's not principled.
 
-A **generator** maps a low-dimensional latent vector $\\mathbf{z} \\sim p(\\mathbf{z})$ (typically Gaussian) to a data point $\\mathbf{x} = G(\\mathbf{z})$. The goal is for the generated distribution to match the true data distribution.
-
 ---
-
-### 11.2 Generative Adversarial Networks (GANs)
 
-A GAN consists of two networks trained adversarially:
-- **Generator** $G$: produces fake data from noise.
-- **Discriminator** $D$: distinguishes real data from fake.
+## 4. Variational Autoencoders (VAEs)
 
-**Minimax objective**:
+### Motivation
+We want to train a generator network by **maximum likelihood** — directly maximising p(data). The problem: computing p(x) requires integrating over all possible latent vectors z, which is intractable.
 
-$$\\min_G \\max_D \\; \\mathbb{E}_{\\mathbf{x} \\sim p_{\\text{data}}}[\\ln D(\\mathbf{x})] + \\mathbb{E}_{\\mathbf{z} \\sim p(\\mathbf{z})}[\\ln(1 - D(G(\\mathbf{z})))]$$
+### The key idea
+Introduce an approximate inverse **q(z|x)** (the encoder), which guesses which z produced a given x. Then derive a **lower bound** (ELBO) on ln p(x) that we *can* compute and optimise.
 
-At equilibrium, $D(\\mathbf{x}) = 0.5$ everywhere and $G$ generates data indistinguishable from real data.
+### The ELBO decomposition
+ln p(x|θ) = L(q, θ) + KL(q(z|x), p(z|x, θ))
 
-#### GAN Variants
+Where:
+- **L(q, θ)** = E_q[ln p(x,z|θ) / q(z|x)] — the Evidence Lower BOund
+- **KL(q, p)** ≥ 0 — the gap between our bound and the true likelihood
 
-- **Conditional GAN (cGAN)**: condition both $G$ and $D$ on additional information (e.g., class label): $G(\\mathbf{z}, y)$.
-- **CycleGAN**: unpaired image-to-image translation using cycle-consistency loss: $\\mathbf{x} \\approx G_B(G_A(\\mathbf{x}))$.
-- **StyleGAN**: generates high-quality images using a mapping network and adaptive instance normalisation (AdaIN) at each layer for style control.
+Since KL ≥ 0, we know **L ≤ ln p(x)**. Maximising L pushes up the likelihood. The better q approximates the true posterior p(z|x), the tighter the bound.
 
----
-
-### 11.3 Mode Collapse
-
-A common GAN failure mode where the generator learns to produce only a few modes of the data distribution, ignoring the rest. The generator finds a small set of outputs that consistently fool the discriminator.
+### The VAE loss function
+−L = **KL(q(z|x), N(0,I))** + **E[−ln p(x|z)]**
 
-Mitigations: minibatch discrimination, feature matching, Wasserstein GAN (WGAN) objective.
+Two terms:
+1. **KL loss** (regulariser): Pulls the encoder's output distribution toward a standard normal. Ensures the latent space is dense and well-organised around the origin.
+2. **Reconstruction loss**: The decoder should assign high probability to the original input x when given a sample z from the encoder's distribution.
 
----
+### The reparameterisation trick
+Sampling z ~ N(μ, σ) is not differentiable. But we can rewrite it as z = μ + σ ⊙ ε, where ε ~ N(0, I). The randomness (ε) becomes a fixed input; the rest (multiply by σ, add μ) is differentiable. This lets gradients flow through the sampling step.
 
-### 11.4 Autoencoders
+### Three forces on the latent space
+- **Reconstruction loss**: Wants each data point encoded to a precise location that decodes perfectly. Left alone, would create sparse, disconnected latent representations.
+- **KL loss**: Wants all distributions to be N(0,I). Left alone, would make the encoder output a constant (mode collapse).
+- **Sampling step**: Ensures that not just one point but a neighbourhood of points must decode well.
 
-An autoencoder learns a compressed representation by training an **encoder** $E$ and **decoder** $D$ to reconstruct the input:
+Together, they produce a smooth, continuous latent space where interpolation between points yields meaningful intermediate examples.
 
-$$\\mathcal{L} = \\|\\mathbf{x} - D(E(\\mathbf{x}))\\|^2$$
+### VAE vs GAN comparison
+| | VAE | GAN |
+|---|-----|-----|
+| Training | Principled (max likelihood lower bound) | Adversarial (minimax game) |
+| Output quality | Blurrier | Sharper |
+| Latent space | Encoder provides it directly | Must be found post-hoc |
+| Stability | More stable training | Notoriously tricky |
+| Mode coverage | Covers all modes | Can miss modes |
 
-The bottleneck (latent space) forces the model to learn a compact representation. Standard autoencoders do not produce a smooth, structured latent space suitable for generation.
+### VAE ≈ Nonlinear PCA
+Both use reconstruction loss. PCA uses linear encoding/decoding; VAE uses neural networks. PCA has a clean analytical solution; VAE requires gradient descent. VAE adds a probabilistic latent space with the KL regulariser.
 
 ---
-
-### 11.5 Variational Autoencoders (VAEs)
-
-VAEs impose a probabilistic structure on the latent space.
 
-**Encoder** outputs parameters of a distribution: $q_\\phi(\\mathbf{z} \\mid \\mathbf{x}) = \\mathcal{N}(\\boldsymbol{\\mu}, \\boldsymbol{\\sigma}^2 \\mathbf{I})$
+## 5. Self-Attention and Transformers (Lecture 10)
 
-**Decoder** reconstructs from samples: $p_\\theta(\\mathbf{x} \\mid \\mathbf{z})$
+### Simple self-attention
+A sequence-to-sequence operation where each output is a **weighted sum of all inputs**. The weights are derived from the inputs themselves (not learned parameters).
 
-**ELBO** (Evidence Lower Bound) — the training objective to maximise:
+For output yᵢ:
+- Compute raw weights: w'ᵢⱼ = xᵢ · xⱼ (dot product)
+- Normalise: wᵢⱼ = softmax(w'ᵢ₁, w'ᵢ₂, ..., w'ᵢₙ)
+- Compute output: yᵢ = Σⱼ wᵢⱼ · xⱼ
 
-$$\\text{ELBO} = \\mathbb{E}_{q_\\phi(\\mathbf{z} \\mid \\mathbf{x})}[\\ln p_\\theta(\\mathbf{x} \\mid \\mathbf{z})] - D_{\\text{KL}}(q_\\phi(\\mathbf{z} \\mid \\mathbf{x}) \\| p(\\mathbf{z}))$$
+**Vectorised**: Y = softmax(XᵀX) · Xᵀ (with row-wise softmax)
 
-- First term: **reconstruction quality**.
-- Second term: **KL divergence** — regularises the latent distribution to be close to the prior $p(\\mathbf{z}) = \\mathcal{N}(0, \\mathbf{I})$.
+### Key properties of self-attention
+1. **Permutation equivariant**: Shuffling inputs shuffles outputs in the same way. The model can't "see" the ordering — it's fundamentally a **set operation**.
+2. **Global receptive field**: Every output can attend to every input, regardless of distance. No finite memory limitation (unlike convolutions or Markov models).
+3. **Mostly linear**: If we treat the attention weights as constants, the operation is linear → clean, non-vanishing gradients (similar principle to the LSTM conveyor belt).
+4. **Self-dominated**: xᵢ · xᵢ is usually largest, so yᵢ is mostly xᵢ with a little of other vectors mixed in.
+5. **No parameters** (in the simple version).
 
-#### Reparameterisation Trick
+### Scaled dot-product attention
+Divide dot products by √k (embedding dimension) before softmax to prevent extreme values when k is large:
+w'ᵢⱼ = (xᵢ · xⱼ) / √k
 
-To backpropagate through sampling, reparameterise: $\\mathbf{z} = \\boldsymbol{\\mu} + \\boldsymbol{\\sigma} \\odot \\boldsymbol{\\epsilon}$, where $\\boldsymbol{\\epsilon} \\sim \\mathcal{N}(0, \\mathbf{I})$. This makes the stochastic node differentiable.
+### Keys, Queries, and Values
+Each input vector is projected by three different learned matrices:
+- **Query** qᵢ = Wq · xᵢ — "what am I looking for?"
+- **Key** kⱼ = Wk · xⱼ — "what do I contain?"
+- **Value** vⱼ = Wv · xⱼ — "what information do I provide?"
 
----
-
-## Lecture 12 — Embedding Models
+Weights are computed from queries and keys: wᵢⱼ = softmax(qᵢ · kⱼ / √k). Output is weighted sum of values. This adds learnable parameters and breaks the self-similarity that made wᵢᵢ dominant.
 
----
+### Multi-head attention
+Run h smaller self-attentions in parallel (each with its own K, Q, V matrices of dimension k/h). Concatenate results and project with a final matrix W₀. Each head can capture different types of relationships. Total parameter count ≈ same as single-head.
 
-### 12.1 Recommender Systems
+### Causal self-attention
+For autoregressive models (predicting the next token), mask all positions after the current one by setting their raw weights to −∞ before softmax. This ensures each output only depends on current and previous inputs.
 
-Predict user preferences for items. Two main approaches:
-- **Content-based**: recommend items similar to what the user has liked (based on item features).
-- **Collaborative filtering**: recommend items liked by similar users (based on the user-item interaction matrix).
-
 ---
-
-### 12.2 Matrix Factorisation
 
-Approximate the sparse user-item rating matrix $\\mathbf{R} \\in \\mathbb{R}^{m \\times n}$ as a product of low-rank matrices:
+## 6. Building Transformers (Lecture 10)
 
-$$\\mathbf{R} \\approx \\mathbf{U} \\mathbf{V}^\\top$$
+### The transformer block
+The fundamental building block, repeated many times:
+1. **Layer normalisation** → 2. **Self-attention** → 3. **Residual connection** (add input to output)
+4. **Layer normalisation** → 5. **Feed-forward layer** (MLP applied independently per token: project up to 4k, ReLU, project back to k) → 6. **Residual connection**
 
-where $\\mathbf{U} \\in \\mathbb{R}^{m \\times k}$ (user embeddings) and $\\mathbf{V} \\in \\mathbb{R}^{n \\times k}$ (item embeddings).
+Only the self-attention propagates information between tokens. Everything else operates on each token independently.
 
-Predicted rating: $\\hat{r}_{ui} = \\mathbf{u}_u^\\top \\mathbf{v}_i$
+### Layer normalisation
+Normalise the values *within* each vector (compute mean and std of the elements, then standardise). Different from batch normalisation (which normalises across the batch dimension). Optionally followed by learned scale and bias.
 
-Training objective (with regularisation):
+### Residual connections
+Add the block's input to its output: y = f(x) + x. Provides a gradient shortcut that helps early training and prevents vanishing gradients in very deep models.
 
-$$\\min_{\\mathbf{U}, \\mathbf{V}} \\sum_{(u,i) \\in \\text{observed}} (r_{ui} - \\mathbf{u}_u^\\top \\mathbf{v}_i)^2 + \\lambda(\\|\\mathbf{U}\\|^2 + \\|\\mathbf{V}\\|^2)$$
+### Position embeddings
+Since self-attention is permutation equivariant, it can't distinguish word order. Fix: add a learned **position embedding** (a unique vector per position) to each word embedding. This breaks the equivariance — the model can now see where each token is.
 
----
+### Sub-word tokenisation
+- Word-level: Large vocabulary, can't handle unknown words
+- Character-level: Small vocabulary, very long sequences (expensive: self-attention is O(n²))
+- **Sub-word** (BPE/WordPiece): Learn a vocabulary of ~50K–100K common character chunks. Common words become single tokens; rare words break into pieces. Best of both worlds.
 
-### 12.3 Bias Terms
+Built by iteratively merging the most frequent character pairs in the training data.
 
-Add user and item bias terms to account for overall tendencies:
+### BERT (Bidirectional Encoder Representations from Transformers)
+- Stack of 24 transformer blocks (bidirectional, not causal)
+- **Pre-training**: Masked Language Modeling (MLM) — corrupt 15% of tokens, predict the originals. + Next Sentence Prediction (less important).
+- **Fine-tuning**: Add a task-specific output layer, train on labelled data.
 
-$$\\hat{r}_{ui} = \\mu + b_u + b_i + \\mathbf{u}_u^\\top \\mathbf{v}_i$$
+### GPT family (Generative Pre-trained Transformer)
+- Stack of **causal** transformer blocks
+- Pre-trained by **next-token prediction** (autoregressive language modelling)
+- GPT-2 (1.5B params): First model to generate coherent long-form text
+- GPT-3 (175B params): **In-context learning** — recognise patterns in the prompt and continue them. No weight changes needed. Few-shot learning by putting examples in the prompt.
+- GPT-4 (rumoured ~8 × GPT-3 sized models in an ensemble)
 
-where $\\mu$ is the global mean, $b_u$ is the user bias (e.g., a lenient rater), and $b_i$ is the item bias (e.g., a popular item).
+### Encoder/decoder architecture
+Only the original "Attention is All You Need" transformer used this (for machine translation). BERT and GPT are single stacks. The encoder/decoder split is a consequence of the translation task, not a fundamental part of transformers.
 
 ---
-
-### 12.4 Negative Sampling
-
-For implicit feedback (clicks, views), we only have **positive** interactions. **Negative sampling** randomly samples unobserved interactions as negatives and trains the model to distinguish positive from negative pairs:
 
-$$\\mathcal{L} = -\\ln \\sigma(\\mathbf{u}^\\top \\mathbf{v}_{\\text{pos}}) - \\sum_{j=1}^{k} \\ln \\sigma(-\\mathbf{u}^\\top \\mathbf{v}_{\\text{neg}_j})$$
+## 7. Building Chatbots (Lecture 10)
 
-This is computationally much cheaper than computing over all items.
+### From language model to chatbot
+GPT predicts the most likely continuation of any text. By structuring the prompt as a dialogue (system instructions, then alternating user/assistant messages), GPT generates realistic chatbot responses.
 
----
+### Instruction tuning
+Fine-tune GPT on a dataset of instructions and their correct responses. Key finding: the model generalises to *unseen* instruction types. Only works above ~8B parameters — an example of **emergence** (abilities appearing suddenly at scale).
 
-### 12.5 Graph Embeddings
+### RLHF (Reinforcement Learning from Human Feedback)
+1. **Demonstration**: Human labellers write ideal responses → fine-tune directly.
+2. **Comparison**: Model generates multiple responses → labellers rank them → train a **reward model** to predict the ranking.
+3. **Optimisation**: Train GPT to generate responses that the reward model scores highly. RL is needed because sampling is not differentiable.
 
-Embed nodes of a graph into a low-dimensional vector space such that structurally similar nodes have similar embeddings.
+### Augmentation / Plugins
+GPT can generate structured commands (code, search queries, API calls). An external system executes these and appends the result to the prompt. Enables access to real-time information, calculations, databases, etc.
 
-Methods: **DeepWalk** (random walks + skip-gram), **Node2Vec** (biased random walks controlling breadth-first vs depth-first exploration), **LINE** (preserves first-order and second-order proximity).
-
 ---
 
-### 12.6 Knowledge Graphs
+## 8. Embedding Models and Recommender Systems (Lecture 12)
 
-A knowledge graph stores facts as **(subject, relation, object)** triples, e.g., (Paris, capitalOf, France).
+### The abstract task of recommendation
+Two large sets (users and items) with a sparse relation between them (ratings, likes, purchases). The goal: predict missing entries.
 
-**Knowledge graph embeddings** learn vectors for entities and relations:
-- **TransE**: models relations as translations: $\\mathbf{h} + \\mathbf{r} \\approx \\mathbf{t}$, minimising $\\|\\mathbf{h} + \\mathbf{r} - \\mathbf{t}\\|$.
-- Used for link prediction (predicting missing triples).
+### Matrix factorisation
+Represent each user and each movie by a **learned embedding vector** of dimension k. The predicted rating for user i and movie j is the **dot product** of their embeddings: R̂ᵢⱼ = uᵢᵀ · mⱼ.
 
----
+This means R̂ ≈ UᵀM — we're decomposing the rating matrix into two smaller matrices.
 
-### 12.7 Graph Convolutional Networks (GCNs)
+**Loss**: Sum of squared errors over **known ratings only**. Unknown entries are ignored (not treated as zero).
 
-GCNs generalise convolutions to graph-structured data. Each layer aggregates information from a node's **neighbours**:
+**Intuition**: Each dimension of the embedding might capture a latent factor (how romantic, how action-packed, etc.). The dot product captures the match between user preferences and movie properties.
 
-$$\\mathbf{h}_v^{(l+1)} = \\sigma\\!\\left(\\sum_{u \\in \\mathcal{N}(v) \\cup \\{v\\}} \\frac{1}{c_{vu}} \\mathbf{W}^{(l)} \\mathbf{h}_u^{(l)}\\right)$$
+### Gradient update intuition
+If we overestimate a rating (error is negative) for a "romantic" movie by a "romantic" user, we reduce the "romance" value for the user (since the movie's value is treated as constant) and vice versa. The model learns that this user/movie pair isn't as well-matched on the romance dimension as it thought.
 
-where $c_{vu}$ is a normalisation constant. Stacking $L$ layers allows each node to aggregate information from its $L$-hop neighbourhood.
+### Extensions
+- **Biases**: Add per-user bias, per-movie bias, and global bias to the dot product. Accounts for generally generous/harsh raters and universally liked/disliked movies.
+- **Regularisation**: Add L2 penalty on embeddings to prevent overfitting.
+- **Implicit feedback**: When users can only "like" (no dislikes), use **negative sampling** — random user/movie pairs are assumed negative.
+- **Side information**: Add embedding vectors for user/movie features (genre, age, etc.), sum them into the user/movie representation.
+- **Temporal dynamics**: Make biases and user embeddings time-dependent (e.g., separate embeddings per time chunk).
+- **Cold start**: New users/movies have no ratings → rely on side information and implicit feedback.
 
----
+### Binary and positive-only ratings
+- **Binary** (like/dislike): Apply sigmoid to the dot product, use log loss.
+- **Positive only** (only likes): Use negative sampling — sample random pairs as negatives.
 
-## Lecture 13 — Reinforcement Learning
+### Matrix factorisation ≈ PCA
+Applying matrix factorisation to the standard data matrix (instances × features) with constraints gives something equivalent to PCA. Both are linear dimensionality reduction. Matrix factorisation can handle missing values and add regularisation.
 
----
+### Link prediction on graphs
+Same principle: learn node embeddings, predict links via dot product. For **knowledge graphs** (labelled edges), also learn an embedding per relation type. Score: Σₖ uₖ · rₖ · mₖ (DistMult).
 
-### 13.1 Markov Decision Processes (MDPs)
+### Graph Convolutional Networks (GCNs)
+Refine embeddings by **mixing with neighbours**: multiply by the (normalised) adjacency matrix, then a weight matrix, then apply an activation. Multiple GCN layers propagate information further through the graph.
 
-An MDP is defined by $(\\mathcal{S}, \\mathcal{A}, T, R, \\gamma)$:
+H' = σ(Â · H · W) where Â = normalised adjacency with self-loops.
 
-- $\\mathcal{S}$: set of **states**.
-- $\\mathcal{A}$: set of **actions**.
-- $T(s' \\mid s, a)$: **transition function** — probability of reaching $s'$ from $s$ via action $a$.
-- $R(s, a)$: **reward function**.
-- $\\gamma \\in [0, 1)$: **discount factor** (how much to value future rewards).
+### Transductive learning
+In embedding models, test nodes must be seen during training (to learn their embeddings). Only their **labels** are withheld. This contrasts with inductive learning where test instances are entirely unseen.
 
 ---
-
-### 13.2 Policies and Value Functions
-
-A **policy** $\\pi(a \\mid s)$ maps states to actions (or distributions over actions).
-
-**State-value function** — expected return starting from state $s$ under policy $\\pi$:
-
-$$V^\\pi(s) = \\mathbb{E}_\\pi\\left[\\sum_{t=0}^{\\infty} \\gamma^t R(s_t, a_t) \\mid s_0 = s\\right]$$
 
-**Action-value function (Q-function)** — expected return starting from $s$, taking action $a$, then following $\\pi$:
+## 9. Reinforcement Learning (Lecture 13)
 
-$$Q^\\pi(s, a) = \\mathbb{E}_\\pi\\left[\\sum_{t=0}^{\\infty} \\gamma^t R(s_t, a_t) \\mid s_0 = s, a_0 = a\\right]$$
+### The abstract task
+An **agent** interacts with an **environment**: it observes a **state**, takes an **action**, receives a **reward**, and transitions to a new state. The goal: learn a **policy** (state → action mapping) that maximises expected cumulative reward.
 
-**Bellman equation**:
+**Markov property**: The optimal action depends only on the current state, not the history.
 
-$$Q^\\pi(s, a) = R(s, a) + \\gamma \\sum_{s'} T(s' \\mid s, a) \\sum_{a'} \\pi(a' \\mid s') Q^\\pi(s', a')$$
+### Four key challenges
+1. **Sparse rewards**: Most states give zero reward. Only terminal states (win/lose) provide signal.
+2. **Delayed reward / credit assignment**: A mistake now may only cause failure 20 steps later. Which actions were responsible?
+3. **Non-differentiable environment**: Can't backpropagate through the environment or through sampling actions.
+4. **Exploration vs exploitation**: Exploiting known good strategies yields immediate reward; exploring unknown strategies might find much better long-term reward.
 
----
+### Episodic learning
+Train by running complete episodes (games, flights, etc.), update the policy after each. In production, the policy is typically frozen.
 
-### 13.3 Policy Gradient Methods (REINFORCE)
+### Policy networks
+A neural network mapping states to action probabilities (softmax output). For Atari: raw pixels → convolutions → fully connected → action probabilities.
 
-Directly optimise the policy $\\pi_\\theta$ by gradient ascent on expected return:
+### Random search
+Perturb the policy weights randomly. If total episode reward improves, keep the perturbation. Extremely simple, no calculus needed. Surprisingly effective for some problems (Atari Frostbite). High variance; slow learning.
 
-$$\\nabla_\\theta J(\\theta) = \\mathbb{E}_\\pi\\left[\\sum_{t=0}^{T} \\nabla_\\theta \\ln \\pi_\\theta(a_t \\mid s_t) \\cdot G_t\\right]$$
+### Policy gradients (REINFORCE)
+**Core insight**: The gradient of the expected reward can be estimated as:
+∇E[r] ≈ r(a) · ∇ ln p(a)
 
-where $G_t = \\sum_{k=t}^{T} \\gamma^{k-t} r_k$ is the **return** from time $t$.
+For a sampled action a with total episode reward r(a):
+- If reward is high → increase the log-probability of the chosen action → "do more of this"
+- If reward is low → decrease it → "do less of this"
 
-REINFORCE is a **Monte Carlo** method: it uses complete episode returns, leading to high variance. A **baseline** (e.g., $V(s)$) is often subtracted to reduce variance without introducing bias.
-
----
+**Surrogate loss** (for implementation in PyTorch): −r · ln p(a). Backpropagating this gives the correct gradient estimate.
 
-### 13.4 Q-Learning
+**Credit assignment**: Not solved — the total episode reward is applied blindly to all actions. Averaging over many episodes lets good actions be reinforced more than they're punished.
 
-A **model-free**, **off-policy** algorithm that learns the optimal Q-function directly.
+### Exploration strategies
+- **Boltzmann exploration**: Softmax with temperature τ. High τ = more random (explore). Low τ = more greedy (exploit). Can anneal τ over time.
+- **ε-greedy**: Usually pick the best action; with probability ε, pick a random action.
 
-**Tabular Q-learning** update:
+### Q-Learning
+Instead of learning a policy directly, learn the **Q-function**: Q*(s, a) = expected discounted future reward from taking action a in state s, then following the optimal policy.
 
-$$Q(s, a) \\leftarrow Q(s, a) + \\alpha \\left[ r + \\gamma \\max_{a'} Q(s', a') - Q(s, a) \\right]$$
+**Recursive definition**: Q*(s, a) = r(s, a) + γ · max_a' Q*(s', a')
 
-- $\\alpha$: learning rate.
-- Uses the **max** over next actions (off-policy: learns about the greedy policy while following an exploratory one).
+where γ ∈ (0,1) is the **discount factor** (how much we value future rewards).
 
-**Deep Q-Networks (DQN)**: approximate $Q(s, a)$ with a neural network. Key innovations:
-- **Experience replay**: store transitions in a buffer and sample mini-batches to break correlation.
-- **Target network**: a slowly-updated copy of the Q-network to stabilise training.
+**Tabular Q-learning**: Iterate the recursive definition as an update rule. Eventually converges to Q*.
 
----
+**Deep Q-learning**: Use a neural network to predict Q(s, a) for all actions. For a given transition (s, a, r, s'):
+- Target = r + γ · max_a' Q_network(s')
+- Loss = (Q_network(s, a) − target)²
 
-### 13.5 Exploration vs Exploitation
+The network generalises across similar states (unlike tabular Q-learning). The future reward estimate bootstraps from the network's own predictions — at first noisy, but improves as training progresses.
 
-The fundamental RL dilemma:
-- **Exploitation**: choose the currently best-known action.
-- **Exploration**: try new actions to discover potentially better options.
+**Key difference from policy gradients**: Q-learning can update after every single action (no need to wait for the episode to end). It separates exploration (any strategy) from exploitation (follow the learned Q-function).
 
-Strategies:
-- **$\\epsilon$-greedy**: with probability $\\epsilon$, take a random action; otherwise, take the greedy action.
-- **Boltzmann exploration**: sample actions proportional to $\\exp(Q(s,a)/T)$.
-- **Upper Confidence Bound (UCB)**: add a bonus for actions tried fewer times.
+### Helpers for sparse rewards
+- **Imitation learning**: Pre-train the policy by copying expert behaviour (supervised learning). Then refine with RL.
+- **Reward shaping**: Hand-craft denser intermediate rewards (e.g., material advantage in chess). Risks: less general, may steer away from creative solutions.
+- **Auxiliary goals**: Train on multiple simple tasks simultaneously (e.g., "stay alive" alongside "win").
 
 ---
 
-### 13.6 Tree Search
+## 10. Tree Search (Lecture 13)
 
-#### Minimax
+When we have access to the state transition function (e.g., the rules of a game), we can explore the **game tree** to choose better actions.
 
-For two-player zero-sum games, **minimax** builds a game tree:
-- The **maximising player** chooses the move with the highest value.
-- The **minimising player** chooses the move with the lowest value.
+### Random rollouts
+For each candidate move, play many random games from the resulting position. Average the outcomes. The move leading to the highest average win rate is chosen. Improved by using a learned **policy** (instead of random moves) and a **value function** (to cut rollouts short).
 
-With **alpha-beta pruning**, branches that cannot affect the final decision are pruned, reducing the effective branching factor.
+### Minimax
+Label leaf nodes with win/loss. Propagate values up the tree: at "our" turns, take the **max**; at the opponent's turns, take the **min**. With a value function, limit search depth and use the value function at the cutoff. This is how Deep Blue played chess.
 
-#### Monte Carlo Tree Search (MCTS)
+### Monte Carlo Tree Search (MCTS)
+Iteratively build a partial game tree:
+1. **Select**: Walk from root to an unexpanded node
+2. **Expand**: Add one child to the tree
+3. **Simulate**: Do a rollout from the new node
+4. **Backup**: Update win rates for all ancestors
 
-MCTS builds a search tree incrementally through four steps:
+Balances exploration (visit uncertain nodes) with exploitation (visit promising nodes). More elegant than pure rollouts; more focused than full minimax.
 
-1. **Selection**: traverse the tree using a selection policy (e.g., UCB1) to find a promising leaf.
-2. **Expansion**: add a new child node.
-3. **Simulation** (rollout): play a random game from the new node to the end.
-4. **Backpropagation**: update visit counts and value estimates along the path.
+### Combining RL with tree search
+- **During play**: Use learned policy/value networks inside tree search for stronger play (AlphaGo).
+- **During training**: Use tree search as a **policy improvement operator** — trust that tree search + current policy produces better moves than current policy alone. Train the next policy to mimic the tree search output (AlphaZero).
 
-MCTS does not require an evaluation function and scales well to large state spaces.
+### AlphaGo → AlphaZero
+- **AlphaGo** (2016): Imitation learning from human games → RL self-play → MCTS during play. Beat world champion Lee Sedol.
+- **AlphaZero** (2017): No imitation learning. Pure self-play. MCTS used during training as policy improvement. Shared network for policy and value. Residual connections + batch norm. Surpassed AlphaGo in 21 days.
 
 ---
 
-### 13.7 AlphaGo and AlphaZero
+## 11. Social Impact: Profiling and Intelligent Infrastructure
 
-**AlphaGo** combined:
-- Supervised learning from human games (policy network).
-- Reinforcement learning via self-play.
-- MCTS guided by the policy and value networks.
+### Profiling
+Targeting people for investigation based on group membership rather than individual actions. Even with perfect data and models, profiling raises fundamental issues:
 
-**AlphaZero** simplified the approach:
-- **No human data**: learns entirely from self-play.
-- A single neural network $f_\\theta(s) \\to (\\mathbf{p}, v)$ outputs both a policy vector $\\mathbf{p}$ and a value estimate $v$.
-- MCTS uses the network for both selection (prior $\\mathbf{p}$) and evaluation (value $v$).
-- Achieved superhuman performance in Go, Chess, and Shogi.
+1. **Sampling bias**: Arrest data ≠ crime data (more policing → more arrests → biased training data)
+2. **Bias amplification**: Models may worsen biases beyond what's in the data
+3. **Prosecutor's fallacy**: p(drugs|black) is slightly elevated, but p(NOT drugs|black) is still >90%. Most people profiled are innocent.
+4. **Prediction ≠ action**: Accurate predictions don't justify any particular action. The cost of misclassification must be carefully considered.
+5. **Causal reasoning**: Correlation between race and crime doesn't mean race *causes* crime. Confounders (poverty, systemic racism) are the likely causal mechanism. Profiling may worsen these through feedback loops.
+6. **Deontological ethics**: Even if profiling "works" (consequentialist argument), it violates human dignity by holding individuals responsible for group statistics. A deontological objection cannot be countered by consequentialist arguments — they address different ethical frameworks.
 
----
+### Feedback loops
+When a model's predictions drive actions that change the data, dangerous cycles can emerge:
+- Predictive policing: More police → more arrests → model predicts more crime → even more police
+- Medical risk: Asthma patients get more care → fewer bad outcomes → model says asthma is protective → reduced care → worse outcomes
 
-## Key Terminology Glossary
+### Goodhart's Law
+"When a measure becomes a target, it ceases to be a good measure." Arrest rate is a decent proxy for crime rate — until you optimise for it. Student evaluations measure teaching quality — until teachers are pressured to maximise them.
 
----
+### McNamara Fallacy
+Focusing only on easily quantifiable metrics while ignoring hard-to-measure factors. Vietnam War: measurable metrics looked great; the war was lost anyway.
 
-| Term | Definition |
-|---|---|
-| **Bias (statistical)** | Systematic error from simplifying assumptions; the difference between the expected prediction and the true value. |
-| **Bias (model parameter)** | The intercept term $b$ in a linear model $\\mathbf{w}^\\top \\mathbf{x} + b$. |
-| **Decision boundary** | The surface in feature space where the classifier's prediction changes from one class to another. |
-| **Discriminative classifier** | Models $p(y \\mid \\mathbf{x})$ directly (e.g., logistic regression, SVM). |
-| **Generative classifier** | Models $p(\\mathbf{x} \\mid y)$ and uses Bayes' rule to classify (e.g., Naive Bayes). |
-| **Feature space** | The $d$-dimensional space spanned by the input features. |
-| **Gradient descent** | Iterative optimisation: $\\mathbf{w} \\leftarrow \\mathbf{w} - \\eta \\nabla \\mathcal{L}$. |
-| **Kernel** | A function that computes dot products in a (possibly infinite-dimensional) feature space without explicit mapping. |
-| **Likelihood** | $p(\\mathcal{D} \\mid \\theta)$ — the probability of the data given the parameters. |
-| **Loss function** | A function measuring the discrepancy between predictions and true values. |
-| **Maximum Likelihood** | Finding $\\theta^* = \\arg\\max_\\theta p(\\mathcal{D} \\mid \\theta)$. |
-| **Mode collapse** | A GAN failure where the generator only produces a few modes of the true data distribution. |
-| **PCA** | Dimensionality reduction by projecting onto directions of maximum variance. |
-| **Vanishing gradients** | Gradients shrink exponentially through many layers/time steps, hindering learning. |
-| **Overfitting** | Model memorises training data and fails to generalise to unseen data. |
-| **Underfitting** | Model is too simple to capture the underlying pattern. |
-| **Regularisation** | Techniques (L1, L2, dropout) that constrain the model to prevent overfitting. |
-| **Embedding** | A learned dense vector representation of a discrete object (word, user, item, node). |
-| **Attention** | A mechanism that computes weighted combinations of values based on query-key similarity. |
-| **Autoregressive** | A model that generates one token at a time, conditioned on all previously generated tokens. |
+### Intelligent infrastructure
+ML systems increasingly embedded in society (tax services, hospitals, news feeds, banks). Risks compound when optimised in isolation, without human oversight, and deployed uniformly at global scale. The solution isn't to avoid ML, but to involve **domain experts** and **stakeholders**, make systems **interpretable**, monitor for **feedback loops**, and never confuse accurate predictions with sound actions.
 `;
