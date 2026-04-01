@@ -43,6 +43,14 @@ export interface QuizQuestion {
   correctIndex: number;
   explanation: string;
   difficulty: 'easy' | 'medium' | 'hard';
+  /** Topic within the course, e.g. "Linear Models", "Deep Learning" */
+  topic?: string;
+  /** Question category, e.g. "Recall", "Application", "Conceptual Understanding" */
+  category?: string;
+  /** Lecture number, e.g. 1-13 */
+  lectureNumber?: number;
+  /** Lecture name, e.g. "Introduction" */
+  lectureName?: string;
 }
 
 export interface Resource {

@@ -227,6 +227,16 @@ export const resources: Resource[] = [
   type: 'article',
   tags: ['fundamentals', 'interactive', 'google'],
   },
+  {
+  id: 'res-ml-pdf-lectures',
+  courseId: 'machine-learning',
+  title: 'All Lectures — Complete Study Guide (PDF)',
+  description:
+    'Complete 153-page study guide covering all 13 ML lectures with exam preparation material. Covers everything from linear models to transformers and reinforcement learning.',
+  url: 'https://jasp-nerd.github.io/vu-ai-hub/vu-ai-resources/machine-learning/summaries/ml-all-lectures-complete.pdf',
+  type: 'pdf',
+  tags: ['all-lectures', 'study-guide', 'pdf', 'exam-prep'],
+  },
 
   // ========== Knowledge & Data ==========
   {

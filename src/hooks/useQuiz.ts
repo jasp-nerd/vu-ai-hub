@@ -1,29 +1,60 @@
 'use client';
 
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import type { QuizQuestion } from '../types';
 
-interface ShuffledQuestion extends QuizQuestion {
+export interface ShuffledQuestion extends QuizQuestion {
   /** The shuffled option labels (display order) */
   shuffledOptions: string[];
   /** Maps shuffled index → original index (so we can check correctness) */
   shuffledCorrectIndex: number;
 }
 
+export type QuizMode = 'config' | 'quiz' | 'results' | 'review';
+
+export interface QuizConfig {
+  selectedLectures: Set<number>;
+  selectedCategories: Set<string>;
+  questionCount: number;
+  timerEnabled: boolean;
+  timerSeconds: number;
+}
+
+interface AnswerRecord {
+  selected: number | null;
+  correct: boolean;
+  timedOut?: boolean;
+}
+
+export interface LectureResult {
+  lectureNumber: number;
+  lectureName: string;
+  correct: number;
+  total: number;
+}
+
+export interface CategoryResult {
+  category: string;
+  correct: number;
+  total: number;
+}
+
 interface QuizState {
+  mode: QuizMode;
   currentIndex: number;
   selectedAnswer: number | null;
   revealed: boolean;
   score: number;
   finished: boolean;
-  answers: (number | null)[];
-  /** Seed that changes on restart to trigger a fresh shuffle */
+  answers: AnswerRecord[];
   seed: number;
+  streak: number;
+  bestStreak: number;
+  timeLeft: number | null;
+  reviewIndex: number;
+  config: QuizConfig;
 }
 
-/**
- * Fisher-Yates shuffle (returns a new array)
- */
 function shuffle<T>(array: T[]): T[] {
   const a = [...array];
   for (let i = a.length - 1; i > 0; i--) {
@@ -33,15 +64,9 @@ function shuffle<T>(array: T[]): T[] {
   return a;
 }
 
-/**
- * Takes a question with a fixed correctIndex, shuffles its options, and
- * returns a new object with `shuffledOptions` and `shuffledCorrectIndex`.
- */
 function shuffleQuestion(q: QuizQuestion): ShuffledQuestion {
-  // Create index array [0, 1, 2, 3, ...] and shuffle it
   const indices = q.options.map((_, i) => i);
   const shuffledIndices = shuffle(indices);
-
   return {
     ...q,
     shuffledOptions: shuffledIndices.map((i) => q.options[i]),
@@ -49,8 +74,38 @@ function shuffleQuestion(q: QuizQuestion): ShuffledQuestion {
   };
 }
 
+/** Extract unique lectures from questions */
+export function getLectures(questions: QuizQuestion[]): { num: number; name: string }[] {
+  const map = new Map<number, string>();
+  for (const q of questions) {
+    if (q.lectureNumber != null && !map.has(q.lectureNumber)) {
+      map.set(q.lectureNumber, q.lectureName ?? `Lecture ${q.lectureNumber}`);
+    }
+  }
+  return Array.from(map.entries())
+    .sort(([a], [b]) => a - b)
+    .map(([num, name]) => ({ num, name }));
+}
+
+/** Extract unique categories from questions */
+export function getCategories(questions: QuizQuestion[]): string[] {
+  const set = new Set<string>();
+  for (const q of questions) {
+    if (q.category) set.add(q.category);
+  }
+  return Array.from(set);
+}
+
 export function useQuiz(questions: QuizQuestion[]) {
-  const [state, setState] = useState<QuizState>({
+  const hasLectureData = useMemo(() => questions.some((q) => q.lectureNumber != null), [questions]);
+  const hasCategoryData = useMemo(() => questions.some((q) => q.category != null), [questions]);
+  const hasMetadata = hasLectureData || hasCategoryData;
+
+  const lectures = useMemo(() => getLectures(questions), [questions]);
+  const categories = useMemo(() => getCategories(questions), [questions]);
+
+  const [state, setState] = useState<QuizState>(() => ({
+    mode: hasMetadata ? 'config' : 'quiz',
     currentIndex: 0,
     selectedAnswer: null,
     revealed: false,
@@ -58,18 +113,104 @@ export function useQuiz(questions: QuizQuestion[]) {
     finished: false,
     answers: [],
     seed: 0,
-  });
+    streak: 0,
+    bestStreak: 0,
+    timeLeft: null,
+    reviewIndex: 0,
+    config: {
+      selectedLectures: new Set(lectures.map((l) => l.num)),
+      selectedCategories: new Set(categories),
+      questionCount: 20,
+      timerEnabled: false,
+      timerSeconds: 30,
+    },
+  }));
 
-  // Shuffle question order AND each question's options.
-  // Re-shuffles whenever `seed` changes (i.e. on restart).
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Filter and shuffle questions based on config
+  const filteredQuestions = useMemo(() => {
+    let pool = [...questions];
+
+    if (hasLectureData && state.config.selectedLectures.size > 0) {
+      pool = pool.filter((q) => q.lectureNumber != null && state.config.selectedLectures.has(q.lectureNumber));
+    }
+    if (hasCategoryData && state.config.selectedCategories.size > 0) {
+      pool = pool.filter((q) => q.category != null && state.config.selectedCategories.has(q.category));
+    }
+
+    return pool;
+  }, [questions, state.config.selectedLectures, state.config.selectedCategories, hasLectureData, hasCategoryData]);
+
   const shuffledQuestions = useMemo(() => {
-    return shuffle(questions).map(shuffleQuestion);
+    let pool = shuffle(filteredQuestions);
+    if (state.config.questionCount > 0 && state.config.questionCount < pool.length) {
+      pool = pool.slice(0, state.config.questionCount);
+    }
+    return pool.map(shuffleQuestion);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [questions, state.seed]);
+  }, [filteredQuestions, state.seed]);
 
-  const currentQuestion = shuffledQuestions[state.currentIndex] as
-    | ShuffledQuestion
-    | undefined;
+  const currentQuestion = shuffledQuestions[state.currentIndex] as ShuffledQuestion | undefined;
+  const reviewQuestion = shuffledQuestions[state.reviewIndex] as ShuffledQuestion | undefined;
+
+  // Timer effect
+  useEffect(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    if (state.mode === 'quiz' && state.config.timerEnabled && !state.revealed && state.timeLeft != null && state.timeLeft > 0) {
+      timerRef.current = setInterval(() => {
+        setState((s) => {
+          if (s.timeLeft != null && s.timeLeft <= 1) {
+            // Time's up — auto-reveal
+            return {
+              ...s,
+              timeLeft: 0,
+              revealed: true,
+              streak: 0,
+              answers: [...s.answers, { selected: null, correct: false, timedOut: true }],
+            };
+          }
+          return { ...s, timeLeft: s.timeLeft != null ? s.timeLeft - 1 : null };
+        });
+      }, 1000);
+    }
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [state.mode, state.config.timerEnabled, state.revealed, state.currentIndex]);
+
+  // Compute results by lecture
+  const resultsByLecture = useMemo((): LectureResult[] => {
+    if (!hasLectureData || state.mode !== 'results') return [];
+    const map = new Map<number, LectureResult>();
+    shuffledQuestions.forEach((q, i) => {
+      if (q.lectureNumber == null || i >= state.answers.length) return;
+      const key = q.lectureNumber;
+      if (!map.has(key)) {
+        map.set(key, { lectureNumber: key, lectureName: q.lectureName ?? `Lecture ${key}`, correct: 0, total: 0 });
+      }
+      const r = map.get(key)!;
+      r.total++;
+      if (state.answers[i]?.correct) r.correct++;
+    });
+    return Array.from(map.values()).sort((a, b) => a.lectureNumber - b.lectureNumber);
+  }, [shuffledQuestions, state.answers, state.mode, hasLectureData]);
+
+  // Compute results by category
+  const resultsByCategory = useMemo((): CategoryResult[] => {
+    if (!hasCategoryData || state.mode !== 'results') return [];
+    const map = new Map<string, CategoryResult>();
+    shuffledQuestions.forEach((q, i) => {
+      if (!q.category || i >= state.answers.length) return;
+      if (!map.has(q.category)) {
+        map.set(q.category, { category: q.category, correct: 0, total: 0 });
+      }
+      const r = map.get(q.category)!;
+      r.total++;
+      if (state.answers[i]?.correct) r.correct++;
+    });
+    return Array.from(map.values());
+  }, [shuffledQuestions, state.answers, state.mode, hasCategoryData]);
 
   const selectAnswer = useCallback((index: number) => {
     setState((s) => (s.revealed ? s : { ...s, selectedAnswer: index }));
@@ -80,49 +221,138 @@ export function useQuiz(questions: QuizQuestion[]) {
       if (s.revealed || s.selectedAnswer === null) return s;
       const q = shuffledQuestions[s.currentIndex];
       const isCorrect = s.selectedAnswer === q.shuffledCorrectIndex;
+      const newStreak = isCorrect ? s.streak + 1 : 0;
       return {
         ...s,
         revealed: true,
         score: isCorrect ? s.score + 1 : s.score,
-        answers: [...s.answers, s.selectedAnswer],
+        streak: newStreak,
+        bestStreak: Math.max(s.bestStreak, newStreak),
+        answers: [...s.answers, { selected: s.selectedAnswer, correct: isCorrect }],
       };
     });
+    if (timerRef.current) clearInterval(timerRef.current);
   }, [shuffledQuestions]);
 
   const nextQuestion = useCallback(() => {
     setState((s) => {
       const nextIndex = s.currentIndex + 1;
       if (nextIndex >= shuffledQuestions.length) {
-        return { ...s, finished: true };
+        return { ...s, finished: true, mode: 'results' as QuizMode };
       }
       return {
         ...s,
         currentIndex: nextIndex,
         selectedAnswer: null,
         revealed: false,
+        timeLeft: s.config.timerEnabled ? s.config.timerSeconds : null,
       };
     });
   }, [shuffledQuestions.length]);
 
   const restart = useCallback(() => {
-    setState({
+    setState((s) => ({
+      ...s,
+      mode: 'quiz',
       currentIndex: 0,
       selectedAnswer: null,
       revealed: false,
       score: 0,
       finished: false,
       answers: [],
-      seed: Date.now(), // new seed → triggers a fresh shuffle
-    });
+      seed: Date.now(),
+      streak: 0,
+      bestStreak: 0,
+      timeLeft: s.config.timerEnabled ? s.config.timerSeconds : null,
+      reviewIndex: 0,
+    }));
+  }, []);
+
+  const goToConfig = useCallback(() => {
+    setState((s) => ({
+      ...s,
+      mode: 'config',
+      currentIndex: 0,
+      selectedAnswer: null,
+      revealed: false,
+      score: 0,
+      finished: false,
+      answers: [],
+      streak: 0,
+      bestStreak: 0,
+      timeLeft: null,
+      reviewIndex: 0,
+    }));
+  }, []);
+
+  const startQuiz = useCallback(() => {
+    setState((s) => ({
+      ...s,
+      mode: 'quiz',
+      currentIndex: 0,
+      selectedAnswer: null,
+      revealed: false,
+      score: 0,
+      finished: false,
+      answers: [],
+      seed: Date.now(),
+      streak: 0,
+      bestStreak: 0,
+      timeLeft: s.config.timerEnabled ? s.config.timerSeconds : null,
+      reviewIndex: 0,
+    }));
+  }, []);
+
+  const updateConfig = useCallback((partial: Partial<QuizConfig>) => {
+    setState((s) => ({ ...s, config: { ...s.config, ...partial } }));
+  }, []);
+
+  const goToReview = useCallback(() => {
+    setState((s) => ({ ...s, mode: 'review', reviewIndex: 0 }));
+  }, []);
+
+  const setReviewIndex = useCallback((index: number) => {
+    setState((s) => ({ ...s, reviewIndex: Math.max(0, Math.min(index, shuffledQuestions.length - 1)) }));
+  }, [shuffledQuestions.length]);
+
+  const goToResults = useCallback(() => {
+    setState((s) => ({ ...s, mode: 'results' }));
   }, []);
 
   return {
-    ...state,
+    mode: state.mode,
+    currentIndex: state.currentIndex,
+    selectedAnswer: state.selectedAnswer,
+    revealed: state.revealed,
+    score: state.score,
+    finished: state.finished,
+    answers: state.answers,
+    streak: state.streak,
+    bestStreak: state.bestStreak,
+    timeLeft: state.timeLeft,
+    reviewIndex: state.reviewIndex,
+    config: state.config,
     currentQuestion,
+    reviewQuestion,
     totalQuestions: shuffledQuestions.length,
+    filteredCount: filteredQuestions.length,
+    hasMetadata,
+    hasLectureData,
+    hasCategoryData,
+    lectures,
+    categories,
+    resultsByLecture,
+    resultsByCategory,
+    shuffledQuestions,
     selectAnswer,
     revealAnswer,
     nextQuestion,
     restart,
+    goToConfig,
+    startQuiz,
+    updateConfig,
+    goToReview,
+    setReviewIndex,
+    goToResults,
   };
 }
