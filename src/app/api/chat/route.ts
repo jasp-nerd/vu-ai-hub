@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 export async function POST(request: Request) {
   const { context, messages } = await request.json();
 
@@ -35,7 +37,7 @@ ${context}`;
             ...messages.slice(-20),
           ],
           stream: true,
-          max_tokens: 1024,
+          max_tokens: 4096,
           temperature: 0.3,
         }),
       }
