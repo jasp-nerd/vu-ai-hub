@@ -42,13 +42,15 @@ export default function CourseGradeCalculator({ courseId, structure }: Props) {
   }, [courseId]);
 
   const handleChange = (name: string, value: string) => {
-    if (value === '' || value === '.') {
-      setGrades((prev) => ({ ...prev, [name]: value }));
+    // Normalize comma to dot for decimal separator (phone keyboards)
+    const normalized = value.replace(',', '.');
+    if (normalized === '' || normalized === '.') {
+      setGrades((prev) => ({ ...prev, [name]: normalized }));
       return;
     }
-    const num = parseFloat(value);
+    const num = parseFloat(normalized);
     if (!isNaN(num) && num >= 0 && num <= 10) {
-      setGrades((prev) => ({ ...prev, [name]: value }));
+      setGrades((prev) => ({ ...prev, [name]: normalized }));
     }
   };
 
