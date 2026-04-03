@@ -58,14 +58,16 @@ export default function GPACalculatorPage() {
   }, []);
 
   const handleGradeChange = useCallback((courseId: string, value: string) => {
+    // Normalize comma to dot for decimal separator (phone keyboards)
+    const normalized = value.replace(',', '.');
     // Allow empty, or valid numbers between 1 and 10
-    if (value === '' || value === '.') {
-      setGrades((prev) => ({ ...prev, [courseId]: value }));
+    if (normalized === '' || normalized === '.') {
+      setGrades((prev) => ({ ...prev, [courseId]: normalized }));
       return;
     }
-    const num = parseFloat(value);
+    const num = parseFloat(normalized);
     if (!isNaN(num) && num >= 1 && num <= 10) {
-      setGrades((prev) => ({ ...prev, [courseId]: value }));
+      setGrades((prev) => ({ ...prev, [courseId]: normalized }));
     }
   }, []);
 
@@ -224,7 +226,7 @@ export default function GPACalculatorPage() {
                   inputMode="decimal"
                   value={targetGPA}
                   onChange={(e) => {
-                    const v = e.target.value;
+                    const v = e.target.value.replace(',', '.');
                     if (v === '' || v === '.' || (!isNaN(parseFloat(v)) && parseFloat(v) >= 1 && parseFloat(v) <= 10)) {
                       setTargetGPA(v);
                     }
