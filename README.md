@@ -10,7 +10,6 @@ Browse courses, read study tips from fellow students, test yourself with quizzes
 
 ```
 src/data/         Course content: tips, quizzes, resources, practice questions, FAQ, blog
-vu-ai-resources/  Downloadable study materials (summaries, formula sheets, exam prep)
 src/              React frontend (pages, components, styles)
 api/              Serverless API functions (Vercel)
 ```
@@ -19,7 +18,7 @@ All student-facing content lives in TypeScript data files inside `src/data/`. Th
 
 ## Study Resources
 
-The `vu-ai-resources/` folder contains free study materials (summaries, formula sheets, crash course notes, exam prep, etc.) for courses in the BSc AI programme. See the [resource README](vu-ai-resources/README.md) for the full list.
+Downloadable study materials (summaries, formula sheets, crash course notes, exam prep, etc.) live in their own repo: **[jasp-nerd/vu-ai-resources](https://github.com/jasp-nerd/vu-ai-resources)**. They're served via GitHub Pages and linked from the site; splitting them out keeps this repo light so contributors can clone quickly. To add new study materials, push them to that repo and add a matching entry in [`src/data/resources.ts`](src/data/resources.ts).
 
 ## Contributing
 
