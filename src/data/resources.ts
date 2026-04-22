@@ -1112,15 +1112,6 @@ export const resources: Resource[] = [
   tags: ['summary', 'textbook'],
   },
   {
-  id: 'res-pdf-hos-6',
-  courseId: 'history-of-ai',
-  title: 'Computer — Handwritten Notes',
-  description: 'Handwritten notes on the "Computer" book.',
-  url: 'https://jasp-nerd.github.io/vu-ai-resources/history-of-ai/summaries/computer-book-handwritten-notes.pdf',
-  type: 'pdf',
-  tags: ['notes', 'handwritten'],
-  },
-  {
   id: 'res-pdf-hos-7',
   courseId: 'history-of-ai',
   title: 'Lecture Notes',
