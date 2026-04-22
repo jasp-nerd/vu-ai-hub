@@ -64,6 +64,11 @@ Add a new object to the `resources` array:
 }
 ```
 
+**Contributing a PDF, DOCX, or other downloadable file?** The file itself goes in the separate [jasp-nerd/vu-ai-resources](https://github.com/jasp-nerd/vu-ai-resources) repo (it's served via GitHub Pages). Two ways:
+
+1. **Open a PR on that repo** with your file under `{course-id}/{category}/{filename}` (e.g. `machine-learning/summaries/my-summary.pdf`). Once merged, the file is live at `https://jasp-nerd.github.io/vu-ai-resources/{course-id}/{category}/{filename}` — use that as the `url` in your resource entry here.
+2. **Not comfortable with git?** Open an issue on either repo with the file attached and someone will upload it for you.
+
 ### Quiz Questions (`src/data/quizzes.ts`)
 
 Add a new object to the `quizzes` array. There are detailed guidelines at the top of the file — please read them before writing questions.
