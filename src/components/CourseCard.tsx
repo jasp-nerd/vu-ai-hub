@@ -1,11 +1,14 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Course } from '../types';
-import { DIFFICULTY_LABELS } from '../constants';
-
-const difficultyLabel = DIFFICULTY_LABELS;
+import DifficultyBars from './DifficultyBars';
+import { useCourseDifficulty, resolveDifficulty } from '../lib/difficulty';
 
 export default function CourseCard({ course, style }: { course: Course; style?: React.CSSProperties }) {
+  const agg = useCourseDifficulty(course.id);
+  const difficulty = resolveDifficulty(course.difficulty, agg);
   return (
     <Link
       href={`/courses/${course.slug}`}
@@ -41,23 +44,11 @@ export default function CourseCard({ course, style }: { course: Course; style?: 
           {course.description}
         </p>
         <div className="flex items-center justify-between">
-          <div className="flex gap-1.5">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div
-                key={i}
-                className={`w-1.5 h-5 rounded-full ${
-                  course.difficulty === 0
-                    ? 'bg-stone-200 dark:bg-stone-700'
-                    : i < course.difficulty
-                      ? 'bg-vu-blue dark:bg-vu-blue-light'
-                      : 'bg-stone-100 dark:bg-stone-800'
-                }`}
-              />
-            ))}
-            <span className="ml-1.5 text-xs text-stone-400 dark:text-stone-500">
-              {difficultyLabel[course.difficulty]}
-            </span>
-          </div>
+          <DifficultyBars
+            value={difficulty.value}
+            count={difficulty.count}
+            crowdSourced={difficulty.crowdSourced}
+          />
         </div>
       </div>
     </Link>

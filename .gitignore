@@ -25,4 +25,4 @@ dist-ssr
 *.sw?
 .vercel
 All files/
-all_canvas_courses/
+all_canvas_courses/tsconfig.tsbuildinfo

@@ -25,8 +25,17 @@ import ContributionPopup from '../components/ContributionPopup';
 import CourseGradeCalculator from '../components/CourseGradeCalculator';
 import FeedbackPopup from '../components/FeedbackPopup';
 import TipSubmitBox from '../components/TipSubmitBox';
-import { DIFFICULTY_LABELS } from '../constants';
+import DifficultyVote from '../components/DifficultyVote';
+import ResourceVote from '../components/ResourceVote';
+import MaterialUploadForm from '../components/MaterialUploadForm';
 import { useMountAnimation } from '../hooks/useAnimations';
+import type { Resource } from '../types';
+import {
+  fetchTips,
+  fetchBackendResources,
+  fetchVoteCounts,
+  type BackendTip,
+} from '../lib/apiClient';
 
 type Tab = 'Overview' | 'Tips & Advice' | 'Quizzes' | 'Practice Problems' | 'Exam Practice' | 'Resources' | 'AI Chat';
 
@@ -47,8 +56,14 @@ export default function CourseDetailPage() {
   // Key to trigger crossfade on tab change
   const [tabKey, setTabKey] = useState(0);
   const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
+  // Live overlay data from the backend (merged with the static seed below).
+  const [backendTips, setBackendTips] = useState<BackendTip[]>([]);
+  const [backendResources, setBackendResources] = useState<Resource[]>([]);
+  const [voteCounts, setVoteCounts] = useState<Record<string, number>>({});
+  const [showUpload, setShowUpload] = useState(false);
 
   const course = getCourseBySlug(slug || '');
+  const courseId = course?.id;
 
   useEffect(() => {
     if (!course) return;
@@ -60,6 +75,46 @@ export default function CourseDetailPage() {
       setShowFeedbackPopup(true);
     }
   }, [course]);
+
+  // Fetch backend tips + uploaded resources for this course (safe no-op if the
+  // backend is unset/unreachable — the static data still renders).
+  useEffect(() => {
+    if (!courseId) return;
+    let active = true;
+    fetchTips(courseId).then((t) => active && setBackendTips(t));
+    fetchBackendResources(courseId).then((rs) => {
+      if (!active) return;
+      setBackendResources(
+        rs.map((r) => ({
+          id: r.id,
+          courseId: r.courseId,
+          title: r.title,
+          description: r.description,
+          url: r.url,
+          type: r.type as Resource['type'],
+          tags: r.tags,
+          author: r.author ?? undefined,
+        }))
+      );
+    });
+    return () => {
+      active = false;
+    };
+  }, [courseId]);
+
+  // Batch-fetch "helpful" vote counts for all of this course's resources at once.
+  useEffect(() => {
+    if (!courseId) return;
+    let active = true;
+    const ids = [
+      ...getResourcesForCourse(courseId).map((r) => r.id),
+      ...backendResources.map((r) => r.id),
+    ];
+    fetchVoteCounts(ids).then((c) => active && setVoteCounts(c));
+    return () => {
+      active = false;
+    };
+  }, [courseId, backendResources]);
 
   if (!course) {
     return (
@@ -80,9 +135,14 @@ export default function CourseDetailPage() {
     );
   }
 
-  const tips = getTipsForCourse(course.id);
+  // Merge static seed tips with live backend tips (backend = newest, shown first).
+  const tips = [
+    ...backendTips.map((t) => ({ id: t.id, content: t.content, author: t.author || 'Anonymous' })),
+    ...getTipsForCourse(course.id).map((t) => ({ id: t.id, content: t.content, author: t.author })),
+  ];
   const quizQuestions = getQuizQuestionsForCourse(course.id);
-  const resources = getResourcesForCourse(course.id);
+  // Static resources first (featured summaries), then approved uploads.
+  const resources = [...getResourcesForCourse(course.id), ...backendResources];
   const practiceQuestions = getPracticeQuestionsForCourse(course.id);
   const essayPromptsList = getEssayPromptsForCourse(course.id);
   const gradeStructure = getGradeStructureForCourse(course.id);
@@ -134,9 +194,7 @@ export default function CourseDetailPage() {
           {course.credits && (
             <span className="text-xs text-stone-400 dark:text-stone-500">{course.credits}</span>
           )}
-          <span className="text-xs text-stone-400 dark:text-stone-500">
-            {DIFFICULTY_LABELS[course.difficulty]}
-          </span>
+          <DifficultyVote courseId={course.id} seed={course.difficulty} />
           {course.specialisation && (
             <span className="text-xs text-stone-400 dark:text-stone-500 capitalize">
               {(Array.isArray(course.specialisation) ? course.specialisation : [course.specialisation])
@@ -360,7 +418,10 @@ export default function CourseDetailPage() {
               </div>
             )}
             <div className="mt-8">
-              <TipSubmitBox courseName={course.name} />
+              <TipSubmitBox
+                courseId={course.id}
+                onSubmitted={(t) => setBackendTips((prev) => [t, ...prev])}
+              />
             </div>
           </div>
         )}
@@ -394,9 +455,23 @@ export default function CourseDetailPage() {
 
         {activeTab === 'Resources' && (
           <div role="tabpanel" id="tabpanel-Resources" aria-labelledby="tab-Resources">
+            <div className="flex items-center justify-between gap-3 mb-4">
+              <p className="text-sm text-stone-500 dark:text-stone-400">
+                Summaries, notes, mock exams and links shared by students.
+              </p>
+              <button
+                onClick={() => setShowUpload(true)}
+                className="shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-vu-blue/10 dark:bg-vu-blue/15 text-vu-blue dark:text-vu-blue-light text-sm font-medium py-2 px-3 hover:bg-vu-blue/15 dark:hover:bg-vu-blue/20 transition-colors press-effect"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+                </svg>
+                Upload material
+              </button>
+            </div>
             {resources.length === 0 ? (
               <p className="text-stone-400 dark:text-stone-500 text-sm">
-                No resources available yet. Check back later!
+                No resources available yet — be the first to contribute!
               </p>
             ) : (
               <div className="space-y-3">
@@ -486,13 +561,16 @@ export default function CourseDetailPage() {
                       : null;
 
                     return (
-                      <a
+                      <div
                         key={resource.id}
+                        className="rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-sm animate-fade-in-up overflow-hidden"
+                        style={{ animationDelay: `${i * 50 + 80}ms` }}
+                      >
+                      <a
                         href={resource.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group block rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-5 hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-sm animate-fade-in-up"
-                        style={{ animationDelay: `${i * 50 + 80}ms` }}
+                        className="group block p-5"
                       >
                         <div className="flex items-start gap-4">
                           {ytThumbnail ? (
@@ -554,6 +632,12 @@ export default function CourseDetailPage() {
                           </svg>
                         </div>
                       </a>
+                      <ResourceVote
+                        resourceId={resource.id}
+                        url={resource.url}
+                        initialCount={voteCounts[resource.id] ?? 0}
+                      />
+                      </div>
                     );
                   })}
               </div>
@@ -571,7 +655,16 @@ export default function CourseDetailPage() {
         )}
       </div>
 
-      {course.difficulty === 0 && <ContributionPopup courseName={course.name} />}
+      {course.difficulty === 0 && (
+        <ContributionPopup courseId={course.id} courseName={course.name} />
+      )}
+      {showUpload && (
+        <MaterialUploadForm
+          courseId={course.id}
+          courseName={course.name}
+          onClose={() => setShowUpload(false)}
+        />
+      )}
       {showFeedbackPopup && (
         <FeedbackPopup
           courseName={course.name}
