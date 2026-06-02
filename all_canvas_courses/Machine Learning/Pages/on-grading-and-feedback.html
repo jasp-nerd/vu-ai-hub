@@ -1,0 +1,429 @@
+<html><head><title>On grading and feedback</title></head><body><h1>On grading and feedback</h1><p>This page contains the details for how the course grade is arrived at.</p>
+<h2>The basics</h2>
+<p>As stated in the Syllabus:</p>
+<ul>
+<li>The final grade is the average of the examination grade and the project grade.</li>
+<li>To pass, the project grade should be 4.5 or higher, the examination grade should be 5.5 or higher, and the average should be 5.5 or higher.</li>
+<li>The examination grade is determined by the results of the quizzes and the final exam. You can score a maximum 10 ten points per quiz, and 40 points for the final exam, for a total of 80 points for the examination.</li>
+<li>80 points corresponds to a grade of 10, 52 points corresponds to a grade of 5.5, the <em>pass mark</em>.</li>
+<li>There are no intermediate grades for the quizzes or exam. We add up all points and determined the grade from this total.</li>
+<li>If there are mistakes in the exam, these will be converted to bonus questions. This does not affect the pass mark, but does affect the number of points corresponding to a 10. For instance, if there are mistakes in 2 questions, the pass mark stays where it is, but now scoring 78 points will lead to a grade of 10 (and a grade above 10 will become possible).
+<ul>
+<li>If this happens, the final course grade is capped at a 10, but when computing the average between the examination and the report, the uncapped grade (potentially above 10) is used.</li>
+</ul>
+</li>
+</ul>
+<h2>Quiz grades and feedback</h2>
+<p>The quizzes contain some open questions, some of which are mini essays. This occasionally leads to some questions, since in Computer Science, we don't commonly write or grade essays.</p>
+<p>If you have questions about your grade, you have two options:</p>
+<ol style="list-style-type: decimal;">
+<li>If you don't necessarily want the grade to be changed, but you are just curious about what you could have done better, attend a homework session, and ask the TA to look at your answer and give you some feedback. This won't necessarily be the TA that&nbsp; graded you.</li>
+<li>If you are unhappy with your grade you can request a regrade by emailing the course coordinator, <em>not a TA</em>. In this case, the second grade counts, even if it is lower. Regrading will be done either by a second TA or the coordinator themselves.</li>
+</ol>
+<p>The main question we get goes something like: "I didn't get full marks, I want to know what I did wrong". It's important to understand that this <em><strong>is not how essay grading works</strong></em>. There is no fixed sets of things that you have to do to get full marks. Getting 3 out of 4 points is like getting a an 8 for a final report. It's a sound grade: not perfect, but better than average. There are many different ways in which the essay could have been improved, but that doesn't mean that each of these was a thing you were <em>supposed</em> to do.</p>
+<h4>FAQ: Quiz grading<strong></strong><strong></strong></h4>
+<p><strong>How do I find out who graded my quiz?</strong></p>
+<p>You don't. It is not the job of the TAs to engage with students about their grading. See above for your options.</p>
+<p><strong>Why is there no feedback on my essay? How can I learn to improve if I don't know what I did wrong?</strong></p>
+<p>We agree that feedback is beneficial to learning, but it also takes skill and time to write. Moreover, feedback often invites discussion, putting even more pressure on the grader.</p>
+<p>With ~700 quizzes to grade per week, we simply don't have the resources to provide feedback on essays that, ultimately, count for at most 1/32 of the final grade each.</p>
+<p><strong>How are we supposed to learn to write essays without feedback?</strong></p>
+<p>Learning to write, like learning to program, is one of the secondary learning goals of the course. That means that it's something we evaluate on, and we provide the opportunity to <em>practice</em>, but it's not something we explicitly <em>teach</em>.</p>
+<p>In most programs, there is an academic writing course. In that setting, writing is the main learning goal, and you should have received explicit feedback. If you feel that this was insufficient, or if your program does not offer academic writing as a course, there are many resources online that can help you.</p>
+<p><strong>How can you guard against subjectivity in grades if there's no feedback?</strong></p>
+<p>We do this by grading on a <a class="inline_disabled" href="https://en.wikipedia.org/wiki/Rubric_(academic)" target="_blank">rubric</a>. This is a scoring guide that gives examples of what each number of points should correspond to. For the quizzes, we cannot publish the rubric (as we do for the final report), because they contain examples and pointers that would make the quiz to easy to do.</p>
+<p>If the quiz question is based (in part) on the author's personal opinion, we explicitly instruct the TAs not to grade the conclusion, but the quality of the argument.<strong></strong></p>
+<p>It's important to note that there is always going to be some subjectivity in grading quizzes. We consider this acceptable, so long as it's expressed as <em>variance </em>in the grading rather than <em>bias</em>. With 80 points worth of exercises, we can be sure that a little variance will work in your favor as often as it will be to your detriment and the final grade will be a good<em> estimate</em> of your performance.</p>
+<h2>The examination grade</h2>
+<p>The examination grade is based on the total number of points you get for all 4 quizzes and the final exam combined. It is determined by the following rules:</p>
+<ul>
+<li>The pass mark (52 points) corresponds to a 5.5,</li>
+<li>80 points corresponds to a 10, and</li>
+<li>the relation between points and the grade is linear.</li>
+</ul>
+<p>With that, we can work out the formula <img class="equation_image" title="g = \frac{4.5}{80 - m} p + 5.5 - m \frac{4.5}{80-m} " src="https://canvas.vu.nl/equation_images/g%2520%253D%2520%255Cfrac%257B4.5%257D%257B80%2520-%2520m%257D%2520p%2520%252B%25205.5%2520-%2520m%2520%255Cfrac%257B4.5%257D%257B80-m%257D%2520?scale=1" alt="LaTeX: g = \frac{4.5}{80 - m} p + 5.5 - m \frac{4.5}{80-m} " data-equation-content="g = \frac{4.5}{80 - m} p + 5.5 - m \frac{4.5}{80-m} " data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mi>g</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mn>4.5</mn>
+    <mrow>
+      <mn>80</mn>
+      <mo>&amp;#x2212;<!-- − --></mo>
+      <mi>m</mi>
+    </mrow>
+  </mfrac>
+  <mi>p</mi>
+  <mo>+</mo>
+  <mn>5.5</mn>
+  <mo>&amp;#x2212;<!-- − --></mo>
+  <mi>m</mi>
+  <mfrac>
+    <mn>4.5</mn>
+    <mrow>
+      <mn>80</mn>
+      <mo>&amp;#x2212;<!-- − --></mo>
+      <mi>m</mi>
+    </mrow>
+  </mfrac>
+</math>">. where g is the grade, p is the number of points, and m is the pass mark.</p>
+<p>In previous years, we determined the pass mark after the exam, based on statistics about how each question was answered. This is now stable enough that we can simplify things by setting the pass mark at the start of the course (at 52 points).</p>
+<h3>Determining the pass mark</h3>
+<p>A common misconception is that getting half the questions in an evaluation correct should correspond to a minimal pass. This is often taken as a rule of thumb, but it is nothing more than that.</p>
+<p>The real litmus test is the <em>key learning goals</em>. Out of all the learning goals (all of the material and all the soft goals like presenting, programming and writing), we identify a subset of key items. For instance:</p>
+<ul>
+<li>Knowing what a validation set is is a key goal. A student should not be able to pass if they don't know that.</li>
+<li>Knowing what the backpropagation algorithm is, and how, in principle to apply it, is another key learning goal. A student that doesn't know this, should fail the course.</li>
+<li>Knowing how to apply backpropagation to tensor data is <em>not</em> a key learning goal. We teach this, and we test it, but if a student fails that test, we are happy for them to compensate in other areas and to pass.</li>
+</ul>
+<p>The point is that an ideal pass mark should be set so that any student who doesn't know their key learning goals will fail, and any student who knows the key learning goals but nothing else passes with a minimal grade.</p>
+<p>Of course, we don't achieve this just by setting the pass mark. It starts by setting up an exam with a good mix for key and secondary learning goals. The choice of the pass mark is just a last moment of fine tuning. For a given choice of pass mark, we look at the students that will fail and the students that succeed, and we check whether, roughly, the passing students mostly satisfy the key learning goals, and the failing students don't.</p>
+<p>In addition to this, we use the statistics of the exam to double check any questions that were too difficult, ambiguous, or otherwise poorly phrased. We have various metrics for this, but the most important ones measure whether doing well on a question correlates with doing well on other questions. In general, if the students that do well on other questions do poorly on a given question, it's an indication that the question should be double-checked. In rare cases, this may lead to questions becoming bonus questions.</p>
+<h3>FAQ: Examination</h3>
+<p><strong>Isn't it unfair that I should get several answers correct to score a 1 (the lowest possible grade)?</strong></p>
+<p>The logic here is that due to the large number of multiple choice questions, we need to account for what is known as "random guessing". In, the exam for instance, a student who randomly guesses all answers can expect to score 10 points. The general rule is that the expected number of points scored by purely random guessing should correspond roughly to the lowest possible grade.</p>
+<p>In our case, this is a complicated by the fact that parts of the quizzes aren't multiple choice, so the random guessing score should be somewhere between 10 and 20 points. This is one of the things we look at when choosing the pass mark.</p>
+<p><strong>I failed by just one point. Can't you make an exception in this case?</strong></p>
+<p>We realize that failing by a single point is painful. However, we cannot just increase the score: we need a reason to do so. In a course of this size, there will be many people who fail by one point, so passing them all without careful review would cause a serious bias.</p>
+<p>After the pass mark is determined, we manually check every student that fails by one point. We double check their grade, and go over their quizzes to see if there's an obvious reason to give them one extra point.</p>
+<p>However, this is no more than a sanity check. To be more thorough, we need to do a true regrade, which comes with the risk of a lower grade. That is, your grade can go down as well as up. You can request a regrade of any or all of your quizzes, if you think it will get you the one point. If not, you will have to do the resit.</p>
+<p><strong>Are these questions testing the right thing? One application question just asks me to name the rules of differentiation and another requires me to memorize a big deriviation.</strong></p>
+<p>The point of the differentiation question is not that you should memorize the rules (they're given on the formula sheet), but that you should <em>recognize</em> what is happening in a differentiation. It's an indirect way of testing whether you understand the rules. This is an easy question, but then an exam should have both easy and difficult question.</p>
+<p>For the derivation of the ELBO, you could indeed memorize the whole derivation, and sidestep the real learning goals that way. You could even write the whole thing on your cheat sheet. However, we expect that this is more effort than just going through all the steps and understanding how each follows from the one before it.</p>
+<p>Since most of you will, presumably, actually <em>want </em>to learn the information presented, there is minimal risk in offering this shortcut.</p>
+<p><strong>Did you know that there are a lot of old exams floating around? If questions are reused we can just memorize the old exams.</strong></p>
+<p>This is true, and we do reuse questions from previous years. However, at this point the question bank numbers at least 200 questions. If you memorize all 200 questions, you haven't really cheated: you've just learned the material. Learning from the slides is probably the same amount of effort, but with a little better generalizability to the things you will actually use this knowledge for later.</p>
+<p>We are happy for you to do either, but we recommend the slides.</p>
+<p><strong>How do I compute my grade from the points?</strong></p>
+<p>The formula is given above. You can also use the following table to look up your grade. Note that the table is just for your convenience. In computing the grades we use the formula and we don't round or clip anything until the very final course grade (which is rounded to the nearest 0.5).</p>
+<table style="border-collapse: collapse; width: 0px; border-color: currentcolor; border-style: none;" dir="ltr" border="0" cellspacing="0" cellpadding="0" data-sheets-root="1"><colgroup><col width="100"><col width="100"></colgroup>
+<tbody>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;points&quot;}"><strong>points</strong></td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom;" data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;grade&quot;}"><strong>grade</strong></td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:0}">0</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-2.8571428571428577}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-2.9</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:1}">1</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-2.696428571428572}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-2.7</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:2}">2</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-2.535714285714286}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-2.5</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:3}">3</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-2.3750000000000004}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-2.4</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:4}">4</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-2.214285714285715}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-2.2</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:5}">5</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-2.053571428571429}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-2.1</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:6}">6</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-1.8928571428571432}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-1.9</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:7}">7</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-1.7321428571428577}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-1.7</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:8}">8</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-1.5714285714285718}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-1.6</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:9}">9</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-1.410714285714286}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-1.4</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:10}">10</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-1.2500000000000004}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-1.3</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:11}">11</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-1.0892857142857146}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-1.1</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:12}">12</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-0.9285714285714288}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-0.9</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:13}">13</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-0.7678571428571432}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-0.8</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:14}">14</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-0.6071428571428577}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-0.6</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:15}">15</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-0.4464285714285716}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-0.4</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:16}">16</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-0.28571428571428603}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-0.3</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:17}">17</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:-0.12500000000000044}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">-0.1</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:18}">18</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:0.03571428571428559}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">0.0</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:19}">19</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:0.19642857142857117}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">0.2</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:20}">20</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:0.35714285714285676}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">0.4</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:21}">21</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:0.5178571428571428}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">0.5</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:22}">22</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:0.6785714285714284}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">0.7</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:23}">23</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:0.839285714285714}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">0.8</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:24}">24</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:1}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">1.0</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:25}">25</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:1.1607142857142856}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">1.2</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:26}">26</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:1.3214285714285712}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">1.3</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:27}">27</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:1.4821428571428568}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">1.5</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:28}">28</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:1.6428571428571423}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">1.6</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:29}">29</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:1.8035714285714288}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">1.8</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:30}">30</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:1.9642857142857144}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">2.0</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:31}">31</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:2.125}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">2.1</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:32}">32</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:2.2857142857142856}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">2.3</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:33}">33</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:2.446428571428571}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">2.4</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:34}">34</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:2.6071428571428568}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">2.6</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:35}">35</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:2.7678571428571423}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">2.8</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:36}">36</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:2.928571428571429}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">2.9</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:37}">37</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:3.0892857142857144}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">3.1</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:38}">38</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:3.25}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">3.3</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:39}">39</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:3.4107142857142856}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">3.4</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:40}">40</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:3.571428571428571}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">3.6</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:41}">41</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:3.7321428571428568}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">3.7</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:42}">42</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:3.8928571428571432}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">3.9</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:43}">43</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:4.053571428571429}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">4.1</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:44}">44</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:4.214285714285714}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">4.2</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:45}">45</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:4.375}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">4.4</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:46}">46</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:4.535714285714286}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">4.5</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:47}">47</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:4.696428571428571}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">4.7</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:48}">48</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:4.857142857142858}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">4.9</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:49}">49</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:5.017857142857143}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">5.0</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:50}">50</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:5.178571428571429}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">5.2</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:51}">51</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:5.3392857142857135}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">5.3</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:52}">52</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:5.5}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">5.5</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:53}">53</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:5.6607142857142865}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">5.7</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:54}">54</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:5.821428571428571}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">5.8</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:55}">55</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:5.982142857142858}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">6.0</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:56}">56</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:6.142857142857142}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">6.1</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:57}">57</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:6.303571428571429}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">6.3</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:58}">58</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:6.464285714285715}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">6.5</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:59}">59</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:6.625}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">6.6</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:60}">60</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:6.7857142857142865}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">6.8</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:61}">61</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:6.946428571428571}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">6.9</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:62}">62</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:7.107142857142858}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">7.1</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:63}">63</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:7.267857142857142}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">7.3</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:64}">64</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:7.428571428571429}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">7.4</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:65}">65</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:7.589285714285715}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">7.6</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:66}">66</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:7.75}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">7.8</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:67}">67</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:7.9107142857142865}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">7.9</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:68}">68</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:8.071428571428571}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">8.1</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:69}">69</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:8.232142857142858}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">8.2</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:70}">70</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:8.392857142857142}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">8.4</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:71}">71</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:8.553571428571429}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">8.6</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:72}">72</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:8.714285714285715}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">8.7</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:73}">73</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:8.875}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">8.9</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:74}">74</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:9.035714285714286}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">9.0</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:75}">75</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:9.196428571428571}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">9.2</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:76}">76</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:9.357142857142858}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">9.4</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:77}">77</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:9.517857142857144}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">9.5</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:78}">78</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:9.678571428571429}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">9.7</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:79}">79</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:9.839285714285715}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">9.8</td>
+</tr>
+<tr style="height: 21px;">
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:80}">80</td>
+<td style="overflow: hidden; padding: 2px 3px 2px 3px; vertical-align: bottom; text-align: right;" data-sheets-value="{&quot;1&quot;:3,&quot;3&quot;:10}" data-sheets-numberformat="{&quot;1&quot;:2,&quot;2&quot;:&quot;0.0&quot;}" data-sheets-formula="=R[0]C[-1]*R6C2 + R6C3">10.0</td>
+</tr>
+</tbody>
+</table></body></html>

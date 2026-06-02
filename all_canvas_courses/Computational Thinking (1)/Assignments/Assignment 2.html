@@ -1,0 +1,163 @@
+<html><head><title>Assignment 2</title></head><body><h1>Assignment 2</h1><h2><a href="https://canvas.vu.nl/courses/77911/assignments/345312">Assignment 2</a></h2><p><strong>Due:</strong> 11/8/2024, 11:59:59 PM</p><div><p style="text-align: left;"><span style="color: #236fa1; font-size: 12pt;"><strong>Note</strong> </span></p>
+<ul>
+<li><span><span>Motivate and explain all your answers clearly.</span></span></li>
+<li><span>Name the solution strategy that is most suitable for approaching the problem.</span></li>
+<li><span>Before you start writing your programs, give a step-by-step overview of what you are going to do (think of this as a plan for the program you are going to write as well as a clarification for the users). Make sure your steps are clear but concise (it can help to use bullet points).</span></li>
+<li><span>Write your programs in Python, with comments included to clarify the steps.</span></li>
+<li><span>If there is a&nbsp; question that does not involve writing a code please submit a<span>&nbsp;</span><strong>PDF file<span>&nbsp;</span></strong>containing all of your explanation for that question only.&nbsp; &nbsp;</span></li>
+<li><span>Please upload your programs as separate<span>&nbsp;</span><strong>.py files</strong><span>&nbsp;</span>for each exercise, or in a single<span>&nbsp;</span><strong>Jupyter NB (.ipynb)<span>&nbsp;</span></strong>with each exercise being in its own cell.&nbsp;</span></li>
+</ul>
+<p>&nbsp;</p>
+<p><span style="color: #236fa1;">You can use the following resources for the Python problems.</span></p>
+<ul>
+<li><a href="https://www.w3schools.com/python/" target="_blank">https://www.w3schools.com/python/</a> (Hands on Python tutorial)</li>
+<li><a href="https://py3.codeskulptor.org" target="_blank">https://py3.codeskulptor.org</a> (online Python editor)</li>
+<li><a href="http://www.few.vu.nl/~abhulai/algorithms/python_tutorial.pdf" target="_blank">http://www.few.vu.nl/~abhulai/algorithms/python_tutorial.pdf</a> (PDF Python tutorial)</li>
+<li><a href="https://eu.pythonanywhere.com" target="_blank">https://eu.pythonanywhere.com</a> (Python in the cloud)</li>
+</ul>
+<hr>
+<ol>
+<li><strong>Derivative calculations </strong>
+<p>Machine learning is a widely used method in artificial intelligence, which is behind many applications, such as image recognition. In machine learning, the parameters of a model are tuned (trained) to produce the most accurate results. This process makes use of many mathematical tricks which require the use of derivatives. To compute derivatives, it is often easiest to use automatic calculation tools.</p>
+<p>A small part of such a tool is to calculate the derivative of a simple polynomial function of the form: &nbsp;<img class="equation_image" title="c\ast x^n" src="https://canvas.vu.nl/equation_images/c%255Cast%2520x%255En?scale=1" alt="LaTeX: c\ast x^n" data-equation-content="c\ast x^n" data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mi>c</mi>
+  <mo>&amp;#x2217;<!-- ∗ --></mo>
+  <msup>
+    <mi>x</mi>
+    <mi>n</mi>
+  </msup>
+</math>">. Implement this feature in Python: the program should ask the user for the constant <img class="equation_image" title="c" src="https://canvas.vu.nl/equation_images/c?scale=1" alt="LaTeX: c" data-equation-content="c" data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mi>c</mi>
+</math>"> and the exponent <img class="equation_image" title="n" src="https://canvas.vu.nl/equation_images/n?scale=1" alt="LaTeX: n" data-equation-content="n" data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mi>n</mi>
+</math>"> and output the derivative of the function.</p>
+<p><em>Hint: the derivative of a simple polynomial function such as this can be written in the form </em>derivative <img class="equation_image" title="\left(c\ast x^n\right)=c\ast n\ast x^{n-1}" src="https://canvas.vu.nl/equation_images/%255Cleft(c%255Cast%2520x%255En%255Cright)%253Dc%255Cast%2520n%255Cast%2520x%255E%257Bn-1%257D?scale=1" alt="LaTeX: \left(c\ast x^n\right)=c\ast n\ast x^{n-1}" data-equation-content="\left(c\ast x^n\right)=c\ast n\ast x^{n-1}" data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mrow>
+    <mo>(</mo>
+    <mi>c</mi>
+    <mo>&amp;#x2217;<!-- ∗ --></mo>
+    <msup>
+      <mi>x</mi>
+      <mi>n</mi>
+    </msup>
+    <mo>)</mo>
+  </mrow>
+  <mo>=</mo>
+  <mi>c</mi>
+  <mo>&amp;#x2217;<!-- ∗ --></mo>
+  <mi>n</mi>
+  <mo>&amp;#x2217;<!-- ∗ --></mo>
+  <msup>
+    <mi>x</mi>
+    <mrow class=&quot;MJX-TeXAtom-ORD&quot;>
+      <mi>n</mi>
+      <mo>&amp;#x2212;<!-- − --></mo>
+      <mn>1</mn>
+    </mrow>
+  </msup>
+</math>"><em>.&nbsp; For instance, if the user inputs 2 for <img class="equation_image" title="c" src="https://canvas.vu.nl/equation_images/c?scale=1" alt="LaTeX: c" data-equation-content="c" data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mi>c</mi>
+</math>"> </em><em>and 3 for </em><img class="equation_image" title="n" src="https://canvas.vu.nl/equation_images/n?scale=1" alt="LaTeX: n" data-equation-content="n" data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mi>n</mi>
+</math>"><em>, then the output should be: "</em>The derivative of <img class="equation_image" title="2\ast x^3" src="https://canvas.vu.nl/equation_images/2%255Cast%2520x%255E3?scale=1" alt="LaTeX: 2\ast x^3" data-equation-content="2\ast x^3" data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mn>2</mn>
+  <mo>&amp;#x2217;<!-- ∗ --></mo>
+  <msup>
+    <mi>x</mi>
+    <mn>3</mn>
+  </msup>
+</math>"> is <img class="equation_image" title="6\ast x^2" src="https://canvas.vu.nl/equation_images/6%255Cast%2520x%255E2?scale=1" alt="LaTeX: 6\ast x^2" data-equation-content="6\ast x^2" data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mn>6</mn>
+  <mo>&amp;#x2217;<!-- ∗ --></mo>
+  <msup>
+    <mi>x</mi>
+    <mn>2</mn>
+  </msup>
+</math>">".<br><br><em></em></p>
+</li>
+<li><strong>Building an apartment complex<br></strong>
+<p>A construction company is building an apartment complex, which consists of identical apartments, each of which has a living room with kitchen, a bedroom, and a bathroom. To comply with safety regulations, the company needs to check the air volume in each of the rooms of an apartment, for which they use an automatic calculation tool. This program asks for the ceiling height and the area of each of the rooms (in m and m<sup>2</sup> respectively), then displays a warning message for every room that has a lower air volume than 20 m<sup>3</sup>. Implement such a program in Python.</p>
+<p><em>Hint: for instance, if the user has given the following inputs:</em></p>
+<ul>
+<li><em>Ceiling height: 3 m,</em></li>
+<li><em>Living room and kitchen area: 30 m<sup>2</sup>,</em></li>
+<li><em>Bedroom area: 12 m<sup>2</sup>,</em></li>
+<li><em>Bathroom area: 5 m<sup>2</sup>,</em></li>
+</ul>
+<p><em>then the program should output the following message: </em>“Warning! Bathroom air volume is only 15 m<sup>3</sup>.”.<br><br></p>
+</li>
+<li><strong>New drug therapy<br></strong>
+<p>A hospital is conducting a clinical trial of a new drug therapy for arthritis. However, only patients who are over 65 years old may participate in the trial and receive the new drug. When a patient is registered for the new therapy, their year of birth needs to be put into an online database, which calculates automatically if the patient is indeed over 65. If they are over 65, the software outputs: <em>“Thank you, patient registered.”</em>, but if they are not, it outputs an error message. If the birth-year is smaller than 65, it can be input again as long as it is not given correctly. Implement this feature of the database in Python, making sure that it may be used in any year.</p>
+<p><em>Hint: to ensure that the user has infinite opportunities to correctly give the birth-year, you can use a while loop. To ensure that the program can be used in any year, you can use Python’s </em>datetime<em> module instead of hard coding the current year into your program.<br><br></em></p>
+</li>
+<li><strong>Password generator <br></strong>
+<p>Write a random password generator in Python. Make sure that the password you create is strong: it should be at least 10 characters long and include at least one lowercase letter, one uppercase letter, one number and one symbol. The password should be generated randomly, and the program should output a new password each time it is run.</p>
+<span class="VIiyi" lang="en"><span class="JLqJ4b ChMk0b" data-language-for-alternatives="en" data-language-to-translate-into="nl" data-phrase-index="0"><span>You must use the following in your code <br>- the <code>random</code> module (see also <a href="https://www.w3schools.com/python/ref_random_sample.asp">https://www.w3schools.com/python/ref_random_sample.asp</a>) <br>- the <code>join()</code> method (see also <a href="https://www.w3schools.com/python/ref_string_join.asp">https://www.w3schools.com/python/ref_string_join.asp</a>) </span> </span> </span></li>
+</ol>
+<hr>
+<h3>Score table<sup>*</sup></h3>
+<table style="border-collapse: collapse; width: 100%; height: 140px;" border="1" width="100%" cellspacing="1" cellpadding="1">
+<tbody>
+<tr style="height: 29px;">
+<td style="height: 29px; width: 50px;" width="381"></td>
+<td style="width: 30px; height: 29px; text-align: center;" width="127"><strong>Problem 1</strong></td>
+<td style="width: 30px; height: 29px; text-align: center;" width="95"><strong>Problem 2</strong></td>
+<td style="width: 30px; height: 29px; text-align: center;" width="90"><strong>Problem 3</strong></td>
+<td style="width: 30px; height: 29px; text-align: center;" width="71"><strong>Problem 4</strong></td>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 50px; height: 53px;" width="381">Showed all the steps to get to the answer and the steps are clear and concise.</td>
+<td style="width: 30px; text-align: center; height: 53px;">4</td>
+<td style="width: 30px; text-align: center; height: 53px;">4</td>
+<td style="width: 30px; text-align: center; height: 53px;">4</td>
+<td style="width: 30px; text-align: center; height: 53px;">4</td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 50px; height: 29px;">Python code is correct (and follows the steps) and includes comments to clarify the steps.</td>
+<td style="width: 30px; text-align: center; height: 29px;">5</td>
+<td style="width: 30px; text-align: center; height: 29px;">5</td>
+<td style="width: 30px; text-align: center; height: 29px;">5</td>
+<td style="width: 30px; text-align: center; height: 29px;">5</td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size: 10pt;">*) Table shows the maximum points you can get.</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size: 12pt;">&nbsp;<img class="equation_image" title="Assignment\:score=\frac{total\:points}{18}\ast10" src="https://canvas.vu.nl/equation_images/Assignment%255C%253Ascore%253D%255Cfrac%257Btotal%255C%253Apoints%257D%257B18%257D%255Cast10?scale=1" alt="LaTeX: Assignment\:score=\frac{total\:points}{18}\ast10" data-equation-content="Assignment\:score=\frac{total\:points}{18}\ast10" data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mi>A</mi>
+  <mi>s</mi>
+  <mi>s</mi>
+  <mi>i</mi>
+  <mi>g</mi>
+  <mi>n</mi>
+  <mi>m</mi>
+  <mi>e</mi>
+  <mi>n</mi>
+  <mi>t</mi>
+  <mspace width=&quot;mediummathspace&quot; />
+  <mi>s</mi>
+  <mi>c</mi>
+  <mi>o</mi>
+  <mi>r</mi>
+  <mi>e</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mi>t</mi>
+      <mi>o</mi>
+      <mi>t</mi>
+      <mi>a</mi>
+      <mi>l</mi>
+      <mspace width=&quot;mediummathspace&quot; />
+      <mi>p</mi>
+      <mi>o</mi>
+      <mi>i</mi>
+      <mi>n</mi>
+      <mi>t</mi>
+      <mi>s</mi>
+    </mrow>
+    <mn>18</mn>
+  </mfrac>
+  <mo>&amp;#x2217;<!-- ∗ --></mo>
+  <mn>10</mn>
+</math>"></span></p></div></body></html>
