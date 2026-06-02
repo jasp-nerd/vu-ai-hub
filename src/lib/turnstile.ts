@@ -77,7 +77,12 @@ export async function getTurnstileToken(): Promise<string | undefined> {
 
       widgetId = api.render(container, {
         sitekey: SITE_KEY,
-        size: 'invisible',
+        // Defer the challenge until we call execute(); keep it invisible unless
+        // an interaction is genuinely required (set the widget to "Invisible"
+        // mode in the Cloudflare dashboard for a fully no-UI experience).
+        execution: 'execute',
+        appearance: 'interaction-only',
+        retry: 'never',
         callback: (token: string) => {
           clearTimeout(timeout);
           cleanup();
