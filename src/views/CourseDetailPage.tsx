@@ -559,9 +559,9 @@ export default function CourseDetailPage() {
                     );
                   })}
 
-                {/* Regular resources */}
+                {/* Regular resources (incl. summary-type files that are links, not inline markdown) */}
                 {resources
-                  .filter((r) => r.type !== 'summary')
+                  .filter((r) => !(r.type === 'summary' && r.markdownContent))
                   .map((resource, i) => {
                     // Extract YouTube video ID for thumbnail preview
                     const ytMatch = resource.url.match(
