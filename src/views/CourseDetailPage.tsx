@@ -139,12 +139,13 @@ export default function CourseDetailPage() {
     );
   }
 
-  // Static seed tips first, then backend tips oldest→newest, so freshly
-  // submitted tips appear at the bottom of the list.
+  // Static seed tips first, then backend tips oldest→newest; then sort so the
+  // most "helpful"-voted tips rise to the top (ties keep the chronological order
+  // since the sort is stable).
   const tips = [
     ...getTipsForCourse(course.id).map((t) => ({ id: t.id, content: t.content, author: t.author })),
     ...backendTips.map((t) => ({ id: t.id, content: t.content, author: t.author || 'Anonymous' })),
-  ];
+  ].sort((a, b) => (voteCounts[b.id] ?? 0) - (voteCounts[a.id] ?? 0));
   const quizQuestions = getQuizQuestionsForCourse(course.id);
   // Static resources first (featured summaries), then approved uploads.
   const resources = [...getResourcesForCourse(course.id), ...backendResources];

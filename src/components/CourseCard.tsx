@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Course } from '../types';
-import DifficultyStars from './DifficultyStars';
+import DifficultyBars from './DifficultyBars';
 import { useCourseDifficulty, resolveDifficulty } from '../lib/difficulty';
 
 export default function CourseCard({ course, style }: { course: Course; style?: React.CSSProperties }) {
@@ -44,7 +44,7 @@ export default function CourseCard({ course, style }: { course: Course; style?: 
           {course.description}
         </p>
         <div className="flex items-center justify-between">
-          <DifficultyStars
+          <DifficultyBars
             value={difficulty.value}
             count={difficulty.count}
             crowdSourced={difficulty.crowdSourced}
