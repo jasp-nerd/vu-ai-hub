@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { uploadMaterial } from '../lib/apiClient';
 import { getTurnstileToken } from '../lib/turnstile';
 
-const MAX_BYTES = 200 * 1024 * 1024; // 200 MB
+const MAX_BYTES = 100 * 1024 * 1024; // 100 MB
 
 /**
  * On-page material uploader. Deliberately minimal: just the file, plus an
@@ -29,7 +29,7 @@ export default function MaterialUploadForm({
   const handleSubmit = async () => {
     if (status === 'sending') return;
     if (!file) return setError('Please choose a file.');
-    if (file.size > MAX_BYTES) return setError('File is too large (max 200 MB).');
+    if (file.size > MAX_BYTES) return setError('File is too large (max 100 MB).');
 
     setStatus('sending');
     setError(null);
@@ -105,7 +105,7 @@ export default function MaterialUploadForm({
                 className="w-full text-sm text-stone-600 dark:text-stone-400 file:mr-3 file:rounded-lg file:border-0 file:bg-vu-blue/10 file:text-vu-blue dark:file:text-vu-blue-light file:px-3 file:py-2 file:text-sm file:font-medium hover:file:bg-vu-blue/15"
               />
               <p className="text-[10px] text-stone-400 dark:text-stone-500 mt-1">
-                Any file type (PDF, notes, slides, ZIP, …). Max 200 MB.
+                Any file type (PDF, notes, slides, ZIP, …). Max 100 MB.
               </p>
             </div>
 
