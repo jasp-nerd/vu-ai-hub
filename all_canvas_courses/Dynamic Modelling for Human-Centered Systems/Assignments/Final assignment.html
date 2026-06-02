@@ -1,0 +1,41 @@
+<html><head><title>Final assignment</title></head><body><h1>Final assignment</h1><h2><a href="https://canvas.vu.nl/courses/81756/assignments/385984">Final assignment</a></h2><p><strong>Due:</strong> 3/31/2025, 11:59:59 PM</p><div><h2>Creating models for a stress prevention system</h2>
+<p>In this final assignment, you will have to develop a domain model about <em>stress</em> and design an analysis and support model for it. The assignment consists of several steps that you have to do. Create a <strong>self-contained report</strong> – with introduction, motivation for your choices, captions for graphs, etcetera. Also make sure that you clearly indicate which question is answered.</p>
+<p>For structure, layout and readability you receive 5 points. The maximum length is 1750 words, excluding graphs and tables (see expected length that is specified per question).</p>
+<p><em>Note that a plagiarism check will be applied.</em></p>
+<h3>What is stress?</h3>
+<p>Stress or burn-out is common problem in modern society. Although in the basis stress is a natural reaction, prolonged periods of stress can cause serious (mental) health problems. According to recent research, up to 1 out of the 7 employees in the Netherlands has symptoms of a burn-out.</p>
+<p>The mechanism behind stress is described in an online article<a href="#_ftn1" name="_ftnref1"><span>[1]</span></a> and is summarized here. Stress is your body’s way of responding to any kind of <em>demand or threat</em>. When you sense danger—whether it’s real or imagined—the body’s defenses kick into high gear in a rapid, automatic process known as the “fight-or-flight” reaction or the “<em>stress response</em>”. The stress response is the body’s way of protecting you. When working properly, it helps you stay focused, energetic, and alert. But beyond a certain point, stress stops being helpful and starts causing major damage to your health, mood, productivity, relationships, and your quality of life.</p>
+<p>If you tend to get stressed out frequently, like many of us in today’s demanding world, your body may exist in a heightened state of stress most of the time, in other words, your <em>chronic stress level</em> becomes high. And that can lead to serious health problems. A high chronic stress level disrupts nearly every system in your body, i.e. it leads to a <em>disrupted cognitive system</em>, a <em>disrupted emotional system</em>, and <em>disrupted physical systems</em> such as your immune, digestive and reproductive systems. It can even rewire the brain, increasing your <em>vulnerability</em> to anxiety, depression, and other mental health problems. The disruption of each of these systems leads to specific <em>cognitive symptoms</em>, <em>emotional symptoms</em> and <em>physical symptoms</em>, and <em></em>together the malfunctioning of these systems is indicated via<em> behavioral symptoms</em>.</p>
+<p>Not all people are as vulnerable for developing chronic stress as others. People with a high <em>vulnerability</em>, e.g. people that worry excessively about something that may or may not happen, or have irrational, pessimistic thoughts about life, will more quickly develop a high chronic stress level.</p>
+<p>Finally, whether a threat leads to a stress response depends, at least in part, on your <em>perception</em> of it. Something that’s stressful to you may not faze someone else; they may even enjoy it. While some of us are terrified of getting up in front of people to perform or speak, for example, others live for the spotlight.</p>
+<h4><strong>Task 1 (20 points): domain model<br></strong></h4>
+<p><em>Expected length, including introduction: graph + 1/2 page</em></p>
+<p>Based on the text above, create a graphical representation of a model that describes the process of stress in humans. Use the terms that are printed in <em>italic</em> as indication for the concepts. Include a box in your model that describes the boundary between the internal and external factors. Explain the choices and/or assumptions that are relevant for your model.</p>
+<h4><strong>Task </strong><strong>2 (10 points): expected patterns for evaluation<br></strong></h4>
+<p><em>Expected length: 1/4 page</em></p>
+<p>Describe two patterns (unambiguous and complete) that you expect your model to show to be able to evaluate later whether it is working correctly.</p>
+<h4><strong>Task </strong><strong></strong><strong>3 (10 points): formalization<br></strong></h4>
+<p><em>Expected length: two tables</em></p>
+<p>Provide a formalization for the concepts in your model, using predicates and sorts. Describe it using two table as we have seen in the course (the concept or sort in the first column and the formalization in the second<span>).</span> Explain for each of the concepts why you have chosen this specific formalization. Do this in an extra column in the table.</p>
+<h4><strong>Task </strong><strong></strong><strong>4 (20 points): analysis model<br></strong></h4>
+<p><em>Expected length: graph + table + one paragraph</em></p>
+<p>Now assume that we are going to build an intelligent system that will determine whether the <em>chronic stress level</em> is too high, based on observation of symptoms.</p>
+<ul>
+<li>Create a graphical representation of this model.</li>
+<li>Also create a table with the predicates that are used in this analysis model.</li>
+<li>Explain what kind of reasoning is used (forward or backward) and how you have chosen to interpret the multiple symptoms: do they all have to be present, or is a one of them sufficient?</li>
+</ul>
+<h4><strong>Task&nbsp;</strong><strong>5 (20 points): support model<br></strong></h4>
+<p><em>Expected length: three figures + one paragraph</em></p>
+<p>The ultimate aim of the intelligent system is to suggest measures that reduce the chronic stress level of the person. On an abstract level, there are two ways to lower the stress level: a therapy that helps to change your <em>perception</em> on the treats (e.g. <em>cognitive behavioral therapy</em>), and measures that decrease your vulnerability (e.g. <em>connecting to others</em>).</p>
+<ul>
+<li>Add these actions to the domain model (i.e. create an extended domain model).</li>
+<li>For both actions, provide a graphical representation of a forward reasoning support model. Include the predicates that are used for this model in your graph.</li>
+</ul>
+<h4><strong>Task 6 (15 points): partial implementation<br></strong></h4>
+<p><em>Expected length: half a page + source code (notebook file).</em><strong><em><br></em></strong></p>
+<p>Create a partial implementation in L2-Python of either the domain model, the analysis model or the support model. Make sure that you have at least implemented four rules. Include the simulation result in the document, and describe clearly which part has been implemented, what assumptions you took, and what has been simulated (e.g. the scenario and parameters used).</p>
+<p>For this, use the code and the model_template.ipynb file that you have downloaded from: <a class="external" href="https://github.com/VU-DynamicModeling/L2" target="_blank"><span>https://github.com/VU-DynamicModeling/L2</span><span class="external_link_icon" style="display: inline-block; text-indent: initial;" role="presentation">.</span></a></p>
+<h3><strong>Stress resources</strong></h3>
+<p><a href="#_ftnref1" name="_ftn1"><span>[1]</span></a> <a href="https://www.helpguide.org/articles/stress/stress-symptoms-signs-and-causes.htm">https://www.helpguide.org/articles/stress/stress-symptoms-signs-and-causes.htm</a></p>
+<p>[2] <a href="http://www.stress.org.uk/What-is-stress.aspx" target="_blank">http://www.stress.org.uk/What-is-stress.aspx</a> (also links, e.g. “Stress and the brain”)<a href="#_ftnref1" name="_ftn1"></a></p></div></body></html>

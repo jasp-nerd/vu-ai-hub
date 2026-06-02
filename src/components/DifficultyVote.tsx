@@ -11,10 +11,14 @@ import {
 import { submitDifficulty, apiEnabled, type DifficultyAgg } from '../lib/apiClient';
 import { getTurnstileToken } from '../lib/turnstile';
 
+const STAR_PATH =
+  'M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.563.563 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z';
+
 /**
- * Course-detail difficulty widget: shows the current (crowd-sourced or seed)
- * difficulty and lets the student rate it 1-5. Optimistic + persists the user's
- * own choice in localStorage so it survives reloads.
+ * Course-detail difficulty widget: a familiar 5-star rating. Stars are blank
+ * (outline) by default and fill blue up to the current value / hovered star, so
+ * it's obviously something you can rate. Optimistic + persists the user's own
+ * choice; updates its count immediately from the save response.
  */
 export default function DifficultyVote({
   courseId,
@@ -24,8 +28,6 @@ export default function DifficultyVote({
   seed: number;
 }) {
   const hookAgg = useCourseDifficulty(courseId);
-  // After voting, the server returns the fresh aggregate; use it immediately so
-  // the count updates without waiting for the (briefly cached) bulk refetch.
   const [liveAgg, setLiveAgg] = useState<DifficultyAgg | undefined>(undefined);
   const agg = liveAgg ?? hookAgg;
   const display = resolveDifficulty(seed, agg);
@@ -41,10 +43,9 @@ export default function DifficultyVote({
   }, [storageKey]);
 
   if (!apiEnabled) {
-    // Backend not configured — show static label only (current behaviour).
     return (
       <span className="text-xs text-stone-400 dark:text-stone-500">
-        {DIFFICULTY_LABELS[display.value]}
+        Difficulty: {DIFFICULTY_LABELS[display.value]}
       </span>
     );
   }
@@ -67,15 +68,31 @@ export default function DifficultyVote({
     }
   };
 
+  // What the stars currently show: hovered > your vote > resolved difficulty.
   const active = hover ?? myVote ?? display.value;
+  const labelValue = hover ?? display.value;
+
+  const caption =
+    status === 'saving'
+      ? 'Saving…'
+      : status === 'done'
+        ? 'Thanks for rating!'
+        : status === 'error'
+          ? 'Could not save — try again.'
+          : display.crowdSourced
+            ? `Average of ${display.count} student rating${display.count === 1 ? '' : 's'}${myVote ? ' · you rated this' : ''}`
+            : myVote
+              ? 'Thanks — your rating is in'
+              : 'Tap a star to rate this course';
 
   return (
     <div className="inline-flex flex-col gap-1">
-      <div className="inline-flex items-center gap-2">
-        <span className="text-xs text-stone-400 dark:text-stone-500">Difficulty:</span>
-        <div className="flex items-center gap-1" onMouseLeave={() => setHover(null)}>
+      <div className="inline-flex items-center gap-2.5">
+        <span className="text-xs font-medium text-stone-400 dark:text-stone-500">Difficulty</span>
+        <div className="flex items-center gap-0.5" onMouseLeave={() => setHover(null)}>
           {Array.from({ length: 5 }).map((_, i) => {
             const level = i + 1;
+            const filled = i < active;
             return (
               <button
                 key={i}
@@ -84,32 +101,33 @@ export default function DifficultyVote({
                 onMouseEnter={() => setHover(level)}
                 onClick={() => handleVote(level)}
                 disabled={status === 'saving'}
-                className={`w-2 h-5 rounded-full transition-colors press-effect ${
-                  i < active
-                    ? 'bg-vu-blue dark:bg-vu-blue-light'
-                    : 'bg-stone-150 dark:bg-stone-700 hover:bg-stone-300 dark:hover:bg-stone-600'
-                } ${status === 'saving' ? 'opacity-60 cursor-wait' : 'cursor-pointer'}`}
-              />
+                className={`p-0.5 rounded-md transition-transform ${
+                  status === 'saving' ? 'opacity-60 cursor-wait' : 'cursor-pointer hover:scale-110'
+                }`}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className={`w-5 h-5 transition-colors ${
+                    filled
+                      ? 'text-vu-blue dark:text-vu-blue-light'
+                      : 'text-stone-300 dark:text-stone-600'
+                  }`}
+                  fill={filled ? 'currentColor' : 'none'}
+                  stroke="currentColor"
+                  strokeWidth={filled ? 0 : 1.5}
+                  aria-hidden="true"
+                >
+                  <path strokeLinejoin="round" d={STAR_PATH} />
+                </svg>
+              </button>
             );
           })}
         </div>
-        <span className="text-xs text-stone-500 dark:text-stone-400">
-          {DIFFICULTY_LABELS[hover ?? display.value]}
+        <span className="text-sm text-stone-500 dark:text-stone-400 min-w-[5.5rem]">
+          {labelValue > 0 ? DIFFICULTY_LABELS[labelValue] : 'Not rated yet'}
         </span>
       </div>
-      <span className="text-[10px] text-stone-400 dark:text-stone-500 h-3">
-        {status === 'saving' && 'Saving…'}
-        {status === 'done' && 'Thanks for rating!'}
-        {status === 'error' && 'Could not save — try again.'}
-        {status === 'idle' &&
-          (display.crowdSourced
-            ? `Average of ${display.count} student rating${display.count === 1 ? '' : 's'}${
-                myVote ? ' · you rated this' : ' · tap to rate'
-              }`
-            : display.count > 0
-              ? `${display.count}/${RATING_THRESHOLD} ratings needed for a student average · tap to rate`
-              : 'No student ratings yet · tap to rate')}
-      </span>
+      <span className="text-[11px] text-stone-400 dark:text-stone-500 h-3.5">{caption}</span>
     </div>
   );
 }

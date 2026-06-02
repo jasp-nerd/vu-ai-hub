@@ -1,0 +1,116 @@
+<html><head><title>Assignment 4</title></head><body><h1>Assignment 4</h1><h2><a href="https://canvas.vu.nl/courses/77911/assignments/345324">Assignment 4</a></h2><p><strong>Due:</strong> 11/22/2024, 11:59:59 PM</p><div><p><span style="color: #236fa1; font-size: 12pt;"><strong>Note</strong></span></p>
+<ul>
+<li><span><span>Motivate and explain all your answers clearly.</span></span></li>
+<li><span>Name the solution strategy that is most suitable for approaching the problem.</span></li>
+<li><span>Before you start writing your programs, give a step-by-step overview of what you are going to do (think of this as a plan for the program you are going to write as well as a clarification for the users). Make sure your steps are clear but concise (it can help to use bullet points).</span></li>
+<li><span>Write your programs in Python, with comments included to clarify the steps.</span></li>
+<li><span>If there is a&nbsp; question that does not involve writing a code please submit a<span>&nbsp;</span><strong>PDF file<span>&nbsp;</span></strong>containing all of your explanation for that question only.&nbsp; &nbsp;</span></li>
+<li><span>Please upload your programs as separate<span>&nbsp;</span><strong>.py files</strong><span>&nbsp;</span>for each exercise, or in a single<span>&nbsp;</span><strong>Jupyter NB (.ipynb)<span>&nbsp;</span></strong>with each exercise being in its own cell.&nbsp;</span></li>
+</ul>
+<hr>
+<ol>
+<li><strong>&nbsp;Automatic inventory system&nbsp;</strong><br>
+<p>A home decor store is implementing an automatic inventory system. The system registers new wares arriving to the store every Monday. Each week, there is a different selection of wall tapestry colors available. On a given week, the following colors arrive in the Monday shipment:</p>
+<p>mustard, salmon, azure, ivory, sage, lilac</p>
+<ol style="list-style-type: lower-alpha;">
+<li>Since there is only a limited selection of colors at a time, the system can safely use bubble sort. Sort the above list using bubble sort and show the intermediate steps. Why would bubble sort <strong>not</strong> be the best option if the list of colors was much longer? What algorithm(s) could be more suitable in that case?</li>
+<li>Customers can check on the store’s website what colors are available on the current week. Find the color ivory from the sorted list using binary search and show the steps of iteration.</li>
+</ol>
+<br><br></li>
+<li><strong>Waiting list for liver transplant<br></strong>
+<p>A hospital keeps a waiting list for patients who need a liver transplant. In the list, the patients are marked with their last names and the number of weeks that they have been waiting. Taking the sample list below, implement a Python program which sorts this list, so that the patients who have been waiting longer are at the front of the list. If two patients have been waiting for the same number of weeks, they should appear in alphabetical order.</p>
+<p>(Johnson, 9), (Smith, 2), (Perry, 4), (Allison, 8), (Bradley, 1), (Tucker, 9)</p>
+<p><em>Hint: you can use the </em><code><em>lambda</em></code><em> function in Python.</em></p>
+</li>
+<li><strong>Automatized system for receptors<br></strong>
+<p>In a medical laboratory, scientists are developing an automatized system, which reports the density of different receptors on a cell’s surface from a tissue sample. In the report, the receptors are listed from lowest to highest density. Seven receptors (marked as A, B, C, D, E, F, G) have the following density expressed in units used by the system:</p>
+<p>A: 17, B: 52, C: 4, D: 42, E: 48, F: 35, G: 17</p>
+<p>Sort these receptors into the order in which they appear in the report using merge sort. Use the tree notations to show the intermediate steps.</p>
+<strong><br><br></strong></li>
+<li><strong>Merge sort or quicksort?</strong> <br>
+<p>A database management system is a software which is designed to operate and optimize databases. In one such system, the user has the option to sort rows of tables in the database based on a given column in the table. Since some database tables can be extremely large, this particular system is cautious and decides whether to use merge sort or quicksort in the following way: it calculates the worst-case sorting time for both algorithms and chooses merge sort if it is at least 100 times faster than quicksort in the worst-case scenario.</p>
+<p>Implement this decision step in a Python program: your program should ask for the number of rows in the table as input and display the calculating times along with the name of the chosen sorting algorithm as output based on the calculation described above.</p>
+</li>
+</ol>
+<hr>
+<h3>Score table<sup>*</sup></h3>
+<table style="border-collapse: collapse; width: 100%; height: 217px;" border="1" width="100%" cellspacing="1" cellpadding="1">
+<tbody>
+<tr style="height: 29px;">
+<td style="height: 29px; width: 39.6615%;" width="381"></td>
+<td style="width: 15.0577%; height: 29px; text-align: center;" width="127"><strong>Problem 1</strong></td>
+<td style="width: 15.0558%; height: 29px; text-align: center;" width="95"><strong>Problem 2</strong></td>
+<td style="width: 15.0577%; height: 29px; text-align: center;" width="90"><strong>Problem 3</strong></td>
+<td style="width: 15.0558%; height: 29px; text-align: center;" width="71"><strong>Problem 4</strong></td>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 39.6615%; height: 53px;" width="390">Showed all the steps to get to the answer and the steps are clear and concise.</td>
+<td style="width: 15.0577%; height: 53px; text-align: center;"></td>
+<td style="width: 15.0558%; height: 53px; text-align: center;">4</td>
+<td style="width: 15.0577%; height: 53px; text-align: center;"></td>
+<td style="width: 15.0558%; height: 53px; text-align: center;">4</td>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 39.6615%; height: 53px;" width="390">Python code is correct (and follows the steps) and includes comments to clarify the steps.</td>
+<td style="width: 15.0577%; height: 53px; text-align: center;"></td>
+<td style="width: 15.0558%; height: 53px; text-align: center;">5</td>
+<td style="width: 15.0577%; height: 53px; text-align: center;"></td>
+<td style="width: 15.0558%; height: 53px; text-align: center;">5</td>
+</tr>
+<tr style="height: 53px;">
+<td style="width: 39.6615%; height: 53px;">Made the method of iteration(s) explicit/showed the intermediate steps.</td>
+<td style="width: 15.0577%; height: 53px; text-align: center;">
+<p>a) 3<br>b) 4</p>
+</td>
+<td style="width: 15.0558%; height: 53px; text-align: center;"></td>
+<td style="width: 15.0577%; height: 53px; text-align: center;">9</td>
+<td style="width: 15.0558%; height: 53px; text-align: center;"></td>
+</tr>
+<tr style="height: 29px;">
+<td style="width: 39.6615%; height: 29px;">Good motivation and correct answers.</td>
+<td style="width: 15.0577%; height: 29px; text-align: center;">a) 2</td>
+<td style="width: 15.0558%; height: 29px; text-align: center;"></td>
+<td style="width: 15.0577%; height: 29px; text-align: center;"></td>
+<td style="width: 15.0558%; height: 29px; text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size: 10pt;">*) Table shows the maximum points you can get.<br><br></span></p>
+<p><span style="font-size: 10pt;"><span style="font-size: 12pt;">&nbsp;<img class="equation_image" title="Assignment\:score=\frac{total\:points}{18}\ast10" src="https://canvas.vu.nl/equation_images/Assignment%255C%253Ascore%253D%255Cfrac%257Btotal%255C%253Apoints%257D%257B18%257D%255Cast10?scale=1" alt="LaTeX: Assignment\:score=\frac{total\:points}{18}\ast10" data-equation-content="Assignment\:score=\frac{total\:points}{18}\ast10" data-ignore-a11y-check="" loading="lazy" x-canvaslms-safe-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;>
+  <mi>A</mi>
+  <mi>s</mi>
+  <mi>s</mi>
+  <mi>i</mi>
+  <mi>g</mi>
+  <mi>n</mi>
+  <mi>m</mi>
+  <mi>e</mi>
+  <mi>n</mi>
+  <mi>t</mi>
+  <mspace width=&quot;mediummathspace&quot; />
+  <mi>s</mi>
+  <mi>c</mi>
+  <mi>o</mi>
+  <mi>r</mi>
+  <mi>e</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mi>t</mi>
+      <mi>o</mi>
+      <mi>t</mi>
+      <mi>a</mi>
+      <mi>l</mi>
+      <mspace width=&quot;mediummathspace&quot; />
+      <mi>p</mi>
+      <mi>o</mi>
+      <mi>i</mi>
+      <mi>n</mi>
+      <mi>t</mi>
+      <mi>s</mi>
+    </mrow>
+    <mn>18</mn>
+  </mfrac>
+  <mo>&amp;#x2217;<!-- ∗ --></mo>
+  <mn>10</mn>
+</math>"></span></span></p></div></body></html>
