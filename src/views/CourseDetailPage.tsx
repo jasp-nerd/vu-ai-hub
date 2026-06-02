@@ -21,7 +21,7 @@ import Quiz from '../components/Quiz';
 import PracticeProblems from '../components/PracticeProblems';
 import EssayPractice from '../components/EssayPractice';
 import CourseChat from '../components/CourseChat';
-import ContributionPopup from '../components/ContributionPopup';
+// import ContributionPopup from '../components/ContributionPopup'; // popup disabled
 import CourseGradeCalculator from '../components/CourseGradeCalculator';
 import FeedbackPopup from '../components/FeedbackPopup';
 import TipSubmitBox from '../components/TipSubmitBox';
@@ -666,9 +666,11 @@ export default function CourseDetailPage() {
         )}
       </div>
 
+      {/* "Help us improve this page" popup disabled — with on-page uploads/tips,
+          content comes in organically now.
       {course.difficulty === 0 && (
         <ContributionPopup courseId={course.id} courseName={course.name} />
-      )}
+      )} */}
       {showUpload && (
         <MaterialUploadForm
           courseId={course.id}
