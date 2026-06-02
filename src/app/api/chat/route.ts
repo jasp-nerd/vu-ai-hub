@@ -27,7 +27,7 @@ ${context}`;
         headers: {
           Authorization: `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
-          'HTTP-Referer': 'https://vu-ai.vercel.app',
+          'HTTP-Referer': 'https://vu-ai-hub.vercel.app',
           'X-Title': 'AI @ VU Student Hub',
         },
         body: JSON.stringify({

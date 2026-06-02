@@ -154,7 +154,7 @@ export default function HomePage() {
                 About this project
               </h3>
               <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
-                I'm Jasper, an AI student at VU Amsterdam since 2024, and I built this site as a community project, completely open source and meant to be shared. Feel free to use everything here, but keep in mind that course content can change from year to year, so we can't guarantee everything is still 100% accurate. Always check the{' '}
+                I'm <a href="https://www.linkedin.com/in/jasper-meij-ai/" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">Jasper</a>, an AI student at VU Amsterdam since 2024, and I built this site as a community project, completely open source and meant to be shared. Feel free to use everything here, but keep in mind that course content can change from year to year, so we can't guarantee everything is still 100% accurate. Always check the{' '}
                 <a href="https://studiegids.vu.nl/nl" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">studiegids</a>
                 {' '}or your course page on{' '}
                 <a href="https://canvas.vu.nl" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">Canvas</a>

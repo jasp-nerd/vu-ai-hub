@@ -10,7 +10,7 @@ export async function generateMetadata({
   const { sectionId } = await params;
   const section = academicGuideSections.find((s) => s.id === sectionId);
   return {
-    title: section ? `${section.title} — Academic Guide` : 'Academic Guide',
+    title: section ? `${section.title} - Academic Guide` : 'Academic Guide',
   };
 }
 

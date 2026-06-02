@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vu-ai.vercel.app/sitemap.xml
+Sitemap: https://vu-ai-hub.vercel.app/sitemap.xml
