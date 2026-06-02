@@ -60,7 +60,7 @@ export default function CourseDetailPage() {
   // Live overlay data from the backend (merged with the static seed below).
   const [backendTips, setBackendTips] = useState<BackendTip[]>([]);
   const [backendResources, setBackendResources] = useState<Resource[]>([]);
-  const [voteCounts, setVoteCounts] = useState<Record<string, number>>({});
+  const [voteCounts, setVoteCounts] = useState<Record<string, { count: number; voted: boolean }>>({});
   const [showUpload, setShowUpload] = useState(false);
 
   const course = getCourseBySlug(slug || '');
@@ -145,7 +145,7 @@ export default function CourseDetailPage() {
   const tips = [
     ...getTipsForCourse(course.id).map((t) => ({ id: t.id, content: t.content, author: t.author })),
     ...backendTips.map((t) => ({ id: t.id, content: t.content, author: t.author || 'Anonymous' })),
-  ].sort((a, b) => (voteCounts[b.id] ?? 0) - (voteCounts[a.id] ?? 0));
+  ].sort((a, b) => (voteCounts[b.id]?.count ?? 0) - (voteCounts[a.id]?.count ?? 0));
   const quizQuestions = getQuizQuestionsForCourse(course.id);
   // Static resources first (featured summaries), then approved uploads.
   const resources = [...getResourcesForCourse(course.id), ...backendResources];
@@ -423,7 +423,11 @@ export default function CourseDetailPage() {
                       <p className="text-xs text-stone-400 dark:text-stone-500">
                         — {tip.author}
                       </p>
-                      <HelpfulButton id={tip.id} initialCount={voteCounts[tip.id] ?? 0} />
+                      <HelpfulButton
+                        id={tip.id}
+                        initialCount={voteCounts[tip.id]?.count ?? 0}
+                        initialVoted={voteCounts[tip.id]?.voted ?? false}
+                      />
                     </div>
                   </div>
                 ))}
@@ -647,7 +651,8 @@ export default function CourseDetailPage() {
                       <ResourceVote
                         resourceId={resource.id}
                         url={resource.url}
-                        initialCount={voteCounts[resource.id] ?? 0}
+                        initialCount={voteCounts[resource.id]?.count ?? 0}
+                        initialVoted={voteCounts[resource.id]?.voted ?? false}
                       />
                       </div>
                     );

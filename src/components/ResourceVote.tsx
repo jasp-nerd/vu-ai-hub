@@ -13,10 +13,12 @@ export default function ResourceVote({
   resourceId,
   url,
   initialCount = 0,
+  initialVoted = false,
 }: {
   resourceId: string;
   url: string;
   initialCount?: number;
+  initialVoted?: boolean;
 }) {
   const [reportOpen, setReportOpen] = useState(false);
   const [reportNote, setReportNote] = useState('');
@@ -40,7 +42,7 @@ export default function ResourceVote({
 
   return (
     <div className="flex items-center gap-3 px-5 pb-3 -mt-1">
-      <HelpfulButton id={resourceId} initialCount={initialCount} />
+      <HelpfulButton id={resourceId} initialCount={initialCount} initialVoted={initialVoted} />
 
       {!reportOpen ? (
         <button
