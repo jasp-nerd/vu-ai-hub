@@ -27,6 +27,7 @@ import FeedbackPopup from '../components/FeedbackPopup';
 import TipSubmitBox from '../components/TipSubmitBox';
 import DifficultyVote from '../components/DifficultyVote';
 import ResourceVote from '../components/ResourceVote';
+import HelpfulButton from '../components/HelpfulButton';
 import MaterialUploadForm from '../components/MaterialUploadForm';
 import { useMountAnimation } from '../hooks/useAnimations';
 import type { Resource } from '../types';
@@ -102,19 +103,22 @@ export default function CourseDetailPage() {
     };
   }, [courseId]);
 
-  // Batch-fetch "helpful" vote counts for all of this course's resources at once.
+  // Batch-fetch "helpful" vote counts for all of this course's resources AND
+  // tips at once (votes are keyed by entity id, shared across both).
   useEffect(() => {
     if (!courseId) return;
     let active = true;
     const ids = [
       ...getResourcesForCourse(courseId).map((r) => r.id),
       ...backendResources.map((r) => r.id),
+      ...getTipsForCourse(courseId).map((t) => t.id),
+      ...backendTips.map((t) => t.id),
     ];
     fetchVoteCounts(ids).then((c) => active && setVoteCounts(c));
     return () => {
       active = false;
     };
-  }, [courseId, backendResources]);
+  }, [courseId, backendResources, backendTips]);
 
   if (!course) {
     return (
@@ -135,10 +139,11 @@ export default function CourseDetailPage() {
     );
   }
 
-  // Merge static seed tips with live backend tips (backend = newest, shown first).
+  // Static seed tips first, then backend tips oldest→newest, so freshly
+  // submitted tips appear at the bottom of the list.
   const tips = [
-    ...backendTips.map((t) => ({ id: t.id, content: t.content, author: t.author || 'Anonymous' })),
     ...getTipsForCourse(course.id).map((t) => ({ id: t.id, content: t.content, author: t.author })),
+    ...backendTips.map((t) => ({ id: t.id, content: t.content, author: t.author || 'Anonymous' })),
   ];
   const quizQuestions = getQuizQuestionsForCourse(course.id);
   // Static resources first (featured summaries), then approved uploads.
@@ -194,7 +199,6 @@ export default function CourseDetailPage() {
           {course.credits && (
             <span className="text-xs text-stone-400 dark:text-stone-500">{course.credits}</span>
           )}
-          <DifficultyVote courseId={course.id} seed={course.difficulty} />
           {course.specialisation && (
             <span className="text-xs text-stone-400 dark:text-stone-500 capitalize">
               {(Array.isArray(course.specialisation) ? course.specialisation : [course.specialisation])
@@ -215,6 +219,10 @@ export default function CourseDetailPage() {
               </svg>
             </a>
           )}
+        </div>
+        {/* Difficulty on its own row between the metadata bar and the title */}
+        <div className={`mb-4 ${mounted ? 'animate-fade-in-up stagger-1' : 'pre-animate'}`}>
+          <DifficultyVote courseId={course.id} seed={course.difficulty} />
         </div>
         <h1
           className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 ${
@@ -410,9 +418,12 @@ export default function CourseDetailPage() {
                     <p className="text-stone-700 dark:text-stone-300 text-sm leading-relaxed mb-3">
                       {tip.content}
                     </p>
-                    <p className="text-xs text-stone-400 dark:text-stone-500">
-                      — {tip.author}
-                    </p>
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-xs text-stone-400 dark:text-stone-500">
+                        — {tip.author}
+                      </p>
+                      <HelpfulButton id={tip.id} initialCount={voteCounts[tip.id] ?? 0} />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -420,7 +431,7 @@ export default function CourseDetailPage() {
             <div className="mt-8">
               <TipSubmitBox
                 courseId={course.id}
-                onSubmitted={(t) => setBackendTips((prev) => [t, ...prev])}
+                onSubmitted={(t) => setBackendTips((prev) => [...prev, t])}
               />
             </div>
           </div>

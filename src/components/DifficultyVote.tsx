@@ -8,7 +8,7 @@ import {
   refreshDifficultyCache,
   RATING_THRESHOLD,
 } from '../lib/difficulty';
-import { submitDifficulty, apiEnabled } from '../lib/apiClient';
+import { submitDifficulty, apiEnabled, type DifficultyAgg } from '../lib/apiClient';
 import { getTurnstileToken } from '../lib/turnstile';
 
 /**
@@ -23,7 +23,11 @@ export default function DifficultyVote({
   courseId: string;
   seed: number;
 }) {
-  const agg = useCourseDifficulty(courseId);
+  const hookAgg = useCourseDifficulty(courseId);
+  // After voting, the server returns the fresh aggregate; use it immediately so
+  // the count updates without waiting for the (briefly cached) bulk refetch.
+  const [liveAgg, setLiveAgg] = useState<DifficultyAgg | undefined>(undefined);
+  const agg = liveAgg ?? hookAgg;
   const display = resolveDifficulty(seed, agg);
 
   const [myVote, setMyVote] = useState<number | null>(null);
@@ -52,6 +56,7 @@ export default function DifficultyVote({
     try {
       const token = await getTurnstileToken();
       const updated = await submitDifficulty(courseId, rating, token);
+      setLiveAgg(updated);
       refreshDifficultyCache(updated);
       localStorage.setItem(storageKey, String(rating));
       setStatus('done');

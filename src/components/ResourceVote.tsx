@@ -1,12 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import {
-  toggleResourceVote,
-  reportBrokenLink,
-  apiEnabled,
-} from '../lib/apiClient';
+import { useState } from 'react';
+import { reportBrokenLink, apiEnabled } from '../lib/apiClient';
 import { getTurnstileToken } from '../lib/turnstile';
+import HelpfulButton from './HelpfulButton';
 
 /**
  * Per-resource footer: a "helpful" upvote toggle and a "report broken link"
@@ -21,44 +18,11 @@ export default function ResourceVote({
   url: string;
   initialCount?: number;
 }) {
-  const [count, setCount] = useState(initialCount);
-  const [voted, setVoted] = useState(false);
-  const [busy, setBusy] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
   const [reportNote, setReportNote] = useState('');
   const [reportState, setReportState] = useState<'idle' | 'sending' | 'done'>('idle');
 
-  const voteKey = `resourceVoted:${resourceId}`;
-  useEffect(() => {
-    setCount(initialCount);
-  }, [initialCount]);
-  useEffect(() => {
-    setVoted(localStorage.getItem(voteKey) === '1');
-  }, [voteKey]);
-
   if (!apiEnabled) return null;
-
-  const handleVote = async () => {
-    if (busy) return;
-    setBusy(true);
-    // optimistic
-    const optimisticVoted = !voted;
-    setVoted(optimisticVoted);
-    setCount((c) => c + (optimisticVoted ? 1 : -1));
-    try {
-      const token = await getTurnstileToken();
-      const res = await toggleResourceVote(resourceId, token);
-      setVoted(res.voted);
-      setCount(res.count);
-      localStorage.setItem(voteKey, res.voted ? '1' : '0');
-    } catch {
-      // revert
-      setVoted(!optimisticVoted);
-      setCount((c) => c + (optimisticVoted ? -1 : 1));
-    } finally {
-      setBusy(false);
-    }
-  };
 
   const handleReport = async () => {
     if (reportState === 'sending') return;
@@ -76,22 +40,7 @@ export default function ResourceVote({
 
   return (
     <div className="flex items-center gap-3 px-5 pb-3 -mt-1">
-      <button
-        type="button"
-        onClick={handleVote}
-        disabled={busy}
-        aria-pressed={voted}
-        className={`inline-flex items-center gap-1 text-xs rounded-full px-2.5 py-1 border transition-colors press-effect ${
-          voted
-            ? 'border-vu-blue/40 bg-vu-blue/10 text-vu-blue dark:text-vu-blue-light'
-            : 'border-stone-200/70 dark:border-stone-700/70 text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300'
-        }`}
-      >
-        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 4l8 8h-5v8h-6v-8H4z" />
-        </svg>
-        Helpful{count > 0 ? ` · ${count}` : ''}
-      </button>
+      <HelpfulButton id={resourceId} initialCount={initialCount} />
 
       {!reportOpen ? (
         <button

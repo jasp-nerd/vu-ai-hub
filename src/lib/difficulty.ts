@@ -5,7 +5,9 @@ import { fetchAllDifficulty, type DifficultyAgg } from './apiClient';
 
 /**
  * Minimum number of student ratings before crowd-sourced difficulty replaces the
- * hand-set seed value from courses.ts.
+ * hand-set seed value from courses.ts. Below this, the widget shows the hand-set
+ * value plus an "N/THRESHOLD ratings needed" hint. Lower it if you want student
+ * ratings to take over sooner.
  */
 export const RATING_THRESHOLD = 5;
 
