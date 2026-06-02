@@ -1,12 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { DIFFICULTY_LABELS } from '../constants';
 import {
   useCourseDifficulty,
   resolveDifficulty,
   refreshDifficultyCache,
-  RATING_THRESHOLD,
 } from '../lib/difficulty';
 import { submitDifficulty, apiEnabled, type DifficultyAgg } from '../lib/apiClient';
 import { getTurnstileToken } from '../lib/turnstile';
@@ -32,15 +31,20 @@ export default function DifficultyVote({
   const agg = liveAgg ?? hookAgg;
   const display = resolveDifficulty(seed, agg);
 
-  const [myVote, setMyVote] = useState<number | null>(null);
+  // The server reports this client's own rating (myRating) — the source of
+  // truth, not localStorage. Sync from the loaded aggregate via the
+  // "adjust state during render" pattern (no effect → no cascading-render lint
+  // issue). Clicks set myVote optimistically below.
+  const serverRating = hookAgg?.myRating ?? null;
+  const [myVote, setMyVote] = useState<number | null>(serverRating);
+  const [syncedRating, setSyncedRating] = useState<number | null>(serverRating);
   const [hover, setHover] = useState<number | null>(null);
   const [status, setStatus] = useState<'idle' | 'saving' | 'done' | 'error'>('idle');
 
-  const storageKey = `difficultyVote:${courseId}`;
-  useEffect(() => {
-    const saved = localStorage.getItem(storageKey);
-    if (saved) setMyVote(Number(saved));
-  }, [storageKey]);
+  if (serverRating !== syncedRating) {
+    setSyncedRating(serverRating);
+    setMyVote(serverRating);
+  }
 
   if (!apiEnabled) {
     return (
@@ -59,7 +63,6 @@ export default function DifficultyVote({
       const updated = await submitDifficulty(courseId, rating, token);
       setLiveAgg(updated);
       refreshDifficultyCache(updated);
-      localStorage.setItem(storageKey, String(rating));
       setStatus('done');
       setTimeout(() => setStatus('idle'), 2500);
     } catch {

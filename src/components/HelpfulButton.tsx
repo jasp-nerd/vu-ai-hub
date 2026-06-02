@@ -6,23 +6,26 @@ import { getTurnstileToken } from '../lib/turnstile';
 
 /**
  * Reusable "Helpful" upvote toggle, keyed by an arbitrary entity id (used for
- * both resources and tips). Optimistic, persists the user's choice locally, and
- * reconciles with the server's authoritative count.
+ * both resources and tips). The server (via the counts fetch, identified by the
+ * client id) is the single source of truth for `voted` and the durable memory
+ * across reloads — no localStorage, so there's no stale-cache desync.
  */
 export default function HelpfulButton({
   id,
   initialCount = 0,
+  initialVoted = false,
 }: {
   id: string;
   initialCount?: number;
+  initialVoted?: boolean;
 }) {
   const [count, setCount] = useState(initialCount);
-  const [voted, setVoted] = useState(false);
+  const [voted, setVoted] = useState(initialVoted);
   const [busy, setBusy] = useState(false);
 
-  const key = `voted:${id}`;
+  // Reflect the server values whenever the counts fetch resolves.
   useEffect(() => setCount(initialCount), [initialCount]);
-  useEffect(() => setVoted(localStorage.getItem(key) === '1'), [key]);
+  useEffect(() => setVoted(initialVoted), [initialVoted]);
 
   if (!apiEnabled) return null;
 
@@ -37,7 +40,6 @@ export default function HelpfulButton({
       const res = await toggleResourceVote(id, token);
       setVoted(res.voted);
       setCount(res.count);
-      localStorage.setItem(key, res.voted ? '1' : '0');
     } catch {
       setVoted(!optimistic);
       setCount((c) => c + (optimistic ? -1 : 1));
