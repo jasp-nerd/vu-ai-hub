@@ -14,7 +14,12 @@ export const apiEnabled = BASE.length > 0;
 async function getJson<T>(path: string, fallback: T): Promise<T> {
   if (!apiEnabled) return fallback;
   try {
-    const res = await fetch(`${BASE}${path}`, { headers: { Accept: 'application/json' } });
+    // no-store so freshly-cast votes/tips/ratings show immediately on reload
+    // (these endpoints set short cache headers the browser would otherwise honor).
+    const res = await fetch(`${BASE}${path}`, {
+      headers: { Accept: 'application/json' },
+      cache: 'no-store',
+    });
     if (!res.ok) return fallback;
     return (await res.json()) as T;
   } catch {
