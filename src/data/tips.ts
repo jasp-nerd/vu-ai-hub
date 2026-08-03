@@ -1050,5 +1050,185 @@ export const tips: CourseTip[] = [
       'The midterm exam is the hardest, and covers mostly only book content, so make sure to focus on that. The final is pretty easy, as it is 90% just drawing/completing graphs.',
     author: 'AI @ VU Student',
   },
-];
 
+  // ========== Databases ==========
+  {
+    id: 'tip-databases-1',
+    courseId: 'databases',
+    content:
+      'Do the homework yourself. Really. It is tempting to let AI write your SQL and your normalisation steps, but the exam is closed book and the tasks look almost exactly like the homework. If you actually worked through the exercises by hand you will walk in already knowing how to answer, and you will do great. If you outsourced them you will sit there recognising the question and having no idea how to start.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-databases-2',
+    courseId: 'databases',
+    content:
+      'The homework is also your ticket to the exam: you need 55 points (70%) to qualify for the exam or the resit, and 75 points (90%) gets you a +0.5 bonus on top of a passing grade. Qualification from a previous year does not carry over, so you have to earn it again.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-databases-3',
+    courseId: 'databases',
+    content:
+      'Sign up for both an A and a B exercise group on Canvas. The A classes cover the exercise sheet for that week and the B classes are there for you to work on the homework with TAs in the room who can nudge you when you get stuck. The last A class of the course goes through the example exam, which is the single most useful session of the block.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-databases-4',
+    courseId: 'databases',
+    content:
+      'Attribute closure is the one skill worth drilling until it is boring. Candidate keys, canonical covers, BCNF violations and the whole synthesis algorithm all reduce to computing X+ correctly. That is roughly a third of the exam points.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-databases-5',
+    courseId: 'databases',
+    content:
+      'For the SQL section, learn to translate English quantifiers into patterns. "Knows everybody in Paris" becomes "there is no person in Paris that this person does not know", which is a double NOT EXISTS. "Does not take baking classes" is a single NOT EXISTS. Use NOT EXISTS rather than NOT IN, because one NULL in the subquery makes NOT IN silently return nothing.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-databases-6',
+    courseId: 'databases',
+    content:
+      'For transactions, write out the conflicting operation pairs before you draw anything. Two operations conflict when they are from different transactions, touch the same item, and at least one is a write. Then the precedence graph almost draws itself, and a cycle means not conflict-serialisable.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-databases-7',
+    courseId: 'databases',
+    content:
+      'Do not skip multi-granularity locking or the database API slides. There is usually a question on which of S, X, IS and IX conflict with each other, and an open question on SQL injection and how prepared statements prevent it. Both are cheap points that people lose because those parts have no lecture video.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-databases-8',
+    courseId: 'databases',
+    content:
+      'The exam runs in iSubmit, so know the tool before you sit down. Remember your iSubmit password, use the Save button constantly while drawing E/R diagrams, and press Verify Submission on the manually graded tasks. Most tasks give partial points and immediate feedback, so never leave one blank.',
+    author: 'AI @ VU Student',
+  },
+
+  // ========== The Law of Artificial Intelligence ==========
+  {
+    id: 'tip-law-of-ai-1',
+    courseId: 'law-of-ai',
+    content:
+      'Take this course. It is one of the most enjoyable things in the programme and the professor is genuinely great: engaging, sharp, and happy to talk. Go up to him after a lecture or send him a message. Those conversations are worth more than most of the reading.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-law-of-ai-2',
+    courseId: 'law-of-ai',
+    content:
+      'The course is easy without being empty. The professor rewrites the material every year to keep up with what is actually happening in AI regulation, so it stays current and you end up learning a lot without it ever feeling like a grind.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-law-of-ai-3',
+    courseId: 'law-of-ai',
+    content:
+      'Lectures are fun but not mandatory. If you skip one, drop the slides and the mandatory readings into an AI tool and have it write you a summary. That covers the lecture side of the exam fine.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-law-of-ai-4',
+    courseId: 'law-of-ai',
+    content:
+      'Do go to the seminars though. What gets discussed there shows up on the exam and there is no way to study it afterwards, because it only exists in the room. This is the one part of the course you cannot catch up on later.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-law-of-ai-5',
+    courseId: 'law-of-ai',
+    content:
+      'Because the material is refreshed every year, be careful with old summaries and question banks from previous cohorts. The structure stays similar but the examples, readings and emphasis move. Work from this year\'s slides and this year\'s mock exam.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-law-of-ai-6',
+    courseId: 'law-of-ai',
+    content:
+      'The two things that come back constantly: Lessig\'s four modalities (law, social norms, market, architecture) and the risk pyramid of the AI Act. If you can name the four modalities and say which one is doing the work in a given scenario, and you can place a system in the right risk tier, you have covered a lot of ground.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-law-of-ai-7',
+    courseId: 'law-of-ai',
+    content:
+      'Keep high-risk AI systems and general-purpose AI models apart in your head. High-risk classification runs mostly on what the system is used for. The GPAI regime under Articles 51 to 55 runs on what the model can do. Mixing those two up is the classic exam trap.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-law-of-ai-8',
+    courseId: 'law-of-ai',
+    content:
+      'Do the mock exam closed book about a week before the real one, then go back and work out why each wrong option is wrong. The distractors are built from real provisions, so understanding why they miss teaches you the Act better than rereading it.',
+    author: 'AI @ VU Student',
+  },
+
+  // ========== Text Mining for AI ==========
+  {
+    id: 'tip-text-mining-1',
+    courseId: 'text-mining-ai',
+    content:
+      'This is a genuinely fun course and the most relevant one in the bachelor if you care about NLP. Everything behind LLMs and chatbots starts here: tokenisation, embeddings, sequence labelling, classification, fine-tuning. If you want to understand why the tools you use every day work the way they do, this is the course that gets you closest.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-text-mining-2',
+    courseId: 'text-mining-ai',
+    content:
+      'Lectures are not mandatory and honestly not needed. Feed the slides and the compulsory readings to an AI tool, get summaries out, and study from those. The exam is multiple choice over exactly that material, so it works well.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-text-mining-3',
+    courseId: 'text-mining-ai',
+    content:
+      'The Canvas self-test quizzes are your only exam practice. The syllabus says outright that there will be no separate practice exam and that the quiz questions are similar to the real ones. Do all six, then redo the ones you got wrong a few days later.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-text-mining-4',
+    courseId: 'text-mining-ai',
+    content:
+      'Sort out your group in week 1. You need four people, you sign up through the Groups tab on Canvas, and if you have not joined a group by the deadline the staff assume you dropped the course. You keep the same group for all four lab assignments and the final poster project, so pick people who will show up.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-text-mining-5',
+    courseId: 'text-mining-ai',
+    content:
+      'The lab assignments carry no weight in your grade but you cannot pass without completing them. You get at most two resubmissions across the whole course, with a one-week deadline, so do not burn them early. If someone in the group did not contribute, they have to redo that assignment on their own.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-text-mining-6',
+    courseId: 'text-mining-ai',
+    content:
+      'Both components need at least a 5 on their own and the average has to be 5.5. The exam is 60% and the poster project is 40%, so a great project cannot rescue a failed exam and vice versa. Give the poster real time instead of throwing it together in the last week.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-text-mining-7',
+    courseId: 'text-mining-ai',
+    content:
+      'Install Anaconda and set up a clean virtual environment before the first lab. Old Python and package versions cause install conflicts that eat an entire lab session. There is also a command-line self-test on Canvas: take it early, because without basic terminal skills the labs are painful.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-text-mining-8',
+    courseId: 'text-mining-ai',
+    content:
+      'A lot of exam questions are precise definition contrasts rather than deep reasoning. Dependency versus constituency parsing, NER versus NEC, inflection versus derivation, inline versus stand-off annotation, gold versus silver versus bronze data. Make flashcards for those pairs and you pick up easy points.',
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'tip-text-mining-9',
+    courseId: 'text-mining-ai',
+    content:
+      'Check where your exam actually is. It has been held off campus at the Emergohal in Amstelveen rather than at VU, which is about a 30 minute bike ride, and it runs in TestVision on a browser. Confirm the location and start time on Canvas the night before and leave extra travel time.',
+    author: 'AI @ VU Student',
+  },
+];

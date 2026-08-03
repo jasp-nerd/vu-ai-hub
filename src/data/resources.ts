@@ -16,6 +16,9 @@ import { multiAgentSystemsSummary } from './summaries/multi-agent-systems-summar
 import { projectConversationalAgentsSummary } from './summaries/project-conversational-agents-summary';
 import { machineLearningSummary } from './summaries/machine-learning-summary';
 import { probabilityStatisticsSummary } from './summaries/probability-statistics-summary';
+import { databasesSummary } from './summaries/databases-summary';
+import { lawOfAiSummary } from './summaries/law-of-ai-summary';
+import { textMiningSummary } from './summaries/text-mining-summary';
 
 export const resources: Resource[] = [
   // ========== DSA ==========
@@ -1723,5 +1726,209 @@ export const resources: Resource[] = [
     type: 'pdf',
     tags: ['survival-guide', 'programme', 'tips'],
   },
-];
 
+  // --- Databases ---
+  {
+    id: 'res-databases-1',
+    courseId: 'databases',
+    title: 'Databases — Exam-Focused Summary',
+    description: 'A compact course map for relational modelling, SQL, normalisation, transactions and database APIs.',
+    url: '#',
+    type: 'summary',
+    tags: ['summary', 'exam-prep', '2026'],
+    markdownContent: databasesSummary,
+    author: 'VU AI Student',
+  },
+  {
+    id: 'res-databases-2',
+    courseId: 'databases',
+    title: 'Complete Databases Study Guide',
+    description: 'A 27-page student guide with explanations, worked examples, practice exercises and an answer key.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/databases/summaries/databases-complete-study-guide.pdf',
+    type: 'pdf',
+    tags: ['study-guide', 'exam-prep', 'student-made', '2026'],
+  },
+  {
+    id: 'res-databases-3',
+    courseId: 'databases',
+    title: 'Databases Resit Topic Guide',
+    description: 'A focused student guide that revisits the main resit topics and common SQL and normalisation patterns.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/databases/exam-prep/databases-resit-topic-guide.pdf',
+    type: 'pdf',
+    tags: ['resit', 'exam-prep', 'student-made', '2026'],
+  },
+  {
+    id: 'res-databases-4',
+    courseId: 'databases',
+    title: 'Official Exercise Exam',
+    description: 'The course exercise exam. Attempt it under closed-book conditions before opening the solutions.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/databases/exam-prep/databases-exercise-exam.pdf',
+    type: 'pdf',
+    tags: ['practice-exam', 'official'],
+  },
+  {
+    id: 'res-databases-5',
+    courseId: 'databases',
+    title: 'Exercise Exam Solutions',
+    description: 'Worked solutions for the official exercise exam.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/databases/exam-prep/databases-exercise-exam-solutions.pdf',
+    type: 'pdf',
+    tags: ['practice-exam', 'solutions', 'official'],
+  },
+  {
+    id: 'res-databases-6',
+    courseId: 'databases',
+    title: 'Databases Exam Study Plan',
+    description: 'A short priority guide and checklist built from the 2026 course exercises and review questions.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/databases/summaries/databases-exam-study-plan.md',
+    type: 'article',
+    tags: ['study-plan', 'exam-prep', '2026'],
+  },
+
+  // --- The Law of Artificial Intelligence ---
+  {
+    id: 'res-law-of-ai-1',
+    courseId: 'law-of-ai',
+    title: 'Law of AI — Course Map',
+    description: 'An exam-focused map of the five lectures, two seminars and the EU legal stack around AI.',
+    url: '#',
+    type: 'summary',
+    tags: ['summary', 'exam-prep', '2026'],
+    markdownContent: lawOfAiSummary,
+    author: 'VU AI Student',
+  },
+  {
+    id: 'res-law-of-ai-2',
+    courseId: 'law-of-ai',
+    title: 'Law of AI Mock Exam 2026',
+    description: 'A 30-question multiple-choice mock covering lectures, readings and provision-rewrite questions.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/law-of-ai/mock-exams/law-of-ai-mock-exam-2026.pdf',
+    type: 'pdf',
+    tags: ['mock-exam', 'multiple-choice', '2026'],
+  },
+  ...[
+    ['01', 'Law and Code', 'law-and-code'],
+    ['02', 'The Risk-Based Approach', 'risk-based-approach'],
+    ['03', 'The Capabilities Approach', 'capabilities-approach'],
+    ['04', 'Strengths and Weaknesses', 'strengths-and-weaknesses'],
+    ['05', 'The Wider Legal Stack', 'other-laws'],
+  ].map(([number, topic, file]) => ({
+    id: `res-law-of-ai-lecture-${number}`,
+    courseId: 'law-of-ai',
+    title: `Lecture ${Number(number)} Study Guide — ${topic}`,
+    description: `Student-made 2026 study guide for Lecture ${Number(number)}, with explanations, recall prompts and exam links.`,
+    url: `https://jasp-nerd.github.io/vu-ai-resources/law-of-ai/summaries/lecture-${number}-${file}.md`,
+    type: 'article' as const,
+    tags: ['lecture-guide', 'student-made', '2026'],
+  })),
+  {
+    id: 'res-law-of-ai-8',
+    courseId: 'law-of-ai',
+    title: 'EU Artificial Intelligence Act — Official Text',
+    description: 'The consolidated official text of Regulation (EU) 2024/1689 on EUR-Lex.',
+    url: 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng',
+    type: 'article',
+    tags: ['legislation', 'official', 'EU-AI-Act'],
+  },
+
+  // --- Text Mining for AI ---
+  {
+    id: 'res-text-mining-1',
+    courseId: 'text-mining-ai',
+    title: 'Text Mining — Course Map',
+    description:
+      'An exam-focused map of all six topic blocks, from linguistics and NLP pipelines through sentiment, entities and topic modelling.',
+    url: '#',
+    type: 'summary',
+    tags: ['summary', 'exam-prep', 'nlp'],
+    markdownContent: textMiningSummary,
+    author: 'AI @ VU Student',
+  },
+  {
+    id: 'res-text-mining-2',
+    courseId: 'text-mining-ai',
+    title: 'Exam Overview and Study Plan',
+    description:
+      'Exam logistics, what is examined, the explicit out-of-scope carve-outs, and a multi-day revision schedule.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/text-mining-ai/notes/00-exam-overview.md',
+    type: 'article',
+    tags: ['exam-prep', 'study-plan', 'student-made'],
+  },
+  ...[
+    ['01', 'Command Line and Python', 'command-line-and-python'],
+    ['02', 'Linguistics for NLP', 'linguistics'],
+    ['03a', 'NLP Pipelines', 'nlp-pipelines'],
+    ['03b', 'Machine Learning for NLP', 'ml-for-nlp'],
+    ['04', 'Sentiment and Subjectivity', 'sentiment'],
+    ['05', 'Named Entity Recognition', 'named-entities'],
+    ['06', 'Text Categorisation and Topic Modelling', 'topic-modeling'],
+  ].map(([number, topic, file]) => ({
+    id: `res-text-mining-lecture-${number}`,
+    courseId: 'text-mining-ai',
+    title: `${number}. ${topic}`,
+    description: `Cornell-style summary with a cheat sheet and a self-quiz, cross-referenced to the lecture slide numbers.`,
+    url: `https://jasp-nerd.github.io/vu-ai-resources/text-mining-ai/summaries/${number}-${file}.md`,
+    type: 'article' as const,
+    tags: ['lecture-summary', 'student-made', 'active-recall'],
+  })),
+  {
+    id: 'res-text-mining-3',
+    courseId: 'text-mining-ai',
+    title: 'Final Exam Prep Drill',
+    description:
+      'Targeted drills on the exact question types that appear on the exam, built from all lectures plus a past exam paper.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/text-mining-ai/summaries/07-exam-prep-final.md',
+    type: 'article',
+    tags: ['exam-prep', 'student-made', 'drills'],
+  },
+  {
+    id: 'res-text-mining-4',
+    courseId: 'text-mining-ai',
+    title: 'Self-Test Question Bank with Answers',
+    description:
+      'Every Canvas self-test question across the six quizzes, with all options and the correct answer marked. The course provides no practice exam, so this is the closest substitute.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/text-mining-ai/exam-prep/self-test-answers.md',
+    type: 'article',
+    tags: ['practice-questions', 'official-quizzes', 'exam-prep'],
+  },
+  {
+    id: 'res-text-mining-5',
+    courseId: 'text-mining-ai',
+    title: 'Speech and Language Processing (Jurafsky & Martin)',
+    description:
+      'The free 3rd-edition draft of the standard NLP textbook. Chapters 4, 5, 17 and 22 are compulsory reading for this course.',
+    url: 'https://web.stanford.edu/~jurafsky/slp3/',
+    type: 'article',
+    tags: ['textbook', 'official', 'free'],
+  },
+  {
+    id: 'res-text-mining-6',
+    courseId: 'text-mining-ai',
+    title: 'NLTK Book — Natural Language Processing with Python',
+    description:
+      'The free online NLTK book. Chapter 6 (classification), chapter 7 (information extraction) and chapter 8 (sentence structure) are on the reading list.',
+    url: 'https://www.nltk.org/book/',
+    type: 'article',
+    tags: ['textbook', 'official', 'free', 'nltk'],
+  },
+  {
+    id: 'res-text-mining-7',
+    courseId: 'text-mining-ai',
+    title: 'spaCy 101 — Course and Documentation',
+    description:
+      'Interactive introduction to spaCy, the pipeline used throughout the labs for tokenisation, POS tagging, parsing and entity recognition.',
+    url: 'https://course.spacy.io/en/',
+    type: 'tool',
+    tags: ['toolkit', 'spacy', 'labs'],
+  },
+  {
+    id: 'res-text-mining-8',
+    courseId: 'text-mining-ai',
+    title: 'Embedding Projector',
+    description:
+      'Visualise word embeddings in 3D. Useful for building intuition about the distributional hypothesis and vector similarity from lecture 3.',
+    url: 'https://projector.tensorflow.org/',
+    type: 'tool',
+    tags: ['embeddings', 'visualisation'],
+  },
+];

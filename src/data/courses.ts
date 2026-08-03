@@ -9,16 +9,28 @@ const lawOfAiBase = {
   credits: '6EC',
   description:
     'Legal, ethical, and societal implications of AI developments; EU AI Act; designing AI systems compliant with the law.',
-  overview: `For a long time, lawyers were often seen by software developers as a nuisance, a sentiment perhaps best illustrated by an incident at a Github board meeting around 2010. During the discussion, a lawyer pointed out some legal issues and cautiously began, "I know you don't want to hear this from a lawyer, but…" Before he could continue, another board member cut him off aggressively: "…then shut the f*** up." This attitude was common among computer scientists as well. While developers and designers focused on what was possible, lawyers concentrated on what was permissible, often without attempting to understand the potential of the technology. Today, the situation is no longer black and white, but rather gray. Lawyers understand technology and development processes better, and AI specialists understand the need to comply with the law. Technology and the law are no longer systematically seen as adversaries. Against this backdrop, many governments around the world are launching initiatives to regulate AI. Their goal is often to contain high-risk AI while supporting other AI applications. One such example is the European Union's Artificial Intelligence Act. This course explores how AI is governed by legal rules and standards. By the end of the course, students will have a solid grasp of the EU AI Act, including the constraints it imposes on AI development and its key limitations. This will put them in a unique position to contribute to the development of legally compliant AI systems. Most importantly, students will learn how to design AI systems that not only comply with legal requirements but are also protected by them. In short, they will learn how the law works, and how to work with it.`,
+  overview: `The course is organised around five lectures and two practical seminars, packed into roughly three weeks at the end of the year. It starts with Lessig's four modalities of regulation and the relationship between law and code, then builds the EU AI Act from its risk-based rules (including Articles 5–15) through the separate capabilities-based rules for general-purpose AI models (Articles 51–55). The final lectures examine exemptions, regulatory sandboxes, competition and innovation, and the wider legal stack around AI: the GDPR, DSA, DMA, copyright, product liability and related EU rules. The seminars turn that theory into practice by having students redraft Article 5 prohibitions and work on computational compliance for copyright text-and-data-mining opt-outs.
+
+**How it is taught.** Lectures are discussion-led rather than slide-reading, using a Socratic style, so the professor expects you to have done the mandatory readings and to actually talk. The two seminars put you in small teacher-assigned teams to work on real drafting problems.
+
+**The material is rewritten every year.** The professor updates the readings, the examples and the emphasis annually to track what is happening in AI regulation. That is what keeps the course engaging, and it is also why old summaries and question banks from previous cohorts are unreliable here.
+
+**Assessment.** A single on-campus multiple-choice exam worth 100% of the grade, covering the mandatory readings and preparation material as well as the lectures and seminars. A mock exam is released partway through, and there is one resit. Students who take the resit are not eligible to graduate with honours.
+
+**Worth knowing before you sign up.** This is one of the lighter courses in the programme in terms of workload, and the course manual states plainly that if you attend the sessions, come prepared and participate, you will be fine for the exam. No programming, no maths, and no group deliverable to coordinate.`,
   objectives:
     'At the end of the course, the students will: understand the legal, ethical, and societal implications of AI developments. be able to write informed opinions about AI legislation. be trained in acquiring a set of complex legal AI-related topics in a restricted period of time. be able to work together as a team to identify not only the technical but also the legal issues with the design of AI systems. be familiar with basic knowledge about the law that applies to AI systems, including the law specifically focusing on AI systems such as the EU AI Act. be able to identify legal risks when designing AI systems. be in a position to design AI systems compliant with the law. be able to use legal rules to protect their AI systems. be able to reflect critically on the impact of legal rules on technology. be able to express their own motivated opinions and contribute to the writing of better legal rules.',
   assessment:
-    'One final on-campus exam will account for 100% of the students\' grade. Further details about the exam format will be provided during the first class. A mock exam will also be made available halfway through the course.',
+    'A multiple-choice exam on 24 June accounts for 100% of the final grade. The exam covers the mandatory readings and preparation materials as well as the lectures and seminars. A mock exam is available for practice. There is one resit opportunity.',
   teachingMethods:
-    'Students will be given five lectures mainly focusing on the European Union\'s Artificial Intelligence Act. Teachers will use a Socratic method to create discussions in the classroom. Students will also take part in two seminars to explore the European AI Act from a practical perspective. They will comment on the AI Act and discuss their inputs with other classmates and professors. Students will work in small teams their professor will assign.',
-  literature: '',
+    'Five discussion-led lectures and two practical seminars. Students prepare the assigned material before class and work in small, teacher-assigned teams during the seminars.',
+  literature: 'Mandatory readings, podcasts, legal texts and preparation materials are provided through Canvas.',
   prerequisites: '',
-  difficulty: 0 as const,
+  difficulty: 1 as const,
+  workgroupInfo: {
+    mandatory: false,
+    detail: 'The two seminars require preparation and active small-group work. Seminar groups and instructions are published on Canvas. Worth attending: the seminar discussions show up on the exam and you cannot really study them from the slides.',
+  },
   studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0084',
 } satisfies Omit<Course, 'id' | 'slug' | 'tags' | 'specialisation'>;
 
@@ -602,15 +614,30 @@ The course is divided into two complementary parts:
     credits: '6EC',
     description:
       'NLP, linguistics, text mining: rule-based systems, machine learning, deep learning, text classification, sentiment, entity recognition, topic modeling.',
-    overview: `Basic concepts from Linguistics and foundational concepts from Natural Language Processing. Skills to use, apply and critically assess text mining techniques. Adapt and build text mining techniques to specific target domains and applications.`,
+    overview: `Text Mining is the NLP course of the bachelor, and it runs over six weeks with two meetings per week: a lecture and a lab session. The lectures walk through the layers of information hidden in text, roughly one per week: an intro to text mining, linguistics (morphology, syntax, semantics, pragmatics), NLP and machine learning in two parts, sentiment analysis, named entity recognition and classification, and finally text categorisation and topic modelling.
+
+In the labs you work with the standard Python toolkits, mostly NLTK, spaCy, scikit-learn and Hugging Face transformers, on real data such as airline tweets. You form groups of four in week 1 and stay in that group for the four weekly lab assignments and the final project, which you present as a poster.
+
+You need Python and command-line skills before you start. The course assumes you can install Anaconda, work in a virtual environment and run Jupyter notebooks on your own laptop, and there is a self-test on Canvas to check whether your command-line skills are good enough.
+
+If you are curious about how LLMs and chatbots actually work under the hood, this is where the bachelor gets closest to it: tokenisation, embeddings, sequence labelling, fine-tuning BERT and where each of those approaches breaks down.`,
     objectives:
       'Knowledge and understanding: at the end of the course, students will be familiar with basic knowledge of some of the core aspects of Natural Language Processing, Linguistics and Text Mining: rule-based systems, machine learning, deep learning, text classification, sentiment extraction, entity recognition and topic modeling of texts. Applying knowledge and understanding: students will be able to implement NLP processing systems and modules and evaluate these. Making judgements: students will have a basic understanding of the ethical and societal implications of the developments in NLP. Communication skills: students will be able to write a scientific reports about a specific research question in a group of students. Learning skills: students will be trained in acquiring a set of complex NLP and text mining topics in a restricted period of time, come up with a research question and perform the necessary (empirical) research. Basic concepts from Linguistics and foundational concepts from Natural Language Processing. Skills to use, apply and critically assess text mining techniques. Adapt and build text mining techniques to specific target domains and applications.',
-    assessment: '',
-    teachingMethods: 'Theoretical lectures and working group sessions',
-    literature: '',
-    prerequisites: '',
-    difficulty: 0,
+    assessment:
+      'Two graded components: the group project report/poster (40%) and an individual multiple-choice exam (60%). You need at least a 5 for each component separately and an average of 5.5 or higher to pass. Completing the weekly lab assignments is a requirement to pass, even though they carry no weight in the grade. You may resubmit at most two weekly lab assignments, with a one-week deadline; a group member who did not contribute has to resubmit individually within a week. The exam is based on the lecture slides and the compulsory literature. Each lecture comes with an ungraded Canvas self-test quiz, and those quizzes are the only exam-style practice you get, since the course explicitly does not provide a separate practice exam.',
+    teachingMethods:
+      'Six weeks with a lecture and a lab session each week. Lectures are prepared by reading the compulsory literature listed per module. Lab sessions are hands-on Python work in groups of four, supported by TAs, building towards the final project. Questions can be submitted anonymously through per-lecture and per-lab Google spreadsheets.',
+    literature:
+      'Maynard, Bontcheva & Augenstein, Natural Language Processing for the Semantic Web (chapters 1, 2, 3, 7). Jurafsky & Martin, Speech and Language Processing (3rd ed. draft, chapters 4, 5, 17, 22). Bird, Klein & Loper, Natural Language Processing with Python / NLTK book (chapters 6, 7, 8). Plus papers on transformers (Wolf et al. 2020), NER (Yadav & Bethard 2019), topic modelling (Vayansky & Kumar 2020; Churchill & Singh 2021), fine-tuning (Church et al. 2021; Sun et al. 2019) and SVM text classification (Saigal & Khanna 2020). All links are in the Canvas modules.',
+    prerequisites:
+      'Working knowledge of Python and the command line, plus your own laptop (Windows 10+, macOS or Linux) with Anaconda installed. Set up a separate virtual environment for the course before the first lab to avoid package conflicts.',
+    difficulty: 2,
     tags: ['nlp', 'text-mining', 'required'],
+    workgroupInfo: {
+      mandatory: false,
+      detail:
+        'Lectures and labs are not checked for attendance, but the lab assignments themselves are mandatory to pass the course and you have to be in a group of four. Groups are formed in week 1 through the Groups tab on Canvas; if you have not joined a group by the deadline the staff assume you are not taking the course.',
+    },
   },
   // ========== YEAR 2 — Intelligent Systems specialisation ==========
   {
@@ -680,17 +707,29 @@ The course is divided into two complementary parts:
     specialisation: 'intelligent_systems',
     description:
       'Relational databases: ER diagrams, relational model, SQL, schema design, normalization, functional dependencies, concurrency.',
-    overview: `The course is concerned with base principles and important aspects of relational databases. The course objective is to obtain a good knowledge and understanding of relational database systems. This includes the ability to develop good database models, and to query and update databases using SQL.`,
+    overview: `Databases teaches the complete relational-database workflow: modelling a domain with ER diagrams, translating that model into a relational schema, querying and updating it with SQL, improving schema quality with functional dependencies and normal forms, and reasoning about transactions and concurrent schedules. Database APIs and safe parameterised queries are also examinable.
+
+**How the course runs.** There are no traditional lectures. You prepare from short lecture videos and the textbook in your own time, and the contact hours are two weekly question hours plus roughly two on-campus exercise classes per week. You sign up on Canvas for both an A group (which works through that week's exercise sheet) and a B group (which is time to work on the homework with TAs available). The last A class of the block goes through the example exam.
+
+**The homework is a gate, not just points.** All homework runs in iSubmit and is individual, with the single exception of the conceptual modelling assignment, which may be done in pairs. You need 70% of the homework points to qualify for the exam or the resit, and qualification does not carry over from a previous year. Hit 90% and you get a +0.5 bonus on a passing grade.
+
+**The exam.** Closed book, on campus, and taken in iSubmit rather than on paper. The task types mirror the homework: draw an E/R diagram, write SQL, apply the synthesis algorithm, build a precedence graph, plus multiple-choice and open theory questions. Most tasks give partial credit and immediate feedback, and some automatically graded ones limit your attempts.
+
+**Worth knowing before you sign up.** The workload is steady rather than spiky, but the homework deadlines run through the whole block, so this is a bad course to fall behind in. If you liked the structured, rule-following parts of Logic and Sets, you will probably enjoy this one.`,
     objectives:
       'The students will learn: to design and evaluate database schemas using Entity-Relationship diagrams, (Applying knowledge and understanding) (Making judgements) to understand the relational model (including integrity constraints such as key constraints and foreign key constraints), (Knowledge and understanding) to translate Entity-Relationship diagrams into relational schemas (and to enforce cardinality constraints by design), (Applying knowledge and understanding) to reason about good and bad database design using functional dependencies, (Making judgements) to apply normalization algorithms to transform a database schema into (various) normal forms, (Applying knowledge and understanding) to understand concurrency concepts like transactions, schedules and concurrency anomalies, and (Knowledge and understanding) to reason about different techniques for concurrency control (lock based concurrency control, optimistic concurrency control, multiversion concurrency control). (Making judgements)',
     assessment:
-      'The homework is mandatory for qualifying for the exam (70% of the homework points to qualify for the exam). In the case that at least 90% of the homework points are obtained, 0.5 bonus points are awarded for the final grade. At the end of the course, there is a final exam. The overall grade is the grade of the final exam plus the possibly 0.5 bonus point obtained for the homework. (The bonus is only added for students who pass the exam with a grade of at least 5.5.) There is no resit opportunity for the homework.',
-    teachingMethods: 'Lectures, exercise/practicum classes and individual homework.',
+      'Individual homework is mandatory: in 2026 you need at least 55 homework points (70%) to qualify for the exam or resit. A score of at least 75 points (90%) earns a +0.5 bonus, applied only after passing the exam with at least 5.5. Homework eligibility from a previous course year does not carry over. The final exam is a closed-book, on-campus digital exam in iSubmit with practical tasks similar to the homework plus multiple-choice and open theory questions; some automatically graded tasks have limited attempts.',
+    teachingMethods: 'Self-study lecture videos and textbook reading, two weekly question hours, approximately two on-campus exercise classes per week, and mandatory individual homework in iSubmit.',
     literature:
       'Database Systems, The Complete Book, by: Hector Garcia-Molina & Jeffrey D. Ullman & Jennifer Widom. 2nd edition.',
     prerequisites: '',
-    difficulty: 0,
+    difficulty: 2,
     tags: ['databases', 'sql', 'intelligent-systems'],
+    workgroupInfo: {
+      mandatory: false,
+      detail: 'Exercise attendance is not mandatory but is strongly recommended. Register for both an A and a B exercise group in Canvas; the homework itself is individual.',
+    },
   },
   {
     id: 'project-collective-intelligence',

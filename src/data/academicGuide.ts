@@ -70,7 +70,43 @@ You pick either **Intelligent Systems** (more technical, systems-focused) or **S
 | 4 | Automata and Complexity (IS) *or* Cognitive Psychology for AI (SAC) | 6 | Formal languages, Turing machines, P/NP *or* perception, memory, decision-making |
 | 5 | Research Design for AI | 3 | Research questions, methodology, data analysis, scientific writing |
 | All year | Bachelor Project Artificial Intelligence | 15 | Individual research project, thesis, and oral presentation |
-| — | Free elective minor | 30 | Your choice — any VU or exchange minor |`,
+| — | Free elective minor | 30 | Your choice — any VU or exchange minor |
+
+---
+
+## Why VU Amsterdam
+
+If you are choosing between AI bachelors in the Netherlands, the curriculum tables above will not decide it for you. Most of these programmes teach roughly the same maths, the same machine learning and the same logic. What actually differs is who sits next to you and what city you walk into after the lecture.
+
+### The programme is in English
+
+This is the part people underestimate. Most AI bachelors in the Netherlands are taught in Dutch, which means your cohort is drawn almost entirely from Dutch secondary schools. Here you sit next to people who moved countries to take this degree. My honest impression after two years is that this changes the room: when someone has relocated to be here, they tend to arrive with a plan, and that raises what everyone around them thinks is normal.
+
+Teaching in English also means the guest lecturers, the reading lists and the student events are all in English, so nothing is gated behind a language you may not speak.
+
+### Amsterdam is the real advantage
+
+Studying AI in Amsterdam gives you a stack of things that have nothing to do with the curriculum:
+
+- **Events, constantly, and in English.** Meetups, hackathons, demo nights, company talks. You can go to something relevant most weeks without trying hard.
+- **Part-time work is genuinely findable.** Student jobs, internships and side gigs in tech are much easier to land here than in a smaller university town, and plenty of them are open to second-year students.
+- **The Zuidas is a fifteen-minute bike ride away.** If consultancy, finance or product work appeals to you more than writing code all day, you are sitting next to one of the largest concentrations of those firms in Europe. Not everyone in AI wants to be a hardcore programmer, and this is a good place to be if you are one of them.
+
+### The degree itself holds up well right now
+
+AI is growing fast, and the low-level details of computers matter less to most programming jobs than they used to. Employers are looking for people who can work with these systems, evaluate them and reason about where they fail. An AI degree signals that directly in a way a general CS degree does not.
+
+If you want more traditional computer science on top, the 30 EC minor space in year three is exactly the place to add it. You can fill the gaps without giving up the AI label on your diploma.
+
+### What a degree will not do for you
+
+Graduating is the floor, not the ceiling. Two things matter at least as much:
+
+**Meet people.** Go to events that actually interest you rather than the ones you think look good. [AISO](https://aisoamsterdam.com/) runs events aimed at exactly this audience and is a good place to start. Conversations at those evenings turn into internships far more often than applications through a careers portal do.
+
+**Build things you personally need.** Not tutorial projects, not another Titanic notebook. Something that solves a problem you actually have. Those are the projects you finish, and they are the ones you can talk about for twenty minutes in an interview. Put them on GitHub. A public profile showing you build things outside of coursework separates you from everyone else submitting the same graded assignments.
+
+On generative AI: use it. Refusing to is not principled, it just makes you slower. But learn the fundamentals underneath it anyway, because the people who understand what the model is doing are the ones who stay useful when it gives a confidently wrong answer.`,
   },
   {
     id: 'specialisation-tracks',
@@ -183,7 +219,27 @@ Being in the Zuidas area of Amsterdam also means there are plenty of tech compan
     description: 'Career paths and opportunities after graduating from the AI bachelor.',
     content: `Graduates of the AI bachelor end up in all sorts of roles: machine learning engineer, data scientist, AI researcher, software engineer, AI consultant, and others. Some go straight into industry, but many do a master's in AI or Computer Science first.
 
-The technical and mathematical training you get is broadly applicable, so you're not locked into one specific career path after graduating.`,
+The technical and mathematical training you get is broadly applicable, so you're not locked into one specific career path after graduating.
+
+### The market is on your side right now
+
+AI is one of the few fields where demand is running ahead of supply. Companies want people who can build with these systems, judge their output and explain what they are doing, and there are not many graduates who can do all three. Meanwhile the low-level details of computers matter less to most programming jobs than they did ten years ago, so an AI degree reads as more current than a general CS one to a lot of hiring managers.
+
+If you feel the CS foundations are thin, the year-three minor is 30 EC of free space. Use it for algorithms, systems or software engineering and you close the gap without losing the AI label.
+
+### Amsterdam makes the practical side easier
+
+Finding a part-time job, an internship or a side gig is noticeably easier here than in a smaller university town. The Zuidas is a short bike ride from campus, and it is full of consultancies and financial firms hiring people who understand AI but do not want to write code all day. If that describes you, you are in close to the best possible location for it.
+
+### A degree alone is not enough
+
+This is the part nobody puts in the prospectus. Your diploma gets you past a filter. What gets you the actual role is usually one of two things:
+
+**People.** Go to events that genuinely interest you, not the ones you think will look impressive. [AISO](https://aisoamsterdam.com/) runs events for exactly this crowd and is an easy starting point, and [STORM](https://svstorm.nl/) organises company visits and career evenings. A conversation at one of those turns into an internship far more often than a form on a careers page does.
+
+**Projects you actually needed.** Build something that solves a problem you have. That constraint matters more than the tech stack, because it is the reason you will finish it, and finished projects are the ones you can talk about with real detail when someone asks. Put them on GitHub. A profile showing you build things outside of coursework is what separates you from the pile of candidates submitting the same graded assignments.
+
+On generative AI: use it, and learn the fundamentals underneath it anyway. The people who understand what the model is doing are the ones who stay useful when it hands them a confident wrong answer.`,
   },
   {
     id: 'masters-programs',

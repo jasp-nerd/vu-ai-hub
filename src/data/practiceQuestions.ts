@@ -7801,4 +7801,499 @@ $$\\boxed{\\text{Reject } H_0 \\text{ at } \\alpha = 0.05.}$$
 
 **Conclusion:** There is significant evidence at the 5% level that the population variance exceeds 10. The $p$-value satisfies $0.01 < p < 0.025$ (since $\\chi^2_{0.025, 19} = 32.852 < 34.2 < 36.191 = \\chi^2_{0.01, 19}$).`,
   },
+
+  // ========== Databases ==========
+  // Built from the structure of a real X_401008 exam: conceptual modelling,
+  // normalisation, SQL, transactions and application programming, in the same
+  // proportions. Scenarios and values are changed, the task types are not.
+  {
+    id: 'pq-databases-1',
+    courseId: 'databases',
+    topic: '1a. Conceptual Modelling — E/R Diagrams',
+    difficulty: 'hard',
+    question: `Draw an entity relationship diagram for the scenario below. Indicate all key and cardinality constraints, and express cardinalities UML-style as *Min..Max*. Avoid artificial keys unless there is a strong reason for one.
+
+**Scenario.** You are maintaining information about a chain of fitness clubs and its trainers.
+
+- The chain has several **clubs**, each with an address and a unique name. Every club consists of one or more **studios**. Studio names are not unique across the chain, but there cannot be two studios with the same name inside one club.
+- Every **trainer** has a first name, last name, a unique id and a date of birth. A trainer may also have a middle name.
+- Every trainer can have one (direct) **manager**.
+- Every studio has precisely one **studio lead**.
+- The work of trainers is organised as **shifts**. Every trainer can have shifts at one or more studios (possibly in different clubs). A trainer can have at most one shift per studio. For each shift you store the number of hours per week.
+- Each shift may be **supervised** by one other trainer. The supervisor is not necessarily the manager, and different shifts of the same trainer may have different supervisors.`,
+    answer: `**Entity sets**
+
+- \`Club\`(**name**, address) — \`name\` is the key.
+- \`Studio\`(**name**, ...) — a **weak entity** owned by \`Club\`. Its partial key is \`name\`; the full key is (Club.name, Studio.name). Draw it as a double rectangle connected to \`Club\` through a double-diamond identifying relationship \`consists_of\`, with \`Studio\` participating 1..1 and \`Club\` participating 1..* (a club has one or more studios).
+- \`Trainer\`(**id**, firstName, middleName, lastName, dateOfBirth) — \`id\` is the key. \`middleName\` is optional, so mark it 0..1.
+
+**Relationships**
+
+| Relationship | Between | Cardinalities |
+|---|---|---|
+| \`consists_of\` (identifying) | Club — Studio | Club 1..* , Studio 1..1 |
+| \`manages\` (recursive) | Trainer(manager) — Trainer(subordinate) | subordinate side 0..1 (a trainer has at most one direct manager), manager side 0..* |
+| \`leads\` | Trainer — Studio | Studio 1..1 towards Trainer (exactly one lead), Trainer 0..* towards Studio |
+| \`Shift\` | Trainer — Studio | Trainer 0..* , Studio 0..* |
+| \`supervises\` | Trainer — Shift | Shift 0..1 towards Trainer, Trainer 0..* towards Shift |
+
+**Key modelling decisions**
+
+1. \`Studio\` must be a weak entity. Names repeat across clubs, so a studio is only identified together with its owning club. This is where most marks are lost.
+2. \`Shift\` is an M:N relationship carrying the attribute \`hoursPerWeek\`. "At most one shift per trainer per studio" is exactly what the relationship key (Trainer.id, Club.name, Studio.name) already enforces, so no extra construct is needed.
+3. \`supervises\` connects a trainer to a **shift**, not to another trainer. Modelling it trainer-to-trainer would lose the fact that different shifts of the same trainer can have different supervisors. In E/R terms \`Shift\` becomes an aggregation (or you promote it to an associative entity) so a relationship can point at it.
+4. \`manages\` and \`leads\` are separate recursive/participating relationships. Do not merge them.
+
+**Do not** introduce an artificial \`shift_id\` or \`studio_id\`. The natural keys are sufficient, and the exam explicitly asks you to avoid artificial keys.`,
+  },
+  {
+    id: 'pq-databases-2',
+    courseId: 'databases',
+    topic: '1b. Conceptual Modelling — Relational Model',
+    difficulty: 'medium',
+    question: `Translate the E/R model from the previous question into a relational schema.
+
+- Design the schema so that the cardinality constraints are enforced as well as possible.
+- Comment on constraints a relational database can check, including \`unique\` (candidate keys) and \`not null\`.
+- State briefly which cardinality constraints are **not** enforced by your schema.
+
+Notation: one relation per line, \`R(key(A,B),C)\` marks {A,B} as the primary key, and \`->\` marks a foreign key.`,
+    answer: `**Schema**
+
+\`\`\`
+Club(key(name), address)
+
+Studio(key(clubName, name), leadId)
+    clubName -> Club.name          not null
+    leadId   -> Trainer.id         not null
+
+Trainer(key(id), firstName, middleName, lastName, dateOfBirth, managerId)
+    managerId -> Trainer.id        nullable
+
+Shift(key(trainerId, clubName, studioName), hoursPerWeek, supervisorId)
+    trainerId              -> Trainer.id                     not null
+    (clubName, studioName) -> Studio(clubName, name)         not null
+    supervisorId           -> Trainer.id                     nullable
+\`\`\`
+
+**Constraints the database enforces**
+
+- \`Studio\` includes \`clubName\` in its primary key, which enforces both the weak-entity dependency and "no two studios with the same name in one club".
+- \`Studio.leadId\` is \`not null\`, which enforces "every studio has precisely one lead" (exactly-one on the studio side).
+- \`Trainer.managerId\` is nullable with \`0..1\` enforced by it being a single column: a trainer cannot have two managers.
+- \`Shift\`'s primary key (trainerId, clubName, studioName) enforces "at most one shift per trainer per studio".
+- \`Shift.supervisorId\` nullable and single-valued enforces "supervised by at most one other trainer".
+- Every foreign key gives referential integrity.
+
+**Constraints NOT enforced**
+
+- "Every club consists of **one or more** studios." Minimum cardinality 1 on the club side cannot be expressed with keys and foreign keys; a club row can exist with no matching \`Studio\` rows. It needs an assertion or a trigger.
+- A trainer cannot be their own manager, and the \`managerId\` chain must not contain cycles. Neither is expressible declaratively.
+- \`Shift.supervisorId\` must differ from \`trainerId\` ("one **other** employee"). A \`check\` constraint could cover this one, but plain keys and foreign keys cannot.`,
+  },
+  {
+    id: 'pq-databases-3',
+    courseId: 'databases',
+    topic: '2a. Normalisation — Canonical Functional Dependencies',
+    difficulty: 'hard',
+    question: `Attributes: {A, B, C, D, E}. Compute a set of canonical (minimal) functional dependencies for:
+
+\`\`\`
+A, B -> C, D
+E    -> D
+B, D -> C, E
+B    -> A, C, D
+A, D, E -> C
+\`\`\`
+
+Write one dependency per line.`,
+    answer: `**One valid canonical cover**
+
+\`\`\`
+B    -> A
+B    -> E
+E    -> D
+A, E -> C
+\`\`\`
+
+**How to get there**
+
+1. **Split right-hand sides** into single attributes: \`AB->C\`, \`AB->D\`, \`E->D\`, \`BD->C\`, \`BD->E\`, \`B->A\`, \`B->C\`, \`B->D\`, \`ADE->C\`.
+2. **Remove extraneous left-hand-side attributes.** Test each attribute by computing the closure of the reduced left side under the current set. \`B->A\` and \`B->D\` make \`B\` alone as strong as \`AB\` and \`BD\`, so \`AB->C\`, \`AB->D\`, \`BD->C\` and \`BD->E\` all collapse onto \`B\`. In \`ADE->C\`, \`E->D\` makes \`D\` extraneous, leaving \`AE->C\`.
+3. **Remove redundant dependencies.** \`B->C\` and \`B->D\` now follow from the rest: B+ gives A and E, E gives D, and A together with E gives C. Both are dropped.
+
+**Check your answer.** Compute B+ under your cover: {B} → A, E → D → C, so B+ = {A,B,C,D,E}. It must equal B+ under the original set, which it does.
+
+**Two warnings.** A canonical cover is **not unique**, so a different valid answer can still score full marks. And when you test whether a left-hand-side attribute is extraneous, compute the closure using the dependency in its *original* form; if you substitute the shortened version first, the test trivially succeeds and you will over-reduce.`,
+  },
+  {
+    id: 'pq-databases-4',
+    courseId: 'databases',
+    topic: '2b. Normalisation — Minimal Keys',
+    difficulty: 'medium',
+    question: `Attributes: {A, B, C, D}. Find **all** minimal keys for:
+
+\`\`\`
+B, D -> A
+A, B, C -> D
+B, D -> C
+D -> A, B
+A, C -> B
+\`\`\`
+
+Write one key per line, attributes comma-separated.`,
+    answer: `**Answer**
+
+\`\`\`
+{D}
+{A,C}
+\`\`\`
+
+**Working**
+
+- **D+**: start {D}. \`D->A,B\` adds A and B. Now {A,B,D} contains {B,D}, so \`BD->C\` adds C. D+ = {A,B,C,D}. D is a superkey, and a single attribute cannot be reduced further, so **{D} is a minimal key**.
+- **{A,C}+**: start {A,C}. \`AC->B\` adds B. Now {A,B,C} fires \`ABC->D\`, adding D. So {A,C}+ = {A,B,C,D}. Neither A+ = {A} nor C+ = {C} is a superkey, so **{A,C} is minimal**.
+- **Everything else**: any superkey must contain D or must contain both A and C, so all remaining supersets are non-minimal. B+ = {B} and no dependency has a left side inside {A,B} or {B,C} that reaches D, so those are not superkeys.
+
+**Method.** Attributes that never appear on a right-hand side must be in every key; attributes that never appear on a left-hand side are in no minimal key. Here every attribute appears on both sides, so work upwards from singletons and stop expanding any set once it contains a known key.`,
+  },
+  {
+    id: 'pq-databases-5',
+    courseId: 'databases',
+    topic: '2c. Normalisation — Synthesis Algorithm',
+    difficulty: 'hard',
+    question: `Apply the synthesis algorithm to R(A, B, C, D, E, F, G). The canonical cover has already been computed for you:
+
+\`\`\`
+A    -> B
+A    -> E
+B, D -> C
+C    -> A
+C    -> G
+D, F -> B
+E, F -> D
+\`\`\`
+
+Give the resulting relations and the splitting steps.`,
+    answer: `**Resulting decomposition**
+
+\`\`\`
+R1(key(A), B, E)         from A -> B, A -> E
+R2(key(B,D), C)          from B,D -> C
+R3(key(C), A, G)         from C -> A, C -> G
+R4(key(D,F), B)          from D,F -> B
+R5(key(E,F), D)          from E,F -> D
+\`\`\`
+
+**Splitting steps**
+
+\`\`\`
+group A->B and A->E        -> R1(A,B,E)
+group B,D->C               -> R2(B,C,D)
+group C->A and C->G        -> R3(A,C,G)
+group D,F->B               -> R4(B,D,F)
+group E,F->D               -> R5(D,E,F)
+no relation is contained in another, so nothing is removed
+\`\`\`
+
+**Why no extra key relation is needed.** The candidate keys of R are {A,F}, {C,F}, {D,F} and {E,F}. R4 already contains {D,F} and R5 already contains {E,F}, so the decomposition preserves a key and the join is lossless. Only when no relation contains a candidate key do you add one containing a key.
+
+**What the algorithm guarantees.** Synthesis from a canonical cover gives a **lossless** and **dependency-preserving** decomposition in **3NF**. Every resulting relation here happens to be in BCNF as well, but that is not guaranteed in general: BCNF and dependency preservation cannot always both be achieved, which is precisely the trade-off the exam wants you to be able to state.
+
+**Common mistakes.** Grouping dependencies with different left-hand sides into one relation, forgetting to drop relations contained in another, and forgetting the key-containment check at the end.`,
+  },
+  {
+    id: 'pq-databases-6',
+    courseId: 'databases',
+    topic: '2d. Normalisation — Anomalies (Bonus)',
+    difficulty: 'easy',
+    question: 'Name and describe three anomalies that can occur if a schema violates a normal form.',
+    answer: `Take \`Enrolment(studentId, studentName, courseId, courseTitle, lecturer)\` where \`courseId -> courseTitle, lecturer\` but \`courseId\` is not a superkey. That violates BCNF and produces all three anomalies.
+
+**1. Update anomaly.** Course facts are repeated once per enrolled student. Renaming a course means updating every row for it. Miss one and the database now holds two different titles for the same course, so it is internally inconsistent.
+
+**2. Insertion anomaly.** You cannot record a new course before at least one student enrols, because \`studentId\` is part of the primary key and cannot be null. The schema forces you to invent a fake student or wait.
+
+**3. Deletion anomaly.** When the last student enrolled in a course is removed, the course title and lecturer disappear with them. Deleting one fact silently deletes an unrelated one.
+
+**The common cause.** All three come from storing facts about two different things in one relation, which is exactly what the normal forms rule out by requiring the left-hand side of every non-trivial dependency to be a superkey. Name the anomaly, describe the mechanism, and give a concrete example: descriptions without an example usually lose marks.`,
+  },
+  {
+    id: 'pq-databases-7',
+    courseId: 'databases',
+    topic: '3a. SQL — Conditions',
+    difficulty: 'easy',
+    question: `Write a query that returns the id and age of all members who are female and either at most 25 or at least 60 years old.
+
+Tables for questions 7 to 11:
+
+\`\`\`
+Members(id, name, city, age, hairColor, gender)
+Follows(id, memberA_id -> Members, memberB_id -> Members)   -- A follows B
+Admires(id, memberA_id -> Members, memberB_id -> Members)   -- A admires B
+Workshops(id, kind)          -- several workshops can share a kind
+Attends(id, member_id -> Members, workshop_id -> Workshops)
+\`\`\`
+
+For simplicity, \`city\` is just a city name.`,
+    answer: `\`\`\`sql
+SELECT M.id, M.age
+FROM Members M
+WHERE M.gender = 'Female'
+  AND (M.age <= 25 OR M.age >= 60);
+\`\`\`
+
+**The one thing that matters here:** the parentheses. \`AND\` binds tighter than \`OR\`, so writing
+
+\`\`\`sql
+WHERE M.gender = 'Female' AND M.age <= 25 OR M.age >= 60
+\`\`\`
+
+parses as \`(female AND age<=25) OR (age>=60)\` and returns every member over 60 regardless of gender. This is free marks, and it is also the single most common careless error in this section.`,
+  },
+  {
+    id: 'pq-databases-8',
+    courseId: 'databases',
+    topic: '3b. SQL — Joins',
+    difficulty: 'medium',
+    question: 'Write a query that returns the id of all members who follow someone younger than themselves **and** someone older than themselves. Name the result column `id`.',
+    answer: `\`\`\`sql
+SELECT DISTINCT M.id AS id
+FROM Members M
+JOIN Follows F1 ON F1.memberA_id = M.id
+JOIN Members Y  ON Y.id = F1.memberB_id
+JOIN Follows F2 ON F2.memberA_id = M.id
+JOIN Members O  ON O.id = F2.memberB_id
+WHERE Y.age < M.age
+  AND O.age > M.age;
+\`\`\`
+
+**The idea.** "Someone younger **and** someone older" means two independent witnesses, so you join \`Follows\` and \`Members\` **twice** and alias each copy. One pair of aliases (F1, Y) supplies the younger person, the other (F2, O) the older one.
+
+**Why it needs DISTINCT.** A member who follows three younger and two older people produces six combinations, so the id appears six times without it.
+
+**The trap.** Trying to do this with a single join and \`WHERE other.age < M.age AND other.age > M.age\` returns nothing, because one row cannot be simultaneously younger and older. If you catch yourself writing contradictory conditions on the same alias, you need a second copy of the table.`,
+  },
+  {
+    id: 'pq-databases-9',
+    courseId: 'databases',
+    topic: '3c. SQL — Aggregations',
+    difficulty: 'medium',
+    question: 'Write a query that returns the id of all members for whom the average age of everybody they admire is at least 25 and at most 55. Name the result column `id`.',
+    answer: `\`\`\`sql
+SELECT Ad.memberA_id AS id
+FROM Admires Ad
+JOIN Members M ON M.id = Ad.memberB_id
+GROUP BY Ad.memberA_id
+HAVING AVG(M.age) >= 25
+   AND AVG(M.age) <= 55;
+\`\`\`
+
+**Why HAVING and not WHERE.** \`WHERE\` filters individual rows before grouping and cannot see an aggregate. The condition is about the average of a whole group, so it belongs in \`HAVING\`, which runs after \`GROUP BY\`.
+
+**Why group by the admirer.** You want one row per member doing the admiring, so \`memberA_id\` is the grouping key and the join brings in the age of each admired member.
+
+**Note on members who admire nobody.** They produce no rows in \`Admires\` at all, so they never form a group and are correctly excluded. An average over an empty set is undefined, so this is the behaviour you want. If the question had asked to include them with a default, you would need a \`LEFT JOIN\` from \`Members\`.`,
+  },
+  {
+    id: 'pq-databases-10',
+    courseId: 'databases',
+    topic: '3d. SQL — Non-Monotonic',
+    difficulty: 'medium',
+    question: 'Write a query that returns the id of all members that do *not* attend pottery workshops. Name the result column `id`.',
+    answer: `\`\`\`sql
+SELECT M.id AS id
+FROM Members M
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM Attends A
+    JOIN Workshops W ON W.id = A.workshop_id
+    WHERE A.member_id = M.id
+      AND W.kind = 'pottery'
+);
+\`\`\`
+
+**Why this is called non-monotonic.** Adding rows to the database can *remove* rows from the answer: enrol a member in a pottery workshop and they drop out of the result. Negation always works this way, and it is the reason you cannot express it with joins alone.
+
+**Start from \`Members\`, not from \`Attends\`.** Members who attend nothing at all still belong in the answer. A query that starts from \`Attends\` and filters \`W.kind <> 'pottery'\` gets this wrong twice: it drops members with no workshops, and it wrongly includes members who take both pottery and something else.
+
+**Avoid \`NOT IN\` here.** \`WHERE M.id NOT IN (SELECT A.member_id FROM Attends A JOIN ...)\` looks equivalent, but if the subquery ever yields a NULL, every comparison evaluates to UNKNOWN and the whole query returns the empty table. \`NOT EXISTS\` has no such failure mode.`,
+  },
+  {
+    id: 'pq-databases-11',
+    courseId: 'databases',
+    topic: '3e. SQL — Advanced',
+    difficulty: 'hard',
+    question: 'Write a query that returns the id of all members that follow everybody in Berlin. Name the result column `id`.',
+    answer: `\`\`\`sql
+SELECT M.id AS id
+FROM Members M
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM Members P
+    WHERE P.city = 'Berlin'
+      AND NOT EXISTS (
+          SELECT 1
+          FROM Follows F
+          WHERE F.memberA_id = M.id
+            AND F.memberB_id = P.id
+      )
+);
+\`\`\`
+
+**The translation.** SQL has no universal quantifier, so rewrite the sentence first:
+
+> follows **every** Berliner
+> = there is **no** Berliner that they do **not** follow
+
+Each "no" becomes a \`NOT EXISTS\`, which is why this pattern is always doubly nested. Write the English rewrite on your exam sheet before you write any SQL.
+
+**Read the correlations carefully.** The inner subquery must reference both \`M.id\` (the candidate member) and \`P.id\` (the Berliner from the middle query). Losing either correlation is the usual reason this returns everybody or nobody.
+
+**The edge case, and it is deliberate.** If nobody lives in Berlin, the middle subquery is empty, so \`NOT EXISTS\` is true for everyone and the query returns *all* members. That is the mathematically correct answer for a universal statement over an empty set, and graders expect it.
+
+**Alternative with counting**, if the nesting is hard to keep straight:
+
+\`\`\`sql
+SELECT M.id AS id
+FROM Members M
+WHERE (SELECT COUNT(*) FROM Members P WHERE P.city = 'Berlin')
+    = (SELECT COUNT(DISTINCT F.memberB_id)
+       FROM Follows F JOIN Members P2 ON P2.id = F.memberB_id
+       WHERE F.memberA_id = M.id AND P2.city = 'Berlin');
+\`\`\``,
+  },
+  {
+    id: 'pq-databases-12',
+    courseId: 'databases',
+    topic: '4a. Transactions — Conflict-Serialisability',
+    difficulty: 'medium',
+    question: `Determine the precedence graph of the schedule below and decide whether it is conflict-serialisable. The columns are time steps 1 to 7.
+
+| | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|
+| **T1** | | W(B) | | W(A) | | | |
+| **T2** | R(A) | | | | | | W(D) |
+| **T3** | | | R(B) | | | W(C) | |
+| **T4** | | | | | W(C) | | |
+
+Write the graph as one edge per line, for example \`T1 -> T3\`.`,
+    answer: `**Step 1: list the conflicting pairs.** Two operations conflict when they are in *different* transactions, touch the *same* item, and at least one is a **write**.
+
+| Item | Earlier op | Later op | Edge |
+|---|---|---|---|
+| A | T2 R(A) @1 | T1 W(A) @4 | T2 -> T1 |
+| B | T1 W(B) @2 | T3 R(B) @3 | T1 -> T3 |
+| C | T4 W(C) @5 | T3 W(C) @6 | T4 -> T3 |
+| D | — | T2 W(D) @7 | none (only one transaction touches D) |
+
+**Step 2: the precedence graph.**
+
+\`\`\`
+T2 -> T1
+T1 -> T3
+T4 -> T3
+\`\`\`
+
+**Step 3: the verdict.** The graph is **acyclic**, so the schedule **is conflict-serialisable**.
+
+**Step 4: give a serial order.** Any topological sort works, for example **T2, T1, T4, T3** or **T4, T2, T1, T3**. If the question asks for an equivalent serial schedule, name one explicitly rather than just saying "it is serialisable".
+
+**Where marks go missing.** Drawing an edge for a read/read pair (those never conflict), drawing an edge for two operations of the same transaction, and drawing edges in both directions for one conflicting pair. One conflicting pair gives exactly one edge, pointing from the earlier operation to the later one.`,
+  },
+  {
+    id: 'pq-databases-13',
+    courseId: 'databases',
+    topic: '4b. Transactions — Two-Phase Locking',
+    difficulty: 'hard',
+    question: 'Take the same schedule as the previous question. Insert lock and unlock actions to show that it can be realised with two-phase locking, or explain why it cannot.',
+    answer: `**The rule you are applying.** Under 2PL each transaction has a **growing phase** in which it only acquires locks and a **shrinking phase** in which it only releases them. Once a transaction releases any lock it may never acquire another. Reading x needs a shared lock S(x), writing x needs an exclusive lock X(x). S conflicts with X, and X conflicts with X.
+
+**Answer: this schedule cannot be realised with 2PL.** Two separate transactions are forced to break the rule.
+
+**T1 breaks it.** T1 writes B at step 2, so it holds X(B) from step 2. T3 reads B at step 3, so it needs S(B), which conflicts with X(B). T1 must therefore release B **before step 3**. But T1 writes A at step 4 and so has to acquire X(A) **after** that release. Releasing at step 2 and acquiring at step 4 puts a lock acquisition inside T1's shrinking phase.
+
+**T2 breaks it too.** T2 reads A at step 1 and holds S(A). T1 needs X(A) at step 4, so T2 must release S(A) before step 4. T2 then writes D at step 7 and needs X(D) after that release, which is the same violation.
+
+**How to write this up.** Name the transaction, name the two steps that force the release, and name the later step that forces a new acquisition. Marks come from identifying the specific conflict, not from asserting that it fails.
+
+**The examinable general point.** Schedules realisable under 2PL are a **strict subset** of the conflict-serialisable ones. Every 2PL schedule is conflict-serialisable, but the converse fails, and this schedule is exactly such a counterexample: the previous question showed its precedence graph is acyclic.
+
+**When the locks do fit,** the safe recipe is to acquire each lock just before its first use and release everything at commit. That is **strict** 2PL, which additionally rules out dirty reads and cascading aborts.`,
+  },
+  {
+    id: 'pq-databases-14',
+    courseId: 'databases',
+    topic: '4c. Transactions — Multi-Granularity Locking',
+    difficulty: 'medium',
+    question: 'Multi-granularity locking uses four lock types: shared (S), exclusive (X), intention shared (IS) and intention exclusive (IX). Which pairs conflict with each other?',
+    answer: `**The compatibility matrix** (✓ = compatible, ✗ = conflict):
+
+| | IS | IX | S | X |
+|---|---|---|---|---|
+| **IS** | ✓ | ✓ | ✓ | ✗ |
+| **IX** | ✓ | ✓ | ✗ | ✗ |
+| **S**  | ✓ | ✗ | ✓ | ✗ |
+| **X**  | ✗ | ✗ | ✗ | ✗ |
+
+**The conflicting pairs are:**
+
+- X with X
+- X with S
+- X with IS
+- X with IX
+- S with IX
+
+**Everything else is compatible:** S with S, IS with IS, IS with IX, IS with S, IX with IX.
+
+**How to reconstruct it under exam pressure** rather than memorising sixteen cells:
+
+1. **X conflicts with everything.** An exclusive lock on a node means no other transaction may touch it or anything below it.
+2. **Intention locks announce a plan to lock something finer-grained further down the tree.** Two transactions can both plan to descend, so **IS and IX never conflict with each other or with themselves**.
+3. **S is a read of the entire subtree.** That is compatible with another reader (S) and with someone planning to read deeper (IS), but not with someone planning to **write** deeper, so **S conflicts with IX**.
+
+That gives the whole matrix from three sentences. The pair people get wrong is **S with IX**, so check that one twice.`,
+  },
+  {
+    id: 'pq-databases-15',
+    courseId: 'databases',
+    topic: '5. Database Application Programming',
+    difficulty: 'medium',
+    question: 'Describe the problem of SQL injection. How can it occur, and how can it be prevented?',
+    answer: `**What it is.** SQL injection happens when data supplied by a user is concatenated into an SQL string, so the database parses part of that input as **SQL syntax** instead of treating it as a **value**. The attacker then controls the structure of the query, not just its parameters.
+
+**How it occurs.** Take a login check built by string concatenation:
+
+\`\`\`python
+query = "SELECT * FROM Users WHERE name = '" + name + "' AND pw = '" + pw + "'"
+\`\`\`
+
+With \`name = admin' --\` the query becomes:
+
+\`\`\`sql
+SELECT * FROM Users WHERE name = 'admin' --' AND pw = '...'
+\`\`\`
+
+The \`--\` comments out the password check and the attacker is logged in as admin. An input like \`x'; DROP TABLE Users; --\` can destroy data outright.
+
+**The root cause.** The database receives one string in which code and data are mixed, and it has no way to tell which characters came from the developer and which came from the user.
+
+**Prevention**
+
+1. **Prepared statements with bound parameters.** This is the real fix. The SQL structure is sent and parsed first, with placeholders; the values are transmitted separately and are never parsed as syntax:
+
+   \`\`\`python
+   cursor.execute("SELECT * FROM Users WHERE name = %s AND pw = %s", (name, pw))
+   \`\`\`
+
+   Note the tuple: passing values as a second argument is what makes this safe. Using \`%\` or \`+\` to build the same string is not.
+
+2. **Least privilege.** The application's database account should only hold the rights it actually needs, so a successful injection cannot drop tables or read unrelated ones.
+
+3. **Validate input** against expected type and range as defence in depth, and escape properly if a query genuinely must be built dynamically. Never rely on validation or blacklisting on its own; the encodings and edge cases are too easy to get wrong.
+
+4. **Identifiers cannot be parameterised.** Table and column names cannot be bound, so if one must be dynamic, check it against a hard-coded allow-list.
+
+**Write it in this order** for full marks: what it is, a concrete example of how it happens, and prepared statements as the primary defence. An answer that only says "use prepared statements" without showing the mechanism loses points.`,
+  },
 ];

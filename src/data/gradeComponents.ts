@@ -180,9 +180,11 @@ export const courseGradeStructures: CourseGradeStructure[] = [
   {
     courseId: 'text-mining-ai',
     components: [
-      { name: 'Exam', weight: 1.0 },
+      { name: 'Multiple-Choice Exam (individual)', weight: 0.60 },
+      { name: 'Project Report / Poster (group)', weight: 0.40 },
     ],
-    notes: 'Assessment details not fully specified. Check Canvas for the latest information.',
+    notes:
+      'Each component needs at least a 5 on its own, and the weighted average must be 5.5 or higher. Completing the weekly lab assignments is required to pass but carries no weight in the grade.',
   },
   {
     courseId: 'data-structures-algorithms-ai',
@@ -223,9 +225,9 @@ export const courseGradeStructures: CourseGradeStructure[] = [
   {
     courseId: 'law-of-ai',
     components: [
-      { name: 'Final Exam', weight: 1.0 },
+      { name: 'Multiple-Choice Exam', weight: 1.0 },
     ],
-    notes: 'One final on-campus exam accounts for 100% of the grade.',
+    notes: 'The exam covers mandatory readings and preparation, lectures and seminars. One resit is available.',
   },
   {
     courseId: 'robot-interaction',
