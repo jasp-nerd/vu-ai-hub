@@ -26,6 +26,7 @@ dist-ssr
 .vercel
 All files/
 all_canvas_courses/
+*.zip
 
 # build artifact
 /tsconfig.tsbuildinfo

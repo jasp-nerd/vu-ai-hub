@@ -20,69 +20,265 @@ export const academicGuideSections: GuideSection[] = [
 | 2 | Introduction to Python Programming for AI | 6 | Python basics: variables, control flow, data structures, libraries |
 | 3 | Project Intelligent Systems | 6 | Group project — build and evaluate game-playing bots for Schnapsen |
 | 4 | Logic and Sets for AI | 6 | Propositional logic, predicate logic, set theory, formal reasoning |
-| 4 | Modelling Human Behaviour (SAC track) | 6 | Agent-based, cognitive, and collective behaviour models for human-centred systems |
+| 4 | Modelling Human Behaviour | 6 | Agent-based, cognitive, and collective behaviour models for human-centred systems |
 | 5 | Academic Writing (BETA) | 3 | Formal writing, structuring arguments, citing sources, literature reviews |
 | 5 | History of AI | 3 | Key milestones in computing and AI, paradigm shifts, societal impact |
 | 5 | Human-Computer Interaction for AI | 6 | Usability, interface design, human–AI interaction |
-| 6 | Applied Programming for AI | 6 | Web tech (HTML/CSS/JS), Git, REST APIs, building data-driven apps |
-| 6 | Information Management | 6 | Databases, data structures, information organisation |
+| 6 | Applied Programming for AI *or* Information Management (pick 1) | 6 | Web tech, Git, REST APIs *or* databases and information organisation |
 
-### Year 2 — Specialisation
+In period 6 you pick one of the two: Applied Programming for AI or Information Management. That is your first constrained choice.
 
-You pick either **Intelligent Systems** (more technical, systems-focused) or **Socially Aware Computing** (more human-centred, interdisciplinary). See the Specialisation Tracks section below for a full comparison.
+### Year 2 — Core plus constrained choice
 
-**Shared courses (both tracks):**
+:::warning
+**The curriculum changed in 2026-2027.** The specialisation tracks (Intelligent Systems and Socially Aware Computing) are being phased out. Year 2 and 3 now have a set of mandatory courses plus a pool of constrained-choice courses: you pick three in year 2 and one in year 3. Want a specialisation name on your diploma anyway? That is still possible for current cohorts. Read the Specialisations section.
+:::
+
+**Mandatory courses:**
 
 | Period | Course | EC | What it covers |
 |--------|--------|----|----------------|
 | 1 | Knowledge and Data | 6 | RDF, OWL, SPARQL, Linked Data, Knowledge Graphs |
+| 2 | Text Mining for AI | 6 | NLP, text classification, sentiment analysis, entity recognition, topic modelling |
 | 2 | Linear Algebra and Calculus | 6 | Vectors, matrices, linear systems, limits, differentiation, eigenvalues |
-| 2 | Multi-Agent Systems | 6 | Agent reasoning, knowledge representation, Prolog programming |
+| 3 | Project Socially Aware Computing | 6 | Agent-based simulation for societal challenges using NetLogo |
 | 4 | Machine Learning | 6 | Linear models, neural networks, decision trees, gradient descent, deep learning |
 | 4 | Probability and Statistics | 6 | Distributions, hypothesis testing, confidence intervals, central limit theorem |
-| 5 | Text Mining for AI | 6 | NLP, text classification, sentiment analysis, entity recognition, topic modelling |
+| 5 | Computational Intelligence | 6 | Evolutionary algorithms, neural networks, reinforcement learning, optimisation |
 
-**Intelligent Systems track:**
-
-| Period | Course | EC | What it covers |
-|--------|--------|----|----------------|
-| 1 | Data Structures and Algorithms for AI | 6 | Algorithms, data structures, complexity analysis |
-| 3 | Project Conversational Agents | 6 | Build a conversational agent using DialogFlow and ontology |
-| 5 | Databases | 6 | ER diagrams, SQL, schema design, normalisation, concurrency |
-| 6 | Project Collective Intelligence | 6 | Swarm dynamics, agent-based simulation, collective behaviour modelling |
-| 6 | The Law of Artificial Intelligence | 6 | EU AI Act, legal compliance, designing lawful AI systems |
-
-**Socially Aware Computing track:**
+**Constrained choice (pick 3):**
 
 | Period | Course | EC | What it covers |
 |--------|--------|----|----------------|
 | 1 | Robot Interaction | 6 | Human-robot interaction, social robotics, NLP, ethics |
-| 3 | Project Socially Aware Computing | 6 | Agent-based simulation for societal challenges using NetLogo |
+| 1 | Data Structures and Algorithms for AI | 6 | Algorithms, data structures, complexity analysis |
 | 5 | AI and Law | 6 | AI applications in law, ethical questions in the legal domain |
-| 5 | AI in Health | 6 | AI for diagnosis, treatment, monitoring — ontologies, explainable ML |
+| 5 | AI in Health | 6 | AI for diagnosis, treatment, monitoring, explainable ML |
+| 5 | Databases | 6 | ER diagrams, SQL, schema design, normalisation, concurrency |
+| 6 | Project Collective Intelligence | 6 | Swarm dynamics, agent-based simulation, collective behaviour modelling |
 | 6 | The Law of Artificial Intelligence | 6 | EU AI Act, legal compliance, designing lawful AI systems |
+
+There are no named tracks in this pool. The advisors describe the choice as informal "study paths": lean technical (DSA, Databases, Project Collective Intelligence) or lean social (Robot Interaction, AI and Law, AI in Health). Mix however you want.
+
+**What changed in 2026-2027, in short:**
+
+- Multi-Agent Systems (XB_0024) is gone. Started before 2025-2026 and never passed it? You take one extra constrained-choice course from year 2 or 3 instead, and that replacement does not count towards your constrained-choice or specialisation total.
+- Project Conversational Agents (XB_0101) is gone. Its successor, Conversational Agents (XB_0182), is the same course and now runs in year 3 period 4. Passed XB_0101? Then XB_0182 is off-limits for you.
+- Computational Intelligence (XB_0025) moved from year 3 to year 2 period 5 and became mandatory.
+- Text Mining for AI (XB_0085) moved from period 5 to period 2.
+- You cannot swap Linear Algebra and Calculus (XB_0114) or Probability and Statistics (XB_0115) for the CS variants (X_400649, X_401020). The examination board rejects those requests.
+- The old Introduction to Programming (PYTHON) course (X_401096) is discontinued; if you still need it, take Introduction to Python Programming for AI (XB_0145) in period 2.
 
 ### Year 3 — Minor, Research & Thesis
 
 | Period | Course | EC | What it covers |
 |--------|--------|----|----------------|
+| 1-3 | Free choice: minor or study abroad | 30 | Your elective space, see the Third-Year Elective Space section |
 | 4 | Ethical AI | 6 | Moral agency, fairness, transparency, accountability, EU AI Act |
-| 4 | Automata and Complexity (IS) *or* Cognitive Psychology for AI (SAC) | 6 | Formal languages, Turing machines, P/NP *or* perception, memory, decision-making |
+| 4 | Cognitive Psychology for AI, Automata and Complexity, *or* Conversational Agents (pick 1) | 6 | Your fourth and final constrained choice |
 | 5 | Research Design for AI | 3 | Research questions, methodology, data analysis, scientific writing |
-| All year | Bachelor Project Artificial Intelligence | 15 | Individual research project, thesis, and oral presentation |
-| — | Free elective minor | 30 | Your choice — any VU or exchange minor |
+| 5-6 | Bachelor Project Artificial Intelligence | 15 | Individual research project, thesis, and oral presentation |
+
+To start the Bachelor Project you need at least **90 EC in total, including 6 EC of the Python course**. No exceptions. The practical advice is still to have most of year 1 and 2 done (around 120 EC) before you begin.
+
+Wondering why you would pick VU over another AI bachelor? That story is in the What Makes VU Special section.`,
+  },
+  {
+    id: 'specialisation-tracks',
+    title: 'Specialisations (Phasing Out)',
+    emoji: '\u{1F500}',
+    description: 'The Intelligent Systems and Socially Aware Computing specialisations, and the rules for still getting one on your diploma.',
+    content: `:::warning
+**The specialisations are being phased out.** From 2027-2028 they no longer exist. 2026-2027 is the last year in which you can start one, and diplomas with a specialisation name are only issued until 31 August 2030. The curriculum now works with mandatory plus constrained-choice courses instead (see Program Structure). Everything below is for students who still want to finish a specialisation.
+:::
+
+### Still want the specialisation on your diploma?
+
+These are the rules, from the TER 2026-2027 and the July 2026 Canvas announcement:
+
+- You had to register your specialisation in the [registration module](https://vu.nl/nl/dashboard/services/intekenen) **before 1 September 2026**, with the academic year filter set to 2025-2026. No registration means no specialisation on your diploma. Missed the deadline, or starting in 2026-2027? Contact the programme coordinator and the examination board.
+- **Started before 2025-2026:** complete **5 courses (30 EC)** from one specialisation list.
+- **Started in 2025-2026 or later:** complete **4 courses (24 EC)** from one list, plus the now-mandatory Project Socially Aware Computing (XB_0042).
+- **No mixing.** Take courses from both lists and you can still graduate, but you get no specialisation name on your diploma, even if you registered.
+- **Graduate before 1 September 2030.** After that date no diplomas with a specialisation are issued at all.
+
+### Which courses count
+
+Careful: the lists differ per cohort.
+
+**Started before 2025-2026** (pick 5 from one column):
+
+| Intelligent Systems | Socially Aware Computing |
+|---------------------|--------------------------|
+| Data Structures and Algorithms for AI (XB_0043) | Robot Interaction (XB_0040) |
+| Conversational Agents (XB_0182) *or* Project Conversational Agents (XB_0101) | Project Socially Aware Computing (XB_0042) |
+| Databases (X_401008), only if you started in 2023-2024 | AI and Law (XB_0070) |
+| The Law of AI (XB_0084) | The Law of AI (XB_0084) |
+| Computational Intelligence (XB_0025) | AI in Health (XB_0020) |
+| Automata and Complexity (X_401049) | Cognitive Psychology for AI (XB_0072) |
+| Project Collective Intelligence (XB_0026) | |
+
+**Started in 2025-2026 or later** (pick 4 from one column, plus XB_0042):
+
+| Intelligent Systems | Socially Aware Computing |
+|---------------------|--------------------------|
+| Data Structures and Algorithms for AI (XB_0043) | Robot Interaction (XB_0040) |
+| Conversational Agents (XB_0182) *or* Project Conversational Agents (XB_0101) | AI in Health (XB_0020) |
+| Databases (X_401008) | AI and Law (XB_0070) |
+| Project Collective Intelligence (XB_0026) | The Law of AI (XB_0084) |
+| Automata and Complexity (X_401049) | Cognitive Psychology for AI (XB_0072) |
+
+Questions about your own situation? Ask the academic advisors: [academicadvice.cs.beta@vu.nl](mailto:academicadvice.cs.beta@vu.nl).
 
 ---
 
-## Why VU Amsterdam
+### Technical or social: which direction fits you?
 
-If you are choosing between AI bachelors in the Netherlands, the curriculum tables above will not decide it for you. Most of these programmes teach roughly the same maths, the same machine learning and the same logic. What actually differs is who sits next to you and what city you walk into after the lecture.
+The formal tracks are going, but the choice they represented is still there. The constrained-choice pool splits roughly along the same line, and the advisors describe it as informal "study paths" with technical and socially oriented courses.
+
+**Intelligent Systems (IS)** was the technical, systems-focused side: algorithms, databases, dialogue systems, optimisation, formal languages. Leaning this way gives you a stronger CS foundation, better preparation for software engineering roles, and it covers data structures and algorithms, which technical interviews love.
+
+**Socially Aware Computing (SAC)** was the human-centred, interdisciplinary side: robotics, law, health, psychology. These courses suit UX/HCI, policy, healthcare AI, and ethics-focused careers, and most CS programmes do not offer them. The trade-off is fewer core CS courses, so a technical master's may want bridging courses from you.
+
+> **Tip:** picking mostly technical courses keeps more doors open for technical master's programmes. Drawn to human-centred AI, psychology, or ethics? The socially oriented courses are genuinely unique, and you can plug any CS gaps with your year 3 minor.`,
+  },
+  {
+    id: 'third-year-electives',
+    title: 'Third-Year Elective Space',
+    emoji: '\u{1F4CB}',
+    description: 'Options for your Year 3 elective space: minors, studying abroad, and more.',
+    content: `The first semester of Year 3 (30 EC) is your **elective space**. You have several options:
+
+### 1. Minor Program (30 EC)
+A minor is a pre-packaged set of 5 courses of 6 EC each. You can follow a minor:
+- Within your own faculty (Science)
+- In another VU faculty
+- At a different Dutch university (watch out for calendar differences, lecture and exam periods may not align; you register yourself as an external student, but you pay no extra tuition)
+
+**How to find a minor:**
+- Check the [Year 3 study guide](https://studiegids.vu.nl/) — select BSc AI and look at the pre-approved minor overview (no exam board approval needed)
+- Visit [minor.vu.nl](https://minor.vu.nl) for a broader list (approval may be needed)
+
+Minors that need no examination board approval for BSc AI (TER 2026-2027): Bioinformatics and Systems Biology, Business Analytics & Data Science (take the "for Artificial Intelligence" variant), Educatieve minor Informatica, Situated AI, plus any university minor you are admissible for. Two exceptions: BSc AI students are **excluded** from the university minors Data Science (XB_MINDASC) and the new Basics of AI (XB_MINBAI). That last one is the AI-for-everyone minor introduced in 2026-2027; it would overlap your whole degree.
+
+Registration for pre-approved minors goes through the registration module, tab "minor/specialization", via "pre-selected courses".
+
+### 2. Free Minor (Custom Course Package)
+You can create your own combination of courses (30 EC total) at VU or another university. Requirements:
+- Courses must be at university level and cannot overlap with your curricular courses (so no statistics or linear algebra)
+- Maximum 1 course (6 EC) at level 100, minimum 2 courses (12 EC) at level 300
+- Submit your complete package (course names, codes, credits, levels, and study guide links) to the **Examination Board** for approval
+- The package does not need to be coherent, you can mix and match
+- Approval can take up to **30 days**, so plan ahead
+
+Some fine print worth knowing:
+- The board approves exactly 5 x 6 EC. Extra courses land on your transcript as extracurricular and do not count towards the 30 EC.
+- Fail one course of an approved package? You submit a new complete package of 5, including the courses you already passed.
+- Free minor courses may run through the whole academic year, second semester included.
+- A free minor puts **no minor name on your diploma**. That also happens when you deviate from a standard minor's curriculum: it then counts as a free minor, and the examination board cannot make exceptions.
+- Studying abroad with individual courses? You may include at most one 6 EC course at master's level, and you cannot reuse it in a later master's degree.
+
+### 3. Studying Abroad
+You can study abroad during your elective space. Deadlines are early:
+- Attend an info session in **June** (Year 1) or the mandatory **Study Abroad Weeks in October/November** (Year 2). Without the Study Abroad Weeks you cannot apply.
+- Applications for the following academic year close around **mid-January**.
+- You need about 30 EC of courses; a bit more (31 or 35 EC) is fine.
+- Learn more: [Studying abroad at VU](https://vu.nl/en/student/studying-abroad). The Outgoing Student Exchange Team has phone hours Monday, Wednesday and Friday 12:00-13:00 (+31 20 59 85745) and a walk-in hour Tuesday 12:30-13:30 in the Global Room (HG-1A36).
+- One warning: going abroad in semester 1 while you still need to retake mandatory period 1-3 courses is your own risk. VU offers no online courses, so that can cost you an extra year.
+
+### 4. Internship
+The BSc AI and CS programmes **do not offer an internship instead of a minor**, and job-shadowing internships get no VU involvement at all. What you can do is a **research internship as part of your Bachelor Project** (thesis):
+- You find the internship yourself, and your thesis supervisor must approve it and the research question
+- You get no extra EC for it; it is your thesis, hosted somewhere interesting
+- Plan about 3 months, in periods 5 and 6 (April to June), with two supervisors: one at VU and one at the company
+- Doing this as an international student? The advisors sign a tri-party internship contract for research internships only. Download it from the Bachelor Project Canvas page, sign it together with the company, then send it to the advisors.
+
+### Registration Tips
+- Some minors have limited spots and early deadlines, start planning early
+- If studying at another university, begin the process well in advance
+- You should generally have at least **90 EC from Year 1 and 2** before starting a minor
+- Registering more than 18 EC in one period sounds productive but blocks any overlapping-exams arrangement, and more than 3 courses in one period is asking for trouble
+
+**Questions?** Contact your Academic Advisors: [academicadvice.cs.beta@vu.nl](mailto:academicadvice.cs.beta@vu.nl)`,
+  },
+  {
+    id: 'rules-deadlines',
+    title: 'Rules & Deadlines',
+    emoji: '\u{23F0}',
+    description: 'BSA, visa progress rules, the extra August exam, overlapping exams, and the yearly admin calendar.',
+    content: `The rules on this page decide whether you can stay in the programme, keep your visa, or graduate a year earlier. Most of them come with hard deadlines, and "I did not know" does not work as an argument. Dates below follow the 2025-2026 pattern; the exact days shift slightly each year, so always check the linked VU pages and the Canvas announcements.
+
+### BSA: the first-year hurdle
+
+The binding study advice (BSA) requires **42 EC of first-year courses by the end of your first year** (31 August). Get there and you are done with the BSA forever; there is no minimum to continue after year 1 apart from this.
+
+A negative BSA is serious: you cannot enrol in **BSc AI or BSc CS** at VU for the next **three academic years**. Both programmes, not just yours.
+
+The escape routes, in calendar order:
+
+| When | What |
+|------|------|
+| Late January | Interim BSA letter with your current standing |
+| Before 1 February | Deregister via Studielink and no BSA is issued at all; you can restart in September |
+| Before 1 June | Personal circumstances must already be reported to the academic advisors |
+| 1 to 19 June, before 09:00 | Window to request BSA deferment (earlier requests are not processed) |
+| Around 30 July | Proposed final BSA decision |
+| 7 August, before 09:00 | Deadline to object to a proposed negative decision; you are then invited to a hearing |
+| 18 or 19 August | Hearing, on campus, physical presence mandatory |
+| 21 August | Final decision |
+
+**Deferment** gives you a second year to reach the 42 EC (for example: 30 EC in year 1, then at least 12 EC of first-year courses in year 2). It exists for exceptional personal circumstances and health problems, decided by the BSA committee, not the advisors. You need evidence (medical statements in Dutch or English) and a demonstrated link between the circumstances and the missing credits. Housing stress and money problems do not count as valid grounds, a second deferment is close to impossible, and you cannot use the same argument twice. Report circumstances to the advisors as soon as they happen, not in June.
+
+All forms and the deferment button: [VU BSA page](https://vu.nl/en/student/study-progress/binding-recommendation-on-continuation-of-studies-bsa#beta) (scroll to the BETA section).
+
+### Non-EU students: the MOMI progress rule
+
+All non-EU/EEA students must earn at least **30 EC per academic year** (measured before 23 August) to keep their residence permit. Under 60 EC left in your programme? Then the bar is 50% of what remains. Only your thesis left? You can ask for an extension until November.
+
+Expect to miss the 30 EC because of circumstances? Apply for a MOMI exception **before 1 July** via [this form](https://fd20.formdesk.com/vuamsterdam/MoMi-Beta), and talk to the academic advisors early. Info: [visa information for current students](https://vu.nl/en/education/more-about/visa-information-current-students).
+
+### One course away from graduating? The extra August exam
+
+If exactly **one course** stands between you and your diploma (the thesis counts as a course), you can request one additional exam opportunity in August:
+
+- Apply between **1 and 15 July**, 23:59 hard deadline, even if grades are still pending
+- The course must be from the Faculty of Science
+- The written exam takes place around **20 August** on campus
+- Everything else, thesis included, must be completed before 31 August
+
+Details: [additional exam opportunity](https://vu.nl/en/student/examinations/additional-exam-opportunity) (under BETA).
+
+### Two exams at the same time
+
+Overlapping exams happen, usually between a minor course and a resit. There is a procedure:
+
+- Email the academic advisors at least **3 weeks before** the exams, with your student number and both courses' codes, dates, times and locations
+- Both courses must be taught within the Faculty of Science and belong to your own programme (approved minor and elective courses count)
+- You are not helped if one course is extracurricular, belongs to a second degree, or if you are enrolled in more than 18 EC that period
+- The usual fix: one exam, a 15-minute supervised break in the same room, then the other. You confirm the arrangement at least 5 working days ahead.
+- No guarantee. Worst case you take one of the two in the resit period, and hardship cases go to the examination board.
+
+### The yearly admin checklist (August/September)
+
+- **Re-enrol via [Studielink](https://www.studielink.nl/) before 1 September.** Forgetting this one locks you out of everything else.
+- **Register for period 1 courses** in the registration module; it opens late July and closes about a week into September. Your minor courses count too, and you must be re-enrolled first.
+- Finishing your thesis over summer? Grades submitted on OnStage after **31 July** can delay graduation; 31 August is the hard end of the academic year.
+- The [study guide](https://studiegids.vu.nl/en) gets its new-year courses, schedules and regulations around this time. When in doubt about any rule, the Teaching and Examination Regulations (TER) in the study guide are the binding text.`,
+  },
+  {
+    id: 'what-makes-vu-special',
+    title: 'What Makes VU Special',
+    emoji: '\u{2B50}',
+    description: 'What sets VU Amsterdam\'s AI program apart from others.',
+    content: `VU Amsterdam's AI program is more interdisciplinary than most. You don't just do programming and math. There's also cognitive science, psychology, law, and philosophy of AI baked into the curriculum.
+
+If you are choosing between AI bachelors in the Netherlands, curriculum tables will not decide it for you. Most of these programmes teach roughly the same maths, the same machine learning and the same logic. What actually differs is who sits next to you and what city you walk into after the lecture.
 
 ### The programme is in English
 
 This is the part people underestimate. Most AI bachelors in the Netherlands are taught in Dutch, which means your cohort is drawn almost entirely from Dutch secondary schools. Here you sit next to people who moved countries to take this degree. My honest impression after two years is that this changes the room: when someone has relocated to be here, they tend to arrive with a plan, and that raises what everyone around them thinks is normal.
 
-Teaching in English also means the guest lecturers, the reading lists and the student events are all in English, so nothing is gated behind a language you may not speak.
+Teaching in English also means the guest lecturers, the reading lists and the student events are all in English, so nothing is gated behind a language you may not speak. Class sizes are manageable and professors are generally accessible.
 
 ### Amsterdam is the real advantage
 
@@ -98,119 +294,7 @@ AI is growing fast, and the low-level details of computers matter less to most p
 
 If you want more traditional computer science on top, the 30 EC minor space in year three is exactly the place to add it. You can fill the gaps without giving up the AI label on your diploma.
 
-### What a degree will not do for you
-
-Graduating is the floor, not the ceiling. Two things matter at least as much:
-
-**Meet people.** Go to events that actually interest you rather than the ones you think look good. [AISO](https://aisoamsterdam.com/) runs events aimed at exactly this audience and is a good place to start. Conversations at those evenings turn into internships far more often than applications through a careers portal do.
-
-**Build things you personally need.** Not tutorial projects, not another Titanic notebook. Something that solves a problem you actually have. Those are the projects you finish, and they are the ones you can talk about for twenty minutes in an interview. Put them on GitHub. A public profile showing you build things outside of coursework separates you from everyone else submitting the same graded assignments.
-
-On generative AI: use it. Refusing to is not principled, it just makes you slower. But learn the fundamentals underneath it anyway, because the people who understand what the model is doing are the ones who stay useful when it gives a confidently wrong answer.`,
-  },
-  {
-    id: 'specialisation-tracks',
-    title: 'Specialisation Tracks',
-    emoji: '\u{1F500}',
-    description: 'Comparing the Intelligent Systems and Socially Aware Computing tracks.',
-    content: `In Year 2 you choose one of two specialisation tracks. Your choice determines roughly 30 EC of your curriculum and appears on your graduation document. You *can* mix courses from both tracks, but if you do, no track label will appear on your diploma.
-
-### Intelligent Systems (IS)
-
-The IS track is more **technical and systems-focused**. It gives you a stronger foundation in algorithms, databases, and building intelligent software systems.
-
-**Track-specific courses:**
-| Course | Year | EC | Focus |
-|--------|------|----|-------|
-| Data Structures and Algorithms for AI | 2 | 6 | Core CS algorithms, complexity, data structures |
-| Databases | 2 | 6 | SQL, relational databases, data modelling |
-| Project Conversational Agents | 2 | 6 | Building dialogue systems and chatbots |
-| Project Collective Intelligence / The Law of AI (choose 1) | 2 | 6 | Agent simulation or AI law |
-| Automata and Complexity / Computational Intelligence (choose 1) | 3 | 6 | Formal languages or optimisation algorithms |
-
-**Pros:** Stronger technical/CS foundation. Keeps more master's options open (especially CS masters). Better preparation for software engineering roles. Covers DSA which is essential for technical interviews.
-
-**Cons:** Less exposure to human-centred AI, ethics, and social impact. Heavier on math and programming.
-
----
-
-### Socially Aware Computing (SAC)
-
-The SAC track is more **human-centred and interdisciplinary**. It focuses on how AI interacts with people and society, covering robotics, psychology, law, and health.
-
-**Track-specific courses:**
-| Course | Year | EC | Focus |
-|--------|------|----|-------|
-| Robot Interaction | 2 | 6 | Human-robot interaction, social robotics |
-| Project Socially Aware Computing | 2 | 6 | Building socially aware AI systems |
-| The Law of Artificial Intelligence | 2 | 6 | EU AI Act, legal compliance |
-| AI and Law / AI in Health (choose 1) | 2 | 6 | Legal AI or healthcare AI |
-| Cognitive Psychology for AI | 3 | 6 | Perception, memory, attention, decision-making |
-
-**Pros:** Broader interdisciplinary perspective. Great for UX/HCI, policy, healthcare AI, or ethics-focused careers. Unique courses not found in most CS programs.
-
-**Cons:** Fewer core CS courses (no DSA, no Databases). May need bridging courses for technical master's programs. Less preparation for algorithm-heavy roles.
-
----
-
-### Shared courses (both tracks)
-Knowledge and Data, Linear Algebra and Calculus, Multi-Agent Systems, Machine Learning, Probability and Statistics, Text Mining for AI, Ethical AI, Research Design for AI, and the Bachelor Project.
-
-> **Tip:** If you're unsure which track to choose, the IS track keeps more doors open for technical master's programs. But if you're drawn to human-centred AI, psychology, or ethics, SAC is genuinely unique and valuable.`,
-  },
-  {
-    id: 'third-year-electives',
-    title: 'Third-Year Elective Space',
-    emoji: '\u{1F4CB}',
-    description: 'Options for your Year 3 elective space: minors, studying abroad, and more.',
-    content: `The first semester of Year 3 (30 EC) is your **elective space**. You have several options:
-
-### 1. Minor Program (30 EC)
-A minor is a pre-packaged set of courses totalling 30 EC. You can follow a minor:
-- Within your own faculty (Science)
-- In another VU faculty
-- At a different Dutch university (watch out for calendar differences, lecture and exam periods may not align)
-
-**How to find a minor:**
-- Check the [Year 3 study guide](https://studiegids.vu.nl/) — select BSc AI and look at the pre-approved minor overview (no exam board approval needed)
-- Visit [minor.vu.nl](https://minor.vu.nl) for a broader list (approval may be needed)
-
-### 2. Free Minor (Custom Course Package)
-You can create your own combination of courses (30 EC total) at VU or another university. Requirements:
-- Courses must be at university level
-- Maximum 6 EC at level 100, minimum 12 EC at level 300
-- Submit your complete package (course names, codes, credits, levels, and study guide links) to the **Examination Board** for approval
-- The package does not need to be coherent, you can mix and match
-- Approval can take up to **30 days**, so plan ahead
-
-### 3. Studying Abroad
-You can study abroad during your elective space. Deadlines are early:
-- Attend an info session in **November** (if you're in Year 2) or **June** (if you're in Year 1)
-- Learn more: [Studying abroad at VU](https://vu.nl/en/education/more-about/studying-abroad)
-- Check the VU study abroad map for partner universities
-
-### 4. Internship
-Unfortunately, the BSc AI and CS programmes **do not offer an internship instead of a minor**. However, you might be able to do a research internship as part of your **Bachelor Project** (thesis). In that case:
-- You must find the project yourself
-- You need approval from your thesis supervisor
-
-### Registration Tips
-- Some minors have limited spots and early deadlines, start planning early
-- If studying at another university, begin the process well in advance
-- You should generally have at least **90 EC from Year 1 and 2** before starting a minor
-
-**Questions?** Contact your Academic Advisors: [academicadvice.cs.beta@vu.nl](mailto:academicadvice.cs.beta@vu.nl)`,
-  },
-  {
-    id: 'what-makes-vu-special',
-    title: 'What Makes VU Special',
-    emoji: '\u{2B50}',
-    description: 'What sets VU Amsterdam\'s AI program apart from others.',
-    content: `VU Amsterdam's AI program is more interdisciplinary than most. You don't just do programming and math. There's also cognitive science and philosophy of AI baked into the curriculum.
-
-The program is taught entirely in English and has a pretty international student body. Class sizes are manageable and professors are generally accessible.
-
-Being in the Zuidas area of Amsterdam also means there are plenty of tech companies nearby for internships and networking.`,
+A degree alone will not carry you, though. What you build and who you meet matter at least as much; the Career Prospects section covers that side.`,
   },
   {
     id: 'career-prospects',
@@ -239,7 +323,13 @@ This is the part nobody puts in the prospectus. Your diploma gets you past a fil
 
 **Projects you actually needed.** Build something that solves a problem you have. That constraint matters more than the tech stack, because it is the reason you will finish it, and finished projects are the ones you can talk about with real detail when someone asks. Put them on GitHub. A profile showing you build things outside of coursework is what separates you from the pile of candidates submitting the same graded assignments.
 
-On generative AI: use it, and learn the fundamentals underneath it anyway. The people who understand what the model is doing are the ones who stay useful when it hands them a confident wrong answer.`,
+On generative AI: use it, and learn the fundamentals underneath it anyway. The people who understand what the model is doing are the ones who stay useful when it hands them a confident wrong answer.
+
+### Free career help from VU
+
+- **CareerSet CV review.** Upload your CV and get automated feedback, free, via [VU Career Services](https://vu.nl/en/student/career-services/cv-feedback-with-careerset-sbe). Faster than asking a friend and more honest too.
+- **Alumni in the Spotlight.** The CS department runs on-campus alumni talks through the year, with pizza and time to network afterwards. Announced on Canvas.
+- **Teaching assistant work** pays, deepens your understanding of a course, and looks good on a CV. See Community & Support for how the recruitment works.`,
   },
   {
     id: 'masters-programs',
@@ -250,18 +340,27 @@ On generative AI: use it, and learn the fundamentals underneath it anyway. The p
 
 Use **[welkemaster.nl](https://www.welkemaster.nl/)** to check which master's programs you're eligible for based on your specific bachelor's degree. Enter "BSc Kunstmatige Intelligentie, Vrije Universiteit Amsterdam" and browse the results.
 
+### Getting into the VU MSc AI
+
+Since 2025-2026 the VU MSc AI selects, on top of the regular admission requirements:
+
+1. A minimum undergraduate **GPA of 7.0** (or international equivalent).
+2. A **motivation letter and CV** showing relevant knowledge and skills. Worth covering: relevant AI courses and projects, your bachelor thesis topic, your tentative MSc plan (track and electives), internships, work experience, publications.
+
+A 7.0 GPA is a real bar. If you want to continue at VU, your grades matter from year 1 onwards.
+
 ### AI Master's in the Netherlands
 
 | University | Program | Notes |
 |-----------|---------|-------|
-| **VU Amsterdam** | [MSc Artificial Intelligence](https://vu.nl/en/education/master/artificial-intelligence/admissions) | Natural continuation of the bachelor. Tracks in Cognitive Science, AI for Health, and more. |
+| **VU Amsterdam** | [MSc Artificial Intelligence](https://vu.nl/en/education/master/artificial-intelligence/admissions) | Natural continuation of the bachelor. Tracks in Cognitive Science, AI for Health, and more. Selective since 2025-2026, see above. |
 | **UvA** | [MSc Artificial Intelligence](https://www.uva.nl/shared-content/programmas/en/masters/artificial-intelligence/artificial-intelligence.html) | Top-ranked in Europe. Core courses in ML, NLP, Deep Learning, Computer Vision. |
 | **TU Eindhoven** | [MSc Data Science and Artificial Intelligence](https://www.tue.nl/en/education/graduate-school/master-data-science-and-artificial-intelligence) | Engineering-oriented, combining advanced DS and AI methods. |
 | **Utrecht** | [MSc Artificial Intelligence](https://www.uu.nl/en/masters/artificial-intelligence) | Interdisciplinary (informatics, logic, cognition, philosophy). Selective, strong grades matter. |
 | **Groningen** | [MSc Artificial Intelligence](https://www.rug.nl/masters/artificial-intelligence/) | Research-oriented. Selection procedure includes reference letter and written report. |
 | **Maastricht** | [MSc Artificial Intelligence](https://www.maastrichtuniversity.nl/education/master/programmes/artificial-intelligence/admission-requirements) | Two intakes (Feb & Sep). |
 | **Radboud** | [MSc Artificial Intelligence](https://www.ru.nl/en/education/masters/artificial-intelligence) | Also offers a Data Science and AI specialisation. |
-| **Tilburg** | MSc Cognitive Science and AI | Combines cognitive science with deep learning and Bayesian modelling. Great for SAC track students. |
+| **Tilburg** | MSc Cognitive Science and AI | Combines cognitive science with deep learning and Bayesian modelling. Great if you leaned towards the socially oriented courses. |
 
 ### Other Master's Options in the Netherlands
 
@@ -308,7 +407,7 @@ If you're not sure whether you'll be admitted to a specific program, **email the
 1. **Check [welkemaster.nl](https://www.welkemaster.nl/) first** for a quick eligibility overview
 2. **Email the admissions board** of any program you're interested in but unsure about, don't just go by what the website says
 3. **Choose your Year 3 minor wisely**, if you want a CS master's, a CS-focused minor can fill gaps and make you eligible
-4. **The Intelligent Systems track** keeps more technical master's options open
+4. **Technical constrained-choice courses** (DSA, Databases, Automata) keep more technical master's options open
 5. **Start early** with applications for selective/international programs (deadlines are often in January for a September start)
 6. **GPA matters** for selective programs and international universities`,
   },
@@ -324,7 +423,7 @@ If you're not sure whether you'll be admitted to a specific program, **email the
 - **Computational Intelligence Group** focuses on evolutionary algorithms, neural networks, and optimisation. Connected to the Computational Intelligence course.
 - **Knowledge Representation & Reasoning (KR&R)** covers knowledge graphs, semantic web, and ontologies. Connected to Knowledge and Data.
 - **Quantitative Data Analytics** works on data science, machine learning methods, and statistical learning.
-- **Social AI Group** researches human-AI interaction, conversational agents, and social robotics. Connected to several SAC track courses.
+- **Social AI Group** researches human-AI interaction, conversational agents, and social robotics. Connected to courses like Robot Interaction and Conversational Agents.
 - **Computer Systems Group** focuses on high-performance computing, distributed systems, and systems research.
 
 ### How to Get Involved
@@ -526,6 +625,43 @@ There are a bunch of communities and resources for AI students in Amsterdam. Her
 
 Many courses hire student TAs to help with tutorials, grading, and lab sessions. Being a TA is a great way to deepen your understanding of a subject, earn some money, and build your CV. It's generally available from Year 2 onwards for courses you've already passed.
 
+How the recruitment works: each spring (around March) the CS department posts a Google Form on Canvas to collect availability for the next academic year, with a deadline around mid-April. Only select courses you passed with a **7.5 or higher**. Filling in the form is no guarantee; course coordinators contact the students they pick directly.
+
+---
+
+## Academic Advisors
+
+The academic advisors are your first stop for BSA questions, personal circumstances, study delays, disability accommodations, and doubts about your study choice. Every conversation is confidential.
+
+- **Email:** [academicadvice.cs.beta@vu.nl](mailto:academicadvice.cs.beta@vu.nl). Never email advisors' personal accounts; those messages get lost, in their own words.
+- **Office:** NU building, 12th floor, rooms 12A43 and 12A45.
+- **Appointments:** 15 or 30 minutes, online or on campus, booked via the [advisor page](https://vu.nl/en/student/contact-student-guidance-and-support/academic-advisors-of-the-faculty-of-science).
+- **Open office hour:** every Friday 11:00-12:00 on Microsoft Teams, no appointment needed, max 10 minutes per student. The current Teams link is in the monthly announcement on the Community BSc AI Canvas page.
+- VU dropped Zoom on 1 May 2026, so every VU meeting runs on Teams now. Ignore old Zoom links wherever you find them.
+
+Problem with a course itself rather than with your own situation? The **Programme Committee (OLC)** is the formal channel. It has equal numbers of staff and student members, meets every period, discusses course evaluations, and advises on the Teaching and Examination Regulations. Reach the student representatives via the Community BSc AI Canvas page.
+
+## Support when studying gets hard
+
+- **Disability or diagnosis** (ADHD, ASD, dyslexia, chronic or mental illness): you may be entitled to exam facilities like extra time. Arrange this well before the exam period through your academic advisor or [studying with a disability](https://vu.nl/en/student/studying-with-a-disability).
+- **Back on Track study group:** free weekly study group with realistic planning help, guided by a student psychologist. Mondays 11:00-12:00 online, Thursdays 10:00-11:00 on campus. [Info](https://vu.nl/en/student/training/back-on-track-study-group)
+- **Student psychological counsellors** help with performance anxiety, study stress, motivation, and loneliness: [make an appointment](https://vu.nl/en/student/contact-student-guidance-and-support/student-psychological-counsellor).
+- **Study skills trainings:** [courses to optimize studying](https://vu.nl/en/student/training/courses-to-optimize-studying).
+
+## Free stuff and extracurriculars
+
+- **Overleaf Professional is free** for Faculty of Science students. Log in with SSO at [overleaf.com/edu/vua](https://www.overleaf.com/edu/vua), or link your existing account there. Set your VU address as the primary email on your account; VU counts active users to decide whether the licence stays.
+- **Broader Mind Course:** extracurricular, interdisciplinary, open to all bachelor students. Runs February to May, 10 evening sessions plus online work, about 2 hours a week, ends with a certificate and Edubadge. Registration opens around 9 December. [Info](https://vu.nl/en/student/extra-challenge/broader-mind-course)
+- **VU Dream Teams:** student teams like PULSE Racing, MIND, and RISE that work on one real project for a year. All backgrounds welcome, including non-technical roles. Apply before 1 September via [dreamteams@vu.nl](mailto:dreamteams@vu.nl). [Info](https://vu-ondernemend.nl/en/dreamteams/)
+- **Buddy Program:** low-pressure peer matching in small groups with a mentor, aimed at growing your friend group. Announced on Canvas in winter.
+- **STORM introduction mentors:** every June STORM recruits paid mentors for the two-day introduction of new first-years. Contact [introduxcie@svstorm.nl](mailto:introduxcie@svstorm.nl).
+- **SpringLab:** a student-run platform where you design and give workshops for other students, now extended to CS and AI. [Info](https://vu.nl/nl/onderwijs/meer-over/onderwijsplatform-springlab)
+
+## Practical exam notes
+
+- Digital exams run in the **Schoolyear** workspace. You need your VUnet ID, password, and VU email address at the exam, so know them by heart. [Instruction video](https://www.youtube.com/watch?v=v2mV6N_c5v4)
+- Exams are sometimes scheduled in the **Emergohal**, a separate sports hall location, including evening slots. Always check [rooster.vu.nl](https://rooster.vu.nl/schedule) for your exam location and plan the trip there; VU advises walking the route in pairs after dark.
+
 ### VU Mentor Program: Want to Help?
 
 If you've been a mentor or have detailed experience with the mentor programme, we'd love to expand this section with more practical advice for incoming students.
@@ -547,6 +683,23 @@ If you've been a mentor or have detailed experience with the mentor programme, w
 * Study Guide: [Link](https://studiegids.vu.nl/en/)
 * Dashboard: [Link](https://vu.nl/en/dashboard)
 * Timetable: [Link](https://rooster.vu.nl/schedule)
+
+### Rules, Regulations & Deadlines
+
+* BSc AI Study Guide 2026-2027 (includes the TER, year schedule, and minor overview): [Link](https://studiegids.vu.nl/en/Bachelor/2026-2027/artificial-intelligence)
+* Examination Board: [Link](https://vu.nl/en/student/your-faculty/examination-board)
+* Course registration & deregistration deadlines: [Link](https://vu.nl/en/student/courses/registration-deregistration-deadlines)
+* BSA (binding study advice): [Link](https://vu.nl/en/student/study-progress/binding-recommendation-on-continuation-of-studies-bsa#beta)
+* Additional exam opportunity (August): [Link](https://vu.nl/en/student/examinations/additional-exam-opportunity)
+* Elective space at the Faculty of Science: [Link](https://vu.nl/en/student/elective-space/electives-faculty-of-science)
+* Submit externally achieved results: [Link](https://vu.nl/en/student/courses/submit-externally-achieved-result)
+* Visa progress rules for non-EU students: [Link](https://vu.nl/en/education/more-about/visa-information-current-students)
+* Studying with a disability: [Link](https://vu.nl/en/student/studying-with-a-disability)
+* Studielink (enrolment): [Link](https://www.studielink.nl/)
+* Academic advisors (AI & CS): [academicadvice.cs.beta@vu.nl](mailto:academicadvice.cs.beta@vu.nl)
+* Bachelor Project AI coordinators: [bachelor.project.ai.beta@vu.nl](mailto:bachelor.project.ai.beta@vu.nl)
+* Graduation team: [afstuderen.beta@vu.nl](mailto:afstuderen.beta@vu.nl)
+* Student Desk (enrolment, tuition): [studentdesk@vu.nl](mailto:studentdesk@vu.nl)
 
 ### VU Graduate Winter and Summer Schools
 
@@ -614,7 +767,7 @@ If you've been a mentor or have detailed experience with the mentor programme, w
 * [VU Timetable](https://rooster.vu.nl/) — Check your lecture and tutorial schedule
 * [Canvas (VU)](https://canvas.vu.nl/) — Course materials, assignments, and grades
 * [VUnet (Student Portal)](https://student.vu.nl/) — Course registration, exam registration, and student services
-* [BSc AI Study Guide](https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence) — Official study guide for the full AI bachelor programme (2025-2026)
+* [BSc AI Study Guide](https://studiegids.vu.nl/en/Bachelor/2026-2027/artificial-intelligence) — Official study guide for the full AI bachelor programme (2026-2027)
 * [Study Guide (VU)](https://studiegids.vu.nl/) — Official course catalog with detailed course descriptions
 * [welkemaster.nl](https://www.welkemaster.nl/) — Check which master's programs you're eligible for based on your bachelor
 * [STORM (AI Study Association)](https://svstorm.nl/) — Student association for AI, CS, and Mathematics students at VU

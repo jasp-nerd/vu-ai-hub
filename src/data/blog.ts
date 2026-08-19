@@ -350,7 +350,7 @@ These aggregate discounts across hundreds of brands:
 
 ## Communication
 
-- **Zoom**: free Education plan via university
+- **Microsoft Teams**: VU's meeting platform (the VU Zoom licence ended 1 May 2026)
 - **Slack**: free Education plan
 
 ---

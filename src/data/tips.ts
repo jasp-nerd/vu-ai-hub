@@ -45,7 +45,7 @@ export const tips: CourseTip[] = [
     author: 'AI @ VU Student',
   },
 
-  // ========== MAS ==========
+  // ========== MAS (discontinued 2026-2027) ==========
   {
     id: 'tip-mas-1',
     courseId: 'multi-agent-systems',
@@ -237,59 +237,59 @@ export const tips: CourseTip[] = [
     author: 'AI @ VU Student',
   },
 
-  // ========== Project Conversational Agents ==========
+  // ========== Conversational Agents (XB_0182, formerly XB_0101) ==========
   {
     id: 'tip-pca-1',
-    courseId: 'project-conversational-agents',
+    courseId: 'conversational-agents',
     content:
       'Start by building your ontology (knowledge base) properly — a well-structured ontology makes the rest of the project much easier. Think about what attributes recipes have (ingredients, cuisine, dietary restrictions) and how they relate to user preferences.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-pca-2',
-    courseId: 'project-conversational-agents',
+    courseId: 'conversational-agents',
     content:
       'For the NLU pipeline: train with diverse phrasings for each intent. Users will say "I don\'t want spicy food" and "no spicy dishes please" and "skip the hot stuff" — your model needs to handle all of these. More training data = better accuracy.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-pca-3',
-    courseId: 'project-conversational-agents',
+    courseId: 'conversational-agents',
     content:
       'The extensions component (30% of your grade) is where you can really shine. Consider adding: exclusion filters ("I don\'t want X"), visual recipe cards, dietary restriction support, or multi-turn conversation memory. Pick something that genuinely improves the user experience.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-pca-4',
-    courseId: 'project-conversational-agents',
+    courseId: 'conversational-agents',
     content:
       'I hope by the time you take this course they don\'t use MARBEL anymore, otherwise good luck. The MARBEL/Prolog integration can be incredibly frustrating, but it\'s the same for everyone.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-pca-5',
-    courseId: 'project-conversational-agents',
+    courseId: 'conversational-agents',
     content:
       'In the first week, carefully read ALL the project information — every document, every requirement, every deadline. It is very easy to get lost at the beginning, and if you don\'t start on time you\'ll discover last-minute that you\'ve missed something important or done something wrong.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-pca-6',
-    courseId: 'project-conversational-agents',
+    courseId: 'conversational-agents',
     content:
       'Don\'t panic if your conversational agent isn\'t working properly — it\'s not working for anyone. Everyone is dealing with the same struggle. Focus on understanding the concepts and documenting your approach well in the report, which is worth 35% of your grade.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-pca-7',
-    courseId: 'project-conversational-agents',
+    courseId: 'conversational-agents',
     content:
       'Don\'t be afraid to ask the TAs anything — they are there to help. But find a TA who actually knows the material well. If your assigned TA can\'t help, don\'t hesitate to go to a different working group and ask a different TA. Some TAs are much more knowledgeable than others.',
     author: 'AI @ VU Student',
   },
   {
     id: 'tip-pca-8',
-    courseId: 'project-conversational-agents',
+    courseId: 'conversational-agents',
     content:
       'The exam for this course is not hard at all. It\'s 30 multiple choice questions based on the lectures and the preliminaries page. If you attended the lectures and read the background material, you\'ll be fine.',
     author: 'AI @ VU Student',

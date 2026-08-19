@@ -78,7 +78,7 @@ import type { QuizQuestion } from '../types';
  */
 
 export const quizQuestions: QuizQuestion[] = [
-    // ========== MAS — Prolog & Agent Theory ==========
+    // ========== MAS (discontinued 2026-2027) — Prolog & Agent Theory ==========
     // --- Prolog basics (5 Qs) ---
     {
         id: 'quiz-mas-1',
@@ -11268,11 +11268,11 @@ export const quizQuestions: QuizQuestion[] = [
         difficulty: 'medium',
     },
 
-    // ========== Project Conversational Agents ==========
+    // ========== Conversational Agents (XB_0182, formerly XB_0101) ==========
     // --- Git/GitHub (~3 Qs) ---
     {
         id: 'quiz-pca-1',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'What does `git checkout -b feature-nlu` do?',
         options: [
             'Deletes the branch named feature-nlu',
@@ -11287,7 +11287,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-2',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'A merge conflict occurs when:',
         options: [
             'Two team members push to different branches',
@@ -11302,7 +11302,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-3',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'Which files should typically be added to .gitignore in a Python ML project?',
         options: [
             'Source code files (.py) and documentation (.md)',
@@ -11318,7 +11318,7 @@ export const quizQuestions: QuizQuestion[] = [
     // --- ML Basics (~4 Qs) ---
     {
         id: 'quiz-pca-4',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'In a supervised learning pipeline, what is the purpose of the training/validation/test split?',
         options: [
             'Training data trains the model; validation tunes hyperparameters; test provides final unbiased evaluation',
@@ -11333,7 +11333,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-5',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'A model with high training accuracy but low test accuracy is most likely suffering from:',
         options: ['Underfitting', 'Overfitting', 'Data corruption', 'Feature scaling issues'],
         correctIndex: 1,
@@ -11343,7 +11343,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-6',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'Which evaluation metric is the harmonic mean of precision and recall?',
         options: ['Accuracy', 'AUC-ROC', 'F1-Score', 'Mean Squared Error'],
         correctIndex: 2,
@@ -11353,7 +11353,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-7',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'In the context of NLU for the recipe agent, what is "classification"?',
         options: [
             'Sorting recipes alphabetically by name',
@@ -11369,7 +11369,7 @@ export const quizQuestions: QuizQuestion[] = [
     // --- Deep Neural Networks (~4 Qs) ---
     {
         id: 'quiz-pca-8',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'In a neural network, what does backpropagation compute?',
         options: [
             'The forward pass output for each layer',
@@ -11384,7 +11384,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-9',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'What is the role of a loss function in training a neural network?',
         options: [
             'It determines the architecture of the network',
@@ -11399,7 +11399,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-10',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'The Transformer architecture (Vaswani et al., 2017) introduced which key mechanism?',
         options: [
             'Recurrent connections between layers',
@@ -11414,7 +11414,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-11',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'Which category of pretrained Transformer is BERT?',
         options: [
             'Decoder-only (like GPT)',
@@ -11430,7 +11430,7 @@ export const quizQuestions: QuizQuestion[] = [
     // --- Dialogue Systems Pipeline (~5 Qs) ---
     {
         id: 'quiz-pca-12',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'What is the correct order of components in the dialogue system pipeline?',
         options: [
             'NLU -> ASR -> DM -> TTS -> NLG',
@@ -11445,7 +11445,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-13',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'What does the ASR component do in the dialogue pipeline?',
         options: [
             'Classifies user intent from text',
@@ -11460,7 +11460,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-14',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'What is Whisper (OpenAI)?',
         options: [
             'A text-to-speech system using WaveNet',
@@ -11475,7 +11475,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-15',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'In the conversational agent architecture, what role does the Dialogue Manager (DM) play?',
         options: [
             'It converts audio to text',
@@ -11490,7 +11490,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-16',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'In Dialogflow, what happens when no intent meets the ML classification threshold?',
         options: [
             'The system crashes',
@@ -11506,7 +11506,7 @@ export const quizQuestions: QuizQuestion[] = [
     // --- NLU with BERT (~5 Qs) ---
     {
         id: 'quiz-pca-17',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'The NLU model in this project performs two tasks simultaneously. What are they?',
         options: [
             'Speech recognition and text-to-speech',
@@ -11521,7 +11521,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-18',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'In BIO format for slot labeling, what does the annotation `B-cuisine I-cuisine O O B-mealType` indicate for the input "Italian pasta for a lunch"?',
         options: [
             '"Italian pasta" is a cuisine entity, "lunch" is a mealType entity',
@@ -11536,7 +11536,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-19',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'What is the difference between BERT pretraining and fine-tuning?',
         options: [
             'Pretraining uses labeled data; fine-tuning uses unlabeled data',
@@ -11551,7 +11551,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-20',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'For intent classification, which part of BERT\'s output is used?',
         options: [
             'The hidden states of all tokens averaged together',
@@ -11566,7 +11566,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-21',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'Why does the BERT tokenizer sometimes split a single word into multiple subword tokens?',
         options: [
             'To reduce the vocabulary size by handling rare words as combinations of common subwords',
@@ -11582,7 +11582,7 @@ export const quizQuestions: QuizQuestion[] = [
     // --- Hugging Face (~2 Qs) ---
     {
         id: 'quiz-pca-22',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'In the Hugging Face transformers library, what does `BertModel.from_pretrained("bert-base-uncased")` do?',
         options: [
             'Trains a new BERT model from scratch on the given dataset',
@@ -11597,7 +11597,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-23',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'After modifying the NLU model code in the social-interaction-cloud package, what must you do before the changes take effect?',
         options: [
             'Restart the computer',
@@ -11613,7 +11613,7 @@ export const quizQuestions: QuizQuestion[] = [
     // --- HTML/Bootstrap (~3 Qs) ---
     {
         id: 'quiz-pca-24',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'In Bootstrap, what does the class `col-md-4` mean in a grid layout?',
         options: [
             'The column takes up 4 pixels of width',
@@ -11628,7 +11628,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-25',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'What is the purpose of the `<meta name="viewport" ...>` tag in the HTML head?',
         options: [
             'It sets the page title in the browser tab',
@@ -11643,7 +11643,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-26',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'Which Bootstrap component is used to display recipe information as individual visual units with a title, text, and optional image?',
         options: [
             'Modal',
@@ -11659,7 +11659,7 @@ export const quizQuestions: QuizQuestion[] = [
     // --- Prolog (~4 Qs) ---
     {
         id: 'quiz-pca-27',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'In Prolog, what does the query `?- member(pasta, [garlic, pasta, tomato]).` return?',
         options: [
             'false',
@@ -11674,7 +11674,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-28',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'Given the Prolog rule:\n```prolog\nhas_ingredient(Recipe, Ing) :-\n    recipe(Recipe, Ingredients, _),\n    member(Ing, Ingredients).\n```\nWhat does this rule express?',
         options: [
             'A recipe is created from an ingredient',
@@ -11689,7 +11689,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-29',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'What is unification in Prolog?',
         options: [
             'Evaluating arithmetic expressions',
@@ -11704,7 +11704,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     {
         id: 'quiz-pca-30',
-        courseId: 'project-conversational-agents',
+        courseId: 'conversational-agents',
         question: 'In Prolog, what happens during backtracking?',
         options: [
             'The program exits with an error',

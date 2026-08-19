@@ -17,6 +17,10 @@ export interface Course {
   difficulty: 0 | 1 | 2 | 3 | 4 | 5;
   tags: string[];
   specialisation?: 'intelligent_systems' | 'socially_aware_computing' | ('intelligent_systems' | 'socially_aware_computing')[];
+  /** Constrained-choice course (pick from a pool) rather than mandatory, per the 2026-2027 TER */
+  constrainedChoice?: boolean;
+  /** Course was removed from the curriculum (kept for reference and transitional rules) */
+  discontinued?: boolean;
   workgroupInfo?: {
     mandatory: boolean;
     maxAbsences?: number;

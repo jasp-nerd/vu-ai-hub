@@ -200,11 +200,22 @@ export default function CourseDetailPage() {
           {course.credits && (
             <span className="text-xs text-stone-400 dark:text-stone-500">{course.credits}</span>
           )}
+          {course.discontinued && (
+            <span className="px-2.5 py-1 text-xs font-medium rounded-md bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400">
+              Discontinued
+            </span>
+          )}
+          {course.constrainedChoice && !course.discontinued && (
+            <span className="px-2.5 py-1 text-xs font-medium rounded-md bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400">
+              Constrained choice
+            </span>
+          )}
           {course.specialisation && (
             <span className="text-xs text-stone-400 dark:text-stone-500 capitalize">
               {(Array.isArray(course.specialisation) ? course.specialisation : [course.specialisation])
                 .map((s) => s.replace(/_/g, ' '))
                 .join(' · ')}
+              <span className="normal-case"> specialisation (being phased out)</span>
             </span>
           )}
           {course.studyGuideUrl && (
@@ -240,6 +251,19 @@ export default function CourseDetailPage() {
           {course.description}
         </p>
       </div>
+
+      {/* Discontinued course notice */}
+      {course.discontinued && (
+        <div
+          className={`mb-8 rounded-2xl border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/30 p-5 text-sm leading-relaxed text-red-800 dark:text-red-300 ${
+            mounted ? 'animate-fade-in-up stagger-4' : 'pre-animate'
+          }`}
+        >
+          This course no longer runs. It was removed from the curriculum in 2026-2027. The study
+          material below stays available for reference. If you started before 2025-2026 and never
+          passed it, the replacement rules are in the course overview and the academic guide.
+        </div>
+      )}
 
       {/* Workgroup attendance notice */}
       {course.workgroupInfo && (

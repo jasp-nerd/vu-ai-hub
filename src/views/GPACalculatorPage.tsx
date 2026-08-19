@@ -285,6 +285,9 @@ export default function GPACalculatorPage() {
                         <div className="flex items-center gap-2 mt-0.5">
                           <span className="text-xs text-stone-400 dark:text-stone-500">{course.code}</span>
                           <span className="text-xs text-stone-400 dark:text-stone-500">{ec} EC</span>
+                          {course.discontinued && (
+                            <span className="text-xs text-red-400 dark:text-red-500">discontinued</span>
+                          )}
                           {course.specialisation && (
                             <span className="text-xs text-stone-400 dark:text-stone-500 capitalize">
                               {(Array.isArray(course.specialisation) ? course.specialisation : [course.specialisation])

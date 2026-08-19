@@ -31,7 +31,7 @@ const lawOfAiBase = {
     mandatory: false,
     detail: 'The two seminars require preparation and active small-group work. Seminar groups and instructions are published on Canvas. Worth attending: the seminar discussions show up on the exam and you cannot really study them from the slides.',
   },
-  studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0084',
+  studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0084',
 } satisfies Omit<Course, 'id' | 'slug' | 'tags' | 'specialisation'>;
 
 export const courses: Course[] = [
@@ -42,7 +42,7 @@ export const courses: Course[] = [
     name: 'Computational Thinking',
     image: '/assets/images/courses/computational-thinking.png',
     code: 'X_400475',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/X_400475',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/X_400475',
     year: 1,
     period: 1,
     credits: '3EC',
@@ -69,7 +69,7 @@ export const courses: Course[] = [
     name: 'English Language Test',
     image: '/assets/images/courses/english-language-test.png',
     code: 'VU_ELT',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/VU_ELT',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/VU_ELT',
     year: 1,
     period: 1,
     credits: '0EC',
@@ -105,7 +105,7 @@ The test is designed at a level expected of a high school graduate starting an a
     name: 'Introduction to Artificial Intelligence',
     image: '/assets/images/courses/introduction-to-artificial-intelligence.png',
     code: 'X_401089',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/X_401089',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/X_401089',
     year: 1,
     period: 1,
     credits: '3EC',
@@ -134,7 +134,7 @@ The test is designed at a level expected of a high school graduate starting an a
     name: 'Introduction to Psychology and its Methods',
     image: '/assets/images/courses/introduction-to-psychology-and-its-methods.png',
     code: 'XB_0069',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0069',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0069',
     year: 1,
     period: 1,
     credits: '6EC',
@@ -161,7 +161,7 @@ The test is designed at a level expected of a high school graduate starting an a
     name: 'Intelligent Systems',
     image: '/assets/images/courses/intelligent-systems.png',
     code: 'XB_0031',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0031',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0031',
     year: 1,
     period: 2,
     credits: '6EC',
@@ -193,7 +193,7 @@ Additionally, you can earn a 0.3 bonus point on your final grade if you particip
     name: 'Introduction to Python Programming for AI',
     image: '/assets/images/courses/introduction-to-python-programming-for-ai.png',
     code: 'XB_0145',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0145',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0145',
     year: 1,
     period: 2,
     credits: '6EC',
@@ -222,7 +222,7 @@ Additionally, you can earn a 0.3 bonus point on your final grade if you particip
     name: 'Project Intelligent Systems',
     image: '/assets/images/courses/project-intelligent-systems.png',
     code: 'X_401076',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/X_401076',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/X_401076',
     year: 1,
     period: 3,
     credits: '6EC',
@@ -271,7 +271,7 @@ The course starts with a few introductory lectures refreshing relevant AI concep
     name: 'Logic and Sets for AI',
     image: '/assets/images/courses/logic-and-sets-for-ai.png',
     code: 'XB_0083',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0083',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0083',
     year: 1,
     period: 4,
     credits: '6EC',
@@ -299,7 +299,7 @@ The course starts with a few introductory lectures refreshing relevant AI concep
     name: 'Modelling Human Behaviour',
     image: '/assets/images/courses/modelling-human-behaviour.png',
     code: 'XB_0146',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0146',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0146',
     year: 1,
     period: 4,
     credits: '6EC',
@@ -322,7 +322,7 @@ The course starts with a few introductory lectures refreshing relevant AI concep
     name: 'Academic Writing (BETA)',
     image: '/assets/images/courses/academic-writing-beta.png',
     code: 'L_ETBAALG006',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/L_ETBAALG006',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/L_ETBAALG006',
     year: 1,
     period: 5,
     credits: '3EC',
@@ -356,7 +356,7 @@ This is generally considered one of the lighter courses in the programme — the
     name: 'History of AI',
     image: '/assets/images/courses/history-of-ai.png',
     code: 'XB_0113',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0113',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0113',
     year: 1,
     period: 5,
     credits: '3EC',
@@ -389,7 +389,7 @@ The course is explicitly reflective rather than prescriptive — the goal is not
     name: 'Human-Computer Interaction for AI',
     image: '/assets/images/courses/human-computer-interaction-for-ai.png',
     code: 'XB_0144',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0144',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0144',
     year: 1,
     period: 5,
     credits: '6EC',
@@ -429,7 +429,7 @@ The course is divided into two complementary parts:
     name: 'Applied Programming for AI',
     image: '/assets/images/courses/applied-programming-for-ai.png',
     code: 'XB_0102',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0102',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0102',
     year: 1,
     period: 6,
     credits: '6EC',
@@ -446,6 +446,7 @@ The course is divided into two complementary parts:
       'The following literature will be used: Judith Donath, Alex Dragulescu, Aaron Zinman, Fernanda Viégas, and Rebecca Xiong. 2010. Data portraits. In ACM SIGGRAPH 2010 Art Gallery (SIGGRAPH \'10). Association for Computing Machinery, New York, NY, USA, 375–383. https://doi.org/10.1145/1836786.1836793 Giorgia Lupi. Data Humanism: The Revolutionary Future of Data Visualization. In Printmag, January 30, 2017. https://www.printmag.com/article/data-humanism-future-of-data-visualization/ Edward R. Tufte. 2001. The visual display of quantitative information. Graphics Press, USA. Jacoba Urist. From Paint to Pixels. In The Atlantic, May 14, 2015. https://www.theatlantic.com/entertainment/archive/2015/05/the-rise-of-the-data-artist/392399/ Andy Kirk. 2016. Data Visualisation: A Handbook for Data Driven Design. Sage Publications Ltd.',
     prerequisites:
       'Students should have completed Introduction to Python Programming (XB_0082) with a sufficient grade before they can start this course.',
+    constrainedChoice: true,
     difficulty: 2,
     tags: ['programming', 'python', 'elective'],
     workgroupInfo: {
@@ -459,7 +460,7 @@ The course is divided into two complementary parts:
     name: 'Information Management',
     image: '/assets/images/courses/information-management.png',
     code: 'X_401085',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/X_401085',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/X_401085',
     year: 1,
     period: 6,
     credits: '6EC',
@@ -474,6 +475,7 @@ The course is divided into two complementary parts:
     literature:
       '1. "Business Information Management: Improving Performance using Information Systems", by Dave Chaffey and Steve Wood. ISBN: 9780273686552.',
     prerequisites: '',
+    constrainedChoice: true,
     difficulty: 2,
     tags: ['data', 'databases', 'elective'],
   },
@@ -484,7 +486,7 @@ The course is divided into two complementary parts:
     name: 'Knowledge and Data',
     image: '/assets/images/courses/knowledge-and-data.png',
     code: 'X_400083',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/X_400083',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/X_400083',
     year: 2,
     period: 1,
     credits: '6EC',
@@ -504,113 +506,14 @@ The course is divided into two complementary parts:
     tags: ['knowledge-representation', 'semantic-web', 'required'],
   },
   {
-    id: 'linear-algebra-calculus',
-    slug: 'linear-algebra-and-calculus',
-    name: 'Linear Algebra and Calculus',
-    image: '/assets/images/courses/linear-algebra-and-calculus.png',
-    code: 'XB_0114',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0114',
-    year: 2,
-    period: 2,
-    credits: '6EC',
-    description:
-      'Fundamental concepts in Linear Algebra and Calculus: vectors, matrices, linear systems, functions, limits, differentiation, eigenvalues, and diagonalization.',
-    overview: `Calculus: Functions Limits Derivatives Partial derivatives Gradients Linear Algebra: Linear systems of equations Row reduction Linear maps Matrix and vectors operations Vector spaces Determinants Eigenvalues, eigenvectors and diagonalization Inner product, orthogonalization and Gram Schmidt`,
-    objectives:
-      'Upon completion of the course, students will: Demonstrate a solid comprehension of fundamental concepts in Linear Algebra and Calculus, including vectors, matrices, linear systems, functions, limits and differentiation (Knowledge and Understanding). Apply mathematical techniques to solve basic exercises and problems across different levels of complexity within Linear Algebra and Calculus, such as solving linear systems or diagonalization, showcasing proficiency in computations and problem-solving strategies (Applying Knowledge and Understanding). Engage in rigorous mathematical reasoning by providing proofs of statements and theorems, and by explaining underlying concepts and principles (Applying Knowledge and Understanding; Making Judgments). Develop the ability to articulate mathematical solutions and explanations effectively, engaging clear communication of mathematical concepts (Communication Skills). Cultivate learning skills necessary for further study in mathematics and AI, including the ability to independently explore advanced topics, identify areas for improvement, and pursue self-directed learning opportunities (Learning Skills).',
-    assessment: 'Optional calculus midterm (30%) and final exam (70% or 100% if midterm skipped). The final exam covers both calculus and linear algebra. There is a resit exam with mandatory calculus (30%) + linear algebra (70%). Must achieve 5.5 average to pass.',
-    teachingMethods: 'Lectures twice per week with tutorials. Incomplete notes are provided during lectures to encourage active participation — complete notes are available afterwards.',
-    literature: 'Adams & Essex, Calculus: A Complete Course (9th Edition). Lay, Lay & McDonald, Linear Algebra and its Applications (6th Edition).',
-    prerequisites: '',
-    difficulty: 4,
-    tags: ['mathematics', 'foundations', 'required'],
-  },
-  {
-    id: 'multi-agent-systems',
-    slug: 'multi-agent-systems',
-    name: 'Multi-Agent Systems',
-    image: '/assets/images/courses/multi-agent-systems.png',
-    code: 'XB_0024',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0024',
-    year: 2,
-    period: 2,
-    credits: '6EC',
-    description:
-      'Agents, multi-agent systems, knowledge representation, reasoning, and Prolog programming for building intelligent systems.',
-    overview: `AI (Artificial Intelligence) techniques that are discussed in this course are knowledge representation and reasoning techniques, and multi-agent technology. Students are taught how to develop a multi-agent system that uses knowledge representation to reason about the environment in which the multi-agent system operates.`,
-    objectives:
-      'The course has the following topic and goals. 1. Agents and Multi-Agent Systems Agent, multi-agent system, cognitive state, beliefs, actions, communication, coordination. The student is able to define the elementary concepts, and to apply their relevant aspects in the design of programs. (Applying knowledge and understanding) 2. Agent-Environment Interaction Action, percept. The student is capable of analyzing the environment in which the agent operates, and to identify the actions and relevant percepts that are available. The student is able to use the classification, actions and percepts as the basis for the design of an agent. (Applying knowledge and understanding) 3. Agent and Multi-Agent Program Action rules, modules, MAS file, launch rules. The student is able to describe the relevant programming constructs. In addition, the student is able to apply the constructs to write a multi-agent and agent programs. (Applying knowledge and understanding) 4. Basic Concepts Prolog Facts, rules, clause, queries, rule-based reasoning. The student is able to define the basic concepts in Prolog and describe the relationship between these concepts. Based on these concepts the student is able to solve simple problems in Prolog. (Applying knowledge and understanding) (Making judgements) 5. Prolog Programming Negation as failure, cut, recursion, lists. The student is able to apply constructs and these techniques to write a Prolog program. The student is able to solve problems by using a combination of negation as failure, recursion and the use of lists. In particular, the student is able to implement some search algorithms in Prolog. (Applying knowledge and understanding) 6. Reasoning in Logic Programming Unification, backtracking, depth-first search, linear search, backward chaining. The student is able to explain the computational model of logic and reasoning in Prolog and to use these concepts. Simple tasks with unification of terms can be made by the student. The student is able to construct a derivation of a unification (resolution). (Applying knowledge and understanding) (Communication) 7. Develop a MAS The student is able to build a relatively simple multi-agent system. Concepts relating to systems of rational agents are introduced to make complex decisions. (Applying knowledge and understanding) (Lifelong learning skills)',
-    assessment:
-      'The course is assessed through an exam and a practical part. The final grade is a weighted average of the individual exam grade (75%) and the grade of the practical part (25%). Practical part: Students get 3x a practical assignment that must be made in pairs. The assignments are graded with a mark. The grade for the practical part is the average of the marks for the assignments. There must be a minimum of 5 on average obtained for the assignments to pass the practical part. The exam consists of open or multiple-choice questions about all the material of the course. To pass the exam, the grade must be at least a 5. Both the practical part and exam must at least be a 5, but the final grade should minimally be a 5.5 to pass the course. There will be a fourth bonus assignment that can be completed for a full bonus point on the course end grade. There is no second chance for the practical assignments.',
-    teachingMethods: 'Lectures, lab sessions (with computer/ laptops). Attendance at labs is obligatory.',
-    literature: '',
-    prerequisites: '',
-    difficulty: 2,
-    tags: ['ai', 'agents', 'prolog', 'required'],
-    workgroupInfo: {
-      mandatory: true,
-      detail: 'Attendance at lab sessions is mandatory.',
-    },
-  },
-  {
-    id: 'machine-learning',
-    slug: 'machine-learning',
-    name: 'Machine Learning',
-    image: '/assets/images/courses/machine-learning.png',
-    code: 'X_400154',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/X_400154',
-    year: 2,
-    period: 4,
-    credits: '6EC',
-    description:
-      'Core machine learning: linear models, neural networks, decision trees, ensemble methods, gradient descent, backpropagation, and deep learning.',
-    overview: `Machine learning is the discipline that studies how to build computer programs that learn how to behave from examples, rather than following explicit instructions. It is a subfield of artificial intelligence that intersects with statistics, cognitive science, information theory, and probability theory. Recently, machine learning has become increasingly important for the design of search engines, robots, and sensor systems, and for the processing of large scientific data sets. Other applications include handwriting or speech recognition, image classification, medical diagnosis, stock market analysis and bioinformatics. Machine Learning is also the core technology behind chatbots like ChatGPT, Claude and Gemini. The course covers a wide variety of machine learning techniques, but puts particular emphasis on gradient descent optimization, backpropagation, neural networks and deep learning. Some discussion on the broader social impact of machine learning technology is included.`,
-    objectives:
-      'Upon completion of this course, students will: be acquainted with the dominant concepts of machine learning methods, including some theoretical background. (Knowledge and understanding) acquire knowledge of established machine learning techniques such as linear models, neural networks, decision trees and ensemble methods (Knowledge and understanding) learn some statistical techniques to assess and validate machine learning results. (Apply knowledge and understanding, make judgments)',
-    assessment:
-      'The course assessment consists of two parts: an examination and a practical assignment. The examination consists of a standard exam and four online quizzes. The examination and practical assignment each comprise 50% of the final grade. To pass the course, the examination grade should be at least 5.5, the practical assignment grade should be at least 4.5 and the average should be at least 5.5. The examination is made individually, and the practical assignment is made in groups. There is a resit for the exam, no resit is possible for the practical assignment.',
-    teachingMethods:
-      'The course consists of pre-recorded videos, interactive lecture/QA sessions (two per week) and optional homework assignments discussed in working groups (one per week). The practical assignment is supported by small exercises to help with the relevant technologies, and informal presentations at project groups (one per week). There is no mandatory attendance for any lectures or workgroups, except that one member of each group must be present at the weekly project group. Most of the material is freely available at https://mlvu.github.io The course is taught in English.',
-    literature: 'There is no textbook. Some reading material will be provided digitally.',
-    prerequisites:
-      'We require that students have some prior experience with linear algebra, calculus (limited to differentiation), probability theory and statistics. An overview and explanation of the required preliminaries can be found at https://mlvu.github.io/preliminaries/',
-    difficulty: 3,
-    tags: ['machine-learning', 'deep-learning', 'required'],
-  },
-  {
-    id: 'probability-statistics',
-    slug: 'probability-and-statistics',
-    name: 'Probability and Statistics',
-    image: '/assets/images/courses/probability-and-statistics.png',
-    code: 'XB_0115',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0115',
-    year: 2,
-    period: 4,
-    credits: '6EC',
-    description:
-      'Probability theory, random variables, distributions, law of large numbers, central limit theorem, estimation, confidence intervals, and hypothesis testing.',
-    overview: `From the book by From Pishro-Nik: Chapter 1: Basic concepts Chapter 3: Discrete random variables, Bernoulli, Binomial, Negative Binomial, Poisson Chapter 4: Continuous random variables; sections 4.0, 4.1 and from 4.2 uniform, exponential and normal random variables Chapter 7: Law of large numbers and central limit theorem; sections 7.0 and 7.1 Chapter 8: Classical statistics (point estimation, interval estimation, hypothesis testing); sections 8.1, 8.2, 8.3 and 8.4`,
-    objectives:
-      'After this course the student should be able to understand the setup of a probability space, events, probability and conditional probability (knowledge and insight); use the basic rules of probability theory (sum rule, product rule, law of total probability, Bayes\' rule) (applying knowledge and insight); understand what a random variable is, what its distribution is, both for discrete and continuous random variables (this includes the concept of probability mass function, probability density function, and cumulative distribution function) (knowledge and insight); compute the expectation and variance of a random variable (applying knowledge and insight); compute the expectation and variance of a sum of independent random variables (applying knowledge and insight); derive discrete probability distributions for probabilistic experiments associated to the Bernoulli, Binomial, Negative Binomial and Poisson distribution (applying knowledge and insight); compute probabilities for continuous random variables, specifically the uniform, exponential, and normal distribution (applying knowledge and insight); perform calculations based on the law of large numbers and central limit theorem (applying knowledge and insight); reproduce the definition of an estimator, carry out elementary computations involving point estimators (applying knowledge and insight); understand what confidence intervals are and be able to derive them in simple settings using a pivot (applying knowledge and insight); understand the setup of classical hypothesis testing (critical region, p-value, type of errors) and apply this to simple hypothesis testing problems (knowledge and insight); derive likelihood ratio tests in simple settings (applying knowledge and insight);',
-    assessment:
-      'Midterm exam (30%) and final exam (70%) over all content. The resit exam is about all content.',
-    teachingMethods:
-      '6 weeks with 4 hours lecturing each week. Exercise classes. Attendance to lectures and classes is not mandatory but strongly recommended.',
-    literature:
-      'Hossein Pishro-Nik, Introduction to Probability, Statistics and Random Processes. The book can be ordered but is also freely available on www.probabilitycourse.com.',
-    prerequisites: '',
-    difficulty: 2,
-    tags: ['mathematics', 'statistics', 'required'],
-  },
-  {
     id: 'text-mining-ai',
     slug: 'text-mining-for-ai',
     name: 'Text Mining for AI',
     image: '/assets/images/courses/text-mining-for-ai.png',
     code: 'XB_0085',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0085',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0085',
     year: 2,
-    period: 5,
+    period: 2, // moved from period 5 in 2026-2027
     credits: '6EC',
     description:
       'NLP, linguistics, text mining: rule-based systems, machine learning, deep learning, text classification, sentiment, entity recognition, topic modeling.',
@@ -639,14 +542,165 @@ If you are curious about how LLMs and chatbots actually work under the hood, thi
         'Lectures and labs are not checked for attendance, but the lab assignments themselves are mandatory to pass the course and you have to be in a group of four. Groups are formed in week 1 through the Groups tab on Canvas; if you have not joined a group by the deadline the staff assume you are not taking the course.',
     },
   },
-  // ========== YEAR 2 — Intelligent Systems specialisation ==========
+  {
+    id: 'linear-algebra-calculus',
+    slug: 'linear-algebra-and-calculus',
+    name: 'Linear Algebra and Calculus',
+    image: '/assets/images/courses/linear-algebra-and-calculus.png',
+    code: 'XB_0114',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0114',
+    year: 2,
+    period: 2,
+    credits: '6EC',
+    description:
+      'Fundamental concepts in Linear Algebra and Calculus: vectors, matrices, linear systems, functions, limits, differentiation, eigenvalues, and diagonalization.',
+    overview: `Calculus: Functions Limits Derivatives Partial derivatives Gradients Linear Algebra: Linear systems of equations Row reduction Linear maps Matrix and vectors operations Vector spaces Determinants Eigenvalues, eigenvectors and diagonalization Inner product, orthogonalization and Gram Schmidt`,
+    objectives:
+      'Upon completion of the course, students will: Demonstrate a solid comprehension of fundamental concepts in Linear Algebra and Calculus, including vectors, matrices, linear systems, functions, limits and differentiation (Knowledge and Understanding). Apply mathematical techniques to solve basic exercises and problems across different levels of complexity within Linear Algebra and Calculus, such as solving linear systems or diagonalization, showcasing proficiency in computations and problem-solving strategies (Applying Knowledge and Understanding). Engage in rigorous mathematical reasoning by providing proofs of statements and theorems, and by explaining underlying concepts and principles (Applying Knowledge and Understanding; Making Judgments). Develop the ability to articulate mathematical solutions and explanations effectively, engaging clear communication of mathematical concepts (Communication Skills). Cultivate learning skills necessary for further study in mathematics and AI, including the ability to independently explore advanced topics, identify areas for improvement, and pursue self-directed learning opportunities (Learning Skills).',
+    assessment: 'Optional calculus midterm (30%) and final exam (70% or 100% if midterm skipped). The final exam covers both calculus and linear algebra. There is a resit exam with mandatory calculus (30%) + linear algebra (70%). Must achieve 5.5 average to pass.',
+    teachingMethods: 'Lectures twice per week with tutorials. Incomplete notes are provided during lectures to encourage active participation — complete notes are available afterwards.',
+    literature: 'Adams & Essex, Calculus: A Complete Course (9th Edition). Lay, Lay & McDonald, Linear Algebra and its Applications (6th Edition).',
+    prerequisites:
+      'Note: you cannot replace XB_0114 with the Computer Science course X_400649 Linear Algebra. The examination board rejects those requests because X_400649 does not cover calculus. Everyone has to pass XB_0114.',
+    difficulty: 4,
+    tags: ['mathematics', 'foundations', 'required'],
+  },
+  {
+    id: 'project-socially-aware-computing',
+    slug: 'project-socially-aware-computing',
+    name: 'Project Socially Aware Computing',
+    image: '/assets/images/courses/project-socially-aware-computing.png',
+    code: 'XB_0042',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0042',
+    year: 2,
+    period: 3,
+    credits: '6EC',
+    specialisation: 'socially_aware_computing',
+    description:
+      'Agent-based simulation for societal challenges: Netlogo, modeling, experimentation, and research reporting.',
+    overview: `Within this course students learn to address a societal challenge involving social interaction by means of agent- based simulation. They learn to identify relevant concepts and relations, formalise these in a dedicated environment (Netlogo), conduct simulations to test different hypothetical scenarios and analyse their results. They do this by working individually on assignments and a project in a chosen domain. They report their findings in written form.`,
+    objectives:
+      'After having completed this course students are able to: Perform a study following a full research cycle: setting up an experiment (conceptualisation, formalisation), performing the experiment (simulation), analysing and interpreting its results (applying knowledge and understanding; making judgements) Apply and integrate knowledge about programming, modelling, statistics, conducting research and academic writing to actual societal challenges (applying knowledge and understanding; making judgements) Build a multi agent-based model in the modelling environment Netlogo (applying knowledge and understanding) Report the results of the project in written form (communication; lifelong learning skills)',
+    assessment:
+      'Pass/fail individual assignments that need to be passed to start the project Individual project report (95%) + self-reflection (5%) We only offer a resit for the project. If you fail the assignments you will have to take the course again next academic year. This course consists of individual assignments and an individual project. Students need to work on the assignments in class. Their work is checked by the teacher or TA. The meetings are mandatory. The students also work on their project during the mandatory meetings.',
+    teachingMethods:
+      'This project course is given by means of active working group meetings. These meetings are mandatory. The course is divided into two parts. During the first week the students will work on assignments to learn how to work with Netlogo. If they pass these assignments they are allowed to start their project. They will work on their project during the next three weeks. During the first two weeks the students have 20 hours of work group sessions per week. During the third week there will be 12 hours of work group sessions. In the final week of the course (week 4) the students can schedule an individual meeting with a member of the teaching team. Attendance during the work group sessions is mandatory.',
+    literature: '',
+    prerequisites: '',
+    difficulty: 0,
+    tags: ['project', 'simulation', 'socially-aware-computing'],
+  },
+  {
+    id: 'machine-learning',
+    slug: 'machine-learning',
+    name: 'Machine Learning',
+    image: '/assets/images/courses/machine-learning.png',
+    code: 'X_400154',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/X_400154',
+    year: 2,
+    period: 4,
+    credits: '6EC',
+    description:
+      'Core machine learning: linear models, neural networks, decision trees, ensemble methods, gradient descent, backpropagation, and deep learning.',
+    overview: `Machine learning is the discipline that studies how to build computer programs that learn how to behave from examples, rather than following explicit instructions. It is a subfield of artificial intelligence that intersects with statistics, cognitive science, information theory, and probability theory. Recently, machine learning has become increasingly important for the design of search engines, robots, and sensor systems, and for the processing of large scientific data sets. Other applications include handwriting or speech recognition, image classification, medical diagnosis, stock market analysis and bioinformatics. Machine Learning is also the core technology behind chatbots like ChatGPT, Claude and Gemini. The course covers a wide variety of machine learning techniques, but puts particular emphasis on gradient descent optimization, backpropagation, neural networks and deep learning. Some discussion on the broader social impact of machine learning technology is included.`,
+    objectives:
+      'Upon completion of this course, students will: be acquainted with the dominant concepts of machine learning methods, including some theoretical background. (Knowledge and understanding) acquire knowledge of established machine learning techniques such as linear models, neural networks, decision trees and ensemble methods (Knowledge and understanding) learn some statistical techniques to assess and validate machine learning results. (Apply knowledge and understanding, make judgments)',
+    assessment:
+      'The course assessment consists of two parts: an examination and a practical assignment. The examination consists of a standard exam and four online quizzes. The examination and practical assignment each comprise 50% of the final grade. To pass the course, the examination grade should be at least 5.5, the practical assignment grade should be at least 4.5 and the average should be at least 5.5. The examination is made individually, and the practical assignment is made in groups. There is a resit for the exam, no resit is possible for the practical assignment.',
+    teachingMethods:
+      'The course consists of pre-recorded videos, interactive lecture/QA sessions (two per week) and optional homework assignments discussed in working groups (one per week). The practical assignment is supported by small exercises to help with the relevant technologies, and informal presentations at project groups (one per week). There is no mandatory attendance for any lectures or workgroups, except that one member of each group must be present at the weekly project group. Most of the material is freely available at https://mlvu.github.io The course is taught in English.',
+    literature: 'There is no textbook. Some reading material will be provided digitally.',
+    prerequisites:
+      'We require that students have some prior experience with linear algebra, calculus (limited to differentiation), probability theory and statistics. An overview and explanation of the required preliminaries can be found at https://mlvu.github.io/preliminaries/',
+    difficulty: 3,
+    tags: ['machine-learning', 'deep-learning', 'required'],
+  },
+  {
+    id: 'probability-statistics',
+    slug: 'probability-and-statistics',
+    name: 'Probability and Statistics',
+    image: '/assets/images/courses/probability-and-statistics.png',
+    code: 'XB_0115',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0115',
+    year: 2,
+    period: 4,
+    credits: '6EC',
+    description:
+      'Probability theory, random variables, distributions, law of large numbers, central limit theorem, estimation, confidence intervals, and hypothesis testing.',
+    overview: `From the book by From Pishro-Nik: Chapter 1: Basic concepts Chapter 3: Discrete random variables, Bernoulli, Binomial, Negative Binomial, Poisson Chapter 4: Continuous random variables; sections 4.0, 4.1 and from 4.2 uniform, exponential and normal random variables Chapter 7: Law of large numbers and central limit theorem; sections 7.0 and 7.1 Chapter 8: Classical statistics (point estimation, interval estimation, hypothesis testing); sections 8.1, 8.2, 8.3 and 8.4`,
+    objectives:
+      'After this course the student should be able to understand the setup of a probability space, events, probability and conditional probability (knowledge and insight); use the basic rules of probability theory (sum rule, product rule, law of total probability, Bayes\' rule) (applying knowledge and insight); understand what a random variable is, what its distribution is, both for discrete and continuous random variables (this includes the concept of probability mass function, probability density function, and cumulative distribution function) (knowledge and insight); compute the expectation and variance of a random variable (applying knowledge and insight); compute the expectation and variance of a sum of independent random variables (applying knowledge and insight); derive discrete probability distributions for probabilistic experiments associated to the Bernoulli, Binomial, Negative Binomial and Poisson distribution (applying knowledge and insight); compute probabilities for continuous random variables, specifically the uniform, exponential, and normal distribution (applying knowledge and insight); perform calculations based on the law of large numbers and central limit theorem (applying knowledge and insight); reproduce the definition of an estimator, carry out elementary computations involving point estimators (applying knowledge and insight); understand what confidence intervals are and be able to derive them in simple settings using a pivot (applying knowledge and insight); understand the setup of classical hypothesis testing (critical region, p-value, type of errors) and apply this to simple hypothesis testing problems (knowledge and insight); derive likelihood ratio tests in simple settings (applying knowledge and insight);',
+    assessment:
+      'Midterm exam (30%) and final exam (70%) over all content. The resit exam is about all content.',
+    teachingMethods:
+      '6 weeks with 4 hours lecturing each week. Exercise classes. Attendance to lectures and classes is not mandatory but strongly recommended.',
+    literature:
+      'Hossein Pishro-Nik, Introduction to Probability, Statistics and Random Processes. The book can be ordered but is also freely available on www.probabilitycourse.com.',
+    prerequisites:
+      'Note: you cannot replace XB_0115 with the Computer Science course X_401020 Statistical Methods. Everyone has to pass XB_0115.',
+    difficulty: 2,
+    tags: ['mathematics', 'statistics', 'required'],
+  },
+  {
+    id: 'computational-intelligence',
+    slug: 'computational-intelligence',
+    name: 'Computational Intelligence',
+    image: '/assets/images/courses/computational-intelligence.png',
+    code: 'XB_0025',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0025',
+    year: 2,
+    period: 5, // moved from year 3 period 4; mandatory since 2026-2027
+    credits: '6EC',
+    specialisation: 'intelligent_systems',
+    description:
+      'Optimization algorithms for AI: evolutionary algorithms, neural networks (deep learning), reinforcement learning, and neuroevolution.',
+    overview: `In the course Computational Intelligence, we will focus mainly on computational aspects of Artificial Intelligence, namely, optimization algorithms for solving learning problems. Specifically, we will consider problems that cannot be solved using information about gradient due to their combinatorial character or complexity of the objective function (e.g., non-differentiability, blackbox objective function). These problems pop up in computer science and AI, such as, identification of biological systems, task scheduling on chips, robotics, finding optimal architecture of neural networks. For this purpose, we will introduce different classes of algorithms that can be used to tackle these problems, namely, hill climbing and local search, and evolutionary algorithms. Additionally, we explain sampling methods (Markov Chain Monte Carlo) and population-based sampling methods, and indicate how they are linked to evolutionary algorithms. In the second part of the course, we will discuss neural networks as current state-of-the-art modeling paradigm. We will present basic components of deep learning, such as, different layers (e.g., linear layers, convolutional layers, pooling layers, recurrent layers), non-linear activation functions (e.g., sigmoid, ReLU), and how to use them for specific problems. At the end of the course, we will touch upon alternative approaches to learning using Reinforcement Learning. We will conclude the course with a recently revived field of neuroevolution that aims for utilizing evolutionary algorithms in training neural networks.`,
+    objectives:
+      'Knowledge and understanding of: Optimization techniques (Hill Climbing, Local Search, Gradient Descent, SGD), Evolutionary Algorithms, Neural Networks (Fully-Connected, Convolutional), Sampling Methods (Metropolis-Hastings, Simulated Annealing), Reinforcement Learning (Q-learning), Neuroevolution (Neural Architecture Search). Applying knowledge and understanding: How optimization algorithms work and where to use them; How to formulate an evolutionary algorithm for a specific problem; What neural network fits best for a given problem. Making judgments: What optimization algorithm to use for a given problem. Communication skills: Presenting analysis in written form (short reports) for each assignment.',
+    assessment:
+      'The final grade is calculated based on the final exam (50 points) and 5 individual practical assignments (10 points each, 50 points in total). To pass the course, students are required to obtain at least 25 points from the final exam, and 55 points in total including all the points from the exam and assignments. The exam can be retaken (a resit). Solutions to practical assignments must be provided within given deadlines. There is no resit option for practical assignments.',
+    teachingMethods: 'Lectures and practical assignments.',
+    literature: 'The literature will be made available on Canvas.',
+    prerequisites:
+      'Mandatory for everyone since 2026-2027, now in year 2 period 5. Started before 2025-2026 and not passed it yet? You can use it as your period 5 constrained choice, and it still counts for the Intelligent Systems specialisation.',
+    difficulty: 0,
+    tags: ['optimization', 'neural-networks', 'required'],
+  },
+  // ========== YEAR 2 — Constrained choice ==========
+  {
+    id: 'robot-interaction',
+    slug: 'robot-interaction',
+    name: 'Robot Interaction',
+    image: '/assets/images/courses/robot-interaction.png',
+    code: 'XB_0040',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0040',
+    year: 2,
+    period: 1,
+    credits: '6EC',
+    specialisation: 'socially_aware_computing',
+    description:
+      'Social robotics: human-robot interaction, communicative robots, application areas, psychology, NLP, ethics.',
+    overview: `What does it mean when a robot steps out of your computer in physical space and starts interacting with humans as if it were a social entity itself? This course will address various aspects that come into play when physically present robots interact with humans. This course focuses mainly on social robots, humanoids in particular, suited for communicative purposes. We will discuss both sides of the coin: perspectives from the robot-side as well as perspectives from the user-side. Differences and similarities with common computer-based AI (cf. avatars, chatbots) are discussed in comparison to human-robot interaction, exemplified by main application areas (e.g., eldercare, education). Basic models and relevant aspects of the psychology of the user and ethical aspects are also discussed. If robots start talking to humans by themselves, how can they understand each other? Lectures will therefore also address the basics of the understanding of language (e.g., Natural Language Processing (NLP)). How to translate theoretical models into effective computer models is another challenge that will not only be lectured on but also practiced. A team of lecturers with the respective expertise will lecture on the wide variety of topics in this course. Several practical tutorials/workshops accompany the lectures to gain hands-on experience regarding the complexities of human-robot interaction.`,
+    objectives:
+      'After successful completion of this course, students are expected to be able to: Articulate the core themes and challenges in the field of Social Robotics. (Knowledge and insight, Applying knowledge and insight, Judgement) Understand the multi-disciplinary contributions that develop Social Robots. (Knowledge and insight, Applying knowledge and insight, Judgement) Describe and evaluate main theories from various field to understand how humans interact and communicate with social robots. (Knowledge and insight, Applying knowledge and insight, Judgement) Understand, describe and compare screen-based versus robot-based interaction. (Knowledge and insight, Applying knowledge and insight, Judgement) Discuss and compare key findings in fundamental areas of Robot Interaction, such as typology of robots; application areas; relating to robots; psychological aspects; language understanding in robots; robots outperforming humans while being worse communicators; modeling theories for performance in robots; ethical considerations. (Knowledge and insight, Applying knowledge and insight, Judgement) Develop a good understanding of up-to-date and interdisciplinary scientific research in the field and in various application areas. (Knowledge and insight, Applying knowledge and insight, Judgement) Understand and apply an academic multi-disciplinary attitude, academic writing style, search for insights in complex phenomena, theoretical and empirical approaches. (Knowledge and insight, Applying knowledge and insight, Judgement, Communication, Learning skills) Apply an analytical approach to model communication in robots. (Knowledge and insight, Applying knowledge and insight, Judgement) Exercise reverse engineering, building scenarios, interaction design, concurrent algorithmic approaches. (Knowledge and insight, Applying knowledge and insight, Judgement, )',
+    assessment:
+      'Examination: final examination consisting of a multiple choice test of 40 questions and 5 open essay questions; the combined grade counts for 80% of the final grade for this course. Assignments related to the workshops are also graded; the averaged grade for assignments counts for 20% of the final grade for this course. Some assignments are individually, and some are done in group. To pass the course, each assignment needs to be passed. Also, to pass the exam, the separate multiple choice and essay question sections must be passed (55%) separately to pass the exam. There is only a resit for the examination.',
+    teachingMethods:
+      'Lectures on a wide variety of topics related to Robot Interaction, two times a week. Several practical tutorials/workshops will accompany the lectures as a 3rd meeting in the week. Details will be presented in the schedule/syllabus on Canvas.',
+    literature:
+      'For this course, you will read a relatively large number of journal articles, book chapters, and conference proceedings. The reading list will be announced on Canvas (in the syllabus) posted on Canvas before the start of the course. Access to journal articles/ book chapters / conference papers via Canvas, or else via the VU-library, check LibSearch, e-resources (e.g., select search in PsycInfo, EBSCOhost), else Google Scholar, or http://dx.doi.org',
+    prerequisites: '',
+    constrainedChoice: true,
+    difficulty: 0,
+    tags: ['robotics', 'hci', 'socially-aware-computing'],
+  },
   {
     id: 'data-structures-algorithms-ai',
     slug: 'data-structures-and-algorithms-for-ai',
     name: 'Data Structures and Algorithms for AI',
     image: '/assets/images/courses/data-structures-and-algorithms-for-ai.png',
     code: 'XB_0043',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0043',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0043',
     year: 2,
     period: 1,
     credits: '6EC',
@@ -662,37 +716,59 @@ If you are curious about how LLMs and chatbots actually work under the hood, thi
       'The course is based on the following teaching methods: Weekly lectures introducing new topics Weekly lab sessions where student TAs will supervise students working on practical exercises Assignments in the form of programing challenges including analytical tasks describing the implemented solution to an algorithmic problem',
     literature: 'Introduction to algorithms. Thomas H. Cormen et al. 4th edition.',
     prerequisites: '',
+    constrainedChoice: true,
     difficulty: 3,
     tags: ['algorithms', 'data-structures', 'intelligent-systems'],
   },
   {
-    id: 'project-conversational-agents',
-    slug: 'project-conversational-agents',
-    name: 'Project Conversational Agents',
-    image: '/assets/images/courses/project-conversational-agents.png',
-    code: 'XB_0101',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0101',
+    id: 'ai-and-law',
+    slug: 'ai-and-law',
+    name: 'AI and Law',
+    image: '/assets/images/courses/ai-and-law.png',
+    code: 'XB_0070',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0070',
     year: 2,
-    period: 3,
+    period: 5,
     credits: '6EC',
-    specialisation: 'intelligent_systems',
+    specialisation: 'socially_aware_computing',
     description:
-      'Develop a conversational agent for the cooking domain using DialogFlow, ontology, and natural conversation framework.',
-    overview: `Students develop a speech-based conversational recipe recommendation agent using MARBEL (Prolog-based agent framework), Python, BERT for NLU, and HTML/Bootstrap for visual support. The project involves building an ASR+NLU pipeline, implementing dialogue management, and creating a visual interface. Groups of 6 students work together over 4 intensive weeks. The exam (15% of grade) is a 1-hour digital exam with 30 multiple choice questions covering the lecture content and preliminaries.`,
+      'Relation between AI and Law; applications of AI within Law; ethical questions related to AI in the legal domain.',
+    overview: `Innovation in computational technologies have given rise to a whole range of new developments, such as autonomous cars and drones, predictive policing and automated warfare. Each of these developments has significant legal, ethical and policy implications. With autonomous driving, for example, this became particularly obvious after a pedestrian was killed for the first time by an autonomous vehicle on a test drive. How will autonomous vehicles affect the law, particularly once they are authorized for regular usage, and take the streets in large numbers? Can it even be considered ethical to have machines think by themselves? Another, closely related, AI application – automated weapons – raises potentially even more pressing issues. What are the legal and ethical implications of autonomous weapons that determine themselves when to fire, without a human being involved in the decision process? Examples like these show the tremendous impact that AI will have on the legal field.`,
     objectives:
-      '1. Develop a conversational agent by developing a simple ontology for a knowledge base for the cooking domain which enables the agent to reason about recipes (Applying knowledge and understanding) 2. Apply and understand conversation design patterns (Applying knowledge and understanding) 3. Design and implement visual support for different stages in the conversation (Applying knowledge and understanding) 4. Evaluate a prototype conversational agent for the cooking domain (Making judgments) 5. Plan and organize work together in a project group using appropriate tools (Applying knowledge and understanding)',
+      '(a) Subject-specific learning outcomes (knowledge and understanding) Upon completion of the course the student should have basic knowledge of: The relation between AI and Law Key applications of AI within Law Ethical questions related to the use of AI within the legal domain (b) Academic learning outcomes (applying knowledge and understanding; making judgements) Upon completion of the course the student should be able to: Read, understand, analyse and reflect upon interdisciplinary literature relating to AI applications in the field of law Analyse, interpret and employ scientific knowledge in a written assignment on a basic level Make a reasoned choice for an AI application and reflect on the potential legal consequences of this application (c) Social and communication learning outcomes (applying knowledge and understanding; communication; lifelong learning skills) Upon completion of the course the student should be able to: Work in a focused and systematic way In a scientifically substantiated manner clearly and convincingly present viewpoints and findings in written form',
     assessment:
-      'The grade is based on the quality of the basic conversational agent (30%), the quality and originality of extensions to the basic agent (30%) and the written report (30%). In addition, students are required to complete an exam that assesses their understanding of course content and their ability to evaluate conversational agents (10%). The exam will be one hour long and proctored by TAs. Each component needs to be at least graded with a 5.5 or higher to pass this course. There are no resit options for the project work, report and exam.',
-    teachingMethods: 'Lectures, lab sessions (with computer/ laptops). Attendance at labs is obligatory. Students will work in groups of 6.',
-    literature:
-      'Conversational UX Design: A Practitioner\'s Guide to the Natural Conversation Framework Robert J Moore en Raphael Arar | 29 mei 2019 ISBN-10: 1450363024 ISBN-13: 978-1450363020 A cognitive agent programming guide (online) Learn Prolog Now! (online) Github tutorial (online) Bootstrap tutorial (online) Dialogflow tutorial (online) Natural language understanding models (online)',
+      'Written exam and practical assignment (individually or in groups of 2). They both count 50% towards the final grade and both components need to be passed with a minimum grade of 5.5 The practical assignment can be redone if not sufficient (< 5.5). There will be a resit for the written exam if not sufficient (<5.5).',
+    teachingMethods: 'Lectures and tutorials. The tutorials are mandatory.',
+    literature: '',
     prerequisites: '',
-    difficulty: 2,
-    tags: ['project', 'nlp', 'intelligent-systems'],
-    workgroupInfo: {
-      mandatory: true,
-      detail: 'Attendance at lab sessions is mandatory. Students will work in groups of 6.',
-    },
+    constrainedChoice: true,
+    difficulty: 0,
+    tags: ['law', 'ethics', 'elective'],
+  },
+  {
+    id: 'ai-in-health',
+    slug: 'ai-in-health',
+    name: 'AI in Health',
+    image: '/assets/images/courses/ai-in-health.png',
+    code: 'XB_0020',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0020',
+    year: 2,
+    period: 5,
+    credits: '6EC',
+    specialisation: 'socially_aware_computing',
+    description:
+      'AI techniques applied to the medical field: diagnosis, treatment, monitoring, and prevention. Ontologies, explainable ML, guidelines.',
+    overview: `The aim of the course is to make the students familiar with a number of Artificial Intelligence techniques and how they can be applied to the medical field. The course will be structured along the patient journey: diagnosis, treatment, monitoring, and prevention. Several AI techniques will be introduced during the course. The assignments offer students the opportunity to gain practical experience with AI techniques in the health domain. In the assignments, both the AI-technique and a medical topic have to be applied in a practical, hands on, way. The course will be structured into three thematic modules. module 1: Diagnosis (ontologies, explainable ML) module 2: Treatment (representations of guidelines and quality of care indicators, neurosymbolic approaches) module 3: Monitoring & Prevention Beside these modules there might be a couple of guest lectures, on for instance natural language processing for medical texts, bioinformatics, and ethical impact.`,
+    objectives:
+      'The aim of the course is to make the students familiar with a number of Artificial Intelligence techniques (Knowledge and Understanding) and how they can be applied to the medical field (Applying Knowledge and Understanding, Making Judgments). Furthermore, students should have capability to work in teams (Communication).',
+    assessment:
+      'Practical group assignments for each module, and an individual exam. Exam (50%) and practical assignments (50%) form the final grade. For both parts the grade needs to be sufficient (5.5 or higher) to obtain a final grade. No resit is possible for the practical assignments.',
+    teachingMethods: 'There will be two lectures per week and one practical session per week.',
+    literature: 'Selected scientific papers.',
+    prerequisites: '',
+    constrainedChoice: true,
+    difficulty: 0,
+    tags: ['health', 'ai', 'elective'],
   },
   {
     id: 'databases',
@@ -700,7 +776,7 @@ If you are curious about how LLMs and chatbots actually work under the hood, thi
     name: 'Databases',
     image: '/assets/images/courses/databases.png',
     code: 'X_401008',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/X_401008',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/X_401008',
     year: 2,
     period: 5,
     credits: '6EC',
@@ -724,6 +800,7 @@ If you are curious about how LLMs and chatbots actually work under the hood, thi
     literature:
       'Database Systems, The Complete Book, by: Hector Garcia-Molina & Jeffrey D. Ullman & Jennifer Widom. 2nd edition.',
     prerequisites: '',
+    constrainedChoice: true,
     difficulty: 2,
     tags: ['databases', 'sql', 'intelligent-systems'],
     workgroupInfo: {
@@ -737,7 +814,7 @@ If you are curious about how LLMs and chatbots actually work under the hood, thi
     name: 'Project Collective Intelligence',
     image: '/assets/images/courses/project-collective-intelligence.png',
     code: 'XB_0026',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0026',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0026',
     year: 2,
     period: 6,
     credits: '6EC',
@@ -754,6 +831,7 @@ If you are curious about how LLMs and chatbots actually work under the hood, thi
     literature:
       'Introductory papers on swarm robotics and collective dynamics, e.g. the review here https://link.springer.com/article/10.1007/s11721-012-0075-2',
     prerequisites: 'Coding skills in Python are necessary.',
+    constrainedChoice: true,
     difficulty: 0,
     tags: ['project', 'simulation', 'elective'],
   },
@@ -762,107 +840,8 @@ If you are curious about how LLMs and chatbots actually work under the hood, thi
     id: 'law-of-ai',
     slug: 'the-law-of-artificial-intelligence',
     specialisation: ['intelligent_systems', 'socially_aware_computing'],
+    constrainedChoice: true,
     tags: ['law', 'ethics', 'elective'],
-  },
-  // ========== YEAR 2 — Socially Aware Computing specialisation ==========
-  {
-    id: 'robot-interaction',
-    slug: 'robot-interaction',
-    name: 'Robot Interaction',
-    image: '/assets/images/courses/robot-interaction.png',
-    code: 'XB_0040',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0040',
-    year: 2,
-    period: 1,
-    credits: '6EC',
-    specialisation: 'socially_aware_computing',
-    description:
-      'Social robotics: human-robot interaction, communicative robots, application areas, psychology, NLP, ethics.',
-    overview: `What does it mean when a robot steps out of your computer in physical space and starts interacting with humans as if it were a social entity itself? This course will address various aspects that come into play when physically present robots interact with humans. This course focuses mainly on social robots, humanoids in particular, suited for communicative purposes. We will discuss both sides of the coin: perspectives from the robot-side as well as perspectives from the user-side. Differences and similarities with common computer-based AI (cf. avatars, chatbots) are discussed in comparison to human-robot interaction, exemplified by main application areas (e.g., eldercare, education). Basic models and relevant aspects of the psychology of the user and ethical aspects are also discussed. If robots start talking to humans by themselves, how can they understand each other? Lectures will therefore also address the basics of the understanding of language (e.g., Natural Language Processing (NLP)). How to translate theoretical models into effective computer models is another challenge that will not only be lectured on but also practiced. A team of lecturers with the respective expertise will lecture on the wide variety of topics in this course. Several practical tutorials/workshops accompany the lectures to gain hands-on experience regarding the complexities of human-robot interaction.`,
-    objectives:
-      'After successful completion of this course, students are expected to be able to: Articulate the core themes and challenges in the field of Social Robotics. (Knowledge and insight, Applying knowledge and insight, Judgement) Understand the multi-disciplinary contributions that develop Social Robots. (Knowledge and insight, Applying knowledge and insight, Judgement) Describe and evaluate main theories from various field to understand how humans interact and communicate with social robots. (Knowledge and insight, Applying knowledge and insight, Judgement) Understand, describe and compare screen-based versus robot-based interaction. (Knowledge and insight, Applying knowledge and insight, Judgement) Discuss and compare key findings in fundamental areas of Robot Interaction, such as typology of robots; application areas; relating to robots; psychological aspects; language understanding in robots; robots outperforming humans while being worse communicators; modeling theories for performance in robots; ethical considerations. (Knowledge and insight, Applying knowledge and insight, Judgement) Develop a good understanding of up-to-date and interdisciplinary scientific research in the field and in various application areas. (Knowledge and insight, Applying knowledge and insight, Judgement) Understand and apply an academic multi-disciplinary attitude, academic writing style, search for insights in complex phenomena, theoretical and empirical approaches. (Knowledge and insight, Applying knowledge and insight, Judgement, Communication, Learning skills) Apply an analytical approach to model communication in robots. (Knowledge and insight, Applying knowledge and insight, Judgement) Exercise reverse engineering, building scenarios, interaction design, concurrent algorithmic approaches. (Knowledge and insight, Applying knowledge and insight, Judgement, )',
-    assessment:
-      'Examination: final examination consisting of a multiple choice test of 40 questions and 5 open essay questions; the combined grade counts for 80% of the final grade for this course. Assignments related to the workshops are also graded; the averaged grade for assignments counts for 20% of the final grade for this course. Some assignments are individually, and some are done in group. To pass the course, each assignment needs to be passed. Also, to pass the exam, the separate multiple choice and essay question sections must be passed (55%) separately to pass the exam. There is only a resit for the examination.',
-    teachingMethods:
-      'Lectures on a wide variety of topics related to Robot Interaction, two times a week. Several practical tutorials/workshops will accompany the lectures as a 3rd meeting in the week. Details will be presented in the schedule/syllabus on Canvas.',
-    literature:
-      'For this course, you will read a relatively large number of journal articles, book chapters, and conference proceedings. The reading list will be announced on Canvas (in the syllabus) posted on Canvas before the start of the course. Access to journal articles/ book chapters / conference papers via Canvas, or else via the VU-library, check LibSearch, e-resources (e.g., select search in PsycInfo, EBSCOhost), else Google Scholar, or http://dx.doi.org',
-    prerequisites: '',
-    difficulty: 0,
-    tags: ['robotics', 'hci', 'socially-aware-computing'],
-  },
-  {
-    id: 'project-socially-aware-computing',
-    slug: 'project-socially-aware-computing',
-    name: 'Project Socially Aware Computing',
-    image: '/assets/images/courses/project-socially-aware-computing.png',
-    code: 'XB_0042',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0042',
-    year: 2,
-    period: 3,
-    credits: '6EC',
-    specialisation: 'socially_aware_computing',
-    description:
-      'Agent-based simulation for societal challenges: Netlogo, modeling, experimentation, and research reporting.',
-    overview: `Within this course students learn to address a societal challenge involving social interaction by means of agent- based simulation. They learn to identify relevant concepts and relations, formalise these in a dedicated environment (Netlogo), conduct simulations to test different hypothetical scenarios and analyse their results. They do this by working individually on assignments and a project in a chosen domain. They report their findings in written form.`,
-    objectives:
-      'After having completed this course students are able to: Perform a study following a full research cycle: setting up an experiment (conceptualisation, formalisation), performing the experiment (simulation), analysing and interpreting its results (applying knowledge and understanding; making judgements) Apply and integrate knowledge about programming, modelling, statistics, conducting research and academic writing to actual societal challenges (applying knowledge and understanding; making judgements) Build a multi agent-based model in the modelling environment Netlogo (applying knowledge and understanding) Report the results of the project in written form (communication; lifelong learning skills)',
-    assessment:
-      'Pass/fail individual assignments that need to be passed to start the project Individual project report (95%) + self-reflection (5%) We only offer a resit for the project. If you fail the assignments you will have to take the course again next academic year. This course consists of individual assignments and an individual project. Students need to work on the assignments in class. Their work is checked by the teacher or TA. The meetings are mandatory. The students also work on their project during the mandatory meetings.',
-    teachingMethods:
-      'This project course is given by means of active working group meetings. These meetings are mandatory. The course is divided into two parts. During the first week the students will work on assignments to learn how to work with Netlogo. If they pass these assignments they are allowed to start their project. They will work on their project during the next three weeks. During the first two weeks the students have 20 hours of work group sessions per week. During the third week there will be 12 hours of work group sessions. In the final week of the course (week 4) the students can schedule an individual meeting with a member of the teaching team. Attendance during the work group sessions is mandatory.',
-    literature: '',
-    prerequisites: '',
-    difficulty: 0,
-    tags: ['project', 'simulation', 'socially-aware-computing'],
-  },
-  {
-    id: 'ai-and-law',
-    slug: 'ai-and-law',
-    name: 'AI and Law',
-    image: '/assets/images/courses/ai-and-law.png',
-    code: 'XB_0070',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0070',
-    year: 2,
-    period: 5,
-    credits: '6EC',
-    specialisation: 'socially_aware_computing',
-    description:
-      'Relation between AI and Law; applications of AI within Law; ethical questions related to AI in the legal domain.',
-    overview: `Innovation in computational technologies have given rise to a whole range of new developments, such as autonomous cars and drones, predictive policing and automated warfare. Each of these developments has significant legal, ethical and policy implications. With autonomous driving, for example, this became particularly obvious after a pedestrian was killed for the first time by an autonomous vehicle on a test drive. How will autonomous vehicles affect the law, particularly once they are authorized for regular usage, and take the streets in large numbers? Can it even be considered ethical to have machines think by themselves? Another, closely related, AI application – automated weapons – raises potentially even more pressing issues. What are the legal and ethical implications of autonomous weapons that determine themselves when to fire, without a human being involved in the decision process? Examples like these show the tremendous impact that AI will have on the legal field.`,
-    objectives:
-      '(a) Subject-specific learning outcomes (knowledge and understanding) Upon completion of the course the student should have basic knowledge of: The relation between AI and Law Key applications of AI within Law Ethical questions related to the use of AI within the legal domain (b) Academic learning outcomes (applying knowledge and understanding; making judgements) Upon completion of the course the student should be able to: Read, understand, analyse and reflect upon interdisciplinary literature relating to AI applications in the field of law Analyse, interpret and employ scientific knowledge in a written assignment on a basic level Make a reasoned choice for an AI application and reflect on the potential legal consequences of this application (c) Social and communication learning outcomes (applying knowledge and understanding; communication; lifelong learning skills) Upon completion of the course the student should be able to: Work in a focused and systematic way In a scientifically substantiated manner clearly and convincingly present viewpoints and findings in written form',
-    assessment:
-      'Written exam and practical assignment (individually or in groups of 2). They both count 50% towards the final grade and both components need to be passed with a minimum grade of 5.5 The practical assignment can be redone if not sufficient (< 5.5). There will be a resit for the written exam if not sufficient (<5.5).',
-    teachingMethods: 'Lectures and tutorials. The tutorials are mandatory.',
-    literature: '',
-    prerequisites: '',
-    difficulty: 0,
-    tags: ['law', 'ethics', 'elective'],
-  },
-  {
-    id: 'ai-in-health',
-    slug: 'ai-in-health',
-    name: 'AI in Health',
-    image: '/assets/images/courses/ai-in-health.png',
-    code: 'XB_0020',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0020',
-    year: 2,
-    period: 5,
-    credits: '6EC',
-    specialisation: 'socially_aware_computing',
-    description:
-      'AI techniques applied to the medical field: diagnosis, treatment, monitoring, and prevention. Ontologies, explainable ML, guidelines.',
-    overview: `The aim of the course is to make the students familiar with a number of Artificial Intelligence techniques and how they can be applied to the medical field. The course will be structured along the patient journey: diagnosis, treatment, monitoring, and prevention. Several AI techniques will be introduced during the course. The assignments offer students the opportunity to gain practical experience with AI techniques in the health domain. In the assignments, both the AI-technique and a medical topic have to be applied in a practical, hands on, way. The course will be structured into three thematic modules. module 1: Diagnosis (ontologies, explainable ML) module 2: Treatment (representations of guidelines and quality of care indicators, neurosymbolic approaches) module 3: Monitoring & Prevention Beside these modules there might be a couple of guest lectures, on for instance natural language processing for medical texts, bioinformatics, and ethical impact.`,
-    objectives:
-      'The aim of the course is to make the students familiar with a number of Artificial Intelligence techniques (Knowledge and Understanding) and how they can be applied to the medical field (Applying Knowledge and Understanding, Making Judgments). Furthermore, students should have capability to work in teams (Communication).',
-    assessment:
-      'Practical group assignments for each module, and an individual exam. Exam (50%) and practical assignments (50%) form the final grade. For both parts the grade needs to be sufficient (5.5 or higher) to obtain a final grade. No resit is possible for the practical assignments.',
-    teachingMethods: 'There will be two lectures per week and one practical session per week.',
-    literature: 'Selected scientific papers.',
-    prerequisites: '',
-    difficulty: 0,
-    tags: ['health', 'ai', 'elective'],
   },
   // ========== YEAR 3 — Mandatory ==========
   {
@@ -871,7 +850,7 @@ If you are curious about how LLMs and chatbots actually work under the hood, thi
     name: 'Bachelor Project Artificial Intelligence',
     image: '/assets/images/courses/bachelor-project-ai.png',
     code: 'XB_40002',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_40002',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_40002',
     year: 3,
     period: 0,
     credits: '15EC',
@@ -886,7 +865,7 @@ If you are curious about how LLMs and chatbots actually work under the hood, thi
       'After an orientation meeting, the student selects a supervisor and a topic. The work, carried out on individual basis, results in a written report (thesis) and an oral poster presentation at the annual AI Bachelor Seminar.',
     literature: '',
     prerequisites:
-      'Students can only enroll for the Bachelor Project Artificial Intelligence XB_40002 after obtaining 6 ECs for the course Introduction to Python Program XB_0145 (or the previous course XB_0082).',
+      'Since 2026-2027 you can only enroll for the Bachelor Project after obtaining 6 EC for a Python course (XB_0145 Introduction to Python Programming for AI, or the older X_401096 / XB_0082) AND a minimum of 90 EC in total. No exceptions. The advice is still to start after finishing most of year 1 and 2, around 120 EC. Registration is open the whole academic year; once the education office processes your results you are added to the Bachelor Project Canvas page. Questions: bachelor.project.ai.beta@vu.nl.',
     difficulty: 0,
     tags: ['project', 'research', 'required'],
   },
@@ -896,7 +875,7 @@ If you are curious about how LLMs and chatbots actually work under the hood, thi
     name: 'Ethical AI',
     image: '/assets/images/courses/ethical-ai.png',
     code: 'XB_0143',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0143',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0143',
     year: 3,
     period: 4,
     credits: '6EC',
@@ -924,7 +903,7 @@ Block II: Ethical AI in Computer Science — This block focuses on the practical
     name: 'Research Design for AI',
     image: '/assets/images/courses/research-design-ai.png',
     code: 'XB_0147',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0147',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0147',
     year: 3,
     period: 5,
     credits: '3EC',
@@ -943,64 +922,14 @@ Block II: Ethical AI in Computer Science — This block focuses on the practical
     difficulty: 0,
     tags: ['research', 'writing', 'required'],
   },
-  // ========== YEAR 3 — Intelligent Systems specialisation ==========
-  {
-    id: 'automata-and-complexity',
-    slug: 'automata-and-complexity',
-    name: 'Automata and Complexity',
-    image: '/assets/images/courses/automata-and-complexity.png',
-    code: 'X_401049',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/X_401049',
-    year: 3,
-    period: 4,
-    credits: '6EC',
-    specialisation: 'intelligent_systems',
-    description:
-      'Formal languages, automata, grammars, computability theory, and complexity classes (P, NP, NP-complete). Finite automata, pushdown automata, Turing machines.',
-    overview: `This course treats automata & formal languages and computability theory. The student gets acquainted with important notions and algorithms regarding formal languages, automata, grammars, compilers, computability, and complexity. This course addresses foundational questions in computer science: What can be computed? What are the limitations to what computers can do? How much time and memory does solving a problem require? What is a (programming) language? How can languages be recognized by computers (automata)? Which problems can be solved by what kinds of automata? This course conveys the important idea that certain problems cannot be solved by computers. A computer scientist must be able to reason whether a given problem is computable (decidable) or not. Moreover, a computer scientist should be able to reason what language/complexity class a given problem belongs to, and hence what kind of automata/algorithms are needed to tackle the problem.`,
-    objectives:
-      'The first part of the course, on automata and languages, covers: design finite automata and create regular expressions for a given regular language; apply algorithms to translate between finite automata, right-linear grammars, and regular expressions; apply algorithms to make automata deterministic and minimal; design pushdown automata and create context-free grammars for a given context-free language; use pumping lemmas to reason about whether a language is regular or context-free; apply algorithms for parsing context-free languages. The second part, on computability theory, covers: reason whether a given problem is decidable (computable) or undecidable; understand the classification of decidable problems in the complexity hierarchy (P, NP, EXP); reason about the complexity of a problem via reduction.',
-    assessment:
-      'The homework is mandatory for qualifying for the exam (70% of the homework points to qualify for the exam). In case at least 90% of the homework points is obtained, 0.5 bonus point is awarded for the final grade. At the end of the course there is a final exam. The overall grade is the grade of the final exam plus the possibly 0.5 bonus point obtained for the homework. (The bonus is only added for students that pass the exam with a grade of at least 5.5.) There is no resit opportunity for the homework.',
-    teachingMethods: '4 hours per week lectures; 4 hours per week exercise classes.',
-    literature:
-      'Peter Linz, An Introduction to Formal Languages and Automata, Jones & Bartlett, 4th or 5th edition',
-    prerequisites: '',
-    difficulty: 0,
-    tags: ['theory', 'mathematics', 'constrained choice'],
-  },
-  {
-    id: 'computational-intelligence',
-    slug: 'computational-intelligence',
-    name: 'Computational Intelligence',
-    image: '/assets/images/courses/computational-intelligence.png',
-    code: 'XB_0025',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0025',
-    year: 3,
-    period: 4,
-    credits: '6EC',
-    specialisation: 'intelligent_systems',
-    description:
-      'Optimization algorithms for AI: evolutionary algorithms, neural networks (deep learning), reinforcement learning, and neuroevolution.',
-    overview: `In the course Computational Intelligence, we will focus mainly on computational aspects of Artificial Intelligence, namely, optimization algorithms for solving learning problems. Specifically, we will consider problems that cannot be solved using information about gradient due to their combinatorial character or complexity of the objective function (e.g., non-differentiability, blackbox objective function). These problems pop up in computer science and AI, such as, identification of biological systems, task scheduling on chips, robotics, finding optimal architecture of neural networks. For this purpose, we will introduce different classes of algorithms that can be used to tackle these problems, namely, hill climbing and local search, and evolutionary algorithms. Additionally, we explain sampling methods (Markov Chain Monte Carlo) and population-based sampling methods, and indicate how they are linked to evolutionary algorithms. In the second part of the course, we will discuss neural networks as current state-of-the-art modeling paradigm. We will present basic components of deep learning, such as, different layers (e.g., linear layers, convolutional layers, pooling layers, recurrent layers), non-linear activation functions (e.g., sigmoid, ReLU), and how to use them for specific problems. At the end of the course, we will touch upon alternative approaches to learning using Reinforcement Learning. We will conclude the course with a recently revived field of neuroevolution that aims for utilizing evolutionary algorithms in training neural networks.`,
-    objectives:
-      'Knowledge and understanding of: Optimization techniques (Hill Climbing, Local Search, Gradient Descent, SGD), Evolutionary Algorithms, Neural Networks (Fully-Connected, Convolutional), Sampling Methods (Metropolis-Hastings, Simulated Annealing), Reinforcement Learning (Q-learning), Neuroevolution (Neural Architecture Search). Applying knowledge and understanding: How optimization algorithms work and where to use them; How to formulate an evolutionary algorithm for a specific problem; What neural network fits best for a given problem. Making judgments: What optimization algorithm to use for a given problem. Communication skills: Presenting analysis in written form (short reports) for each assignment.',
-    assessment:
-      'The final grade is calculated based on the final exam (50 points) and 5 individual practical assignments (10 points each, 50 points in total). To pass the course, students are required to obtain at least 25 points from the final exam, and 55 points in total including all the points from the exam and assignments. The exam can be retaken (a resit). Solutions to practical assignments must be provided within given deadlines. There is no resit option for practical assignments.',
-    teachingMethods: 'Lectures and practical assignments.',
-    literature: 'The literature will be made available on Canvas.',
-    prerequisites: '',
-    difficulty: 0,
-    tags: ['optimization', 'neural-networks', 'constrained choice'],
-  },
-  // ========== YEAR 3 — Socially Aware Computing specialisation ==========
+  // ========== YEAR 3 — Constrained choice ==========
   {
     id: 'cognitive-psychology-ai',
     slug: 'cognitive-psychology-ai',
     name: 'Cognitive Psychology for AI',
     image: '/assets/images/courses/cognitive-psychology-ai.png',
     code: 'XB_0072',
-    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0072',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0072',
     year: 3,
     period: 4,
     credits: '6EC',
@@ -1016,7 +945,101 @@ Block II: Ethical AI in Computer Science — This block focuses on the practical
       'The course will mostly consist of plenary lectures (2 per week), alongside practical sessions and practical assignments.',
     literature: '',
     prerequisites: '',
+    constrainedChoice: true,
     difficulty: 0,
     tags: ['psychology', 'cognitive-science', 'socially-aware-computing'],
+  },
+  {
+    id: 'automata-and-complexity',
+    slug: 'automata-and-complexity',
+    name: 'Automata and Complexity',
+    image: '/assets/images/courses/automata-and-complexity.png',
+    code: 'X_401049',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/X_401049',
+    year: 3,
+    period: 4,
+    credits: '6EC',
+    specialisation: 'intelligent_systems',
+    description:
+      'Formal languages, automata, grammars, computability theory, and complexity classes (P, NP, NP-complete). Finite automata, pushdown automata, Turing machines.',
+    overview: `This course treats automata & formal languages and computability theory. The student gets acquainted with important notions and algorithms regarding formal languages, automata, grammars, compilers, computability, and complexity. This course addresses foundational questions in computer science: What can be computed? What are the limitations to what computers can do? How much time and memory does solving a problem require? What is a (programming) language? How can languages be recognized by computers (automata)? Which problems can be solved by what kinds of automata? This course conveys the important idea that certain problems cannot be solved by computers. A computer scientist must be able to reason whether a given problem is computable (decidable) or not. Moreover, a computer scientist should be able to reason what language/complexity class a given problem belongs to, and hence what kind of automata/algorithms are needed to tackle the problem.`,
+    objectives:
+      'The first part of the course, on automata and languages, covers: design finite automata and create regular expressions for a given regular language; apply algorithms to translate between finite automata, right-linear grammars, and regular expressions; apply algorithms to make automata deterministic and minimal; design pushdown automata and create context-free grammars for a given context-free language; use pumping lemmas to reason about whether a language is regular or context-free; apply algorithms for parsing context-free languages. The second part, on computability theory, covers: reason whether a given problem is decidable (computable) or undecidable; understand the classification of decidable problems in the complexity hierarchy (P, NP, EXP); reason about the complexity of a problem via reduction.',
+    assessment:
+      'The homework is mandatory for qualifying for the exam (70% of the homework points to qualify for the exam). In case at least 90% of the homework points is obtained, 0.5 bonus point is awarded for the final grade. At the end of the course there is a final exam. The overall grade is the grade of the final exam plus the possibly 0.5 bonus point obtained for the homework. (The bonus is only added for students that pass the exam with a grade of at least 5.5.) There is no resit opportunity for the homework.',
+    teachingMethods: '4 hours per week lectures; 4 hours per week exercise classes.',
+    literature:
+      'Peter Linz, An Introduction to Formal Languages and Automata, Jones & Bartlett, 4th or 5th edition',
+    prerequisites: '',
+    constrainedChoice: true,
+    difficulty: 0,
+    tags: ['theory', 'mathematics', 'constrained choice'],
+  },
+  {
+    id: 'conversational-agents',
+    slug: 'conversational-agents',
+    name: 'Conversational Agents',
+    image: '/assets/images/courses/project-conversational-agents.png',
+    code: 'XB_0182',
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2026-2027/artificial-intelligence/XB_0182',
+    year: 3,
+    period: 4,
+    credits: '6EC',
+    specialisation: 'intelligent_systems',
+    constrainedChoice: true,
+    description:
+      'Develop a conversational agent for the cooking domain using DialogFlow, ontology, and natural conversation framework. Successor of Project Conversational Agents (XB_0101).',
+    overview: `This is the old Project Conversational Agents (XB_0101) with a new code and a new spot in the programme. In 2026-2027 it moved from year 2 period 3 to year 3 period 4, where it is one of the constrained-choice options. The content is the same course.
+
+Students develop a speech-based conversational recipe recommendation agent using MARBEL (Prolog-based agent framework), Python, BERT for NLU, and HTML/Bootstrap for visual support. The project involves building an ASR+NLU pipeline, implementing dialogue management, and creating a visual interface. Groups of 6 students work together over 4 intensive weeks. The exam (10% of grade) is a 1-hour digital exam with 30 multiple choice questions covering the lecture content and preliminaries.
+
+Already passed XB_0101? Then you are excluded from taking XB_0182. Still need XB_0101 to finish year 2 of the old curriculum? Take this course or Project Socially Aware Computing (XB_0042) instead.`,
+    objectives:
+      '1. Develop a conversational agent by developing a simple ontology for a knowledge base for the cooking domain which enables the agent to reason about recipes (Applying knowledge and understanding) 2. Apply and understand conversation design patterns (Applying knowledge and understanding) 3. Design and implement visual support for different stages in the conversation (Applying knowledge and understanding) 4. Evaluate a prototype conversational agent for the cooking domain (Making judgments) 5. Plan and organize work together in a project group using appropriate tools (Applying knowledge and understanding)',
+    assessment:
+      'The grade is based on the quality of the basic conversational agent (30%), the quality and originality of extensions to the basic agent (30%) and the written report (30%). In addition, students are required to complete an exam that assesses their understanding of course content and their ability to evaluate conversational agents (10%). The exam will be one hour long and proctored by TAs. Each component needs to be at least graded with a 5.5 or higher to pass this course. There are no resit options for the project work, report and exam.',
+    teachingMethods: 'Lectures, lab sessions (with computer/ laptops). Attendance at labs is obligatory. Students will work in groups of 6.',
+    literature:
+      'Conversational UX Design: A Practitioner\'s Guide to the Natural Conversation Framework Robert J Moore en Raphael Arar | 29 mei 2019 ISBN-10: 1450363024 ISBN-13: 978-1450363020 A cognitive agent programming guide (online) Learn Prolog Now! (online) Github tutorial (online) Bootstrap tutorial (online) Dialogflow tutorial (online) Natural language understanding models (online)',
+    prerequisites:
+      'Students who passed XB_0101 Project Conversational Agents cannot take this course.',
+    difficulty: 2,
+    tags: ['project', 'nlp', 'intelligent-systems'],
+    workgroupInfo: {
+      mandatory: true,
+      detail: 'Attendance at lab sessions is mandatory. Students will work in groups of 6.',
+    },
+  },
+  // ========== Discontinued ==========
+  {
+    id: 'multi-agent-systems',
+    slug: 'multi-agent-systems',
+    name: 'Multi-Agent Systems',
+    image: '/assets/images/courses/multi-agent-systems.png',
+    code: 'XB_0024',
+    // The course is gone from the 2026-2027 study guide; this links to its last edition
+    studyGuideUrl: 'https://studiegids.vu.nl/nl/Bachelor/2025-2026/artificial-intelligence/XB_0024',
+    year: 2,
+    period: 2,
+    credits: '6EC',
+    discontinued: true,
+    description:
+      'Discontinued in 2026-2027. Agents, multi-agent systems, knowledge representation, reasoning, and Prolog programming for building intelligent systems.',
+    overview: `This course was removed from the curriculum in 2026-2027 and no longer runs. If you started before 2025-2026 and never passed it, you must take one extra 6 EC constrained-choice course from year 2 or 3 instead. That replacement course does not count towards your specialisation or constrained-choice total. Unsure what this means for your study plan? Ask the academic advisors at academicadvice.cs.beta@vu.nl.
+
+The summary, quizzes and tips on this page are kept for reference. Original course description: AI techniques discussed in this course are knowledge representation and reasoning techniques, and multi-agent technology. Students were taught how to develop a multi-agent system that uses knowledge representation to reason about the environment in which the multi-agent system operates.`,
+    objectives:
+      'The course has the following topic and goals. 1. Agents and Multi-Agent Systems Agent, multi-agent system, cognitive state, beliefs, actions, communication, coordination. The student is able to define the elementary concepts, and to apply their relevant aspects in the design of programs. (Applying knowledge and understanding) 2. Agent-Environment Interaction Action, percept. The student is capable of analyzing the environment in which the agent operates, and to identify the actions and relevant percepts that are available. The student is able to use the classification, actions and percepts as the basis for the design of an agent. (Applying knowledge and understanding) 3. Agent and Multi-Agent Program Action rules, modules, MAS file, launch rules. The student is able to describe the relevant programming constructs. In addition, the student is able to apply the constructs to write a multi-agent and agent programs. (Applying knowledge and understanding) 4. Basic Concepts Prolog Facts, rules, clause, queries, rule-based reasoning. The student is able to define the basic concepts in Prolog and describe the relationship between these concepts. Based on these concepts the student is able to solve simple problems in Prolog. (Applying knowledge and understanding) (Making judgements) 5. Prolog Programming Negation as failure, cut, recursion, lists. The student is able to apply constructs and these techniques to write a Prolog program. The student is able to solve problems by using a combination of negation as failure, recursion and the use of lists. In particular, the student is able to implement some search algorithms in Prolog. (Applying knowledge and understanding) 6. Reasoning in Logic Programming Unification, backtracking, depth-first search, linear search, backward chaining. The student is able to explain the computational model of logic and reasoning in Prolog and to use these concepts. Simple tasks with unification of terms can be made by the student. The student is able to construct a derivation of a unification (resolution). (Applying knowledge and understanding) (Communication) 7. Develop a MAS The student is able to build a relatively simple multi-agent system. Concepts relating to systems of rational agents are introduced to make complex decisions. (Applying knowledge and understanding) (Lifelong learning skills)',
+    assessment:
+      'The course is assessed through an exam and a practical part. The final grade is a weighted average of the individual exam grade (75%) and the grade of the practical part (25%). Practical part: Students get 3x a practical assignment that must be made in pairs. The assignments are graded with a mark. The grade for the practical part is the average of the marks for the assignments. There must be a minimum of 5 on average obtained for the assignments to pass the practical part. The exam consists of open or multiple-choice questions about all the material of the course. To pass the exam, the grade must be at least a 5. Both the practical part and exam must at least be a 5, but the final grade should minimally be a 5.5 to pass the course. There will be a fourth bonus assignment that can be completed for a full bonus point on the course end grade. There is no second chance for the practical assignments.',
+    teachingMethods: 'Lectures, lab sessions (with computer/ laptops). Attendance at labs is obligatory.',
+    literature: '',
+    prerequisites: '',
+    difficulty: 2,
+    tags: ['ai', 'agents', 'prolog', 'discontinued'],
+    workgroupInfo: {
+      mandatory: true,
+      detail: 'Attendance at lab sessions is mandatory.',
+    },
   },
 ];

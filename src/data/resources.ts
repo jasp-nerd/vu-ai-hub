@@ -13,7 +13,7 @@ import { academicWritingSummary } from './summaries/academic-writing-summary';
 import { dsaSummary } from './summaries/dsa-summary';
 import { linearAlgebraCalculusSummary } from './summaries/linear-algebra-calculus-summary';
 import { multiAgentSystemsSummary } from './summaries/multi-agent-systems-summary';
-import { projectConversationalAgentsSummary } from './summaries/project-conversational-agents-summary';
+import { conversationalAgentsSummary } from './summaries/conversational-agents-summary';
 import { machineLearningSummary } from './summaries/machine-learning-summary';
 import { probabilityStatisticsSummary } from './summaries/probability-statistics-summary';
 import { databasesSummary } from './summaries/databases-summary';
@@ -434,14 +434,14 @@ export const resources: Resource[] = [
   },
   {
     id: 'res-summary-pca',
-    courseId: 'project-conversational-agents',
-    title: 'Project Conversational Agents — Complete Course Summary',
+    courseId: 'conversational-agents',
+    title: 'Conversational Agents — Complete Course Summary',
     description:
       'Comprehensive summary covering Git, ML basics, neural networks, dialogue systems pipeline, BERT/NLU, Hugging Face, HTML/Bootstrap, and Prolog.',
     url: '#',
     type: 'summary',
     tags: ['summary', 'dialogue-systems', 'bert', 'prolog'],
-    markdownContent: projectConversationalAgentsSummary,
+    markdownContent: conversationalAgentsSummary,
     author: 'VU AI Student Hub',
   },
 

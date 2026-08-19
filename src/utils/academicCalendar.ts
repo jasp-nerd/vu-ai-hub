@@ -22,6 +22,18 @@ const ACADEMIC_YEARS: AcademicYear[] = [
       { period: 6, start: '2026-05-25', end: '2026-06-26', label: 'Period 6' },
     ],
   },
+  // Derived from "Year Schedule B Artificial Intelligence 2026-2027" (P1 = week 36)
+  {
+    year: '2026-2027',
+    periods: [
+      { period: 1, start: '2026-08-31', end: '2026-10-23', label: 'Period 1' },
+      { period: 2, start: '2026-10-26', end: '2026-12-18', label: 'Period 2' },
+      { period: 3, start: '2027-01-04', end: '2027-01-29', label: 'Period 3' },
+      { period: 4, start: '2027-02-01', end: '2027-03-26', label: 'Period 4' },
+      { period: 5, start: '2027-03-29', end: '2027-05-21', label: 'Period 5' },
+      { period: 6, start: '2027-05-24', end: '2027-06-25', label: 'Period 6' },
+    ],
+  },
 ];
 
 export interface CurrentPeriodInfo {

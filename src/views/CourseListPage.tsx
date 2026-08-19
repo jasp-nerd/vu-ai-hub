@@ -5,67 +5,26 @@ import { getCourses } from '../services/courseService';
 import CourseCard from '../components/CourseCard';
 import { useMountAnimation, useStagger } from '../hooks/useAnimations';
 
-const specialisationLabels: Record<string, string> = {
-  intelligent_systems: 'Intelligent Systems',
-  socially_aware_computing: 'Socially Aware Computing',
-};
-
-function hasSpecialisation(course: { specialisation?: string | string[] }, spec: string): boolean {
-  if (!course.specialisation) return false;
-  if (Array.isArray(course.specialisation)) return course.specialisation.includes(spec);
-  return course.specialisation === spec;
-}
-
-function hasAnySpecialisation(course: { specialisation?: string | string[] }): boolean {
-  if (!course.specialisation) return false;
-  if (Array.isArray(course.specialisation)) return course.specialisation.length > 0;
-  return true;
-}
-
 export default function CourseListPage() {
   const allCourses = getCourses();
   const [yearFilter, setYearFilter] = useState<number | null>(null);
-  const [specialisationFilter, setSpecialisationFilter] = useState<string | null>(null);
   const mounted = useMountAnimation(50);
 
-  const handleYearFilter = (year: number | null) => {
-    setYearFilter(year);
-    setSpecialisationFilter(null);
-  };
-
   const years = [...new Set(allCourses.map((c) => c.year))].sort();
-  let filtered = yearFilter
+  const filtered = yearFilter
     ? allCourses.filter((c) => c.year === yearFilter)
     : allCourses;
-
-  if ((yearFilter === 2 || yearFilter === 3) && specialisationFilter) {
-    filtered = filtered.filter(
-      (c) => hasSpecialisation(c, specialisationFilter) || !hasAnySpecialisation(c)
-    );
-  }
 
   const groupedByYear = years
     .filter((y) => !yearFilter || y === yearFilter)
     .map((year) => {
       const yearCourses = filtered.filter((c) => c.year === year);
-      const mandatory = yearCourses.filter((c) => !hasAnySpecialisation(c));
-      const allSpecs = new Set<string>();
-      yearCourses.forEach((c) => {
-        if (Array.isArray(c.specialisation)) {
-          c.specialisation.forEach((s) => allSpecs.add(s));
-        } else if (c.specialisation) {
-          allSpecs.add(c.specialisation);
-        }
-      });
-      const bySpecialisation = [...allSpecs].sort();
       const sortByPeriod = (a: (typeof yearCourses)[0], b: (typeof yearCourses)[0]) => a.period - b.period;
       return {
         year,
-        mandatory: mandatory.sort(sortByPeriod),
-        bySpecialisation: bySpecialisation.map((spec) => ({
-          spec,
-          courses: yearCourses.filter((c) => hasSpecialisation(c, spec)).sort(sortByPeriod),
-        })),
+        mandatory: yearCourses.filter((c) => !c.constrainedChoice && !c.discontinued).sort(sortByPeriod),
+        constrained: yearCourses.filter((c) => c.constrainedChoice && !c.discontinued).sort(sortByPeriod),
+        discontinued: yearCourses.filter((c) => c.discontinued).sort(sortByPeriod),
         courses: yearCourses,
       };
     })
@@ -91,9 +50,9 @@ export default function CourseListPage() {
       </div>
 
       {/* Year filters */}
-      <div className={`flex flex-wrap gap-2 mb-4 ${mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'}`}>
+      <div className={`flex flex-wrap gap-2 mb-8 ${mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'}`}>
         <button
-          onClick={() => handleYearFilter(null)}
+          onClick={() => setYearFilter(null)}
           className={filterClass(yearFilter === null)}
         >
           All years
@@ -101,7 +60,7 @@ export default function CourseListPage() {
         {years.map((y) => (
           <button
             key={y}
-            onClick={() => handleYearFilter(y)}
+            onClick={() => setYearFilter(y)}
             className={filterClass(yearFilter === y)}
           >
             Year {y}
@@ -109,35 +68,13 @@ export default function CourseListPage() {
         ))}
       </div>
 
-      {/* Specialisation filter (Year 2 & 3) */}
-      {(yearFilter === 2 || yearFilter === 3) && (
-        <div className="flex flex-wrap gap-2 mb-8 animate-fade-in-up">
-          <button
-            onClick={() => setSpecialisationFilter(null)}
-            className={filterClass(specialisationFilter === null)}
-          >
-            All
-          </button>
-          {Object.entries(specialisationLabels).map(([key, label]) => (
-            <button
-              key={key}
-              onClick={() => setSpecialisationFilter(key)}
-              className={filterClass(specialisationFilter === key)}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {groupedByYear.map(({ year, mandatory, bySpecialisation, courses }) => (
+      {groupedByYear.map(({ year, mandatory, constrained, discontinued }) => (
         <CourseYearGroup
-          key={`${year}-${yearFilter}-${specialisationFilter}`}
+          key={`${year}-${yearFilter}`}
           year={year}
           mandatory={mandatory}
-          bySpecialisation={bySpecialisation}
-          courses={courses}
-          specialisationLabels={specialisationLabels}
+          constrained={constrained}
+          discontinued={discontinued}
         />
       ))}
     </div>
@@ -147,17 +84,39 @@ export default function CourseListPage() {
 function CourseYearGroup({
   year,
   mandatory,
-  bySpecialisation,
-  courses,
-  specialisationLabels,
+  constrained,
+  discontinued,
 }: {
   year: number;
   mandatory: ReturnType<typeof getCourses>;
-  bySpecialisation: { spec: string; courses: ReturnType<typeof getCourses> }[];
-  courses: ReturnType<typeof getCourses>;
-  specialisationLabels: Record<string, string>;
+  constrained: ReturnType<typeof getCourses>;
+  discontinued: ReturnType<typeof getCourses>;
 }) {
   const { ref, inView } = useStagger<HTMLDivElement>();
+
+  const sectionHeading = (label: string, stagger: string) => (
+    <h3
+      className={`text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-3 ${
+        inView ? `animate-fade-in ${stagger}` : 'pre-animate'
+      }`}
+    >
+      {label}
+    </h3>
+  );
+
+  const courseGrid = (courses: ReturnType<typeof getCourses>, baseDelay: number) => (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {courses.map((course, i) => (
+        <div
+          key={course.id}
+          className={inView ? 'animate-fade-in-up' : 'pre-animate'}
+          style={{ animationDelay: `${i * 70 + baseDelay}ms` }}
+        >
+          <CourseCard course={course} />
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <div ref={ref} className="mb-12 last:mb-0">
@@ -168,62 +127,22 @@ function CourseYearGroup({
       >
         Year {year}
       </h2>
-      {(year === 2 || year === 3) && mandatory.length > 0 && (
+      {mandatory.length > 0 && (
         <div className="mb-8">
-          <h3
-            className={`text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-3 ${
-              inView ? 'animate-fade-in stagger-1' : 'pre-animate'
-            }`}
-          >
-            Mandatory
-          </h3>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {mandatory.map((course, i) => (
-              <div
-                key={course.id}
-                className={inView ? 'animate-fade-in-up' : 'pre-animate'}
-                style={{ animationDelay: `${i * 70 + 100}ms` }}
-              >
-                <CourseCard course={course} />
-              </div>
-            ))}
-          </div>
+          {sectionHeading('Mandatory', 'stagger-1')}
+          {courseGrid(mandatory, 100)}
         </div>
       )}
-      {(year === 2 || year === 3) &&
-        bySpecialisation.map(({ spec, courses: specCourses }) => (
-          <div key={spec} className="mb-8 last:mb-0">
-            <h3
-              className={`text-xs font-semibold uppercase tracking-wider text-stone-400 dark:text-stone-500 mb-3 ${
-                inView ? 'animate-fade-in stagger-2' : 'pre-animate'
-              }`}
-            >
-              {specialisationLabels[spec] || spec}
-            </h3>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {specCourses.map((course, i) => (
-                <div
-                  key={course.id}
-                  className={inView ? 'animate-fade-in-up' : 'pre-animate'}
-                  style={{ animationDelay: `${i * 70 + 150}ms` }}
-                >
-                  <CourseCard course={course} />
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      {year !== 2 && year !== 3 && (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {courses.map((course, i) => (
-            <div
-              key={course.id}
-              className={inView ? 'animate-fade-in-up' : 'pre-animate'}
-              style={{ animationDelay: `${i * 70 + 100}ms` }}
-            >
-              <CourseCard course={course} />
-            </div>
-          ))}
+      {constrained.length > 0 && (
+        <div className="mb-8">
+          {sectionHeading('Constrained choice', 'stagger-2')}
+          {courseGrid(constrained, 150)}
+        </div>
+      )}
+      {discontinued.length > 0 && (
+        <div className="mb-8 last:mb-0 opacity-70">
+          {sectionHeading('Discontinued', 'stagger-3')}
+          {courseGrid(discontinued, 200)}
         </div>
       )}
     </div>

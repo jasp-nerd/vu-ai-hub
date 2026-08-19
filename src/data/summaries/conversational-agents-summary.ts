@@ -1,10 +1,12 @@
 /**
- * Summary for Project Conversational Agents (XB_0101)
+ * Summary for Conversational Agents (XB_0182), formerly Project Conversational Agents (XB_0101)
  * Covers: Git/GitHub, ML Basics, Deep Neural Networks, Dialogue Systems Pipeline,
  * NLU with BERT, Hugging Face Transformers, HTML/Bootstrap, and Prolog
  */
-export const projectConversationalAgentsSummary = `
-# Project Conversational Agents (XB_0101) - Complete Summary
+export const conversationalAgentsSummary = `
+# Conversational Agents (XB_0182) - Complete Summary
+
+> This course was called Project Conversational Agents (XB_0101) until 2026-2027. Same content, new code, and it now runs in year 3 period 4.
 
 ## Table of Contents
 1. [Course Overview](#course-overview)

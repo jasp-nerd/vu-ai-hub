@@ -8,7 +8,7 @@ const sections = [
   {
     title: 'Academic & Career Guide',
     description:
-      'Program structure, specialisations, career paths, master\'s programs, internships, and academic resources.',
+      'Program structure, course choices, rules and deadlines, career paths, master\'s programs, internships, and academic resources.',
     path: '/guide/academic',
     image: '/assets/images/guide-program.png',
   },

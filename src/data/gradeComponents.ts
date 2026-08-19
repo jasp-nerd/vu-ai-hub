@@ -198,7 +198,7 @@ export const courseGradeStructures: CourseGradeStructure[] = [
     ],
   },
   {
-    courseId: 'project-conversational-agents',
+    courseId: 'conversational-agents',
     components: [
       { name: 'Basic Conversational Agent', weight: 0.30, minGrade: 5.5 },
       { name: 'Extensions (quality + originality)', weight: 0.30, minGrade: 5.5 },
