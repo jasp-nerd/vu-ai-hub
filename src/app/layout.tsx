@@ -6,7 +6,6 @@ import { ThemeProvider } from '@/hooks/useTheme';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import '@/index.css';
-import { GoogleAnalytics } from './GoogleAnalytics';
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -137,7 +136,6 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
-        <GoogleAnalytics />
       </body>
     </html>
   );
