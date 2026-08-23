@@ -2,6 +2,7 @@ import Link from 'next/link';
 import HeroArtwork from '../components/HeroArtwork';
 import { getCoursesByYear } from '../services/courseService';
 import CourseCard from '../components/CourseCard';
+import GitHubLink from '../components/GitHubLink';
 
 export default function HomePage() {
   const year1 = getCoursesByYear(1);
@@ -154,7 +155,9 @@ export default function HomePage() {
                 About this project
               </h3>
               <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
-                I'm <a href="https://www.linkedin.com/in/jasper-meij-ai/" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">Jasper</a>, an AI student at VU Amsterdam since 2024, and I built this site as a community project, completely open source and meant to be shared. Feel free to use everything here, but keep in mind that course content can change from year to year, so we can't guarantee everything is still 100% accurate. Always check the{' '}
+                I'm <a href="https://www.linkedin.com/in/jasper-meij-ai/" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">Jasper</a>, an AI student at VU Amsterdam since 2024, and I built this site as a community project, completely{' '}
+                <GitHubLink location="homepage_about" className="text-vu-blue dark:text-vu-blue-light hover:underline">open source</GitHubLink>
+                {' '}and meant to be shared. Feel free to use everything here, but keep in mind that course content can change from year to year, so we can't guarantee everything is still 100% accurate. Always check the{' '}
                 <a href="https://studiegids.vu.nl/nl" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">studiegids</a>
                 {' '}or your course page on{' '}
                 <a href="https://canvas.vu.nl" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">Canvas</a>
@@ -192,19 +195,21 @@ export default function HomePage() {
                     <span className="text-stone-500 dark:text-stone-400">for quick changes, questions, or anything that isn't a large file.</span>
                   </p>
                 </div>
-                <a
-                  href="https://github.com/jasp-nerd/vu-ai-hub/blob/main/CONTRIBUTING.md"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <GitHubLink
+                  location="homepage_card"
                   className="group rounded-lg bg-white dark:bg-stone-800/50 p-3 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
                 >
-                  <p className="text-xs font-semibold text-stone-700 dark:text-stone-300 mb-0.5">
-                    Contribute on GitHub
+                  <p className="text-xs font-semibold text-stone-700 dark:text-stone-300 mb-0.5 flex items-center gap-1.5">
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
+                    </svg>
+                    Star or contribute on GitHub
                   </p>
-                  <p className="text-[11px] text-vu-blue dark:text-vu-blue-light group-hover:underline">
-                    Open a pull request &rarr;
+                  <p className="text-[11px] text-stone-500 dark:text-stone-400">
+                    If this site helped you, a star helps the next student find it.{' '}
+                    <span className="text-vu-blue dark:text-vu-blue-light group-hover:underline">Pull requests welcome &rarr;</span>
                   </p>
-                </a>
+                </GitHubLink>
               </div>
             </div>
           </div>

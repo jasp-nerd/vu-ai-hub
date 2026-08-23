@@ -1,5 +1,7 @@
 'use client';
 
+import GitHubLink from './GitHubLink';
+
 interface FeedbackPopupProps {
   courseName: string;
   onClose: () => void;
@@ -95,7 +97,11 @@ export default function FeedbackPopup({ courseName, onClose, onShowLess }: Feedb
           <a href="https://github.com/jasp-nerd/vu-ai-hub/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="text-vu-blue dark:text-vu-blue-light hover:underline">
             GitHub pull request
           </a>
-          . Contributors are credited if desired.
+          . Contributors are credited if desired. If this page helped,{' '}
+          <GitHubLink location="feedback_popup" className="text-vu-blue dark:text-vu-blue-light hover:underline">
+            starring the repo
+          </GitHubLink>
+          {' '}helps other students find the site.
         </p>
       </div>
     </div>

@@ -7,8 +7,8 @@ Thanks for wanting to contribute! This site is built by and for VU Amsterdam AI 
 1. **Fork** this repository (click the "Fork" button at the top right of the GitHub page)
 2. **Clone** your fork locally:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/VU-AI-Student-Website.git
-   cd VU-AI-Student-Website
+   git clone https://github.com/YOUR-USERNAME/vu-ai-hub.git
+   cd vu-ai-hub
    ```
 3. **Install dependencies** and start the dev server:
    ```bash
