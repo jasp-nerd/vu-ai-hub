@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { uploadMaterial } from '../lib/apiClient';
 import { getTurnstileToken } from '../lib/turnstile';
+import { track } from '../lib/analytics';
 
 const MAX_BYTES = 100 * 1024 * 1024; // 100 MB
 
@@ -41,6 +42,7 @@ export default function MaterialUploadForm({
       if (token) form.append('turnstileToken', token);
       form.append('file', file);
       await uploadMaterial(courseId, form);
+      track('material_uploaded', { course_id: courseId });
       setStatus('done');
     } catch (e) {
       setStatus('error');

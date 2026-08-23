@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { submitTip, apiEnabled, type BackendTip } from '../lib/apiClient';
 import { getTurnstileToken } from '../lib/turnstile';
+import { track } from '../lib/analytics';
 
 const MAX_LENGTH = 500;
 
@@ -27,6 +28,7 @@ export default function TipSubmitBox({
     try {
       const token = await getTurnstileToken();
       const res = await submitTip(courseId, content, author.trim() || undefined, token);
+      track('tip_submitted', { course_id: courseId, held: res.tip == null });
       setSubmitted(true);
       setText('');
       setAuthor('');

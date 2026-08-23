@@ -2,13 +2,14 @@
 
 import { useState, useCallback, useRef } from 'react';
 import type { ChatMessage, ChatStatus } from '../types/chat';
+import { track } from '../lib/analytics';
 
 interface UseChatOptions {
   courseSlug: string;
   context: string;
 }
 
-export function useChat({ courseSlug: _courseSlug, context }: UseChatOptions) {
+export function useChat({ courseSlug, context }: UseChatOptions) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [status, setStatus] = useState<ChatStatus>('idle');
   const [error, setError] = useState<string | null>(null);
@@ -30,6 +31,11 @@ export function useChat({ courseSlug: _courseSlug, context }: UseChatOptions) {
       setMessages((prev) => [...prev, userMessage, assistantMessage]);
       setStatus('streaming');
       setError(null);
+      // Count only, never the message content.
+      track('chat_message_sent', {
+        course_id: courseSlug,
+        message_number: messages.filter((m) => m.role === 'user').length + 1,
+      });
 
       abortRef.current = new AbortController();
 
@@ -104,8 +110,10 @@ export function useChat({ courseSlug: _courseSlug, context }: UseChatOptions) {
           setStatus('idle');
           return;
         }
-        setError(err instanceof Error ? err.message : 'Unknown error');
+        const message = err instanceof Error ? err.message : 'Unknown error';
+        setError(message);
         setStatus('error');
+        track('chat_error', { course_id: courseSlug, error: message });
         setMessages((prev) => {
           const last = prev[prev.length - 1];
           if (last?.role === 'assistant' && last.content === '') {
@@ -115,7 +123,7 @@ export function useChat({ courseSlug: _courseSlug, context }: UseChatOptions) {
         });
       }
     },
-    [context, messages]
+    [context, messages, courseSlug]
   );
 
   const clearChat = useCallback(() => {

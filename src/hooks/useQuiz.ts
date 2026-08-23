@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import type { QuizQuestion } from '../types';
+import { track } from '../lib/analytics';
 
 export interface ShuffledQuestion extends QuizQuestion {
   /** The shuffled option labels (display order) */
@@ -96,7 +97,7 @@ export function getCategories(questions: QuizQuestion[]): string[] {
   return Array.from(set);
 }
 
-export function useQuiz(questions: QuizQuestion[]) {
+export function useQuiz(questions: QuizQuestion[], courseId: string) {
   const hasLectureData = useMemo(() => questions.some((q) => q.lectureNumber != null), [questions]);
   const hasCategoryData = useMemo(() => questions.some((q) => q.category != null), [questions]);
   const hasMetadata = hasLectureData || hasCategoryData;
@@ -235,6 +236,16 @@ export function useQuiz(questions: QuizQuestion[]) {
   }, [shuffledQuestions]);
 
   const nextQuestion = useCallback(() => {
+    // The final "See results" click is the only completion signal — results
+    // are gone on reload, so this event is the only record of the run.
+    if (state.currentIndex + 1 >= shuffledQuestions.length) {
+      track('quiz_completed', {
+        course_id: courseId,
+        score: state.score,
+        total: shuffledQuestions.length,
+        best_streak: state.bestStreak,
+      });
+    }
     setState((s) => {
       const nextIndex = s.currentIndex + 1;
       if (nextIndex >= shuffledQuestions.length) {
@@ -248,9 +259,15 @@ export function useQuiz(questions: QuizQuestion[]) {
         timeLeft: s.config.timerEnabled ? s.config.timerSeconds : null,
       };
     });
-  }, [shuffledQuestions.length]);
+  }, [shuffledQuestions.length, state.currentIndex, state.score, state.bestStreak, courseId]);
 
   const restart = useCallback(() => {
+    // "Try again" is a fresh run with the same setup.
+    track('quiz_started', {
+      course_id: courseId,
+      question_count: shuffledQuestions.length,
+      timer_enabled: state.config.timerEnabled,
+    });
     setState((s) => ({
       ...s,
       mode: 'quiz',
@@ -266,7 +283,7 @@ export function useQuiz(questions: QuizQuestion[]) {
       timeLeft: s.config.timerEnabled ? s.config.timerSeconds : null,
       reviewIndex: 0,
     }));
-  }, []);
+  }, [courseId, shuffledQuestions.length, state.config.timerEnabled]);
 
   const goToConfig = useCallback(() => {
     setState((s) => ({
@@ -286,6 +303,11 @@ export function useQuiz(questions: QuizQuestion[]) {
   }, []);
 
   const startQuiz = useCallback(() => {
+    track('quiz_started', {
+      course_id: courseId,
+      question_count: shuffledQuestions.length,
+      timer_enabled: state.config.timerEnabled,
+    });
     setState((s) => ({
       ...s,
       mode: 'quiz',
@@ -301,7 +323,7 @@ export function useQuiz(questions: QuizQuestion[]) {
       timeLeft: s.config.timerEnabled ? s.config.timerSeconds : null,
       reviewIndex: 0,
     }));
-  }, []);
+  }, [courseId, shuffledQuestions.length, state.config.timerEnabled]);
 
   const updateConfig = useCallback((partial: Partial<QuizConfig>) => {
     setState((s) => ({ ...s, config: { ...s.config, ...partial } }));

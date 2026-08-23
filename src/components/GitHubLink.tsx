@@ -1,7 +1,7 @@
 'use client';
 
-import posthog from 'posthog-js';
 import type { ReactNode } from 'react';
+import { track } from '../lib/analytics';
 
 interface GitHubLinkProps {
   location: string;
@@ -24,7 +24,7 @@ export default function GitHubLink({
       target="_blank"
       rel="noopener noreferrer"
       className={className}
-      onClick={() => posthog.capture('github_star_click', { location })}
+      onClick={() => track('github_star_clicked', { location })}
     >
       {children}
     </a>

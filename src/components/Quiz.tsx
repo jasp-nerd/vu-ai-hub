@@ -84,8 +84,8 @@ function OptionButton({
   );
 }
 
-export default function Quiz({ questions }: { questions: QuizQuestion[] }) {
-  const quiz = useQuiz(questions);
+export default function Quiz({ questions, courseId }: { questions: QuizQuestion[]; courseId: string }) {
+  const quiz = useQuiz(questions, courseId);
 
   if (questions.length === 0) {
     return (

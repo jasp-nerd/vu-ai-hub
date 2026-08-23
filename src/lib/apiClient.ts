@@ -6,6 +6,8 @@
  * from its static data when the backend is down. Writes surface errors to the UI.
  */
 
+import { track } from './analytics';
+
 const BASE = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, '') ?? '';
 
 /** True when a backend URL is configured at build time. */
@@ -46,15 +48,34 @@ async function getJson<T>(path: string, fallback: T): Promise<T> {
   }
 }
 
+/**
+ * Report a failed write to analytics. Several widgets swallow errors in the
+ * UI (vote rollback, report reverting to idle), so this event is the only
+ * signal that the backend is misbehaving for real visitors.
+ */
+function reportWriteFailure(path: string, status: number | 'network') {
+  track('backend_write_failed', {
+    operation: path.split('?')[0].split('/').filter(Boolean).pop() ?? 'unknown',
+    status,
+  });
+}
+
 async function postJson<T>(path: string, body: unknown): Promise<T> {
   if (!apiEnabled) throw new Error('Backend not configured');
-  const res = await fetch(`${BASE}${path}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'X-Client-Id': getClientId() },
-    body: JSON.stringify(body),
-  });
+  let res: Response;
+  try {
+    res = await fetch(`${BASE}${path}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Client-Id': getClientId() },
+      body: JSON.stringify(body),
+    });
+  } catch (err) {
+    reportWriteFailure(path, 'network');
+    throw err;
+  }
   const data = (await res.json().catch(() => ({}))) as Record<string, unknown>;
   if (!res.ok) {
+    reportWriteFailure(path, res.status);
     throw new Error((data.error as string) || `Request failed (${res.status})`);
   }
   return data as T;
@@ -134,13 +155,22 @@ export async function fetchBackendResources(courseId: string): Promise<BackendRe
 
 export async function uploadMaterial(courseId: string, form: FormData): Promise<void> {
   if (!apiEnabled) throw new Error('Backend not configured');
-  const res = await fetch(`${BASE}/resources/${courseId}/upload`, {
-    method: 'POST',
-    headers: { 'X-Client-Id': getClientId() },
-    body: form,
-  });
+  let res: Response;
+  try {
+    res = await fetch(`${BASE}/resources/${courseId}/upload`, {
+      method: 'POST',
+      headers: { 'X-Client-Id': getClientId() },
+      body: form,
+    });
+  } catch (err) {
+    reportWriteFailure('/upload', 'network');
+    throw err;
+  }
   const data = (await res.json().catch(() => ({}))) as Record<string, unknown>;
-  if (!res.ok) throw new Error((data.error as string) || `Upload failed (${res.status})`);
+  if (!res.ok) {
+    reportWriteFailure('/upload', res.status);
+    throw new Error((data.error as string) || `Upload failed (${res.status})`);
+  }
 }
 
 // ---- Resource votes ----

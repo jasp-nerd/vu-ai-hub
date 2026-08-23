@@ -37,6 +37,7 @@ import {
   fetchVoteCounts,
   type BackendTip,
 } from '../lib/apiClient';
+import { track } from '../lib/analytics';
 
 type Tab = 'Overview' | 'Tips & Advice' | 'Quizzes' | 'Practice Problems' | 'Exam Practice' | 'Resources' | 'AI Chat';
 
@@ -69,11 +70,15 @@ export default function CourseDetailPage() {
   useEffect(() => {
     if (!course) return;
     if (course.difficulty === 0) return;
+    // The popup is desktop-only (hidden below md), so don't roll the dice or
+    // count an impression on screens where it would render invisibly.
+    if (!window.matchMedia('(min-width: 768px)').matches) return;
     const reducedUntil = localStorage.getItem('feedbackPopupReducedUntil');
     const isReduced = reducedUntil && Date.now() < Number(reducedUntil);
     const chance = isReduced ? 0.01 : 0.05;
     if (Math.random() < chance) {
       setShowFeedbackPopup(true);
+      track('feedback_popup_shown', { course_id: course.id });
     }
   }, [course]);
 
@@ -165,6 +170,7 @@ export default function CourseDetailPage() {
   const handleTabChange = (tab: Tab) => {
     setActiveTab(tab);
     setTabKey((k) => k + 1);
+    track('course_tab_opened', { course_id: course.id, tab });
   };
 
   return (
@@ -487,7 +493,7 @@ export default function CourseDetailPage() {
                 <p className="text-sm text-stone-500 dark:text-stone-400 mb-6">
                   Test your knowledge with these practice questions. Your score is tracked within this session.
                 </p>
-                <Quiz questions={quizQuestions} />
+                <Quiz questions={quizQuestions} courseId={course.id} />
               </>
             )}
           </div>
@@ -710,6 +716,7 @@ export default function CourseDetailPage() {
       )}
       {showFeedbackPopup && (
         <FeedbackPopup
+          courseId={course.id}
           courseName={course.name}
           onClose={() => setShowFeedbackPopup(false)}
           onShowLess={() => {

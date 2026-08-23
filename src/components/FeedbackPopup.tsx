@@ -1,14 +1,16 @@
 'use client';
 
 import GitHubLink from './GitHubLink';
+import { track } from '../lib/analytics';
 
 interface FeedbackPopupProps {
+  courseId: string;
   courseName: string;
   onClose: () => void;
   onShowLess: () => void;
 }
 
-export default function FeedbackPopup({ courseName, onClose, onShowLess }: FeedbackPopupProps) {
+export default function FeedbackPopup({ courseId, courseName, onClose, onShowLess }: FeedbackPopupProps) {
   return (
     <div className="hidden md:block fixed bottom-6 right-6 z-40 w-[26rem] rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 shadow-lg shadow-stone-200/50 dark:shadow-stone-950/50 animate-fade-in-up">
       <div className="p-4 md:p-5">
@@ -30,6 +32,7 @@ export default function FeedbackPopup({ courseName, onClose, onShowLess }: Feedb
           <div className="shrink-0 flex items-center gap-1.5">
             <button
               onClick={() => {
+                track('feedback_popup_dismissed', { course_id: courseId, method: 'show_less' });
                 onShowLess();
                 onClose();
               }}
@@ -38,7 +41,10 @@ export default function FeedbackPopup({ courseName, onClose, onShowLess }: Feedb
               Show less often
             </button>
             <button
-              onClick={onClose}
+              onClick={() => {
+                track('feedback_popup_dismissed', { course_id: courseId, method: 'close' });
+                onClose();
+              }}
               className="flex h-6 w-6 items-center justify-center rounded-full text-stone-400 hover:text-stone-600 hover:bg-stone-100 dark:text-stone-500 dark:hover:text-stone-300 dark:hover:bg-stone-800 transition-colors"
               aria-label="Close"
             >
