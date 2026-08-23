@@ -543,7 +543,7 @@ export const tips: CourseTip[] = [
     id: 'tip-ct-12',
     courseId: 'computational-thinking',
     content:
-      'For CT assignments, always explain your reasoning (\"motivation\") alongside your answer. The rubric awards separate points for correct answers vs correct motivation. Simply writing the final answer without explaining how you got there will cost you up to half the marks on each problem.',
+      'For CT assignments, always explain your reasoning ("motivation") alongside your answer. The rubric awards separate points for correct answers vs correct motivation. Simply writing the final answer without explaining how you got there will cost you up to half the marks on each problem.',
     author: 'AI @ VU Class of 2028',
   },
   {

@@ -57,6 +57,7 @@ export default function DifficultyVote({
 
   const handleVote = async (rating: number) => {
     if (status === 'saving') return;
+    const prevVote = myVote;
     setStatus('saving');
     setMyVote(rating);
     try {
@@ -68,6 +69,8 @@ export default function DifficultyVote({
       setStatus('done');
       setTimeout(() => setStatus('idle'), 2500);
     } catch {
+      // Roll the optimistic star back so the UI doesn't claim a saved rating.
+      setMyVote(prevVote);
       setStatus('error');
       setTimeout(() => setStatus('idle'), 3000);
     }

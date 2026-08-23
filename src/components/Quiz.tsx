@@ -2,7 +2,6 @@
 
 import type { QuizQuestion } from '../types';
 import { useQuiz } from '../hooks/useQuiz';
-import type { ShuffledQuestion } from '../hooks/useQuiz';
 import QuizConfig from './QuizConfig';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';

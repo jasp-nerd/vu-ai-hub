@@ -50,13 +50,43 @@ const resourceTypeIcon: Record<string, string> = {
   summary: '\u2605',
 };
 
+// ?tab= values are stable slugs, not display labels: the exam-prep tab's
+// label varies per course, so all three variants share the 'practice' slug.
+const TAB_PARAM: Partial<Record<Tab, string>> = {
+  'Tips & Advice': 'tips',
+  Quizzes: 'practice',
+  'Practice Problems': 'practice',
+  'Exam Practice': 'practice',
+  Resources: 'resources',
+  'AI Chat': 'chat',
+};
+
+function examPrepTabFor(courseId: string): Tab {
+  if (getEssayPromptsForCourse(courseId).length > 0) return 'Exam Practice';
+  if (getPracticeQuestionsForCourse(courseId).length > 0) return 'Practice Problems';
+  return 'Quizzes';
+}
+
+function tabFromUrl(courseId: string): Tab {
+  switch (new URLSearchParams(window.location.search).get('tab')) {
+    case 'tips':
+      return 'Tips & Advice';
+    case 'practice':
+      return examPrepTabFor(courseId);
+    case 'resources':
+      return 'Resources';
+    case 'chat':
+      return 'AI Chat';
+    default:
+      return 'Overview';
+  }
+}
+
 export default function CourseDetailPage() {
   const { slug } = useParams() as { slug: string };
   const [activeTab, setActiveTab] = useState<Tab>('Overview');
   const [expandedSummary, setExpandedSummary] = useState<string | null>(null);
   const mounted = useMountAnimation(50);
-  // Key to trigger crossfade on tab change
-  const [tabKey, setTabKey] = useState(0);
   const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
   // Live overlay data from the backend (merged with the static seed below).
   const [backendTips, setBackendTips] = useState<BackendTip[]>([]);
@@ -125,6 +155,17 @@ export default function CourseDetailPage() {
     };
   }, [courseId, backendResources, backendTips]);
 
+  // Sync the active tab with ?tab= so tabs are shareable and back/forward
+  // moves between them. The page is statically prerendered, so the URL can
+  // only be read after mount (a deep link briefly shows Overview first).
+  useEffect(() => {
+    if (!courseId) return;
+    const apply = () => setActiveTab(tabFromUrl(courseId));
+    apply();
+    window.addEventListener('popstate', apply);
+    return () => window.removeEventListener('popstate', apply);
+  }, [courseId]);
+
   if (!course) {
     return (
       <div className="mx-auto max-w-6xl px-6 py-20 text-center animate-fade-in">
@@ -159,17 +200,18 @@ export default function CourseDetailPage() {
   const gradeStructure = getGradeStructureForCourse(course.id);
 
   // Determine which exam-prep tab to show
-  const examPrepTab: Tab = essayPromptsList.length > 0
-    ? 'Exam Practice'
-    : practiceQuestions.length > 0
-      ? 'Practice Problems'
-      : 'Quizzes';
+  const examPrepTab = examPrepTabFor(course.id);
   const examPrepCount = essayPromptsList.length || practiceQuestions.length || quizQuestions.length;
   const tabs: Tab[] = ['Overview', 'Tips & Advice', examPrepTab, 'Resources', 'AI Chat'];
 
   const handleTabChange = (tab: Tab) => {
+    if (tab === activeTab) return;
     setActiveTab(tab);
-    setTabKey((k) => k + 1);
+    const url = new URL(window.location.href);
+    const param = TAB_PARAM[tab];
+    if (param) url.searchParams.set('tab', param);
+    else url.searchParams.delete('tab');
+    window.history.pushState(null, '', url);
     track('course_tab_opened', { course_id: course.id, tab });
   };
 
@@ -357,8 +399,8 @@ export default function CourseDetailPage() {
         </div>
       </div>
 
-      {/* Tab content with crossfade */}
-      <div key={tabKey} className="max-w-3xl animate-tab-crossfade">
+      {/* Tab content with crossfade (keyed by tab so a change remounts and replays it) */}
+      <div key={activeTab} className="max-w-3xl animate-tab-crossfade">
         {activeTab === 'Overview' && (
           <div role="tabpanel" id="tabpanel-Overview" aria-labelledby="tab-Overview">
             {course.objectives && (

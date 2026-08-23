@@ -22,7 +22,7 @@ export default function ResourceVote({
 }) {
   const [reportOpen, setReportOpen] = useState(false);
   const [reportNote, setReportNote] = useState('');
-  const [reportState, setReportState] = useState<'idle' | 'sending' | 'done'>('idle');
+  const [reportState, setReportState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
 
   if (!apiEnabled) return null;
 
@@ -36,7 +36,7 @@ export default function ResourceVote({
       setReportNote('');
       setTimeout(() => setReportOpen(false), 2000);
     } catch {
-      setReportState('idle');
+      setReportState('error');
     }
   };
 
@@ -47,7 +47,10 @@ export default function ResourceVote({
       {!reportOpen ? (
         <button
           type="button"
-          onClick={() => setReportOpen(true)}
+          onClick={() => {
+            setReportState('idle');
+            setReportOpen(true);
+          }}
           className="text-xs text-stone-300 dark:text-stone-600 hover:text-red-500 dark:hover:text-red-400 transition-colors"
         >
           Report broken link
@@ -78,6 +81,11 @@ export default function ResourceVote({
           >
             Cancel
           </button>
+          {reportState === 'error' && (
+            <span role="status" className="text-xs text-red-500 dark:text-red-400">
+              Couldn't send — try again
+            </span>
+          )}
         </span>
       )}
     </div>

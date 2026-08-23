@@ -22,6 +22,7 @@ export default function HelpfulButton({
   const [count, setCount] = useState(initialCount);
   const [voted, setVoted] = useState(initialVoted);
   const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   // Reflect the server values whenever the counts fetch resolves.
   useEffect(() => setCount(initialCount), [initialCount]);
@@ -32,6 +33,7 @@ export default function HelpfulButton({
   const handle = async () => {
     if (busy) return;
     setBusy(true);
+    setFailed(false);
     const optimistic = !voted;
     setVoted(optimistic);
     setCount((c) => c + (optimistic ? 1 : -1));
@@ -43,27 +45,36 @@ export default function HelpfulButton({
     } catch {
       setVoted(!optimistic);
       setCount((c) => c + (optimistic ? -1 : 1));
+      setFailed(true);
+      setTimeout(() => setFailed(false), 3000);
     } finally {
       setBusy(false);
     }
   };
 
   return (
-    <button
-      type="button"
-      onClick={handle}
-      disabled={busy}
-      aria-pressed={voted}
-      className={`inline-flex items-center gap-1 text-xs rounded-full px-2.5 py-1 border transition-colors press-effect ${
-        voted
-          ? 'border-vu-blue/40 bg-vu-blue/10 text-vu-blue dark:text-vu-blue-light'
-          : 'border-stone-200/70 dark:border-stone-700/70 text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300'
-      }`}
-    >
-      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 4l8 8h-5v8h-6v-8H4z" />
-      </svg>
-      Helpful{count > 0 ? ` · ${count}` : ''}
-    </button>
+    <span className="inline-flex items-center gap-2">
+      {failed && (
+        <span role="status" className="text-xs text-red-500 dark:text-red-400">
+          Couldn't save — try again
+        </span>
+      )}
+      <button
+        type="button"
+        onClick={handle}
+        disabled={busy}
+        aria-pressed={voted}
+        className={`inline-flex items-center gap-1 text-xs rounded-full px-2.5 py-1 border transition-colors press-effect ${
+          voted
+            ? 'border-vu-blue/40 bg-vu-blue/10 text-vu-blue dark:text-vu-blue-light'
+            : 'border-stone-200/70 dark:border-stone-700/70 text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300'
+        }`}
+      >
+        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 4l8 8h-5v8h-6v-8H4z" />
+        </svg>
+        Helpful{count > 0 ? ` · ${count}` : ''}
+      </button>
+    </span>
   );
 }

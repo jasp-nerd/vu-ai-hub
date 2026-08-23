@@ -744,19 +744,19 @@ Predictive policing: more police → more arrests → model predicts more crime 
 | Entropy | H(p) = −Σ p(x) log₂ p(x) |
 | Cross-entropy | H(p,q) = −Σ p(x) log₂ q(x) |
 | KL divergence | KL(p‖q) = H(p,q) − H(p) |
-| Naive Bayes | p(X₁,...,Xₙ\|Y) = ∏ p(Xᵢ\|Y) |
-| Smoothing | p̂(v\|C) = (count+λ)/(total+λ·\|V\|) |
-| Bayes' rule | p(θ\|D) = p(D\|θ)·p(θ)/p(D) |
+| Naive Bayes | p(X₁,...,Xₙ\\|Y) = ∏ p(Xᵢ\\|Y) |
+| Smoothing | p̂(v\\|C) = (count+λ)/(total+λ·\\|V\\|) |
+| Bayes' rule | p(θ\\|D) = p(D\\|θ)·p(θ)/p(D) |
 | SVM support vector condition | y_i(w^T x_i + b) = 1 |
 | Hinge loss | max(0, 1 − y_i(w^T x_i + b)) |
-| Information gain | H(S) − Σ (\|S_i\|/\|S\|) · H(S_i) |
+| Information gain | H(S) − Σ (\\|S_i\\|/\\|S\\|) · H(S_i) |
 | PCA reduction | z = c^T x |
 | PCA reconstruction | x' = zc |
 | Normalization | z = (x−x_min)/(x_max−x_min) |
 | Standardization | z = (x−μ)/σ |
 | Conv output size | (W + 2P − K)/S + 1 |
-| ELBO decomposition | ln p(x\|θ) = L(q,θ) + KL(q\|\|p) |
-| VAE loss | −E_q[ln p(x\|z)] + KL(q(z\|x) \|\| N(0,I)) |
+| ELBO decomposition | ln p(x\\|θ) = L(q,θ) + KL(q\\|\\|p) |
+| VAE loss | −E_q[ln p(x\\|z)] + KL(q(z\\|x) \\|\\| N(0,I)) |
 | Q-learning | Q*(s,a) = r(s,a) + γ · max_{a'} Q*(s',a') |
 | Dot product score | score(i,j) = u_i · m_j |
 | Matrix factorization | R̂ = U^T × M |

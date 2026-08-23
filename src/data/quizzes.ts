@@ -10128,7 +10128,7 @@ export const quizQuestions: QuizQuestion[] = [
             '$\\hat{y} = \\frac{P(A|y)P(y)}{P(A)}$'
         ],
         correctIndex: 1,
-        explanation: 'Because the features are assumed conditionally independent given the class, the joint probability $P(x_1, \dots, x_n | y)$ simplifies to the product of individual probabilities $\prod P(x_i | y)$.',
+        explanation: 'Because the features are assumed conditionally independent given the class, the joint probability $P(x_1, \\dots, x_n | y)$ simplifies to the product of individual probabilities $\\prod P(x_i | y)$.',
         difficulty: 'hard'
     },
     {
