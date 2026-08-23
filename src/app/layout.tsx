@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/vu-ai-hub-image.png',
+        url: '/vu-ai-hub-banner.png',
         width: 1200,
         height: 630,
         alt: 'AI @ VU - Study Hub for the VU Amsterdam AI Bachelor',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ['/vu-ai-hub-image.png'],
+    images: ['/vu-ai-hub-banner.png'],
   },
 };
 
