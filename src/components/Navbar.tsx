@@ -198,7 +198,7 @@ export default function Navbar() {
         className={`md:hidden border-t border-stone-200/60 dark:border-stone-700/60 bg-white/95 dark:bg-stone-950/95 backdrop-blur-xl overflow-hidden transition-all duration-300 ${
           mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}
-        style={{ transitionTimingFunction: 'var(--ease-spring)' }}
+        style={{ transitionTimingFunction: 'var(--ease-out)' }}
       >
         <div className="px-6 py-4 space-y-1">
           {navItems.map((item, i) => (

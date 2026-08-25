@@ -211,7 +211,7 @@ export default function SidebarGuidePage({
                 href={`${baseRoute}/${section.id}`}
                 onClick={() => trackNav(section, 'sidebar')}
                 aria-current={currentSection.id === section.id ? 'page' : undefined}
-                className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all duration-150 ${
+                className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors duration-150 ${
                   currentSection.id === section.id
                     ? 'bg-vu-blue/10 dark:bg-vu-blue/15 text-vu-blue dark:text-vu-blue-light font-medium'
                     : 'text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800/50 hover:text-stone-900 dark:hover:text-stone-200'

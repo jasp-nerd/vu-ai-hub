@@ -99,7 +99,7 @@ export function useCollapsible(isOpen: boolean) {
       const timer = setTimeout(() => {
         setHeight(undefined);
         setIsAnimating(false);
-      }, 500);
+      }, 300);
       return () => clearTimeout(timer);
     } else {
       // First set explicit height, then collapse to 0
@@ -109,7 +109,7 @@ export function useCollapsible(isOpen: boolean) {
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             setHeight(0);
-            setTimeout(() => setIsAnimating(false), 500);
+            setTimeout(() => setIsAnimating(false), 300);
           });
         });
       } else {
@@ -127,7 +127,7 @@ export function useCollapsible(isOpen: boolean) {
     style: {
       height: height !== undefined ? `${height}px` : 'auto',
       overflow: 'hidden' as const,
-      transition: isAnimating ? 'height 500ms cubic-bezier(0.16, 1, 0.3, 1)' : undefined,
+      transition: isAnimating ? 'height 300ms var(--ease-out)' : undefined,
     },
     isVisible: isOpen || isAnimating,
   };

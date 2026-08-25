@@ -80,7 +80,7 @@ export default function GuideSectionSheet({
     >
       {/* Backdrop */}
       <div
-        className={`absolute inset-0 bg-stone-900/40 dark:bg-black/60 backdrop-blur-sm transition-opacity duration-200 motion-reduce:transition-none ${
+        className={`absolute inset-0 bg-stone-900/40 dark:bg-black/60 backdrop-blur-sm transition-opacity duration-200 ${
           open ? 'opacity-100' : 'opacity-0'
         }`}
         onClick={onClose}
@@ -91,10 +91,10 @@ export default function GuideSectionSheet({
         role="dialog"
         aria-modal="true"
         aria-labelledby="guide-sheet-title"
-        className={`absolute inset-x-0 bottom-0 flex max-h-[85dvh] flex-col rounded-t-2xl bg-white dark:bg-stone-900 shadow-2xl shadow-black/20 transition-transform duration-300 motion-reduce:transition-none ${
-          open ? 'translate-y-0' : 'translate-y-full'
+        className={`absolute inset-x-0 bottom-0 flex max-h-[85dvh] flex-col rounded-t-2xl bg-white dark:bg-stone-900 shadow-2xl shadow-black/20 transition-transform duration-300 motion-reduce:transition-opacity motion-reduce:duration-200 ${
+          open ? 'translate-y-0' : 'translate-y-full motion-reduce:translate-y-0 motion-reduce:opacity-0'
         }`}
-        style={{ transitionTimingFunction: 'cubic-bezier(0.32, 0.72, 0, 1)' }}
+        style={{ transitionTimingFunction: 'var(--ease-drawer)' }}
       >
         <div className="flex justify-center pt-2.5 pb-1" aria-hidden="true">
           <span className="h-1 w-10 rounded-full bg-stone-300 dark:bg-stone-700" />

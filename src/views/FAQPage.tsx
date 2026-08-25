@@ -115,7 +115,7 @@ function FAQItem({
           className={`w-4 h-4 text-stone-400 dark:text-stone-500 shrink-0 transition-transform duration-300 ${
             isOpen ? 'rotate-180' : ''
           }`}
-          style={{ transitionTimingFunction: 'var(--ease-spring)' }}
+          style={{ transitionTimingFunction: 'var(--ease-out)' }}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

@@ -237,10 +237,13 @@ body {
    Entrance classes are plain CSS animations, so server-rendered content
    animates from first paint and never waits for JavaScript. `.pre-animate`
    is only applied by useInView to elements confirmed to be below the fold;
-   they animate in when scrolled into view. */
+   they animate in when scrolled into view.
+
+   Tokens: --ease-out for anything entering, exiting, or snapping into place;
+   --ease-drawer for sheets and drawers. UI motion stays at or under 300ms. */
 :root {
-  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 @keyframes fade-in {
@@ -287,8 +290,8 @@ body {
 .animate-blur-in,
 .animate-scale-in,
 .animate-slide-in-left {
-  animation-duration: 0.45s;
-  animation-timing-function: var(--ease-out-soft);
+  animation-duration: 300ms;
+  animation-timing-function: var(--ease-out);
   /* backwards: hidden during a stagger delay, released afterwards so
      hover transforms on the same element still apply */
   animation-fill-mode: backwards;
@@ -301,44 +304,48 @@ body {
 .animate-slide-in-left { animation-name: slide-in-left; }
 
 .animate-dropdown-in {
-  animation: dropdown-in 0.15s var(--ease-out-soft) backwards;
+  animation: dropdown-in 150ms var(--ease-out) backwards;
   transform-origin: top left;
 }
 
 .animate-tab-crossfade {
-  animation: tab-crossfade 0.2s ease-out backwards;
+  animation: tab-crossfade 200ms var(--ease-out) backwards;
 }
 
-.stagger-1 { animation-delay: 70ms; }
-.stagger-2 { animation-delay: 140ms; }
-.stagger-3 { animation-delay: 210ms; }
-.stagger-4 { animation-delay: 280ms; }
-.stagger-5 { animation-delay: 350ms; }
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
 
 .hover-lift {
   transition:
-    transform 0.2s var(--ease-out-soft),
-    box-shadow 0.2s ease,
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease;
+    transform 200ms var(--ease-out),
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
-.hover-lift:hover {
-  transform: translateY(-2px);
+/* Touch fires a false hover on tap, so only lift for a real pointer */
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .press-effect {
   transition:
-    transform 0.15s ease,
-    color 0.15s ease,
-    background-color 0.15s ease;
+    transform 160ms var(--ease-out),
+    color 160ms ease,
+    background-color 160ms ease;
 }
 
 .press-effect:active {
   transform: scale(0.97);
 }
 
+/* Reduced motion: keep the opacity feedback, drop the movement */
 @media (prefers-reduced-motion: reduce) {
   .pre-animate {
     opacity: 1;
@@ -351,7 +358,7 @@ body {
   .animate-slide-in-left,
   .animate-dropdown-in,
   .animate-tab-crossfade {
-    animation: none;
+    animation: fade-in 200ms ease backwards;
   }
 
   .hover-lift:hover,
