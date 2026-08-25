@@ -23,6 +23,8 @@ type EventMap = {
   feedback_popup_shown: { course_id: string };
   feedback_popup_dismissed: { course_id: string; method: 'close' | 'show_less' };
   github_star_clicked: { location: string };
+  /** How do readers move between guide sections, and does the mobile picker get found? */
+  guide_nav_used: { guide: string; section_id: string; source: 'picker' | 'sidebar' | 'prev_next' };
   /** Any failed backend write — several widgets fail silently in the UI. */
   backend_write_failed: { operation: string; status: number | 'network' };
 };

@@ -1,12 +1,16 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useMountAnimation } from '../hooks/useAnimations';
+import { track } from '../lib/analytics';
+import GuideSectionSheet from './GuideSectionSheet';
 import type { GuideSection } from '../types';
+
+type NavSource = 'picker' | 'sidebar' | 'prev_next';
 
 type Segment =
   | { type: 'markdown'; content: string }
@@ -123,10 +127,32 @@ export default function SidebarGuidePage({
   const sectionId = params?.sectionId as string | undefined;
   const router = useRouter();
   const mounted = useMountAnimation(50);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const pickerTriggerRef = useRef<HTMLButtonElement>(null);
+  const guideId = baseRoute.split('/').pop() ?? baseRoute;
 
   const currentSection =
     sections.find((s) => s.id === sectionId) || sections[0];
+
+  const trackNav = useCallback(
+    (section: GuideSection, source: NavSource) => {
+      track('guide_nav_used', { guide: guideId, section_id: section.id, source });
+    },
+    [guideId]
+  );
+
+  const closePicker = useCallback(() => {
+    setPickerOpen(false);
+    pickerTriggerRef.current?.focus({ preventScroll: true });
+  }, []);
+
+  const pickSection = useCallback(
+    (section: GuideSection) => {
+      trackNav(section, 'picker');
+      setPickerOpen(false);
+    },
+    [trackNav]
+  );
 
   useEffect(() => {
     if (!sectionId) {
@@ -135,7 +161,6 @@ export default function SidebarGuidePage({
   }, [sectionId, router, baseRoute, sections]);
 
   useEffect(() => {
-    setSidebarOpen(false);
     window.scrollTo(0, 0);
   }, [sectionId]);
 
@@ -179,50 +204,15 @@ export default function SidebarGuidePage({
       </div>
 
       <div className="flex gap-8 relative">
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="lg:hidden fixed bottom-6 right-6 z-40 bg-vu-blue text-white p-3.5 rounded-full shadow-lg hover:shadow-xl transition-shadow"
-          aria-label="Toggle navigation"
-        >
-          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            {sidebarOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-
-        {/* Sidebar overlay for mobile */}
-        {sidebarOpen && (
-          <div
-            className="lg:hidden fixed inset-0 z-30 bg-black/30 backdrop-blur-sm"
-            onClick={() => setSidebarOpen(false)}
-          />
-        )}
-
-        {/* Sidebar */}
-        <aside
-          className={`
-            ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
-            lg:translate-x-0 fixed lg:sticky top-16 lg:top-24 left-0 z-30
-            w-72 lg:w-56 xl:w-64 shrink-0
-            h-[calc(100vh-4rem)] lg:h-[calc(100vh-6rem)]
-            overflow-y-auto overscroll-contain
-            bg-white/95 dark:bg-stone-950/95 lg:bg-transparent lg:dark:bg-transparent
-            backdrop-blur-md lg:backdrop-blur-none
-            border-r lg:border-r-0 border-stone-200 dark:border-stone-800
-            p-4 lg:p-0
-            transition-transform lg:transition-none duration-200
-          `}
-        >
-          <nav className="space-y-0.5">
+        {/* Desktop sidebar */}
+        <aside className="hidden lg:block sticky top-24 w-56 xl:w-64 shrink-0 h-[calc(100vh-6rem)] overflow-y-auto overscroll-contain">
+          <nav className="space-y-0.5" aria-label="Guide sections">
             {sections.map((section) => (
               <Link
                 key={section.id}
                 href={`${baseRoute}/${section.id}`}
-                onClick={() => setSidebarOpen(false)}
+                onClick={() => trackNav(section, 'sidebar')}
+                aria-current={currentSection.id === section.id ? 'page' : undefined}
                 className={`flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-all duration-150 ${
                   currentSection.id === section.id
                     ? 'bg-vu-blue/10 dark:bg-vu-blue/15 text-vu-blue dark:text-vu-blue-light font-medium'
@@ -242,8 +232,55 @@ export default function SidebarGuidePage({
           )}
         </aside>
 
+        {/* Mobile and tablet: bottom sheet with all sections */}
+        <GuideSectionSheet
+          open={pickerOpen}
+          onClose={closePicker}
+          onPick={pickSection}
+          guideTitle={guideTitle}
+          baseRoute={baseRoute}
+          sections={sections}
+          currentId={currentSection.id}
+          footer={attribution}
+        />
+
         {/* Main content */}
         <main className={`flex-1 min-w-0 ${mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'}`}>
+          {/* Mobile and tablet: sticky bar naming the current section, opens the sheet */}
+          <div className="lg:hidden sticky top-16 z-30 -mx-4 sm:-mx-6 mb-6 border-b border-stone-200/60 dark:border-stone-700/60 bg-white/85 dark:bg-stone-950/85 backdrop-blur-xl">
+            <button
+              ref={pickerTriggerRef}
+              type="button"
+              data-testid="section-picker"
+              onClick={() => setPickerOpen(true)}
+              aria-haspopup="dialog"
+              aria-expanded={pickerOpen}
+              className="flex w-full items-center gap-2.5 px-4 sm:px-6 py-3 text-left transition-colors active:bg-stone-100/70 dark:active:bg-stone-800/70"
+            >
+              <span className="text-base leading-none" aria-hidden="true">
+                {currentSection.emoji}
+              </span>
+              <span className="flex min-w-0 flex-1 items-center gap-1.5">
+                <span className="truncate text-sm font-medium text-stone-900 dark:text-stone-100">
+                  {currentSection.title}
+                </span>
+                <svg
+                  className={`h-4 w-4 shrink-0 text-stone-400 transition-transform duration-200 ${pickerOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+              <span className="shrink-0 text-xs tabular-nums text-stone-400 dark:text-stone-500">
+                {currentIndex + 1} of {sections.length}
+              </span>
+            </button>
+          </div>
+
           <article className="max-w-3xl">
             <div className="mb-6 pb-4 border-b border-stone-200/60 dark:border-stone-700/60">
               <h2 className="font-display text-xl md:text-2xl font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2.5">
@@ -275,50 +312,73 @@ export default function SidebarGuidePage({
             </div>
 
             {/* Prev / Next navigation */}
-            <div className="flex items-center justify-between mt-12 pt-6 border-t border-stone-200/60 dark:border-stone-700/60">
+            <nav
+              aria-label="Previous and next section"
+              className="mt-12 pt-6 border-t border-stone-200/60 dark:border-stone-700/60 grid gap-3 sm:grid-cols-2"
+            >
               {prevSection ? (
                 <Link
                   href={`${baseRoute}/${prevSection.id}`}
-                  className="group flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors"
+                  onClick={() => trackNav(prevSection, 'prev_next')}
+                  className="group flex flex-col gap-1 rounded-xl border border-stone-200/70 dark:border-stone-700/60 px-4 py-3.5 transition-colors hover:border-vu-blue/40 dark:hover:border-vu-blue-light/40 hover:bg-stone-50 dark:hover:bg-stone-900/60"
                 >
-                  <svg
-                    className="w-4 h-4 transition-transform group-hover:-translate-x-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                  </svg>
-                  <span>
+                  <span className="flex items-center gap-1 text-[11px] font-medium uppercase tracking-wider text-stone-400 dark:text-stone-500">
+                    <svg
+                      className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Previous
+                  </span>
+                  <span className="text-sm font-medium text-stone-800 dark:text-stone-200 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors">
                     {prevSection.emoji} {prevSection.title}
                   </span>
                 </Link>
               ) : (
-                <div />
+                <div className="hidden sm:block" />
               )}
               {nextSection ? (
                 <Link
                   href={`${baseRoute}/${nextSection.id}`}
-                  className="group flex items-center gap-2 text-sm text-stone-500 dark:text-stone-400 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors ml-auto"
+                  onClick={() => trackNav(nextSection, 'prev_next')}
+                  className="group flex flex-col items-end gap-1 rounded-xl border border-stone-200/70 dark:border-stone-700/60 px-4 py-3.5 text-right transition-colors hover:border-vu-blue/40 dark:hover:border-vu-blue-light/40 hover:bg-stone-50 dark:hover:bg-stone-900/60"
                 >
-                  <span>
+                  <span className="flex items-center gap-1 text-[11px] font-medium uppercase tracking-wider text-stone-400 dark:text-stone-500">
+                    Next
+                    <svg
+                      className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                  <span className="text-sm font-medium text-stone-800 dark:text-stone-200 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors">
                     {nextSection.emoji} {nextSection.title}
                   </span>
-                  <svg
-                    className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
                 </Link>
               ) : (
-                <div />
+                <Link
+                  href="/guide"
+                  className="group flex flex-col items-end gap-1 rounded-xl border border-stone-200/70 dark:border-stone-700/60 px-4 py-3.5 text-right transition-colors hover:border-vu-blue/40 dark:hover:border-vu-blue-light/40 hover:bg-stone-50 dark:hover:bg-stone-900/60"
+                >
+                  <span className="text-[11px] font-medium uppercase tracking-wider text-stone-400 dark:text-stone-500">
+                    End of guide
+                  </span>
+                  <span className="text-sm font-medium text-stone-800 dark:text-stone-200 group-hover:text-vu-blue dark:group-hover:text-vu-blue-light transition-colors">
+                    Back to the guide overview
+                  </span>
+                </Link>
               )}
-            </div>
+            </nav>
           </article>
         </main>
       </div>
