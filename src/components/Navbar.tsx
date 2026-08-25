@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { getNavigation } from '../services/contentService';
 import { useTheme } from '../hooks/useTheme';
-import { useMountAnimation } from '../hooks/useAnimations';
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -14,7 +13,6 @@ export default function Navbar() {
   const navItems = getNavigation();
   const { theme, toggleTheme } = useTheme();
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const logoMounted = useMountAnimation(100);
 
   const isActive = (path: string) =>
     pathname === path || (pathname?.startsWith(path + '/') ?? false);
@@ -53,9 +51,7 @@ export default function Navbar() {
       <nav className="mx-auto max-w-6xl flex items-center justify-between px-6 h-16">
         <Link
           href="/"
-          className={`flex items-center gap-2.5 font-display font-bold text-lg tracking-tight text-stone-900 dark:text-stone-100 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors press-effect ${
-            logoMounted ? 'animate-scale-in' : 'pre-animate'
-          }`}
+          className="flex items-center gap-2.5 font-display font-bold text-lg tracking-tight text-stone-900 dark:text-stone-100 hover:text-vu-blue dark:hover:text-vu-blue-light transition-colors press-effect animate-scale-in"
         >
           <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-vu-blue text-white text-sm font-bold">
             AI
@@ -66,7 +62,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className={`hidden md:flex items-center gap-1 ${logoMounted ? 'animate-fade-in stagger-2' : 'pre-animate'}`}>
+        <div className="hidden md:flex items-center gap-1 animate-fade-in stagger-2">
           {navItems.map((item) =>
             item.children ? (
               <div

@@ -3,12 +3,11 @@
 import { useState } from 'react';
 import { getCourses } from '../services/courseService';
 import CourseCard from '../components/CourseCard';
-import { useMountAnimation, useStagger } from '../hooks/useAnimations';
+import { useStagger } from '../hooks/useAnimations';
 
 export default function CourseListPage() {
   const allCourses = getCourses();
   const [yearFilter, setYearFilter] = useState<number | null>(null);
-  const mounted = useMountAnimation(50);
 
   const years = [...new Set(allCourses.map((c) => c.year))].sort();
   const filtered = yearFilter
@@ -39,7 +38,7 @@ export default function CourseListPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-      <div className={`mb-10 ${mounted ? 'animate-blur-in' : 'pre-animate'}`}>
+      <div className="mb-10 animate-blur-in">
         <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
           Courses
         </h1>
@@ -50,7 +49,7 @@ export default function CourseListPage() {
       </div>
 
       {/* Year filters */}
-      <div className={`flex flex-wrap gap-2 mb-8 ${mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'}`}>
+      <div className="flex flex-wrap gap-2 mb-8 animate-fade-in-up stagger-2">
         <button
           onClick={() => setYearFilter(null)}
           className={filterClass(yearFilter === null)}

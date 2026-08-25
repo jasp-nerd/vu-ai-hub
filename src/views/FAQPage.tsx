@@ -2,12 +2,11 @@
 
 import { useState } from 'react';
 import { getFAQCategories, getFAQByCategory } from '../services/contentService';
-import { useMountAnimation, useInView, useCollapsible } from '../hooks/useAnimations';
+import { useInView, useCollapsible } from '../hooks/useAnimations';
 
 export default function FAQPage() {
   const categories = getFAQCategories();
   const [openId, setOpenId] = useState<string | null>(null);
-  const mounted = useMountAnimation(50);
 
   const toggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -15,7 +14,7 @@ export default function FAQPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-      <div className={`mb-10 ${mounted ? 'animate-blur-in' : 'pre-animate'}`}>
+      <div className="mb-10 animate-blur-in">
         <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
           Frequently Asked Questions
         </h1>

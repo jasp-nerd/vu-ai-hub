@@ -3,7 +3,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import { courses } from '../data/courses';
-import { useMountAnimation } from '../hooks/useAnimations';
 
 const STORAGE_KEY = 'vu-ai-gpa-grades';
 
@@ -32,7 +31,6 @@ function saveGrades(grades: Record<string, string>) {
 }
 
 export default function GPACalculatorPage() {
-  const mounted = useMountAnimation(50);
   const [grades, setGrades] = useState<Record<string, string>>({});
   const [targetGPA, setTargetGPA] = useState('');
   const [showWhatIf, setShowWhatIf] = useState(false);
@@ -146,9 +144,7 @@ export default function GPACalculatorPage() {
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
       {/* Breadcrumb */}
       <nav
-        className={`flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-8 ${
-          mounted ? 'animate-slide-in-left' : 'pre-animate'
-        }`}
+        className="flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-8 animate-slide-in-left"
       >
         <Link href="/guide" className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
           Guide
@@ -159,7 +155,7 @@ export default function GPACalculatorPage() {
         <span className="text-stone-600 dark:text-stone-300">GPA Calculator</span>
       </nav>
 
-      <div className={`mb-10 ${mounted ? 'animate-blur-in' : 'pre-animate'}`}>
+      <div className="mb-10 animate-blur-in">
         <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
           GPA Calculator
         </h1>
@@ -169,7 +165,7 @@ export default function GPACalculatorPage() {
       </div>
 
       {/* Stats summary */}
-      <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 ${mounted ? 'animate-fade-in-up stagger-1' : 'pre-animate'}`}>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8 animate-fade-in-up stagger-1">
         <div className="rounded-xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 p-4">
           <p className="text-xs font-medium text-stone-400 dark:text-stone-500 uppercase tracking-wider">GPA</p>
           <p className={`font-display text-2xl font-bold mt-1 ${gpa >= 5.5 ? 'text-stone-900 dark:text-stone-100' : gpa > 0 ? 'text-red-600 dark:text-red-400' : 'text-stone-300 dark:text-stone-600'}`}>
@@ -195,7 +191,7 @@ export default function GPACalculatorPage() {
       </div>
 
       {/* What-if predictor */}
-      <div className={`max-w-3xl mb-8 ${mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'}`}>
+      <div className="max-w-3xl mb-8 animate-fade-in-up stagger-2">
         <div className="rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-stone-50/50 dark:bg-stone-900/50 p-6">
           <button
             onClick={() => setShowWhatIf(!showWhatIf)}
@@ -246,7 +242,7 @@ export default function GPACalculatorPage() {
       </div>
 
       {/* Course grades by year */}
-      <div className={`max-w-3xl ${mounted ? 'animate-fade-in-up stagger-3' : 'pre-animate'}`}>
+      <div className="max-w-3xl animate-fade-in-up stagger-3">
         {[1, 2, 3].map((year) => {
           const yearCourses = coursesByYear[year];
           if (!yearCourses) return null;
@@ -324,7 +320,7 @@ export default function GPACalculatorPage() {
       </div>
 
       {/* Actions */}
-      <div className={`max-w-3xl flex gap-3 ${mounted ? 'animate-fade-in-up stagger-4' : 'pre-animate'}`}>
+      <div className="max-w-3xl flex gap-3 animate-fade-in-up stagger-4">
         <button
           onClick={clearAll}
           className="px-4 py-2 text-sm font-medium rounded-xl border border-stone-200 dark:border-stone-700 text-stone-500 dark:text-stone-400 hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
@@ -334,7 +330,7 @@ export default function GPACalculatorPage() {
       </div>
 
       {/* Info note */}
-      <div className={`max-w-3xl mt-8 ${mounted ? 'animate-fade-in-up stagger-5' : 'pre-animate'}`}>
+      <div className="max-w-3xl mt-8 animate-fade-in-up stagger-5">
         <p className="text-xs text-stone-400 dark:text-stone-500 leading-relaxed">
           GPA is calculated as a weighted average: sum(grade x EC) / sum(EC). Only passing grades (5.5 or above) count towards your GPA. Dutch grading scale: 1-10.
           You need 180 EC to complete the programme. Grades are stored locally in your browser and are not sent anywhere. Courses with 0 EC (like the English Language Test) are excluded.

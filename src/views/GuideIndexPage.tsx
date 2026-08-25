@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useMountAnimation } from '../hooks/useAnimations';
 
 const sections = [
   {
@@ -36,11 +35,10 @@ const sections = [
 ];
 
 export default function GuideIndexPage() {
-  const mounted = useMountAnimation(50);
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-      <div className={`mb-10 ${mounted ? 'animate-blur-in' : 'pre-animate'}`}>
+      <div className="mb-10 animate-blur-in">
         <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100">
           Student Guide
         </h1>
@@ -55,9 +53,7 @@ export default function GuideIndexPage() {
           <Link
             key={section.path}
             href={section.path}
-            className={`group rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 overflow-hidden hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-lg hover:shadow-stone-100/80 dark:hover:shadow-stone-950/50 ${
-              mounted ? 'animate-scale-in' : 'pre-animate'
-            }`}
+            className="group rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 overflow-hidden hover-lift hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-lg hover:shadow-stone-100/80 dark:hover:shadow-stone-950/50 animate-scale-in"
             style={{ animationDelay: `${i * 80 + 150}ms` }}
           >
             <div className="relative aspect-[16/10] bg-stone-50 dark:bg-stone-800/50 overflow-hidden">

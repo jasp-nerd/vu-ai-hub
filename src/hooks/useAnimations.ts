@@ -5,32 +5,35 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 /**
  * Scroll-triggered visibility hook using IntersectionObserver.
  * Returns a ref to attach and a boolean indicating if the element is in view.
- * Once triggered, stays visible (no re-hiding on scroll out).
+ *
+ * Starts as `true` so server-rendered markup is visible and content that is
+ * on screen at load animates from first paint. Elements the first observer
+ * callback finds below the fold are hidden and revealed (once, by default)
+ * when they scroll into view. Elements too tall to ever satisfy the threshold
+ * on the current viewport are left visible.
  */
 export function useInView<T extends HTMLElement = HTMLDivElement>(
   options: { threshold?: number; rootMargin?: string; once?: boolean } = {}
 ) {
   const { threshold = 0.15, rootMargin = '0px 0px -40px 0px', once = true } = options;
   const ref = useRef<T>(null);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(true);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    // Respect prefers-reduced-motion
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) {
-      setInView(true);
-      return;
-    }
+    // Respect prefers-reduced-motion: leave everything visible, no observer.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        const rootHeight = entry.rootBounds?.height ?? window.innerHeight;
+        const unreachable = entry.boundingClientRect.height * threshold > rootHeight;
+        if (entry.isIntersecting || unreachable) {
           setInView(true);
           if (once) observer.unobserve(el);
-        } else if (!once) {
+        } else {
           setInView(false);
         }
       },
@@ -76,21 +79,6 @@ export function useStagger<T extends HTMLElement = HTMLDivElement>(
   });
 
   return { ref, inView };
-}
-
-/**
- * Simple mount animation hook — triggers animation class after mount.
- * Useful for elements that should animate on page load (not scroll).
- */
-export function useMountAnimation(delay: number = 0) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setMounted(true), delay);
-    return () => clearTimeout(timer);
-  }, [delay]);
-
-  return mounted;
 }
 
 /**

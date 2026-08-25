@@ -29,7 +29,6 @@ import DifficultyVote from '../components/DifficultyVote';
 import ResourceVote from '../components/ResourceVote';
 import HelpfulButton from '../components/HelpfulButton';
 import MaterialUploadForm from '../components/MaterialUploadForm';
-import { useMountAnimation } from '../hooks/useAnimations';
 import type { Resource } from '../types';
 import {
   fetchTips,
@@ -86,7 +85,6 @@ export default function CourseDetailPage() {
   const { slug } = useParams() as { slug: string };
   const [activeTab, setActiveTab] = useState<Tab>('Overview');
   const [expandedSummary, setExpandedSummary] = useState<string | null>(null);
-  const mounted = useMountAnimation(50);
   const [showFeedbackPopup, setShowFeedbackPopup] = useState(false);
   // Live overlay data from the backend (merged with the static seed below).
   const [backendTips, setBackendTips] = useState<BackendTip[]>([]);
@@ -219,9 +217,7 @@ export default function CourseDetailPage() {
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-16">
       {/* Breadcrumb */}
       <nav
-        className={`flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-8 ${
-          mounted ? 'animate-slide-in-left' : 'pre-animate'
-        }`}
+        className="flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-8 animate-slide-in-left"
       >
         <Link href="/courses" className="hover:text-stone-600 dark:hover:text-stone-300 transition-colors">
           Courses
@@ -235,9 +231,7 @@ export default function CourseDetailPage() {
       {/* Header */}
       <div className="mb-8">
         <div
-          className={`flex flex-wrap items-center gap-3 mb-3 ${
-            mounted ? 'animate-fade-in-up stagger-1' : 'pre-animate'
-          }`}
+          className="flex flex-wrap items-center gap-3 mb-3 animate-fade-in-up stagger-1"
         >
           <span className="px-2.5 py-1 text-xs font-medium rounded-md bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400">
             {course.code}
@@ -281,20 +275,16 @@ export default function CourseDetailPage() {
           )}
         </div>
         {/* Difficulty on its own row between the metadata bar and the title */}
-        <div className={`mb-4 ${mounted ? 'animate-fade-in-up stagger-1' : 'pre-animate'}`}>
+        <div className="mb-4 animate-fade-in-up stagger-1">
           <DifficultyVote courseId={course.id} seed={course.difficulty} />
         </div>
         <h1
-          className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 ${
-            mounted ? 'animate-blur-in stagger-2' : 'pre-animate'
-          }`}
+          className="font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 animate-blur-in stagger-2"
         >
           {course.name}
         </h1>
         <p
-          className={`mt-3 text-stone-500 dark:text-stone-400 max-w-2xl leading-relaxed ${
-            mounted ? 'animate-fade-in-up stagger-3' : 'pre-animate'
-          }`}
+          className="mt-3 text-stone-500 dark:text-stone-400 max-w-2xl leading-relaxed animate-fade-in-up stagger-3"
         >
           {course.description}
         </p>
@@ -303,9 +293,7 @@ export default function CourseDetailPage() {
       {/* Discontinued course notice */}
       {course.discontinued && (
         <div
-          className={`mb-8 rounded-2xl border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/30 p-5 text-sm leading-relaxed text-red-800 dark:text-red-300 ${
-            mounted ? 'animate-fade-in-up stagger-4' : 'pre-animate'
-          }`}
+          className="mb-8 rounded-2xl border border-red-200 dark:border-red-900/50 bg-red-50 dark:bg-red-950/30 p-5 text-sm leading-relaxed text-red-800 dark:text-red-300 animate-fade-in-up stagger-4"
         >
           This course no longer runs. It was removed from the curriculum in 2026-2027. The study
           material below stays available for reference. If you started before 2025-2026 and never
@@ -316,9 +304,7 @@ export default function CourseDetailPage() {
       {/* Workgroup attendance notice */}
       {course.workgroupInfo && (
         <div
-          className={`mb-8 rounded-2xl border p-5 flex items-start gap-3 ${
-            mounted ? 'animate-fade-in-up stagger-4' : 'pre-animate'
-          } ${course.workgroupInfo.mandatory
+          className={`mb-8 rounded-2xl border p-5 flex items-start gap-3 animate-fade-in-up stagger-4 ${course.workgroupInfo.mandatory
             ? 'border-amber-300/60 dark:border-amber-700/40 bg-amber-50/70 dark:bg-amber-950/30'
             : 'border-sky-200/60 dark:border-sky-800/40 bg-sky-50/50 dark:bg-sky-950/20'
             }`}
@@ -360,9 +346,7 @@ export default function CourseDetailPage() {
 
       {/* Tabs */}
       <div
-        className={`border-b border-stone-200/60 dark:border-stone-700/60 mb-8 ${
-          mounted ? 'animate-fade-in stagger-5' : 'pre-animate'
-        }`}
+        className="border-b border-stone-200/60 dark:border-stone-700/60 mb-8 animate-fade-in stagger-5"
       >
         <div className="flex gap-1 -mb-px overflow-x-auto" role="tablist" aria-label="Course sections">
           {tabs.map((tab) => (

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { useMountAnimation } from '../hooks/useAnimations';
 import { track } from '../lib/analytics';
 import GuideSectionSheet from './GuideSectionSheet';
 import type { GuideSection } from '../types';
@@ -126,7 +125,6 @@ export default function SidebarGuidePage({
   const params = useParams();
   const sectionId = params?.sectionId as string | undefined;
   const router = useRouter();
-  const mounted = useMountAnimation(50);
   const [pickerOpen, setPickerOpen] = useState(false);
   const pickerTriggerRef = useRef<HTMLButtonElement>(null);
   const guideId = baseRoute.split('/').pop() ?? baseRoute;
@@ -176,7 +174,7 @@ export default function SidebarGuidePage({
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8 md:py-12">
       {/* Header */}
-      <div className={`mb-8 ${mounted ? 'animate-blur-in' : 'pre-animate'}`}>
+      <div className="mb-8 animate-blur-in">
         <nav className="flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-4">
           <Link
             href="/guide"
@@ -245,7 +243,7 @@ export default function SidebarGuidePage({
         />
 
         {/* Main content */}
-        <main className={`flex-1 min-w-0 ${mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'}`}>
+        <main className="flex-1 min-w-0 animate-fade-in-up stagger-2">
           {/* Mobile and tablet: sticky bar naming the current section, opens the sheet */}
           <div className="lg:hidden sticky top-16 z-30 -mx-4 sm:-mx-6 mb-6 border-b border-stone-200/60 dark:border-stone-700/60 bg-white/85 dark:bg-stone-950/85 backdrop-blur-xl">
             <button

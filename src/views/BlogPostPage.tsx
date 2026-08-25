@@ -7,11 +7,9 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import { getBlogPostBySlug } from '../services/contentService';
-import { useMountAnimation } from '../hooks/useAnimations';
 
 export default function BlogPostPage({ slug }: { slug: string }) {
   const post = getBlogPostBySlug(slug);
-  const mounted = useMountAnimation(50);
 
   if (!post) {
     return (
@@ -33,9 +31,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
     <div className="mx-auto max-w-3xl px-6 py-12 md:py-16">
       {/* Breadcrumb */}
       <nav
-        className={`flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-8 ${
-          mounted ? 'animate-slide-in-left' : 'pre-animate'
-        }`}
+        className="flex items-center gap-2 text-sm text-stone-400 dark:text-stone-500 mb-8 animate-slide-in-left"
       >
         <Link
           href="/guide/blog"
@@ -62,16 +58,12 @@ export default function BlogPostPage({ slug }: { slug: string }) {
       <article>
         <header className="mb-10">
           <h1
-            className={`font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-tight ${
-              mounted ? 'animate-blur-in stagger-1' : 'pre-animate'
-            }`}
+            className="font-display text-3xl md:text-4xl font-bold tracking-tight text-stone-900 dark:text-stone-100 leading-tight animate-blur-in stagger-1"
           >
             {post.title}
           </h1>
           <div
-            className={`flex items-center gap-3 mt-4 ${
-              mounted ? 'animate-fade-in-up stagger-2' : 'pre-animate'
-            }`}
+            className="flex items-center gap-3 mt-4 animate-fade-in-up stagger-2"
           >
             <span className="text-sm text-stone-400 dark:text-stone-500">
               {new Date(post.date).toLocaleDateString('en-US', {
@@ -86,9 +78,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
         </header>
 
         <div
-          className={`prose-custom ${
-            mounted ? 'animate-fade-in-up stagger-3' : 'pre-animate'
-          }`}
+          className="prose-custom animate-fade-in-up stagger-3"
         >
           <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
             {post.content}
@@ -96,9 +86,7 @@ export default function BlogPostPage({ slug }: { slug: string }) {
         </div>
 
         <div
-          className={`flex flex-wrap gap-2 mt-10 pt-8 border-t border-stone-200/60 dark:border-stone-700/60 ${
-            mounted ? 'animate-fade-in stagger-5' : 'pre-animate'
-          }`}
+          className="flex flex-wrap gap-2 mt-10 pt-8 border-t border-stone-200/60 dark:border-stone-700/60 animate-fade-in stagger-5"
         >
           {post.tags.map((tag) => (
             <span
