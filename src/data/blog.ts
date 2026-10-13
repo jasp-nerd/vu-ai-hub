@@ -47,7 +47,7 @@ Students who waited for "everything to be ready" before starting found themselve
 
 A few things that surprised students in Period 1:
 
-- Introduction to Psychology has a guessing penalty on exams. Random guessing can actually *lower* your score. Read the exam instructions.
+- Introduction to Psychology has no penalty for wrong answers. Guess on every question you don't know, because a blank answer scores zero. The chance correction is built into the pass mark (35 of 56 for a 5.5).
 - Introduction to AI tutor groups are mandatory for passing. This isn't the case for every course, so it catches people off guard.
 - Computational Thinking Quiz 2 is harder than Quiz 1 for most people. Know Kruskal's algorithm.
 

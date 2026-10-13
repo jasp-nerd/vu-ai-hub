@@ -483,7 +483,7 @@ export const tips: CourseTip[] = [
     id: 'tip-psy-1',
     courseId: 'intro-psychology',
     content:
-      'Be careful with the Psychology exam grading — there\'s a correction formula that penalizes random guessing. This means you may need more raw correct answers than you\'d expect to reach a 5.5. Don\'t guess randomly on questions you have no clue about; it can actually lower your score. Leave answers blank if you\'re totally unsure (check the specific exam rules first).',
+      'Always guess on the Psychology exam if you don\'t know the answer. A wrong answer costs you nothing, and the professor confirmed this in class. A blank answer scores the same as a wrong one, so never leave a question empty. The chance correction is built into the pass mark instead: you need 35 of 56 correct for a 5.5, which is more than you might expect.',
     author: 'AI @ VU Class of 2028',
   },
 
