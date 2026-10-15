@@ -21,6 +21,196 @@ import { lawOfAiSummary } from './summaries/law-of-ai-summary';
 import { textMiningSummary } from './summaries/text-mining-summary';
 
 export const resources: Resource[] = [
+  // ========== Inaaya's lecture notes (Notion, exported to PDF) ==========
+  // Source: https://cheddar-wall-f3b.notion.site/2609801a93098062bc84d97113e0365b
+  {
+    id: 'res-notes-inaaya-ct',
+    courseId: 'computational-thinking',
+    title: "Inaaya's Computational Thinking notes",
+    description:
+      'Short notes from September 2025: solution strategies (guess and check, divide and conquer, brute force), two worked parity proofs, and the four parts of computational thinking. 3 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/computational-thinking/notes/computational-thinking-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-ipsy',
+    courseId: 'intro-psychology',
+    title: "Inaaya's Psychology lecture notes",
+    description:
+      'Notes from all 12 lectures (September to October 2025), one per topic: genes and evolution, the brain, consciousness, vision, learning, memory, language, intelligence, scientific reasoning, validity, measurement, and correlations versus experiments. 29 pages with figures.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/intro-psychology/notes/intro-psychology-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-iai',
+    courseId: 'intro-ai',
+    title: "Inaaya's Intro to AI lecture notes",
+    description:
+      'Notes from all 13 lectures (September to October 2025). Covers the methodology lectures (methods in AI, empirical evaluation, discrete maths and sets) and the guest lectures on AI ethics, conversational AI, AI and human behaviour, neurosymbolic AI and embodied intelligence. 20 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/intro-ai/notes/intro-ai-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-is',
+    courseId: 'intelligent-systems',
+    title: "Inaaya's Intelligent Systems lecture notes",
+    description:
+      'Lecture and workgroup notes from October to December 2025: uninformed, informed and adversarial search, logical agents, propositional logic with worked DPLL examples, Bayesian networks, and the four machine learning lectures. 33 pages with 19 figures.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/intelligent-systems/notes/intelligent-systems-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-python',
+    courseId: 'intro-python-ai',
+    title: "Inaaya's Python lecture notes",
+    description:
+      'Notes from all 13 lectures (November to December 2025): variables and expressions, conditionals, loops, functions, dictionaries, classes and inheritance, and reading and writing files. 11 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/intro-python-ai/notes/intro-python-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-pis',
+    courseId: 'project-intelligent-systems',
+    title: "Inaaya's notes on running bot experiments",
+    description:
+      'Notes from the January 2026 research methods lecture: how to set up a bot experiment, pick opponents, follow the FAIR principles, report results honestly, and scope your project idea. 3 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/project-intelligent-systems/notes/project-intelligent-systems-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-logic',
+    courseId: 'logic-sets-ai',
+    title: "Inaaya's Logic and Sets lecture notes",
+    description:
+      'Notes from February 2026: propositional logic syntax and semantics, set operations, relations, graphs and trees, converting to CNF and DNF, two worked DPLL examples, and entailment as satisfiability. 8 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/logic-sets-ai/notes/logic-and-sets-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-mhb',
+    courseId: 'modelling-human-behaviour',
+    title: "Inaaya's Modelling Human Behaviour lecture notes",
+    description:
+      'Notes from all 10 lectures (February to March 2026): models of human behaviour, agent-based modelling, networks, UI design patterns that steer behaviour, data-driven models, and the ethics of modelling people. 16 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/modelling-human-behaviour/notes/modelling-human-behaviour-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-hci',
+    courseId: 'human-computer-interaction',
+    title: "Inaaya's HCI notes, all 8 chapters",
+    description:
+      "Chapter-by-chapter notes on the MacKenzie textbook plus the prototyping lecture: HCI history, human factors, interaction elements, scientific foundations, experiment design, hypothesis testing, Fitts' law and other models, and writing a research paper. 28 pages with 20 figures.",
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/human-computer-interaction/notes/hci-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-aw',
+    courseId: 'academic-writing',
+    title: "Inaaya's Academic Writing workshop notes",
+    description:
+      'Notes from two workgroups (spring 2026): academic style rules, grammar and accuracy, rewriting informal sentences, and how to build an introduction around a thesis statement. 2 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/academic-writing/notes/academic-writing-workshop-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-hoai-lectures',
+    courseId: 'history-of-ai',
+    title: "Inaaya's History of AI lecture notes",
+    description:
+      'Notes from all six lectures (March to May 2026): the three traditions, creating computers, the sound of software, the computing crisis, computers in education, dream machines, and the rise of computer culture. 22 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/history-of-ai/notes/history-of-ai-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-hoai-book',
+    courseId: 'history-of-ai',
+    title: 'History of AI: book chapters 4 to 13 next to the lectures',
+    description:
+      "Inaaya's chapter-by-chapter comparison. For each Campbell-Kelly chapter you get a book summary, a summary of the matching lecture, and a list of where the two differ. Handy because the lectures tell the European story and the book tells the American one. 20 pages.",
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/history-of-ai/notes/history-of-ai-book-vs-lectures.pdf',
+    type: 'pdf',
+    tags: ['summary', 'textbook', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-hoai-exam',
+    courseId: 'history-of-ai',
+    title: 'History of AI: answers to the 2025 exam questions',
+    description:
+      "Inaaya's written answers (not official ones) to six Section A questions from exam XB_0113 2025 II: the prehistory of AI, the 1951 Paris conference, computer acronyms, Grace Hopper, AI and education, and what history tells us about AI. 2 pages.",
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/history-of-ai/exam-prep/history-of-ai-2025-exam-practice-answers.pdf',
+    type: 'pdf',
+    tags: ['exam-prep', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-apai',
+    courseId: 'applied-programming-ai',
+    title: "Inaaya's Applied Programming notes",
+    description:
+      'Notes from the June 2026 lectures and workgroups: Git and GitHub (commits, branches, merging, conflicts), how to set up the team project, REST APIs and status codes, JSON, and HTML basics. 5 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/applied-programming-ai/notes/applied-programming-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-pci',
+    courseId: 'project-collective-intelligence',
+    title: "Inaaya's Collective Intelligence lecture notes",
+    description:
+      'Notes from the June 2026 opening lecture: what makes a system collective, then flocking (Reynolds, Vicsek, Couzin), foraging, division of labour, swarm decisions, synchronisation, and opinion dynamics (voter, DeGroot and bounded confidence models). 3 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/project-collective-intelligence/notes/project-collective-intelligence-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-dsa',
+    courseId: 'data-structures-algorithms-ai',
+    title: "Inaaya's DSA lecture notes (weeks 1 to 5)",
+    description:
+      'Lecture and workgroup notes from the 2026 run, up to 28 September: Big O, arrays and linked lists, stacks, insertion, merge, bubble, quick and bucket sort, hash tables, binary search trees, dynamic programming (rod cutting, knapsack), heaps, and graph representation. 17 pages with 18 figures.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/data-structures-algorithms-ai/notes/dsa-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+  {
+    id: 'res-notes-inaaya-kd',
+    courseId: 'knowledge-and-data',
+    title: "Inaaya's Knowledge and Data lecture notes (up to 2 October)",
+    description:
+      'Notes from the 2026 run so far: knowledge graphs, propositional logic, RDF and Turtle, SPARQL, RDFS and OWL inferencing, ontology engineering and alignment, and data integration with GraphDB and Wikidata. 25 pages.',
+    url: 'https://jasp-nerd.github.io/vu-ai-resources/knowledge-and-data/notes/knowledge-and-data-lecture-notes.pdf',
+    type: 'pdf',
+    tags: ['lecture-notes', 'student-notes'],
+    author: 'Inaaya',
+  },
+
   // ========== DSA ==========
   {
     id: 'res-dsa-visual-summary',
