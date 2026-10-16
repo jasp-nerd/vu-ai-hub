@@ -191,9 +191,9 @@ export const resources: Resource[] = [
   {
     id: 'res-notes-inaaya-dsa',
     courseId: 'data-structures-algorithms-ai',
-    title: "Inaaya's DSA lecture notes (weeks 1 to 5)",
+    title: "Inaaya's DSA lecture notes",
     description:
-      'Lecture and workgroup notes from the 2026 run, up to 28 September: Big O, arrays and linked lists, stacks, insertion, merge, bubble, quick and bucket sort, hash tables, binary search trees, dynamic programming (rod cutting, knapsack), heaps, and graph representation. 17 pages with 18 figures.',
+      'Lecture and workgroup notes from the whole 2026 course: Big O, arrays and linked lists, stacks, the main sorting algorithms, hash tables, binary search trees, dynamic programming, heaps, graphs, BFS and DFS, topological sort, minimum spanning trees (Prim, Kruskal), Dijkstra and A*. 26 pages with 25 figures.',
     url: 'https://jasp-nerd.github.io/vu-ai-resources/data-structures-algorithms-ai/notes/dsa-lecture-notes.pdf',
     type: 'pdf',
     tags: ['lecture-notes', 'student-notes'],
@@ -202,9 +202,9 @@ export const resources: Resource[] = [
   {
     id: 'res-notes-inaaya-kd',
     courseId: 'knowledge-and-data',
-    title: "Inaaya's Knowledge and Data lecture notes (up to 2 October)",
+    title: "Inaaya's Knowledge and Data lecture notes",
     description:
-      'Notes from the 2026 run so far: knowledge graphs, propositional logic, RDF and Turtle, SPARQL, RDFS and OWL inferencing, ontology engineering and alignment, and data integration with GraphDB and Wikidata. 25 pages.',
+      'Notes from every lecture of the 2026 course: knowledge graphs, propositional logic, RDF and Turtle, SPARQL, RDFS and OWL inferencing, ontology engineering and alignment, and data integration with GraphDB and Wikidata. 25 pages.',
     url: 'https://jasp-nerd.github.io/vu-ai-resources/knowledge-and-data/notes/knowledge-and-data-lecture-notes.pdf',
     type: 'pdf',
     tags: ['lecture-notes', 'student-notes'],
