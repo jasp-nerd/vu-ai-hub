@@ -720,117 +720,135 @@ Understanding the coverage details and actively managing your medical expenses c
     id: 'free-stuff',
     title: 'Free Stuff',
     emoji: '\u{1F193}',
-    description: 'A collection of free stuff you really should check out.',
+    description: 'Free and discounted stuff for VU students, last checked November 2026.',
     content: `
 :::info
-Most of these require verification with your university email or student ID. Start with the **GitHub Student Developer Pack** since it unlocks many of the tools below automatically.
+Last checked on 8 November 2026. Everything here works with your @student.vu.nl address. For details, prices and the perks that were removed, read the full post: [100+ student perks that work for Dutch students](/guide/blog/free-student-subscriptions).
 :::
 
 ## GitHub Student Developer Pack
 
-[**Sign up for the GitHub Student Developer Pack**](https://education.github.com/pack)
+[**Apply for the GitHub Student Developer Pack**](https://education.github.com/pack)
 
-The gateway to 100+ free tools. Once verified, you automatically unlock many of the benefits listed below. Requires enrollment in a degree-granting institution.
+One application unlocks about 80 partner offers. Upload a dated proof of enrolment (bewijs van inschrijving from Studielink), because Dutch student cards often have no date on them and GitHub rejects those. Add your VU email to GitHub first and apply from or near campus without a VPN.
 
-### Included in the Student Pack
+### Best offers in the pack
 
-* [**GitHub Copilot Pro**](https://docs.github.com/en/copilot/how-tos/manage-your-account/get-free-access-to-copilot-pro): AI code completion, normally $10/mo. Full Pro with no feature limits
-* [**GitHub Pro**](https://education.github.com/pack): unlimited private repos, advanced CI/CD minutes, 2 GB Packages storage
-* [**DigitalOcean**](https://www.digitalocean.com/github-students): $200 in cloud credits, valid 1 year
-* [**Heroku**](https://www.heroku.com/github-students/): $13/mo in platform credits for 24 months
-* [**MongoDB Atlas**](https://www.mongodb.com/students): $50 credits + free certification ($150 value)
-* [**Namecheap**](https://nc.me/landing/github): free .me domain + SSL for 1 year (US/UK/CA/AU)
-* [**Educative**](https://www.educative.io/github-students): 6 months free access to 60+ courses, then 30% off
-* [**Frontend Masters**](https://frontendmasters.com/welcome/github-student-developers/): 6 months free membership (one-time)
-* [**GitKraken**](https://www.gitkraken.com/github-student-developer-pack-bundle): 6 months free, then 75-80% off Pro
-* [**Postman Student Expert**](https://www.postman.com/student-program/student-expert/): free API certification + digital badge (also available standalone)
-
----
-
-## AI & Development Tools
-
-* [**Cursor Pro**](https://cursor.com/students): 1 full year free ($240 value). AI-powered code editor. Verified via SheerID
-* [**Perplexity Pro Student**](https://www.perplexity.ai/students): 50% off ($10/mo) or $4.99/mo Education plan
-* [**JetBrains All Products**](https://www.jetbrains.com/academy/student-pack/): all IDEs free (IntelliJ, PyCharm, WebStorm, CLion, DataGrip, etc.). Renewable yearly. ~$250/yr value
-* [**Microsoft 365 Education**](https://www.microsoft.com/en-us/education/products/office): free Word, Excel, PowerPoint, Teams with school email
-* [**Autodesk**](https://www.autodesk.com/education/edu-software/overview): free 1-year licenses for AutoCAD, Fusion, Maya, etc. Renewable
-* [**Unity Student**](https://unity.com/products/unity-student): free professional Unity license for students 16+
-* [**Sketch**](https://www.sketch.com/education/): free Education plan (full workspace, Mac + web app). 1 year, renewable
+* [**Copilot Student**](https://docs.github.com/en/copilot/get-started/plans): unlimited code completions and a monthly allowance of AI credits. Free Copilot Pro for students ended in March 2026
+* **GitHub Pro + Codespaces**: private repos and 180 Codespaces core hours a month
+* [**JetBrains**](https://www.jetbrains.com/academy/student-pack/): every JetBrains IDE, renewed yearly
+* [**Microsoft Azure**](https://azure.microsoft.com/en-us/free/students/): $100 credit for 12 months, no credit card
+* [**MongoDB**](https://www.mongodb.com/students): $50 Atlas credit and a free certification voucher
+* [**Heroku**](https://www.heroku.com/github-students): $13 a month in credit for 24 months (card required)
+* **Domains**: a free .me (Namecheap), .tech or Name.com domain for a year
+* **1Password, Termius, Sentry, Datadog and Deepnote**: free while you study or for 1-2 years
+* **DataCamp** (3 months), **Educative** (6 months), **Frontend Masters** (6 months), **Boot.dev** (3 months)
+* **GitKraken**: 6 months free, then up to 80% off Pro
 
 ---
 
-## Design & Productivity
+## Free through VU
 
-* [**Figma Education**](https://www.figma.com/education/): free Professional plan for 2 years. Unlimited files and collaboration
-* [**Canva for Education**](https://www.canva.com/education/students/): free Canva Pro if your university has Canva for Campus
-* [**Notion Education**](https://www.notion.com/product/notion-for-education): free Plus plan ($10/mo value). Unlimited pages, file uploads
-* [**Adobe Creative Cloud**](https://www.adobe.com/creativecloud/buy/students.html): 65% off ($19.99/mo first year). All apps: Photoshop, Illustrator, Premiere Pro, etc.
-* [**Airtable Education**](https://support.airtable.com/docs/nonprofit-and-educational-plans-faqs): free Team plan for 6-24 months with .edu email
-
----
-
-## Cloud & Infrastructure
-
-* [**Microsoft Azure for Students**](https://azure.microsoft.com/en-us/free/students): $100 free credits per year, no credit card needed. Renewable annually
-* [**AWS Educate**](https://aws.amazon.com/education/awseducate/): free cloud skills training + hands-on labs. Also check the [AWS Free Tier](https://aws.amazon.com/free/)
-* [**Google Cloud Education**](https://cloud.google.com/edu/students): ~$50 in credits distributed via faculty. Ask your professors
-* [**Oracle Cloud Free Tier**](https://www.oracle.com/cloud/free/): $300 trial credits + generous Always Free resources (4 ARM cores, 24 GB RAM). Available to everyone
-* [**Cloudflare for Students**](https://www.cloudflare.com/students/): 12 months of developer features (US only)
-* [**Red Hat Developer**](https://developers.redhat.com/): free developer subscription with up to 16 RHEL nodes. Available to everyone
+* [**Microsoft 365**](https://vu.nl/en/student/study-skills/digital-student-guide): Word, Excel, PowerPoint, Teams and OneDrive with your VU account
+* [**Copilot Chat and Gemini**](https://vu.nl/en/student/examinations/generative-ai-your-use-our-expectations): free with your VU login, including Gemini Notebook (formerly NotebookLM)
+* [**Overleaf Professional**](https://www.overleaf.com/edu/vua): for Faculty of Science students, log in with VU SSO
+* [**VU software catalogue**](https://download.vu.nl): licensed software for Windows, plus the VU Software Center on macOS
+* [**VU library**](https://vu.nl/en/about-vu/divisions/university-library/more-about/search-systems-and-reference-tools): IEEE Xplore, ACM Digital Library and Springer. Use the Lean Library extension off campus
+* [**Rialto VU Griffioen**](https://www.griffioen.vu.nl/en/student): €6.50 cinema tickets on campus with your VU student card
 
 ---
 
-## Data Science & ML
+## AI and dev tools
 
-* [**Kaggle**](https://www.kaggle.com/): 30 hours/week free GPU compute (Tesla P100/T4), 50,000+ datasets. Free for everyone
-* [**Microsoft Learn Challenges**](https://learn.microsoft.com/en-us/training/topics/event-challenges): periodic AI/cloud challenges with free certifications
-
----
-
-## Learning Platforms
-
-* [**Coursera Financial Aid**](https://www.coursera.support/s/article/learner-000001455): apply for free access to any course (two short essays, ~16 days processing)
-* [**edX Audit**](https://www.edx.org/): audit most courses for free (no certificate, limited time access)
-
----
-
-## Software Discounts (NL-specific)
-
-* [**Surfspot**](https://www.surfspot.nl/): discounted software for Dutch university students (Microsoft Office, Adobe, etc.). Log in with your VU credentials
+* [**Google AI Plus**](https://gemini.google/nl/students/): one year free in the Netherlands (18+, card required). Redeem before 31 December 2026
+* [**Zed**](https://zed.dev/education): Zed Pro free for 12 months, with monthly AI credits
+* [**Mistral Le Chat**](https://mistral.ai/pricing): Pro for $5.99 a month instead of $14.99, up to 12 months
+* [**Perplexity Education Pro**](https://www.perplexity.ai/help-center/en/articles/12590157-what-is-education-pro): Pro at a student discount through SheerID
+* [**ElevenLabs**](https://elevenlabs.io/students): 3 months free, including API access
+* [**Firecrawl**](https://www.firecrawl.dev/student-program): 10,000 free credits with code STUDENTEDU
+* [**Tower**](https://www.git-tower.com/students): Tower Pro free for 12 months
+* [**Unity Student**](https://unity.com/products/unity-student): Unity Pro free for a year, renewable
+* [**Autodesk**](https://www.autodesk.com/education/edu-software/overview): free one-year licences for Fusion, AutoCAD and more
 
 ---
 
-## Entertainment & Subscriptions
+## Cloud and GPUs
 
-* [**Spotify Student**](https://www.spotify.com/nl/student/): ~50% off Premium. Verified via SheerID
-* [**Apple Music Student**](https://support.apple.com/en-us/106008): $5.99/mo (vs $10.99) + free Apple TV+. Up to 48 months
-* [**YouTube Premium Student**](https://support.google.com/youtube/answer/9158808): ~43% off ($7.99/mo). Annual reverification required
-
----
-
-## Discount Platforms
-
-* [**UNiDAYS**](https://www.myunidays.com/): free platform with up to 50% off across fashion, tech, food, travel
-* [**Student Beans**](https://www.studentbeans.com/): 10,000+ stores, includes digital student ID for in-store discounts
-* [**Apple Education Pricing**](https://www.apple.com/nl-edu/store): up to EUR 200 off Macs, EUR 100 off iPads
+* [**Azure for Students**](https://azure.microsoft.com/en-us/free/students/): $100 credit a year, plus free Visual Studio and SQL Server
+* [**Google Skills**](https://cloud.google.com/edu/students): 200 free credits for Google Cloud labs. Lecturers can request up to $50 in course credit per student
+* [**AWS Educate**](https://aws.amazon.com/education/awseducate/): free training and labs, no card
+* [**Kaggle**](https://www.kaggle.com/docs/notebooks): free P100 or T4 GPUs, roughly 30 hours a week
+* [**Modal**](https://modal.com/pricing): $30 a month of free GPU compute
+* [**Oracle Cloud Always Free**](https://www.oracle.com/cloud/free/): an Arm server with 2 cores and 12 GB of RAM
 
 ---
 
-## Culture
+## Design and productivity
 
-* [**Museumkaart**](https://www.museumkaart.nl/): ~EUR 69/year for free entry to 400+ museums across the Netherlands. Pays for itself after a few visits
+* [**Notion Education**](https://www.notion.com/help/notion-for-education): free Plus plan for a one-person workspace
+* [**Figma Education**](https://www.figma.com/education/): free Professional plan, renew by reapplying
+* [**Obsidian**](https://obsidian.md/pricing): free app, 40% off Sync and Publish for students
+* [**Lucid**](https://help.lucid.co/hc/en-us/articles/360049831771): free Lucidchart education account
+* [**Airtable**](https://support.airtable.com/docs/nonprofit-and-educational-plans-faqs): free Team plan for 6-24 months
+* [**Framer**](https://www.framer.com/education/students/): free site plan for a year
+* [**Sketch**](https://www.sketch.com/support/education/): free education workspace for a year
+* **Adobe Creative Cloud**: €165 a year on [SURFspot](https://www.surfspot.nl/), cheaper than [Adobe's own student price](https://www.adobe.com/nl/creativecloud/buy/students.html)
+* [**Apple Creator Studio**](https://creatorstudio.apple.com/info/student): Final Cut Pro, Logic Pro and more for €2.99 a month
 
 ---
 
-## Free for Everyone (No Student ID Needed)
+## Learning
 
-These are not student-specific but worth knowing about:
+* [**Coursera Financial Aid**](https://www.coursera.support/s/article/learner-000001455): apply per course. Review takes up to 16 days and the discount isn't always 100%
+* [**edX**](https://www.edx.org/resources/how-to-audit-an-edx-class): audit many courses for free, without a certificate
+* [**Microsoft exams**](https://learn.microsoft.com/en-us/credentials/certifications/student-discounts): academic pricing on certification exams
+* [**Hack The Box Academy**](https://help.hackthebox.com/en/articles/13465244-getting-the-student-subscription-beta): student plan for £6 a month plus VAT
+* [**TryHackMe**](https://tryhackme.com/students): 20% off annual Premium
+* [**Hugging Face Learn**](https://huggingface.co/learn): free courses on LLMs, agents and diffusion
 
-* [**Blender**](https://www.blender.org/): professional 3D creation suite, completely free and open source (GPL)
-* [**Oracle Cloud Free Tier**](https://www.oracle.com/cloud/free/): generous always-free compute resources
-* [**Red Hat Developer**](https://developers.redhat.com/): free RHEL developer subscription
-* [**Kaggle**](https://www.kaggle.com/): free GPU compute + datasets for ML projects
-* [**Let's Encrypt**](https://letsencrypt.org/): free SSL certificates for any website
+---
+
+## Music and streaming
+
+* [**Spotify Premium Student**](https://www.spotify.com/nl/student/): €6.99 a month
+* [**Apple Music Student**](https://www.apple.com/nl/apple-music/): €6.99 a month, Apple TV included
+* [**YouTube Premium Student**](https://www.youtube.com/premium/student): €10.99 a month
+* [**Deezer Student**](https://www.deezer.com/nl/offers/student): €5.99 a month, ages 18-25
+
+---
+
+## Dutch student deals
+
+* [**DPG Media student subscription**](https://abonnement.volkskrant.nl/studenten): free digital Volkskrant, Trouw, Het Parool and AD for ages 16-25
+* [**CJP**](https://www.cjp.nl/): culture card for ages 12-30, €10 for the first year
+* [**Kinepolis Student Card**](https://kinepolis.nl/content/kinepolis-student-card/): free, 25% off tickets and snacks
+* [**Pathé Student Day**](https://www.pathe.nl/en/info/student-day): €9 tickets on Mondays
+* [**Cineville**](https://cineville.nl/en-GB/cineville-card): €19 a month if you're under 30
+* [**Museumkaart**](https://www.museumkaart.nl/): €75 a year for 400+ museums
+* [**Concertgebouw**](https://www.concertgebouw.nl/en/tickets/discounts): €11 or €18 tickets for under 30s
+* [**Sportcentrum VU**](https://sportcentrumvu.nl/abonnementen/): student rate of €262.50 a year
+* [**Swapfiets**](https://swapfiets.nl/en-NL/students): €13.70 a month for students
+* [**bunq**](https://www.bunq.com/students): bunq Pro free while you study
+
+---
+
+## Discount platforms and hardware
+
+* [**SURFspot**](https://www.surfspot.nl/): discounted software for Dutch students (Windows, Office, Adobe). Log in with your VU account
+* [**UNiDAYS**](https://www.myunidays.com/NL/nl-NL) and [**Student Beans**](https://www.studentbeans.com/nl): Dutch sites with 10-25% off at ASOS, Nike, HP, Lenovo and more
+* [**Apple Education Store**](https://www.apple.com/nl-edu/store): education prices on Macs and iPads
+* [**Dell**](https://www.dell.com/nl-nl/shop/member/lp/students) and [**Lenovo**](https://www.lenovo.com/nl/nl/studentenkorting/): at least 10% off laptops
+
+---
+
+## Free for everyone
+
+Not student perks, but worth knowing:
+
+* [**Blender**](https://www.blender.org/), [**Affinity**](https://www.affinity.studio/) and [**DaVinci Resolve**](https://www.blackmagicdesign.com/products/davinciresolve): free 3D, design and video software
+* [**Red Hat Developer**](https://developers.redhat.com/articles/faqs-no-cost-red-hat-enterprise-linux): free RHEL subscription for up to 16 machines
+* [**Zotero**](https://www.zotero.org/): free reference manager
+* [**Let's Encrypt**](https://letsencrypt.org/): free SSL certificates
 `,
   },
 ];
