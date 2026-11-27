@@ -3,6 +3,7 @@
 import { useState, useCallback, useRef } from 'react';
 import type { ChatMessage, ChatStatus } from '../types/chat';
 import { track } from '../lib/analytics';
+import { getOpenAIKey, getOpenAIModel } from '../lib/openaiSettings';
 
 interface UseChatOptions {
   courseSlug: string;
@@ -45,21 +46,35 @@ export function useChat({ courseSlug, context }: UseChatOptions) {
           content,
         }));
 
+        const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+        const ownKey = getOpenAIKey();
+        const ownModel = getOpenAIModel();
+        if (ownKey) headers['x-openai-key'] = ownKey;
+        if (ownModel) headers['x-openai-model'] = ownModel;
+
         const response = await fetch('/api/chat', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers,
           body: JSON.stringify({ context, messages: wireMessages }),
           signal: abortRef.current.signal,
         });
 
         if (!response.ok) {
           let errorMessage = `Server error (${response.status})`;
-          try {
-            const err = await response.json();
-            errorMessage = err.error || err.detail || errorMessage;
-          } catch {
-            const text = await response.text().catch(() => '');
-            if (text) errorMessage = text;
+          if (response.status === 429) {
+            const retryAfter = Number(response.headers.get('retry-after'));
+            const wait = Number.isFinite(retryAfter) && retryAfter > 0
+              ? Math.ceil(retryAfter)
+              : 60;
+            errorMessage = `You're sending messages too quickly. Please wait about ${wait} second${wait === 1 ? '' : 's'} and try again.`;
+          } else {
+            try {
+              const err = await response.json();
+              errorMessage = err.error || err.detail || errorMessage;
+            } catch {
+              const text = await response.text().catch(() => '');
+              if (text) errorMessage = text;
+            }
           }
           throw new Error(errorMessage);
         }
