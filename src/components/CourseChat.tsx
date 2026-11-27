@@ -8,6 +8,7 @@ import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
 import { useChat } from '../hooks/useChat';
 import { buildCourseContext } from '../services/chatContextBuilder';
+import OpenAISignIn from './OpenAISignIn';
 
 const SUGGESTED_QUESTIONS = [
   'What topics does the exam cover?',
@@ -95,6 +96,13 @@ export default function CourseChat({ courseSlug, courseName }: CourseChatProps) 
 
   return (
     <div className="rounded-2xl border border-stone-200/60 dark:border-stone-700/60 bg-white dark:bg-stone-900 overflow-hidden flex flex-col" style={{ height: '600px' }}>
+      {/* Header: sign-in / model settings */}
+      <div className="flex items-center justify-between gap-2 px-4 md:px-6 py-2.5 border-b border-stone-200/60 dark:border-stone-700/60">
+        <span className="text-xs font-medium text-stone-500 dark:text-stone-400">
+          AI Chat
+        </span>
+        <OpenAISignIn />
+      </div>
       {/* Message area */}
       <div
         ref={scrollContainerRef}
